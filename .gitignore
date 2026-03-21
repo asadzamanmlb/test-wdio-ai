@@ -6,7 +6,8 @@ node_modules/
 .rag-memory.json
  fixedTest.js
 webTv-temp
-/reports/screenshots
+my-changes-backup.patch
+/reports/
 dist/
 /dashboard/dist/
 /dashboard/data/screenshots
