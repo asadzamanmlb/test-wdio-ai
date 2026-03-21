@@ -5,20 +5,48 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const { spawn } = require('child_process');
 
 const app = express();
 const RUNS_FILE = path.join(__dirname, 'dashboard', 'data', 'runs.json');
+const EXECUTE_RESULTS_FILE = path.join(__dirname, 'dashboard', 'data', 'execute-results.json');
+const DISMISSED_FAILURES_FILE = path.join(__dirname, 'dashboard', 'data', 'dismissed-failures.json');
+const SCREENSHOTS_DIR = path.join(__dirname, 'reports', 'screenshots');
 const DIST_DIR = path.join(__dirname, 'dashboard', 'dist');
 const TESTCASE_DIR = path.join(__dirname, 'testcase');
 const FEATURES_DIR = path.join(__dirname, 'features');
+const SYNC_CONFIG = path.join(TESTCASE_DIR, 'sync-config.json');
+
+let pendingSyncData = {};
 
 app.use(express.json());
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   next();
 });
+
+function loadExecuteResults() {
+  if (!fs.existsSync(EXECUTE_RESULTS_FILE)) return {};
+  try {
+    return JSON.parse(fs.readFileSync(EXECUTE_RESULTS_FILE, 'utf8'));
+  } catch {
+    return {};
+  }
+}
+
+function saveExecuteResult(suite, key, result) {
+  try {
+    const data = loadExecuteResults();
+    const id = `${suite}:${key}`;
+    data[id] = { ...result, timestamp: new Date().toISOString() };
+    fs.mkdirSync(path.dirname(EXECUTE_RESULTS_FILE), { recursive: true });
+    fs.writeFileSync(EXECUTE_RESULTS_FILE, JSON.stringify(data, null, 2));
+  } catch (e) {
+    console.warn('Could not save execute result:', e.message);
+  }
+}
 
 function loadRuns() {
   if (!fs.existsSync(RUNS_FILE)) return [];
@@ -94,46 +122,40 @@ function getAutomatedKeysFromFeatures() {
   return keys;
 }
 
-/** Count test cases in testcase/<folder>/*.json (excl testcases.json) */
-function countTestCasesByFolder() {
-  const result = {};
-  for (const folder of ['optools', 'webTv']) {
-    const dir = path.join(TESTCASE_DIR, folder);
-    if (!fs.existsSync(dir)) {
-      result[folder] = { total: 0, automated: 0, manual: 0 };
-      continue;
-    }
-    const files = fs.readdirSync(dir).filter((f) => f.endsWith('.json') && f !== 'testcases.json');
-    const total = files.length;
-    result[folder] = { total, automated: 0, manual: total };
-  }
-  return result;
-}
-
-/** Automation coverage: optools and webTv automated vs manual */
+/** Automation coverage: discover all suites dynamically, automated vs manual per project */
 function getAutomationCoverage() {
   const automatedKeys = getAutomatedKeysFromFeatures();
-  const byFolder = countTestCasesByFolder();
+  if (!fs.existsSync(TESTCASE_DIR)) return { suites: [], totalAutomated: 0, totalManual: 0, total: 0 };
 
-  for (const folder of ['optools', 'webTv']) {
-    const dir = path.join(TESTCASE_DIR, folder);
-    if (!fs.existsSync(dir)) continue;
-    const files = fs.readdirSync(dir).filter((f) => f.endsWith('.json') && f !== 'testcases.json');
-    let automated = 0;
-    for (const file of files) {
-      const key = file.replace('.json', '');
-      if (automatedKeys.has(key)) automated++;
-    }
-    byFolder[folder].automated = automated;
-    byFolder[folder].manual = byFolder[folder].total - automated;
-  }
+  const entries = fs.readdirSync(TESTCASE_DIR, { withFileTypes: true });
+  const suites = entries
+    .filter((e) => e.isDirectory() && !e.name.startsWith('.'))
+    .map((e) => {
+      const dir = path.join(TESTCASE_DIR, e.name);
+      const files = fs.readdirSync(dir).filter((f) => f.endsWith('.json') && f !== 'testcases.json');
+      const total = files.length;
+      let automated = 0;
+      for (const file of files) {
+        const key = file.replace('.json', '');
+        if (automatedKeys.has(key)) automated++;
+      }
+      const displayName = e.name.replace(/([A-Z])/g, ' $1').replace(/^./, (s) => s.toUpperCase()).trim();
+      return {
+        name: e.name,
+        displayName,
+        total,
+        automated,
+        manual: total - automated,
+      };
+    })
+    .filter((s) => s.total > 0)
+    .sort((a, b) => a.name.localeCompare(b.name));
 
   return {
-    optools: byFolder.optools,
-    webTv: byFolder.webTv,
-    totalAutomated: byFolder.optools.automated + byFolder.webTv.automated,
-    totalManual: byFolder.optools.manual + byFolder.webTv.manual,
-    total: byFolder.optools.total + byFolder.webTv.total,
+    suites,
+    totalAutomated: suites.reduce((sum, s) => sum + s.automated, 0),
+    totalManual: suites.reduce((sum, s) => sum + s.manual, 0),
+    total: suites.reduce((sum, s) => sum + s.total, 0),
   };
 }
 
@@ -162,10 +184,21 @@ app.get('/api/metrics', (req, res) => {
       total: 0,
       passRate: 0,
       byFeature: [],
+      failedScenarios: [],
     });
   }
+  const failedScenarios = (latest.scenarios || [])
+    .filter((s) => s.status === 'failed')
+    .map((s) => ({
+      id: s.id,
+      feature: s.feature,
+      name: s.name,
+      failReason: s.failReason || null,
+      screenshot: s.screenshot ? `/api/screenshots/${s.screenshot}` : null,
+    }));
   res.json({
     hasData: true,
+    runId: latest.id,
     timestamp: latest.timestamp,
     passed: latest.passed || 0,
     failed: latest.failed || 0,
@@ -173,7 +206,16 @@ app.get('/api/metrics', (req, res) => {
     total: latest.total || 0,
     passRate: latest.total > 0 ? Math.round((latest.passed / latest.total) * 100) : 0,
     byFeature: latest.byFeature || [],
+    failedScenarios,
   });
+});
+
+app.get('/api/screenshots/:filename', (req, res) => {
+  const filename = req.params.filename.replace(/[^a-zA-Z0-9_.-]/g, '');
+  if (!filename) return res.status(400).send('Invalid filename');
+  const filepath = path.join(SCREENSHOTS_DIR, filename);
+  if (!fs.existsSync(filepath)) return res.status(404).send('Screenshot not found');
+  res.sendFile(filepath, { headers: { 'Content-Type': 'image/png' } });
 });
 
 app.get('/api/runs', (req, res) => {
@@ -181,16 +223,28 @@ app.get('/api/runs', (req, res) => {
   const runs = loadRuns()
     .slice(-limit)
     .reverse()
-    .map((r) => ({
-      id: r.id,
-      timestamp: r.timestamp,
-      date: r.date,
-      env: r.env,
-      passed: r.passed,
-      failed: r.failed,
-      total: r.total,
-      passRate: r.total > 0 ? Math.round((r.passed / r.total) * 100) : 0,
-    }));
+    .map((r) => {
+      const failedScenarios = (r.scenarios || [])
+        .filter((s) => s.status === 'failed')
+        .map((s) => ({
+          id: s.id,
+          feature: s.feature,
+          name: s.name,
+          failReason: s.failReason || null,
+          screenshot: s.screenshot ? `/api/screenshots/${s.screenshot}` : null,
+        }));
+      return {
+        id: r.id,
+        timestamp: r.timestamp,
+        date: r.date,
+        env: r.env,
+        passed: r.passed,
+        failed: r.failed,
+        total: r.total,
+        passRate: r.total > 0 ? Math.round((r.passed / r.total) * 100) : 0,
+        failedScenarios,
+      };
+    });
   res.json({ runs });
 });
 
@@ -211,10 +265,364 @@ app.get('/api/automation', (req, res) => {
   res.json(getAutomationCoverage());
 });
 
+function getScenariosForSuite(suiteName) {
+  const dir = path.join(TESTCASE_DIR, suiteName);
+  if (!fs.existsSync(dir)) return [];
+  const automatedKeys = getAutomatedKeysFromFeatures();
+  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.json') && f !== 'testcases.json');
+  return files
+    .map((file) => {
+      const key = file.replace('.json', '');
+      try {
+        const data = JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8'));
+        return {
+          key,
+          summary: data.summary || data.key || key,
+          automated: automatedKeys.has(key),
+        };
+      } catch {
+        return { key, summary: key, automated: automatedKeys.has(key) };
+      }
+    })
+    .sort((a, b) => a.key.localeCompare(b.key, undefined, { numeric: true }));
+}
+
+/** List all suites (folders in testcase/) with their scenarios. Automatically discovers new folders. */
+app.get('/api/suites', (req, res) => {
+  if (!fs.existsSync(TESTCASE_DIR)) return res.json({ suites: [] });
+  const entries = fs.readdirSync(TESTCASE_DIR, { withFileTypes: true });
+  const suites = entries
+    .filter((e) => e.isDirectory() && !e.name.startsWith('.'))
+    .map((e) => {
+      const scenarios = getScenariosForSuite(e.name);
+      return {
+        name: e.name,
+        displayName: e.name.replace(/([A-Z])/g, ' $1').replace(/^./, (s) => s.toUpperCase()).trim(),
+        scenarios,
+      };
+    })
+    .filter((s) => s.scenarios.length > 0)
+    .sort((a, b) => a.name.localeCompare(b.name));
+  res.json({ suites });
+});
+
+app.get('/api/execute-results', (req, res) => {
+  res.json(loadExecuteResults());
+});
+
+function loadDismissedFailures() {
+  if (!fs.existsSync(DISMISSED_FAILURES_FILE)) return {};
+  try {
+    return JSON.parse(fs.readFileSync(DISMISSED_FAILURES_FILE, 'utf8'));
+  } catch {
+    return {};
+  }
+}
+
+function saveDismissedFailures(data) {
+  try {
+    fs.mkdirSync(path.dirname(DISMISSED_FAILURES_FILE), { recursive: true });
+    fs.writeFileSync(DISMISSED_FAILURES_FILE, JSON.stringify(data, null, 2));
+  } catch (e) {
+    console.warn('Could not save dismissed failures:', e.message);
+  }
+}
+
+app.get('/api/dismissed-failures', (req, res) => {
+  res.json(loadDismissedFailures());
+});
+
+app.post('/api/dismissed-failures', (req, res) => {
+  const { runId, scenarioIds, clearAll } = req.body || {};
+  const data = loadDismissedFailures();
+  if (clearAll && runId) {
+    data[runId] = []; // Clear dismissals for this run (show all again)
+  } else if (runId && Array.isArray(scenarioIds) && scenarioIds.length > 0) {
+    const set = new Set(data[runId] || []);
+    scenarioIds.forEach((id) => set.add(id));
+    data[runId] = Array.from(set);
+  }
+  saveDismissedFailures(data);
+  res.json({ success: true, dismissed: data });
+});
+
+/** List scenarios for a specific suite (legacy; use /api/suites for all) */
+app.get('/api/scenarios/:suite', (req, res) => {
+  const scenarios = getScenariosForSuite(req.params.suite);
+  res.json({ scenarios });
+});
+
+app.get('/api/sync-config', (req, res) => {
+  if (!fs.existsSync(SYNC_CONFIG)) return res.json({ suites: [] });
+  try {
+    const config = JSON.parse(fs.readFileSync(SYNC_CONFIG, 'utf8'));
+    res.json({ suites: Object.keys(config) });
+  } catch {
+    res.json({ suites: [] });
+  }
+});
+
 app.get('/api/flaky', (req, res) => {
   const lastN = parseInt(req.query.lastN, 10) || 20;
   const runs = loadRuns();
   res.json({ flaky: getFlakyScenarios(runs, lastN) });
+});
+
+/** Simple word-level diff: returns [{ text, status: 'same'|'changed' }] */
+function wordDiff(oldStr, newStr) {
+  const oldW = (oldStr || '').split(/(\s+|\n)/);
+  const newW = (newStr || '').split(/(\s+|\n)/);
+  const result = [];
+  let i = 0;
+  let j = 0;
+  while (i < oldW.length || j < newW.length) {
+    if (i < oldW.length && j < newW.length && oldW[i] === newW[j]) {
+      result.push({ text: oldW[i], status: 'same' });
+      i++;
+      j++;
+    } else if (j < newW.length) {
+      result.push({ text: newW[j], status: 'changed' });
+      j++;
+    } else {
+      i++;
+    }
+  }
+  return result;
+}
+
+app.post('/api/sync/:suite/preview', async (req, res) => {
+  const suite = req.params.suite;
+  if (!suite) return res.status(400).json({ error: 'Suite required' });
+  if (!fs.existsSync(SYNC_CONFIG)) return res.status(400).json({ error: 'sync-config.json not found' });
+  const config = JSON.parse(fs.readFileSync(SYNC_CONFIG, 'utf8'));
+  const issueKey = config[suite];
+  if (!issueKey) return res.status(400).json({ error: `No issue key for suite "${suite}" in sync-config` });
+
+  try {
+    const { exportTests } = require('./xray/exportTestsToJson');
+    const newTests = await exportTests(issueKey, suite, { silent: true, write: false });
+    const dir = path.join(TESTCASE_DIR, suite);
+    const changes = [];
+    for (const nt of newTests) {
+      const key = nt.key || nt.issueId;
+      let oldGherkin = '';
+      const oldPath = path.join(dir, `${key}.json`);
+      if (fs.existsSync(oldPath)) {
+        try {
+          const oldData = JSON.parse(fs.readFileSync(oldPath, 'utf8'));
+          oldGherkin = oldData.gherkin || '';
+        } catch (_) {}
+      }
+      const newGherkin = nt.gherkin || '';
+      const diff = wordDiff(oldGherkin, newGherkin);
+      const hasChanges = diff.some((d) => d.status === 'changed');
+      changes.push({
+        key,
+        summary: nt.summary,
+        oldGherkin,
+        newGherkin,
+        diff,
+        hasChanges,
+      });
+    }
+    pendingSyncData[suite] = newTests;
+    res.json({ success: true, changes });
+  } catch (e) {
+    res.status(500).json({ success: false, error: e.message });
+  }
+});
+
+app.post('/api/sync/:suite/apply', (req, res) => {
+  const suite = req.params.suite;
+  const pending = pendingSyncData[suite];
+  if (!pending) return res.status(400).json({ error: 'No pending sync for this suite. Click Sync first.' });
+
+  try {
+    const dir = path.join(TESTCASE_DIR, suite);
+    fs.mkdirSync(dir, { recursive: true });
+    for (const tc of pending) {
+      const filename = `${tc.key || tc.issueId}.json`;
+      fs.writeFileSync(path.join(dir, filename), JSON.stringify(tc, null, 2));
+    }
+    fs.writeFileSync(
+      path.join(dir, 'testcases.json'),
+      JSON.stringify(pending, null, 2)
+    );
+    delete pendingSyncData[suite];
+    res.json({ success: true, message: 'Updated successfully' });
+  } catch (e) {
+    res.status(500).json({ success: false, error: e.message });
+  }
+});
+
+/** Find feature file path containing @key tag. suite maps to features subdir (webTv->webtv, optools->optools). */
+function getFeaturePathForKey(suite, key) {
+  const suiteToDir = { webTv: 'webtv', optools: 'optools' };
+  const subdir = suiteToDir[suite] || suite.toLowerCase();
+  const dir = path.join(FEATURES_DIR, subdir);
+  if (!fs.existsSync(dir)) return null;
+  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.feature'));
+  const tag = `@${key}`;
+  for (const file of files) {
+    const content = fs.readFileSync(path.join(dir, file), 'utf8');
+    if (content.includes(tag)) return path.join('features', subdir, file);
+  }
+  return null;
+}
+
+/** Build tag expression to run only the requested key, excluding other keys in same file. */
+function getTagExpressionForKey(suite, key) {
+  const relPath = getFeaturePathForKey(suite, key);
+  if (!relPath) return `@${key}`;
+  const fullPath = path.join(__dirname, relPath);
+  if (!fs.existsSync(fullPath)) return `@${key}`;
+  const content = fs.readFileSync(fullPath, 'utf8');
+  const keyRegex = /@(WSTE-\d+|WQO-\d+)/gi;
+  const keys = [...content.matchAll(keyRegex)].map((m) => m[1].toUpperCase());
+  const others = keys.filter((k) => k !== key.toUpperCase());
+  if (others.length === 0) return `@${key}`;
+  return `@${key} and not (${others.map((o) => `@${o}`).join(' or ')})`;
+}
+
+let executeInProgress = false;
+app.post('/api/execute', (req, res) => {
+  if (executeInProgress) {
+    return res.status(429).json({ error: 'Another test is already running' });
+  }
+  const { suite, key } = req.body || {};
+  if (!suite || !key) {
+    return res.status(400).json({ error: 'suite and key required', success: false });
+  }
+
+  const featurePath = getFeaturePathForKey(suite, key);
+  if (!featurePath) {
+    return res.status(404).json({
+      error: `No feature file found for ${key} in ${suite}`,
+      success: false,
+    });
+  }
+
+  executeInProgress = true;
+  const envVal = req.body.env || 'qa';
+  const tagExpr = getTagExpressionForKey(suite, key);
+  const args = [
+    'run',
+    path.join(__dirname, 'wdio.conf.js'),
+    '--spec',
+    featurePath,
+    `--cucumberOpts.tags=${tagExpr}`,
+  ];
+  const child = spawn('npx', ['wdio', ...args], {
+    cwd: __dirname,
+    env: { ...process.env, ENV: envVal },
+    stdio: ['ignore', 'pipe', 'pipe'],
+  });
+
+  let stdout = '';
+  let stderr = '';
+  child.stdout?.on('data', (d) => { stdout += d.toString(); });
+  child.stderr?.on('data', (d) => { stderr += d.toString(); });
+
+  child.on('close', (code) => {
+    executeInProgress = false;
+    let status = 'passed';
+    let failReason = null;
+    let screenshot = null;
+
+    try {
+      const reportsDir = path.join(__dirname, 'reports', 'json');
+      const manifestPath = path.join(__dirname, 'reports', 'failure-screenshots.json');
+      if (fs.existsSync(reportsDir)) {
+        const baseName = path.basename(featurePath, '.feature');
+        const reportFile = path.join(reportsDir, `${baseName}.json`);
+        if (fs.existsSync(reportFile)) {
+          const data = JSON.parse(fs.readFileSync(reportFile, 'utf8'));
+          const features = Array.isArray(data) ? data : [data];
+          const lastFeat = features[features.length - 1];
+          let lastScenario = null;
+          if (lastFeat?.elements) {
+            for (const el of lastFeat.elements) {
+              if (el.keyword?.toLowerCase().includes('background')) continue;
+              lastScenario = { feat: lastFeat, el };
+              break;
+            }
+          }
+        if (lastScenario) {
+          const { feat, el } = lastScenario;
+          const scenarioId = `${feat.name || ''}::${el.name || ''}`;
+          let failed = false;
+          if (el.steps) {
+            for (const step of el.steps) {
+              if (step.result?.status === 'failed') {
+                failed = true;
+                failReason = step.result.error_message || step.result.message || 'Unknown error';
+                break;
+              }
+            }
+          }
+          status = failed ? 'failed' : 'passed';
+          if (failed && fs.existsSync(manifestPath)) {
+            const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+            screenshot = manifest[scenarioId] || null;
+          }
+        }
+        }
+      }
+    if (code !== 0 && status === 'passed') status = 'failed';
+    if (status === 'failed' && !failReason) failReason = stderr || stdout?.slice(-500) || 'Test failed';
+    } catch (e) {
+      status = 'failed';
+      failReason = e.message;
+    }
+
+    const result = {
+      success: status === 'passed',
+      status,
+      failReason: status === 'failed' ? failReason : null,
+      screenshot: status === 'failed' && screenshot ? `/api/screenshots/${screenshot}` : null,
+    };
+    saveExecuteResult(suite, key, result);
+    res.json(result);
+  });
+
+  child.on('error', (err) => {
+    executeInProgress = false;
+    res.status(500).json({
+      success: false,
+      status: 'failed',
+      failReason: err.message,
+      screenshot: null,
+    });
+  });
+});
+
+let syncInProgress = false;
+app.post('/api/sync', (req, res) => {
+  if (syncInProgress) {
+    return res.status(429).json({ error: 'Sync already in progress' });
+  }
+  syncInProgress = true;
+  const scriptPath = path.join(__dirname, 'scripts', 'syncXrayTests.js');
+  const child = spawn('node', [scriptPath], {
+    cwd: __dirname,
+    stdio: ['ignore', 'pipe', 'pipe'],
+  });
+  let stdout = '';
+  let stderr = '';
+  child.stdout?.on('data', (d) => { stdout += d.toString(); });
+  child.stderr?.on('data', (d) => { stderr += d.toString(); });
+  child.on('close', (code) => {
+    syncInProgress = false;
+    if (code === 0) {
+      res.json({ success: true, message: 'Sync complete', output: stdout });
+    } else {
+      res.status(500).json({ success: false, error: stderr || stdout || 'Sync failed' });
+    }
+  });
+  child.on('error', (err) => {
+    syncInProgress = false;
+    res.status(500).json({ success: false, error: err.message });
+  });
 });
 
 app.get('/metrics', (req, res) => {

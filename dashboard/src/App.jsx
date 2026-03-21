@@ -10,8 +10,7 @@ import {
   PieChart,
   Pie,
   Cell,
-  BarChart,
-  Bar,
+  Legend,
 } from 'recharts';
 
 const API = '/api';
@@ -32,7 +31,111 @@ function Card({ title, value, sub, variant = 'default' }) {
   );
 }
 
-function Metrics({ data }) {
+function FailedScenarios({ items, runs, selectedRunId, onRunSelect, currentRunId, dismissedFailures, onRefresh }) {
+  const rawItems = selectedRunId && runs?.length
+    ? (runs.find((r) => r.id === selectedRunId)?.failedScenarios || [])
+    : items || [];
+  const runId = currentRunId || selectedRunId;
+  const dismissed = (runId && dismissedFailures?.[runId]) || [];
+  const displayItems = rawItems.filter((s) => !dismissed.includes(s.id));
+  if (!displayItems?.length && !runs?.length && !rawItems?.length) return null;
+  const runLabel = (r) => {
+    if (!r?.date) return r?.id || 'Unknown';
+    const d = new Date(r.timestamp);
+    return `${r.date} ${d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} (${r.failed} failed)`;
+  };
+  return (
+    <div className="mt-4 rounded-lg border border-[var(--danger)]/30 bg-[var(--danger)]/5 overflow-hidden">
+      <div className="border-b border-[var(--border)] px-4 py-3 flex flex-wrap items-center justify-between gap-2">
+        <h3 className="text-sm font-medium uppercase tracking-wider text-[var(--danger)]">
+          Failed Scenarios ({displayItems.length})
+        </h3>
+        <div className="flex items-center gap-2">
+          {displayItems?.length > 0 && runId && (
+            <button
+              onClick={async () => {
+                await fetch(`${API}/dismissed-failures`, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ runId, scenarioIds: displayItems.map((s) => s.id) }),
+                });
+                onRefresh?.();
+              }}
+              className="rounded border border-[var(--danger)]/50 px-2 py-1 text-xs text-[var(--danger)] hover:bg-[var(--danger)]/10"
+            >
+              Delete all
+            </button>
+          )}
+          {runs?.length > 0 && (
+            <select
+            value={selectedRunId || ''}
+            onChange={(e) => onRunSelect?.(e.target.value || null)}
+            className="rounded border border-[var(--border)] bg-[var(--surface)] px-2 py-1.5 text-xs text-[var(--text)]"
+          >
+            <option value="">Latest</option>
+            {runs.map((r) => (
+              <option key={r.id} value={r.id}>
+                {runLabel(r)}
+              </option>
+            ))}
+            </select>
+          )}
+        </div>
+      </div>
+      <div className="divide-y divide-[var(--border)]">
+        {displayItems.map((s) => (
+          <div key={s.id} className="p-4 flex flex-col gap-3 sm:flex-row">
+            <div className="flex-1 min-w-0">
+              <div className="font-medium text-[var(--text)] truncate" title={s.name}>
+                {s.name}
+              </div>
+              <div className="text-xs text-[var(--muted)] mt-0.5">{s.feature}</div>
+              {s.failReason && (
+                <pre className="mt-2 text-xs text-[var(--muted)] whitespace-pre-wrap break-words bg-black/20 rounded p-2 max-h-24 overflow-y-auto">
+                  {s.failReason.split('\n')[0]}
+                </pre>
+              )}
+            </div>
+            <div className="flex items-start gap-2 shrink-0">
+              {runId && (
+                <button
+                  onClick={async () => {
+                    await fetch(`${API}/dismissed-failures`, {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ runId, scenarioIds: [s.id] }),
+                    });
+                    onRefresh?.();
+                  }}
+                  className="rounded border border-[var(--border)] px-2 py-1 text-xs text-[var(--muted)] hover:bg-[var(--danger)]/10 hover:text-[var(--danger)]"
+                  title="Delete"
+                >
+                  Delete
+                </button>
+              )}
+              {s.screenshot && (
+                <a
+                  href={s.screenshot}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <img
+                    src={s.screenshot}
+                    alt={`Screenshot: ${s.name}`}
+                    className="max-h-32 rounded border border-[var(--border)] object-contain hover:opacity-90"
+                  />
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Metrics({ data, runs, failedScenariosRunId, setFailedScenariosRunId, dismissedFailures, onRefresh }) {
   if (!data?.hasData) {
     return (
       <div className="rounded-lg bg-[var(--surface)] p-8 text-center text-[var(--muted)]">
@@ -48,45 +151,56 @@ function Metrics({ data }) {
   ].filter((d) => d.value > 0);
 
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      <Card
-        title="Pass Rate"
-        value={`${data.passRate}%`}
-        sub={`${data.passed} / ${data.total} scenarios`}
-        variant={data.passRate >= 90 ? 'success' : data.passRate >= 70 ? 'warning' : 'danger'}
+    <div className="space-y-4">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <Card
+          title="Pass Rate"
+          value={`${data.passRate}%`}
+          sub={`${data.passed} / ${data.total} scenarios`}
+          variant={data.passRate >= 90 ? 'success' : data.passRate >= 70 ? 'warning' : 'danger'}
+        />
+        <Card title="Passed" value={data.passed} variant="success" />
+        <Card title="Failed" value={data.failed} variant="danger" />
+        <Card title="Skipped" value={data.skipped} variant="warning" />
+        {pieData.length > 0 && (
+          <div className="col-span-full sm:col-span-2 lg:col-span-1 flex items-center justify-center">
+            <ResponsiveContainer width="100%" height={140}>
+              <PieChart>
+                <Pie
+                  data={pieData}
+                  cx="50%"
+                  cy="50%"
+                  innerRadius={35}
+                  outerRadius={55}
+                  paddingAngle={2}
+                  dataKey="value"
+                >
+                  {pieData.map((entry, i) => (
+                    <Cell key={i} fill={entry.color} />
+                  ))}
+                </Pie>
+                <Tooltip
+                  contentStyle={{
+                    background: 'var(--surface)',
+                    border: '1px solid var(--border)',
+                    borderRadius: 6,
+                  }}
+                  formatter={(v) => [v, '']}
+                />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
+        )}
+      </div>
+      <FailedScenarios
+        items={data.failedScenarios}
+        runs={runs}
+        selectedRunId={failedScenariosRunId}
+        onRunSelect={setFailedScenariosRunId}
+        currentRunId={failedScenariosRunId || data.runId}
+        dismissedFailures={dismissedFailures}
+        onRefresh={onRefresh}
       />
-      <Card title="Passed" value={data.passed} variant="success" />
-      <Card title="Failed" value={data.failed} variant="danger" />
-      <Card title="Skipped" value={data.skipped} variant="warning" />
-      {pieData.length > 0 && (
-        <div className="col-span-full sm:col-span-2 lg:col-span-1 flex items-center justify-center">
-          <ResponsiveContainer width="100%" height={140}>
-            <PieChart>
-              <Pie
-                data={pieData}
-                cx="50%"
-                cy="50%"
-                innerRadius={35}
-                outerRadius={55}
-                paddingAngle={2}
-                dataKey="value"
-              >
-                {pieData.map((entry, i) => (
-                  <Cell key={i} fill={entry.color} />
-                ))}
-              </Pie>
-              <Tooltip
-                contentStyle={{
-                  background: 'var(--surface)',
-                  border: '1px solid var(--border)',
-                  borderRadius: 6,
-                }}
-                formatter={(v) => [v, '']}
-              />
-            </PieChart>
-          </ResponsiveContainer>
-        </div>
-      )}
     </div>
   );
 }
@@ -127,19 +241,62 @@ function TrendsChart({ data }) {
   );
 }
 
+function SuitePieChart({ suite }) {
+  const pieData = [
+    { name: 'Automated', value: suite.automated ?? 0, fill: 'var(--success)' },
+    { name: 'Manual', value: suite.manual ?? 0, fill: 'var(--border)' },
+  ].filter((d) => d.value > 0);
+
+  if (pieData.length === 0) {
+    return (
+      <div className="rounded-lg bg-[var(--surface)] p-4 text-center">
+        <h4 className="mb-2 text-sm font-medium text-[var(--muted)]">{suite.displayName}</h4>
+        <p className="text-xs text-[var(--muted)]">No test cases yet</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="rounded-lg bg-[var(--surface)] p-4">
+      <h4 className="mb-4 text-sm font-medium uppercase tracking-wider text-[var(--muted)]">
+        {suite.displayName} ({suite.total} total)
+      </h4>
+      <ResponsiveContainer width="100%" height={180}>
+        <PieChart>
+          <Pie
+            data={pieData}
+            dataKey="value"
+            nameKey="name"
+            cx="50%"
+            cy="50%"
+            outerRadius={60}
+            label={({ name, value }) => `${name}: ${value}`}
+            labelLine={{ stroke: 'var(--muted)' }}
+          >
+            {pieData.map((entry, i) => (
+              <Cell key={i} fill={entry.fill} />
+            ))}
+          </Pie>
+          <Tooltip
+            contentStyle={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 6 }}
+            formatter={(value, name) => [value, name]}
+          />
+          <Legend />
+        </PieChart>
+      </ResponsiveContainer>
+    </div>
+  );
+}
+
 function AutomationCoverage({ data }) {
   if (!data) return null;
 
-  const { optools, webTv, totalAutomated, totalManual, total } = data;
-  const barData = [
-    { name: 'Optools', automated: optools?.automated ?? 0, manual: optools?.manual ?? 0, total: optools?.total ?? 0 },
-    { name: 'WebTV', automated: webTv?.automated ?? 0, manual: webTv?.manual ?? 0, total: webTv?.total ?? 0 },
-  ].filter((d) => d.total > 0);
+  const { suites = [], totalAutomated, totalManual, total } = data;
 
-  if (barData.length === 0) {
+  if (suites.length === 0) {
     return (
       <div className="rounded-lg bg-[var(--surface)] p-6 text-center text-[var(--muted)]">
-        No test case data in testcase/optools or testcase/webTv
+        No test case data. Add folders to testcase/ and sync from Xray.
       </div>
     );
   }
@@ -147,26 +304,307 @@ function AutomationCoverage({ data }) {
   return (
     <div className="space-y-4">
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <Card title="Optools Automated" value={optools?.automated ?? 0} sub={`of ${optools?.total ?? 0} total`} variant="success" />
-        <Card title="Optools Manual" value={optools?.manual ?? 0} sub={`of ${optools?.total ?? 0} total`} variant="default" />
-        <Card title="WebTV Automated" value={webTv?.automated ?? 0} sub={`of ${webTv?.total ?? 0} total`} variant="success" />
-        <Card title="WebTV Manual" value={webTv?.manual ?? 0} sub={`of ${webTv?.total ?? 0} total`} variant="default" />
+        <Card title="Total Automated" value={totalAutomated ?? 0} sub={`of ${total ?? 0} total`} variant="success" />
+        <Card title="Total Manual" value={totalManual ?? 0} sub={`of ${total ?? 0} total`} variant="default" />
       </div>
-      <div className="rounded-lg bg-[var(--surface)] p-4">
-        <h4 className="mb-4 text-sm font-medium uppercase tracking-wider text-[var(--muted)]">Automated vs Manual by Suite</h4>
-        <ResponsiveContainer width="100%" height={180}>
-          <BarChart data={barData} layout="vertical" margin={{ top: 5, right: 20, left: 60, bottom: 5 }}>
-            <XAxis type="number" tick={{ fill: 'var(--muted)', fontSize: 11 }} />
-            <YAxis type="category" dataKey="name" width={55} tick={{ fill: 'var(--muted)', fontSize: 11 }} />
-            <Tooltip
-              contentStyle={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: 6 }}
-              formatter={(value, name) => [value, name === 'automated' ? 'Automated' : 'Manual']}
-            />
-            <Bar dataKey="automated" fill="var(--success)" name="automated" stackId="a" />
-            <Bar dataKey="manual" fill="var(--border)" name="manual" stackId="a" />
-          </BarChart>
-        </ResponsiveContainer>
+      <h4 className="text-sm font-medium uppercase tracking-wider text-[var(--muted)]">Automated vs Manual by Suite</h4>
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {suites.map((suite) => (
+          <SuitePieChart key={suite.name} suite={suite} />
+        ))}
       </div>
+    </div>
+  );
+}
+
+function DiffView({ diff }) {
+  if (!diff?.length) return null;
+  return (
+    <div className="rounded bg-black/30 p-2 font-mono text-xs whitespace-pre-wrap break-words">
+      {diff.map((seg, i) => (
+        <span
+          key={i}
+          className={seg.status === 'same' ? 'text-[var(--success)]' : 'text-[var(--danger)]'}
+        >
+          {seg.text}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function SyncDiffModal({ suite, changes, onClose, onApply, onRefresh }) {
+  const [applying, setApplying] = useState(false);
+  const [toast, setToast] = useState(null);
+
+  async function handleApply() {
+    setApplying(true);
+    try {
+      const res = await fetch(`${API}/sync/${suite}/apply`, { method: 'POST' });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setToast('Updated successfully');
+        setTimeout(() => {
+          setToast(null);
+          onApply?.();
+          onRefresh?.();
+          onClose?.();
+        }, 1500);
+      }
+    } catch (e) {
+      setToast(e.message || 'Update failed');
+    } finally {
+      setApplying(false);
+    }
+  }
+
+  const withChanges = changes?.filter((c) => c.hasChanges) ?? [];
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60" onClick={onClose}>
+      <div
+        className="relative max-h-[90vh] w-full max-w-2xl overflow-hidden rounded-lg bg-[var(--surface)] shadow-xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="border-b border-[var(--border)] px-4 py-3 flex items-center justify-between">
+          <h3 className="text-sm font-medium uppercase tracking-wider text-[var(--muted)]">
+            Sync preview — {suite}
+          </h3>
+          <button
+            onClick={onClose}
+            className="text-[var(--muted)] hover:text-[var(--text)]"
+          >
+            ✕
+          </button>
+        </div>
+        <div className="max-h-[60vh] overflow-y-auto p-4 space-y-4">
+          {changes?.length === 0 ? (
+            <p className="text-sm text-[var(--muted)]">No scenarios fetched.</p>
+          ) : withChanges.length === 0 ? (
+            <p className="text-sm text-[var(--success)]">No changes detected. All scenarios are up to date.</p>
+          ) : (
+            withChanges.map((c) => (
+              <div key={c.key} className="rounded border border-[var(--border)] p-3">
+                <div className="font-mono text-xs text-[var(--muted)] mb-2">{c.key} — {c.summary}</div>
+                <DiffView diff={c.diff} />
+              </div>
+            ))
+          )}
+        </div>
+        <div className="border-t border-[var(--border)] px-4 py-3 flex justify-end gap-2">
+          <button
+            onClick={onClose}
+            className="rounded px-3 py-1.5 text-sm border border-[var(--border)] hover:bg-black/20"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={handleApply}
+            disabled={applying}
+            className="rounded px-3 py-1.5 text-sm bg-[var(--success)] text-white hover:opacity-90 disabled:opacity-50"
+          >
+            {applying ? 'Updating...' : 'Update'}
+          </button>
+        </div>
+        {toast && (
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-[var(--success)] px-6 py-3 text-white font-medium shadow-lg toast-pop">
+              {toast}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function ScenarioRow({ scenario, suiteName, env, persistedResult }) {
+  const [runState, setRunState] = useState(null); // { status, failReason?, screenshot? } | null - from current session
+  const [running, setRunning] = useState(false);
+  const [showFailDetails, setShowFailDetails] = useState(false);
+  const effectiveState = runState ?? persistedResult; // persisted survives refresh
+
+  async function handleExecute() {
+    if (!scenario.automated || running) return;
+    setRunning(true);
+    setRunState(null);
+    try {
+      const res = await fetch(`${API}/execute`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ suite: suiteName, key: scenario.key, env: env || 'qa' }),
+      });
+      const data = await res.json();
+      const newState = {
+        status: data.status || (data.success ? 'passed' : 'failed'),
+        failReason: data.failReason || null,
+        screenshot: data.screenshot || null,
+      };
+      setRunState(newState);
+      if (data.status === 'failed') setShowFailDetails(true);
+    } catch (e) {
+      setRunState({ status: 'failed', failReason: e.message, screenshot: null });
+    } finally {
+      setRunning(false);
+    }
+  }
+
+  const statusEl = !effectiveState
+    ? null
+    : effectiveState.status === 'passed'
+      ? <span className="text-[var(--success)] font-medium">Pass</span>
+      : <span className="text-[var(--danger)] font-medium">Fail</span>;
+
+  return (
+    <>
+      <tr className="border-b border-[var(--border)]/50 hover:bg-black/20">
+        <td className="px-4 py-2 font-mono text-xs">{scenario.key}</td>
+        <td className="px-4 py-2 max-w-[400px] truncate" title={scenario.summary}>
+          {scenario.summary}
+        </td>
+        <td className="px-4 py-2">
+          <span className={scenario.automated ? 'text-[var(--success)]' : 'text-[var(--muted)]'}>
+            {scenario.automated ? 'Automated' : 'Manual'}
+          </span>
+        </td>
+        <td className="px-4 py-2 whitespace-nowrap">
+          {scenario.automated && (
+            <button
+              onClick={handleExecute}
+              disabled={running}
+              className="rounded border border-[var(--border)] px-2 py-1 text-xs hover:bg-black/20 disabled:opacity-50"
+            >
+              {running ? 'Running…' : 'Execute'}
+            </button>
+          )}
+        </td>
+        <td className="px-4 py-2">
+          {statusEl}
+        </td>
+      </tr>
+      {effectiveState?.status === 'failed' && (effectiveState.failReason || effectiveState.screenshot) && (
+        <tr>
+          <td colSpan={5} className="px-4 py-0">
+            <div
+              className="cursor-pointer border-t border-[var(--border)]/50 bg-[var(--danger)]/5 px-4 py-2 text-xs text-[var(--muted)] hover:bg-[var(--danger)]/10"
+              onClick={() => setShowFailDetails((v) => !v)}
+            >
+              {showFailDetails ? '▼' : '▶'} Failure details
+            </div>
+            {showFailDetails && (
+              <div className="border-t border-[var(--border)]/50 bg-black/20 px-4 py-3 space-y-2">
+                {effectiveState.failReason && (
+                  <pre className="text-xs text-[var(--muted)] whitespace-pre-wrap break-words rounded bg-black/30 p-2 max-h-40 overflow-y-auto">
+                    {effectiveState.failReason}
+                  </pre>
+                )}
+                {effectiveState.screenshot && (
+                  <a href={effectiveState.screenshot} target="_blank" rel="noopener noreferrer">
+                    <img
+                      src={effectiveState.screenshot}
+                      alt="Failure screenshot"
+                      className="max-h-40 rounded border border-[var(--border)] object-contain"
+                    />
+                  </a>
+                )}
+              </div>
+            )}
+          </td>
+        </tr>
+      )}
+    </>
+  );
+}
+
+function ScenarioList({ scenarios, title, suiteName, suiteId, onRefresh, env, executeResults }) {
+  const [syncLoading, setSyncLoading] = useState(false);
+  const [syncPreview, setSyncPreview] = useState(null);
+
+  async function handleSync() {
+    if (!suiteName) return;
+    setSyncLoading(true);
+    setSyncPreview(null);
+    try {
+      const res = await fetch(`${API}/sync/${suiteName}/preview`, { method: 'POST' });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setSyncPreview(data.changes);
+      } else {
+        setSyncPreview([{ error: data.error || 'Sync failed' }]);
+      }
+    } catch (e) {
+      setSyncPreview([{ error: e.message }]);
+    } finally {
+      setSyncLoading(false);
+    }
+  }
+
+  if (!scenarios?.length) {
+    return (
+      <div className="rounded-lg bg-[var(--surface)] p-6 text-center text-[var(--muted)]">
+        <div className="flex items-center justify-center gap-2">
+          <span>No scenarios in testcase/{title.toLowerCase()}</span>
+          {suiteName && (
+            <button
+              onClick={handleSync}
+              disabled={syncLoading}
+              className="rounded border border-[var(--border)] px-2 py-1 text-xs hover:bg-black/20 disabled:opacity-50"
+            >
+              {syncLoading ? 'Syncing...' : 'Sync'}
+            </button>
+          )}
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div className="overflow-hidden rounded-lg bg-[var(--surface)]">
+      <div className="border-b border-[var(--border)] px-4 py-3 flex items-center justify-between">
+        <h3 className="text-sm font-medium uppercase tracking-wider text-[var(--muted)]">{title} ({scenarios.length})</h3>
+        {suiteName && (
+          <button
+            onClick={handleSync}
+            disabled={syncLoading}
+            className="rounded border border-[var(--border)] px-3 py-1.5 text-xs font-medium hover:bg-black/20 disabled:opacity-50"
+          >
+            {syncLoading ? 'Syncing...' : 'Sync'}
+          </button>
+        )}
+      </div>
+      <div className="max-h-64 overflow-y-auto">
+        <table className="w-full text-sm">
+          <thead className="sticky top-0 bg-[var(--surface)]">
+            <tr className="border-b border-[var(--border)] text-left text-[var(--muted)]">
+              <th className="px-4 py-2">Key</th>
+              <th className="px-4 py-2">Summary</th>
+              <th className="px-4 py-2 w-24">Type</th>
+              <th className="px-4 py-2 w-24"></th>
+              <th className="px-4 py-2 w-20">Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            {scenarios.map((s) => (
+              <ScenarioRow
+                key={s.key}
+                scenario={s}
+                suiteName={suiteId || suiteName}
+                env={env}
+                persistedResult={executeResults?.[`${suiteId || suiteName}:${s.key}`]}
+              />
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {syncPreview && Array.isArray(syncPreview) && syncPreview[0]?.error ? (
+        <div className="p-4 text-sm text-[var(--danger)]">{syncPreview[0].error}</div>
+      ) : null}
+      {syncPreview && Array.isArray(syncPreview) && !syncPreview[0]?.error && (
+        <SyncDiffModal
+          suite={suiteName}
+          changes={syncPreview}
+          onClose={() => setSyncPreview(null)}
+          onRefresh={onRefresh}
+        />
+      )}
     </div>
   );
 }
@@ -224,35 +662,79 @@ function App() {
   const [trends, setTrends] = useState([]);
   const [flaky, setFlaky] = useState([]);
   const [automation, setAutomation] = useState(null);
+  const [suites, setSuites] = useState([]);
+  const [syncConfigSuites, setSyncConfigSuites] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [syncing, setSyncing] = useState(false);
+  const [syncMessage, setSyncMessage] = useState(null);
+  const [executeEnv, setExecuteEnv] = useState('qa'); // qa | beta - used when clicking Execute
+  const [runs, setRuns] = useState([]);
+  const [failedScenariosRunId, setFailedScenariosRunId] = useState(null);
+  const [executeResults, setExecuteResults] = useState({});
+  const [dismissedFailures, setDismissedFailures] = useState({});
 
-  useEffect(() => {
-    async function fetchAll() {
-      setLoading(true);
-      setError(null);
-      try {
-        const [mRes, tRes, fRes, aRes] = await Promise.all([
+  async function handleSync() {
+    setSyncing(true);
+    setSyncMessage(null);
+    try {
+      const res = await fetch(`${API}/sync`, { method: 'POST' });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setSyncMessage('Sync complete. Refreshing...');
+        setTimeout(() => fetchAll(), 2000);
+      } else {
+        setSyncMessage(data.error || 'Sync failed');
+      }
+    } catch (e) {
+      setSyncMessage(e.message || 'Sync failed');
+    } finally {
+      setSyncing(false);
+    }
+  }
+
+  async function fetchAll() {
+    setLoading(true);
+    setError(null);
+    try {
+        const [mRes, tRes, fRes, aRes, sRes, cRes, runsRes, execRes, dismissRes] = await Promise.all([
           fetch(`${API}/metrics`),
           fetch(`${API}/trends?limit=30`),
           fetch(`${API}/flaky?lastN=20`),
           fetch(`${API}/automation`),
+          fetch(`${API}/suites`),
+          fetch(`${API}/sync-config`),
+          fetch(`${API}/runs?limit=30`),
+          fetch(`${API}/execute-results`),
+          fetch(`${API}/dismissed-failures`),
         ]);
         if (!mRes.ok) throw new Error('Metrics failed');
         const m = await mRes.json();
         const t = await tRes.json();
         const f = await fRes.json();
         const a = await aRes.json();
+        const s = await sRes.json();
+        const c = await cRes.json();
+        const runsData = await runsRes.json();
+        const execData = await execRes.json();
+        const dismissData = await dismissRes.json();
         setMetrics(m);
         setTrends(t.trends || []);
         setFlaky(f.flaky || []);
         setAutomation(a);
-      } catch (e) {
-        setError(e.message);
-      } finally {
-        setLoading(false);
-      }
+        setSuites(s.suites || []);
+        setSyncConfigSuites(c.suites || []);
+        setRuns(runsData.runs || []);
+        setExecuteResults(execData);
+        setDismissedFailures(dismissData);
+    } catch (e) {
+      setError(e.message);
+    } finally {
+      setLoading(false);
     }
+  }
+
+  useEffect(() => {
     fetchAll();
     const id = setInterval(fetchAll, 15000);
     return () => clearInterval(id);
@@ -268,12 +750,44 @@ function App() {
 
   return (
     <div className="min-h-screen p-4 md:p-6 lg:p-8">
-      <header className="mb-8">
-        <h1 className="text-2xl font-bold text-[var(--text)]">QA Dashboard</h1>
-        <p className="mt-1 text-sm text-[var(--muted)]">
-          Charts, trends, and flaky detection for unified QA platform
-        </p>
+      <header className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h1 className="text-2xl font-bold text-[var(--text)]">QA Dashboard</h1>
+          <p className="mt-1 text-sm text-[var(--muted)]">
+            Charts, trends, and flaky detection for unified QA platform
+          </p>
+        </div>
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1 rounded-lg border border-[var(--border)] bg-[var(--surface)] p-0.5">
+            <span className="px-2 py-1 text-xs text-[var(--muted)]">Execute on</span>
+            <button
+              onClick={() => setExecuteEnv('qa')}
+              className={`rounded px-3 py-1.5 text-sm font-medium transition-colors ${executeEnv === 'qa' ? 'bg-[var(--accent)] text-white' : 'text-[var(--muted)] hover:bg-black/20'}`}
+            >
+              QA
+            </button>
+            <button
+              onClick={() => setExecuteEnv('beta')}
+              className={`rounded px-3 py-1.5 text-sm font-medium transition-colors ${executeEnv === 'beta' ? 'bg-[var(--accent)] text-white' : 'text-[var(--muted)] hover:bg-black/20'}`}
+            >
+              Beta
+            </button>
+          </div>
+          <button
+            onClick={handleSync}
+            disabled={syncing}
+            className="rounded-lg border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-medium hover:bg-black/30 disabled:opacity-50"
+          >
+            {syncing ? 'Syncing...' : 'Sync from Xray'}
+          </button>
+        </div>
       </header>
+
+      {syncMessage && (
+        <div className="mb-6 rounded-lg border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-sm text-[var(--muted)]">
+          {syncMessage}
+        </div>
+      )}
 
       {error && (
         <div className="mb-6 rounded-lg border border-[var(--danger)] bg-[var(--danger)]/10 px-4 py-3 text-sm">
@@ -290,9 +804,41 @@ function App() {
 
       <section className="mb-8">
         <h2 className="mb-4 text-sm font-medium uppercase tracking-wider text-[var(--muted)]">
+          Test Scenarios by Suite
+        </h2>
+        <div className="space-y-8">
+          {suites.map((suite) => (
+            <ScenarioList
+              key={suite.name}
+              scenarios={suite.scenarios}
+              title={suite.displayName || suite.name}
+              suiteName={syncConfigSuites.includes(suite.name) ? suite.name : null}
+              suiteId={suite.name}
+              onRefresh={fetchAll}
+              env={executeEnv}
+              executeResults={executeResults}
+            />
+          ))}
+          {suites.length === 0 && (
+            <div className="rounded-lg bg-[var(--surface)] p-6 text-center text-[var(--muted)]">
+              No suites in testcase/. Add folders (e.g. webTv, optools) and sync from Xray.
+            </div>
+          )}
+        </div>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="mb-4 text-sm font-medium uppercase tracking-wider text-[var(--muted)]">
           Latest Run
         </h2>
-        <Metrics data={metrics} />
+        <Metrics
+          data={metrics}
+          runs={runs}
+          failedScenariosRunId={failedScenariosRunId}
+          setFailedScenariosRunId={setFailedScenariosRunId}
+          dismissedFailures={dismissedFailures}
+          onRefresh={fetchAll}
+        />
       </section>
 
       <section className="mb-8">

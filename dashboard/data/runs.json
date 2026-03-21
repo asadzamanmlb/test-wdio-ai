@@ -280,5 +280,3431 @@
         "total": 2
       }
     ]
+  },
+  {
+    "id": "run-1774079491234",
+    "timestamp": "2026-03-21T07:51:31.234Z",
+    "date": "2026-03-21",
+    "env": "qa",
+    "total": 4,
+    "passed": 4,
+    "failed": 0,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed"
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Smoke | Log In",
+        "passed": 4,
+        "failed": 0,
+        "skipped": 0,
+        "total": 4
+      }
+    ]
+  },
+  {
+    "id": "run-1774080187041",
+    "timestamp": "2026-03-21T08:03:07.041Z",
+    "date": "2026-03-21",
+    "env": "qa",
+    "total": 5,
+    "passed": 5,
+    "failed": 0,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed"
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Smoke | Log In",
+        "passed": 5,
+        "failed": 0,
+        "skipped": 0,
+        "total": 5
+      }
+    ]
+  },
+  {
+    "id": "run-1774080700357",
+    "timestamp": "2026-03-21T08:11:40.357Z",
+    "date": "2026-03-21",
+    "env": "qa",
+    "total": 6,
+    "passed": 6,
+    "failed": 0,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "key": "WSTE-36",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "key": "WSTE-35",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "key": "WSTE-35",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "key": "WSTE-36",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "key": "WSTE-35",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "key": "WSTE-36",
+        "failReason": null,
+        "screenshot": null
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Smoke | Log In",
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "total": 6
+      }
+    ]
+  },
+  {
+    "id": "run-1774083008293",
+    "timestamp": "2026-03-21T08:50:08.293Z",
+    "date": "2026-03-21",
+    "env": "qa",
+    "total": 7,
+    "passed": 7,
+    "failed": 0,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "key": "WSTE-718",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "key": "WSTE-36",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "key": "WSTE-35",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "key": "WSTE-35",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "key": "WSTE-36",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "key": "WSTE-35",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "key": "WSTE-36",
+        "failReason": null,
+        "screenshot": null
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Media Center",
+        "passed": 1,
+        "failed": 0,
+        "skipped": 0,
+        "total": 1
+      },
+      {
+        "name": "Smoke | Log In",
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "total": 6
+      }
+    ]
+  },
+  {
+    "id": "run-1774083237908",
+    "timestamp": "2026-03-21T08:53:57.908Z",
+    "date": "2026-03-21",
+    "env": "qa",
+    "total": 8,
+    "passed": 8,
+    "failed": 0,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "key": "WSTE-718",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "key": "WSTE-718",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "key": "WSTE-36",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "key": "WSTE-35",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "key": "WSTE-35",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "key": "WSTE-36",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "key": "WSTE-35",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "key": "WSTE-36",
+        "failReason": null,
+        "screenshot": null
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Media Center",
+        "passed": 2,
+        "failed": 0,
+        "skipped": 0,
+        "total": 2
+      },
+      {
+        "name": "Smoke | Log In",
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "total": 6
+      }
+    ]
+  },
+  {
+    "id": "run-1774083873250",
+    "timestamp": "2026-03-21T09:04:33.250Z",
+    "date": "2026-03-21",
+    "env": "qa",
+    "total": 9,
+    "passed": 8,
+    "failed": 1,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "key": "WSTE-718",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "key": "WSTE-718",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "key": "WSTE-36",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "key": "WSTE-35",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "key": "WSTE-35",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "key": "WSTE-36",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "key": "WSTE-35",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "key": "WSTE-36",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "key": "WSTE-44",
+        "failReason": "Error: Did not navigate to video page after clicking VOD tile\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:163:3)",
+        "screenshot": "WSTE-44-1774083872091.png"
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Media Center",
+        "passed": 2,
+        "failed": 0,
+        "skipped": 0,
+        "total": 2
+      },
+      {
+        "name": "Smoke | Log In",
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "total": 6
+      },
+      {
+        "name": "Smoke",
+        "passed": 0,
+        "failed": 1,
+        "skipped": 0,
+        "total": 1
+      }
+    ]
+  },
+  {
+    "id": "run-1774083929686",
+    "timestamp": "2026-03-21T09:05:29.686Z",
+    "date": "2026-03-21",
+    "env": "qa",
+    "total": 10,
+    "passed": 9,
+    "failed": 1,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "key": "WSTE-718",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "key": "WSTE-718",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "key": "WSTE-36",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "key": "WSTE-35",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "key": "WSTE-35",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "key": "WSTE-36",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "key": "WSTE-35",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "key": "WSTE-36",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "key": "WSTE-44",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "key": "WSTE-44",
+        "failReason": "Error: Did not navigate to video page after clicking VOD tile\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:163:3)",
+        "screenshot": null
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Media Center",
+        "passed": 2,
+        "failed": 0,
+        "skipped": 0,
+        "total": 2
+      },
+      {
+        "name": "Smoke | Log In",
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "total": 6
+      },
+      {
+        "name": "Smoke",
+        "passed": 1,
+        "failed": 1,
+        "skipped": 0,
+        "total": 2
+      }
+    ]
+  },
+  {
+    "id": "run-1774084314295",
+    "timestamp": "2026-03-21T09:11:54.295Z",
+    "date": "2026-03-21",
+    "env": "qa",
+    "total": 11,
+    "passed": 10,
+    "failed": 1,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed"
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed"
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Media Center",
+        "passed": 2,
+        "failed": 0,
+        "skipped": 0,
+        "total": 2
+      },
+      {
+        "name": "Smoke | Log In",
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "total": 6
+      },
+      {
+        "name": "Smoke",
+        "passed": 2,
+        "failed": 1,
+        "skipped": 0,
+        "total": 3
+      }
+    ]
+  },
+  {
+    "id": "run-1774084503565",
+    "timestamp": "2026-03-21T09:15:03.565Z",
+    "date": "2026-03-21",
+    "env": "qa",
+    "total": 12,
+    "passed": 10,
+    "failed": 2,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed"
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed"
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed"
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Media Center",
+        "passed": 2,
+        "failed": 0,
+        "skipped": 0,
+        "total": 2
+      },
+      {
+        "name": "Smoke | Log In",
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "total": 6
+      },
+      {
+        "name": "Smoke",
+        "passed": 2,
+        "failed": 2,
+        "skipped": 0,
+        "total": 4
+      }
+    ]
+  },
+  {
+    "id": "run-1774084590338",
+    "timestamp": "2026-03-21T09:16:30.338Z",
+    "date": "2026-03-21",
+    "env": "qa",
+    "total": 12,
+    "passed": 10,
+    "failed": 2,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed"
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed"
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed"
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Media Center",
+        "passed": 2,
+        "failed": 0,
+        "skipped": 0,
+        "total": 2
+      },
+      {
+        "name": "Smoke | Log In",
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "total": 6
+      },
+      {
+        "name": "Smoke",
+        "passed": 2,
+        "failed": 2,
+        "skipped": 0,
+        "total": 4
+      }
+    ]
+  },
+  {
+    "id": "run-1774084628781",
+    "timestamp": "2026-03-21T09:17:08.781Z",
+    "date": "2026-03-21",
+    "env": "beta",
+    "total": 13,
+    "passed": 10,
+    "failed": 3,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed"
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed"
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed"
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed"
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Media Center",
+        "passed": 2,
+        "failed": 0,
+        "skipped": 0,
+        "total": 2
+      },
+      {
+        "name": "Smoke | Log In",
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "total": 6
+      },
+      {
+        "name": "Smoke",
+        "passed": 2,
+        "failed": 3,
+        "skipped": 0,
+        "total": 5
+      }
+    ]
+  },
+  {
+    "id": "run-1774084740587",
+    "timestamp": "2026-03-21T09:19:00.587Z",
+    "date": "2026-03-21",
+    "env": "beta",
+    "total": 14,
+    "passed": 10,
+    "failed": 4,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed"
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed"
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed"
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed"
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed"
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Media Center",
+        "passed": 2,
+        "failed": 0,
+        "skipped": 0,
+        "total": 2
+      },
+      {
+        "name": "Smoke | Log In",
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "total": 6
+      },
+      {
+        "name": "Smoke",
+        "passed": 2,
+        "failed": 4,
+        "skipped": 0,
+        "total": 6
+      }
+    ]
+  },
+  {
+    "id": "run-1774086124220",
+    "timestamp": "2026-03-21T09:42:04.220Z",
+    "date": "2026-03-21",
+    "env": "qa",
+    "total": 15,
+    "passed": 11,
+    "failed": 4,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: function timed out, ensure the promise resolves within 60000 milliseconds\n    at Timeout.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@cucumber/cucumber/src/time.ts:52:14)\n    at listOnTimeout (node:internal/timers:581:17)\n    at process.processTimers (node:internal/timers:519:7)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: element (\"//input[@data-type=\"save\"]\") still not clickable after 10000ms\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:102:3)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: VOD video time did not progress within 10 seconds\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:312:3)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: Did not navigate to video page after clicking VOD tile\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:163:3)",
+        "screenshot": null
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Media Center",
+        "passed": 3,
+        "failed": 0,
+        "skipped": 0,
+        "total": 3
+      },
+      {
+        "name": "Smoke | Log In",
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "total": 6
+      },
+      {
+        "name": "Smoke",
+        "passed": 2,
+        "failed": 4,
+        "skipped": 0,
+        "total": 6
+      }
+    ]
+  },
+  {
+    "id": "run-1774086226922",
+    "timestamp": "2026-03-21T09:43:46.922Z",
+    "date": "2026-03-21",
+    "env": "qa",
+    "total": 15,
+    "passed": 11,
+    "failed": 4,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: function timed out, ensure the promise resolves within 60000 milliseconds\n    at Timeout.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@cucumber/cucumber/src/time.ts:52:14)\n    at listOnTimeout (node:internal/timers:581:17)\n    at process.processTimers (node:internal/timers:519:7)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: element (\"//input[@data-type=\"save\"]\") still not clickable after 10000ms\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:102:3)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: VOD video time did not progress within 10 seconds\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:312:3)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: Did not navigate to video page after clicking VOD tile\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:163:3)",
+        "screenshot": null
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Media Center",
+        "passed": 3,
+        "failed": 0,
+        "skipped": 0,
+        "total": 3
+      },
+      {
+        "name": "Smoke | Log In",
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "total": 6
+      },
+      {
+        "name": "Smoke",
+        "passed": 2,
+        "failed": 4,
+        "skipped": 0,
+        "total": 6
+      }
+    ]
+  },
+  {
+    "id": "run-1774086308275",
+    "timestamp": "2026-03-21T09:45:08.275Z",
+    "date": "2026-03-21",
+    "env": "beta",
+    "total": 16,
+    "passed": 12,
+    "failed": 4,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: function timed out, ensure the promise resolves within 60000 milliseconds\n    at Timeout.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@cucumber/cucumber/src/time.ts:52:14)\n    at listOnTimeout (node:internal/timers:581:17)\n    at process.processTimers (node:internal/timers:519:7)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: element (\"//input[@data-type=\"save\"]\") still not clickable after 10000ms\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:102:3)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: VOD video time did not progress within 10 seconds\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:312:3)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: Did not navigate to video page after clicking VOD tile\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:163:3)",
+        "screenshot": null
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Media Center",
+        "passed": 3,
+        "failed": 0,
+        "skipped": 0,
+        "total": 3
+      },
+      {
+        "name": "Smoke | Log In",
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "total": 6
+      },
+      {
+        "name": "Smoke",
+        "passed": 3,
+        "failed": 4,
+        "skipped": 0,
+        "total": 7
+      }
+    ]
+  },
+  {
+    "id": "run-1774086433699",
+    "timestamp": "2026-03-21T09:47:13.699Z",
+    "date": "2026-03-21",
+    "env": "beta",
+    "total": 16,
+    "passed": 12,
+    "failed": 4,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: function timed out, ensure the promise resolves within 60000 milliseconds\n    at Timeout.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@cucumber/cucumber/src/time.ts:52:14)\n    at listOnTimeout (node:internal/timers:581:17)\n    at process.processTimers (node:internal/timers:519:7)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: element (\"//input[@data-type=\"save\"]\") still not clickable after 10000ms\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:102:3)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: VOD video time did not progress within 10 seconds\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:312:3)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: Did not navigate to video page after clicking VOD tile\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:163:3)",
+        "screenshot": null
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Media Center",
+        "passed": 3,
+        "failed": 0,
+        "skipped": 0,
+        "total": 3
+      },
+      {
+        "name": "Smoke | Log In",
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "total": 6
+      },
+      {
+        "name": "Smoke",
+        "passed": 3,
+        "failed": 4,
+        "skipped": 0,
+        "total": 7
+      }
+    ]
+  },
+  {
+    "id": "run-1774086505681",
+    "timestamp": "2026-03-21T09:48:25.681Z",
+    "date": "2026-03-21",
+    "env": "beta",
+    "total": 17,
+    "passed": 13,
+    "failed": 4,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: function timed out, ensure the promise resolves within 60000 milliseconds\n    at Timeout.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@cucumber/cucumber/src/time.ts:52:14)\n    at listOnTimeout (node:internal/timers:581:17)\n    at process.processTimers (node:internal/timers:519:7)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: element (\"//input[@data-type=\"save\"]\") still not clickable after 10000ms\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:102:3)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: VOD video time did not progress within 10 seconds\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:312:3)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: Did not navigate to video page after clicking VOD tile\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:163:3)",
+        "screenshot": null
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Media Center",
+        "passed": 3,
+        "failed": 0,
+        "skipped": 0,
+        "total": 3
+      },
+      {
+        "name": "Smoke | Log In",
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "total": 6
+      },
+      {
+        "name": "Smoke",
+        "passed": 4,
+        "failed": 4,
+        "skipped": 0,
+        "total": 8
+      }
+    ]
+  },
+  {
+    "id": "run-1774086685086",
+    "timestamp": "2026-03-21T09:51:25.086Z",
+    "date": "2026-03-21",
+    "env": "beta",
+    "total": 18,
+    "passed": 14,
+    "failed": 4,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: function timed out, ensure the promise resolves within 60000 milliseconds\n    at Timeout.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@cucumber/cucumber/src/time.ts:52:14)\n    at listOnTimeout (node:internal/timers:581:17)\n    at process.processTimers (node:internal/timers:519:7)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: element (\"//input[@data-type=\"save\"]\") still not clickable after 10000ms\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:102:3)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: VOD video time did not progress within 10 seconds\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:312:3)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: Did not navigate to video page after clicking VOD tile\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:163:3)",
+        "screenshot": null
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Media Center",
+        "passed": 3,
+        "failed": 0,
+        "skipped": 0,
+        "total": 3
+      },
+      {
+        "name": "Smoke | Log In",
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "total": 6
+      },
+      {
+        "name": "Smoke",
+        "passed": 5,
+        "failed": 4,
+        "skipped": 0,
+        "total": 9
+      }
+    ]
+  },
+  {
+    "id": "run-1774086990754",
+    "timestamp": "2026-03-21T09:56:30.754Z",
+    "date": "2026-03-21",
+    "env": "qa",
+    "total": 20,
+    "passed": 16,
+    "failed": 4,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: function timed out, ensure the promise resolves within 60000 milliseconds\n    at Timeout.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@cucumber/cucumber/src/time.ts:52:14)\n    at listOnTimeout (node:internal/timers:581:17)\n    at process.processTimers (node:internal/timers:519:7)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: element (\"//input[@data-type=\"save\"]\") still not clickable after 10000ms\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:102:3)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: VOD video time did not progress within 10 seconds\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:312:3)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: Did not navigate to video page after clicking VOD tile\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:163:3)",
+        "screenshot": null
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Media Center",
+        "passed": 3,
+        "failed": 0,
+        "skipped": 0,
+        "total": 3
+      },
+      {
+        "name": "Smoke | Log In",
+        "passed": 8,
+        "failed": 0,
+        "skipped": 0,
+        "total": 8
+      },
+      {
+        "name": "Smoke",
+        "passed": 5,
+        "failed": 4,
+        "skipped": 0,
+        "total": 9
+      }
+    ]
+  },
+  {
+    "id": "run-1774087437206",
+    "timestamp": "2026-03-21T10:03:57.206Z",
+    "date": "2026-03-21",
+    "env": "qa",
+    "total": 21,
+    "passed": 17,
+    "failed": 4,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: function timed out, ensure the promise resolves within 60000 milliseconds\n    at Timeout.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@cucumber/cucumber/src/time.ts:52:14)\n    at listOnTimeout (node:internal/timers:581:17)\n    at process.processTimers (node:internal/timers:519:7)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: element (\"//input[@data-type=\"save\"]\") still not clickable after 10000ms\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:102:3)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: VOD video time did not progress within 10 seconds\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:312:3)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: Did not navigate to video page after clicking VOD tile\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:163:3)",
+        "screenshot": null
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Media Center",
+        "passed": 3,
+        "failed": 0,
+        "skipped": 0,
+        "total": 3
+      },
+      {
+        "name": "Smoke | Log In",
+        "passed": 9,
+        "failed": 0,
+        "skipped": 0,
+        "total": 9
+      },
+      {
+        "name": "Smoke",
+        "passed": 5,
+        "failed": 4,
+        "skipped": 0,
+        "total": 9
+      }
+    ]
+  },
+  {
+    "id": "run-1774087482299",
+    "timestamp": "2026-03-21T10:04:42.299Z",
+    "date": "2026-03-21",
+    "env": "beta",
+    "total": 22,
+    "passed": 18,
+    "failed": 4,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: function timed out, ensure the promise resolves within 60000 milliseconds\n    at Timeout.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@cucumber/cucumber/src/time.ts:52:14)\n    at listOnTimeout (node:internal/timers:581:17)\n    at process.processTimers (node:internal/timers:519:7)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: element (\"//input[@data-type=\"save\"]\") still not clickable after 10000ms\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:102:3)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: VOD video time did not progress within 10 seconds\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:312:3)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: Did not navigate to video page after clicking VOD tile\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:163:3)",
+        "screenshot": null
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Media Center",
+        "passed": 3,
+        "failed": 0,
+        "skipped": 0,
+        "total": 3
+      },
+      {
+        "name": "Smoke | Log In",
+        "passed": 10,
+        "failed": 0,
+        "skipped": 0,
+        "total": 10
+      },
+      {
+        "name": "Smoke",
+        "passed": 5,
+        "failed": 4,
+        "skipped": 0,
+        "total": 9
+      }
+    ]
+  },
+  {
+    "id": "run-1774087579903",
+    "timestamp": "2026-03-21T10:06:19.903Z",
+    "date": "2026-03-21",
+    "env": "qa",
+    "total": 23,
+    "passed": 18,
+    "failed": 5,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback",
+        "status": "failed",
+        "failReason": "Error: Content video did not load\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:413:3)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: function timed out, ensure the promise resolves within 60000 milliseconds\n    at Timeout.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@cucumber/cucumber/src/time.ts:52:14)\n    at listOnTimeout (node:internal/timers:581:17)\n    at process.processTimers (node:internal/timers:519:7)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: element (\"//input[@data-type=\"save\"]\") still not clickable after 10000ms\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:102:3)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: VOD video time did not progress within 10 seconds\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:312:3)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: Did not navigate to video page after clicking VOD tile\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:163:3)",
+        "screenshot": null
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Media Center",
+        "passed": 3,
+        "failed": 0,
+        "skipped": 0,
+        "total": 3
+      },
+      {
+        "name": "Smoke | Log In",
+        "passed": 10,
+        "failed": 0,
+        "skipped": 0,
+        "total": 10
+      },
+      {
+        "name": "Smoke",
+        "passed": 5,
+        "failed": 5,
+        "skipped": 0,
+        "total": 10
+      }
+    ]
+  },
+  {
+    "id": "run-1774088114453",
+    "timestamp": "2026-03-21T10:15:14.453Z",
+    "date": "2026-03-21",
+    "env": "beta",
+    "total": 24,
+    "passed": 19,
+    "failed": 5,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback",
+        "status": "failed",
+        "failReason": "Error: Content video did not load\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:413:3)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: function timed out, ensure the promise resolves within 60000 milliseconds\n    at Timeout.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@cucumber/cucumber/src/time.ts:52:14)\n    at listOnTimeout (node:internal/timers:581:17)\n    at process.processTimers (node:internal/timers:519:7)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: element (\"//input[@data-type=\"save\"]\") still not clickable after 10000ms\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:102:3)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: VOD video time did not progress within 10 seconds\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:312:3)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: Did not navigate to video page after clicking VOD tile\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:163:3)",
+        "screenshot": null
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Media Center",
+        "passed": 3,
+        "failed": 0,
+        "skipped": 0,
+        "total": 3
+      },
+      {
+        "name": "Smoke | Log In",
+        "passed": 10,
+        "failed": 0,
+        "skipped": 0,
+        "total": 10
+      },
+      {
+        "name": "Smoke",
+        "passed": 6,
+        "failed": 5,
+        "skipped": 0,
+        "total": 11
+      }
+    ]
+  },
+  {
+    "id": "run-1774088654023",
+    "timestamp": "2026-03-21T10:24:14.023Z",
+    "date": "2026-03-21",
+    "env": "beta",
+    "total": 25,
+    "passed": 20,
+    "failed": 5,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Media Center::Media Center | Verify calendar date range (WSTE-718)",
+        "feature": "Media Center",
+        "name": "Media Center | Verify calendar date range (WSTE-718)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback",
+        "status": "failed",
+        "failReason": "Error: Content video did not load\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:413:3)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: function timed out, ensure the promise resolves within 60000 milliseconds\n    at Timeout.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@cucumber/cucumber/src/time.ts:52:14)\n    at listOnTimeout (node:internal/timers:581:17)\n    at process.processTimers (node:internal/timers:519:7)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: element (\"//input[@data-type=\"save\"]\") still not clickable after 10000ms\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:102:3)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: VOD video time did not progress within 10 seconds\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:312:3)",
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "passed",
+        "failReason": null,
+        "screenshot": null
+      },
+      {
+        "id": "Smoke::Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "feature": "Smoke",
+        "name": "Smoke | Homepage - Verify VOD Playback (WSTE-44)",
+        "status": "failed",
+        "failReason": "Error: Did not navigate to video page after clicking VOD tile\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:163:3)",
+        "screenshot": null
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Media Center",
+        "passed": 3,
+        "failed": 0,
+        "skipped": 0,
+        "total": 3
+      },
+      {
+        "name": "Smoke | Log In",
+        "passed": 10,
+        "failed": 0,
+        "skipped": 0,
+        "total": 10
+      },
+      {
+        "name": "Smoke",
+        "passed": 7,
+        "failed": 5,
+        "skipped": 0,
+        "total": 12
+      }
+    ]
   }
 ]

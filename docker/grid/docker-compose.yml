@@ -12,7 +12,7 @@ services:
       - "4443:4443"
       - "5557:5557"
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:4442"]
+      test: ["CMD", "curl", "-f", "http://localhost:5557"]
       interval: 5s
       timeout: 3s
       retries: 5

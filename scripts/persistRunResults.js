@@ -8,6 +8,8 @@ const fs = require('fs');
 const path = require('path');
 
 const REPORTS_JSON_DIR = path.join(process.cwd(), 'reports', 'json');
+const SCREENSHOTS_DIR = path.join(process.cwd(), 'reports', 'screenshots');
+const FAILURE_MANIFEST = path.join(process.cwd(), 'reports', 'failure-screenshots.json');
 const DATA_DIR = path.join(process.cwd(), 'dashboard', 'data');
 const RUNS_FILE = path.join(DATA_DIR, 'runs.json');
 
@@ -15,6 +17,29 @@ function ensureDir(dir) {
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
   }
+}
+
+function loadFailureManifest() {
+  if (!fs.existsSync(FAILURE_MANIFEST)) return {};
+  try {
+    return JSON.parse(fs.readFileSync(FAILURE_MANIFEST, 'utf8'));
+  } catch {
+    return {};
+  }
+}
+
+/** Fallback: find screenshot by matching scenario name (handles hooks/persistRun scenarioId drift) */
+function findScreenshotByScenarioName(manifest, scenarioName) {
+  const norm = (s) => (s || '').replace(/\s+/g, ' ').trim().toLowerCase();
+  const needle = norm(scenarioName);
+  for (const [key, val] of Object.entries(manifest)) {
+    const keyScenario = key.includes('::') ? key.split('::').slice(1).join('::') : key;
+    const keyNorm = norm(keyScenario);
+    if (keyNorm === needle || keyNorm.includes(needle) || needle.includes(keyNorm)) {
+      return val;
+    }
+  }
+  return null;
 }
 
 function parseCucumberJson(features) {
@@ -61,11 +86,27 @@ function parseCucumberJson(features) {
         byFeature[featureName].skipped++;
       }
 
+      let failReason = null;
+      let screenshotPath = null;
+      const scenarioId = `${featureName}::${scenarioName}`;
+      if (status === 'failed' && el.steps) {
+        const failedStep = el.steps.find((s) => s.result?.status === 'failed');
+        if (failedStep?.result?.error_message) {
+          failReason = failedStep.result.error_message;
+        }
+        const manifest = loadFailureManifest();
+        screenshotPath = manifest[scenarioId]
+          || manifest[`Feature::${scenarioName}`]
+          || findScreenshotByScenarioName(manifest, scenarioName);
+      }
+
       scenarios.push({
-        id: `${featureName}::${scenarioName}`,
+        id: scenarioId,
         feature: featureName,
         name: scenarioName,
         status,
+        failReason: status === 'failed' ? failReason : null,
+        screenshot: status === 'failed' ? screenshotPath : null,
       });
       byFeature[featureName].scenarios.push({ name: scenarioName, status });
     }

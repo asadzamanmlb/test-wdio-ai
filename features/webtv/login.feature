@@ -1,11 +1,12 @@
 # WSTE-35: Smoke | Log In | WSTE-36: Smoke | Verify Log Out behavior
 # Synced with Xray test cases from testcase/webTv/
 
-@webtv @login @WSTE-35 @WSTE-36
+@webtv @login
 
 Feature: Smoke | Log In
 
-  Scenario: Smoke | Log In (WSTE-35)
+  @WSTE-35
+  Scenario: Smoke | Log In
     Given the user is NOT logged in
     And they attempt to go to mlb.com/tv
     When the user enters a valid "Email"
@@ -15,7 +16,8 @@ Feature: Smoke | Log In
     Then the user is successfully logged in
     And the user is redirected back to the Welcome Center
 
-  Scenario: Smoke | Verify Log Out behavior (WSTE-36)
+  @WSTE-36
+  Scenario: Smoke | Verify Log Out behavior
     Given the user is already logged into mlb.com/tv
     When the user hovers over the "ACCOUNT" button from the top nav
     And the user clicks the "Log Out" option

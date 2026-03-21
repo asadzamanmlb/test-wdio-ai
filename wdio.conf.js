@@ -29,6 +29,14 @@ exports.config = {
     timeout: 60000,
     require: ['./features/step-definitions/*.js'],
   },
+  onPrepare: function () {
+    const fs = require('fs');
+    const path = require('path');
+    const manifest = path.join(process.cwd(), 'reports', 'failure-screenshots.json');
+    try {
+      if (fs.existsSync(manifest)) fs.unlinkSync(manifest);
+    } catch (_) {}
+  },
   afterStep,
   onComplete: function () {
     try {

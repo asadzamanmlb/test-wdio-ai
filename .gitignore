@@ -5,3 +5,7 @@ node_modules/
 .selfheal-report.json
 .rag-memory.json
 fixedTest.js
+/reports/screenshots
+dist/
+dashboard/dist/
+/dashboard/data/screenshots

@@ -109,7 +109,7 @@ function toTestCaseJson(test) {
 }
 
 async function exportTests(issueKey, folder, options = {}) {
-  const { silent = false } = options;
+  const { silent = false, write = true } = options;
   const log = (...args) => !silent && console.log(...args);
   const outDir = path.join(__dirname, '..', 'testcase', folder);
 
@@ -127,24 +127,23 @@ async function exportTests(issueKey, folder, options = {}) {
   log(`📥 Fetching expanded details for ${issueIds.length} tests...`);
   const expanded = await getExpandedTests(token, issueIds);
 
-  fs.mkdirSync(outDir, { recursive: true });
+  const allTestCases = expanded.map((test) => toTestCaseJson(test));
 
-  const allTestCases = [];
-  for (const test of expanded) {
-    const tc = toTestCaseJson(test);
-    allTestCases.push(tc);
-    const filename = `${tc.key || tc.issueId}.json`;
-    fs.writeFileSync(path.join(outDir, filename), JSON.stringify(tc, null, 2));
-    log(`  ✓ ${tc.key}`);
+  if (write) {
+    fs.mkdirSync(outDir, { recursive: true });
+    for (const tc of allTestCases) {
+      const filename = `${tc.key || tc.issueId}.json`;
+      fs.writeFileSync(path.join(outDir, filename), JSON.stringify(tc, null, 2));
+      log(`  ✓ ${tc.key}`);
+    }
+    fs.writeFileSync(
+      path.join(outDir, 'testcases.json'),
+      JSON.stringify(allTestCases, null, 2)
+    );
+    log(`\n✅ Exported ${allTestCases.length} test cases to testcase/${folder}/`);
   }
 
-  fs.writeFileSync(
-    path.join(outDir, 'testcases.json'),
-    JSON.stringify(allTestCases, null, 2)
-  );
-
-  log(`\n✅ Exported ${allTestCases.length} test cases to testcase/${folder}/`);
-  return allTestCases.length;
+  return allTestCases;
 }
 
 async function main() {
