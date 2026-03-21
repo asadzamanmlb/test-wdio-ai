@@ -42,6 +42,27 @@ function findScreenshotByScenarioName(manifest, scenarioName) {
   return null;
 }
 
+/** Fallback: scan screenshots dir for file matching scenario name when manifest lookup fails */
+function findScreenshotInDir(scenarioName) {
+  if (!fs.existsSync(SCREENSHOTS_DIR)) return null;
+  const files = fs.readdirSync(SCREENSHOTS_DIR).filter((f) => f.endsWith('.png'));
+  if (files.length === 0) return null;
+  const baseName = (scenarioName || '').replace(/\s*\([^)]*\)\s*$/, '').trim();
+  const slug = baseName
+    .replace(/[^a-zA-Z0-9-]/g, '-')
+    .replace(/-+/g, '-')
+    .slice(0, 50)
+    .toLowerCase();
+  const match = files.find(
+    (f) =>
+      f.toLowerCase().replace(/-+/g, '-').includes(slug) ||
+      slug.includes(f.replace(/-\d+\.png$/i, '').toLowerCase().replace(/-+/g, '-'))
+  );
+  if (match) return match;
+  if (files.length === 1) return files[0];
+  return null;
+}
+
 function parseCucumberJson(features) {
   const scenarios = [];
   let totalPassed = 0;
@@ -87,17 +108,21 @@ function parseCucumberJson(features) {
       }
 
       let failReason = null;
+      let failStep = null;
       let screenshotPath = null;
       const scenarioId = `${featureName}::${scenarioName}`;
       if (status === 'failed' && el.steps) {
         const failedStep = el.steps.find((s) => s.result?.status === 'failed');
-        if (failedStep?.result?.error_message) {
-          failReason = failedStep.result.error_message;
+        if (failedStep) {
+          if (failedStep.result?.error_message) failReason = failedStep.result.error_message;
+          failStep = [failedStep.keyword, failedStep.name].filter(Boolean).join(' ').trim() || null;
         }
         const manifest = loadFailureManifest();
-        screenshotPath = manifest[scenarioId]
-          || manifest[`Feature::${scenarioName}`]
-          || findScreenshotByScenarioName(manifest, scenarioName);
+        screenshotPath =
+          manifest[scenarioId] ||
+          manifest[`Feature::${scenarioName}`] ||
+          findScreenshotByScenarioName(manifest, scenarioName) ||
+          findScreenshotInDir(scenarioName);
       }
 
       scenarios.push({
@@ -106,6 +131,7 @@ function parseCucumberJson(features) {
         name: scenarioName,
         status,
         failReason: status === 'failed' ? failReason : null,
+        failStep: status === 'failed' ? failStep : null,
         screenshot: status === 'failed' ? screenshotPath : null,
       });
       byFeature[featureName].scenarios.push({ name: scenarioName, status });

@@ -1,6 +1,7 @@
 /**
- * WebdriverIO Cucumber hooks - triggers self-healing on element-not-found failures,
- * captures screenshots on any step failure for dashboard display.
+ * WebdriverIO Cucumber hooks - triggers self-healing on element-related failures
+ * and other errors that may benefit from DOM analysis and selector suggestions.
+ * Captures screenshots on any step failure for dashboard display.
  */
 const fs = require('fs');
 const path = require('path');
@@ -9,11 +10,60 @@ const { heal } = require('../../selfheal/selfHeal');
 const SCREENSHOTS_DIR = path.join(process.cwd(), 'reports', 'screenshots');
 const FAILURE_MANIFEST = path.join(process.cwd(), 'reports', 'failure-screenshots.json');
 
+/** Patterns for element-related and other errors that trigger self-heal. */
+const ELEMENT_OR_ERROR_PATTERNS = [
+  // Element not found / missing
+  /element.*not (found|displayed|exist|clickable|visible|interactable|attached|enabled)/i,
+  /could not be located/i,
+  /no such element/i,
+  /unable to locate element/i,
+  /element could not be located/i,
+  // Stale / detached
+  /stale element reference/i,
+  /element is not attached/i,
+  /element.*not attached to the document/i,
+  /node is detached/i,
+  /element is stale/i,
+  // Obscured / blocked / not clickable
+  /element.*obscured/i,
+  /element click intercepted/i,
+  /element.*not in viewport/i,
+  /element.*not visible/i,
+  // Timeout (often element-related)
+  /timeout.*(waiting|wait) for/i,
+  /wait.*timed out/i,
+  /TimeoutError/i,
+  /element.*timed out/i,
+  // Invalid selector
+  /invalid selector/i,
+  /invalid.*xpath|invalid.*css/i,
+  // Selector / locator syntax
+  /selector\s*["']([^"']+)["']/i,
+  /element\s*\(["']([^"']+)["']\)/i,
+  // Other common WebDriver/Selenium
+  /session not created/i,
+  /element.*disabled/i,
+  /element.*is not enabled/i,
+  /element.*not in the document/i,
+  /Unable to find element/i,
+  /element not found/i,
+];
+
+function isElementOrSelectableError(msg) {
+  if (!msg || typeof msg !== 'string') return false;
+  return ELEMENT_OR_ERROR_PATTERNS.some((p) => p.test(msg));
+}
+
 function extractSelectorFromError(errorMsg) {
   if (!errorMsg || typeof errorMsg !== 'string') return null;
-  const m = errorMsg.match(/element\s*\(["']([^"']+)["']\)/i) ||
+  const m =
+    errorMsg.match(/element\s*\(["']([^"']+)["']\)/i) ||
     errorMsg.match(/selector\s*["']([^"']+)["']/i) ||
-    errorMsg.match(/["']([^"']+(?:xpath|css)[^"']*)["']/i);
+    errorMsg.match(/["']([^"']+(?:xpath|css|=\s*)[^"']*)["']/i) ||
+    errorMsg.match(/\$\("([^"]+)"\)/i) ||
+    errorMsg.match(/\$\('([^']+)'\)/i) ||
+    errorMsg.match(/locator\s*["']([^"']+)["']/i) ||
+    errorMsg.match(/["']([^"']+\.(?:css|xpath))["']/i);
   return m ? m[1] : null;
 }
 
@@ -45,12 +95,8 @@ module.exports = {
 
     const err = result.error;
     const msg = typeof err === 'string' ? err : (err?.message || err?.stack || String(err || ''));
-    const isElementNotFound =
-      /element.*not (found|displayed|exist|clickable)/i.test(msg) ||
-      /could not be located/i.test(msg) ||
-      /no such element/i.test(msg);
 
-    if (isElementNotFound) {
+    if (isElementOrSelectableError(msg)) {
       const oldSelector = extractSelectorFromError(msg);
       const text = extractTextFromStep(step.text);
       let domHtml = null;
@@ -59,13 +105,11 @@ module.exports = {
           domHtml = await browser.getPageSource();
         }
       } catch (_) {}
-      if (oldSelector || text || domHtml) {
-        await heal(oldSelector || 'unknown', text || '', {
-          step: step.text,
-          scenario: scenario.name,
-          domHtml: domHtml || undefined,
-        });
-      }
+      await heal(oldSelector || 'unknown', text || '', {
+        step: step.text,
+        scenario: scenario.name,
+        domHtml: domHtml || undefined,
+      });
     }
 
     try {

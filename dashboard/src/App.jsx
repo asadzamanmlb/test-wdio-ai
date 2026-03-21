@@ -13,7 +13,24 @@ import {
   Legend,
 } from 'recharts';
 
-const API = '/api';
+// Use same origin; fallback to :4000 when opened as file:// (e.g. from editor preview)
+const API =
+  typeof window !== 'undefined' && window.location?.origin && !window.location.origin.startsWith('file')
+    ? `${window.location.origin}/api`
+    : 'http://localhost:4000/api';
+
+async function fetchJson(url) {
+  const res = await fetch(url);
+  const ct = res.headers.get('content-type') || '';
+  if (!ct.includes('application/json')) {
+    throw new Error(
+      'Dashboard API returned HTML instead of JSON. Run `npm run dashboard` to start the API server on port 4000.'
+    );
+  }
+  const data = await res.json();
+  if (!res.ok) throw new Error(data?.error || `Request failed (${res.status})`);
+  return data;
+}
 
 function Card({ title, value, sub, variant = 'default' }) {
   const colors = {
@@ -31,13 +48,20 @@ function Card({ title, value, sub, variant = 'default' }) {
   );
 }
 
-function FailedScenarios({ items, runs, selectedRunId, onRunSelect, currentRunId, dismissedFailures, onRefresh }) {
+function extractSuiteAndKey(scenario) {
+  const name = scenario?.name || scenario?.id || '';
+  const keyMatch = name.match(/\((WSTE-\d+|WQO-\d+)\)/i);
+  const key = (scenario?.key || keyMatch?.[1] || '').toUpperCase();
+  const suite = key.startsWith('WSTE') ? 'webTv' : key.startsWith('WQO') ? 'optools' : null;
+  return { suite, key };
+}
+
+function FailedScenarios({ items, runs, selectedRunId, onRunSelect, currentRunId, onRefresh, fixStatus, onFixStart, onFixStop, env }) {
   const rawItems = selectedRunId && runs?.length
     ? (runs.find((r) => r.id === selectedRunId)?.failedScenarios || [])
     : items || [];
+  const displayItems = rawItems;
   const runId = currentRunId || selectedRunId;
-  const dismissed = (runId && dismissedFailures?.[runId]) || [];
-  const displayItems = rawItems.filter((s) => !dismissed.includes(s.id));
   if (!displayItems?.length && !runs?.length && !rawItems?.length) return null;
   const runLabel = (r) => {
     if (!r?.date) return r?.id || 'Unknown';
@@ -54,10 +78,10 @@ function FailedScenarios({ items, runs, selectedRunId, onRunSelect, currentRunId
           {displayItems?.length > 0 && runId && (
             <button
               onClick={async () => {
-                await fetch(`${API}/dismissed-failures`, {
+                await fetch(`${API}/runs/${runId}/delete-scenarios`, {
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ runId, scenarioIds: displayItems.map((s) => s.id) }),
+                  body: JSON.stringify({ scenarioIds: displayItems.map((s) => s.id) }),
                 });
                 onRefresh?.();
               }}
@@ -90,6 +114,9 @@ function FailedScenarios({ items, runs, selectedRunId, onRunSelect, currentRunId
                 {s.name}
               </div>
               <div className="text-xs text-[var(--muted)] mt-0.5">{s.feature}</div>
+              {s.failStep && (
+                <div className="mt-1 text-xs font-medium text-[var(--danger)]">Step: {s.failStep}</div>
+              )}
               {s.failReason && (
                 <pre className="mt-2 text-xs text-[var(--muted)] whitespace-pre-wrap break-words bg-black/20 rounded p-2 max-h-24 overflow-y-auto">
                   {s.failReason.split('\n')[0]}
@@ -100,10 +127,10 @@ function FailedScenarios({ items, runs, selectedRunId, onRunSelect, currentRunId
               {runId && (
                 <button
                   onClick={async () => {
-                    await fetch(`${API}/dismissed-failures`, {
+                    await fetch(`${API}/runs/${runId}/delete-scenarios`, {
                       method: 'POST',
                       headers: { 'Content-Type': 'application/json' },
-                      body: JSON.stringify({ runId, scenarioIds: [s.id] }),
+                      body: JSON.stringify({ scenarioIds: [s.id] }),
                     });
                     onRefresh?.();
                   }}
@@ -113,6 +140,21 @@ function FailedScenarios({ items, runs, selectedRunId, onRunSelect, currentRunId
                   Delete
                 </button>
               )}
+              {(() => {
+                const { suite, key } = extractSuiteAndKey(s);
+                if (!suite || !key) return null;
+                const isThisFixing = fixStatus?.running && fixStatus?.key === key && fixStatus?.suite === suite;
+                return (
+                  <button
+                    onClick={() => (isThisFixing ? onFixStop?.() : onFixStart?.(suite, key))}
+                    disabled={fixStatus?.running && !isThisFixing}
+                    className="rounded border border-[var(--accent)]/50 px-2 py-1 text-xs text-[var(--accent)] hover:bg-[var(--accent)]/10 disabled:opacity-50"
+                    title={isThisFixing ? 'Stop fixing' : 'Fix (run until pass, capture page objects)'}
+                  >
+                    {isThisFixing ? `Stop (attempt ${fixStatus?.attempt || 0})` : 'Fix'}
+                  </button>
+                );
+              })()}
               {s.screenshot && (
                 <a
                   href={s.screenshot}
@@ -135,7 +177,7 @@ function FailedScenarios({ items, runs, selectedRunId, onRunSelect, currentRunId
   );
 }
 
-function Metrics({ data, runs, failedScenariosRunId, setFailedScenariosRunId, dismissedFailures, onRefresh }) {
+function Metrics({ data, runs, failedScenariosRunId, setFailedScenariosRunId, onRefresh, fixStatus, onFixStart, onFixStop, executeEnv }) {
   if (!data?.hasData) {
     return (
       <div className="rounded-lg bg-[var(--surface)] p-8 text-center text-[var(--muted)]">
@@ -198,8 +240,11 @@ function Metrics({ data, runs, failedScenariosRunId, setFailedScenariosRunId, di
         selectedRunId={failedScenariosRunId}
         onRunSelect={setFailedScenariosRunId}
         currentRunId={failedScenariosRunId || data.runId}
-        dismissedFailures={dismissedFailures}
         onRefresh={onRefresh}
+        fixStatus={fixStatus}
+        onFixStart={onFixStart}
+        onFixStop={onFixStop}
+        env={executeEnv}
       />
     </div>
   );
@@ -333,14 +378,17 @@ function DiffView({ diff }) {
   );
 }
 
-function SyncDiffModal({ suite, changes, onClose, onApply, onRefresh }) {
+function SyncDiffModal({ suite, key: scenarioKey, changes, onClose, onApply, onRefresh }) {
   const [applying, setApplying] = useState(false);
   const [toast, setToast] = useState(null);
 
   async function handleApply() {
     setApplying(true);
     try {
-      const res = await fetch(`${API}/sync/${suite}/apply`, { method: 'POST' });
+      const url = scenarioKey
+        ? `${API}/sync/${suite}/${scenarioKey}/apply`
+        : `${API}/sync/${suite}/apply`;
+      const res = await fetch(url, { method: 'POST' });
       const data = await res.json();
       if (res.ok && data.success) {
         setToast('Updated successfully');
@@ -367,7 +415,7 @@ function SyncDiffModal({ suite, changes, onClose, onApply, onRefresh }) {
       >
         <div className="border-b border-[var(--border)] px-4 py-3 flex items-center justify-between">
           <h3 className="text-sm font-medium uppercase tracking-wider text-[var(--muted)]">
-            Sync preview — {suite}
+            Sync preview — {suite}{scenarioKey ? ` / ${scenarioKey}` : ''}
           </h3>
           <button
             onClick={onClose}
@@ -417,7 +465,7 @@ function SyncDiffModal({ suite, changes, onClose, onApply, onRefresh }) {
   );
 }
 
-function ScenarioRow({ scenario, suiteName, env, persistedResult }) {
+function ScenarioRow({ scenario, suiteName, env, persistedResult, onSync, syncLoading, fixStatus, onFixStart, onFixStop }) {
   const [runState, setRunState] = useState(null); // { status, failReason?, screenshot? } | null - from current session
   const [running, setRunning] = useState(false);
   const [showFailDetails, setShowFailDetails] = useState(false);
@@ -436,13 +484,14 @@ function ScenarioRow({ scenario, suiteName, env, persistedResult }) {
       const data = await res.json();
       const newState = {
         status: data.status || (data.success ? 'passed' : 'failed'),
+        failStep: data.failStep || null,
         failReason: data.failReason || null,
         screenshot: data.screenshot || null,
       };
       setRunState(newState);
       if (data.status === 'failed') setShowFailDetails(true);
     } catch (e) {
-      setRunState({ status: 'failed', failReason: e.message, screenshot: null });
+      setRunState({ status: 'failed', failStep: null, failReason: e.message, screenshot: null });
     } finally {
       setRunning(false);
     }
@@ -467,21 +516,46 @@ function ScenarioRow({ scenario, suiteName, env, persistedResult }) {
           </span>
         </td>
         <td className="px-4 py-2 whitespace-nowrap">
-          {scenario.automated && (
-            <button
-              onClick={handleExecute}
-              disabled={running}
-              className="rounded border border-[var(--border)] px-2 py-1 text-xs hover:bg-black/20 disabled:opacity-50"
-            >
-              {running ? 'Running…' : 'Execute'}
-            </button>
-          )}
+          <div className="flex items-center gap-2">
+            {scenario.automated && (
+              <button
+                onClick={handleExecute}
+                disabled={running}
+                className="rounded border border-[var(--border)] px-2 py-1 text-xs hover:bg-black/20 disabled:opacity-50"
+              >
+                {running ? 'Running…' : 'Execute'}
+              </button>
+            )}
+            {suiteName && (
+              <button
+                onClick={() => onSync?.(scenario.key)}
+                disabled={syncLoading}
+                className="rounded border border-[var(--border)] px-2 py-1 text-xs hover:bg-black/20 disabled:opacity-50"
+                title="Sync from Xray"
+              >
+                {syncLoading ? '…' : 'Sync'}
+              </button>
+            )}
+            {suiteName && scenario.automated && (effectiveState?.status === 'failed' || (fixStatus?.running && fixStatus?.key === scenario.key)) && (() => {
+              const isThisFixing = fixStatus?.running && fixStatus?.key === scenario.key && fixStatus?.suite === suiteName;
+              return (
+                <button
+                  onClick={() => (isThisFixing ? onFixStop?.() : onFixStart?.(suiteName, scenario.key))}
+                  disabled={fixStatus?.running && !isThisFixing}
+                  className="rounded border border-[var(--accent)]/50 px-2 py-1 text-xs text-[var(--accent)] hover:bg-[var(--accent)]/10 disabled:opacity-50"
+                  title={isThisFixing ? 'Stop fixing' : 'Fix (run until pass, capture page objects)'}
+                >
+                  {isThisFixing ? `Stop (${fixStatus?.attempt || 0})` : 'Fix'}
+                </button>
+              );
+            })()}
+          </div>
         </td>
         <td className="px-4 py-2">
           {statusEl}
         </td>
       </tr>
-      {effectiveState?.status === 'failed' && (effectiveState.failReason || effectiveState.screenshot) && (
+      {effectiveState?.status === 'failed' && (effectiveState.failStep || effectiveState.failReason || effectiveState.screenshot) && (
         <tr>
           <td colSpan={5} className="px-4 py-0">
             <div
@@ -492,6 +566,11 @@ function ScenarioRow({ scenario, suiteName, env, persistedResult }) {
             </div>
             {showFailDetails && (
               <div className="border-t border-[var(--border)]/50 bg-black/20 px-4 py-3 space-y-2">
+                {effectiveState.failStep && (
+                  <div className="text-xs font-medium text-[var(--danger)]">
+                    Step: {effectiveState.failStep}
+                  </div>
+                )}
                 {effectiveState.failReason && (
                   <pre className="text-xs text-[var(--muted)] whitespace-pre-wrap break-words rounded bg-black/30 p-2 max-h-40 overflow-y-auto">
                     {effectiveState.failReason}
@@ -515,14 +594,17 @@ function ScenarioRow({ scenario, suiteName, env, persistedResult }) {
   );
 }
 
-function ScenarioList({ scenarios, title, suiteName, suiteId, onRefresh, env, executeResults }) {
+function ScenarioList({ scenarios, title, suiteName, suiteId, onRefresh, env, executeResults, fixStatus, onFixStart, onFixStop }) {
   const [syncLoading, setSyncLoading] = useState(false);
+  const [syncLoadingKey, setSyncLoadingKey] = useState(null);
   const [syncPreview, setSyncPreview] = useState(null);
+  const [syncPreviewKey, setSyncPreviewKey] = useState(null);
 
   async function handleSync() {
     if (!suiteName) return;
     setSyncLoading(true);
     setSyncPreview(null);
+    setSyncPreviewKey(null);
     try {
       const res = await fetch(`${API}/sync/${suiteName}/preview`, { method: 'POST' });
       const data = await res.json();
@@ -535,6 +617,26 @@ function ScenarioList({ scenarios, title, suiteName, suiteId, onRefresh, env, ex
       setSyncPreview([{ error: e.message }]);
     } finally {
       setSyncLoading(false);
+    }
+  }
+
+  async function handleSyncScenario(key) {
+    if (!suiteName || !key) return;
+    setSyncPreview(null);
+    setSyncPreviewKey(key);
+    setSyncLoadingKey(key);
+    try {
+      const res = await fetch(`${API}/sync/${suiteName}/${key}/preview`, { method: 'POST' });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setSyncPreview(data.changes);
+      } else {
+        setSyncPreview([{ error: data.error || 'Sync failed' }]);
+      }
+    } catch (e) {
+      setSyncPreview([{ error: e.message }]);
+    } finally {
+      setSyncLoadingKey(null);
     }
   }
 
@@ -589,6 +691,11 @@ function ScenarioList({ scenarios, title, suiteName, suiteId, onRefresh, env, ex
                 suiteName={suiteId || suiteName}
                 env={env}
                 persistedResult={executeResults?.[`${suiteId || suiteName}:${s.key}`]}
+                onSync={handleSyncScenario}
+                syncLoading={syncLoadingKey === s.key}
+                fixStatus={fixStatus}
+                onFixStart={onFixStart}
+                onFixStop={onFixStop}
               />
             ))}
           </tbody>
@@ -600,8 +707,10 @@ function ScenarioList({ scenarios, title, suiteName, suiteId, onRefresh, env, ex
       {syncPreview && Array.isArray(syncPreview) && !syncPreview[0]?.error && (
         <SyncDiffModal
           suite={suiteName}
+          key={syncPreviewKey}
           changes={syncPreview}
-          onClose={() => setSyncPreview(null)}
+          onClose={() => { setSyncPreview(null); setSyncPreviewKey(null); }}
+          onApply={onRefresh}
           onRefresh={onRefresh}
         />
       )}
@@ -672,7 +781,7 @@ function App() {
   const [runs, setRuns] = useState([]);
   const [failedScenariosRunId, setFailedScenariosRunId] = useState(null);
   const [executeResults, setExecuteResults] = useState({});
-  const [dismissedFailures, setDismissedFailures] = useState({});
+  const [fixStatus, setFixStatus] = useState(null);
 
   async function handleSync() {
     setSyncing(true);
@@ -697,36 +806,24 @@ function App() {
     setLoading(true);
     setError(null);
     try {
-        const [mRes, tRes, fRes, aRes, sRes, cRes, runsRes, execRes, dismissRes] = await Promise.all([
-          fetch(`${API}/metrics`),
-          fetch(`${API}/trends?limit=30`),
-          fetch(`${API}/flaky?lastN=20`),
-          fetch(`${API}/automation`),
-          fetch(`${API}/suites`),
-          fetch(`${API}/sync-config`),
-          fetch(`${API}/runs?limit=30`),
-          fetch(`${API}/execute-results`),
-          fetch(`${API}/dismissed-failures`),
+        const [m, t, f, a, s, c, runsData, execData] = await Promise.all([
+          fetchJson(`${API}/metrics`),
+          fetchJson(`${API}/trends?limit=30`),
+          fetchJson(`${API}/flaky?lastN=20`),
+          fetchJson(`${API}/automation`),
+          fetchJson(`${API}/suites`),
+          fetchJson(`${API}/sync-config`),
+          fetchJson(`${API}/runs?limit=30`),
+          fetchJson(`${API}/execute-results`),
         ]);
-        if (!mRes.ok) throw new Error('Metrics failed');
-        const m = await mRes.json();
-        const t = await tRes.json();
-        const f = await fRes.json();
-        const a = await aRes.json();
-        const s = await sRes.json();
-        const c = await cRes.json();
-        const runsData = await runsRes.json();
-        const execData = await execRes.json();
-        const dismissData = await dismissRes.json();
         setMetrics(m);
-        setTrends(t.trends || []);
-        setFlaky(f.flaky || []);
-        setAutomation(a);
-        setSuites(s.suites || []);
-        setSyncConfigSuites(c.suites || []);
-        setRuns(runsData.runs || []);
-        setExecuteResults(execData);
-        setDismissedFailures(dismissData);
+        setTrends((t && t.trends) || []);
+        setFlaky((f && f.flaky) || []);
+        setAutomation(a || {});
+        setSuites((s && s.suites) || []);
+        setSyncConfigSuites((c && c.suites) || []);
+        setRuns((runsData && runsData.runs) || []);
+        setExecuteResults(execData || {});
     } catch (e) {
       setError(e.message);
     } finally {
@@ -739,6 +836,38 @@ function App() {
     const id = setInterval(fetchAll, 15000);
     return () => clearInterval(id);
   }, []);
+
+  useEffect(() => {
+    const pollFix = async () => {
+      try {
+        const data = await fetchJson(`${API}/fix/status`);
+        setFixStatus(data);
+      } catch (_) {}
+    };
+    pollFix();
+    const id = setInterval(pollFix, 2000);
+    return () => clearInterval(id);
+  }, []);
+
+  async function handleFixStart(suite, key) {
+    try {
+      await fetch(`${API}/fix/start`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ suite, key, env: executeEnv }),
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  async function handleFixStop() {
+    try {
+      await fetch(`${API}/fix/stop`, { method: 'POST' });
+    } catch (e) {
+      console.error(e);
+    }
+  }
 
   if (loading && !metrics) {
     return (
@@ -817,6 +946,9 @@ function App() {
               onRefresh={fetchAll}
               env={executeEnv}
               executeResults={executeResults}
+              fixStatus={fixStatus}
+              onFixStart={handleFixStart}
+              onFixStop={handleFixStop}
             />
           ))}
           {suites.length === 0 && (
@@ -836,8 +968,11 @@ function App() {
           runs={runs}
           failedScenariosRunId={failedScenariosRunId}
           setFailedScenariosRunId={setFailedScenariosRunId}
-          dismissedFailures={dismissedFailures}
           onRefresh={fetchAll}
+          fixStatus={fixStatus}
+          onFixStart={handleFixStart}
+          onFixStop={handleFixStop}
+          executeEnv={executeEnv}
         />
       </section>
 

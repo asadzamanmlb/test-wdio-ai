@@ -6,11 +6,11 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const { spawn } = require('child_process');
+const kill = require('tree-kill');
 
 const app = express();
 const RUNS_FILE = path.join(__dirname, 'dashboard', 'data', 'runs.json');
 const EXECUTE_RESULTS_FILE = path.join(__dirname, 'dashboard', 'data', 'execute-results.json');
-const DISMISSED_FAILURES_FILE = path.join(__dirname, 'dashboard', 'data', 'dismissed-failures.json');
 const SCREENSHOTS_DIR = path.join(__dirname, 'reports', 'screenshots');
 const DIST_DIR = path.join(__dirname, 'dashboard', 'dist');
 const TESTCASE_DIR = path.join(__dirname, 'testcase');
@@ -18,6 +18,17 @@ const FEATURES_DIR = path.join(__dirname, 'features');
 const SYNC_CONFIG = path.join(TESTCASE_DIR, 'sync-config.json');
 
 let pendingSyncData = {};
+
+let fixState = {
+  running: false,
+  stopped: false,
+  suite: null,
+  key: null,
+  attempt: 0,
+  lastResult: null,
+  env: 'qa',
+  activeChild: null,
+};
 
 app.use(express.json());
 
@@ -54,6 +65,15 @@ function loadRuns() {
     return JSON.parse(fs.readFileSync(RUNS_FILE, 'utf8'));
   } catch {
     return [];
+  }
+}
+
+function saveRuns(runs) {
+  try {
+    fs.mkdirSync(path.dirname(RUNS_FILE), { recursive: true });
+    fs.writeFileSync(RUNS_FILE, JSON.stringify(runs, null, 2));
+  } catch (e) {
+    throw new Error(`Could not save runs: ${e.message}`);
   }
 }
 
@@ -189,13 +209,18 @@ app.get('/api/metrics', (req, res) => {
   }
   const failedScenarios = (latest.scenarios || [])
     .filter((s) => s.status === 'failed')
-    .map((s) => ({
-      id: s.id,
-      feature: s.feature,
-      name: s.name,
-      failReason: s.failReason || null,
-      screenshot: s.screenshot ? `/api/screenshots/${s.screenshot}` : null,
-    }));
+    .map((s) => {
+      const keyMatch = (s.name || s.id || '').match(/\((WSTE-\d+|WQO-\d+)\)/i);
+      return {
+        id: s.id,
+        feature: s.feature,
+        name: s.name,
+        key: (s.key || keyMatch?.[1] || '').toUpperCase() || null,
+        failStep: s.failStep || null,
+        failReason: s.failReason || null,
+        screenshot: getScreenshotUrl(s),
+      };
+    });
   res.json({
     hasData: true,
     runId: latest.id,
@@ -209,6 +234,39 @@ app.get('/api/metrics', (req, res) => {
     failedScenarios,
   });
 });
+
+/** Resolve screenshot filename - use file if it exists, else try to find a matching one in dir */
+function resolveScreenshotFilename(requestedFilename, scenarioName) {
+  const safe = (requestedFilename || '').replace(/[^a-zA-Z0-9_.-]/g, '');
+  if (safe) {
+    const filepath = path.join(SCREENSHOTS_DIR, safe);
+    if (fs.existsSync(filepath)) return safe;
+  }
+  if (!fs.existsSync(SCREENSHOTS_DIR)) return null;
+  const files = fs.readdirSync(SCREENSHOTS_DIR).filter((f) => f.endsWith('.png'));
+  if (files.length === 0) return null;
+  const baseName = (scenarioName || '').replace(/\s*\([^)]*\)\s*$/, '').trim();
+  const slug = baseName
+    .replace(/[^a-zA-Z0-9-]/g, '-')
+    .replace(/-+/g, '-')
+    .slice(0, 50)
+    .toLowerCase();
+  const match = files.find(
+    (f) =>
+      f.toLowerCase().replace(/-+/g, '-').includes(slug) ||
+      slug.includes(f.replace(/-\d+\.png$/i, '').toLowerCase().replace(/-+/g, '-'))
+  );
+  if (match) return match;
+  return files.length === 1 ? files[0] : null;
+}
+
+function getScreenshotUrl(s, baseUrl = '/api/screenshots/') {
+  if (!s) return null;
+  const resolved =
+    resolveScreenshotFilename(s.screenshot, s.name) ||
+    (s.name ? resolveScreenshotFilename(null, s.name) : null);
+  return resolved ? `${baseUrl}${resolved}` : null;
+}
 
 app.get('/api/screenshots/:filename', (req, res) => {
   const filename = req.params.filename.replace(/[^a-zA-Z0-9_.-]/g, '');
@@ -226,13 +284,18 @@ app.get('/api/runs', (req, res) => {
     .map((r) => {
       const failedScenarios = (r.scenarios || [])
         .filter((s) => s.status === 'failed')
-        .map((s) => ({
-          id: s.id,
-          feature: s.feature,
-          name: s.name,
-          failReason: s.failReason || null,
-          screenshot: s.screenshot ? `/api/screenshots/${s.screenshot}` : null,
-        }));
+        .map((s) => {
+          const keyMatch = (s.name || s.id || '').match(/\((WSTE-\d+|WQO-\d+)\)/i);
+          return {
+            id: s.id,
+            feature: s.feature,
+            name: s.name,
+            key: (s.key || keyMatch?.[1] || '').toUpperCase() || null,
+            failStep: s.failStep || null,
+            failReason: s.failReason || null,
+            screenshot: getScreenshotUrl(s),
+          };
+        });
       return {
         id: r.id,
         timestamp: r.timestamp,
@@ -310,40 +373,47 @@ app.get('/api/execute-results', (req, res) => {
   res.json(loadExecuteResults());
 });
 
-function loadDismissedFailures() {
-  if (!fs.existsSync(DISMISSED_FAILURES_FILE)) return {};
-  try {
-    return JSON.parse(fs.readFileSync(DISMISSED_FAILURES_FILE, 'utf8'));
-  } catch {
-    return {};
+/** Permanently delete failed scenarios from a run */
+app.post('/api/runs/:runId/delete-scenarios', (req, res) => {
+  const { runId } = req.params;
+  const { scenarioIds } = req.body || {};
+  if (!runId || !Array.isArray(scenarioIds) || scenarioIds.length === 0) {
+    return res.status(400).json({ error: 'runId and scenarioIds array required' });
   }
-}
-
-function saveDismissedFailures(data) {
-  try {
-    fs.mkdirSync(path.dirname(DISMISSED_FAILURES_FILE), { recursive: true });
-    fs.writeFileSync(DISMISSED_FAILURES_FILE, JSON.stringify(data, null, 2));
-  } catch (e) {
-    console.warn('Could not save dismissed failures:', e.message);
+  const runs = loadRuns();
+  const idx = runs.findIndex((r) => r.id === runId);
+  if (idx < 0) return res.status(404).json({ error: 'Run not found' });
+  const run = runs[idx];
+  const idsToRemove = new Set(scenarioIds);
+  run.scenarios = (run.scenarios || []).filter((s) => !idsToRemove.has(s.id));
+  let passed = 0;
+  let failed = 0;
+  let skipped = 0;
+  for (const s of run.scenarios) {
+    if (s.status === 'passed') passed++;
+    else if (s.status === 'failed') failed++;
+    else skipped++;
   }
-}
-
-app.get('/api/dismissed-failures', (req, res) => {
-  res.json(loadDismissedFailures());
-});
-
-app.post('/api/dismissed-failures', (req, res) => {
-  const { runId, scenarioIds, clearAll } = req.body || {};
-  const data = loadDismissedFailures();
-  if (clearAll && runId) {
-    data[runId] = []; // Clear dismissals for this run (show all again)
-  } else if (runId && Array.isArray(scenarioIds) && scenarioIds.length > 0) {
-    const set = new Set(data[runId] || []);
-    scenarioIds.forEach((id) => set.add(id));
-    data[runId] = Array.from(set);
+  run.passed = passed;
+  run.failed = failed;
+  run.skipped = skipped;
+  run.total = run.scenarios.length;
+  run.passRate = run.total > 0 ? Math.round((passed / run.total) * 100) : 0;
+  const byFeature = {};
+  for (const s of run.scenarios) {
+    const f = s.feature || 'Unknown';
+    if (!byFeature[f]) byFeature[f] = { passed: 0, failed: 0, skipped: 0 };
+    if (s.status === 'passed') byFeature[f].passed++;
+    else if (s.status === 'failed') byFeature[f].failed++;
+    else byFeature[f].skipped++;
   }
-  saveDismissedFailures(data);
-  res.json({ success: true, dismissed: data });
+  run.byFeature = Object.entries(byFeature).map(([name, data]) => ({
+    name,
+    ...data,
+    total: data.passed + data.failed + data.skipped,
+  }));
+  saveRuns(runs);
+  res.json({ success: true, deleted: scenarioIds.length });
 });
 
 /** List scenarios for a specific suite (legacy; use /api/suites for all) */
@@ -455,6 +525,76 @@ app.post('/api/sync/:suite/apply', (req, res) => {
   }
 });
 
+/** Sync single scenario: preview */
+app.post('/api/sync/:suite/:key/preview', async (req, res) => {
+  const { suite, key } = req.params;
+  if (!suite || !key) return res.status(400).json({ error: 'suite and key required' });
+  if (!fs.existsSync(SYNC_CONFIG)) return res.status(400).json({ error: 'sync-config.json not found' });
+  const config = JSON.parse(fs.readFileSync(SYNC_CONFIG, 'utf8'));
+  const issueKey = config[suite];
+  if (!issueKey) return res.status(400).json({ error: `No issue key for suite "${suite}" in sync-config` });
+
+  try {
+    const { exportSingleTest } = require('./xray/exportTestsToJson');
+    const newTest = await exportSingleTest(issueKey, suite, key, { silent: true, write: false });
+    const dir = path.join(TESTCASE_DIR, suite);
+    let oldGherkin = '';
+    const oldPath = path.join(dir, `${key}.json`);
+    if (fs.existsSync(oldPath)) {
+      try {
+        const oldData = JSON.parse(fs.readFileSync(oldPath, 'utf8'));
+        oldGherkin = oldData.gherkin || '';
+      } catch (_) {}
+    }
+    const newGherkin = newTest.gherkin || '';
+    const diff = wordDiff(oldGherkin, newGherkin);
+    const hasChanges = diff.some((d) => d.status === 'changed');
+    const pendingKey = `${suite}:${key}`;
+    pendingSyncData[pendingKey] = [newTest];
+    res.json({
+      success: true,
+      changes: [{ key, summary: newTest.summary, oldGherkin, newGherkin, diff, hasChanges }],
+    });
+  } catch (e) {
+    res.status(500).json({ success: false, error: e.message });
+  }
+});
+
+/** Sync single scenario: apply */
+app.post('/api/sync/:suite/:key/apply', (req, res) => {
+  const { suite, key } = req.params;
+  const pendingKey = `${suite}:${key}`;
+  const pending = pendingSyncData[pendingKey];
+  if (!pending) return res.status(400).json({ error: `No pending sync for ${key}. Click Sync first.` });
+
+  try {
+    const dir = path.join(TESTCASE_DIR, suite);
+    fs.mkdirSync(dir, { recursive: true });
+    const tc = pending[0];
+    const filename = `${tc.key || tc.issueId}.json`;
+    fs.writeFileSync(path.join(dir, filename), JSON.stringify(tc, null, 2));
+    const testcasesPath = path.join(dir, 'testcases.json');
+    let allCases = [];
+    if (fs.existsSync(testcasesPath)) {
+      try {
+        allCases = JSON.parse(fs.readFileSync(testcasesPath, 'utf8'));
+      } catch (_) {}
+    }
+    const idx = allCases.findIndex((c) => (c.key || c.issueId) === key);
+    if (idx >= 0) allCases[idx] = tc;
+    else allCases.push(tc);
+    fs.writeFileSync(testcasesPath, JSON.stringify(allCases, null, 2));
+    delete pendingSyncData[pendingKey];
+    try {
+      const { convertFolder } = require('./scripts/convertOptoolsToGherkin');
+      convertFolder(suite, { silent: true });
+    } catch (_) {}
+    res.json({ success: true, message: 'Updated successfully' });
+  } catch (e) {
+    res.status(500).json({ success: false, error: e.message });
+  }
+});
+
 /** Find feature file path containing @key tag. suite maps to features subdir (webTv->webtv, optools->optools). */
 function getFeaturePathForKey(suite, key) {
   const suiteToDir = { webTv: 'webtv', optools: 'optools' };
@@ -484,9 +624,141 @@ function getTagExpressionForKey(suite, key) {
   return `@${key} and not (${others.map((o) => `@${o}`).join(' or ')})`;
 }
 
+function pipeToConsole(prefix, data) {
+  const str = typeof data === 'string' ? data : data.toString();
+  if (!str.trim()) return;
+  str.split('\n').forEach((line) => {
+    if (line.trim()) console.log(`[wdio]${prefix ? ` ${prefix}` : ''} ${line}`);
+  });
+}
+
+/** Run a single test and return result (for Fix loop). Does not block executeInProgress. */
+function runSingleTest(suite, key, envVal) {
+  return new Promise((resolve) => {
+    const featurePath = getFeaturePathForKey(suite, key);
+    if (!featurePath) {
+      return resolve({ status: 'failed', failReason: `No feature file for ${key}`, failStep: null, screenshot: null });
+    }
+    const tagExpr = getTagExpressionForKey(suite, key);
+    const args = [
+      'run',
+      path.join(__dirname, 'wdio.conf.js'),
+      '--spec',
+      featurePath,
+      `--cucumberOpts.tags=${tagExpr}`,
+    ];
+    const child = spawn('npx', ['wdio', ...args], {
+      cwd: __dirname,
+      env: { ...process.env, ENV: envVal || 'qa' },
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+    fixState.activeChild = child;
+    let stdout = '';
+    let stderr = '';
+    child.stdout?.on('data', (d) => {
+      const s = d.toString();
+      stdout += s;
+      pipeToConsole('', s);
+    });
+    child.stderr?.on('data', (d) => {
+      const s = d.toString();
+      stderr += s;
+      pipeToConsole('stderr', s);
+    });
+
+    child.on('close', (code, signal) => {
+      fixState.activeChild = null;
+      if (signal === 'SIGTERM' || signal === 'SIGKILL') {
+        return resolve({ status: 'failed', failReason: 'Stopped by user', failStep: null, screenshot: null });
+      }
+      let status = 'passed';
+      let failReason = null;
+      let failStep = null;
+      let screenshot = null;
+      try {
+        const reportsDir = path.join(__dirname, 'reports', 'json');
+        const manifestPath = path.join(__dirname, 'reports', 'failure-screenshots.json');
+        const baseName = path.basename(featurePath, '.feature');
+        const reportFile = path.join(reportsDir, `${baseName}.json`);
+        if (fs.existsSync(reportFile)) {
+          const data = JSON.parse(fs.readFileSync(reportFile, 'utf8'));
+          const features = Array.isArray(data) ? data : [data];
+          const lastFeat = features[features.length - 1];
+          if (lastFeat?.elements) {
+            for (const el of lastFeat.elements) {
+              if (el.keyword?.toLowerCase().includes('background')) continue;
+              const scenarioId = `${lastFeat.name || ''}::${el.name || ''}`;
+              let failed = false;
+              if (el.steps) {
+                for (const step of el.steps) {
+                  if (step.result?.status === 'failed') {
+                    failed = true;
+                    failReason = step.result.error_message || step.result.message || 'Unknown error';
+                    failStep = [step.keyword, step.name].filter(Boolean).join(' ').trim() || null;
+                    break;
+                  }
+                }
+              }
+              status = failed ? 'failed' : 'passed';
+              if (failed && fs.existsSync(manifestPath)) {
+                const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+                screenshot = manifest[scenarioId] || null;
+              }
+              break;
+            }
+          }
+        }
+        if (code !== 0 && status === 'passed') status = 'failed';
+        if (status === 'failed' && !failReason) failReason = stderr || stdout?.slice(-500) || 'Test failed';
+      } catch (e) {
+        status = 'failed';
+        failReason = e.message;
+      }
+      const screenshotUrl = screenshot ? `/api/screenshots/${screenshot}` : null;
+      resolve({ status, failReason, failStep, screenshot: screenshotUrl });
+    });
+
+    child.on('error', (err) => {
+      resolve({ status: 'failed', failReason: err.message, failStep: null, screenshot: null });
+    });
+  });
+}
+
+/** Fix loop: run test, on fail capture (hooks do self-heal), retry until pass or stopped. */
+async function runFixLoop(suite, key, envVal) {
+  fixState.running = true;
+  fixState.stopped = false;
+  fixState.suite = suite;
+  fixState.key = key;
+  fixState.env = envVal || 'qa';
+  fixState.attempt = 0;
+  fixState.lastResult = null;
+
+  while (!fixState.stopped) {
+    fixState.attempt++;
+    fixState.lastResult = await runSingleTest(suite, key, fixState.env);
+    const id = `${suite}:${key}`;
+    saveExecuteResult(suite, key, {
+      success: fixState.lastResult.status === 'passed',
+      status: fixState.lastResult.status,
+      failStep: fixState.lastResult.failStep,
+      failReason: fixState.lastResult.failReason,
+      screenshot: fixState.lastResult.screenshot,
+    });
+    if (fixState.lastResult.status === 'passed') {
+      fixState.running = false;
+      fixState.stopped = true;
+      return;
+    }
+    if (fixState.stopped) break;
+    await new Promise((r) => setTimeout(r, 3000));
+  }
+  fixState.running = false;
+}
+
 let executeInProgress = false;
 app.post('/api/execute', (req, res) => {
-  if (executeInProgress) {
+  if (executeInProgress || fixState.running) {
     return res.status(429).json({ error: 'Another test is already running' });
   }
   const { suite, key } = req.body || {};
@@ -520,13 +792,22 @@ app.post('/api/execute', (req, res) => {
 
   let stdout = '';
   let stderr = '';
-  child.stdout?.on('data', (d) => { stdout += d.toString(); });
-  child.stderr?.on('data', (d) => { stderr += d.toString(); });
+  child.stdout?.on('data', (d) => {
+    const s = d.toString();
+    stdout += s;
+    pipeToConsole('', s);
+  });
+  child.stderr?.on('data', (d) => {
+    const s = d.toString();
+    stderr += s;
+    pipeToConsole('stderr', s);
+  });
 
   child.on('close', (code) => {
     executeInProgress = false;
     let status = 'passed';
     let failReason = null;
+    let failStep = null;
     let screenshot = null;
 
     try {
@@ -556,6 +837,7 @@ app.post('/api/execute', (req, res) => {
               if (step.result?.status === 'failed') {
                 failed = true;
                 failReason = step.result.error_message || step.result.message || 'Unknown error';
+                failStep = [step.keyword, step.name].filter(Boolean).join(' ').trim() || null;
                 break;
               }
             }
@@ -578,6 +860,7 @@ app.post('/api/execute', (req, res) => {
     const result = {
       success: status === 'passed',
       status,
+      failStep: status === 'failed' ? failStep : null,
       failReason: status === 'failed' ? failReason : null,
       screenshot: status === 'failed' && screenshot ? `/api/screenshots/${screenshot}` : null,
     };
@@ -594,6 +877,50 @@ app.post('/api/execute', (req, res) => {
       screenshot: null,
     });
   });
+});
+
+app.get('/api/fix/status', (req, res) => {
+  res.json({
+    running: fixState.running,
+    stopped: fixState.stopped,
+    suite: fixState.suite,
+    key: fixState.key,
+    attempt: fixState.attempt,
+    lastResult: fixState.lastResult,
+    env: fixState.env,
+  });
+});
+
+app.post('/api/fix/start', (req, res) => {
+  if (fixState.running) {
+    return res.status(429).json({ error: 'Fix already running' });
+  }
+  if (executeInProgress) {
+    return res.status(429).json({ error: 'Execute in progress' });
+  }
+  const { suite, key, env } = req.body || {};
+  if (!suite || !key) {
+    return res.status(400).json({ error: 'suite and key required' });
+  }
+  const featurePath = getFeaturePathForKey(suite, key);
+  if (!featurePath) {
+    return res.status(404).json({ error: `No feature file for ${key} in ${suite}` });
+  }
+  fixState.stopped = false;
+  runFixLoop(suite, key, env || 'qa').catch(() => {});
+  res.json({ success: true, message: 'Fix loop started' });
+});
+
+app.post('/api/fix/stop', (req, res) => {
+  fixState.stopped = true;
+  if (fixState.activeChild && fixState.activeChild.pid) {
+    try {
+      kill(fixState.activeChild.pid, 'SIGTERM');
+    } catch (_) {
+      try { kill(fixState.activeChild.pid, 'SIGKILL'); } catch (_) {}
+    }
+  }
+  res.json({ success: true, message: 'Stopping fix loop' });
 });
 
 let syncInProgress = false;

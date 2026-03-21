@@ -24,10 +24,12 @@
     "test:grid:beta": "ENV=beta wdio run wdio.grid.conf.js",
     "dashboard": "node dashboard-server.js",
     "dashboard:build": "cd dashboard && npm run build",
-    "dashboard:dev": "cd dashboard && npm run dev"
+    "dashboard:dev": "concurrently \"node dashboard-server.js\" \"wait-on -d 100 -t 30000 http://localhost:4000/api/metrics && cd dashboard && npm run dev\" --names \"api,dev\" --prefix-colors \"blue,green\"",
+    "dashboard:dev:only": "cd dashboard && npm run dev"
   },
   "dependencies": {
     "cheerio": "^1.2.0",
+    "tree-kill": "^1.2.2",
     "dotenv": "^17.3.1",
     "express": "^4",
     "openai": "^6.32.0"
@@ -40,6 +42,7 @@
     "chromedriver": "^146.0.5",
     "concurrently": "^9.2.1",
     "eslint": "^10.1.0",
+    "wait-on": "^8.0.5",
     "wdio-cucumberjs-json-reporter": "^6.0.1",
     "webdriverio": "^9.26.1"
   }

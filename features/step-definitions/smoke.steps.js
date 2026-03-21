@@ -270,14 +270,80 @@ When('the user navigates down to select a VOD video', async function () {
       const url = await browser.getUrl();
       return url.includes('/video/') || url.includes('/watch/') || url.includes('/shows/');
     },
-    { timeout: 15000, timeoutMsg: 'Did not navigate to video page after clicking VOD tile', interval: 800 }
+    { timeout: 15000, timeoutMsg: 'Did not navigate after clicking VOD tile', interval: 800 }
   );
 
   const handles = await browser.getWindowHandles();
   if (handles.length > handlesBefore.length) {
     await browser.switchToWindow(handles[handles.length - 1]);
   }
-  const url = await browser.getUrl();
+
+  let url = await browser.getUrl();
+
+  // Match webTv-temp: if we landed on shows detail page (/tv/shows/xxx), find and click a video tile to reach video page
+  const urlParts = url.split('/').filter((p) => p.length > 0);
+  const showsIndex = urlParts.indexOf('shows');
+  const isOnShowsDetailPage =
+    showsIndex >= 0 &&
+    urlParts.length > showsIndex + 1 &&
+    url.includes('/tv/shows/') &&
+    !url.includes('/video/') &&
+    !url.includes('/watch/');
+
+  if (isOnShowsDetailPage) {
+    console.log('   📺 On shows detail page - finding VOD video tile (from webTv-temp flow)...');
+
+    await browser.waitUntil(
+      async () => (await browser.execute(() => document.readyState)) === 'complete',
+      { timeout: 10000, timeoutMsg: 'Shows detail page did not load' }
+    );
+    await new Promise((r) => setTimeout(r, 1500));
+
+    const hasVideoPlayer = await browser.execute(() => document.querySelector('video') !== null);
+    if (hasVideoPlayer) {
+      console.log('   ✅ Video player already embedded on shows detail page');
+      return;
+    }
+
+    const tilesArr = await commonPage.videoTiles();
+
+    let vodTileOnDetail = null;
+    for (const tile of tilesArr) {
+      try {
+        const href = await tile.getAttribute('href').catch(() => null);
+        if (href && isVodLink(href)) {
+          const isShowsDetail = href.includes('/tv/shows/') && !href.includes('/video/') && !href.includes('/watch/');
+          if (!isShowsDetail) {
+            vodTileOnDetail = tile;
+            break;
+          }
+        }
+      } catch (_) {}
+    }
+
+    if (vodTileOnDetail) {
+      await vodTileOnDetail.scrollIntoView({ block: 'center' });
+      await vodTileOnDetail.waitForClickable({ timeout: 8000 }).catch(() => {});
+      await vodTileOnDetail.click();
+
+      await browser.waitUntil(
+        async () => {
+          const u = await browser.getUrl();
+          return u.includes('/video/') || u.includes('/watch/');
+        },
+        { timeout: 15000, timeoutMsg: 'Did not navigate to video page from shows detail', interval: 800 }
+      );
+    } else {
+      const hasVideo = await browser.execute(() => document.querySelector('video') !== null);
+      if (hasVideo) {
+        console.log('   ✅ Found embedded video on shows detail page');
+        return;
+      }
+      throw new Error('No VOD video tile found on shows detail page');
+    }
+  }
+
+  url = await browser.getUrl();
   if (!url.includes('/video/') && !url.includes('/watch/')) {
     throw new Error(`Expected video page, got: ${url}`);
   }

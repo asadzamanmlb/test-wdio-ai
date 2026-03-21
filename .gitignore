@@ -4,8 +4,9 @@ node_modules/
 .DS_Store
 .selfheal-report.json
 .rag-memory.json
-fixedTest.js
+ fixedTest.js
+webTv-temp
 /reports/screenshots
 dist/
-dashboard/dist/
+/dashboard/dist/
 /dashboard/data/screenshots

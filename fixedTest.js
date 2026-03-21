@@ -1,0 +1,1 @@
+await $('button=Login').click();

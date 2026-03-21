@@ -146,6 +146,37 @@ async function exportTests(issueKey, folder, options = {}) {
   return allTestCases;
 }
 
+/** Export a single test by key from an execution. testKey e.g. WSTE-44 */
+async function exportSingleTest(executionKey, folder, testKey, options = {}) {
+  const { silent = false, write = true } = options;
+  const log = (...args) => !silent && console.log(...args);
+  const outDir = path.join(__dirname, '..', 'testcase', folder);
+
+  log('🔐 Authenticating...');
+  const token = await authenticate();
+  log('✅ Authenticated\n');
+
+  log(`📋 Fetching tests from ${executionKey}...`);
+  const tests = await getTestExecutionTests(token, executionKey);
+  const match = tests.find((t) => (t.jira?.key || '').toUpperCase() === (testKey || '').toUpperCase());
+  if (!match) {
+    throw new Error(`Test ${testKey} not found in execution ${executionKey}`);
+  }
+
+  log(`📥 Fetching expanded details for ${testKey}...`);
+  const expanded = await getExpandedTests(token, [match.issueId]);
+  const tc = toTestCaseJson(expanded[0] || match);
+
+  if (write) {
+    fs.mkdirSync(outDir, { recursive: true });
+    const filename = `${tc.key || tc.issueId}.json`;
+    fs.writeFileSync(path.join(outDir, filename), JSON.stringify(tc, null, 2));
+    log(`  ✓ ${tc.key}`);
+  }
+
+  return tc;
+}
+
 async function main() {
   const issueKey = process.argv[2] || process.env.XRAY_ISSUE_KEY || 'WSTE-796';
   const folder = process.argv[3] || 'webTv';
@@ -159,4 +190,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { exportTests };
+module.exports = { exportTests, exportSingleTest };
