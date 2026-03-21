@@ -1,0 +1,21 @@
+{
+  "id": "WQO-401",
+  "issueId": "1146082",
+  "key": "WQO-401",
+  "summary": "Blackout Override | User Lookup | No Conviva Sessions Available",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the \"Blackout Override\" tile on the dashboard\nAnd the user inputs an email in the \"Email\" field\nAnd presses enter\nThen the user should land on the \"User Info Lookup\" page\nAnd the user should see the \"Blackout Override\", \"User Lookup\" and \"Overrides\" tab right next to the \"User Lookup\" tab on top of the page\nAnd the user should see a search bar labeled \"Email\"\nAnd the instruction text should read:\n\"Search for a user by email to view their information, existing overrides and recent Conviva sessions\"\nAnd the entered email should remain visible in the field\nAnd the user should see the following three sections:\n||*User info*|\"ID\", \"Email\", First Name\" \"Last Name\"|\n||*Existing Overrides*|\"There are no existing overrides for this user.\"|\n||*Conviva Sessions*|\"No recent Conviva sessions were found.\"|",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "dc00948c-a660-4fd2-a556-c2d179c491b6",
+      "action": "When the user clicks on the \"Blackout Override\" tile on the dashboard\nAnd the user inputs an email in the \"Email\" field\nAnd presses enter",
+      "data": "",
+      "result": "Then the user should land on the \"User Info Lookup\" page\nAnd the user should see the \"Blackout Override\", \"User Lookup\" and \"Overrides\" tab right next to the \"User Lookup\" tab on top of the page\nAnd the user should see a search bar labeled \"Email\"\nAnd the instruction text should read:\n\"Search for a user by email to view their information, existing overrides and recent Conviva sessions\"\nAnd the entered email should remain visible in the field\nAnd the user should see the following three sections:\n\n||*User info*|\"ID\", \"Email\", First Name\" \"Last Name\"|\n||*Existing Overrides*|\"There are no existing overrides for this user.\"|\n||*Conviva Sessions*|\"No recent Conviva sessions were found.\"|"
+    }
+  ],
+  "originalTestType": "Manual"
+}

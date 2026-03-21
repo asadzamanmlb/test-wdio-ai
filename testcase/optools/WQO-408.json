@@ -1,0 +1,21 @@
+{
+  "id": "WQO-408",
+  "issueId": "1146089",
+  "key": "WQO-408",
+  "summary": "Audit & Logging | Audits | Search by Media ID",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the \"Audit & Logging\" tile on the homepage or the side nav\nAnd the user clicks on the \"Resource Tag\" button\nAnd the user select and enters a valid Media ID in the Media ID input field\nFor example: f376e73a-bdf3-4d51-b48d-934450bf23d2\nAnd the user presses Enter or clicks on the magnifying glass\nAnd !xray-attachment://ed2e03b0-bd7d-42a7-a859-5c0f38096702|width=1950,height=710!\nThen the user should land on the \"Audits\" page\nAnd the user sees \"Game PK\" and \"Media ID\" buttons\nAnd the entered Media ID should appear in the input field\nAnd upon submission, a list of logs associated with that Media ID should appear\nAnd the logs should be shown in a table with the following column headers:\n-Source System\n-Operation\n-Instigator\n-Email\n-Created At\n-Trace ID\n-Event Data\n-Resource Tags",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "620ef208-dafb-434e-b80b-17e88b160102",
+      "action": "*When* the user clicks on the \"Audit & Logging\" tile on the homepage or the side nav\n*And* the user clicks on the \"Resource Tag\" button\n*And* the user select and enters a valid Media ID in the Media ID input field\nFor example: f376e73a-bdf3-4d51-b48d-934450bf23d2\n*And* the user presses Enter or clicks on the magnifying glass",
+      "data": "!xray-attachment://ed2e03b0-bd7d-42a7-a859-5c0f38096702|width=1950,height=710!",
+      "result": "*Then* the user should land on the \"Audits\" page\n\n*And* the user sees \"Game PK\" and \"Media ID\" buttons\n\n*And* the entered Media ID should appear in the input field\n\n*And* upon submission, a list of logs associated with that Media ID should appear\n\n*And* the logs should be shown in a table with the following column headers:\n-Source System\n-Operation\n-Instigator\n-Email\n-Created At\n-Trace ID\n-Event Data\n-Resource Tags"
+    }
+  ],
+  "originalTestType": "Manual"
+}

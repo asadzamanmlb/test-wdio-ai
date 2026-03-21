@@ -1,0 +1,21 @@
+{
+  "id": "WQO-429",
+  "issueId": "1146110",
+  "key": "WQO-429",
+  "summary": "Media Validation | Litmus tool Search | Valid Input",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user click on the \"Media Validation\" tile on the dashboard\nAnd the user inputs a valid query into the \"Search for GamePK\" box. For example: 747090\nThen the user should land on the Media Validation Litmus (current date) page by default\nAnd the user should see the matching GamePK results for the games of that day\n!xray-attachment://341ebddb-3f68-4e47-adea-18df4d6fe523|width=780,height=762!",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "702a1e28-03b9-4526-b4a7-b547bb22decb",
+      "action": "When the user click on the \"Media Validation\" tile on the dashboard\n\nAnd the user inputs a valid query into the \"Search for GamePK\" box. For example: 747090",
+      "data": "",
+      "result": "Then the user should land on the Media Validation Litmus (current date) page by default\n\nAnd the user should see the matching GamePK results for the games of that day\n\n!xray-attachment://341ebddb-3f68-4e47-adea-18df4d6fe523|width=780,height=762!"
+    }
+  ],
+  "originalTestType": "Manual"
+}

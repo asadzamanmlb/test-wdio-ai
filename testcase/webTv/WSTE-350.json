@@ -1,0 +1,13 @@
+{
+  "id": "WSTE-350",
+  "issueId": "1135842",
+  "key": "WSTE-350",
+  "summary": "Verify Media Center",
+  "description": "{panel:bgColor=#deebff}\nPlease Note that the Media Center is not behind the paywall and therefore does not need authentication to access this page.\n{panel}",
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user navigates to mlb.com/live-stream-games\nThen the user lands on the Media Center\nAnd the user sees **WATCH** is underlined in the Top Nav\nAnd the user sees the MLB Stream Schedule displayed",
+  "unstructured": null,
+  "steps": []
+}

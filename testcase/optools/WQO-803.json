@@ -1,0 +1,33 @@
+{
+  "id": "WQO-803",
+  "issueId": "1163628",
+  "key": "WQO-803",
+  "summary": "Media Validation | Litmus Validation Suite",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user visits the Operator tool and logs in\nThen the user should be successfully logged into the platform\nWhen the user navigates to the \"Media Validation\" page\nThen the user should be taken to the \"Media Validation\" page\nAnd the user should see \"Litmus\" on the top header of the page\nWhen the user clicks on the \"Validation Suite\" dropdown for the first game within the schedule\nAnd the user selects a validation suite from the dropdown\nAnd the user clicks on the \"Run Validation\" button for the first game within the schedule\nThen the \"Validation Suite\" field for the first game should display the selected suite name\nAnd the \"Validation Result\" field for the first game should display \"PASS\" or \"FAIL\"\nAnd the user should see the following data for each row of the validation suite for the first game:\nName | Description | Result",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "eaa93004-8599-45e2-af34-c4656fa64c8b",
+      "action": "*When* the user visits the Operator tool and logs in",
+      "data": "",
+      "result": "*Then* the user should be successfully logged into the platform"
+    },
+    {
+      "id": "c4757644-20c7-4f1b-bd97-b3c0a70bb953",
+      "action": "*When* the user navigates to the \"Media Validation\" page",
+      "data": "",
+      "result": "*Then* the user should be taken to the \"Media Validation\" page\n\n*And* the user should see \"Litmus\" on the top header of the page"
+    },
+    {
+      "id": "726c6789-9d15-448c-b8fa-ecf13eea87d6",
+      "action": "*When* the user clicks on the \"Validation Suite\" dropdown for the first game within the schedule\n\n*And* the user selects a validation suite from the dropdown\n\n*And* the user clicks on the \"Run Validation\" button for the first game within the schedule",
+      "data": "",
+      "result": "*Then* the \"Validation Suite\" field for the first game should display the selected suite name\n\n*And* the \"Validation Result\" field for the first game should display \"PASS\" or \"FAIL\"\n\n*And* the user should see the following data for each row of the validation suite for the first game:\nName | Description | Result"
+    }
+  ],
+  "originalTestType": "Manual"
+}

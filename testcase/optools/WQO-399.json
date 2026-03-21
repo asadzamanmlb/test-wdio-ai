@@ -1,0 +1,21 @@
+{
+  "id": "WQO-399",
+  "issueId": "1146080",
+  "key": "WQO-399",
+  "summary": "Blackout Override | User Look up Page | Ul Validation - without User Info Lookup",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the \"Blackout Override\" tile on the dashboard\nAnd !xray-attachment://6142ebd0-ab28-4d2c-8cb5-5c8a5c3113c1|width=944,height=656!\nThen the user should land on the \"User Info Lookup\" page\nAnd the user should see the \"Blackout Override\" in the header of the page\nAnd the user should see the \"User Lookup\" and \"Overrides\" tabs at the top of the page\nAnd the user should see a search bar labeled \"Email\"\nAnd the instruction text should read:\n\"Search for a user by email to view their information, existing overrides and recent Conviva sessions\"",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ab8911c2-d049-4b3f-8dd9-6163c2361bb9",
+      "action": "*When* the user clicks on the \"Blackout Override\" tile on the dashboard",
+      "data": "!xray-attachment://6142ebd0-ab28-4d2c-8cb5-5c8a5c3113c1|width=944,height=656!",
+      "result": "*Then* the user should land on the \"User Info Lookup\" page\n*And* the user should see the \"Blackout Override\" in the header of the page\n*And* the user should see the \"User Lookup\" and \"Overrides\" tabs at the top of the page\n*And* the user should see a search bar labeled \"Email\"\n*And* the instruction text should read:\n\"Search for a user by email to view their information, existing overrides and recent Conviva sessions\""
+    }
+  ],
+  "originalTestType": "Manual"
+}

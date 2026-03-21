@@ -1,0 +1,21 @@
+{
+  "id": "WQO-396",
+  "issueId": "1146077",
+  "key": "WQO-396",
+  "summary": "Home | Navigation | Verify All Tool Cards Are Rendered and Clickable on the Home Page",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the Home page is displayed\nThen the user should see the following tiles on the home page:\n||[*BTC Tools*|https://baseball.atlassian.net/browse/WQO-398]||\n||[*Overrides*|https://baseball.atlassian.net/browse/WQO-398]||\n||[*Blackout Override*|https://baseball.atlassian.net/browse/WQO-399]||\n||[*Logger*|https://baseball.atlassian.net/browse/WQO-403]||\n||[*Media Validation*|https://baseball.atlassian.net/browse/WQO-404]||\n||[*Milestones*|https://baseball.atlassian.net/browse/WQO-405]||\n||[*Audit & Logging*|https://baseball.atlassian.net/browse/WQO-407]||\n||[*Partner Stream Delivery*|https://baseball.atlassian.net/browse/WQO-410]||\n||[*ESNI Management*|https://baseball.atlassian.net/browse/WQO-412]||\n||[*User Lookup*|https://baseball.atlassian.net/browse/WQO-1053]||\nAnd each card should display with the correct label\nAnd each card should be clickable and navigate to its respective tool's page",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b34d48e4-fe65-44f8-8be6-1ec1670f56d3",
+      "action": "*When* the Home page is displayed",
+      "data": "",
+      "result": "Then the user should see the following tiles on the home page:\n\n||[*BTC Tools*|https://baseball.atlassian.net/browse/WQO-398]||\n||[*Overrides*|https://baseball.atlassian.net/browse/WQO-398]||\n||[*Blackout Override*|https://baseball.atlassian.net/browse/WQO-399]||\n||[*Logger*|https://baseball.atlassian.net/browse/WQO-403]||\n||[*Media Validation*|https://baseball.atlassian.net/browse/WQO-404]||\n||[*Milestones*|https://baseball.atlassian.net/browse/WQO-405]||\n||[*Audit & Logging*|https://baseball.atlassian.net/browse/WQO-407]||\n||[*Partner Stream Delivery*|https://baseball.atlassian.net/browse/WQO-410]||\n||[*ESNI Management*|https://baseball.atlassian.net/browse/WQO-412]||\n||[*User Lookup*|https://baseball.atlassian.net/browse/WQO-1053]||\n\n*And* each card should display with the correct label\n*And* each card should be clickable and navigate to its respective tool's page"
+    }
+  ],
+  "originalTestType": "Manual"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "WQO-1038",
+  "issueId": "1250050",
+  "key": "WQO-1038",
+  "summary": "BTC Tools | Schedule | Verify Game Card Details",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the BTC Tools Game tile or the side nav bar\nAnd !xray-attachment://7ef7f047-b4e8-4c07-b7a4-64b306530202|width=905,height=97!\nThen the user should land on the BTC Schedule page by default\nAnd the game card(s) are displayed, the user should see the following:\nTeam match up | Game PK | Venue | Game Date | Status",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4aff426f-1d69-499a-a856-02f2e31071ea",
+      "action": "*When* the user clicks on the BTC Tools Game tile or the side nav bar",
+      "data": "!xray-attachment://7ef7f047-b4e8-4c07-b7a4-64b306530202|width=905,height=97!",
+      "result": "*Then* the user should land on the BTC Schedule page by default\n\n*And* the game card(s) are displayed, the user should see the following:\n\nTeam match up | Game PK | Venue | Game Date | Status"
+    }
+  ],
+  "originalTestType": "Manual"
+}

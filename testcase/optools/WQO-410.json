@@ -1,0 +1,27 @@
+{
+  "id": "WQO-410",
+  "issueId": "1146091",
+  "key": "WQO-410",
+  "summary": "Partner Delivery | Mapping | Filter Search on Target and Channel List",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the \"Partner Stream Delivery\" tile on the dashboard\nThen the user should see the \"Mapping\" Tab\nAnd the user should see a \"Search\" bar display on the \"Channels\" and \"Targets\" section\nWhen the user inputs data in the \"Search\" bar\nThen the user should see \"Channels\" or \"Targets\" that fit the criteria is displayed\nAnd the \"Channels\" or \"Targets\" that is currently selected/ mapped should be displayed",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8c0c584c-e272-48ac-a789-47ca04d2d77e",
+      "action": "*When* the user clicks on the \"Partner Stream Delivery\" tile on the dashboard",
+      "data": "",
+      "result": "*Then* the user should see the \"Mapping\" Tab\n\n*And* the user should see a \"Search\" bar display on the \"Channels\" and \"Targets\" section"
+    },
+    {
+      "id": "c700f6ee-41cf-4efc-b5f8-149b5180335b",
+      "action": "*When* the user inputs data in the \"Search\" bar",
+      "data": "",
+      "result": "*Then* the user should see \"Channels\" or \"Targets\" that fit the criteria is displayed\n\n*And* the \"Channels\" or \"Targets\" that is currently selected/ mapped should be displayed"
+    }
+  ],
+  "originalTestType": "Manual"
+}

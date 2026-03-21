@@ -1,0 +1,350 @@
+# Gherkin Standardization
+
+## Overview
+This cursor rule enforces standardized Gherkin syntax and best practices in feature files to ensure consistency, readability, and maintainability across BDD scenarios.
+
+## Purpose
+- **Consistency** - Standardize THEN step phrasing across all feature files
+- **Clarity** - Clear distinction between actions and assertions
+- **Simplicity** - Remove unnecessary Scenario Outlines when only single data set is used
+- **Maintainability** - Easier to read and modify feature files
+
+## Automated Detection
+The checker scans all feature files and validates Gherkin syntax conventions.
+
+### Usage
+```bash
+npm run cursor-rules-check
+```
+
+## Gherkin Convention Rules
+
+### 1. THEN Steps Must Use Assertion Phrasing
+
+**Pattern:** `Then I should see ...` or `Then I verify ...`
+
+**Rules:**
+- THEN steps must use "I should see", "I should be", "I verify", or similar assertion phrasing
+- Avoid direct observation phrasing like "I see" or "I am"
+- THEN steps represent expected outcomes, not actions
+
+**Examples:**
+
+✅ **GOOD:**
+```gherkin
+Then I should see the 'Login' button
+Then I should see 'Welcome' message
+Then I should be on the Home page
+Then I should be redirected to Settings page
+Then I verify the video is playing
+Then I verify closed captions are enabled
+Then the user should see an error message
+Then the page should display the confirmation modal
+```
+
+❌ **BAD:**
+```gherkin
+Then I see the 'Login' button              # Should be "I should see"
+Then I am on the Home page                 # Should be "I should be"
+Then the video is playing                  # Should be "I verify" or "should be"
+Then closed captions are enabled           # Should be "I verify" or "should be"
+Then user sees an error message            # Should be "should see"
+Then page displays confirmation modal      # Should be "should display"
+```
+
+### 2. Remove Examples When Only Single User/Data Set
+
+**Rule:** Convert Scenario Outline to regular Scenario when only one example row exists
+
+**Examples:**
+
+❌ **BAD - Unnecessary Scenario Outline:**
+```gherkin
+Scenario Outline: User logs in successfully
+  Given I am on the login page
+  When I enter <username> and <password>
+  Then I should see the home page
+
+  Examples:
+    | username           | password |
+    | testuser@email.com | Test123  |
+```
+
+✅ **GOOD - Use Regular Scenario:**
+```gherkin
+Scenario: User logs in successfully
+  Given I am on the login page
+  When I enter 'testuser@email.com' and 'Test123'
+  Then I should see the home page
+```
+
+### 3. Keep Multiple User Examples
+
+**Rule:** Use Scenario Outline with Examples table when testing multiple data sets
+
+**Examples:**
+
+✅ **GOOD - Multiple Examples:**
+```gherkin
+Scenario Outline: Different users can log in
+  Given I am on the login page
+  When I enter <username> and <password>
+  Then I should see the home page
+
+  Examples:
+    | username              | password  |
+    | freeuser@email.com    | Free123   |
+    | yearlyuser@email.com  | Yearly123 |
+    | monthlyuser@email.com | Month123  |
+```
+
+### 4. Move Single-User Data Directly Into Steps
+
+**Rule:** Hardcode values directly in steps instead of using placeholders when only one data set
+
+**Examples:**
+
+❌ **BAD:**
+```gherkin
+Scenario Outline: Verify settings page
+  When I navigate to <page>
+  And I toggle <setting> to <state>
+  Then I should see <message>
+
+  Examples:
+    | page     | setting           | state | message            |
+    | Settings | Closed Captions   | ON    | Captions enabled   |
+```
+
+✅ **GOOD:**
+```gherkin
+Scenario: Verify settings page
+  When I navigate to 'Settings'
+  And I toggle 'Closed Captions' to 'ON'
+  Then I should see 'Captions enabled'
+```
+
+## Detection Algorithm
+
+The rule checks:
+
+### 1. THEN Step Phrasing
+- Scans all `Then` steps in feature files
+- Checks for assertion keywords: "should", "verify", "expect"
+- Flags steps without proper assertion phrasing
+
+**Detected Patterns:**
+```javascript
+// Valid assertion patterns
+✅ /Then I should (see|be|have|get)/
+✅ /Then I verify/
+✅ /Then .* should (see|be|have|display|show)/
+
+// Invalid patterns (flagged)
+❌ /Then I (see|am|have)/  (without "should")
+❌ /Then .* (is|are|displays)/  (without "should")
+```
+
+### 2. Single Example Detection
+- Finds all `Scenario Outline` blocks
+- Counts rows in `Examples` table (excluding header)
+- Flags Scenario Outlines with only 1 data row
+
+### 3. Suggested Conversion
+- Provides converted Scenario suggestion
+- Replaces `<placeholders>` with actual values from Examples table
+
+## Implementation Examples
+
+### Example 1: THEN Step Violation
+
+**Before:**
+```gherkin
+Scenario: Check video player
+  When I click play button
+  Then video is playing
+  And controls are visible
+```
+
+**After:**
+```gherkin
+Scenario: Check video player
+  When I click play button
+  Then I should see the video playing
+  And I should see the controls visible
+```
+
+### Example 2: Single Example Conversion
+
+**Before:**
+```gherkin
+Scenario Outline: Free user sees paywall
+  Given I am logged in as <userType>
+  When I try to watch a live game
+  Then I should see the paywall
+
+  Examples:
+    | userType |
+    | free     |
+```
+
+**After:**
+```gherkin
+Scenario: Free user sees paywall
+  Given I am logged in as 'free'
+  When I try to watch a live game
+  Then I should see the paywall
+```
+
+### Example 3: Multiple Examples (Keep As Is)
+
+**Valid - No Changes Needed:**
+```gherkin
+Scenario Outline: Different user types see appropriate content
+  Given I am logged in as <userType>
+  When I navigate to home page
+  Then I should see <content>
+
+  Examples:
+    | userType | content              |
+    | free     | Limited games        |
+    | yearly   | All games            |
+    | monthly  | All games            |
+```
+
+## Results Format
+
+### Success Output
+```
+🔍 Checking Gherkin standardization...
+✅ All feature files follow Gherkin conventions
+   - 95 feature files checked
+   - 0 THEN step violations
+   - 0 single-example Scenario Outlines
+```
+
+### Failure Output
+```
+🔍 Checking Gherkin standardization...
+❌ Gherkin standardization violations found:
+
+core-app/features/login/login.feature:15
+  Issue: THEN step should use assertion phrasing
+  Current: Then I see the login button
+  Suggested: Then I should see the login button
+
+core-app/features/settings/settings.feature:8
+  Issue: Scenario Outline with only 1 example should be regular Scenario
+  Current: Scenario Outline with 1 example row
+  Suggested: Convert to regular Scenario and inline values
+
+💡 Fix: Update feature files to follow Gherkin conventions
+   - Use "I should see/be/verify" in THEN steps
+   - Convert single-example Scenario Outlines to regular Scenarios
+   - Keep Scenario Outlines only for multiple data sets
+```
+
+## Best Practices
+
+### 1. Clear Assertion Language
+
+```gherkin
+# ✅ GOOD - Clear expectations
+Then I should see the 'Submit' button
+Then I should be redirected to the confirmation page
+Then I verify the form is submitted successfully
+
+# ❌ BAD - Ambiguous language
+Then the 'Submit' button appears
+Then redirect to confirmation page
+Then form submitted
+```
+
+### 2. Appropriate Use of Scenario Outlines
+
+```gherkin
+# ✅ GOOD - Multiple test cases
+Scenario Outline: Validate different error messages
+  When I enter <input>
+  Then I should see <error>
+  
+  Examples:
+    | input        | error                    |
+    | empty        | Field required           |
+    | invalid      | Invalid format           |
+    | too_long     | Maximum length exceeded  |
+
+# ❌ BAD - Single test case using outline
+Scenario Outline: Validate error message
+  When I enter <input>
+  Then I should see <error>
+  
+  Examples:
+    | input   | error          |
+    | empty   | Field required |
+```
+
+### 3. Consistent Step Phrasing
+
+```gherkin
+# ✅ GOOD - Consistent pattern
+Given I am on the login page
+When I enter valid credentials
+Then I should see the dashboard
+And I should see the welcome message
+
+# ❌ BAD - Inconsistent pattern
+Given I am on the login page
+When I enter valid credentials
+Then dashboard is visible
+And welcome message appears
+```
+
+## Benefits
+
+### Readability
+- **Clear assertions** - THEN steps clearly express expectations
+- **Reduced complexity** - No unnecessary Scenario Outlines
+- **Consistent patterns** - Easier to scan and understand
+
+### Maintainability
+- **Easier updates** - Simple scenarios easier to modify
+- **Less duplication** - Direct values instead of tables for single cases
+- **Better diffs** - Git changes are clearer without table formatting
+
+### Quality
+- **Clear test intent** - Assertions vs observations are explicit
+- **Better test reports** - Clear expected vs actual outcomes
+- **Improved debugging** - Assertion failures are more descriptive
+
+## Severity Levels
+
+### Warning (Recommended Fix)
+- THEN steps without "should" or "verify"
+- Scenario Outline with 1 example row
+
+### Informational
+- THEN steps with acceptable alternative phrasing
+- Background sections (no changes needed)
+
+## Integration
+
+### Pre-commit Hook
+```bash
+#!/bin/sh
+npm run cursor-rules-check
+if [ $? -ne 0 ]; then
+  echo "Gherkin standardization violations detected"
+  exit 1
+fi
+```
+
+### CI/CD Pipeline
+```yaml
+- name: Check Gherkin Conventions
+  run: npm run cursor-rules-check
+```
+
+---
+
+*This document is part of the WebDriverIO Test Automation Framework cursor rules system.*

@@ -1,0 +1,13 @@
+{
+  "id": "WSTE-62",
+  "issueId": "1130695",
+  "key": "WSTE-62",
+  "summary": "Smoke | Broadcast Options - Switch Alt Audio",
+  "description": "This is valid for both Live and Archived games.",
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "Given the user is entitled to multiple video feed and logged into mlb.com/tv\nAnd the user has selected a game with multiple feeds\nWhen the user opens the Broadcast Options in the scrubber\nAnd the user selects an alt audio feed\nThen the alt audio feed that was selected is playing back\nAnd the alt audio is in-sync with the video",
+  "unstructured": null,
+  "steps": []
+}

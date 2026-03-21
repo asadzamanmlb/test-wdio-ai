@@ -1,0 +1,21 @@
+{
+  "id": "WQO-1089",
+  "issueId": "1268566",
+  "key": "WQO-1089",
+  "summary": "BTC Tools | Multicast Mapping | Navigate to Multicast Mapping",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the BTC Tools tile\nAnd the user clicks on the \"Configs\" tab on the top navigation\nAnd the user clicks on the Multicast Mapping\nThen the user lands on the Schedule page\nAnd the user should see \"Pipeline\", \"Pipeline Input\", \"Skyview\" and \"Multicast Mapping\" tab\nAnd the Multicast Mapping table displays headers: {{ID}}, {{Call Sign}}, {{Priority}}, {{Source Location}}, {{Multicast Address}}, {{HDR Multicast Address}}",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "55207302-7185-494c-b6e0-3f132c2d23e1",
+      "action": "*When* the user clicks on the BTC Tools tile \n\n*And*  the user clicks on the \"Configs\" tab on the top navigation\n\n*And* the user clicks on the Multicast Mapping",
+      "data": "",
+      "result": "*Then* the user lands on the Schedule page\n\n*And* the user should see \"Pipeline\", \"Pipeline Input\", \"Skyview\" and \"Multicast Mapping\" tab\n\n*And* the Multicast Mapping table displays headers: {{ID}}, {{Call Sign}}, {{Priority}}, {{Source Location}}, {{Multicast Address}}, {{HDR Multicast Address}}"
+    }
+  ],
+  "originalTestType": "Manual"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "WQO-822",
+  "issueId": "1164548",
+  "key": "WQO-822",
+  "summary": "ESNI Management | Media ID | Media Details Modal Displays Metadata And Viewing Policies",
+  "description": "Verify Media Details modal displays metadata and viewing policies",
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks the \"Media Details\" button (three-line icon) for any media row\nAnd For Example: https://sop-qa.mlb.com/esni/media?searchType=DATE&searchValue=2026-02-12&details=media_2d25be4e-05cf-4657-ada3-4842183e5228\n!xray-attachment://df65f1f1-22c1-4edd-9853-84d6479d9ed7|width=1149,height=212!\nThen a modal should appear displaying media metadata including:\n* Media ID\n* Feed Type\n* Media ID\n* Sub Type\n* Team (with logo)\n* Process Rules (with an information tooltip on it)\nAnd the modal should display a \"Viewing Policies\" section with:\n* Policy Name\n* Action\n* Action Label\n* Audience Href\nAnd each viewing policy row should have a delete button (ⓧ icon) on the left\nAnd a \"Search\" input field should be visible on the top-right of the Viewing Policies table\nAnd a \"View\"  button should be visible next to the search field\nAnd a button labeled \"Add Viewing Policy\" should be present above the Viewing Policies table\nWhen the user clicks the \"X\" button on the modal on the top corner\nThen the modal should close and return the user to the ESNI Management table view",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5bd2dad9-3afb-4cf3-a97b-e24afb67b067",
+      "action": "*When* the user clicks the \"Media Details\" button (three-line icon) for any media row",
+      "data": "For Example: [https://sop-qa.mlb.com/esni/media?searchType=DATE&searchValue=2026-02-12&details=media_2d25be4e-05cf-4657-ada3-4842183e5228|https://sop-qa.mlb.com/esni/media?searchType=DATE&searchValue=2026-02-12&details=media_2d25be4e-05cf-4657-ada3-4842183e5228]\n\n!xray-attachment://df65f1f1-22c1-4edd-9853-84d6479d9ed7|width=1149,height=212!",
+      "result": "*Then* a modal should appear displaying media metadata including:\n\n* Media ID\n* Feed Type\n* Media ID\n* Sub Type\n* Team (with logo)\n* Process Rules (with an information tooltip on it) \n\n*And* the modal should display a \"Viewing Policies\" section with:\n\n* Policy Name\n* Action\n* Action Label\n* Audience Href\n\n*And* each viewing policy row should have a delete button (ⓧ icon) on the left\n\n*And* a \"Search\" input field should be visible on the top-right of the Viewing Policies table\n\n*And* a \"View\"  button should be visible next to the search field\n\n*And* a button labeled \"Add Viewing Policy\" should be present above the Viewing Policies table"
+    },
+    {
+      "id": "c2d739bb-f284-4665-b2e9-4bd3a017e5fb",
+      "action": "*When* the user clicks the \"X\" button on the modal on the top corner",
+      "data": "",
+      "result": "*Then* the modal should close and return the user to the ESNI Management table view"
+    }
+  ],
+  "originalTestType": "Manual"
+}

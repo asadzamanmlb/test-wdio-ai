@@ -1,0 +1,21 @@
+{
+  "id": "WQO-417",
+  "issueId": "1146098",
+  "key": "WQO-417",
+  "summary": "Navigation | Home page tiles for  Milestones, Audit & Logging, Partner Delivery, ESNI Management: Part II",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the Home on the side nav\nAnd the user clicks on the Milestones tile on the Home page\nAnd the user clicks on the Home on the side nav\nAnd the user clicks on the Audit & Logging tile on the Home page\nAnd the user clicks on the Home on the side nav\nAnd the user clicks on Partner Stream Delivery tile on the Home page\nAnd the user clicks on the Home on the side nav\nAnd the user clicks on ESNI Management tile on the Home page\nAnd the user should land on the Home page\nAnd the user should land on the Milestones page\nAnd the user should see the header of the page display \"Milestones\" on top of the page\nAnd the user should see a calendar icon with the format \"YYYY-MM-DD\" with Previous arrow and Next arrow\nAnd the user should land on the Home page\nAnd the user should land on the \"Schedule\" page\nAnd the user should see a calendar icon with the format \"YYYY-MM-DD\" with Previous arrow and Next arrow\nAnd the user should see the header of the page \"Audit & Logging\"\nAnd the user should see \"Schedule\", \"Search by Game\", \"Search by Media\", and \"Search by User\" tabs on top of the page\nAnd the user should land on the Home page\nAnd the user should land on the \"Mapping\" page\nAnd the user should see the header of the page \"Partner Delivery\" on top of the page\nAnd the the user should see \"Mapping\", and \"Targets\" tabs on top of the page right next to Partner Delivery\nAnd the user should land on the Home page\nAnd the user should land on the \"Media ID\" page\nAnd the user should see \"Policies\" and \"Audiences\" tab on top of the page\nAnd the user should see a calendar icon with the format \"YYYY-MM-DD\" with Previous arrow and Next arrow\nAnd the user should see a \"Search\" box, and a \"View\" button on the right side of the page",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "dfe9f402-8052-40a9-bef0-855fb5163f5a",
+      "action": "When the user clicks on the Home on the side nav\nAnd the user clicks on the Milestones tile on the Home page\nAnd the user clicks on the Home on the side nav\nAnd the user clicks on the Audit & Logging tile on the Home page\nAnd the user clicks on the Home on the side nav\nAnd the user clicks on Partner Stream Delivery tile on the Home page\nAnd the user clicks on the Home on the side nav\nAnd the user clicks on ESNI Management tile on the Home page",
+      "data": "",
+      "result": "And the user should land on the Home page\nAnd the user should land on the Milestones page\nAnd the user should see the header of the page display \"Milestones\" on top of the page\nAnd the user should see a calendar icon with the format \"YYYY-MM-DD\" with Previous arrow and Next arrow\n\nAnd the user should land on the Home page\nAnd the user should land on the \"Schedule\" page\nAnd the user should see a calendar icon with the format \"YYYY-MM-DD\" with Previous arrow and Next arrow\nAnd the user should see the header of the page \"Audit & Logging\"\nAnd the user should see \"Schedule\", \"Search by Game\", \"Search by Media\", and \"Search by User\" tabs on top of the page\n\nAnd the user should land on the Home page\nAnd the user should land on the \"Mapping\" page\nAnd the user should see the header of the page \"Partner Delivery\" on top of the page\nAnd the the user should see \"Mapping\", and \"Targets\" tabs on top of the page right next to Partner Delivery\n\nAnd the user should land on the Home page\nAnd the user should land on the \"Media ID\" page\nAnd the user should see \"Policies\" and \"Audiences\" tab on top of the page\nAnd the user should see a calendar icon with the format \"YYYY-MM-DD\" with Previous arrow and Next arrow\nAnd the user should see a \"Search\" box, and a \"View\" button on the right side of the page"
+    }
+  ],
+  "originalTestType": "Manual"
+}

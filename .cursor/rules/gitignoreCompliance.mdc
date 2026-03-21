@@ -1,0 +1,229 @@
+# Gitignore Compliance Rule
+
+## Purpose
+Ensures that files listed in `.gitignore` are not committed to the repository. This rule verifies that gitignore patterns are being respected and prevents accidentally tracking files that should be ignored.
+
+## Detection Logic
+The rule performs the following checks:
+
+1. **Reads `.gitignore` file** - Parses all non-comment patterns
+2. **Gets tracked files** - Uses `git ls-files` to list all tracked files
+3. **Gets ignored files** - Uses `git status --ignored` to list properly ignored files
+4. **Pattern matching** - Checks if any tracked files match gitignore patterns
+5. **Common violations** - Specifically checks for common problematic patterns
+
+## What Gets Checked
+
+### Gitignore Patterns
+- All patterns in `.gitignore` file (excluding comments)
+- Directory patterns (ending with `/`)
+- File patterns (containing `.`)
+- General patterns (directory names)
+
+### Common Violations Checked
+- `node_modules` - Node.js dependencies
+- `logs` - Log files and directories
+- `temp` - Temporary files and directories
+- `reports` - Test reports and output
+- `allure-results` - Allure test results
+- `okta-token.json` - Authentication tokens
+- `.DS_Store` - macOS system files
+
+## Examples
+
+### ❌ BAD - These will be flagged as violations:
+
+**Tracked files that match gitignore patterns:**
+```
+# .gitignore contains:
+node_modules/
+logs/
+*.log
+temp/
+reports/
+
+# But these files are tracked:
+node_modules/package/package.json  ❌ Should be ignored
+logs/test.log                      ❌ Should be ignored
+temp/data.txt                      ❌ Should be ignored
+reports/test-report.html           ❌ Should be ignored
+```
+
+**Common violations:**
+```
+# These should be in .gitignore but are tracked:
+.env                               ❌ Environment variables
+okta-token.json                    ❌ Authentication tokens
+.DS_Store                          ❌ macOS system files
+coverage/                          ❌ Test coverage reports
+```
+
+### ✅ GOOD - These will pass the check:
+
+**Properly ignored files:**
+```
+# .gitignore contains:
+node_modules/
+logs/
+*.log
+temp/
+reports/
+.env
+okta-token.json
+.DS_Store
+
+# These files are properly ignored (not tracked):
+node_modules/package/package.json  ✅ Properly ignored
+logs/test.log                      ✅ Properly ignored
+temp/data.txt                      ✅ Properly ignored
+reports/test-report.html           ✅ Properly ignored
+.env                               ✅ Properly ignored
+okta-token.json                    ✅ Properly ignored
+.DS_Store                          ✅ Properly ignored
+```
+
+**No violations:**
+```
+# All tracked files are legitimate source code:
+src/
+package.json
+README.md
+.gitignore
+scripts/
+```
+
+## Rule Behavior
+
+### Success Output
+```
+🔍 Checking gitignore compliance...
+✅ Gitignore compliance verified - no violations found
+   - 15 gitignore patterns checked
+   - 234 tracked files verified
+   - 45 files properly ignored
+```
+
+### Failure Output
+```
+🔍 Checking gitignore compliance...
+❌ Gitignore compliance violations found:
+  - node_modules/package/package.json (matches pattern: node_modules)
+    Reason: Tracked file matches gitignore pattern
+  - logs/test.log (matches pattern: logs)
+    Reason: Tracked file contains logs directory
+```
+
+### Warning Output
+```
+🔍 Checking gitignore compliance...
+⚠️  No .gitignore file found
+```
+
+## Configuration
+
+### Pattern Matching
+The rule uses basic pattern matching for common gitignore patterns:
+- **Directory patterns** (`logs/`) - Matches files in or under the directory
+- **File patterns** (`*.log`) - Matches files with the extension
+- **Exact matches** (`okta-token.json`) - Matches specific files
+
+### Excluded Patterns
+The rule skips patterns that might cause false positives:
+- `*` - Too broad
+- `.*` - Too broad
+- `**` - Complex glob patterns
+
+## Integration
+
+### NPM Scripts
+```json
+{
+  "scripts": {
+    "cursor-rules-check": "node scripts/check-cursor-rules.cjs"
+  }
+}
+```
+
+### Pre-commit Hook
+```bash
+#!/bin/sh
+npm run cursor-rules-check
+if [ $? -ne 0 ]; then
+  echo "Gitignore compliance failed. Please fix issues before committing."
+  exit 1
+fi
+```
+
+## Troubleshooting
+
+### Common Issues
+
+#### False Positives
+**Problem**: Rule flags legitimate tracked files
+**Solution**: 
+1. Check if the file should actually be ignored
+2. Verify the gitignore pattern is correct
+3. Consider if the file should be removed from tracking
+
+#### Missing .gitignore
+**Problem**: No .gitignore file found
+**Solution**: Create a .gitignore file with appropriate patterns
+
+#### Git Command Errors
+**Problem**: Git commands fail (not a git repository)
+**Solution**: The rule will show warnings but won't fail the build
+
+### Fixing Violations
+
+#### Remove Tracked Files
+```bash
+# Remove file from tracking but keep it locally
+git rm --cached node_modules/package/package.json
+
+# Remove directory from tracking
+git rm -r --cached logs/
+
+# Commit the removal
+git commit -m "Remove ignored files from tracking"
+```
+
+#### Update .gitignore
+```bash
+# Add missing patterns to .gitignore
+echo "node_modules/" >> .gitignore
+echo "logs/" >> .gitignore
+echo "*.log" >> .gitignore
+echo "temp/" >> .gitignore
+echo "reports/" >> .gitignore
+```
+
+## Best Practices
+
+### 1. Comprehensive .gitignore
+- Include all common patterns for your technology stack
+- Add project-specific patterns
+- Review and update regularly
+
+### 2. Regular Checks
+- Run gitignore compliance checks frequently
+- Include in CI/CD pipelines
+- Check before major releases
+
+### 3. Team Guidelines
+- Document gitignore patterns
+- Train team on proper file management
+- Use consistent patterns across projects
+
+### 4. Clean Repository
+- Remove accidentally tracked files promptly
+- Keep .gitignore up to date
+- Monitor repository size and cleanliness
+
+## Related Rules
+- **Unused Import Detection** - Clean up unused code
+- **Unused Variable Detection** - Remove dead code
+- **File Organization** - Maintain proper structure
+
+---
+
+*This rule helps maintain a clean repository by ensuring gitignore patterns are respected and preventing accidental tracking of files that should be ignored.*

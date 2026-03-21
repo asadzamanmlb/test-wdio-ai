@@ -1,0 +1,33 @@
+{
+  "id": "WQO-800",
+  "issueId": "1163618",
+  "key": "WQO-800",
+  "summary": "Media Validation | Search with Invalid Game PK",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user visits the Operator tool and logs in\nThen the user should be successfully logged into the platform\nWhen the user navigates to the \"Media Validation\" page\nThen the user should be taken to the \"Media Validation\" page\nAnd the user should see \"Litmus\" on the top header of the page\nWhen the user enters \"111abc\" into the \"Search For GamePk\" search field.\nThen the user should see the \"No Games Today\" header text",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8d5f6d45-b47b-449b-871c-e19cbe04de42",
+      "action": "*When* the user visits the Operator tool and logs in",
+      "data": "",
+      "result": "*Then* the user should be successfully logged into the platform"
+    },
+    {
+      "id": "b27d1e42-708a-41e8-b4ff-f4bd8dbeb2b6",
+      "action": "*When* the user navigates to the \"Media Validation\" page",
+      "data": "",
+      "result": "*Then* the user should be taken to the \"Media Validation\" page\n\n*And* the user should see \"Litmus\" on the top header of the page"
+    },
+    {
+      "id": "577880da-d175-40f1-9962-9f386d0840b6",
+      "action": "*When* the user enters \"111abc\" into the \"Search For GamePk\" search field.",
+      "data": "",
+      "result": "*Then* the user should see the \"No Games Today\" header text"
+    }
+  ],
+  "originalTestType": "Manual"
+}

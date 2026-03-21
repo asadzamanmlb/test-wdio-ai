@@ -1,0 +1,21 @@
+{
+  "id": "WQO-411",
+  "issueId": "1146092",
+  "key": "WQO-411",
+  "summary": "Partner Delivery | Mapping | Scroll Indicator in Targets and Channels View",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the \"Partner Stream Delivery\" tile on the dashboard\nAnd the user clicks and drags the scroll indicator\nThen the user should see the \"Mapping\" Tab\nAnd the user should see the scroll indicator in \"Channels\" and \"Targets\" view\nAnd the user should see the position in the scrollable list adjust to reflect the position of the scroll indicator",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9fabb004-5214-456b-9c0e-675fe000fd19",
+      "action": "When the user clicks on the \"Partner Stream Delivery\" tile on the dashboard\nAnd the user clicks and drags the scroll indicator",
+      "data": "",
+      "result": "Then the user should see the \"Mapping\" Tab\nAnd the user should see the scroll indicator in \"Channels\" and \"Targets\" view\nAnd the user should see the position in the scrollable list adjust to reflect the position of the scroll indicator"
+    }
+  ],
+  "originalTestType": "Manual"
+}

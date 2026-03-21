@@ -1,0 +1,27 @@
+{
+  "id": "WQO-831",
+  "issueId": "1164753",
+  "key": "WQO-831",
+  "summary": "Overrides | Playback | Validate Playback Overrides Table",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the \"Overrides\" tile\nThen the user should be navigated to the \"Overrides\" page\nAnd the \"Session\" tab should be selected by default\nWhen the user clicks on the \"Playback\" tab\nThen the user should see the \"Playback\" overrides table\nAnd the table should have the columns:\nID | Okta Id | Client Type | Experience | Features | Actions\nAnd the user should see the \"Create Override\" button\nAnd the user should see a search bar with a \"View\" button",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "51ed5254-315b-4da3-b651-0f63bfc9116d",
+      "action": "*When* the user clicks on the \"Overrides\" tile",
+      "data": "",
+      "result": "*Then* the user should be navigated to the \"Overrides\" page\n\n*And* the \"Session\" tab should be selected by default"
+    },
+    {
+      "id": "d77041df-81df-400c-a159-99b13cee8844",
+      "action": "*When* the user clicks on the \"Playback\" tab",
+      "data": "",
+      "result": "*Then* the user should see the \"Playback\" overrides table\n\nAnd the table should have the columns:\nID | Okta Id | Client Type | Experience | Features | Actions\n\n*And* the user should see the \"Create Override\" button\n\n*And* the user should see a search bar with a \"View\" button"
+    }
+  ],
+  "originalTestType": "Manual"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "WSTE-39",
+  "issueId": "1130672",
+  "key": "WSTE-39",
+  "summary": "Smoke | Verify Archive Game Playback - Default",
+  "description": "*NOTE* Users can access to the \"Start from the beginning” feature in the Games player by navigating to the Settings menu under the General tab.\"",
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "Given an entitled user is logged into mlb.com/tv\nAnd the user setting are in default (OFF)\nWhen a user selects an archived game for playback\nThen playback starts at the beginning of the stream\nAnd the duration of the game display right side of the scrubber bar\nAnd all available data is visible to the user (this includes innings and final scores)",
+  "unstructured": null,
+  "steps": []
+}

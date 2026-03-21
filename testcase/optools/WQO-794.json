@@ -1,0 +1,45 @@
+{
+  "id": "WQO-794",
+  "issueId": "1163537",
+  "key": "WQO-794",
+  "summary": "Overrides | Session | Create An Override",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When I click on the \"Overrides\" menu item in the left navigation\nAnd I click the \"Create Override\" button\nThen I should see the Overrides page with a list of existing overrides\nAnd I should see a \"Create Override\" button at the top of the page\nAnd I should see the \"Create Override\" dialog box open\nAnd I should see an \"Okta ID\" text input field\nAnd I should see a \"Client Type\" dropdown with \"ALL_CLIENTS\" selected by default\nAnd I should see a \"Features\" dropdown with \"Select features...\" placeholder\nWhen I enter \"abc123\" in the Okta ID field\nAnd I click on the Client Type dropdown\nAnd Test Data:\n* Okta ID: abc123\n* Client Type: PLAYSTATION\n* Features: MLB_AUDIO\nThen I should see a list of client types including \"PLAYSTATION\", \"ROKU\", \"IOS\", \"ANDROID_MOBILE\", etc.\nWhen I select \"PLAYSTATION\" from the Client Type dropdown\nAnd I click on the Features dropdown\nThen I should see feature options including \"MLB_AUDIO\", \"AUDIO_ADS_DISABLED\", \"VIDEO_ADS_DISABLED\"\nWhen I select \"MLB_AUDIO\" from the Features options\nAnd I click the \"Save\" button\nThen the \"Create Override\" dialog should close\nAnd I should return to the Overrides page\nWhen I search for \"abc123\" in the search field\nThen I should see 1 search result showing:\n* Okta ID: \"abc123\"\n* Client Type: \"PLAYSTATION\"\n* Features: 1 feature chip displayed",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8dfa817d-64f0-4331-8326-05e0c3be477a",
+      "action": "When I click on the \"Overrides\" menu item in the left navigation\n\nAnd I click the \"Create Override\" button",
+      "data": "",
+      "result": "Then I should see the Overrides page with a list of existing overrides\n\nAnd I should see a \"Create Override\" button at the top of the page\n\nAnd I should see the \"Create Override\" dialog box open\n\nAnd I should see an \"Okta ID\" text input field\n\nAnd I should see a \"Client Type\" dropdown with \"ALL_CLIENTS\" selected by default\n\nAnd I should see a \"Features\" dropdown with \"Select features...\" placeholder"
+    },
+    {
+      "id": "dad1c495-e2c7-4aab-90c3-71e96c0dd3b7",
+      "action": "When I enter \"abc123\" in the Okta ID field\n\nAnd I click on the Client Type dropdown",
+      "data": "Test Data:\n\n* Okta ID: abc123\n* Client Type: PLAYSTATION  \n* Features: MLB_AUDIO",
+      "result": "Then I should see a list of client types including \"PLAYSTATION\", \"ROKU\", \"IOS\", \"ANDROID_MOBILE\", etc."
+    },
+    {
+      "id": "31086fb3-0ce5-4c01-b718-0e147286f395",
+      "action": "When I select \"PLAYSTATION\" from the Client Type dropdown\nAnd I click on the Features dropdown",
+      "data": "",
+      "result": "Then I should see feature options including \"MLB_AUDIO\", \"AUDIO_ADS_DISABLED\", \"VIDEO_ADS_DISABLED\""
+    },
+    {
+      "id": "d34e4156-094a-4d78-8adf-5f48db659f05",
+      "action": "  When I select \"MLB_AUDIO\" from the Features options\n  And I click the \"Save\" button",
+      "data": "",
+      "result": "  Then the \"Create Override\" dialog should close\n  And I should return to the Overrides page"
+    },
+    {
+      "id": "6a30de76-71e7-4772-8acf-4863b12ac7d5",
+      "action": "  When I search for \"abc123\" in the search field",
+      "data": "",
+      "result": "  Then I should see 1 search result showing:\n\n* Okta ID: \"abc123\"\n* Client Type: \"PLAYSTATION\"\n* Features: 1 feature chip displayed\n\n"
+    }
+  ],
+  "originalTestType": "Manual"
+}

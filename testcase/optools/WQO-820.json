@@ -1,0 +1,27 @@
+{
+  "id": "WQO-820",
+  "issueId": "1164542",
+  "key": "WQO-820",
+  "summary": "Partner Delivery | Target | List Verification",
+  "description": "Verify target rows display correct data, statuses, and edit buttons",
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user is on the \"Partner Delivery\" Targets tab\nThen each row should display the following columns:\n* Target\n* Channel\n* Partner\n* Type\n* Status\nAnd the status column should show correct tags based on data:\n* Status Value: no_channel  - Blue tag labeled \"no_channel\"\n* Status Value: pending - Blue tag labeled \"pending\"\n* Status Value: bad - Red tag labeled \"bad\"\nAnd each row should have a clickable \"Edit\" button\nWhen the user clicks the \"Edit\" button for any row\nThen it should navigate to the Mapping page",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "29ee3ff3-7b97-4de8-99c3-ad9e28f2a1ee",
+      "action": "*When* the user is on the \"Partner Delivery\" Targets tab",
+      "data": "",
+      "result": "*Then* each row should display the following columns:\n\n* Target\n* Channel\n* Partner\n* Type\n* Status\n\n*And* the status column should show correct tags based on data:\n\n* Status Value: no_channel  - Blue tag labeled \"no_channel\" \n* Status Value: pending - Blue tag labeled \"pending\"\n* Status Value: bad - Red tag labeled \"bad\"\n\n*And* each row should have a clickable \"Edit\" button"
+    },
+    {
+      "id": "a58c8177-9423-478f-8f18-e060b23ca792",
+      "action": "*When* the user clicks the \"Edit\" button for any row",
+      "data": "",
+      "result": "*Then* it should navigate to the Mapping page"
+    }
+  ],
+  "originalTestType": "Manual"
+}

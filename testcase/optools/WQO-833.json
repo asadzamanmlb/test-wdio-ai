@@ -1,0 +1,21 @@
+{
+  "id": "WQO-833",
+  "issueId": "1164803",
+  "key": "WQO-833",
+  "summary": "User Lookup | Support Human Readable Dates in User Lookup",
+  "description": "As a User-Lookup tool user\nI want to see session and playback session dates in a human-readable format\nSo that I can quickly understand when events occurred without having to manually parse UTC time strings\n\n[https://baseball.atlassian.net/browse/OPTOOLS-1214|https://baseball.atlassian.net/browse/OPTOOLS-1214|smart-link] ",
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When a user is logged into the \"Streaming Operator Platform\" and navigates to the \"User Lookup\" page\nAnd the user enters a valid Okta ID or Email, such as \"dm5tv2@gmail.com\" in the Enter User ID or Email box\nAnd the user clicks on the \"Search\" button\nThen the user should see each session's \"Init Time\" and \"Expired Date\" in a human-readable format:\nFormat Example:\nMonday April 2nd, 2025 1:50 PM (UTC)\nAnd the displayed format should include:\nDay of the week | Month | Day | Year | Time | Time Zone\nAnd all displayed times should be in UTC by default",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "93cb6385-87ef-4dd9-afe3-74fa236462ff",
+      "action": "*When* a user is logged into the \"Streaming Operator Platform\" and navigates to the \"User Lookup\" page\n\n*And* the user enters a valid Okta ID or Email, such as \"[dm5tv2@gmail.com|mailto:dMdv2@gmail.com]\" in the Enter User ID or Email box \n\n*And* the user clicks on the \"Search\" button",
+      "data": "",
+      "result": "*Then* the user should see each session's \"Init Time\" and \"Expired Date\" in a human-readable format:\n\nFormat Example:\n\nMonday April 2nd, 2025 1:50 PM (UTC) \n\n*And* the displayed format should include:\n\nDay of the week | Month | Day | Year | Time | Time Zone\n\n*And* all displayed times should be in UTC by default"
+    }
+  ],
+  "originalTestType": "Manual"
+}

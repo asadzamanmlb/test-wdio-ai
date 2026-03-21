@@ -1,0 +1,456 @@
+# File Naming Conventions
+
+## Overview
+This cursor rule enforces consistent file naming conventions across the codebase to ensure readability and maintainability. Different file types follow different naming patterns based on their purpose.
+
+## Purpose
+- **Consistency** - Standardize naming across the entire codebase
+- **Readability** - Clear, predictable file names
+- **Organization** - Easy to identify file types by name
+- **Maintainability** - Reduces confusion and improves code navigation
+
+## Automated Detection
+The checker scans all JavaScript files and validates naming conventions.
+
+### Usage
+```bash
+npm run cursor-rules-check
+```
+
+## Naming Convention Rules
+
+### 1. Page Object Files - camelCase
+**Pattern:** `camelCase.js`
+
+**Location:** 
+- `core-app/pageobjects/*.js`
+
+**Rules:**
+- Start with lowercase letter
+- Use camelCase for multiple words
+- Must end with `.js` extension
+
+**Examples:**
+
+✅ **GOOD:**
+```
+loginPage.js
+homePage.js
+settingsPage.js
+gamesPage.js
+userProfilePage.js
+favFollowTeam.js
+page.js
+```
+
+❌ **BAD:**
+```
+LoginPage.js                 # Should be camelCase, not PascalCase
+login-page.js                # Should use camelCase, not kebab-case
+login_page.js                # Should use camelCase, not snake_case
+LOGINPAGE.js                 # Should be camelCase, not UPPERCASE
+```
+
+### 2. Common Function Files - camelCase
+**Pattern:** `camelCase.js`
+
+**Location:**
+- `core-app/commonFunctions/*.js`
+
+**Rules:**
+- Start with lowercase letter
+- Use camelCase for multiple words
+- Must end with `.js` extension
+
+**Examples:**
+
+✅ **GOOD:**
+```
+clickElement.js
+waitForElement.js
+navigateWithKeys.js
+randomDateSelect.js
+findCarouselByText.js
+globalObjectKeyFinder.js
+searchTable.js
+```
+
+❌ **BAD:**
+```
+ClickElement.js              # Should be camelCase, not PascalCase
+click-element.js             # Should use camelCase, not kebab-case
+click_element.js             # Should use camelCase, not snake_case
+CLICKELEMENT.js              # Should be camelCase, not UPPERCASE
+```
+
+### 3. Step Definition Files - camelCase
+**Pattern:** `camelCase.steps.js`
+
+**Location:**
+- `core-app/step-definitions/*.js`
+
+**Rules:**
+- Start with lowercase letter
+- Use camelCase for multiple words
+- Must end with `.steps.js` suffix
+
+**Examples:**
+
+✅ **GOOD:**
+```
+login.steps.js
+settings.steps.js
+mediaPlayer.steps.js
+common.steps.js
+userLookup.steps.js
+auditLogging.steps.js
+```
+
+❌ **BAD:**
+```
+Login.steps.js               # Should be camelCase, not PascalCase
+login-steps.js               # Should use .steps.js suffix
+LoginSteps.js                # Should be camelCase with .steps.js suffix
+login_steps.js               # Should use camelCase, not snake_case
+```
+
+### 4. Feature Files - camelCase or PascalCase
+**Pattern:** `camelCase.feature` or `PascalCase.feature`
+
+**Location:**
+- `core-app/features/**/*.feature`
+
+**Rules:**
+- Start with lowercase letter (camelCase) OR uppercase letter (PascalCase)
+- PascalCase is recommended when file name starts with an acronym (e.g., MVPD, API, SSO)
+- Use camelCase or PascalCase for multiple words
+- Must end with `.feature` extension
+- No hyphens or underscores allowed
+
+**Examples:**
+
+✅ **GOOD:**
+```
+exitConfirmation.feature           # camelCase
+login.feature                       # camelCase
+homePage.feature                   # camelCase
+settingsPageClosedCaptions.feature # camelCase
+userLookup.feature                 # camelCase
+archivePlayback.feature            # camelCase
+MVPDAuthCanadaUserMessaging.feature  # PascalCase with acronym
+APIIntegrationTests.feature        # PascalCase with acronym
+SSOLoginFlow.feature               # PascalCase with acronym
+```
+
+❌ **BAD:**
+```
+exit-confirmation.feature    # Should use camelCase or PascalCase, not kebab-case
+exit_confirmation.feature    # Should use camelCase or PascalCase, not snake_case
+EXITCONFIRMATION.feature     # Should be camelCase or PascalCase, not all UPPERCASE
+mvpd-auth-messaging.feature  # Should be MVPDAuthMessaging.feature (PascalCase with acronym)
+```
+
+### 5. Directory Names - camelCase (Optional)
+**Pattern:** `camelCase`
+
+**Location:**
+- Feature subdirectories
+- Page object subdirectories
+
+**Examples:**
+
+✅ **GOOD:**
+```
+features/homePage/
+features/postSeason/
+features/appExit/
+pageobjects/login/
+pageobjects/favFollowTeam/
+```
+
+❌ **BAD:**
+```
+features/HomePage/           # Should be camelCase, not PascalCase
+features/post-season/        # Should be camelCase, not kebab-case
+pageobjects/Login/           # Should be camelCase, not PascalCase
+```
+
+### 6. Configuration Files - Various Conventions
+**Pattern:** Depends on file type
+
+**Location:**
+- Project root
+- `scripts/`
+
+**Rules:**
+- Config files: kebab-case or camelCase depending on convention
+  - `.js/.cjs/.mjs`: camelCase (e.g., `wdio.local.conf.js`)
+  - `.json`: kebab-case (e.g., `package.json`)
+  - Scripts: kebab-case (e.g., `check-cursor-rules.cjs`)
+
+## Detection Algorithm
+
+The rule checks:
+1. **File location** - Determines expected naming pattern
+2. **File name** - Validates against pattern
+3. **Case convention** - Checks for correct case usage
+
+### Detected Violations
+
+**camelCase Violations:**
+- Starts with uppercase letter
+- Contains underscores (except in numbers)
+- Contains hyphens
+- All uppercase
+
+**kebab-case Violations:**
+- Contains uppercase letters
+- Contains underscores
+- Uses camelCase
+
+## Implementation
+
+### Valid Naming Patterns
+
+```javascript
+// camelCase pattern (for page objects, common functions)
+const camelCasePattern = /^[a-z][a-zA-Z0-9]*\.js$/;
+
+// Examples that match:
+// ✅ clickElement.js
+// ✅ loginPage.js
+// ✅ settingsPage.js
+// ✅ userProfile.js
+
+// camelCase with .steps.js suffix (for step definitions)
+const stepsPattern = /^[a-z][a-zA-Z0-9]*\.steps\.js$/;
+
+// Examples that match:
+// ✅ login.steps.js
+// ✅ settings.steps.js
+// ✅ mediaPlayer.steps.js
+
+// camelCase or PascalCase pattern (for feature files)
+// Allows both camelCase and PascalCase to accommodate acronyms
+const featurePattern = /^[a-zA-Z][a-zA-Z0-9]*\.feature$/;
+
+// Examples that match:
+// ✅ login.feature (camelCase)
+// ✅ exitConfirmation.feature (camelCase)
+// ✅ settingsPageClosedCaptions.feature (camelCase)
+// ✅ MVPDAuthCanadaUserMessaging.feature (PascalCase with acronym)
+// ✅ APIIntegration.feature (PascalCase with acronym)
+```
+
+## Migration Guide
+
+### Step 1: Identify Incorrectly Named Files
+```bash
+npm run cursor-rules-check
+```
+
+### Step 2: Rename Files
+```bash
+# Example: Rename PascalCase to camelCase
+git mv LoginPage.js loginPage.js
+git mv ClickElement.js clickElement.js
+git mv UserLookup.steps.js userLookup.steps.js
+
+# Example: Remove .object suffix from page objects
+git mv loginPage.object.js loginPage.js
+git mv settingsPage.object.js settingsPage.js
+
+# Example: Rename kebab-case to camelCase (feature files)
+git mv exit-confirmation.feature exitConfirmation.feature
+git mv settings-page-closed-captions.feature settingsPageClosedCaptions.feature
+```
+
+### Step 3: Update Imports
+```javascript
+// BEFORE
+import LoginPage from './pageobjects/LoginPage.js';
+import ClickElement from './commonFunctions/ClickElement.js';
+
+// AFTER
+import loginPage from './pageobjects/loginPage.js';
+import clickElement from './commonFunctions/clickElement.js';
+```
+
+### Step 4: Update Git History (Optional)
+```bash
+# If you want to preserve git history
+git mv --force OldName.js newName.js
+```
+
+## Best Practices
+
+### 1. Be Descriptive but Concise
+```javascript
+// ✅ GOOD - Clear and concise
+loginPage.object.js
+clickElement.js
+userAuthentication.steps.js
+
+// ❌ BAD - Too vague or too verbose
+page.object.js
+click.js
+userAuthenticationAndAuthorizationWithOAuth.steps.js
+```
+
+### 2. Group Related Files
+```
+pageobjects/
+├── login/
+│   └── loginPage.object.js
+├── home/
+│   └── homePage.object.js
+└── settings/
+    └── settingsPage.object.js
+```
+
+### 3. Use Consistent Suffixes
+```javascript
+// Page objects
+*.object.js
+
+// Step definitions
+*.steps.js
+
+// Feature files
+*.feature
+```
+
+### 4. Acronyms and Abbreviations
+```javascript
+// ✅ GOOD - Well-known acronyms at start of filename (use PascalCase)
+MVPDAuthMessaging.feature     // MVPD is well-known acronym
+APIIntegration.js             // API is well-known acronym
+SSOLoginFlow.feature          // SSO is well-known acronym
+URLHelper.js                  // URL is well-known acronym
+
+// ✅ GOOD - Acronyms in middle/end (use camelCase or PascalCase)
+userMvpdSettings.js           // mvpd in middle, camelCase
+apiClient.js                  // api at start, camelCase
+restApiClient.js              // api at end, camelCase
+
+// ✅ GOOD - Full words (no abbreviations)
+navigationHelpers.js
+userInterface.object.js
+
+// ❌ BAD - Unclear abbreviations (unless widely understood in your context)
+navHelpers.js
+ui.object.js
+usrMgmt.js
+```
+
+## Exception Cases
+
+### Allowed Exceptions
+
+1. **Configuration Files**
+   ```
+   wdio.local.conf.js        # Framework convention
+   package.json              # Standard convention
+   eslint.config.js          # Tool convention
+   ```
+
+2. **Framework Files**
+   ```
+   hooks.js                  # WebDriverIO convention
+   page.js                   # Base page object
+   ```
+
+3. **Third-party Integrations**
+   ```
+   okta-token-checker.js     # External service naming
+   ```
+
+## Benefits
+
+### Consistency
+- **Predictable patterns** across entire codebase
+- **Easy navigation** with standardized names
+- **Clear file types** from naming convention
+
+### Maintainability
+- **Easier refactoring** with clear naming
+- **Reduced merge conflicts** from renaming
+- **Better IDE support** with consistent patterns
+
+### Collaboration
+- **Onboarding** - New team members understand conventions quickly
+- **Code reviews** - Easier to spot inconsistencies
+- **Documentation** - Self-documenting file structure
+
+## Results Format
+
+### Success Output
+```
+🔍 Checking file naming conventions...
+✅ All files follow naming conventions
+   - 42 page object files (camelCase)
+   - 18 common function files (camelCase)
+   - 25 step definition files (camelCase)
+   - 95 feature files (camelCase)
+```
+
+### Failure Output
+```
+🔍 Checking file naming conventions...
+❌ File naming convention violations found:
+
+core-app/pageobjects/login/LoginPage.js:
+  Expected: camelCase
+  Found: PascalCase
+  Suggested: loginPage.js
+
+core-app/commonFunctions/Click-Element.js:
+  Expected: camelCase
+  Found: kebab-case with PascalCase
+  Suggested: clickElement.js
+
+core-app/features/exit-confirmation.feature:
+  Expected: camelCase
+  Found: kebab-case
+  Suggested: exitConfirmation.feature
+
+💡 Fix: Rename files to follow conventions
+   Page objects: camelCase.js
+   Common functions: camelCase.js
+   Step definitions: camelCase.steps.js
+   Feature files: camelCase.feature
+```
+
+## Severity Levels
+
+### Warning (Recommended Fix)
+- PascalCase in camelCase files
+- kebab-case in camelCase files
+- Missing standard suffixes
+
+### Error (Must Fix)
+- UPPERCASE file names
+- Special characters in names
+- Inconsistent extensions
+
+## Integration
+
+### Pre-commit Hook
+```bash
+#!/bin/sh
+npm run cursor-rules-check
+if [ $? -ne 0 ]; then
+  echo "File naming convention violations detected"
+  exit 1
+fi
+```
+
+### CI/CD Pipeline
+```yaml
+- name: Check File Naming Conventions
+  run: npm run cursor-rules-check
+```
+
+---
+
+*This document is part of the WebDriverIO Test Automation Framework cursor rules system.*

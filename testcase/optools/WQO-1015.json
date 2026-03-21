@@ -1,0 +1,21 @@
+{
+  "id": "WQO-1015",
+  "issueId": "1242731",
+  "key": "WQO-1015",
+  "summary": "Overrides | Playback | Create Override",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the \"Playback\" tab within the overrides page\nAnd the user clicks on the \"Create Override\" button\nAnd the user type in and Okta ID in the \"OktaId\" box\nAnd the user selects \"Client Type\" from the Client Type dropdown\nAnd the user selects \"Experience\" from the Experience dropdown\nAnd the user selects \"Features\" from the Features dropdown\nAnd the user clicks on the \"Save\" button\nThen the user should see the Playback page\nAnd the user should see \"Create Override\" popup on the screen\nAnd the user should see the Okta ID entered information in \"OktaId\" box\nAnd the user should see the selected \"Client Type\" in the dropdown\nAnd the user should see the selected \"Experiences\" in the dropdown\nAnd the user should see the \"Features\" in the dropdown\nAnd the user should see  \"Playback Override successfully created\"\n!xray-attachment://a6082a9d-cb02-4bee-8256-49c7999b3e48|width=418,height=93!",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "cff30e4e-eb2d-431e-beaf-7672b3eeb904",
+      "action": "*When* the user clicks on the \"Playback\" tab within the overrides page\n\n*And* the user clicks on the \"Create Override\" button\n\n*And* the user type in and Okta ID in the \"OktaId\" box\n\n*And* the user selects \"Client Type\" from the Client Type dropdown\n\n*And* the user selects \"Experience\" from the Experience dropdown\n\n*And* the user selects \"Features\" from the Features dropdown\n\n*And* the user clicks on the \"Save\" button",
+      "data": "",
+      "result": "*Then* the user should see the Playback page\n\n*And* the user should see \"Create Override\" popup on the screen\n\n*And* the user should see the Okta ID entered information in \"OktaId\" box\n\n*And* the user should see the selected \"Client Type\" in the dropdown\n\n*And* the user should see the selected \"Experiences\" in the dropdown\n\n*And* the user should see the \"Features\" in the dropdown\n\n*And* the user should see  \"Playback Override successfully created\"\n\n!xray-attachment://a6082a9d-cb02-4bee-8256-49c7999b3e48|width=418,height=93!"
+    }
+  ],
+  "originalTestType": "Manual"
+}

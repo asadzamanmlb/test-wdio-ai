@@ -1,0 +1,163 @@
+#!/usr/bin/env node
+/**
+ * Export Xray test cases to JSON files under testcase/<folder>/
+ */
+
+const fs = require('fs');
+const path = require('path');
+
+require('dotenv').config({ path: path.join(__dirname, '..', '.env') });
+
+const XRAY_AUTH_URL = 'https://xray.cloud.getxray.app/api/v1/authenticate';
+const XRAY_GRAPHQL_URL = 'https://xray.cloud.getxray.app/api/v2/graphql';
+
+async function authenticate() {
+  const clientId = process.env.XRAY_CLIENT_ID;
+  const clientSecret = process.env.XRAY_CLIENT_SECRET;
+  if (!clientId || !clientSecret) {
+    throw new Error('Missing XRAY_CLIENT_ID or XRAY_CLIENT_SECRET');
+  }
+  const res = await fetch(XRAY_AUTH_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ client_id: clientId, client_secret: clientSecret }),
+  });
+  if (!res.ok) throw new Error(`Auth failed: ${await res.text()}`);
+  const token = await res.text();
+  return token.replace(/^"|"$/g, '');
+}
+
+async function graphqlQuery(token, query, variables = {}) {
+  const res = await fetch(XRAY_GRAPHQL_URL, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ query, variables }),
+  });
+  if (!res.ok) throw new Error(`GraphQL failed: ${await res.text()}`);
+  const json = await res.json();
+  if (json.errors) throw new Error(JSON.stringify(json.errors));
+  return json.data;
+}
+
+async function getTestExecutionTests(token, issueKey) {
+  const data = await graphqlQuery(token, `
+    query GetTestExecution($jql: String!) {
+      getTestExecutions(jql: $jql, limit: 1, start: 0) {
+        results {
+          jira(fields: ["summary"])
+          tests(limit: 100) {
+            results {
+              issueId
+              jira(fields: ["key", "summary"])
+              testType { name }
+            }
+          }
+        }
+      }
+    }
+  `, { jql: `key = ${issueKey}` });
+  return data?.getTestExecutions?.results?.[0]?.tests?.results || [];
+}
+
+async function getExpandedTests(token, issueIds) {
+  if (issueIds.length === 0) return [];
+  const data = await graphqlQuery(token, `
+    query GetExpandedTests($issueIds: [String!]!) {
+      getExpandedTests(issueIds: $issueIds, limit: 100, start: 0) {
+        results {
+          issueId
+          gherkin
+          unstructured
+          scenarioType
+          testType { name }
+          jira(fields: ["key", "summary", "description", "status"])
+          steps {
+            id
+            action
+            data
+            result
+          }
+        }
+      }
+    }
+  `, { issueIds });
+  return data?.getExpandedTests?.results || [];
+}
+
+function toTestCaseJson(test) {
+  return {
+    id: test.jira?.key || test.issueId,
+    issueId: test.issueId,
+    key: test.jira?.key,
+    summary: test.jira?.summary,
+    description: test.jira?.description || null,
+    status: test.jira?.status?.name || null,
+    testType: test.testType?.name || null,
+    scenarioType: test.scenarioType || null,
+    gherkin: test.gherkin || null,
+    unstructured: test.unstructured || null,
+    steps: (test.steps || []).map(s => ({
+      id: s.id,
+      action: s.action || '',
+      data: s.data || '',
+      result: s.result || '',
+    })),
+  };
+}
+
+async function exportTests(issueKey, folder, options = {}) {
+  const { silent = false } = options;
+  const log = (...args) => !silent && console.log(...args);
+  const outDir = path.join(__dirname, '..', 'testcase', folder);
+
+  log('🔐 Authenticating...');
+  const token = await authenticate();
+  log('✅ Authenticated\n');
+
+  log(`📋 Fetching tests from ${issueKey}...`);
+  const tests = await getTestExecutionTests(token, issueKey);
+  if (!tests.length) {
+    throw new Error(`No tests found for ${issueKey}`);
+  }
+
+  const issueIds = tests.map(t => t.issueId);
+  log(`📥 Fetching expanded details for ${issueIds.length} tests...`);
+  const expanded = await getExpandedTests(token, issueIds);
+
+  fs.mkdirSync(outDir, { recursive: true });
+
+  const allTestCases = [];
+  for (const test of expanded) {
+    const tc = toTestCaseJson(test);
+    allTestCases.push(tc);
+    const filename = `${tc.key || tc.issueId}.json`;
+    fs.writeFileSync(path.join(outDir, filename), JSON.stringify(tc, null, 2));
+    log(`  ✓ ${tc.key}`);
+  }
+
+  fs.writeFileSync(
+    path.join(outDir, 'testcases.json'),
+    JSON.stringify(allTestCases, null, 2)
+  );
+
+  log(`\n✅ Exported ${allTestCases.length} test cases to testcase/${folder}/`);
+  return allTestCases.length;
+}
+
+async function main() {
+  const issueKey = process.argv[2] || process.env.XRAY_ISSUE_KEY || 'WSTE-796';
+  const folder = process.argv[3] || 'webTv';
+  await exportTests(issueKey, folder);
+}
+
+if (require.main === module) {
+  main().catch(e => {
+    console.error(e);
+    process.exit(1);
+  });
+}
+
+module.exports = { exportTests };

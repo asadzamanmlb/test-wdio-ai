@@ -1,0 +1,13 @@
+{
+  "id": "WSTE-55",
+  "issueId": "1130688",
+  "key": "WSTE-55",
+  "summary": "Smoke | Hover over \"Account\" Dropdown",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "Given the user is logged into mlb.com/tv\nWhen the user hovers over \"ACCOUNT\" in the top nav\nThen a dropdown menu should appear containing the following options:\nAccount Settings \nMy Players & Teams\nManage Subscriptions\nEmail Newsletters\nLog Out",
+  "unstructured": null,
+  "steps": []
+}

@@ -1,0 +1,21 @@
+{
+  "id": "WQO-972",
+  "issueId": "1217347",
+  "key": "WQO-972",
+  "summary": "User Lookup | Navigate to July in Calendar",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user Navigate to User Lookup page\nAnd the user Click on \"Select A Date Range\" button\nAnd the user Navigate to July in the calendar by clicking on the previous button\nThen the User Lookup page loads successfully\nAnd the Calendar dropdown appears\nAnd the Calendar shows the month of July",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b65ee096-303c-44bf-bb59-68b832b10d51",
+      "action": "*When* the user Navigate to User Lookup page\n\n*And* the user Click on \"Select A Date Range\" button\n\n*And* the user Navigate to July in the calendar by clicking on the previous button",
+      "data": "",
+      "result": "*Then* the User Lookup page loads successfully\n\n*And* the Calendar dropdown appears\n\n*And* the Calendar shows the month of July"
+    }
+  ],
+  "originalTestType": "Manual"
+}

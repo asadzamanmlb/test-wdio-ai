@@ -1,0 +1,13 @@
+{
+  "id": "WSTE-45",
+  "issueId": "1130678",
+  "key": "WSTE-45",
+  "summary": "Smoke | Homepage - Verify SVOD Playback",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "Given the user is logged into mlb.com/tv\nAnd has the SUBSCRIBER VOD entitlement \nWhen the user navigates to select any SVOD Video from the Homepage \nThen the user should be able to play SVOD Video successfully",
+  "unstructured": null,
+  "steps": []
+}

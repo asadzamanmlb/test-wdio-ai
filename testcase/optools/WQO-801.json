@@ -1,0 +1,39 @@
+{
+  "id": "WQO-801",
+  "issueId": "1163619",
+  "key": "WQO-801",
+  "summary": "Media Validation | Search with Valid GamePK",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user visits the Operator tool and logs in\nThen the user should be successfully logged into the platform\nWhen the user navigates to the \"Media Validation\" page\nThen the user should be taken to the \"Media Validation\" page\nAnd the user should see \"Litmus\" on the top header of the page\nWhen the user navigates to the \"Media Validation\" page for the date \"2024-09-16\"\nAnd the user should see a search field above the games schedule\nWhen the user enters a valid GamePK into the search field above the games schedule\nThen the user should see 1 game within the games schedule",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6b03f6a4-e792-4e3f-a89a-31dfb2149da5",
+      "action": "*When* the user visits the Operator tool and logs in",
+      "data": "",
+      "result": "*Then* the user should be successfully logged into the platform"
+    },
+    {
+      "id": "9defd9f1-e0a4-4dc2-983e-ef493ccd0f01",
+      "action": "*When* the user navigates to the \"Media Validation\" page",
+      "data": "",
+      "result": "*Then* the user should be taken to the \"Media Validation\" page\n\n*And* the user should see \"Litmus\" on the top header of the page"
+    },
+    {
+      "id": "68894a94-14a6-4b8a-a57a-2a898fc8ffd5",
+      "action": "*When* the user navigates to the \"Media Validation\" page for the date \"2024-09-16\"",
+      "data": "",
+      "result": "*And* the user should see a search field above the games schedule"
+    },
+    {
+      "id": "f4441467-f773-4cb6-a368-4fc474a32d09",
+      "action": "*When* the user enters a valid GamePK into the search field above the games schedule",
+      "data": "",
+      "result": "*Then* the user should see 1 game within the games schedule"
+    }
+  ],
+  "originalTestType": "Manual"
+}

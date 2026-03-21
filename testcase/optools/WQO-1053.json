@@ -1,0 +1,21 @@
+{
+  "id": "WQO-1053",
+  "issueId": "1253268",
+  "key": "WQO-1053",
+  "summary": "User Lookup | Initial view ",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user navigates to the User Lookup page from the home page or the sidenav bar\nAnd !xray-attachment://f22429be-4a86-4755-8543-4c5953abd488|width=956,height=667!\nThen the user sees the page title \"User Lookup\"\nAnd the user sees a \"Date Range\" label\nAnd the user sees a date range control with placeholder \"Select a Date Range\"\nAnd the user sees an \"Okta ID / Email\" label\nAnd the user sees an input with placeholder \"Enter User ID or Email\"\nAnd the user sees a \"Search\" button",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "956f7a9a-e3fa-4428-8238-0e7290740dcc",
+      "action": "*When* the user navigates to the User Lookup page from the home page or the sidenav bar",
+      "data": "!xray-attachment://f22429be-4a86-4755-8543-4c5953abd488|width=956,height=667!",
+      "result": "*Then* the user sees the page title \"User Lookup\"\n\n*And* the user sees a \"Date Range\" label\n\n*And* the user sees a date range control with placeholder \"Select a Date Range\"\n\n*And* the user sees an \"Okta ID / Email\" label\n\n*And* the user sees an input with placeholder \"Enter User ID or Email\"\n\n*And* the user sees a \"Search\" button"
+    }
+  ],
+  "originalTestType": "Manual"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "WQO-826",
+  "issueId": "1164573",
+  "key": "WQO-826",
+  "summary": "User Lookup | User Searches For a User by Email",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When I am on the \"User Lookup\" page of the Streaming Operator Platform\nAnd I enter a valid user email address for example *vikram.singhal@mlb.com* into the \"Okta ID / Email\" field\nAnd I click the \"Search\" button\nThen The user's account information should be displayed, including:\n* First Name: *Vikram*\n* Last Name: *Singhal*\n* Okta ID: *00ufdpo4xfwameJgH0h8*\n* Email: *vikram.singhal@mlb.com*\n* Do Not Sell: *Profile Value: null, Cached Value: null*\n* Favorite Team: *Profile Value: Orioles, Cached Value: null*\n* Entitlements: *Profile Value: null, Cached Value: null*\nAnd The user's most recent sessions should be displayed in a table below the user information.\nAnd A \"Conviva Sessions\" button should be visible.\nAnd The URL should update to include the user's information.",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1114431c-c0db-4cf2-935b-42c3405f9b8a",
+      "action": "*When* I am on the \"User Lookup\" page of the Streaming Operator Platform\n\n*And* I enter a valid user email address for example [*vikram.singhal@mlb.com*|mailto:vikram.singhal@mlb.com] into the \"Okta ID / Email\" field\n\n*And* I click the \"Search\" button",
+      "data": "",
+      "result": "*Then* The user's account information should be displayed, including:\n\n* First Name: *Vikram*\n* Last Name: *Singhal*\n* Okta ID: *00ufdpo4xfwameJgH0h8*\n* Email: [*vikram.singhal@mlb.com*|mailto:vikram.singhal@mlb.com]\n* Do Not Sell: *Profile Value: null, Cached Value: null*\n* Favorite Team: *Profile Value: Orioles, Cached Value: null*\n* Entitlements: *Profile Value: null, Cached Value: null*\n\n*And* The user's most recent sessions should be displayed in a table below the user information.\n\n*And* A \"Conviva Sessions\" button should be visible.\n\nAnd The URL should update to include the user's information."
+    }
+  ],
+  "originalTestType": "Manual"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "WSTE-68",
+  "issueId": "1130701",
+  "key": "WSTE-68",
+  "summary": "Smoke | Forge Player Controls",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "Given a user is logged in to mlb.com/tv \nAnd the user initiated playback of VOD/SVOD/FLIVE/SLIVE content from the Welcome Center (/tv)\nOr the user initiated playback of VOD/SVOD/FLIVE/SLIVE content from the Shows Page (/tv/shows)\nAnd the user has the appropriate entitlements for their selected content (none for VOD or FLIVE, SUBSCRIBERVOD for SVOD or SLIVE)\nWhen the user initiates any of the following actions:\n\nPause\nPlay\nFast Forward\nRewind\nVolume Control\nClosed Caption\nFull Screen\nThen the player should respond appropriately to each action",
+  "unstructured": null,
+  "steps": []
+}

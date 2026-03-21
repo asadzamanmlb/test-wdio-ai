@@ -1,0 +1,21 @@
+{
+  "id": "WQO-415",
+  "issueId": "1146096",
+  "key": "WQO-415",
+  "summary": "Disable Copy Okta ID & Token Access for logged out users",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on \"Settings\" located at the bottom left side of the page\nThen the user should see the \"Version\" and the version number. For example: v5.2.0\nAnd the user should see \"Theme\" icon to change the theme",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e34a9faf-0961-44d2-ab51-f8c851a936bd",
+      "action": "When the user clicks on \"Settings\" located at the bottom left side of the page",
+      "data": "",
+      "result": "Then the user should see the \"Version\" and the version number. For example: v5.2.0\nAnd the user should see \"Theme\" icon to change the theme"
+    }
+  ],
+  "originalTestType": "Manual"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "WQO-834",
+  "issueId": "1164868",
+  "key": "WQO-834",
+  "summary": "The \"Submit Feedback\" link is visible and functional",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When I am on the Streaming Operator Platform (SOP)\nAnd I view the SOP side menu\nThen I should see a hyperlink at the bottom of the menu\nAnd the hyperlink should be labeled \"Submit Feedback\"\nAnd clicking the \"Submit Feedback\" hyperlink should direct me to the URL",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "79461541-ca68-498c-82ba-e1ee0904bf7b",
+      "action": "*When* I am on the Streaming Operator Platform (SOP)\n\n*And* I view the SOP side menu",
+      "data": "",
+      "result": "*Then* I should see a hyperlink at the bottom of the menu\n\n*And* the hyperlink should be labeled \"Submit Feedback\"\n\n*And* clicking the \"Submit Feedback\" hyperlink should direct me to the URL"
+    }
+  ],
+  "originalTestType": "Manual"
+}

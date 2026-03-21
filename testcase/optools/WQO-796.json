@@ -1,0 +1,39 @@
+{
+  "id": "WQO-796",
+  "issueId": "1163550",
+  "key": "WQO-796",
+  "summary": "Overrides | Session | Delete An Override",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user enters \"abc123\" in the search field\nAnd Test Data:\n* Okta ID to Delete: abc123\nThen the user should see 1 matching search result for oktaId \"abc123\"\nWhen the user clicks on the \"Delete\" icon on the far right of the matching search result\nThen the user should see the \"Delete Override\" dialog box open\nAnd the user should see a confirmation message asking to confirm the deletion\nWhen the user clicks the \"Delete\" button in the \"Delete Override\" dialog\nThen the \"Delete Override\" dialog should close\nAnd the user should return to the Overrides page\nWhen the user waits for 2 seconds (for the deletion to process)\nAnd the user refreshes the page\nAnd the user enters \"abc123\" in the search field\nThen the user should see no results within the table\nAnd the override should be completely removed from the system",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "84a98608-50ea-4bdb-aa91-b4f0ea69805e",
+      "action": "*When* the user enters \"abc123\" in the search field",
+      "data": "Test Data:\n\n* Okta ID to Delete: abc123",
+      "result": "*Then* the user should see 1 matching search result for oktaId \"abc123\""
+    },
+    {
+      "id": "7fb1fff6-106c-4f99-9994-1b64ec5fe9eb",
+      "action": "*When* the user clicks on the \"Delete\" icon on the far right of the matching search result",
+      "data": "",
+      "result": "*Then* the user should see the \"Delete Override\" dialog box open\n*And* the user should see a confirmation message asking to confirm the deletion"
+    },
+    {
+      "id": "f7c83320-8c36-40a1-ae33-02b1cf2ed2a9",
+      "action": "*When* the user clicks the \"Delete\" button in the \"Delete Override\" dialog",
+      "data": "",
+      "result": "*Then* the \"Delete Override\" dialog should close\n*And* the user should return to the Overrides page"
+    },
+    {
+      "id": "9ca9a088-94d1-4667-bd43-b8656a51a45f",
+      "action": "*When* the user waits for 2 seconds (for the deletion to process)\n*And* the user refreshes the page\n*And* the user enters \"abc123\" in the search field",
+      "data": "",
+      "result": "*Then* the user should see no results within the table\n*And* the override should be completely removed from the system"
+    }
+  ],
+  "originalTestType": "Manual"
+}

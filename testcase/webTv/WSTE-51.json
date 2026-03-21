@@ -1,0 +1,13 @@
+{
+  "id": "WSTE-51",
+  "issueId": "1130684",
+  "key": "WSTE-51",
+  "summary": "Smoke | Entitlements - MLBN+ / Audio Only",
+  "description": "*NOTE:* Excluded Live Content\nMVPD - ASG and Postseason\nPartner - AppleTV+, Peacock\nBlackouts - In-market games, ESPN Sunday Night Baseball\nGames that do not involve the subscribed team\n\n{panel:bgColor=#deebff}\n*NOTE:* At Bat subscribers have the following entitlements: MLBN, MLBAUDIO, MiLB and SUBSCRIBERVOD\n{panel}\n\nThis is the case for both Spring training and Regular season games.",
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "Given the user is logged into mlb.com/tv\nAnd the user has MLBN, MLBAUDIO, MiLB and SUBSCRIBERVOD entitlements\nWhen the user selects any game for playback\nThen the user receives unsuccessful playback of video feeds\nAnd the user recieves successful playback of audio only feeds\nAnd they successfully receives playback for the MLBN, VOD, SVOD, FLIVE, SLIVE, or out-of-market Free Game of the Day",
+  "unstructured": null,
+  "steps": []
+}

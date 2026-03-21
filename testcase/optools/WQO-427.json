@@ -1,0 +1,21 @@
+{
+  "id": "WQO-427",
+  "issueId": "1146108",
+  "key": "WQO-427",
+  "summary": "Overrides | Playback | Edit Create Override",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the \"Override\" tile on the dashboard\nAnd the user clicks on the \"Playback\" tab\nAnd the user either search for select an override playback that needs to be edit\nAnd the user clicks on the \"Edit Override\" pencil button\nAnd the user edits the information in \"OktaId\"\nAnd the user edits the information in \"Client Type\" in the dropdown\nAnd the user edits the information in \"Experience\" in the dropdown\nAnd the user edits the information in \"Features\" in the dropdown\nAnd the user clicks on the \"Save\" button\nThen the user should land on the Session page by default\nAnd the user should land on the Playback page\nAnd the user should see \"Search\" box on the right side of the screen\nAnd the user should see the \"Update Override\" modal on the screen\nAnd the user should see the edited entered information in \"OktaId\"\nAnd the user should see the edited entered information in \"Client Type\" in the dropdown\nAnd the user should see the edited entered information in \"Features\" in the dropdown\nAnd the user should see a successful message \"Session Override successfully updated\"\n!xray-attachment://3a478799-76bc-4e75-8903-fb70eefec2f1|width=292,height=41!",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0d00ebda-9d64-4fe5-a25d-2a0c23100784",
+      "action": "*When* the user clicks on the \"Override\" tile on the dashboard\n\n*And* the user clicks on the \"Playback\" tab\n\n*And* the user either search for select an override playback that needs to be edit\n\n*And* the user clicks on the \"Edit Override\" pencil button\n\n*And* the user edits the information in \"OktaId\"\n\n*And* the user edits the information in \"Client Type\" in the dropdown\n\n*And* the user edits the information in \"Experience\" in the dropdown\n\n*And* the user edits the information in \"Features\" in the dropdown\n\n*And* the user clicks on the \"Save\" button",
+      "data": "",
+      "result": "*Then* the user should land on the Session page by default\n\n*And* the user should land on the Playback page\n\n*And* the user should see \"Search\" box on the right side of the screen\n\n*And* the user should see the \"Update Override\" modal on the screen\n\n*And* the user should see the edited entered information in \"OktaId\" \n\n*And* the user should see the edited entered information in \"Client Type\" in the dropdown\n\n*And* the user should see the edited entered information in \"Features\" in the dropdown\n\n*And* the user should see a successful message \"Session Override successfully updated\"\n\n!xray-attachment://3a478799-76bc-4e75-8903-fb70eefec2f1|width=292,height=41!"
+    }
+  ],
+  "originalTestType": "Manual"
+}

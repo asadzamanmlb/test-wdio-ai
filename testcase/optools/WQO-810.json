@@ -1,0 +1,27 @@
+{
+  "id": "WQO-810",
+  "issueId": "1163693",
+  "key": "WQO-810",
+  "summary": "BTC Tools | Schedule | Verify Top Navigation",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user visits the Operator tool and logs in\nThen the user should be successfully logged into the platform\nWhen the user clicks on the BTC Tools page\nAnd the user navigates to the \"BTC Tools\" page at the top Nav\nAnd the user clicks on the \"<title>\" option on the top nav\nThen the browser url should contain \"<partial_url>\"Examples:\n|*title*|*partial_url*|\n|Schedule|/btc-tools/schedule|\n|Pipeline Configs|/btc-tools/pipeline-configs|\n|Pipeline Input Configs|/btc-tools/pipeline-input-configs|\n|Multicast Mapping|/btc-tools/multicast-mappings|\n|CDN Status|/btc-tools/cdn-status|\n|Broadcast Source Overrides|/btc-tools/broadcast-source-overrides|\n|Team Zixi Sources|/btc-tools/team-zixi-sources|",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8b804d4f-93ac-4103-a085-9b3e2239b58c",
+      "action": "*When* the user visits the Operator tool and logs in",
+      "data": "",
+      "result": "*Then* the user should be successfully logged into the platform"
+    },
+    {
+      "id": "b6f926be-5d4a-4dc9-9913-dd1b8fb7bf16",
+      "action": "*When* the user clicks on the BTC Tools page\n\n*And* the user navigates to the \"BTC Tools\" page at the top Nav\n\n*And* the user clicks on the \"<title>\" option on the top nav",
+      "data": "",
+      "result": "*Then* the browser url should contain \"<partial_url>\"Examples:\n\n|*title*|*partial_url*|\n|Schedule|/btc-tools/schedule|\n|Pipeline Configs|/btc-tools/pipeline-configs|\n|Pipeline Input Configs|/btc-tools/pipeline-input-configs|\n|Multicast Mapping|/btc-tools/multicast-mappings|\n|CDN Status|/btc-tools/cdn-status|\n|Broadcast Source Overrides|/btc-tools/broadcast-source-overrides|\n|Team Zixi Sources|/btc-tools/team-zixi-sources|"
+    }
+  ],
+  "originalTestType": "Manual"
+}

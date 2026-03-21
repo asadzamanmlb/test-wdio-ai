@@ -1,0 +1,21 @@
+{
+  "id": "WQO-971",
+  "issueId": "1217325",
+  "key": "WQO-971",
+  "summary": "User Lookup | Email Search Without Date Selection",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user navigate to User Lookup page\nAnd the user verify no dates are selected in calendar\nAnd the user enter \"dm5tv@gmail.com\" in the email field\nAnd the user click on Search button\nThen the User Lookup page loads successfully\nAnd the Date range field is empty or shows no selection\nAnd the Email address is entered successfully\nAnd the Search executes successfully\nAnd the user Verify \"External Logs\" text appears \"External Logs\" section is displayed\nAnd the user Verify \"User Information\" table loads with correct columns  Table shows:\n* First Name\n* Last Name\n* Okta ID\n* Email\n* Do Not Sell\n* Favorite Team\n* Entitlements\nAnd the user Verify \"User Sessions\" table is present User Sessions table is visible\nAnd the user Verify no error messages are displayed  No error messages or warnings appear",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "64cfaba0-5673-4a29-ae5c-c444f4b1ec28",
+      "action": "*When* the user navigate to User Lookup page   \n\n*And* the user verify no dates are selected in calendar    \n\n*And* the user enter \"[dm5tv@gmail.com|mailto:dm5tv@gmail.com]\" in the email field  \n\n*And* the user click on Search button",
+      "data": "",
+      "result": "*Then* the User Lookup page loads successfully\n\n*And* the Date range field is empty or shows no selection\n\n*And* the Email address is entered successfully\n\n*And* the Search executes successfully\n\n*And* the user Verify \"External Logs\" text appears \"External Logs\" section is displayed\n\n*And* the user Verify \"User Information\" table loads with correct columns  Table shows:\n\n* First Name\n* Last Name \n* Okta ID\n* Email\n* Do Not Sell\n* Favorite Team\n* Entitlements\n\n*And* the user Verify \"User Sessions\" table is present User Sessions table is visible\n\n*And* the user Verify no error messages are displayed  No error messages or warnings appear"
+    }
+  ],
+  "originalTestType": "Manual"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "WQO-402",
+  "issueId": "1146083",
+  "key": "WQO-402",
+  "summary": "Blackout Override | Overrides | Verify Overrides Page UI Elements and Column Headers",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the \"Overrides\" tab\nThen the user should land on the Overrides page\nAnd the user should see the \"Blackout Override\", \"User Lookup\" and \"Overrides\" on top of the page\nAnd the user should see a \"+Create Override\" button, a \"Search\" box, and a \"View\" (Toggle Columns) button in the top right corner\nAnd the user should see a table with the following columns:\n\"Country Code\", \"Okta ID\", \"IP Address\", \"Zip Code\", \"Status\", \"Expiration\", \"Created At\"\nAnd the user should see pagination in the following format:\n||*AND the user should see pagination below the table*|\"Rows per page\" dropdown (default set to 25)|\n||*AND the user should see pagination below the table*|A pagination summary (e.g \"1-25\" of X\")|\n||*AND the user should see pagination below the table*|First, Previous, Next and Last button|",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9018ad29-d1a8-4dbd-bd08-92627d451645",
+      "action": "When the user clicks on the \"Overrides\" tab",
+      "data": "",
+      "result": "Then the user should land on the Overrides page\nAnd the user should see the \"Blackout Override\", \"User Lookup\" and \"Overrides\" on top of the page\nAnd the user should see a \"+Create Override\" button, a \"Search\" box, and a \"View\" (Toggle Columns) button in the top right corner\nAnd the user should see a table with the following columns:\n\"Country Code\", \"Okta ID\", \"IP Address\", \"Zip Code\", \"Status\", \"Expiration\", \"Created At\"\nAnd the user should see pagination in the following format:\n\n||*AND the user should see pagination below the table*|\"Rows per page\" dropdown (default set to 25)|\n||*AND the user should see pagination below the table*|A pagination summary (e.g \"1-25\" of X\")|\n||*AND the user should see pagination below the table*|First, Previous, Next and Last button|"
+    }
+  ],
+  "originalTestType": "Manual"
+}

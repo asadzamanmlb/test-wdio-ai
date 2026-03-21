@@ -1,0 +1,415 @@
+# Inline Locator Detection Rules
+
+## Overview
+This document defines the cursor rules for detecting inline locators/selectors that should be moved to page object files. This enforces the Page Object Model pattern for better maintainability and reusability.
+
+## Purpose
+- **Centralize locators** in page object files for easy maintenance
+- **Improve reusability** by sharing locators across tests
+- **Enhance maintainability** by having a single source of truth for selectors
+- **Enable easy updates** when UI changes (update once, affect all tests)
+- **Prevent duplication** of selectors across the codebase
+- **Enforce best practices** for Page Object Model pattern
+
+## Automated Detection
+The project includes an automated inline locator checker in `scripts/check-cursor-rules.cjs`.
+
+### Usage
+```bash
+# Check for inline locators
+npm run cursor-rules-check
+```
+
+## What is an Inline Locator?
+An inline locator is a selector (CSS, XPath, or other) that is written directly in:
+- Test files (`.feature` files)
+- Step definition files (`*steps.js`)
+- Common function files (`commonFunctions/*.js`)
+- Any file that is NOT a page object file
+
+## Detection Patterns
+
+### Inline Selector Patterns (❌ Will be flagged)
+The checker detects these inline locator patterns:
+
+#### WebDriverIO $ Selector
+```javascript
+// ❌ BAD - Inline CSS selector
+await $('button.submit');
+await $('#loginButton');
+await $('.user-menu');
+
+// ❌ BAD - Inline XPath selector
+await $('//*[@id="submit"]');
+await $('//button[@type="submit"]');
+await $('//*[text()="Login"]');
+
+// ❌ BAD - Inline attribute selector
+await $('button[data-testid="login-btn"]');
+await $('input[name="username"]');
+await $('[aria-label="Close"]');
+```
+
+#### WebDriverIO $$ Selector (Multiple Elements)
+```javascript
+// ❌ BAD - Inline selectors for multiple elements
+await $$('div.card');
+await $$('//li[@class="item"]');
+await $$('button[type="button"]');
+```
+
+#### String Selectors in Functions
+```javascript
+// ❌ BAD - Passing selector strings directly
+await clickElement('button.submit');
+await waitForElement('#loginForm');
+await isElementVisible('//div[@class="modal"]');
+await element.$('>div.child');
+```
+
+#### Selector Variables (Still inline if not from page object)
+```javascript
+// ❌ BAD - Even with variables, if not from page object
+const loginButton = 'button#login';
+const usernameInput = '//input[@name="username"]';
+await $(loginButton);
+```
+
+### Valid Patterns (✅ Will NOT be flagged)
+
+#### Using Page Object Locators
+```javascript
+// ✅ GOOD - Locator from page object
+import loginPage from '../pageobjects/login/loginPage.object.js';
+const element = await $(await loginPage['Login Button']);
+
+// ✅ GOOD - Using page object method
+import homePage from '../pageobjects/home/homePage.object.js';
+const menu = await $(await homePage.getMenuSelector());
+
+// ✅ GOOD - Page object with dynamic selector
+import gamesPage from '../pageobjects/games/gamesPage.object.js';
+const gameCard = await $(await gamesPage.getGameCard(gameId));
+```
+
+#### Page Object File Definitions
+```javascript
+// ✅ GOOD - Locators defined IN page object files
+// File: pageobjects/login/loginPage.object.js
+const loginPage = {
+  'Login Button': async () => $('button[data-testid="login-btn"]'),
+  'Username Field': async () => $('#username'),
+  'Password Field': async () => $('input[name="password"]'),
+  'Error Message': async () => $('.error-message'),
+};
+
+export default loginPage;
+```
+
+## Where to Define Locators
+
+### ✅ MUST be defined in:
+- `core-app/pageobjects/*.js` - Page object files for core app (directly in folder)
+- `operator-tool/pageobjects/**/*.js` - Page object files for operator tool (in subdirectories)
+
+### ❌ MUST NOT be inline in:
+- `core-app/step-definitions/*.js` - Step definition files
+- `core-app/commonFunctions/*.js` - Common function files
+- `operator-tool/step-definitions/**/*.js` - Step definition files (in subdirectories)
+- `operator-tool/commonFunctions/*.js` - Common function files
+- Any test or helper files
+
+## Exceptions
+
+### Allowed Inline Patterns
+These patterns are allowed because they don't represent UI locators:
+
+#### 1. Parent/Child Navigation
+```javascript
+// ✅ GOOD - Relative navigation from page object element
+const parentElement = await $(await pageObject['Parent Element']);
+const child = await parentElement.$('>div'); // Relative selector is OK
+const nextSibling = await parentElement.$('~span'); // Sibling selector is OK
+```
+
+#### 2. Dynamic Property Access (Not Selectors)
+```javascript
+// ✅ GOOD - Not a selector
+const value = object['propertyName'];
+const data = await browser.execute('return window.data');
+```
+
+#### 3. Console/Logging
+```javascript
+// ✅ GOOD - Logging, not selecting
+console.log('Selector: button.submit');
+```
+
+## Best Practices
+
+### 1. Organize Page Objects by Page/Feature
+```
+pageobjects/
+├── login/
+│   └── loginPage.object.js
+├── home/
+│   └── homePage.object.js
+├── games/
+│   └── gamesPage.object.js
+└── settings/
+    └── settingsPage.object.js
+```
+
+### 2. Use Descriptive Locator Names
+```javascript
+// ❌ BAD - Not descriptive
+const loginPage = {
+  'btn1': async () => $('button#login'),
+  'input1': async () => $('input#user'),
+};
+
+// ✅ GOOD - Descriptive names
+const loginPage = {
+  'Login Button': async () => $('button#login'),
+  'Username Field': async () => $('input#user'),
+  'Password Field': async () => $('input#password'),
+  'Remember Me Checkbox': async () => $('input[type="checkbox"]'),
+  'Forgot Password Link': async () => $('a.forgot-password'),
+};
+```
+
+### 3. Group Related Locators
+```javascript
+// ✅ GOOD - Grouped by functionality
+const settingsPage = {
+  // Account Settings
+  'Account Tab': async () => $('button[data-tab="account"]'),
+  'Email Field': async () => $('input#email'),
+  'Update Email Button': async () => $('button.update-email'),
+  
+  // Privacy Settings
+  'Privacy Tab': async () => $('button[data-tab="privacy"]'),
+  'Show Profile Toggle': async () => $('input#show-profile'),
+  'Save Privacy Button': async () => $('button.save-privacy'),
+};
+```
+
+### 4. Use Methods for Dynamic Selectors
+```javascript
+// ✅ GOOD - Method for dynamic selectors
+const gamesPage = {
+  'Games Grid': async () => $('div.games-grid'),
+  
+  // Dynamic selector based on parameter
+  getGameCard: async (gameId) => $(`div[data-game-id="${gameId}"]`),
+  getTeamLogo: async (teamName) => $(`img[alt="${teamName} logo"]`),
+  getDateHeader: async (date) => $(`h2:has-text("${date}")`),
+};
+
+// Usage in step definition
+const gameCard = await $(await gamesPage.getGameCard('12345'));
+```
+
+### 5. Share Common Locators
+```javascript
+// ✅ GOOD - Common elements across pages
+const commonElements = {
+  'Header Logo': async () => $('header img.logo'),
+  'Navigation Menu': async () => $('nav.main-menu'),
+  'User Profile': async () => $('div.user-profile'),
+  'Logout Button': async () => $('button.logout'),
+};
+
+export default commonElements;
+```
+
+## Migration Guide
+
+### Step 1: Identify Inline Locators
+Run the cursor rules check:
+```bash
+npm run cursor-rules-check
+```
+
+### Step 2: Move Locators to Page Objects
+```javascript
+// BEFORE: step-definitions/login.steps.js
+When('I click the login button', async function() {
+  await $('button#login').click(); // ❌ Inline locator
+});
+
+// AFTER: Move to pageobjects/login/loginPage.object.js
+const loginPage = {
+  'Login Button': async () => $('button#login'),
+};
+export default loginPage;
+
+// AFTER: Update step-definitions/login.steps.js
+import loginPage from '../pageobjects/login/loginPage.object.js';
+
+When('I click the login button', async function() {
+  const loginBtn = await $(await loginPage['Login Button']);
+  await loginBtn.click(); // ✅ Using page object
+});
+```
+
+### Step 3: Update All References
+Search for all usages of the inline locator and update them to use the page object:
+```bash
+# Find all references
+grep -r "button#login" core-app/step-definitions/
+```
+
+### Step 4: Verify
+```bash
+# Run cursor rules check again
+npm run cursor-rules-check
+
+# Run tests to ensure nothing broke
+npm run local
+```
+
+## Common Patterns and Solutions
+
+### Pattern 1: Selector in Common Function
+```javascript
+// ❌ BAD - Inline selector in common function
+// commonFunctions/clickElement.js
+async function clickElement(text) {
+  await $(`//button[text()="${text}"]`).click();
+}
+
+// ✅ GOOD - Pass element from page object
+// step-definitions/common.steps.js
+import loginPage from '../pageobjects/login/loginPage.object.js';
+
+When('I click {string}', async function(elementName) {
+  const element = await $(await loginPage[elementName]);
+  await clickElement(element);
+});
+
+// commonFunctions/clickElement.js
+async function clickElement(element) {
+  await element.click();
+}
+```
+
+### Pattern 2: Dynamic Text Selection
+```javascript
+// ❌ BAD - Building selector with text
+await $(`//button[text()="${buttonText}"]`).click();
+
+// ✅ GOOD - Page object with method
+const pageObject = {
+  getButtonByText: async (text) => $(`//button[text()="${text}"]`),
+};
+
+// Usage
+const button = await $(await pageObject.getButtonByText(buttonText));
+await button.click();
+```
+
+### Pattern 3: Data-Testid Attributes
+```javascript
+// ❌ BAD - Inline data-testid
+await $('[data-testid="submit-button"]').click();
+
+// ✅ GOOD - Page object with data-testid
+const formPage = {
+  'Submit Button': async () => $('[data-testid="submit-button"]'),
+  'Cancel Button': async () => $('[data-testid="cancel-button"]'),
+  
+  // Or use a method for dynamic data-testid
+  getElementByTestId: async (testId) => $(`[data-testid="${testId}"]`),
+};
+```
+
+## Troubleshooting
+
+### False Positives
+If the checker flags valid code:
+1. **Verify it's not a selector** - Is it actually a UI locator?
+2. **Check if it's in page object** - Page object files should not be flagged
+3. **Use relative selectors** - Child selectors like `'>div'` from page object elements are OK
+4. **Report issue** - File a bug if it's incorrectly flagged
+
+### Refactoring Large Codebases
+For projects with many inline locators:
+1. **Start with new features** - Apply rule to all new code
+2. **Refactor by module** - Fix one feature area at a time
+3. **Create shared locators** - Build up page object library
+4. **Update tests incrementally** - No need to fix everything at once
+
+## Benefits
+
+### Maintainability
+- **Single source of truth** for all locators
+- **Easy to update** when UI changes
+- **Clear organization** of page elements
+- **Reduced duplication** across test files
+
+### Reusability
+- **Share locators** across multiple tests
+- **Consistent selectors** throughout the codebase
+- **Easier test creation** with existing locators
+
+### Debugging
+- **Faster issue identification** when locators fail
+- **Clear locator naming** helps understand failures
+- **Centralized updates** fix all tests at once
+
+### Team Collaboration
+- **Clear patterns** for all developers
+- **Easier code reviews** with standard structure
+- **Better onboarding** for new team members
+
+## Integration
+
+### Pre-commit Hook
+```bash
+# .husky/pre-commit
+#!/bin/sh
+npm run cursor-rules-check
+```
+
+### CI/CD Pipeline
+```yaml
+# .github/workflows/tests.yml
+- name: Check Cursor Rules
+  run: npm run cursor-rules-check
+```
+
+## Results Format
+
+### Success Output
+```
+🚀 Starting Cursor Rules Check...
+🔍 Checking for inline locators...
+✅ No inline locators found
+⚡ Performance: 95ms total, 245 files checked
+🎉 All locators properly defined in page objects!
+```
+
+### Failure Output
+```
+🚀 Starting Cursor Rules Check...
+🔍 Checking for inline locators...
+❌ Inline locators found in:
+
+core-app/step-definitions/login.steps.js:
+  Line 25: await $('button#login').click();
+  Line 32: const field = await $('//input[@name="username"]');
+  
+core-app/commonFunctions/clickElement.js:
+  Line 10: await $(`[data-testid="${testId}"]`).click();
+
+💡 Fix: Move these selectors to page object files
+   Example: core-app/pageobjects/login/loginPage.object.js
+
+⚡ Performance: 102ms total, 245 files checked
+💥 Inline locators detected. Please move to page objects.
+```
+
+---
+
+*This document is part of the WebDriverIO Test Automation Framework cursor rules system.*

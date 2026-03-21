@@ -1,0 +1,6 @@
+node_modules
+.git
+.selfheal-report.json
+.rag-memory.json
+.env
+*.log

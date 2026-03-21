@@ -1,0 +1,21 @@
+{
+  "id": "WQO-807",
+  "issueId": "1163668",
+  "key": "WQO-807",
+  "summary": "Side Navigation and URL Mapping",
+  "description": "This test case verifies side panel navigation, and partial url mapping",
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the \"<title>\" option within the side nav\nThen the user should be taken to the \"<title>\" page\nAnd the browser url should contain \"<partial_url>\"Examples:\n|*title*|*partial_url*|\n|BTC Tools|/btc-tools|\n|Overrides|/overrides/session|\n|Blackout Override|/ip-override|\n|Logger|/logger|\n|Media Validation|/media-validation|\n|Milestones|/milestones|\n|Audit & Logging|/audits|\n|Partner Delivery|/partner/mapping|\n|ESNI Management|/esni/media|\n|User Lookup|/user-lookup|",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a6097d16-9a82-49f3-b106-37d431de5a1e",
+      "action": "*When* the user clicks on the \"<title>\" option within the side nav",
+      "data": "",
+      "result": "*Then* the user should be taken to the \"<title>\" page\n*And* the browser url should contain \"<partial_url>\"Examples:\n\n|*title*|*partial_url*|\n|BTC Tools|/btc-tools|\n|Overrides|/overrides/session|\n|Blackout Override|/ip-override|\n|Logger|/logger|\n|Media Validation|/media-validation|\n|Milestones|/milestones|\n|Audit & Logging|/audits|\n|Partner Delivery|/partner/mapping|\n|ESNI Management|/esni/media|\n|User Lookup|/user-lookup|"
+    }
+  ],
+  "originalTestType": "Manual"
+}

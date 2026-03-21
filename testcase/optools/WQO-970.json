@@ -1,0 +1,21 @@
+{
+  "id": "WQO-970",
+  "issueId": "1217142",
+  "key": "WQO-970",
+  "summary": "User Lookup | Single Date Selection Validation",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user navigate to User Lookup page\nAnd the user click on \"Select A Date Range\" button\nAnd the user Select today's date in the calendar\nAnd the user Verify only one date is selected (not a range)\nAnd the user Enter \"dm5tv@gmail.com\" in the email field\nAnd the user Click on Search button\nAnd the user Verify search results are displayed\nThen the user Lookup page loads successfully\nAnd the Calendar dropdown appears\nAnd Today's date is selected and displayed\nAnd Single date is shown, no range indicators present\nAnd the Email address is entered successful\nAnd the Search executes successful\nAnd the user should see the User Information and User Sessions tables are shown",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "bc2da14e-422c-40a4-ac22-e7d4ba7f6c69",
+      "action": "*When* the user navigate to User Lookup page\n\n*And* the user click on \"Select A Date Range\" button\n\n*And* the user Select today's date in the calendar\n\n*And* the user Verify only one date is selected (not a range)\n\n*And* the user Enter \"[dm5tv@gmail.com|mailto:dm5tv@gmail.com]\" in the email field\n\n*And* the user Click on Search button\n\n*And* the user Verify search results are displayed",
+      "data": "",
+      "result": "*Then* the user Lookup page loads successfully\n\n*And* the Calendar dropdown appears\n\n*And* Today's date is selected and displayed\n\n*And* Single date is shown, no range indicators present\n\n*And* the Email address is entered successful\n\n*And* the Search executes successful\n\n*And* the user should see the User Information and User Sessions tables are shown"
+    }
+  ],
+  "originalTestType": "Manual"
+}

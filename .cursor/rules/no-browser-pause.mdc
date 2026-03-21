@@ -1,0 +1,19 @@
+---
+description: Do not use browser.pause() in WebdriverIO tests
+globs: features/**/*.js, **/*.steps.js
+alwaysApply: false
+---
+
+# No browser.pause()
+
+Do **not** use `browser.pause()` in step definitions or test code.
+
+## Why
+- Arbitrary waits slow tests and are brittle
+- Use explicit waits instead for reliable, faster tests
+
+## Use instead
+- `element.waitForDisplayed({ timeout })`
+- `element.waitForClickable({ timeout })`
+- `element.waitForExist({ timeout })`
+- `browser.waitUntil(async () => ..., { timeout, timeoutMsg })`

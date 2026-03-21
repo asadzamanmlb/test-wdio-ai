@@ -1,0 +1,77 @@
+# Selenium Grid 4 - parallel Chrome nodes for WDIO
+# Start: docker compose -f docker/grid/docker-compose.yml up -d
+# Scale: docker compose -f docker/grid/docker-compose.yml up -d --scale chrome=4
+# Stop:  docker compose -f docker/grid/docker-compose.yml down
+
+services:
+  selenium-event-bus:
+    image: selenium/event-bus:4.41.0-20260222
+    container_name: selenium-event-bus
+    ports:
+      - "4442:4442"
+      - "4443:4443"
+      - "5557:5557"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4442"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  selenium-sessions:
+    image: selenium/sessions:4.41.0-20260222
+    container_name: selenium-sessions
+    ports:
+      - "5556:5556"
+    depends_on:
+      selenium-event-bus:
+        condition: service_healthy
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-event-bus
+
+  selenium-session-queue:
+    image: selenium/session-queue:4.41.0-20260222
+    container_name: selenium-session-queue
+    ports:
+      - "5559:5559"
+    depends_on:
+      selenium-event-bus:
+        condition: service_healthy
+
+  selenium-distributor:
+    image: selenium/distributor:4.41.0-20260222
+    container_name: selenium-distributor
+    ports:
+      - "5553:5553"
+    depends_on:
+      - selenium-event-bus
+      - selenium-sessions
+      - selenium-session-queue
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-event-bus
+      - SE_SESSIONS_MAP_HOST=selenium-sessions
+      - SE_SESSION_QUEUE_HOST=selenium-session-queue
+
+  selenium-router:
+    image: selenium/router:4.41.0-20260222
+    container_name: selenium-router
+    ports:
+      - "4444:4444"
+    depends_on:
+      - selenium-distributor
+      - selenium-sessions
+      - selenium-session-queue
+    environment:
+      - SE_DISTRIBUTOR_HOST=selenium-distributor
+      - SE_SESSIONS_MAP_HOST=selenium-sessions
+      - SE_SESSION_QUEUE_HOST=selenium-session-queue
+
+  chrome:
+    image: selenium/node-chrome:4.41.0-20260222
+    platform: linux/amd64
+    shm_size: 2gb
+    depends_on:
+      selenium-event-bus:
+        condition: service_healthy
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-event-bus
+      - SE_NODE_MAX_SESSIONS=1

@@ -1,0 +1,13 @@
+{
+  "id": "WSTE-718",
+  "issueId": "1219098",
+  "key": "WSTE-718",
+  "summary": "Media Center | Verify calendar date range ",
+  "description": "[https://baseball.atlassian.net/browse/GOAT-897|https://baseball.atlassian.net/browse/GOAT-897|smart-link] ",
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "Given the user is on mlb.com/live-stream-games\nWhen the user navigates the calendar through URL or date container \nThen the user can view up to end of the current season (EX:2026/11/02) \nAnd as far back as the prior 2 season (EX:2024/02/20)",
+  "unstructured": null,
+  "steps": []
+}

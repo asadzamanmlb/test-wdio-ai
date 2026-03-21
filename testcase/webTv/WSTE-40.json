@@ -1,0 +1,13 @@
+{
+  "id": "WSTE-40",
+  "issueId": "1130673",
+  "key": "WSTE-40",
+  "summary": "Smoke | Archive Game Playback - Hide Spoilers ON",
+  "description": "*NOTE* Users can access to the 'Hide Spoiler' feature in the Games player by navigating to the Settings menu under the General tab.",
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "Given an entitled user is logged into mlb.com/tv\nAnd the users \"HideSpoilers\" setting are set to ON\nWhen the user selects an archived game for playback from Hero, games tile or Media Center \nThen playback starts at the beginning of the stream\nAnd all available data is hidden from the user (this includes innings and final score)\nAnd the data is revealed inning by inning as playback progresses",
+  "unstructured": null,
+  "steps": []
+}

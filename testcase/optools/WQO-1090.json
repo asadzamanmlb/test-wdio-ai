@@ -1,0 +1,21 @@
+{
+  "id": "WQO-1090",
+  "issueId": "1268567",
+  "key": "WQO-1090",
+  "summary": "BTC Tools | Multicast Mapping | Adding Multicast Mapping Saves the Details Correctly",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the \"Add Multicast Mapping\" button\nAnd the user enters a Call Sign into the \"Call Sign\" input field (Example: \"ABC\", \"ARID\")\nAnd the user clicks on the \"Priority\" dropdown and selects an option (Example: \"PRIMARY\")\nAnd the user enters a Multicast Address in the input field, using the format udp://: (Example: \"rtp://239.130.25.1:8000\")\nAnd the user clicks on the \"Source Location\" dropdown and selects an option (Example: \"SCS1\")\nAnd the user clicks on the \"Submit\" button\nThen the user should see a new row in the Multicast Mapping table containing the entered values",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6bf3641f-3248-4b36-b4f2-e54685e9aeea",
+      "action": "*When* the user clicks on the \"Add Multicast Mapping\" button\n\n*And* the user enters a Call Sign into the \"Call Sign\" input field (Example: \"ABC\", \"ARID\")\n\n*And* the user clicks on the \"Priority\" dropdown and selects an option (Example: \"PRIMARY\")\n*And* the user enters a Multicast Address in the input field, using the format udp://: (Example: \"rtp://239.130.25.1:8000\")\n\n*And* the user clicks on the \"Source Location\" dropdown and selects an option (Example: \"SCS1\")\n\n*And* the user clicks on the \"Submit\" button",
+      "data": "",
+      "result": "*Then* the user should see a new row in the Multicast Mapping table containing the entered values"
+    }
+  ],
+  "originalTestType": "Manual"
+}

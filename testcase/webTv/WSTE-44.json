@@ -1,0 +1,13 @@
+{
+  "id": "WSTE-44",
+  "issueId": "1130677",
+  "key": "WSTE-44",
+  "summary": "Smoke | Homepage - Verify VOD Playback",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "Given a user is logged into mlb.com/tv (any user)\nWhen the user navigates down to select a VOD video\nThen the user is able to play the VOD Video successfully",
+  "unstructured": null,
+  "steps": []
+}

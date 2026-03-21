@@ -1,0 +1,21 @@
+{
+  "id": "WQO-823",
+  "issueId": "1164549",
+  "key": "WQO-823",
+  "summary": "ESNI Management | Policies | Verify Tab  & Table Display",
+  "description": "Verify Policies screen loads and displays policy data correctly",
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user navigates to the \"Policies\" tab in the ESNI Management section\nThen a button labeled \"Add Viewing Policy\" should be visible at the top-left of the screen\nAnd a \"Search\" input field should be visible at the top-right of the screen\nAnd a \"View\"  button should be visible next to the search input\nAnd a data table should be displayed with the following columns:\n* Policy Name\n* Href\n* Action\nAnd each row should display a valid policy with:\n* A unique Policy Name\n* A corresponding Href value\n* An Action value such as ALLOW or REJECT or IGNORE\nAnd each row should have a \"View Details\" button (three-line icon) on the far right\nAnd pagination controls should be visible at the bottom of the screen\nAnd the default rows per page should be set to \"25\"",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "45d114a4-84e8-414d-97cc-c4f41d347eab",
+      "action": "*When* the user navigates to the \"Policies\" tab in the ESNI Management section",
+      "data": "",
+      "result": "*Then* a button labeled \"Add Viewing Policy\" should be visible at the top-left of the screen\n\n*And* a \"Search\" input field should be visible at the top-right of the screen\n\n*And* a \"View\"  button should be visible next to the search input\n\n*And* a data table should be displayed with the following columns:\n\n* Policy Name\n* Href\n* Action\n\n*And* each row should display a valid policy with:\n\n* A unique Policy Name\n* A corresponding Href value\n* An Action value such as ALLOW or REJECT or IGNORE\n\n*And* each row should have a \"View Details\" button (three-line icon) on the far right\n\n*And* pagination controls should be visible at the bottom of the screen\n\n*And* the default rows per page should be set to \"25\""
+    }
+  ],
+  "originalTestType": "Manual"
+}

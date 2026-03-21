@@ -1,0 +1,27 @@
+{
+  "id": "WQO-1048",
+  "issueId": "1251644",
+  "key": "WQO-1048",
+  "summary": "BTC Tools | Team Zixi Sources | Validate UI",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks \"BTC Tools\" in the sidebar or on the Home dashboard\ncard\nThen the user lands on the Schedule page\nAnd the user sees the Team Zixi Sources tab on the BTC Tools page\nWhen the user clicks on the Team Zixi Sources tab\nAnd !xray-attachment://202a7cfd-de43-4756-8d98-f62a1ffb33e0|width=1392,height=888!\n!xray-attachment://bebbe50e-ae60-4f64-b91e-c58be5e08c83|width=1297,height=645!\nThen the user lands on the Team Zixi Sources page\nAnd the user sees a search box at the top\nAnd the user sees team cards (one card per team)\nAnd each team card shows the following:\n* Team logo\n* Team ID\n* \"Partner Lock Orchestration\" with status (e.g. Disabled)\n* \"Lock Zixi Sources\" and \"Unlock Zixi Sources\" buttons\n* A warning icon when the Lock/Unlock buttons are disabled\n* *And* each team card shows either a table of Zixi sources or the message \"No Zixi Sources found\"",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "76e4cada-6574-4a4b-88f5-e88a33ff6d37",
+      "action": "*When* the user clicks \"BTC Tools\" in the sidebar or on the Home dashboard\ncard",
+      "data": "",
+      "result": "*Then* the user lands on the Schedule page\n\n*And* the user sees the Team Zixi Sources tab on the BTC Tools page"
+    },
+    {
+      "id": "b2372c41-dfb6-4f0c-8464-b68cb90fca8c",
+      "action": "*When* the user clicks on the Team Zixi Sources tab",
+      "data": "!xray-attachment://202a7cfd-de43-4756-8d98-f62a1ffb33e0|width=1392,height=888!\n\n!xray-attachment://bebbe50e-ae60-4f64-b91e-c58be5e08c83|width=1297,height=645!",
+      "result": "*Then* the user lands on the Team Zixi Sources page\n\n*And* the user sees a search box at the top\n\n*And* the user sees team cards (one card per team)\n\n*And* each team card shows the following:\n\n* Team logo\n* Team ID\n* \"Partner Lock Orchestration\" with status (e.g. Disabled)\n* \"Lock Zixi Sources\" and \"Unlock Zixi Sources\" buttons\n* A warning icon when the Lock/Unlock buttons are disabled\n* *And* each team card shows either a table of Zixi sources or the message \"No Zixi Sources found\""
+    }
+  ],
+  "originalTestType": "Manual"
+}

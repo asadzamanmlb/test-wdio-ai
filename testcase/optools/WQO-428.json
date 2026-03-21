@@ -1,0 +1,21 @@
+{
+  "id": "WQO-428",
+  "issueId": "1146109",
+  "key": "WQO-428",
+  "summary": "Overrides | Playback | Delete Override",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user click on the \"Overrides\" tile on the dashboard\nAnd the user click on the Playback tab right next to the Session tab\nAnd the user clicks on the delete icon on an Okta ID from the table\nAnd the user clicks on the red \"Delete\" button\nThen the user should land on the Session page by default\nAnd the user should be on the Playback page\nAnd the user should see a pop up which displays \"Cancel\" and \"Delete\" button\nAnd the user should see a success override deletion message \"Playback Override successfully deleted\"\n!xray-attachment://8adae929-3f5e-45f4-9179-e856f8476e83|width=291,height=51!",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1e7d70ea-ff3b-42b9-aef6-3bee4129a558",
+      "action": "*When* the user click on the \"Overrides\" tile on the dashboard\n\n*And* the user click on the Playback tab right next to the Session tab\n\n*And* the user clicks on the delete icon on an Okta ID from the table \n\n*And* the user clicks on the red \"Delete\" button",
+      "data": "",
+      "result": "*Then* the user should land on the Session page by default\n\n*And* the user should be on the Playback page\n\n*And* the user should see a pop up which displays \"Cancel\" and \"Delete\" button\n\n*And* the user should see a success override deletion message \"Playback Override successfully deleted\"\n\n!xray-attachment://8adae929-3f5e-45f4-9179-e856f8476e83|width=291,height=51!"
+    }
+  ],
+  "originalTestType": "Manual"
+}

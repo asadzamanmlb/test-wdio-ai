@@ -1,0 +1,33 @@
+{
+  "id": "WQO-1052",
+  "issueId": "1252215",
+  "key": "WQO-1052",
+  "summary": "Milestones | Delete A Milestone",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the \"Delete\" icon on the far right of the newly created milestone\nThen the user should see a popup window titled \"Delete Milestone\"\nWhen the user clicks on the \"Delete\" button within the \"Delete Milestone\" dialog\nThen the popup window should disappear\nWhen the user refreshes the webpage\nThen the user should see the milestone was deleted from the table\nAnd the milestone should no longer appear in the list",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "de6672a5-4128-4b76-82e0-77cdf909343b",
+      "action": "*When* the user clicks on the \"Delete\" icon on the far right of the newly created milestone",
+      "data": "",
+      "result": "*Then* the user should see a popup window titled \"Delete Milestone\""
+    },
+    {
+      "id": "cbf77f73-5815-44c9-8036-4d48447b6663",
+      "action": "*When* the user clicks on the \"Delete\" button within the \"Delete Milestone\" dialog",
+      "data": "",
+      "result": "*Then* the popup window should disappear"
+    },
+    {
+      "id": "fedc1a52-0601-4693-bcbe-c2379d5b8a31",
+      "action": "*When* the user refreshes the webpage",
+      "data": "",
+      "result": "*Then* the user should see the milestone was deleted from the table\n\n*And* the milestone should no longer appear in the list"
+    }
+  ],
+  "originalTestType": "Manual"
+}

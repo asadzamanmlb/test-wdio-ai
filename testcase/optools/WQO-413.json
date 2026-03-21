@@ -1,0 +1,21 @@
+{
+  "id": "WQO-413",
+  "issueId": "1146094",
+  "key": "WQO-413",
+  "summary": "Enable Copy Okta ID & Token Access for logged in users",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the Settings gear\nAnd the user clicks on the \"ID\" button in the Okta Info section\nAnd the user clicks on the \"Access Token\" button in the Okta Info section\nThen the user should see a pop up modal with \"Okta Info\" section\nAnd the \"ID\" automatically gets copied to the clipboard\nAnd the \"Access Token\" automatically gets copied to the clipboard",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8013f0dd-b35a-4a3d-a08f-543882550558",
+      "action": "When the user clicks on the Settings gear\nAnd the user clicks on the \"ID\" button in the Okta Info section\nAnd the user clicks on the \"Access Token\" button in the Okta Info section",
+      "data": "",
+      "result": "Then the user should see a pop up modal with \"Okta Info\" section\nAnd the \"ID\" automatically gets copied to the clipboard\nAnd the \"Access Token\" automatically gets copied to the clipboard"
+    }
+  ],
+  "originalTestType": "Manual"
+}

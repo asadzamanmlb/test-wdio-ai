@@ -1,0 +1,13 @@
+{
+  "id": "WSTE-35",
+  "issueId": "1130668",
+  "key": "WSTE-35",
+  "summary": "Smoke | Log In",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "Given the user is NOT logged in\nAnd they attempt to go to mlb.com/tv\nAnd the user is redirected to the Log In page (mlb.com/login)\nOr the user clicks the Login button (located at the top-right corner of the mlb.com page, represented by a user/profile icon)\nOr the user selects the login button from the subscription page (if they are redirected to subscribe)\nWhen the user enters a valid \"Email\"\nAnd the user clicks \"Continue\"\nAnd  the user enters a valid \"Password\"\nAnd  the user clicks the \"Log In\" button\nThen the user is successfully logged in\nAnd  the user is redirected back to the Welcome Center\n\n**NOTE: users may be redirected to different pages after login depending on where they are attempting to gain access to.**\nEX: selecting a game link would redirect a user back to that game after login",
+  "unstructured": null,
+  "steps": []
+}

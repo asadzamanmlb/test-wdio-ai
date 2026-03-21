@@ -1,0 +1,21 @@
+{
+  "id": "WQO-404",
+  "issueId": "1146085",
+  "key": "WQO-404",
+  "summary": "Media Validation | Page Verification",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the Media Validation tile on the Home page\nAnd the user should land on \"Litmus\" page\nAnd the user should see the header of the page display \"Media Validation\" at top of the page\nAnd the user should see a calendar icon with the format \"YYYY-MM-DD\" with Previous arrow and Next arrow\nAnd the user should see a \"Search For GamePK\" box on the ride side of the Next arrow of the calendar\nAnd the user should see a game card with the following information\n-Team Names\n-Game PK\n-Venue\n-Game Date\n-Status\nAnd the user should see \"Validation Suite\"\nAnd the user should see \"Game Pre Provision\" dorpdown\nAnd the user should see a \"Run Validation\" button on the right side of the dropdown\nAnd the user should see three columns with the following items in the header:\n-Name\n-Description\n-Result",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "372352d6-3519-473a-b48d-031bb089fa3e",
+      "action": "*When* the user clicks on the Media Validation tile on the Home page",
+      "data": "",
+      "result": "*And* the user should land on \"Litmus\" page\n*And* the user should see the header of the page display \"Media Validation\" at top of the page\n*And* the user should see a calendar icon with the format \"YYYY-MM-DD\" with Previous arrow and Next arrow\n*And* the user should see a \"Search For GamePK\" box on the ride side of the Next arrow of the calendar\n*And* the user should see a game card with the following information\n-Team Names\n-Game PK\n-Venue\n-Game Date\n-Status\n*And* the user should see \"Validation Suite\"\n*And* the user should see \"Game Pre Provision\" dorpdown\n*And* the user should see a \"Run Validation\" button on the right side of the dropdown\n*And* the user should see three columns with the following items in the header:\n-Name\n-Description\n-Result"
+    }
+  ],
+  "originalTestType": "Manual"
+}

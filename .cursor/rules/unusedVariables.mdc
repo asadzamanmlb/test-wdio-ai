@@ -1,0 +1,349 @@
+# Unused Variable Detection Rules
+
+## Overview
+This document defines the cursor rules for detecting and managing unused variables in the WebDriverIO test automation framework.
+
+## Purpose
+- **Maintain clean code** by removing unused variable declarations
+- **Improve performance** by reducing memory usage
+- **Enhance readability** by keeping only necessary variables
+- **Prevent confusion** from misleading variable declarations
+- **Reduce cognitive load** for developers
+
+## Automated Detection
+The project includes an automated unused variable checker integrated into `scripts/check-cursor-rules.cjs`.
+
+### Usage
+```bash
+# Check for unused variables (along with unused imports)
+npm run cursor-rules-check
+```
+
+### Performance
+- **Fast execution**: Optimized for developer workflow
+- **File caching**: Reuses cached file content from import checks
+- **Comprehensive coverage**: Scans all JavaScript files
+- **Smart detection**: Handles various variable declaration patterns
+
+## Detection Patterns
+
+### Variable Declaration Patterns
+The checker detects these variable declaration formats:
+```javascript
+// const declarations
+const variableName = value;
+const { destructured } = object;
+const [arrayItem] = array;
+
+// let declarations
+let variableName = value;
+let { destructured } = object;
+let [arrayItem] = array;
+
+// var declarations
+var variableName = value;
+var { destructured } = object;
+var [arrayItem] = array;
+
+// Function parameters
+function myFunction(unusedParam) {
+  // unusedParam is unused
+}
+
+// Arrow function parameters
+const myArrow = (unusedParam) => {
+  // unusedParam is unused
+}
+```
+
+### Usage Pattern Detection
+The checker identifies variable usage through:
+- **Direct usage**: `variableName`
+- **Function calls**: `variableName()`
+- **Method access**: `variableName.method()`
+- **Array access**: `variableName[index]`
+- **Property access**: `object.variableName`
+- **Template literals**: `${variableName}`
+- **Object destructuring**: `{ variableName }`
+- **Array destructuring**: `[variableName]`
+- **Function parameters**: `function(param) { /* param used */ }`
+
+### Special Cases and Exclusions
+
+#### Intentionally Unused Variables
+The checker ignores these patterns:
+```javascript
+// Underscore prefix indicates intentionally unused
+const _unusedVariable = value;
+
+// Common test patterns
+const _ = require('lodash'); // Common utility library
+const { _, expect } = require('chai'); // Test assertion library
+
+// Destructuring with rest operator
+const { used, ..._rest } = object;
+
+// Array destructuring with rest
+const [first, ..._rest] = array;
+```
+
+#### Framework-Specific Patterns
+```javascript
+// WebDriverIO step definitions - parameters are used by framework
+When('I click {string}', async function(selector) {
+  // selector parameter is used by Cucumber framework
+});
+
+// Page object methods - parameters are used by framework
+const pageObject = {
+  'Element Name': async (selector) => {
+    // selector parameter is used by page object pattern
+  }
+};
+```
+
+#### Common Exclusions
+- Variables starting with underscore (`_`)
+- Function parameters in step definitions
+- Variables used in comments or strings
+- Variables in test data setup
+- Variables used for side effects only
+
+## Common Patterns in Framework
+
+### WebDriverIO Test Files
+```javascript
+// Good - all variables used
+const { $, browser } = require('@wdio/globals');
+const pageObject = require('../pageobjects/page.object.js');
+
+// Usage
+const element = await $('selector');
+await browser.url('/test-page');
+await pageObject.clickElement(element);
+```
+
+### Step Definitions
+```javascript
+// Good - parameters are used
+When('I navigate to {string}', async function(url) {
+  await browser.url(url);
+});
+
+// Bad - unused variable
+When('I click element', async function() {
+  const unusedVariable = 'not used';
+  await $('button').click();
+});
+```
+
+### Page Objects
+```javascript
+// Good - all variables used
+const pageObject = {
+  'Login Button': async () => {
+    const button = await $('button[type="submit"]');
+    return button;
+  }
+};
+
+// Bad - unused variable
+const pageObject = {
+  'Login Button': async () => {
+    const unusedVar = 'not used';
+    return await $('button[type="submit"]');
+  }
+};
+```
+
+## Exclusions
+The checker ignores these directories:
+- `node_modules/**`
+- `allure-results/**` 
+- `reports/**`
+- `temp/**`
+- `logs/**`
+
+## Integration
+
+### NPM Scripts
+```json
+{
+  "scripts": {
+    "cursor-rules-check": "node scripts/check-cursor-rules.cjs"
+  }
+}
+```
+
+### CI/CD Integration
+The checker can be integrated into CI/CD pipelines:
+```bash
+# Exit code 0 = no unused variables
+# Exit code 1 = unused variables detected
+npm run cursor-rules-check
+```
+
+## Best Practices
+
+### 1. Regular Cleanup
+- Run the checker before committing code
+- Include in pre-commit hooks
+- Regular team cleanup sessions
+
+### 2. Variable Naming
+```javascript
+// Use descriptive names
+const userEmail = await getUserEmail();
+const loginButton = await $('button[type="submit"]');
+
+// Prefix unused variables with underscore
+const _debugInfo = getDebugInfo(); // Intentionally unused
+```
+
+### 3. Avoid Over-declaration
+```javascript
+// ❌ Don't declare variables you don't use
+const unusedVariable = 'not used';
+const anotherUnused = getData();
+
+// ✅ Only declare what you need
+const neededVariable = getData();
+console.log(neededVariable);
+```
+
+### 4. Function Parameters
+```javascript
+// ❌ Don't declare unused parameters
+function myFunction(unusedParam, usedParam) {
+  return usedParam * 2;
+}
+
+// ✅ Use underscore for unused parameters
+function myFunction(_unusedParam, usedParam) {
+  return usedParam * 2;
+}
+```
+
+## Troubleshooting
+
+### False Positives
+If the checker incorrectly flags a variable as unused:
+1. **Verify actual usage** - Check if the variable is truly used
+2. **Check dynamic usage** - Some usage patterns may not be detected
+3. **Add underscore prefix** - Use `_variableName` for intentionally unused variables
+4. **Update detection patterns** - Enhance the checker if needed
+
+### Performance Issues
+If the checker runs slowly:
+1. **File caching** is enabled by default
+2. **Exclude large directories** from scanning
+3. **Run targeted checks** on specific files
+
+## Maintenance
+
+### Updating Detection Logic
+The checker's detection patterns can be enhanced in `scripts/check-cursor-rules.cjs`:
+```javascript
+// Add new usage patterns to this array
+const usagePatterns = [
+  new RegExp(`\\b${escapedVariableName}\\b`, 'g'),
+  // Add new patterns here
+];
+```
+
+### Adding Exclusions
+To exclude additional directories:
+```javascript
+const jsFiles = await glob('**/*.js', { 
+  ignore: [
+    'node_modules/**', 
+    'allure-results/**',
+    'new-directory/**'  // Add here
+  ] 
+});
+```
+
+## Results Format
+
+### Success Output
+```
+🚀 Starting Cursor Rules Check...
+🔍 Checking for unused imports...
+✅ No unused imports found
+🔍 Checking for unused variables...
+✅ No unused variables found
+⚡ Performance: 45ms total, 126 files cached
+🎉 All cursor rules passed!
+```
+
+### Failure Output
+```
+🚀 Starting Cursor Rules Check...
+🔍 Checking for unused imports...
+✅ No unused imports found
+🔍 Checking for unused variables...
+❌ Unused variables in file.js:
+  - unusedVariable (line 5)
+  - anotherUnused (line 8)
+⚡ Performance: 52ms total, 126 files cached
+💥 Unused variables detected. Please fix the issues above.
+```
+
+## Benefits
+
+### Code Quality
+- **Cleaner codebase** with only necessary variables
+- **Reduced cognitive load** for developers
+- **Easier refactoring** with clear variable usage
+- **Better memory management** with fewer unused variables
+
+### Performance
+- **Reduced memory usage** during execution
+- **Faster variable resolution** with fewer declarations
+- **Cleaner stack traces** with relevant variables only
+
+### Maintainability
+- **Clear variable tracking** 
+- **Easier debugging** with relevant variables only
+- **Simplified code reviews** with clean variable declarations
+- **Better test coverage** with used variables only
+
+## Examples
+
+### Good Examples
+```javascript
+// All variables are used
+const { $, browser } = require('@wdio/globals');
+const pageObject = require('../pageobjects/page.object.js');
+
+const element = await $('selector');
+await browser.url('/test-page');
+await pageObject.clickElement(element);
+```
+
+### Bad Examples
+```javascript
+// Unused variables will be flagged
+const { $, browser, unusedFunction } = require('@wdio/globals');
+const unusedVariable = 'not used';
+const anotherUnused = getData();
+
+// Only using $ and browser
+const element = await $('selector');
+await browser.url('/test-page');
+```
+
+### Fixing Issues
+```javascript
+// Before (❌ Will be flagged):
+const { $, browser, unusedFunction } = require('@wdio/globals');
+const unusedVariable = 'not used';
+
+// After (✅ Fixed):
+const { $, browser } = require('@wdio/globals');
+// Remove unused imports and variables
+```
+
+---
+
+*This document is part of the WebDriverIO Test Automation Framework cursor rules system.*

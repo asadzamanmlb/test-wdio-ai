@@ -1,0 +1,231 @@
+# Unused Import Detection Rules
+
+## Overview
+This document defines the cursor rules for detecting and managing unused imports in the WebDriverIO test automation framework.
+
+## Purpose
+- **Maintain clean code** by removing unused imports
+- **Improve performance** by reducing bundle size
+- **Enhance readability** by keeping only necessary dependencies
+- **Prevent confusion** from misleading import statements
+
+## Automated Detection
+The project includes an automated unused import checker located at `scripts/check-cursor-rules.cjs`.
+
+### Usage
+```bash
+# Check for unused imports
+npm run cursor-rules-check
+```
+
+### Performance
+- **Fast execution**: ~40ms for 126+ files
+- **File caching**: Optimized for repeated runs
+- **Comprehensive coverage**: Scans all JavaScript files
+
+## Detection Patterns
+
+### Import Statement Patterns
+The checker detects these import formats:
+```javascript
+// ES6 Named imports
+import { name1, name2 } from 'module';
+
+// ES6 Default imports  
+import name from 'module';
+
+// ES6 Namespace imports
+import * as name from 'module';
+
+// CommonJS destructured
+const { name1, name2 } = require('module');
+
+// CommonJS default
+const name = require('module');
+```
+
+### Usage Pattern Detection
+The checker identifies import usage through:
+- **Direct usage**: `importName`
+- **Function calls**: `importName()`
+- **Method access**: `importName.method()`
+- **Array access**: `importName[index]`
+- **Constructor calls**: `new importName()`
+- **Class extension**: `extends importName`
+- **Async calls**: `await importName()`
+- **Assignments**: `= importName()`
+
+### Special Character Handling
+- **Dollar sign (`$`)**: Properly escaped for WebDriverIO element selector
+- **Regex characters**: All special characters are escaped for accurate detection
+
+## Common Patterns in Framework
+
+### WebDriverIO Globals
+```javascript
+// Always needed when using element selectors
+import { $, browser } from "@wdio/globals";
+
+// Usage examples that are detected:
+const element = await $('selector');
+await browser.url('https://example.com');
+```
+
+### Page Object Patterns
+```javascript
+// Typical page object structure
+import { $ } from "@wdio/globals";
+
+const pageObject = {
+  'Element Name': async () => $('selector'),
+  // $ usage is properly detected in arrow functions
+};
+```
+
+### Step Definition Patterns
+```javascript
+// Common step definition imports
+import { Given, When, Then } from "@wdio/cucumber-framework";
+import { $, browser } from "@wdio/globals";
+
+// Usage in step implementations
+When('I click {string}', async function(selector) {
+  const element = await $(selector);
+  await element.click();
+});
+```
+
+## Exclusions
+The checker ignores these directories:
+- `node_modules/**`
+- `allure-results/**` 
+- `reports/**`
+- `temp/**`
+- `logs/**`
+
+## Integration
+
+### NPM Scripts
+```json
+{
+  "scripts": {
+    "cursor-rules-check": "node scripts/check-cursor-rules.cjs"
+  }
+}
+```
+
+### CI/CD Integration
+The checker can be integrated into CI/CD pipelines:
+```bash
+# Exit code 0 = no unused imports
+# Exit code 1 = unused imports detected
+npm run cursor-rules-check
+```
+
+## Best Practices
+
+### 1. Regular Cleanup
+- Run the checker before committing code
+- Include in pre-commit hooks
+- Regular team cleanup sessions
+
+### 2. Import Organization
+```javascript
+// Group imports logically
+import { Given, When, Then } from "@wdio/cucumber-framework";
+import { $, browser } from "@wdio/globals";
+import { assert } from "chai";
+
+// Project imports
+import pageObject from "../pageobjects/page.object.js";
+import commonFunction from "../commonFunctions/function.js";
+```
+
+### 3. Avoid Over-importing
+```javascript
+// ❌ Don't import everything
+import { $, browser, expect, $$, driver } from "@wdio/globals";
+
+// ✅ Import only what you use
+import { $, browser } from "@wdio/globals";
+```
+
+## Troubleshooting
+
+### False Positives
+If the checker incorrectly flags an import as unused:
+1. **Verify actual usage** - Check if the import is truly used
+2. **Check dynamic usage** - Some usage patterns may not be detected
+3. **Update detection patterns** - Enhance the checker if needed
+
+### Performance Issues
+If the checker runs slowly:
+1. **File caching** is enabled by default
+2. **Exclude large directories** from scanning
+3. **Run targeted checks** on specific files
+
+## Maintenance
+
+### Updating Detection Logic
+The checker's detection patterns can be enhanced in `scripts/check-cursor-rules.cjs`:
+```javascript
+// Add new usage patterns to this array
+const usagePatterns = [
+  new RegExp(`\\b${escapedImportName}\\b`, 'g'),
+  // Add new patterns here
+];
+```
+
+### Adding Exclusions
+To exclude additional directories:
+```javascript
+const jsFiles = await glob('**/*.js', { 
+  ignore: [
+    'node_modules/**', 
+    'allure-results/**',
+    'new-directory/**'  // Add here
+  ] 
+});
+```
+
+## Results Format
+
+### Success Output
+```
+🚀 Starting Unused Imports Check...
+🔍 Checking for unused imports...
+✅ No unused imports found
+⚡ Performance: 39ms total, 126 files cached
+🎉 No unused imports found!
+```
+
+### Failure Output
+```
+🚀 Starting Unused Imports Check...
+🔍 Checking for unused imports...
+❌ Unused imports in file.js:
+  - importName (line 5)
+⚡ Performance: 45ms total, 126 files cached
+💥 Unused imports detected. Please fix the issues above.
+```
+
+## Benefits
+
+### Code Quality
+- **Cleaner codebase** with only necessary imports
+- **Reduced cognitive load** for developers
+- **Easier refactoring** with clear dependencies
+
+### Performance
+- **Smaller bundle size** in production
+- **Faster build times** with fewer dependencies
+- **Reduced memory usage** during execution
+
+### Maintainability
+- **Clear dependency tracking** 
+- **Easier debugging** with relevant imports only
+- **Simplified code reviews** with clean import sections
+
+---
+
+*This document is part of the WebDriverIO Test Automation Framework cursor rules system.*

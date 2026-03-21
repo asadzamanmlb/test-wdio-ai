@@ -1,0 +1,21 @@
+{
+  "id": "WQO-815",
+  "issueId": "1164537",
+  "key": "WQO-815",
+  "summary": " Partner Delivery | Mapping | Verify Page Loads Successfully",
+  "description": " Partner Delivery Page should load with all sections visible and correctly positioned",
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user navigates to the \"Partner Delivery\" page using the Home screen or the left sidebar menu\nThen the \"Partner Delivery\" page should be displayed.\nAnd the user lands on the Mapping Page by default\nAnd the \"Data Centers\" panel should be visible on the top-left\nAnd the \"Channels\" panel should be visible to the right of the \"Data Centers\" panel\nAnd the \"Partners\" panel should be visible on the bottom-left\nAnd the \"Targets\" panel should be visible to the right of the \"Partners\" panel\nAnd search input fields should be present above both \"Channels\" and \"Targets\" sections\nAnd the \"Clear\" and \"Confirm\" buttons should be visible below the \"Targets\" panel",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d883530f-d8d2-4117-8cae-4f05b9ffce66",
+      "action": "*When* the user navigates to the \"Partner Delivery\" page using the Home screen or the left sidebar menu",
+      "data": "",
+      "result": "*Then* the \"Partner Delivery\" page should be displayed.\n\n*And* the user lands on the Mapping Page by default\n\n*And* the \"Data Centers\" panel should be visible on the top-left\n\n*And* the \"Channels\" panel should be visible to the right of the \"Data Centers\" panel\n\n*And* the \"Partners\" panel should be visible on the bottom-left\n\n*And* the \"Targets\" panel should be visible to the right of the \"Partners\" panel\n\n*And* search input fields should be present above both \"Channels\" and \"Targets\" sections\n\n*And* the \"Clear\" and \"Confirm\" buttons should be visible below the \"Targets\" panel"
+    }
+  ],
+  "originalTestType": "Manual"
+}

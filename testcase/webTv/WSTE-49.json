@@ -1,0 +1,13 @@
+{
+  "id": "WSTE-49",
+  "issueId": "1130682",
+  "key": "WSTE-49",
+  "summary": "Smoke | Entitlements - MLBALL ",
+  "description": "*PLEASE NOTE: Excluded Live Content*\nMVPD - ASG and Postseason\nPartner - AppleTV+, Peacock etc\nBlackouts - In-market games, ESPN Sunday Night Baseball",
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "Given the user is logged into mlb.com/tv\nAnd the user has MLBALL and SUBSCRIBERVOD entitlements\nWhen the user selects any out of market content for playback\nThen the user receives successful playback of that content",
+  "unstructured": null,
+  "steps": []
+}

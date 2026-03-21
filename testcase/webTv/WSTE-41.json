@@ -1,0 +1,13 @@
+{
+  "id": "WSTE-41",
+  "issueId": "1130674",
+  "key": "WSTE-41",
+  "summary": "Smoke | Verify Welcome Center Page Load (Home Page)",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "Given a user is logged into mlb.com/tv (any user)\nAnd the user is not on the Welcome Center (Home page)\nWhen the user selects \"MLB.TV\" in the navigation header\nThen the \"MLB.TV\" page loads without issues\nAnd the Hero section should display relevant content\nAnd available carousels should be visible on the Home page",
+  "unstructured": null,
+  "steps": []
+}

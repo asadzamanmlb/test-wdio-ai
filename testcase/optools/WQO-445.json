@@ -1,0 +1,21 @@
+{
+  "id": "WQO-445",
+  "issueId": "1146126",
+  "key": "WQO-445",
+  "summary": "Overrides | Session | Search Override",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the \"Override\" tile on the dashboard\nAnd the user enters either of the following in the Search box, a valid:\n-id\n-Okta ID or\n-Client Type\nThen the user should land on the \"Session\" page by default\nAnd the user should the result should pop up in the table.",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "785a1850-b26a-491a-931e-afef31a9e9ab",
+      "action": "*When* the user clicks on the \"Override\" tile on the dashboard\n*And* the user enters either of the following in the Search box, a valid:\n\n-id\n-Okta ID or\n-Client Type",
+      "data": "",
+      "result": "*Then* the user should land on the \"Session\" page by default\n*And* the user should the result should pop up in the table."
+    }
+  ],
+  "originalTestType": "Manual"
+}

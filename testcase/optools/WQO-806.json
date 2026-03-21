@@ -1,0 +1,27 @@
+{
+  "id": "WQO-806",
+  "issueId": "1163656",
+  "key": "WQO-806",
+  "summary": "BTC Tools | Pipeline Configs | Verify Pipeline Configs",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the \"BTC Tools\" tile from the homepage\nThen the user lands on the Schedule Page\nAnd the user should see tabs for \"Schedule\", \"Configs\", \"CDN Status\", \"Broadcast Source Overrides\" and \"Team Zixi Sources\" tabs\nWhen the user clicks on the \"Configs\" tab\nAnd the user clicks on Pipeline\nAnd !xray-attachment://06249374-63c5-4cce-a5e9-4f9fa6ab8b28|width=522,height=404!\nThen the user should see the \"Pipeline Configs\" page\nAnd the user should see a search box under the Pipeline Configs\nAnd the user should see the following for every card within the Pipeline Configs grid:\n-Team Name\n-Team abbreviation\n-ID and\n-Config ID",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b33aa006-07a8-4036-abe6-f51b1dbae645",
+      "action": "*When* the user clicks on the \"BTC Tools\" tile from the homepage",
+      "data": "",
+      "result": "*Then* the user lands on the Schedule Page\n\n*And* the user should see tabs for \"Schedule\", \"Configs\", \"CDN Status\", \"Broadcast Source Overrides\" and \"Team Zixi Sources\" tabs"
+    },
+    {
+      "id": "e3cd0c0c-765a-412a-89c2-18e1986a8fd2",
+      "action": "*When* the user clicks on the \"Configs\" tab\n\n*And*  the user clicks on Pipeline",
+      "data": "!xray-attachment://06249374-63c5-4cce-a5e9-4f9fa6ab8b28|width=522,height=404!",
+      "result": "*Then* the user should see the \"Pipeline Configs\" page\n\n*And* the user should see a search box under the Pipeline Configs \n\n*And* the user should see the following for every card within the Pipeline Configs grid:\n-Team Name \n-Team abbreviation \n-ID and\n-Config ID"
+    }
+  ],
+  "originalTestType": "Manual"
+}

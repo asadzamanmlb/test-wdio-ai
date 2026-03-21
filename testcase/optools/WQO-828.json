@@ -1,0 +1,21 @@
+{
+  "id": "WQO-828",
+  "issueId": "1164577",
+  "key": "WQO-828",
+  "summary": "User Lookup | User Views Conviva Sessions",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user has searched for a user and their information is displayed\nAnd the user clicks the \"Conviva Sessions\" button\nThen a new browser tab should open\nAnd The new tab should navigate to the Conviva Viewer Module URL with the user's Okta ID appended\nAnd The Conviva Viewer Module should list the active sessions for the user for the last 24 hours",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c2144121-d7de-4a7c-b342-820f32dba9de",
+      "action": "*When* the user has searched for a user and their information is displayed\n\n*And* the user clicks the \"Conviva Sessions\" button",
+      "data": "",
+      "result": "*Then* a new browser tab should open\n\n*And* The new tab should navigate to the Conviva Viewer Module URL with the user's Okta ID appended\n\n*And* The Conviva Viewer Module should list the active sessions for the user for the last 24 hours"
+    }
+  ],
+  "originalTestType": "Manual"
+}

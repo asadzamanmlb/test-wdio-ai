@@ -1,0 +1,45 @@
+{
+  "id": "WQO-1050",
+  "issueId": "1252213",
+  "key": "WQO-1050",
+  "summary": "Milestones | Add A Milestone",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the \"Milestones\" tile from the homepage\nThen the user should see a page with a list of baseball games for today\nAnd each game should show team names, game info, and an \"Edit Milestones\" button\nFor example:\nTeam Name | Game PK | Venue | Game Date | Status and Edit Milestone button on the right side of the game card\nWhen the user clicks the \"Edit Milestones\" button for the first game in the list\nThen the user should see a table showing existing milestones for that game\nAnd the user should see an \"Add Milestone\" button at the top\nWhen the user clicks the \"Add Milestone\" button\nThen the user should see a popup window titled \"Add Milestone\"\nAnd the user should see dropdown menus and input fields to fill out\nWhen the user clicks on the \"Milestone Type\" dropdown\nAnd the user selects \"INNING_END\" from the list of options\nAnd the user types \"11\" in the inning number box\nAnd the user clicks the checkbox next to \"isTopInning\" (to check it)\nAnd the user clicks the checkbox next to \"isGameOver\" (to check it)\nAnd the user clicks the timestamp toggle button\nAnd the user clicks the calendar button\nAnd the user picks the date \"June 12 2024\" from the calendar\nAnd the user clicks the \"Submit\" button\nThen the popup window should disappear\nAnd the user should see a green success message saying \"Insert Milestone Success\"\nWhen the user refreshes the webpage\nThen the user should see their new milestone appears in the table\nAnd it should show \"INNING_END\" and inning \"11\"",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "36128769-1e5a-433e-86bf-68ca3355b628",
+      "action": "*When* the user clicks on the \"Milestones\" tile from the homepage",
+      "data": "",
+      "result": "*Then* the user should see a page with a list of baseball games for today\n\n*And* each game should show team names, game info, and an \"Edit Milestones\" button\n\nFor example:\n\nTeam Name | Game PK | Venue | Game Date | Status and Edit Milestone button on the right side of the game card"
+    },
+    {
+      "id": "e043206c-f99a-45ee-8c40-60f4392b2519",
+      "action": "*When* the user clicks the \"Edit Milestones\" button for the first game in the list",
+      "data": "",
+      "result": "*Then* the user should see a table showing existing milestones for that game\n\n*And* the user should see an \"Add Milestone\" button at the top"
+    },
+    {
+      "id": "8116ce17-8ec7-42a9-9353-35910d72d6a9",
+      "action": "*When* the user clicks the \"Add Milestone\" button",
+      "data": "",
+      "result": "*Then* the user should see a popup window titled \"Add Milestone\"\n\n*And* the user should see dropdown menus and input fields to fill out"
+    },
+    {
+      "id": "8f401a7a-a4c8-4d6c-99cf-3f4f31b553b6",
+      "action": "*When* the user clicks on the \"Milestone Type\" dropdown\n\n*And* the user selects \"INNING_END\" from the list of options\n\n*And* the user types \"11\" in the inning number box\n\n*And* the user clicks the checkbox next to \"isTopInning\" (to check it)\n\n*And* the user clicks the checkbox next to \"isGameOver\" (to check it)\n\n*And* the user clicks the timestamp toggle button\n\n*And* the user clicks the calendar button\n\n*And* the user picks the date \"June 12 2024\" from the calendar\n\n*And* the user clicks the \"Submit\" button",
+      "data": "",
+      "result": "*Then* the popup window should disappear\n\n*And* the user should see a green success message saying \"Insert Milestone Success\""
+    },
+    {
+      "id": "4c5ce76a-1c2c-4927-8923-72a4a7c21ff7",
+      "action": "*When* the user refreshes the webpage",
+      "data": "",
+      "result": "*Then* the user should see their new milestone appears in the table\n\n*And* it should show \"INNING_END\" and inning \"11\""
+    }
+  ],
+  "originalTestType": "Manual"
+}

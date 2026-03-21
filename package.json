@@ -1,0 +1,45 @@
+{
+  "name": "unified-qa-platform",
+  "scripts": {
+    "cursor-rules-check": "node .cursor/scripts/check-cursor-rules.cjs",
+    "lint": "eslint . --ignore-pattern node_modules",
+    "lint:fix": "eslint . --ignore-pattern node_modules --fix",
+    "start": "node platform.js",
+    "xray": "node xray/fetchTests.js",
+    "xray:export": "node xray/exportTestsToJson.js",
+    "optools:convert": "node scripts/convertOptoolsToGherkin.js",
+    "sync:xray": "node scripts/syncXrayTests.js",
+    "test:webtv": "wdio run wdio.conf.js",
+    "test:webtv:qa": "ENV=qa wdio run wdio.conf.js",
+    "test:webtv:beta": "ENV=beta wdio run wdio.conf.js",
+    "docker:start": "colima start",
+    "docker:start:desktop": "open -a Docker",
+    "grid:up": "docker-compose -f docker/grid/docker-compose.yml up -d --scale chrome=4",
+    "grid:down": "docker-compose -f docker/grid/docker-compose.yml down",
+    "grid:logs": "docker-compose -f docker/grid/docker-compose.yml logs -f",
+    "grid:up-and-test": "npm run grid:up && npm run test:grid",
+    "grid:run": "npm run grid:up-and-test && npm run grid:down",
+    "test:grid": "ENV=qa wdio run wdio.grid.conf.js",
+    "test:grid:qa": "ENV=qa wdio run wdio.grid.conf.js",
+    "test:grid:beta": "ENV=beta wdio run wdio.grid.conf.js",
+    "dashboard": "node dashboard-server.js",
+    "dashboard:build": "cd dashboard && npm run build",
+    "dashboard:dev": "cd dashboard && npm run dev"
+  },
+  "dependencies": {
+    "cheerio": "^1.2.0",
+    "dotenv": "^17.3.1",
+    "express": "^4",
+    "openai": "^6.32.0"
+  },
+  "devDependencies": {
+    "@wdio/cli": "^9.26.1",
+    "@wdio/cucumber-framework": "^9.26.1",
+    "@wdio/local-runner": "^9.26.1",
+    "@wdio/spec-reporter": "^9.26.1",
+    "chromedriver": "^146.0.5",
+    "eslint": "^10.1.0",
+    "wdio-cucumberjs-json-reporter": "^6.0.1",
+    "webdriverio": "^9.26.1"
+  }
+}

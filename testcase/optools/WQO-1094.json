@@ -1,0 +1,27 @@
+{
+  "id": "WQO-1094",
+  "issueId": "1277688",
+  "key": "WQO-1094",
+  "summary": "ESNI Management | Rules | Display All rules with correct columns",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user navigate to \"ESNI Management\" page by clicking ESNI Management tab on the home page or from the side bar\nThen the user should land on the ESNI Management \"Media ID\" page by default\nWhen the user clicks on the \"Rules\" tab from the top header\nAnd https://sop-qa.mlb.com/esni/rules\n!xray-attachment://6bf3d6d1-5a19-4150-b759-7fddf9637fad|width=1483,height=1386!\nThen the user should see the Rules tab selected and the rules list displayed.\nAnd the user should see the rules table with the following columns:\n* Name\n* Status\n* Type\n* Priority\n* Actions\nAnd the rules list should be displayed for the current page (default rows per page).\nAnd pagination should be visible showing:\n* Total count of rules\n* Current range (e.g., {{1–25 of 50}})\n* Rows per page control and next/previous navigation",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ab510260-52ad-44c4-aa6d-d56cf093709c",
+      "action": "*When* the user navigate to \"ESNI Management\" page by clicking ESNI Management tab on the home page or from the side bar",
+      "data": "",
+      "result": "*Then* the user should land on the ESNI Management \"Media ID\" page by default"
+    },
+    {
+      "id": "a36eb826-f6a5-47b3-aab3-01603c34cb7b",
+      "action": "*When* the user clicks on the \"Rules\" tab from the top header",
+      "data": "[https://sop-qa.mlb.com/esni/rules|https://sop-qa.mlb.com/esni/rules]\n\n!xray-attachment://6bf3d6d1-5a19-4150-b759-7fddf9637fad|width=1483,height=1386!",
+      "result": "*Then* the user should see the Rules tab selected and the rules list displayed.\n\n*And* the user should see the rules table with the following columns:\n\n* Name\n* Status\n* Type\n* Priority\n* Actions\n\nAnd the rules list should be displayed for the current page (default rows per page).\n\n And pagination should be visible showing:\n\n* Total count of rules\n* Current range (e.g., {{1–25 of 50}})\n* Rows per page control and next/previous navigation"
+    }
+  ],
+  "originalTestType": "Manual"
+}

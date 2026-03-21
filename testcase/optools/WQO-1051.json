@@ -1,0 +1,27 @@
+{
+  "id": "WQO-1051",
+  "issueId": "1252214",
+  "key": "WQO-1051",
+  "summary": "Milestone | Edit A Milestone",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the \"Edit\" icon on the far right of the newly created milestone\nThen the user should see a popup window titled \"Adjust Milestone\"\nAnd the user should see the current milestone details filled in\nWhen the user clicks on the timestamp toggle button within the \"Adjust Milestone\" dialog\nAnd the user clicks on the calendar button within the \"Adjust Milestone\" dialog\nAnd the user picks the date \"June 12 2024\" from the calendar\nAnd the user clicks on the calendar button again within the \"Adjust Milestone\" dialog\nAnd the user clicks the \"Submit\" button within the \"Adjust Milestone\" dialog\nThen the popup window should disappear\nAnd the user should see a green success message saying \"Adjust Milestone Success\"",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8aee8ffa-bf91-4429-b267-05744d9ec8fc",
+      "action": "*When* the user clicks on the \"Edit\" icon on the far right of the newly created milestone",
+      "data": "",
+      "result": "*Then* the user should see a popup window titled \"Adjust Milestone\"\n\n*And* the user should see the current milestone details filled in"
+    },
+    {
+      "id": "88e20bcf-b203-4566-a381-1923c5892ab5",
+      "action": "*When* the user clicks on the timestamp toggle button within the \"Adjust Milestone\" dialog\n\n*And* the user clicks on the calendar button within the \"Adjust Milestone\" dialog\n\n*And* the user picks the date \"June 12 2024\" from the calendar\n\n*And* the user clicks on the calendar button again within the \"Adjust Milestone\" dialog\n\n*And* the user clicks the \"Submit\" button within the \"Adjust Milestone\" dialog",
+      "data": "",
+      "result": "*Then* the popup window should disappear\n\n*And* the user should see a green success message saying \"Adjust Milestone Success\""
+    }
+  ],
+  "originalTestType": "Manual"
+}

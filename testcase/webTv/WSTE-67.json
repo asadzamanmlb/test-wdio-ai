@@ -1,0 +1,13 @@
+{
+  "id": "WSTE-67",
+  "issueId": "1130700",
+  "key": "WSTE-67",
+  "summary": "Smoke | Shows Page Load",
+  "description": "{panel:bgColor=#deebff}\nPlease Note that the Shows Page (mlb.com/tv/shows) is not behind the paywall and therefore does not need authentication to access this page. This may be subject to change in the future.\n{panel}",
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "Given a user logged into mlb.com/tv\nAnd the user is not on the Shows page\nWhen the user selects \"\"Shows\"\" in the navigation header\nThen the \"\"TV/SHOWS\"\" page loads smoothly \nAnd the user sees a content in the Hero \nAnd the user sees some carousel displays as they scroll down",
+  "unstructured": null,
+  "steps": []
+}

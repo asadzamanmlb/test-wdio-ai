@@ -1,0 +1,21 @@
+{
+  "id": "WQO-808",
+  "issueId": "1163674",
+  "key": "WQO-808",
+  "summary": " Homepage Tiles Navigation",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the \"<title>\" tile within the homepage\nThen the user should be taken to the \"<title>\" page\nAnd the browser url should contain \"<partial_url>\"Examples:\n|*title*|*partial_url*|\n|BTC Tools|/btc-tools|\n|Overrides|/overrides/session|\n|Blackout Override|/ip-override|\n|Logger|/logger|\n|Milestones|/milestones|\n|Audit & Logging|/audits|\n|Partner Delivery|/partner/mapping|\n|ESNI Management|/esni/media|\n|User Lookup|/user-lookup|",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c23ed71b-f4ec-4b91-b928-6441bf54618b",
+      "action": "*When* the user clicks on the \"<title>\" tile within the homepage",
+      "data": "",
+      "result": "*Then* the user should be taken to the \"<title>\" page\n*And* the browser url should contain \"<partial_url>\"Examples:\n\n|*title*|*partial_url*|\n|BTC Tools|/btc-tools|\n|Overrides|/overrides/session|\n|Blackout Override|/ip-override|\n|Logger|/logger|\n|Milestones|/milestones|\n|Audit & Logging|/audits|\n|Partner Delivery|/partner/mapping|\n|ESNI Management|/esni/media|\n|User Lookup|/user-lookup|"
+    }
+  ],
+  "originalTestType": "Manual"
+}

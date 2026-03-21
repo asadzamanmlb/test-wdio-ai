@@ -1,0 +1,284 @@
+[
+  {
+    "id": "run-sample-1",
+    "timestamp": "2025-03-20T10:00:00.000Z",
+    "date": "2025-03-20",
+    "env": "qa",
+    "total": 8,
+    "passed": 7,
+    "failed": 1,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Login::User can log in with valid credentials",
+        "feature": "Login",
+        "name": "User can log in with valid credentials",
+        "status": "passed"
+      },
+      {
+        "id": "Login::User sees error with invalid password",
+        "feature": "Login",
+        "name": "User sees error with invalid password",
+        "status": "passed"
+      },
+      {
+        "id": "Login::User can log out",
+        "feature": "Login",
+        "name": "User can log out",
+        "status": "failed"
+      },
+      {
+        "id": "Game Card::Displays game card correctly",
+        "feature": "Game Card",
+        "name": "Displays game card correctly",
+        "status": "passed"
+      },
+      {
+        "id": "Game Card::Navigates to game details",
+        "feature": "Game Card",
+        "name": "Navigates to game details",
+        "status": "passed"
+      },
+      {
+        "id": "Navigation::Home page loads",
+        "feature": "Navigation",
+        "name": "Home page loads",
+        "status": "passed"
+      },
+      {
+        "id": "Navigation::Menu expands on click",
+        "feature": "Navigation",
+        "name": "Menu expands on click",
+        "status": "passed"
+      },
+      {
+        "id": "Navigation::Search returns results",
+        "feature": "Navigation",
+        "name": "Search returns results",
+        "status": "passed"
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Login",
+        "passed": 2,
+        "failed": 1,
+        "skipped": 0,
+        "total": 3
+      },
+      {
+        "name": "Game Card",
+        "passed": 2,
+        "failed": 0,
+        "skipped": 0,
+        "total": 2
+      },
+      {
+        "name": "Navigation",
+        "passed": 3,
+        "failed": 0,
+        "skipped": 0,
+        "total": 3
+      }
+    ]
+  },
+  {
+    "id": "run-sample-2",
+    "timestamp": "2025-03-21T09:30:00.000Z",
+    "date": "2025-03-21",
+    "env": "qa",
+    "total": 8,
+    "passed": 8,
+    "failed": 0,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Login::User can log in with valid credentials",
+        "feature": "Login",
+        "name": "User can log in with valid credentials",
+        "status": "passed"
+      },
+      {
+        "id": "Login::User sees error with invalid password",
+        "feature": "Login",
+        "name": "User sees error with invalid password",
+        "status": "passed"
+      },
+      {
+        "id": "Login::User can log out",
+        "feature": "Login",
+        "name": "User can log out",
+        "status": "passed"
+      },
+      {
+        "id": "Game Card::Displays game card correctly",
+        "feature": "Game Card",
+        "name": "Displays game card correctly",
+        "status": "passed"
+      },
+      {
+        "id": "Game Card::Navigates to game details",
+        "feature": "Game Card",
+        "name": "Navigates to game details",
+        "status": "passed"
+      },
+      {
+        "id": "Navigation::Home page loads",
+        "feature": "Navigation",
+        "name": "Home page loads",
+        "status": "passed"
+      },
+      {
+        "id": "Navigation::Menu expands on click",
+        "feature": "Navigation",
+        "name": "Menu expands on click",
+        "status": "passed"
+      },
+      {
+        "id": "Navigation::Search returns results",
+        "feature": "Navigation",
+        "name": "Search returns results",
+        "status": "passed"
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Login",
+        "passed": 3,
+        "failed": 0,
+        "skipped": 0,
+        "total": 3
+      },
+      {
+        "name": "Game Card",
+        "passed": 2,
+        "failed": 0,
+        "skipped": 0,
+        "total": 2
+      },
+      {
+        "name": "Navigation",
+        "passed": 3,
+        "failed": 0,
+        "skipped": 0,
+        "total": 3
+      }
+    ]
+  },
+  {
+    "id": "run-sample-3",
+    "timestamp": "2025-03-21T14:00:00.000Z",
+    "date": "2025-03-21",
+    "env": "qa",
+    "total": 8,
+    "passed": 7,
+    "failed": 1,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Login::User can log in with valid credentials",
+        "feature": "Login",
+        "name": "User can log in with valid credentials",
+        "status": "passed"
+      },
+      {
+        "id": "Login::User sees error with invalid password",
+        "feature": "Login",
+        "name": "User sees error with invalid password",
+        "status": "passed"
+      },
+      {
+        "id": "Login::User can log out",
+        "feature": "Login",
+        "name": "User can log out",
+        "status": "failed"
+      },
+      {
+        "id": "Game Card::Displays game card correctly",
+        "feature": "Game Card",
+        "name": "Displays game card correctly",
+        "status": "passed"
+      },
+      {
+        "id": "Game Card::Navigates to game details",
+        "feature": "Game Card",
+        "name": "Navigates to game details",
+        "status": "passed"
+      },
+      {
+        "id": "Navigation::Home page loads",
+        "feature": "Navigation",
+        "name": "Home page loads",
+        "status": "passed"
+      },
+      {
+        "id": "Navigation::Menu expands on click",
+        "feature": "Navigation",
+        "name": "Menu expands on click",
+        "status": "passed"
+      },
+      {
+        "id": "Navigation::Search returns results",
+        "feature": "Navigation",
+        "name": "Search returns results",
+        "status": "passed"
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Login",
+        "passed": 2,
+        "failed": 1,
+        "skipped": 0,
+        "total": 3
+      },
+      {
+        "name": "Game Card",
+        "passed": 2,
+        "failed": 0,
+        "skipped": 0,
+        "total": 2
+      },
+      {
+        "name": "Navigation",
+        "passed": 3,
+        "failed": 0,
+        "skipped": 0,
+        "total": 3
+      }
+    ]
+  },
+  {
+    "id": "run-1774076688923",
+    "timestamp": "2026-03-21T07:04:48.923Z",
+    "date": "2026-03-21",
+    "env": "qa",
+    "total": 2,
+    "passed": 2,
+    "failed": 0,
+    "skipped": 0,
+    "scenarios": [
+      {
+        "id": "Smoke | Log In::Smoke | Log In (WSTE-35)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Log In (WSTE-35)",
+        "status": "passed"
+      },
+      {
+        "id": "Smoke | Log In::Smoke | Verify Log Out behavior (WSTE-36)",
+        "feature": "Smoke | Log In",
+        "name": "Smoke | Verify Log Out behavior (WSTE-36)",
+        "status": "passed"
+      }
+    ],
+    "byFeature": [
+      {
+        "name": "Smoke | Log In",
+        "passed": 2,
+        "failed": 0,
+        "skipped": 0,
+        "total": 2
+      }
+    ]
+  }
+]

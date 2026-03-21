@@ -1,0 +1,21 @@
+{
+  "id": "WQO-829",
+  "issueId": "1164578",
+  "key": "WQO-829",
+  "summary": "User Lookup | Query Data by Date Range",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user is on the \"User Lookup\" page\nAnd the user selects a specific date range (e.g., August 1, 2025 to August 15, 2025) using the \"Select Date Range\" feature\nAnd the user enters a valid email address (e.g., \"vikram.singhal@mlb.com\") into the \"Okta ID / Email\" field\nAnd the user clicks the \"Search\" button\nThen the user's information and sessions table are displayed\nAnd the sessions table should display only sessions that occurred within the selected date range",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9e1cdc66-89a1-4d60-a8bd-55169cd20b45",
+      "action": "*When* the user is on the \"User Lookup\" page\n\n*And* the user selects a specific date range (e.g., August 1, 2025 to August 15, 2025) using the \"Select Date Range\" feature\n\n*And* the user enters a valid email address (e.g., \"[vikram.singhal@mlb.com|mailto:vikram.singhal@mlb.com]\") into the \"Okta ID / Email\" field\n\n*And* the user clicks the \"Search\" button",
+      "data": "",
+      "result": "*Then* the user's information and sessions table are displayed\n\n*And* the sessions table should display only sessions that occurred within the selected date range"
+    }
+  ],
+  "originalTestType": "Manual"
+}

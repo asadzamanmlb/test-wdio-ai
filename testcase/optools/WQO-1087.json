@@ -1,0 +1,21 @@
+{
+  "id": "WQO-1087",
+  "issueId": "1268547",
+  "key": "WQO-1087",
+  "summary": "Audit & Logging | Audits | Search by Instigator ID",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the \"Audit & Logging\" tile on the homepage or the side nav\nAnd the user clicks on the \"Instigator\" button\nAnd the user enters a valid Instigator in the instigator input field\nFor example: 00uki697am7j6YgvF1t7\nAnd the user presses Enter or clicks on the magnifying glass\nAnd !xray-attachment://8898226a-948a-44c6-8767-3c07fdac9378|width=1941,height=848!\nThen the user should land on the \"Audits\" page\nAnd the user sees \"Instigator\" button\nAnd the entered Instigator should appear in the input field\nAnd upon submission, a list of logs associated with that instigator should appear\nAnd the logs should be shown in a table with the following column headers:\n-Source System\n-Operation\n-Instigator\n-Email\n-Created At\n-Trace ID\n-Event Data\n-Resource Tags",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "70bd0703-7328-4f5b-9e91-1dac4760e0ec",
+      "action": "*When* the user clicks on the \"Audit & Logging\" tile on the homepage or the side nav\n*And* the user clicks on the \"Instigator\" button\n*And* the user enters a valid Instigator in the instigator input field\nFor example: 00uki697am7j6YgvF1t7\n*And* the user presses Enter or clicks on the magnifying glass",
+      "data": "!xray-attachment://8898226a-948a-44c6-8767-3c07fdac9378|width=1941,height=848!",
+      "result": "*Then* the user should land on the \"Audits\" page\n\n*And* the user sees \"Instigator\" button\n\n*And* the entered Instigator should appear in the input field\n\n*And* upon submission, a list of logs associated with that instigator should appear\n\n*And* the logs should be shown in a table with the following column headers:\n-Source System\n-Operation\n-Instigator\n-Email\n-Created At\n-Trace ID\n-Event Data\n-Resource Tags"
+    }
+  ],
+  "originalTestType": "Manual"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "WQO-1115",
+  "issueId": "1283416",
+  "key": "WQO-1115",
+  "summary": "BTC Tools | Configs | Skyview | Navigation and UI Validation",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the BTC Tools Page\nAnd the user clicks on the Configs Dropdown\nAnd the user clicks on the Skyview\nAnd !xray-attachment://9fc42c68-aad8-46fc-90af-b5a93122bb93|width=1469,height=405!\nThen the user lands on the Schedule Page by default\nAnd the user should see: \"Pipeline\", \"Pipeline Input\", \"Skyview\", and \"Multicast\nMapping\"\nAnd the user lands on the Skyview Configs page\nAnd the user should see the \"Search teams\" search box\nAnd the user should see team cards (logo, name, abbreviation, ID) with Language and\nStatus columns\nAnd the user should see a toggle switch for Eng and a toggle switch for Spa on each\nteam card\nAnd the user should see the \"Enable All Configs\" and \"Disable All Configs\" buttons in\nthe top-right area",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f0fce5a1-0473-4f79-9acf-bccc3514941d",
+      "action": "*When* the user clicks on the BTC Tools Page\n*And* the user clicks on the Configs Dropdown\n*And* the user clicks on the Skyview",
+      "data": "!xray-attachment://9fc42c68-aad8-46fc-90af-b5a93122bb93|width=1469,height=405!",
+      "result": "*Then* the user lands on the Schedule Page by default\n*And* the user should see: \"Pipeline\", \"Pipeline Input\", \"Skyview\", and \"Multicast\nMapping\"\n*And* the user lands on the Skyview Configs page\n*And* the user should see the \"Search teams\" search box\n*And* the user should see team cards (logo, name, abbreviation, ID) with Language and\nStatus columns\n*And* the user should see a toggle switch for Eng and a toggle switch for Spa on each\nteam card\n*And* the user should see the \"Enable All Configs\" and \"Disable All Configs\" buttons in\nthe top-right area"
+    }
+  ],
+  "originalTestType": "Manual"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "WQO-818",
+  "issueId": "1164540",
+  "key": "WQO-818",
+  "summary": " Partner Delivery | Mapping | Verify Channel-to-Target Mapping",
+  "description": "Verify selecting a channel and target and confirming the mapping",
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user selects the Data Center \"MLBDEV\"\nAnd selects the channel  Eg: \"ATH-PD01-CH-MLBDEV-ONPREM-SCS\"\nAnd selects the Targets  Eg: \"abc-def-123-456-testing-123\"\nAnd clicks the \"Confirm\" button\nThen the user should see a Mapping popup on the screen\nAnd the user should see \"Confirm Mapping For: ARI-PD01-CH-MLBDEV-ONPREM-DNV\"\nAnd the user should see the popup disappear after clicking on the \"Confirm\" button on the Confirming Mapping popup.",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "21dc512d-c456-466c-b0a6-9736cb7e5323",
+      "action": "*When* the user selects the Data Center \"MLBDEV\"\n\n*And* selects the channel  Eg: \"ATH-PD01-CH-MLBDEV-ONPREM-SCS\"\n\n*And* selects the Targets  Eg: \"abc-def-123-456-testing-123\"\n\n*And* clicks the \"Confirm\" button",
+      "data": "",
+      "result": "*Then* the user should see a Mapping popup on the screen \n\n*And* the user should see \"Confirm Mapping For: ARI-PD01-CH-MLBDEV-ONPREM-DNV\"\n\n*And* the user should see the popup disappear after clicking on the \"Confirm\" button on the Confirming Mapping popup."
+    }
+  ],
+  "originalTestType": "Manual"
+}

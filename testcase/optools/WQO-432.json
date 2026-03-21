@@ -1,0 +1,21 @@
+{
+  "id": "WQO-432",
+  "issueId": "1146113",
+  "key": "WQO-432",
+  "summary": "Media Validation | Litmus Tool | Landing Page and Games List",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the Media Validation tile\nThen the user should see the \"Litmus\" tool\nAnd the user should see a table view of the days game contains \"GamePK\", \"Matchup\", \"Venue\", \"Game Date\", \"Status\"\nAnd the user should see the date selector above the games component on the \"Media Validation\" page",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ea0b8a95-1c96-4e06-8f4d-5557ee59ea55",
+      "action": "*When* the user clicks on the Media Validation tile",
+      "data": "",
+      "result": "*Then* the user should see the \"Litmus\" tool\n*And* the user should see a table view of the days game contains \"GamePK\", \"Matchup\", \"Venue\", \"Game Date\", \"Status\"\n*And* the user should see the date selector above the games component on the \"Media Validation\" page"
+    }
+  ],
+  "originalTestType": "Manual"
+}

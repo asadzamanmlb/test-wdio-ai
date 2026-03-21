@@ -1,0 +1,27 @@
+{
+  "id": "WQO-816",
+  "issueId": "1164538",
+  "key": "WQO-816",
+  "summary": "Partner Delivery | Mapping | Search Functionality",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user enters \"ATH\" into the Channels search field\nThen only channels containing \"ATH\" should be displayed\nWhen the user selects the partner \"abc\"\nAnd enters \"456\" into the Targets search field\nThen only targets containing \"456\" should be displayed",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d19fbf28-8f76-4f5f-9c15-806ef737edb8",
+      "action": "*When* the user enters \"ATH\" into the Channels search field",
+      "data": "",
+      "result": "*Then* only channels containing \"ATH\" should be displayed"
+    },
+    {
+      "id": "00803f34-2518-4ee9-99f7-d4affeba4e9d",
+      "action": "*When* the user selects the partner \"abc\"\n\n*And* enters \"456\" into the Targets search field",
+      "data": "",
+      "result": "*Then* only targets containing \"456\" should be displayed"
+    }
+  ],
+  "originalTestType": "Manual"
+}

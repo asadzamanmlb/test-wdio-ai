@@ -1,0 +1,650 @@
+# Cursor Rules: Unused Functions
+
+## Overview
+This document defines the cursor rules for detecting and removing unused functions in the codebase. Functions that are declared but never called anywhere in the project should be removed to maintain clean, maintainable code.
+
+## Rule Description
+
+### Purpose
+- Identify functions that are defined but never invoked
+- Remove dead code to improve code maintainability
+- Reduce bundle size and improve performance
+- Make the codebase easier to understand and navigate
+
+### Scope
+This rule applies to:
+- JavaScript files (`.js`)
+- ES6 modules
+- CommonJS modules
+- Both synchronous and asynchronous functions
+
+## Function Declaration Patterns
+
+### Pattern 1: Traditional Function Declaration
+```javascript
+// ❌ Unused - will be flagged
+function calculateTotal(items) {
+  return items.reduce((sum, item) => sum + item.price, 0);
+}
+
+// ✅ Used - will not be flagged
+function getDiscount(total) {
+  return total * 0.1;
+}
+const finalPrice = getDiscount(100);
+```
+
+### Pattern 2: Function Expression
+```javascript
+// ❌ Unused - will be flagged
+const formatDate = function(date) {
+  return date.toLocaleDateString();
+};
+
+// ✅ Used - will not be flagged
+const formatCurrency = function(amount) {
+  return `$${amount.toFixed(2)}`;
+};
+console.log(formatCurrency(99.99));
+```
+
+### Pattern 3: Arrow Function
+```javascript
+// ❌ Unused - will be flagged
+const multiply = (a, b) => a * b;
+
+// ✅ Used - will not be flagged
+const add = (a, b) => a + b;
+const result = add(5, 3);
+```
+
+### Pattern 4: Async Function Declaration
+```javascript
+// ❌ Unused - will be flagged
+async function fetchUserData(userId) {
+  const response = await fetch(`/api/users/${userId}`);
+  return response.json();
+}
+
+// ✅ Used - will not be flagged
+async function loadData() {
+  return await fetch('/api/data');
+}
+loadData();
+```
+
+### Pattern 5: Async Arrow Function
+```javascript
+// ❌ Unused - will be flagged
+const processData = async (data) => {
+  return await transformData(data);
+};
+
+// ✅ Used - will not be flagged
+const saveData = async (data) => {
+  return await database.save(data);
+};
+saveData({ name: 'John' });
+```
+
+### Pattern 6: Method in Object Literal
+```javascript
+// ❌ Unused - will be flagged
+const utils = {
+  capitalize: function(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+};
+
+// ✅ Used - will not be flagged
+const helpers = {
+  lowercase: function(str) {
+    return str.toLowerCase();
+  }
+};
+console.log(helpers.lowercase('HELLO'));
+```
+
+## Cross-File Detection
+
+### Example 1: Function Used in Another File
+
+**File: utils.js**
+```javascript
+// ✅ Will NOT be flagged (used in another file)
+export function validateEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+// ❌ Will be flagged (never used anywhere)
+export function validatePhone(phone) {
+  return /^\d{10}$/.test(phone);
+}
+```
+
+**File: user.js**
+```javascript
+import { validateEmail } from './utils.js';
+
+function registerUser(email) {
+  if (validateEmail(email)) {
+    console.log('Valid email');
+  }
+}
+```
+
+### Example 2: Function Exported but Never Imported
+
+**File: helpers.js**
+```javascript
+// ❌ Will be flagged (exported but never imported anywhere)
+export function unusedHelper() {
+  return 'This is never used';
+}
+
+// ✅ Will NOT be flagged (used in tests.js)
+export function usedHelper() {
+  return 'This is used';
+}
+```
+
+**File: tests.js**
+```javascript
+import { usedHelper } from './helpers.js';
+
+test('helper works', () => {
+  expect(usedHelper()).toBe('This is used');
+});
+```
+
+## Detection Logic
+
+### How Detection Works
+
+1. **Parse File**: Extract all function declarations from the file
+2. **Check Local Usage**: Search for function calls within the same file
+3. **Check Cross-File Usage**: Search for imports and usage in other files
+4. **Flag Unused**: If not found in steps 2 or 3, mark as unused
+
+### Regular Expressions Used
+
+```javascript
+// Function declaration patterns
+const functionPatterns = [
+  // Traditional function: function name() {}
+  /(?:export\s+)?(?:async\s+)?function\s+(\w+)\s*\(/g,
+  
+  // Const/let/var with function: const name = function() {}
+  /(?:export\s+)?(?:const|let|var)\s+(\w+)\s*=\s*(?:async\s+)?function\s*\(/g,
+  
+  // Arrow function: const name = () => {}
+  /(?:export\s+)?(?:const|let|var)\s+(\w+)\s*=\s*(?:async\s+)?\([^)]*\)\s*=>/g,
+  
+  // Arrow function without parens: const name = x => {}
+  /(?:export\s+)?(?:const|let|var)\s+(\w+)\s*=\s*(?:async\s+)?\w+\s*=>/g
+];
+
+// Function usage patterns
+const usagePatterns = [
+  // Direct call: functionName()
+  new RegExp(`\\b${functionName}\\s*\\(`),
+  
+  // Import: import { functionName }
+  new RegExp(`import\\s+{[^}]*\\b${functionName}\\b[^}]*}`),
+  
+  // Require: const { functionName } = require()
+  new RegExp(`const\\s+{[^}]*\\b${functionName}\\b[^}]*}\\s*=\\s*require`),
+  
+  // Export re-export: export { functionName }
+  new RegExp(`export\\s+{[^}]*\\b${functionName}\\b[^}]*}`)
+];
+```
+
+## Real-World Examples
+
+### Example 1: Cleanup Before
+
+```javascript
+// file: clickElement.js
+import { $ } from '@wdio/globals';
+
+// ❌ Unused - will be removed
+function clickElementMoga(selector) {
+  const element = $(selector);
+  element.click();
+}
+
+// ❌ Unused - will be removed
+function clickElementAla(selector) {
+  const element = $(selector);
+  element.waitForClickable();
+  element.click();
+}
+
+// ✅ Used - will be kept
+function clickElement(selector) {
+  const element = $(selector);
+  element.waitForClickable({ timeout: 5000 });
+  element.click();
+}
+
+export default clickElement;
+```
+
+### Example 2: Cleanup After
+
+```javascript
+// file: clickElement.js
+import { $ } from '@wdio/globals';
+
+// ✅ Only the used function remains
+function clickElement(selector) {
+  const element = $(selector);
+  element.waitForClickable({ timeout: 5000 });
+  element.click();
+}
+
+export default clickElement;
+```
+
+### Example 3: Entire File Deletion
+
+**Before:**
+```javascript
+// file: oldUtils.js
+
+// All functions unused
+function helperA() {
+  return 'A';
+}
+
+function helperB() {
+  return 'B';
+}
+
+function helperC() {
+  return 'C';
+}
+```
+
+**After:**
+```
+// File completely deleted (no functions were used)
+```
+
+## Auto-Fix Behavior
+
+### What Gets Fixed
+
+1. **Single Unused Function**: Removes the entire function block including:
+   - Function declaration line
+   - Function body (all lines between `{` and `}`)
+   - Trailing blank lines
+
+2. **Multiple Unused Functions**: Removes each unused function individually
+
+3. **File with Only Unused Functions**: Deletes the entire file if:
+   - All functions are unused
+   - Only imports and unused functions remain
+   - File becomes comment-only after removal
+   - File contains malformed code (e.g., function body without declaration)
+
+### Fix Examples
+
+#### Fix 1: Remove Unused Function
+
+**Before:**
+```javascript
+import { helper } from './utils.js';
+
+function usedFunction() {
+  return helper();
+}
+
+function unusedFunction() {
+  return 'never called';
+}
+
+export { usedFunction };
+```
+
+**After:**
+```javascript
+import { helper } from './utils.js';
+
+function usedFunction() {
+  return helper();
+}
+
+export { usedFunction };
+```
+
+#### Fix 2: Remove Multiple Unused Functions
+
+**Before:**
+```javascript
+function unused1() {
+  return 1;
+}
+
+function used() {
+  return 2;
+}
+
+function unused2() {
+  return 3;
+}
+
+export { used };
+```
+
+**After:**
+```javascript
+function used() {
+  return 2;
+}
+
+export { used };
+```
+
+#### Fix 3: Delete File with Only Unused Functions
+
+**Before:**
+```javascript
+// File: oldHelpers.js
+import { something } from 'somewhere';
+
+function neverUsed1() {
+  return something();
+}
+
+function neverUsed2() {
+  return 'also not used';
+}
+```
+
+**After:**
+```
+// File deleted entirely
+```
+
+## Special Cases
+
+### Case 1: Immediately Invoked Function Expressions (IIFE)
+```javascript
+// ✅ Will NOT be flagged (immediately invoked)
+(function() {
+  console.log('Immediately executed');
+})();
+
+// ✅ Will NOT be flagged (immediately invoked)
+(() => {
+  console.log('Arrow IIFE');
+})();
+```
+
+### Case 2: Event Handlers in HTML
+```javascript
+// ⚠️ May be flagged if only used in HTML
+// Consider using addEventListener instead
+function handleClick() {
+  console.log('Clicked');
+}
+
+// Better approach:
+document.getElementById('button').addEventListener('click', handleClick);
+```
+
+### Case 3: Dynamic Function Calls
+```javascript
+// ⚠️ May be flagged if called dynamically
+function dynamicFunction() {
+  return 'dynamic';
+}
+
+// This usage might not be detected:
+const funcName = 'dynamicFunction';
+window[funcName](); // Dynamic call
+```
+
+### Case 4: Functions in String Templates
+```javascript
+// ⚠️ May be flagged
+function getTemplate() {
+  return '<div>Template</div>';
+}
+
+// This usage might not be detected:
+eval('getTemplate()');
+```
+
+## Best Practices
+
+### 1. Regular Cleanup
+```bash
+# Run check regularly
+npm run cursor-rules-check
+
+# Manually review and fix issues before commits
+```
+
+### 2. Avoid False Positives
+```javascript
+// If a function is used dynamically, add a comment
+// cursor-rules-ignore: used dynamically
+function dynamicallyCalledFunction() {
+  return 'dynamic';
+}
+```
+
+### 3. Export Only What's Needed
+```javascript
+// ❌ Bad: Export everything
+export function helper1() {}
+export function helper2() {}
+export function helper3() {}
+
+// ✅ Good: Export only what's used
+function helper1() {}
+function helper2() {}
+export function helper3() {} // Only this is actually used
+```
+
+### 4. Remove Commented-Out Functions
+```javascript
+// ❌ Bad: Commented-out code
+// function oldImplementation() {
+//   return 'old way';
+// }
+
+// ✅ Good: Use version control instead
+function newImplementation() {
+  return 'new way';
+}
+```
+
+## Integration with Development Workflow
+
+### Pre-commit Hook
+```json
+// package.json
+{
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run cursor-rules-check"
+    }
+  }
+}
+```
+
+### CI/CD Pipeline
+```yaml
+# .github/workflows/ci.yml
+- name: Check Cursor Rules
+  run: npm run cursor-rules-check
+```
+
+### Pre-push Hook
+```bash
+#!/bin/sh
+npm run cursor-rules-check || exit 1
+```
+
+## Command Reference
+
+### Check for Unused Functions
+```bash
+npm run cursor-rules-check
+```
+
+**Output:**
+```
+🚀 Starting Cursor Rules Check...
+🔍 Checking for unused imports...
+✅ No unused imports found
+🔍 Checking for unused variables...
+✅ No unused variables found
+🔍 Checking for unused functions...
+❌ Unused functions found:
+  - clickElementMoga in core-app/commonFunctions/clickElement.js (line 5)
+  - findCarouselByTextAla in core-app/commonFunctions/findCarousel.js (line 10)
+⚡ Performance: 234ms total, 156 files checked
+💥 Cursor rules violations detected. Please fix the issues above.
+```
+
+### Manual Fix for Unused Functions
+Review the check output and manually remove or use unused functions:
+
+1. **Review the check output** to identify unused functions
+2. **Determine the action**:
+   - If function is truly unused: Remove it from the file
+   - If function should be used: Update code to use it
+   - If function is used dynamically: Add comment explaining usage
+3. **Make the changes manually** in your code editor
+4. **Run the check again** to verify fixes:
+```bash
+npm run cursor-rules-check
+```
+
+## Exceptions and Whitelisting
+
+### Whitelist Specific Functions
+```javascript
+// Add comment to prevent removal
+// cursor-rules-ignore: used in external script
+function externallyUsedFunction() {
+  return 'used externally';
+}
+```
+
+### Whitelist Entire File
+```javascript
+// At the top of the file
+// cursor-rules-ignore-file: test fixtures
+
+function fixture1() {}
+function fixture2() {}
+function fixture3() {}
+```
+
+### Whitelist Pattern
+Add to `.cursorrulesignore`:
+```
+# Ignore test fixtures
+**/fixtures/**/*.js
+
+# Ignore generated files
+**/generated/**/*.js
+
+# Ignore legacy code (temporary)
+legacy/**/*.js
+```
+
+## Statistics and Metrics
+
+### Typical Cleanup Results
+
+**Before Cleanup:**
+- Total Functions: 1,234
+- Unused Functions: 87 (7.1%)
+- Files with Unused Functions: 23
+
+**After Cleanup:**
+- Functions Removed: 87
+- Files Deleted: 5
+- Code Reduction: ~2,400 lines
+- Bundle Size Reduction: ~18KB
+
+### Performance Impact
+
+| Codebase Size | Check Time | Fix Time |
+|---------------|------------|----------|
+| Small (<100 files) | <1s | <2s |
+| Medium (100-500 files) | 1-3s | 3-5s |
+| Large (500+ files) | 3-5s | 5-10s |
+
+## Troubleshooting
+
+### Issue 1: Function Flagged But Is Used
+**Problem:** Function is used but flagged as unused
+
+**Solution:**
+1. Check if function is used dynamically
+2. Add whitelist comment if necessary
+3. Ensure proper import/export syntax
+
+### Issue 2: Auto-fix Breaks Code
+**Problem:** Code doesn't work after auto-fix
+
+**Solution:**
+1. Review git diff before committing
+2. Run tests after auto-fix
+3. Revert if needed and investigate
+
+### Issue 3: False Positives in Tests
+**Problem:** Test helper functions flagged as unused
+
+**Solution:**
+Add test files to whitelist:
+```javascript
+// In check-cursor-rules.cjs
+const IGNORED_PATTERNS = [
+  '**/tests/**/*.js',
+  '**/*.test.js',
+  '**/*.spec.js'
+];
+```
+
+## Related Rules
+
+- **Unused Imports** (`unusedImport.mdc`): Removes unused import statements
+- **Unused Variables** (`unusedVariables.mdc`): Removes unused variable declarations
+- **Comment-Only Files**: Deletes files with only comments
+
+## Summary
+
+### ✅ Benefits
+- Cleaner, more maintainable codebase
+- Reduced bundle size
+- Faster build times
+- Easier code navigation
+- Better developer experience
+
+### ⚠️ Cautions
+- Review auto-fixes before committing
+- Be aware of dynamic function calls
+- Test thoroughly after cleanup
+- Use whitelist for special cases
+
+### 🎯 Best Use Cases
+- Pre-release cleanup
+- Legacy code refactoring
+- Regular maintenance
+- Onboarding new developers
+- Performance optimization
+
+---
+
+**Last Updated:** October 2025  
+**Rule Version:** 1.0.0  
+**Maintained by:** Test Automation Team

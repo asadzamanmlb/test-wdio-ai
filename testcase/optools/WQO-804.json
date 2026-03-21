@@ -1,0 +1,33 @@
+{
+  "id": "WQO-804",
+  "issueId": "1163632",
+  "key": "WQO-804",
+  "summary": "Blackout Override | User Look up Page | UI Validation - with User Info Lookup",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user visits the Operator tool and logs in\nThen the user should be successfully logged into the platform\nWhen the user clicks on the \"Blackout Override\" tile from the homepage\nThen the user should land on the \"User Lookup\" page by default\nAnd the user should see tabs for \"Blackout Override\"\n* \"User Lookup\" tab\n* \"Overrides\" tab\nAnd the user should see \"User Info Lookup\" under the Blackout Override header\nAnd the user should see \"Search for a user by email to view their information, existing overrides and recent Conviva sessions\"\nAnd the user should see an email input field\nWhen the user enters \"dm5+tv@mlb.com\" into the email search field\nAnd the user presses the \"Enter\" key\nAnd !xray-attachment://fd5f6bb7-d8ce-4520-b703-405178fa8979|width=1168,height=1376!\nThen the user should see \"User Info\" data for the searched email\nAnd the user should see the:\n-ID\n-Email\n-First Name\n-Last Name\nAnd the user should see a section called Existing Overrides. If there are existing overrides, the page will display them, else you’ll see \"There are no existing overrides for this user.\"\nAnd the user see Conviva Session in an according style dropdown menu. See attached screenshot for reference.",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c6762c81-968d-4e64-83d9-81bbc13f0f7f",
+      "action": "*When* the user visits the Operator tool and logs in",
+      "data": "",
+      "result": "*Then* the user should be successfully logged into the platform"
+    },
+    {
+      "id": "8522d16f-a638-48c7-bdc9-b14d278089fc",
+      "action": "*When* the user clicks on the \"Blackout Override\" tile from the homepage",
+      "data": "",
+      "result": "*Then* the user should land on the \"User Lookup\" page by default\n*And* the user should see tabs for \"Blackout Override\"\n\n* \"User Lookup\" tab\n* \"Overrides\" tab\n\n*And* the user should see \"User Info Lookup\" under the Blackout Override header \n*And* the user should see \"Search for a user by email to view their information, existing overrides and recent Conviva sessions\"\n*And* the user should see an email input field"
+    },
+    {
+      "id": "7058417b-7d95-4e0a-a1b0-bd80eaa0d115",
+      "action": "*When* the user enters \"[dm5+tv@mlb.com|mailto:dm5+tv@mlb.com]\" into the email search field\n*And* the user presses the \"Enter\" key",
+      "data": "!xray-attachment://fd5f6bb7-d8ce-4520-b703-405178fa8979|width=1168,height=1376!",
+      "result": "*Then* the user should see \"User Info\" data for the searched email\n*And* the user should see the:\n-ID\n-Email\n-First Name\n-Last Name\n\n*And* the user should see a section called Existing Overrides. If there are existing overrides, the page will display them, else you’ll see \"There are no existing overrides for this user.\"\n\n*And* the user see Conviva Session in an according style dropdown menu. See attached screenshot for reference."
+    }
+  ],
+  "originalTestType": "Manual"
+}

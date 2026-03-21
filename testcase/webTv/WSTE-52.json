@@ -1,0 +1,13 @@
+{
+  "id": "WSTE-52",
+  "issueId": "1130685",
+  "key": "WSTE-52",
+  "summary": "Smoke | Entitlements - Free",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "Given a free user is logged into mlb.com/tv\nWhen the user selects any VOD, FLIVE, or out-of-market Free Game of the Day\nThen the user successfully receives playback for the VOD, FLIVE, or out-of-market Free Game of the Day\nAnd the user cannot playback any SVOD, SLIVE, or non-Free Game of the Day",
+  "unstructured": null,
+  "steps": []
+}

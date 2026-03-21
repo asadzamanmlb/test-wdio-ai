@@ -1,0 +1,21 @@
+{
+  "id": "WQO-973",
+  "issueId": "1217393",
+  "key": "WQO-973",
+  "summary": "User Lookup | Select July to November Date Range and Search",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user navigate to User Lookup page\nAnd the user click on \"Select A Date Range\" button\nAnd the user navigate to July and select July 1st by clicking on the previous button on the calendar\nAnd the user navigate to November and select November 30th by clicking on the next button on the calendar\nAnd the user enter \"dm5tv@gmail.com\" and click Search\nThen the User Lookup page loads successfully\nAnd the Calendar dropdown appears\nAnd July 1st is selected as start date\nAnd November 30th is selected as end date\nAnd the search executes successfully with date range and the user verify search results are displayed\nAnd the User Information table and External Logs are shown",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "24528f71-b2b9-4ff0-be01-37884a58fdd9",
+      "action": "*When* the user navigate to User Lookup page    \n\n*And* the user click on \"Select A Date Range\" button   \n\n*And* the user navigate to July and select July 1st by clicking on the previous button on the calendar\n\n*And* the user navigate to November and select November 30th by clicking on the next button on the calendar\n\n*And* the user enter \"[dm5tv@gmail.com|mailto:dm5tv@gmail.com]\" and click Search",
+      "data": "",
+      "result": "*Then* the User Lookup page loads successfully\n\n*And* the Calendar dropdown appears\n\n*And* July 1st is selected as start date\n\n*And* November 30th is selected as end date\n\n*And* the search executes successfully with date range and the user verify search results are displayed\n\n*And* the User Information table and External Logs are shown"
+    }
+  ],
+  "originalTestType": "Manual"
+}

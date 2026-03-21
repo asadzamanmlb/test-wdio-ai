@@ -1,0 +1,21 @@
+{
+  "id": "WQO-405",
+  "issueId": "1146086",
+  "key": "WQO-405",
+  "summary": "Milestones | Verify Milestones Page Loads with Calendar Navigation and Game Card Details",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the Milestones tile on the homepage\nThen the user should be navigated to the Milestones page\nAnd the page should display:\n* A calendar icon with the date format \"YYYY-MM-DD\"\n* Previous and Next arrow icons to navigate between dates\nAND a game card for each scheduled game containing:\n* Team Names (e.g., \"BOS vs TB\")\n* Game PK\n* Venue\n* Game Date\n* Game Status (e.g., \"Scheduled\", \"In Progress\", \"Final\")\nAnd an \"Edit Milestone\" button",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3d9c15cc-487b-48f3-b9be-6db28ebe6184",
+      "action": "When the user clicks on the Milestones tile on the homepage",
+      "data": "",
+      "result": "Then the user should be navigated to the Milestones page\nAnd the page should display:\n\n* A calendar icon with the date format \"YYYY-MM-DD\"\n* Previous and Next arrow icons to navigate between dates\n\nAND a game card for each scheduled game containing:\n\n* Team Names (e.g., \"BOS vs TB\")\n* Game PK\n* Venue\n* Game Date\n* Game Status (e.g., \"Scheduled\", \"In Progress\", \"Final\")\nAnd an \"Edit Milestone\" button"
+    }
+  ],
+  "originalTestType": "Manual"
+}

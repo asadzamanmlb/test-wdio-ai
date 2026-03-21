@@ -1,0 +1,27 @@
+{
+  "id": "WQO-835",
+  "issueId": "1164922",
+  "key": "WQO-835",
+  "summary": "User Lookup | View Datadog Logs Form User-Lookup",
+  "description": "As a User-Lookup tool user, I want the ability to view a client's Datadog logs without needing to create a custom query and search Datadog myself. This will streamline the process of debugging and resolving user issues.",
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the \"User Lookup\" tile\nThen the user lands on the User Lookup page\nWhen the user enters \"dm5tv2@gmail.com\" in the \"Okta ID / Email\" field\nAnd the user clicks the \"Search\" button\nThen the user should see \"DataDog Logs\" button",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9cb9a4cd-657f-408a-b423-f52c4d37f7de",
+      "action": "*When* the user clicks on the \"User Lookup\" tile",
+      "data": "",
+      "result": "*Then* the user lands on the User Lookup page"
+    },
+    {
+      "id": "7d8bc3ce-a655-4893-9e6b-461e5a6f3766",
+      "action": "*When* the user enters \"[dm5tv2@gmail.com|mailto:dm5tv2@gmail.com]\" in the \"Okta ID / Email\" field\n\n*And* the user clicks the \"Search\" button",
+      "data": "",
+      "result": "*Then* the user should see \"DataDog Logs\" button"
+    }
+  ],
+  "originalTestType": "Manual"
+}

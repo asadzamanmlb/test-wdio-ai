@@ -1,0 +1,45 @@
+{
+  "id": "WQO-795",
+  "issueId": "1163540",
+  "key": "WQO-795",
+  "summary": "Overrides | Session | Edit An Override",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user enters \"abc123\" in the search field\nAnd Test Data:\n* Existing Okta ID: abc123\n* Change Client Type: PLAYSTATION → ROKU\n* Change Features: MLB_AUDIO → None (remove all features)\nThen the user should see 1 matching search result for oktaId \"abc123\"\nAnd the user should see \"PLAYSTATION\" as the Client Type for the matching search result\nAnd the user should see 1 chip in the Features column\nWhen the user clicks on the \"Edit\" icon on the far right of the matching search result\nThen the user should see the \"Update Override\" dialog box open\nAnd the user should see the Okta ID field populated with \"abc123\"\nAnd the user should see \"PLAYSTATION\" selected in the Client Type dropdown\nAnd the user should see \"MLB_AUDIO\" selected in the Features dropdown\nWhen the user clicks on the Client Type dropdown\nThen the user should see a list of client types including \"ROKU\", \"IOS\", \"ANDROID_MOBILE\", etc.\nWhen the user selects \"ROKU\" from the Client Type dropdown\nAnd the user clicks on the Features dropdown\nAnd the user unselects \"MLB_AUDIO\" from the Features options (removing all features)\nAnd the user clicks the \"Save\" button\nThen the \"Update Override\" dialog should close\nAnd the user should return to the Overrides page\nWhen the user refreshes the page\nAnd the user enters \"abc123\" in the search field\nThen the user should see 1 matching search result for oktaId \"abc123\"\nAnd the user should see \"ROKU\" as the Client Type for the matching search result\nAnd the user should not see any chips in the Features column (no features selected)",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "de9ccf0f-bc3e-4b7c-b905-1082c1ee8c1c",
+      "action": "When the user enters \"abc123\" in the search field",
+      "data": "Test Data:\n\n* Existing Okta ID: abc123\n* Change Client Type: PLAYSTATION → ROKU  \n* Change Features: MLB_AUDIO → None (remove all features)",
+      "result": "Then the user should see 1 matching search result for oktaId \"abc123\"\n\nAnd the user should see \"PLAYSTATION\" as the Client Type for the matching search result\n\nAnd the user should see 1 chip in the Features column"
+    },
+    {
+      "id": "33649bbb-c405-4f1a-838b-672e86cdb2fa",
+      "action": "When the user clicks on the \"Edit\" icon on the far right of the matching search result",
+      "data": "",
+      "result": "Then the user should see the \"Update Override\" dialog box open\n\nAnd the user should see the Okta ID field populated with \"abc123\"\n\nAnd the user should see \"PLAYSTATION\" selected in the Client Type dropdown\n\nAnd the user should see \"MLB_AUDIO\" selected in the Features dropdown"
+    },
+    {
+      "id": "424a13d8-e916-45eb-a2d2-057ce0b6c2ca",
+      "action": "When the user clicks on the Client Type dropdown",
+      "data": "",
+      "result": "Then the user should see a list of client types including \"ROKU\", \"IOS\", \"ANDROID_MOBILE\", etc."
+    },
+    {
+      "id": "e37a9bc2-0a0e-47e0-9437-8fdc704634ab",
+      "action": "When the user selects \"ROKU\" from the Client Type dropdown",
+      "data": "",
+      "result": "And the user clicks on the Features dropdown\nAnd the user unselects \"MLB_AUDIO\" from the Features options (removing all features)\nAnd the user clicks the \"Save\" button\nThen the \"Update Override\" dialog should close\nAnd the user should return to the Overrides page"
+    },
+    {
+      "id": "9751c780-e5d2-4edb-a978-2aee8cca33a9",
+      "action": "  When the user refreshes the page",
+      "data": "",
+      "result": "And the user enters \"abc123\" in the search field\nThen the user should see 1 matching search result for oktaId \"abc123\"\nAnd the user should see \"ROKU\" as the Client Type for the matching search result\nAnd the user should not see any chips in the Features column (no features selected)"
+    }
+  ],
+  "originalTestType": "Manual"
+}

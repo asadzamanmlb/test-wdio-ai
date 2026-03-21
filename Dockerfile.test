@@ -1,0 +1,14 @@
+# Test runner - runs WDIO against Selenium Grid
+# Build: docker build -f Dockerfile.test -t qa-tests .
+# Run:   docker run --rm --network host -e ENV=qa qa-tests
+FROM node:20-slim
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm ci
+
+COPY . .
+
+# Grid must be reachable (use host network or SELENIUM_HOST)
+CMD ["npm", "run", "test:grid"]

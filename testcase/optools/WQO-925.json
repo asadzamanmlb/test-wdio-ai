@@ -1,0 +1,21 @@
+{
+  "id": "WQO-925",
+  "issueId": "1192414",
+  "key": "WQO-925",
+  "summary": "Milestones  | Page Validation",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the \"Milestones\" tile from the home page\nThen the user should land on the Milestones page\nAnd the user should see a calendar on top of the page\nAnd the user should see a Search box right next to the calendar\nAnd the user should see a list of scheduled games for the selected date\nAnd each game in the list should display the following information:\nNote: Values in the *Values* columns are examples.\n|*Field*|*Value*|\n|Game Name|CIN @ PIT|\n|Game PK|778832|\n|Venue|PNC Park|\n|Game Date|Fri, Aug 8, 8:40 PM EDT|\n|Status|SCHEDULED|\nAnd each game entry should also have a \"Edit Milestones\" button on the right of the game card",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "de67c506-2335-43db-adb6-3492bcece8a5",
+      "action": "*When* the user clicks on the \"Milestones\" tile from the home page",
+      "data": "",
+      "result": "*Then* the user should land on the Milestones page\n\n*And* the user should see a calendar on top of the page\n\n*And* the user should see a Search box right next to the calendar\n\n*And* the user should see a list of scheduled games for the selected date\n\n*And* each game in the list should display the following information:\nNote: Values in the *Values* columns are examples.\n\n|*Field*|*Value*|\n|Game Name|CIN @ PIT|\n|Game PK|778832|\n|Venue|PNC Park|\n|Game Date|Fri, Aug 8, 8:40 PM EDT|\n|Status|SCHEDULED|\n\n*And* each game entry should also have a \"Edit Milestones\" button on the right of the game card"
+    }
+  ],
+  "originalTestType": "Manual"
+}

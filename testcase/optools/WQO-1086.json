@@ -1,0 +1,21 @@
+{
+  "id": "WQO-1086",
+  "issueId": "1268544",
+  "key": "WQO-1086",
+  "summary": "Audit & Logging | Audits | Search by Email",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the \"Audit & Logging\" tile on the homepage or the side nav\nAnd the user clicks on the \"Email\" button\nAnd the user enters a valid Email in the Email input field\nFor example: vikram.singhal@MLB.com\nAnd the user presses Enter or clicks on the magnifying glass\nAnd !xray-attachment://ae217f7a-b8ee-42f8-b23c-c279ed28b12b|width=1943,height=781!\nThen the user should land on the \"Audits\" page\nAnd the user sees \"Email\" button\nAnd the entered Email ID should appear in the input field\nAnd upon submission, a list of logs associated with that Email should appear\nAnd the logs should be shown in a table with the following column headers:\n-Source System\n-Operation\n-Instigator\n-Email\n-Created At\n-Trace ID\n-Event Data\n-Resource Tags",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6468540d-0ba8-4a4f-a832-5a22370598b2",
+      "action": "*When* the user clicks on the \"Audit & Logging\" tile on the homepage or the side nav\n*And* the user clicks on the \"Email\" button\n*And* the user enters a valid Email in the Email input field\nFor example: vikram.singhal@MLB.com\n*And* the user presses Enter or clicks on the magnifying glass",
+      "data": "!xray-attachment://ae217f7a-b8ee-42f8-b23c-c279ed28b12b|width=1943,height=781!",
+      "result": "*Then* the user should land on the \"Audits\" page\n\n*And* the user sees \"Email\" button\n\n*And* the entered Email ID should appear in the input field\n\n*And* upon submission, a list of logs associated with that Email should appear\n\n*And* the logs should be shown in a table with the following column headers:\n-Source System\n-Operation\n-Instigator\n-Email\n-Created At\n-Trace ID\n-Event Data\n-Resource Tags"
+    }
+  ],
+  "originalTestType": "Manual"
+}

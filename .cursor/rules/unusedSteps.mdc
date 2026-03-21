@@ -1,0 +1,714 @@
+# Unused Steps Detection
+
+## Overview
+
+The Unused Steps Detection rule identifies Cucumber step definitions that are defined but never used in any feature files. This helps maintain clean, non-redundant step definitions and prevents confusion from unused code.
+
+## Purpose
+
+- **Code Cleanliness**: Remove step definitions that are no longer needed
+- **Maintenance**: Reduce codebase complexity by eliminating dead code
+- **Clarity**: Prevent confusion from unused step definitions
+- **Performance**: Slightly improve test execution by removing unused code
+
+## What Gets Detected
+
+### Step Definition Patterns
+- ✅ `Given('step text', function)` - String-based step definitions
+- ✅ `When(/regex pattern/, function)` - Regex-based step definitions  
+- ✅ `Then('I should see {string}', function)` - Parameterized steps
+- ✅ `And('step text', function)` - And/But step definitions
+- ✅ Multi-line step definitions with complex patterns
+- ✅ Cross-file step definitions (core-app and operator-tool)
+
+### Step Types Supported
+- **Given**: Setup steps that establish initial state
+- **When**: Action steps that perform actions
+- **Then**: Assertion steps that verify outcomes
+- **And/But**: Continuation steps that can match any type
+
+## Detection Logic
+
+### 1. Step Definition Extraction
+The rule scans all JavaScript files in `**/step-definitions/**/*.js` directories and extracts:
+- Step text/pattern
+- Step type (Given/When/Then/And/But)
+- File location and line number
+- Whether it's a regex or string-based step
+
+### 2. Usage Detection
+The rule scans all `.feature` files and extracts:
+- Step usages with their types
+- Step text as used in scenarios
+- Parameter values and placeholders
+
+### 3. Matching Algorithm
+For each step definition, the rule checks if it's used by:
+
+#### String-based Steps
+- **Exact match**: Direct text comparison
+- **Parameter matching**: Handles `{string}`, `{int}`, `{float}`, etc.
+- **Flexible type matching**: Allows `And`/`But` to match `Given`/`When`/`Then`
+- **Cross-type matching**: `When`/`Then`/`Given` can match each other
+
+#### Regex-based Steps
+- **Pattern matching**: Tests regex against usage text
+- **Anchor handling**: Tries with and without `^`/`$` anchors
+- **Flexible matching**: Handles complex regex patterns
+- **Parameter placeholders**: Supports `<ClientType>`, `<search_input>`, etc.
+
+### 4. Advanced Pattern Matching
+The rule includes sophisticated pattern matching for:
+- **Restrictive character classes**: `[a-zA-Z0-9]*` → `[^"]*`
+- **Flexible placeholders**: `(Game|Media|User)` → `[^"]*`
+- **Parameter count mismatches**: Handles steps with fewer parameters in usage
+- **Quote handling**: Supports both single and double quotes
+
+## Examples
+
+### ❌ BAD - Unused Step Definitions
+
+```javascript
+// Unused step - never called in any feature file
+Given('I am on the old page', async function () {
+  await browser.url('/old-page');
+});
+
+// Unused regex step - pattern never matches
+When(/^I click on the "([^"]*)" button$/, async function (buttonText) {
+  await $(`button*=${buttonText}`).click();
+});
+
+// Unused parameterized step - never used with parameters
+Then('I should see {string} in the {string} field', async function (value, field) {
+  const element = await $(`[name="${field}"]`);
+  await expect(element).toHaveValue(value);
+});
+```
+
+### ✅ GOOD - Used Step Definitions
+
+```javascript
+// Used step - called in feature files
+Given('I launch the MLB.TV app', async function () {
+  await browser.url('');
+});
+
+// Used regex step - matches feature usage
+When(/^I enter "([^"]*)" into the "([^"]*)" field$/, async function (value, field) {
+  await $(`[name="${field}"]`).setValue(value);
+});
+
+// Used parameterized step - called with parameters
+Then('I should see {string}', async function (text) {
+  await expect($('body')).toHaveTextContaining(text);
+});
+```
+
+## Real-World Examples
+
+### Parameterized Steps
+```javascript
+// Step definition
+When('I navigate to the {string} page', async function (pageName) {
+  await browser.url(`/${pageName}`);
+});
+
+// Feature file usage
+When I navigate to the "Settings" page
+When I navigate to the "Profile" page
+```
+
+### Regex Steps with Placeholders
+```javascript
+// Step definition
+When(/^I enter "([^"]*)" into the "([^"]*)" field$/, async function (value, field) {
+  await $(`[name="${field}"]`).setValue(value);
+});
+
+// Feature file usage
+When I enter "<username>" into the "Username" field
+When I enter "<password>" into the "Password" field
+```
+
+### Flexible Type Matching
+```javascript
+// Step definition
+When('I click on the submit button', async function () {
+  await $('button[type="submit"]').click();
+});
+
+// Feature file usage (And can match When)
+And I click on the submit button
+```
+
+## Manual Fix Process
+
+To fix unused steps:
+
+1. **Identify unused steps** from the check output
+2. **Manually remove step definitions** from their files
+3. **Handle file cleanup** if files become empty
+4. **Preserve used steps** and maintain code structure
+5. **Verify fixes** by running the check again
+
+### Fix Process
+```bash
+# Check for unused steps
+npm run cursor-rules-check
+
+# Manually review and remove unused step definitions
+# Then verify fixes
+npm run cursor-rules-check
+```
+
+## Special Cases
+
+### Cross-File Usage
+The rule detects steps used across different files:
+- Core-app steps used in operator-tool features
+- Shared steps used in multiple feature files
+- Step definitions in different directories
+
+### Parameter Mismatches
+Handles cases where step definitions have more parameters than usage:
+```javascript
+// Definition: 2 parameters
+When('I navigate to {string} {string}', async function (page, section) {
+  await browser.url(`/${page}/${section}`);
+});
+
+// Usage: 1 parameter (matches first parameter)
+When I navigate to the "Settings" page
+```
+
+### Regex Pattern Flexibility
+Converts restrictive patterns to flexible ones:
+```javascript
+// Original: restrictive
+When(/^I enter "([a-zA-Z0-9]*)" into the "OktaId" field$/, ...)
+
+// Usage: flexible placeholder
+When I enter "<OktaId>" into the "OktaId" field
+```
+
+## Best Practices
+
+### 1. Step Naming
+- Use descriptive, action-oriented names
+- Follow consistent naming conventions
+- Avoid overly specific step names
+
+### 2. Parameter Usage
+- Use parameters for dynamic values
+- Keep parameter names descriptive
+- Use appropriate parameter types (`{string}`, `{int}`, etc.)
+
+### 3. Step Organization
+- Group related steps in the same file
+- Use consistent step types (Given/When/Then)
+- Avoid duplicate step definitions
+
+### 4. Maintenance
+- Regularly run cursor rules to identify unused steps
+- Remove unused steps to keep codebase clean
+- Review step usage patterns periodically
+
+## Integration
+
+### Pre-commit Hooks
+```bash
+# Add to .git/hooks/pre-commit
+npm run cursor-rules-check
+```
+
+### CI/CD Pipeline
+```yaml
+# GitHub Actions example
+- name: Check Cursor Rules
+  run: npm run cursor-rules-check
+```
+
+### Local Development
+```bash
+# Check before committing
+npm run cursor-rules-check
+
+# Manually review and fix issues based on check output
+```
+
+## Command Reference
+
+### Check Command
+```bash
+npm run cursor-rules-check
+```
+- Scans all step definition files
+- Cross-references with feature files
+- Reports unused steps with locations
+- Returns exit code 1 if issues found
+
+### Manual Fix
+1. Review the check output to identify unused steps
+2. Manually remove unused step definitions from files
+3. Run `npm run cursor-rules-check` again to verify fixes
+- Preserves used steps
+- Reports fix statistics
+
+## Exceptions
+
+### Intentionally Unused Steps
+Steps that start with underscore are ignored:
+```javascript
+// This will be ignored
+Given('_I am on a debug page', async function () {
+  // Debug step - intentionally unused
+});
+```
+
+### Framework Steps
+Common framework steps are preserved:
+- Setup steps for test initialization
+- Teardown steps for cleanup
+- Utility steps for common operations
+
+## Statistics
+
+The rule provides detailed statistics:
+- **Files scanned**: Number of step definition files processed
+- **Steps found**: Total step definitions identified
+- **Unused steps**: Number of unused steps detected
+- **Used steps**: Number of steps that are actively used
+- **Fix rate**: Percentage of issues that can be auto-fixed
+
+## Troubleshooting
+
+### Common Issues
+
+#### False Positives
+If a step is incorrectly flagged as unused:
+1. Check if the step text matches exactly
+2. Verify parameter patterns are correct
+3. Ensure step type matches usage
+4. Check for regex pattern issues
+
+#### Pattern Matching Issues
+For complex regex patterns:
+1. Test patterns manually
+2. Use flexible character classes
+3. Consider parameter placeholders
+4. Review step usage in features
+
+#### Cross-File Detection
+For steps used across files:
+1. Verify file paths are correct
+2. Check import/require statements
+3. Ensure step definitions are accessible
+4. Review feature file step usage
+
+### Debug Mode
+```bash
+# Run with verbose output
+DEBUG=true npm run cursor-rules-check
+```
+
+## Related Rules
+
+- **Duplicate Steps Detection**: Identifies duplicate step definitions
+- **Unused Imports Detection**: Finds unused import statements
+- **Unused Variables Detection**: Locates unused variable declarations
+- **Unused Functions Detection**: Discovers unused function declarations
+
+## Performance
+
+- **Fast execution**: Optimized for large codebases
+- **Caching**: File content caching for repeated runs
+- **Parallel processing**: Concurrent file scanning
+- **Memory efficient**: Minimal memory footprint
+
+## Future Enhancements
+
+- **Step usage analytics**: Track step usage patterns
+- **Step refactoring suggestions**: Recommend step improvements
+- **Step documentation generation**: Auto-generate step documentation
+- **Step testing**: Validate step definitions work correctly
+
+---
+
+# Duplicate Steps Detection
+
+## Overview
+
+The Duplicate Steps Detection rule identifies Cucumber step definitions that are defined multiple times, either as exact duplicates or as the same text with different step types. This helps prevent conflicts and maintain clean, non-redundant step definitions.
+
+## Purpose
+
+- **Conflict Prevention**: Avoid step definition conflicts that can cause test failures
+- **Code Cleanliness**: Remove redundant step definitions
+- **Maintenance**: Simplify step definition management
+- **Clarity**: Prevent confusion from duplicate steps
+
+## What Gets Detected
+
+### Duplicate Types
+- ✅ **Exact Duplicates**: Same type and text (e.g., two `When` steps with identical text)
+- ✅ **Text Duplicates**: Same text with different types (e.g., `When` and `Then` with same text)
+- ✅ **Cross-file Duplicates**: Same step defined in multiple files
+- ✅ **Same-file Duplicates**: Multiple definitions in the same file
+
+### Step Definition Patterns
+- ✅ `Given('step text', function)` - String-based step definitions
+- ✅ `When(/regex pattern/, function)` - Regex-based step definitions
+- ✅ `Then('I should see {string}', function)` - Parameterized steps
+- ✅ `And('step text', function)` - And/But step definitions
+- ✅ Multi-line step definitions with complex patterns
+
+## Cross-Project Duplicates (Allowed)
+
+**Important**: Duplicate steps are **allowed and ignored** when they exist in different project folders:
+- `core-app/` - Core application tests
+- `webTv/` - WebTV application tests
+- `operator-tool/` - Operator tool tests
+
+### Why This Is Allowed
+Each project maintains **independent test suites** and may intentionally have duplicate step definitions to:
+- Maintain project independence
+- Avoid cross-project dependencies
+- Allow separate deployment and testing
+- Enable team autonomy
+
+### Example (Valid)
+```javascript
+// ✅ ALLOWED - Same step in different projects
+
+// File: core-app/step-definitions/home.steps.js
+Given('I launch the MLB.TV app', async function () {
+  await browser.url('');
+});
+
+// File: webTv/features/step-definitions/common.steps.js
+Given('I launch the MLB.TV app', async function () {
+  await browser.url('');
+});
+```
+
+**These duplicates will NOT be flagged** because they exist in different project folders.
+
+### When Duplicates Are Flagged
+Duplicates are **only flagged** when they exist:
+- ✅ Within the same project folder (e.g., two steps in `core-app/`)
+- ✅ Within the same file
+- ✅ In non-project-specific locations
+
+## Detection Logic
+
+### 1. Step Definition Extraction
+The rule scans all JavaScript files in `**/step-definitions/**/*.js` directories and extracts:
+- Step text/pattern
+- Step type (Given/When/Then/And/But)
+- File location and line number
+- Whether it's a regex or string-based step
+
+### 2. Duplicate Grouping
+The rule groups step definitions by:
+- **Exact duplicates**: Same `type:text` combination
+- **Text duplicates**: Same text regardless of type
+- **File-based grouping**: Groups by file to identify same-file duplicates
+
+### 3. Duplicate Classification
+Each duplicate is classified as:
+- **Exact duplicate**: Same type and text
+- **Text duplicate**: Same text, different types
+- **Same file**: Multiple definitions in same file
+- **Cross file**: Same step in different files
+
+## Examples
+
+### ❌ BAD - Duplicate Step Definitions
+
+```javascript
+// Exact duplicate - same type and text
+When('I click on the submit button', async function () {
+  await $('button[type="submit"]').click();
+});
+
+When('I click on the submit button', async function () {
+  await $('button[type="submit"]').click();
+});
+
+// Text duplicate - same text, different types
+When('I navigate to the Home page', async function () {
+  await browser.url('/home');
+});
+
+Then('I navigate to the Home page', async function () {
+  await browser.url('/home');
+});
+
+// Regex duplicate - same pattern
+When(/^I enter "([^"]*)" into the "([^"]*)" field$/, async function (value, field) {
+  await $(`[name="${field}"]`).setValue(value);
+});
+
+When(/^I enter "([^"]*)" into the "([^"]*)" field$/, async function (value, field) {
+  await $(`[name="${field}"]`).setValue(value);
+});
+```
+
+### ✅ GOOD - Unique Step Definitions
+
+```javascript
+// Unique steps - no duplicates
+Given('I launch the MLB.TV app', async function () {
+  await browser.url('');
+});
+
+When('I click on the submit button', async function () {
+  await $('button[type="submit"]').click();
+});
+
+Then('I should see the success message', async function () {
+  await expect($('.success')).toBeDisplayed();
+});
+
+// Different text - not duplicates
+When('I click on the submit button', async function () {
+  await $('button[type="submit"]').click();
+});
+
+When('I click on the cancel button', async function () {
+  await $('button[type="cancel"]').click();
+});
+```
+
+## Real-World Examples
+
+### Same Text, Different Types
+```javascript
+// File: core-app/step-definitions/settings.steps.js
+When('I navigate to the Home page', async function () {
+  await to_home();
+});
+
+Then('I navigate to the Home page', async function () {
+  await to_home();
+});
+```
+**Issue**: Same text with different step types (When vs Then)
+
+### Exact Duplicates
+```javascript
+// File: operator-tool/step-definitions/common.steps.js
+When('I click on the submit button', async function () {
+  await $('button[type="submit"]').click();
+});
+
+// File: operator-tool/step-definitions/forms.steps.js  
+When('I click on the submit button', async function () {
+  await $('button[type="submit"]').click();
+});
+```
+**Issue**: Exact same step defined in multiple files
+
+### Regex Duplicates
+```javascript
+// File: step-definitions/login.steps.js
+When(/^I enter "([^"]*)" into the "([^"]*)" field$/, async function (value, field) {
+  await $(`[name="${field}"]`).setValue(value);
+});
+
+// File: step-definitions/forms.steps.js
+When(/^I enter "([^"]*)" into the "([^"]*)" field$/, async function (value, field) {
+  await $(`[name="${field}"]`).setValue(value);
+});
+```
+**Issue**: Same regex pattern defined multiple times
+
+## Manual Fix Process
+
+To fix duplicate steps:
+
+1. **Identify duplicate steps** from the check output
+2. **Keep first occurrence** (by line number)
+3. **Manually remove duplicate occurrences** from their files
+4. **Handle file cleanup** if files become empty
+5. **Verify fixes** by running the check again
+
+### Fix Process
+```bash
+# Check for duplicate steps
+npm run cursor-rules-check
+
+# Manually review and remove duplicate step definitions
+# Then verify fixes
+npm run cursor-rules-check
+```
+
+### Fix Strategy
+- **Keep first occurrence**: Preserves the step that appears first in the file
+- **Remove duplicates**: Deletes subsequent occurrences
+- **Maintain functionality**: Ensures remaining step still works
+- **Clean up files**: Removes empty files if needed
+
+## Special Cases
+
+### Cross-File Duplicates
+When the same step is defined in multiple files:
+- **Keep all files**: Don't remove cross-file duplicates automatically
+- **Manual review**: Requires human decision on which to keep
+- **Consolidation**: May need to consolidate into shared file
+
+### Same-File Duplicates
+When multiple definitions exist in the same file:
+- **Keep first**: Preserves the first occurrence
+- **Remove rest**: Deletes subsequent duplicates
+- **Line-based**: Uses line number to determine order
+
+### Different Types, Same Text
+When same text has different step types:
+- **Keep one type**: Choose the most appropriate type
+- **Update features**: Ensure feature files use correct type
+- **Consolidate**: Merge into single step definition
+
+## Best Practices
+
+### 1. Step Organization
+- **Single definition**: Define each step only once
+- **Shared steps**: Use common step files for shared steps
+- **File structure**: Organize steps by feature/functionality
+- **Naming consistency**: Use consistent step naming
+
+### 2. Step Types
+- **Choose appropriate type**: Use Given/When/Then appropriately
+- **Consistent usage**: Use same type across features
+- **Avoid mixing**: Don't use different types for same action
+- **Document conventions**: Establish team standards
+
+### 3. Maintenance
+- **Regular checks**: Run cursor rules frequently
+- **Review duplicates**: Manually review cross-file duplicates
+- **Consolidate steps**: Merge similar steps when appropriate
+- **Update features**: Ensure features use correct step types
+
+### 4. Prevention
+- **Code reviews**: Check for duplicates in PRs
+- **Automated checks**: Run cursor rules in CI/CD
+- **Team communication**: Coordinate step definitions
+- **Documentation**: Document step naming conventions
+
+## Integration
+
+### Pre-commit Hooks
+```bash
+# Add to .git/hooks/pre-commit
+npm run cursor-rules-check
+```
+
+### CI/CD Pipeline
+```yaml
+# GitHub Actions example
+- name: Check Cursor Rules
+  run: npm run cursor-rules-check
+```
+
+### Local Development
+```bash
+# Check before committing
+npm run cursor-rules-check
+
+# Manually review and fix issues based on check output
+```
+
+## Command Reference
+
+### Check Command
+```bash
+npm run cursor-rules-check
+```
+- Scans all step definition files
+- Identifies duplicate step definitions
+- Reports duplicates with locations
+- Returns exit code 1 if issues found
+
+### Manual Fix
+1. Review the check output to identify duplicate steps
+2. Manually remove duplicate step definitions (keep first occurrence)
+3. Run `npm run cursor-rules-check` again to verify fixes
+- Handles file cleanup
+- Reports fix statistics
+
+## Exceptions
+
+### Intentionally Duplicate Steps
+Steps that are intentionally duplicated:
+- **Different contexts**: Same text for different scenarios
+- **Legacy support**: Maintaining old step definitions
+- **Testing purposes**: Debug or test-specific steps
+
+### Framework Steps
+Common framework steps that may appear multiple times:
+- **Setup steps**: Initialization steps
+- **Teardown steps**: Cleanup steps
+- **Utility steps**: Common helper steps
+
+## Statistics
+
+The rule provides detailed statistics:
+- **Files scanned**: Number of step definition files processed
+- **Steps found**: Total step definitions identified
+- **Duplicates found**: Number of duplicate steps detected
+- **Exact duplicates**: Same type and text duplicates
+- **Text duplicates**: Same text, different types
+- **Fix rate**: Percentage of issues that can be auto-fixed
+
+## Troubleshooting
+
+### Common Issues
+
+#### False Positives
+If a step is incorrectly flagged as duplicate:
+1. Check if the step text is actually identical
+2. Verify step types are the same
+3. Ensure file paths are correct
+4. Review step definitions manually
+
+#### Cross-File Duplicates
+For steps defined in multiple files:
+1. Decide which file should contain the step
+2. Remove duplicates from other files
+3. Update imports if needed
+4. Ensure features still work
+
+#### Same-File Duplicates
+For multiple definitions in same file:
+1. Review why duplicates exist
+2. Choose the best implementation
+3. Remove redundant definitions
+4. Test remaining step works
+
+### Debug Mode
+```bash
+# Run with verbose output
+DEBUG=true npm run cursor-rules-check
+```
+
+## Related Rules
+
+- **Unused Steps Detection**: Identifies unused step definitions
+- **Unused Imports Detection**: Finds unused import statements
+- **Unused Variables Detection**: Locates unused variable declarations
+- **Unused Functions Detection**: Discovers unused function declarations
+
+## Performance
+
+- **Fast execution**: Optimized for large codebases
+- **Caching**: File content caching for repeated runs
+- **Parallel processing**: Concurrent file scanning
+- **Memory efficient**: Minimal memory footprint
+
+## Future Enhancements
+
+- **Step consolidation suggestions**: Recommend step merging
+- **Step usage analytics**: Track step usage patterns
+- **Step refactoring**: Suggest step improvements
+- **Step documentation**: Auto-generate step documentation

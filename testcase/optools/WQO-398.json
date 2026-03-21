@@ -1,0 +1,21 @@
+{
+  "id": "WQO-398",
+  "issueId": "1146079",
+  "key": "WQO-398",
+  "summary": "Overrides | Session | Verify Page UI Elements and Column Headers",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the Overrides tile on the home page or from the sidebar navigation\nThen the user lands on the \"Overrides\" page\nAnd the user should see \"Overrides\" in the header\nAnd the user should see \"Session\" and \"Playback\" tabs right next to Overrides header\nAnd the user should see \"+Create Override\" button below the header\nAnd the user should see \"Search\" box display on the right side of the screen\nAnd the user should see \"View\" button display on the right side of the screen\nAnd the user should see a table with the following column names:\n\"ID\", \"Okta ID\", \"Client Type\", \"Experience\", \"Features, and \"Actions\"",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a2d91519-251c-43f0-b835-1d3804d621a4",
+      "action": "*When* the user clicks on the Overrides tile on the home page or from the sidebar navigation",
+      "data": "",
+      "result": "*Then* the user lands on the \"Overrides\" page\n*And* the user should see \"Overrides\" in the header\n*And* the user should see \"Session\" and \"Playback\" tabs right next to Overrides header\n*And* the user should see \"+Create Override\" button below the header\n*And* the user should see \"Search\" box display on the right side of the screen\n*And* the user should see \"View\" button display on the right side of the screen\n*And* the user should see a table with the following column names:\n\"ID\", \"Okta ID\", \"Client Type\", \"Experience\", \"Features, and \"Actions\""
+    }
+  ],
+  "originalTestType": "Manual"
+}

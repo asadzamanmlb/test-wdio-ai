@@ -1,0 +1,21 @@
+{
+  "id": "WQO-431",
+  "issueId": "1146112",
+  "key": "WQO-431",
+  "summary": "Media Validation | Litmus Tool Validation Suite Selection Results",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the Media Validation tile\nAnd the user clicks on the Validation Suite dropdown options\nAnd the user clicks on the Validation selector\nAnd the user clicks on the Run Validation button\nThen the user should see the \"Litmus\" schedule view\nAnd the user should see \"Game Pre Provision\", \"Game Provision\", \"Game Stream Start\", \"Game Live\", \"Game Final\", \"Game Stream Stop\", \"Game Stream Archive\"\nAnd the user should see the validation match for the pipeline status pre-selected\nAnd the user should see the validation \"Result\" under the \"Validation Suite\" with \"Validation Suite\" Name, and \"Validation Result\" \"Pass/ Fail\"",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d6c03c30-0b1d-4e13-9c6e-03554bf2d12f",
+      "action": "*When* the user clicks on the Media Validation tile \n*And* the user clicks on the Validation Suite dropdown options\n*And* the user clicks on the Validation selector\n*And* the user clicks on the Run Validation button",
+      "data": "",
+      "result": "*Then* the user should see the \"Litmus\" schedule view\n*And* the user should see \"Game Pre Provision\", \"Game Provision\", \"Game Stream Start\", \"Game Live\", \"Game Final\", \"Game Stream Stop\", \"Game Stream Archive\" \n*And* the user should see the validation match for the pipeline status pre-selected\n*And* the user should see the validation \"Result\" under the \"Validation Suite\" with \"Validation Suite\" Name, and \"Validation Result\" \"Pass/ Fail\""
+    }
+  ],
+  "originalTestType": "Manual"
+}

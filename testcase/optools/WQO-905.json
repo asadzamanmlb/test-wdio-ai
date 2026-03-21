@@ -1,0 +1,21 @@
+{
+  "id": "WQO-905",
+  "issueId": "1189570",
+  "key": "WQO-905",
+  "summary": "BTC Tools | Verify CDN Status Page UI",
+  "description": "[https://baseball.atlassian.net/browse/OPTOOLS-720|https://baseball.atlassian.net/browse/OPTOOLS-720|smart-link] ",
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the BTC Tools page\nAnd the user clicks on the \"CDN Status\" tab at the top of the page\nAnd !xray-attachment://5d50b519-80c7-4d0a-9533-1b563a79018a|width=1182,height=612!\nThen the user lands on the Schedule Page by default\nAnd the user lands on the CDN Status page\nAnd the user sees two distinct tiles, one for \"Fastly\" and one for \"Media CDN\"\nAnd each tile contains a toggle switch to enable or disable the respective CDN",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6f0d3810-d7d9-4b31-946b-016694e03ed2",
+      "action": "*When* the user clicks on the BTC Tools page\n\n*And* the user clicks on the \"CDN Status\" tab at the top of the page",
+      "data": "!xray-attachment://5d50b519-80c7-4d0a-9533-1b563a79018a|width=1182,height=612!",
+      "result": "*Then* the user lands on the Schedule Page by default \n\n*And* the user lands on the CDN Status page\n\n*And* the user sees two distinct tiles, one for \"Fastly\" and one for \"Media CDN\"\n\n*And* each tile contains a toggle switch to enable or disable the respective CDN"
+    }
+  ],
+  "originalTestType": "Manual"
+}

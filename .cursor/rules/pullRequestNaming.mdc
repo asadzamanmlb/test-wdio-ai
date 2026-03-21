@@ -1,0 +1,334 @@
+# Pull Request Naming Conventions
+
+## Overview
+This cursor rule enforces proper naming conventions for pull requests to ensure traceability between code changes and Jira issues. All PR titles must include the Jira ticket ID.
+
+## Purpose
+- **Traceability** - Link code changes to Jira tickets for better project tracking
+- **Documentation** - Understand the context of changes through Jira references
+- **Accountability** - Track which tickets are associated with which code changes
+- **Integration** - Enable automated workflows between Jira and Git platforms
+
+## Automated Detection
+This rule is enforced at the Git platform level (GitHub/Bitbucket) through branch protection rules and CI/CD checks.
+
+### Usage
+This rule is checked during:
+- Pull request creation
+- Pull request title updates
+- CI/CD pipeline execution
+
+## Pull Request Naming Rules
+
+### Required Format
+
+**Pattern:** `JIRA-123: Description of changes`
+
+**Components:**
+1. **Jira Ticket ID**: Project key + ticket number (e.g., `JIRA-123`, `WDIO-456`)
+2. **Colon and space**: `: ` separator
+3. **Description**: Clear, concise description of the changes
+
+### Examples
+
+✅ **GOOD PR Titles:**
+```
+WDIO-123: Add Gherkin standardization cursor rule
+WDIO-456: Fix scenario outline conversion for single examples
+WDIO-789: Update WebDriverIO configuration for failFast
+TEST-101: Implement calendar feature tests
+AUTO-234: Refactor step definitions to use proper assertion phrasing
+INFRA-567: Clean up temp files after report generation
+```
+
+❌ **BAD PR Titles:**
+```
+Add Gherkin rule                          # Missing Jira ticket ID
+wdio-123: Fix tests                       # Lowercase project key
+WDIO123: Update config                    # Missing hyphen
+WDIO-123 Add tests                        # Missing colon and space
+[WDIO-123] Fix bug                        # Brackets not allowed
+Fix critical bug in production            # Missing Jira ticket ID
+Updated some files                        # Missing Jira ticket ID
+```
+
+## Jira Ticket ID Format
+
+### Valid Patterns
+
+1. **Standard Format**: `PROJECT-NUMBER`
+   - Project key: 2-10 uppercase letters
+   - Hyphen separator: `-`
+   - Issue number: 1 or more digits
+   
+2. **Examples**:
+   - `JIRA-1`
+   - `WDIO-12`
+   - `TEST-123`
+   - `AUTOMATION-1234`
+
+### Regular Expression
+```regex
+^[A-Z]{2,10}-\d+:\s+.+$
+```
+
+**Breakdown:**
+- `^` - Start of string
+- `[A-Z]{2,10}` - Project key (2-10 uppercase letters)
+- `-` - Hyphen
+- `\d+` - Issue number (one or more digits)
+- `:` - Colon
+- `\s+` - One or more spaces
+- `.+` - Description (at least one character)
+- `$` - End of string
+
+## Implementation
+
+### GitHub Actions Workflow
+
+✅ **Already Implemented!** 
+
+The GitHub Actions workflow is located at `.github/workflows/pr-title-check.yml` and automatically:
+
+- ✅ Validates PR titles on open, edit, and synchronize
+- ✅ Posts helpful comments when validation fails
+- ✅ Adds Jira ticket ID as a label (optional)
+- ✅ Shows clear error messages with examples
+- ✅ Blocks PR merge when branch protection is enabled
+
+**To enable branch protection:**
+
+1. Go to **Repository Settings** → **Branches**
+2. Add rule for `main` branch
+3. Enable **Require status checks to pass before merging**
+4. Select **Validate PR Title** check
+5. Save changes
+
+**For more details, see:** `.github/workflows/README.md`
+
+### Bitbucket Repository Settings
+
+1. Go to **Repository Settings** → **Branch Permissions**
+2. Enable **Pull Request Title Check** hook
+3. Add pattern: `^[A-Z]{2,10}-\d+:\s+.+$`
+
+### Git Hook (Local Validation)
+
+**Note**: This rule applies to **Pull Request titles only**, not individual commit messages. Commits can use any message format, but PRs must follow the naming convention.
+
+If you want to optionally validate commit messages locally, you can add to `.git/hooks/prepare-commit-msg`:
+
+```bash
+#!/bin/bash
+# OPTIONAL: Validate commit messages (not required, only for PR titles)
+
+COMMIT_MSG_FILE=$1
+COMMIT_SOURCE=$2
+
+# Only check if this is not a merge commit
+if [ "$COMMIT_SOURCE" != "merge" ]; then
+  COMMIT_MSG=$(cat "$COMMIT_MSG_FILE")
+  
+  if ! echo "$COMMIT_MSG" | grep -qE '^[A-Z]{2,10}-[0-9]+:\s+'; then
+    echo "⚠️  Warning: Commit message doesn't include Jira ticket ID"
+    echo "Recommended format: JIRA-123: Description"
+    echo "Current: $COMMIT_MSG"
+    # Note: This is a warning only, not blocking
+  fi
+fi
+```
+
+## Best Practices
+
+### 1. Descriptive Titles
+
+```
+✅ GOOD - Clear and specific
+WDIO-123: Add Gherkin standardization cursor rule with THEN step validation
+WDIO-456: Fix scenario outline conversion to handle single example rows
+WDIO-789: Refactor report generation to clean temp files after PDF creation
+
+❌ BAD - Too vague
+WDIO-123: Fix issue
+WDIO-456: Update tests
+WDIO-789: Changes
+```
+
+### 2. Use Action Verbs
+
+```
+✅ GOOD - Clear action
+WDIO-123: Add feature for user authentication
+WDIO-456: Fix bug in calendar date selection
+WDIO-789: Update configuration for Sauce Labs
+WDIO-101: Refactor step definitions to use page objects
+WDIO-202: Remove unused imports from test files
+
+❌ BAD - Unclear action
+WDIO-123: Feature
+WDIO-456: Bug
+WDIO-789: Config
+```
+
+### 3. Keep Titles Concise
+
+```
+✅ GOOD - Concise but informative
+WDIO-123: Add Gherkin standardization rule
+WDIO-456: Fix scenario outline with single example
+
+❌ BAD - Too long
+WDIO-123: Add a new cursor rule for Gherkin standardization that checks THEN steps for proper assertion phrasing and detects scenario outlines with only one example row and suggests converting them to regular scenarios
+```
+
+## Common Mistakes
+
+### 1. Lowercase Project Key
+```
+❌ wdio-123: Add tests
+✅ WDIO-123: Add tests
+```
+
+### 2. Missing Colon
+```
+❌ WDIO-123 Add tests
+✅ WDIO-123: Add tests
+```
+
+### 3. Missing Space After Colon
+```
+❌ WDIO-123:Add tests
+✅ WDIO-123: Add tests
+```
+
+### 4. Wrong Separator
+```
+❌ WDIO_123: Add tests
+❌ WDIO.123: Add tests
+✅ WDIO-123: Add tests
+```
+
+### 5. Brackets or Parentheses
+```
+❌ [WDIO-123] Add tests
+❌ (WDIO-123) Add tests
+✅ WDIO-123: Add tests
+```
+
+## Integration with Jira
+
+### Automatic Linking
+
+When PR titles include Jira ticket IDs, many Git platforms automatically create links:
+
+1. **GitHub**: Add Jira integration app
+2. **Bitbucket**: Enable Jira linking in repository settings
+3. **GitLab**: Configure Jira integration
+
+### Jira Smart Commits
+
+Combine with smart commits for automatic workflow:
+
+```
+WDIO-123: Add login tests #comment Fixed the issue #time 2h
+WDIO-456: Fix calendar bug #resolve
+```
+
+## Exceptions
+
+### When Not Required
+
+1. **Dependency Updates**: Automated dependency PRs
+   - Format: `chore(deps): Update package-name to version X.Y.Z`
+   
+2. **Documentation Only**: Minor typo fixes
+   - Format: `docs: Fix typo in README`
+   
+3. **Hotfixes**: Emergency production fixes (should still include ticket if possible)
+   - Format: `hotfix: Fix critical production issue`
+
+### Override Process
+
+If a Jira ticket doesn't exist:
+1. Create a Jira ticket first
+2. Use the ticket ID in the PR title
+3. Document the reason in PR description
+
+## Enforcement
+
+### Severity Levels
+
+**Warning** (Recommended):
+- PR can be merged but requires approval
+- CI/CD shows warning message
+- Reviewer should verify Jira ticket exists
+
+**Error** (Strict):
+- PR cannot be merged without valid Jira ticket ID
+- CI/CD fails the build
+- Automated checks block merge
+
+## Benefits
+
+### For Development Teams
+- **Clear Context**: Understand why changes were made
+- **Better Reviews**: Reviewers can check Jira for requirements
+- **Easier Debugging**: Trace bugs back to original tickets
+
+### For Project Management
+- **Progress Tracking**: See which tickets have associated code changes
+- **Release Notes**: Automatically generate from Jira tickets
+- **Metrics**: Track time from ticket creation to code merge
+
+### For Quality Assurance
+- **Test Coverage**: Verify all ticket requirements are tested
+- **Regression Prevention**: Link bugs to fixes
+- **Traceability**: Track changes through the SDLC
+
+## Results Format
+
+### Success Output
+```
+✅ PR Title Validation Passed
+   Title: WDIO-123: Add Gherkin standardization cursor rule
+   Jira Ticket: WDIO-123
+   Status: Valid format
+```
+
+### Failure Output
+```
+❌ PR Title Validation Failed
+
+Current Title: Add Gherkin rule
+
+Issues Found:
+  - Missing Jira ticket ID
+  
+Required Format: JIRA-123: Description
+Example: WDIO-123: Add Gherkin standardization cursor rule
+
+Please update your PR title to include a valid Jira ticket ID.
+```
+
+## Quick Reference
+
+### Valid Format
+```
+PROJECT-NUMBER: Description
+```
+
+### Components
+- **PROJECT**: 2-10 uppercase letters
+- **-**: Hyphen separator
+- **NUMBER**: One or more digits
+- **: **: Colon followed by space
+- **Description**: Clear description of changes
+
+### Regex Pattern
+```regex
+^[A-Z]{2,10}-\d+:\s+.+$
+```
+
+---
+
+*This document is part of the WebDriverIO Test Automation Framework cursor rules system.*

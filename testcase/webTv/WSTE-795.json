@@ -1,0 +1,13 @@
+{
+  "id": "WSTE-795",
+  "issueId": "1249713",
+  "key": "WSTE-795",
+  "summary": "Verify date calendar default to ST day",
+  "description": "{panel:bgColor=#deebff}\nPlease Note that the Media Center is not behind the paywall and therefore does not need authentication to access this page.\n{panel}",
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "Given the user navigates to the Media Center\nAnd its off season\nWhen the user looks at the date container \nThen the user should see the default date displayed in the date container (February 20,2026)",
+  "unstructured": null,
+  "steps": []
+}

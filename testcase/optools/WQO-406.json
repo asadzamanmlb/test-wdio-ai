@@ -1,0 +1,21 @@
+{
+  "id": "WQO-406",
+  "issueId": "1146087",
+  "key": "WQO-406",
+  "summary": "Audit & Logging | Schedule | Verify page UI Elements and Navigation on Game Tile Click",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user navigate to the SOP Tool homepage\nAnd the user clicks on the \"Audit & Logging\" tile or from the side nav bar\nAnd the user clicks on the Schedule page\nAnd the user clicks on any of the game card\nAnd !xray-attachment://db16ac78-431b-4968-825b-a01ef7aface8|width=1302,height=794!\nThen the user lands on the \"Audits\" page\nAnd the user should see \"Audit & Logging\" in the header\nAnd the user should see \"Audits\" and \"Schedule\" tabs at the top of the page\nAnd the page should display:\n* A calendar icon with the date format \"YYYY-MM-DD\"\n* Previous and Next arrow icons to navigate between dates\n* A search box to search the game by Game PK, Teams and Venue ID\nAnd a game card for each scheduled game containing:\n* Team Names (e.g., \"BOS vs TB\")\n* Game PK\n* Venue\n* Game Date\n* Game Status (e.g., \" SCHEDULED\", \"LIVE\", \"SUSPENDED\")\nAnd After the user clicks a game card on the schedule page, they should be taken to the Audits page, where logs for that game are shown.",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1f62b85d-eb3a-449b-a1b1-92afb76f0cb3",
+      "action": "*When* the user navigate to the SOP Tool homepage\n*And* the user clicks on the \"Audit & Logging\" tile or from the side nav bar\n*And* the user clicks on the Schedule page\n*And* the user clicks on any of the game card",
+      "data": "!xray-attachment://db16ac78-431b-4968-825b-a01ef7aface8|width=1302,height=794!",
+      "result": "*Then* the user lands on the \"Audits\" page\n*And* the user should see \"Audit & Logging\" in the header\n*And* the user should see \"Audits\" and \"Schedule\" tabs at the top of the page\n*And* the page should display:\n\n* A calendar icon with the date format \"YYYY-MM-DD\"\n* Previous and Next arrow icons to navigate between dates\n* A search box to search the game by Game PK, Teams and Venue ID\n\n*And* a game card for each scheduled game containing:\n\n* Team Names (e.g., \"BOS vs TB\")\n* Game PK\n* Venue\n* Game Date\n* Game Status (e.g., \" SCHEDULED\", \"LIVE\", \"SUSPENDED\")\n\n*And* After the user clicks a game card on the schedule page, they should be taken to the Audits page, where logs for that game are shown."
+    }
+  ],
+  "originalTestType": "Manual"
+}

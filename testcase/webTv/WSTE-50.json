@@ -1,0 +1,13 @@
+{
+  "id": "WSTE-50",
+  "issueId": "1130683",
+  "key": "WSTE-50",
+  "summary": "Smoke | Entitlements - STP",
+  "description": "*NOTE: Excluded Live Content*\nGames that do not involve the subscribed team (except FGOTD)\nMVPD - ASG and Postseason\nPartner - AppleTV+, Peacock etc\nBlackouts - In-market games, ESPN Sunday Night Baseball",
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "Given the user is logged into mlb.com/tv\nAnd the user has MLBTV_STP_<team_tri_code> and SUBSCRIBERVOD entitlements (ex:MLBTV_STP_STL)\nWhen the user selects any out of market content of their purchased team for playback (ex: Cardinals)\nThen the user receives successful playback of the entitled content",
+  "unstructured": null,
+  "steps": []
+}

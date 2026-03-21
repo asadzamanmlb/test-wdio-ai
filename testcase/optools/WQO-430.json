@@ -1,0 +1,21 @@
+{
+  "id": "WQO-430",
+  "issueId": "1146111",
+  "key": "WQO-430",
+  "summary": "Media Validation | Litmus tool Search | Invalid Input",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the \"Media Validation\" tile on the dashboard\nAnd the user inputs an invalid query into the \"Search for GamePK\" box. For example: 7470900\nThen the user should see the \"Search For GamePK\" box displayed above the games component\nAnd the user should see \"No Games Today\"",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "893a3c8e-5413-483f-8832-475496cef959",
+      "action": "*When* the user clicks on the \"Media Validation\" tile on the dashboard\n*And* the user inputs an invalid query into the \"Search for GamePK\" box. For example: 7470900",
+      "data": "",
+      "result": "*Then* the user should see the \"Search For GamePK\" box displayed above the games component\n*And* the user should see \"No Games Today\""
+    }
+  ],
+  "originalTestType": "Manual"
+}

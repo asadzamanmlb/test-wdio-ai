@@ -1,0 +1,27 @@
+{
+  "id": "WQO-393",
+  "issueId": "1146070",
+  "key": "WQO-393",
+  "summary": "Streaming Operator Platform | LogIn",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the \"Account\" button on the left panel\nThen the user should see the \"Login\" button on the right side of the left panel\nWhen the user clicks on the \"Login\" button\nAnd the user enters the \"username\" into the enter username field\nAnd the user clicks on the \"Next\" button\nAnd the user enters the \"password\" into the password field\nThen the user should see the \"Login\" button on the right side of the panel\nAnd the user should be navigated to the \"mlbtest.okata.com\" page\nAnd the user should see the username into the \"Enter Username\" field.\nAnd the user should see the \"Password\" input text field.\nAnd the user should be redirected to the Okta Authentication flow\nAnd the user should be successfully directed to the SOP Tool Home Page",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "11646a0e-0832-4dc5-b976-b5491b7dc2fb",
+      "action": "*When* the user clicks on the \"Account\" button on the left panel",
+      "data": "",
+      "result": "*Then* the user should see the \"Login\" button on the right side of the left panel"
+    },
+    {
+      "id": "561b7fcc-3f07-44c4-adf8-4d7e23370f5d",
+      "action": "*When* the user clicks on the \"Login\" button\n\n*And* the user enters the \"username\" into the enter username field\n\n*And* the user clicks on the \"Next\" button\n\n*And* the user enters the \"password\" into the password field",
+      "data": "",
+      "result": "*Then* the user should see the \"Login\" button on the right side of the panel\n\n*And* the user should be navigated to the \"[mlbtest.okata.com|http://mlbtest.okata.com]\" page\n\n*And* the user should see the username into the \"Enter Username\" field.\n\n*And* the user should see the \"Password\" input text field.\n\n*And* the user should be redirected to the Okta Authentication flow\n\n*And* the user should be successfully directed to the SOP Tool Home Page"
+    }
+  ],
+  "originalTestType": "Manual"
+}

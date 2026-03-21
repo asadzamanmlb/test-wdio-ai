@@ -1,0 +1,21 @@
+{
+  "id": "WQO-1083",
+  "issueId": "1268529",
+  "key": "WQO-1083",
+  "summary": "Audit & Logging | Audits | Search by Game PK",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the \"Audit & Logging\" tile on the homepage or the side nav\nAnd the user clicks on the \"Resource Tag\" button\nAnd the user select and enters a valid Game PK in the Game PK input field\nFor example: 831644\nAnd the user presses Enter or clicks on the magnifying glass\nAnd !xray-attachment://33d76d9f-5751-4233-9b41-dfcc89dfa1a3|width=1645,height=737!\nThen the user should land on the \"Audits\" page\nAnd the user sees \"Game PK\" and \"Media ID\" buttons\nAnd the entered Game PK should appear in the input field\nAnd upon submission, a list of logs associated with that Game PK should appear\nAnd the logs should be shown in a table with the following column headers:\n-Source System\n-Operation\n-Instigator\n-Email\n-Created At\n-Trace ID\n-Event Data\n-Resource Tags",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5fff5991-f4a9-4b08-a988-618dda1465b0",
+      "action": "*When* the user clicks on the \"Audit & Logging\" tile on the homepage or the side nav\n*And* the user clicks on the \"Resource Tag\" button\n*And* the user select and enters a valid Game PK in the Game PK input field\nFor example: 831644\n*And* the user presses Enter or clicks on the magnifying glass",
+      "data": "!xray-attachment://33d76d9f-5751-4233-9b41-dfcc89dfa1a3|width=1645,height=737!",
+      "result": "*Then* the user should land on the \"Audits\" page\n\n*And* the user sees \"Game PK\" and \"Media ID\" buttons\n\n*And* the entered Game PK should appear in the input field\n\n*And* upon submission, a list of logs associated with that Game PK should appear\n\n*And* the logs should be shown in a table with the following column headers:\n-Source System\n-Operation\n-Instigator\n-Email\n-Created At\n-Trace ID\n-Event Data\n-Resource Tags"
+    }
+  ],
+  "originalTestType": "Manual"
+}

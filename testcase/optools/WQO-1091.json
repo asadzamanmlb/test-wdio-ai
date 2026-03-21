@@ -1,0 +1,21 @@
+{
+  "id": "WQO-1091",
+  "issueId": "1268568",
+  "key": "WQO-1091",
+  "summary": "BTC Tools | Multicast Mapping | Search for Created Mapping",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks the \"Multicast Mapping\" option on the top nav\nAnd the user enters \"Test Call sign\" in the search field\nThen the user is navigated to the Multicast Mapping page\nAnd the search results are filtered\nAnd the Results include the multicast mapping with call sign \"Test Call sign\"",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "37c29867-1eab-4ae9-9fea-e35288e46dc5",
+      "action": "*When* the user clicks the \"Multicast Mapping\" option on the top nav\n\n*And* the user enters \"Test Call sign\" in the search field",
+      "data": "",
+      "result": "*Then* the user is navigated to the Multicast Mapping page\n\n*And* the search results are filtered\n\n*And* the Results include the multicast mapping with call sign \"Test Call sign\""
+    }
+  ],
+  "originalTestType": "Manual"
+}

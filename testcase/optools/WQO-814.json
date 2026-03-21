@@ -1,0 +1,27 @@
+{
+  "id": "WQO-814",
+  "issueId": "1164077",
+  "key": "WQO-814",
+  "summary": "Streaming Operator Platform | Logout ",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the <profile> button on the left panel on the left bottom corner\nThen the user should see a little pop up with their username on it\nAnd the user should see the \"Logout\" button under their username\nWhen the user clicks on the \"Logout\" button\nThen the user should be logged out\nAnd the user should see \"Welcome to the Streaming Operator Platform In order to use the application, you will need to log in via Okta.\"",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a627910e-9309-42ea-a89b-c7d30236ae10",
+      "action": "*When* the user clicks on the <profile> button on the left panel on the left bottom corner",
+      "data": "",
+      "result": "*Then* the user should see a little pop up with their username on it\n\n*And* the user should see the \"Logout\" button under their username"
+    },
+    {
+      "id": "40103a3f-101e-4d21-95d1-3bdd500de8c8",
+      "action": "*When* the user clicks on the \"Logout\" button",
+      "data": "",
+      "result": "*Then* the user should be logged out \n\n*And* the user should see \"Welcome to the Streaming Operator Platform In order to use the application, you will need to log in via Okta.\""
+    }
+  ],
+  "originalTestType": "Manual"
+}

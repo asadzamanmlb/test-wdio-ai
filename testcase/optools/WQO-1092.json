@@ -1,0 +1,21 @@
+{
+  "id": "WQO-1092",
+  "issueId": "1268569",
+  "key": "WQO-1092",
+  "summary": "BTC Tools | Multicast Mapping | Search and Delete a specific Multicast Mapping",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user navigates to BTC Tools from the main menu\nAnd the user clicks on the \"Multicast Mapping\" tab, located at the top right of BTC Tools\nAnd the user enters a multicast mapping value (Call Sign, Multicast Address, or ID) into the search box\nAnd the user clicks on the delete (trash icon) button next to the selected multicast mapping\nAnd the user clicks on the \"Delete\" button in the confirmation popup\nThen the user should land on the \"Schedule\" Page\nAnd the user should be redirected to the \"Multicast Mapping\" page\nAnd the user verifies that the correct multicast mapping entry appears in the filtered results\nAnd a confirmation popup titled \"Delete Multicast Mapping\" should appear, displaying the details of the selected entry\nAnd the user should see the details in the confirmation popup (ID, Call Sign, Priority, Source Location, Multicast Address) match the selected entry\nAnd the user should see a success message confirming the multicast mapping has been deleted\nAnd the deleted multicast mapping should no longer appear in the search results\nAnd the user should see that the table refreshes automatically after deletion\nAnd if the user searches for the deleted mapping again, it should not be found",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7356e4c2-bcfa-401f-92aa-95d7dcc2ced4",
+      "action": "*When* the user navigates to BTC Tools from the main menu\n\n*And* the user clicks on the \"Multicast Mapping\" tab, located at the top right of BTC Tools\n\n*And* the user enters a multicast mapping value (Call Sign, Multicast Address, or ID) into the search box\n\n*And* the user clicks on the delete (trash icon) button next to the selected multicast mapping\n\n*And* the user clicks on the \"Delete\" button in the confirmation popup",
+      "data": "",
+      "result": "*Then* the user should land on the \"Schedule\" Page\n\n*And* the user should be redirected to the \"Multicast Mapping\" page\n\n*And* the user verifies that the correct multicast mapping entry appears in the filtered results\n\n*And* a confirmation popup titled \"Delete Multicast Mapping\" should appear, displaying the details of the selected entry\n\n*And* the user should see the details in the confirmation popup (ID, Call Sign, Priority, Source Location, Multicast Address) match the selected entry\n\n*And* the user should see a success message confirming the multicast mapping has been deleted\n\n*And* the deleted multicast mapping should no longer appear in the search results\n\n*And* the user should see that the table refreshes automatically after deletion\n\n*And* if the user searches for the deleted mapping again, it should not be found"
+    }
+  ],
+  "originalTestType": "Manual"
+}

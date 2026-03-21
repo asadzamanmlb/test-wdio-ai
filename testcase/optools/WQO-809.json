@@ -1,0 +1,27 @@
+{
+  "id": "WQO-809",
+  "issueId": "1163678",
+  "key": "WQO-809",
+  "summary": "BTC Tools | Schedule | Verify Page UI Validation",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user visits the Operator tool and logs in\nThen the user should be successfully logged into the platform\nWhen the user clicks on the BTC Tools tile\nThen the user should land on the \"Schedule\" page\nAnd the user should see the date format as \"YYYY-MM-DD\"\nAnd the user should see a Search box. (i.e, search box can be used to search for a game via team name, Venue and GamePK)\nAnd the user should see the team matchups (for example: SF @ PIT)\nAnd the user validates the content of the first row includes:\nTeam Matchup (BOS @PIT) | Game PK | Venue | Game Date | Status",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4508f7a8-9c43-4964-961f-a63df7f39a79",
+      "action": "*When* the user visits the Operator tool and logs in",
+      "data": "",
+      "result": "*Then* the user should be successfully logged into the platform"
+    },
+    {
+      "id": "1772b1b0-6f61-44f4-8e3a-a89133e0d759",
+      "action": "*When* the user clicks on the BTC Tools tile",
+      "data": "",
+      "result": "*Then* the user should land on the \"Schedule\" page\n\n*And* the user should see the date format as \"YYYY-MM-DD\"\n\n*And* the user should see a Search box. (i.e, search box can be used to search for a game via team name, Venue and GamePK)\n\n*And* the user should see the team matchups (for example: SF @ PIT)\n\n*And* the user validates the content of the first row includes:\n\nTeam Matchup (BOS @PIT) | Game PK | Venue | Game Date | Status"
+    }
+  ],
+  "originalTestType": "Manual"
+}

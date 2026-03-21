@@ -1,0 +1,21 @@
+{
+  "id": "WQO-827",
+  "issueId": "1164576",
+  "key": "WQO-827",
+  "summary": "User Lookup | User Searches For a User by Okta ID",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user is on the \"User Lookup\" page\nAnd the user enters a valid Okta ID like 00ufdpo4xfwameJgH0h8 into the \"Okta ID / Email\" field\nAnd click the \"Search\" button\nThen The user's account information should be displayed, including:\n* First Name: *<User First Name>*\n* Last Name: *<User Last Name>*\n* Okta ID: *<User Okta ID>*\n* Email: *<User Email>*\n* Do Not Sell: *Profile Value: null, Cached Value: null*\n* Favorite Team: *Profile Value: Orioles, Cached Value: null*\n* Entitlements: *Profile Value: null, Cached Value: null*\nAnd The user's most recent sessions should be displayed.",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7e45b2b5-af5f-4237-92b2-c9479e507a2e",
+      "action": "*When* the user is on the \"User Lookup\" page\n\n*And* the user enters a valid Okta ID like 00ufdpo4xfwameJgH0h8 into the \"Okta ID / Email\" field\n\n*And* click the \"Search\" button",
+      "data": "",
+      "result": "*Then* The user's account information should be displayed, including:\n\n* First Name: *<User First Name>*\n* Last Name: *<User Last Name>*\n* Okta ID: *<User Okta ID>*\n* Email: *<User Email>*\n* Do Not Sell: *Profile Value: null, Cached Value: null*\n* Favorite Team: *Profile Value: Orioles, Cached Value: null*\n* Entitlements: *Profile Value: null, Cached Value: null*\n\n*And* The user's most recent sessions should be displayed."
+    }
+  ],
+  "originalTestType": "Manual"
+}

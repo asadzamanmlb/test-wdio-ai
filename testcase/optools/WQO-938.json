@@ -1,0 +1,21 @@
+{
+  "id": "WQO-938",
+  "issueId": "1213773",
+  "key": "WQO-938",
+  "summary": "BTC Tools | Broadcast Source Overrides | Verify UI",
+  "description": "Ticket [https://baseball.atlassian.net/browse/OPTOOLS-640|https://baseball.atlassian.net/browse/OPTOOLS-640|smart-link] \n\nSOP-QA: Click here to get to Broadcast Source Overrides[https://sop-qa.mlb.com/btc-tools/broadcast-source-overrides|https://sop-qa.mlb.com/btc-tools/broadcast-source-overrides|smart-link] ",
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on \"Broadcast Source Overrides\" from the navigation menu\nThen the user should see the Broadcast Source Overrides page loaded successfully\nAnd the page should display \"Broadcast Source Overrides\" in the navigation tab\nAnd a \"Create Override\" button should be prominently displayed at the top left\nAnd a \"Search\" field should be visible at the top right\nAnd a \"View\" button should be visible at the top right\nAnd a data table should be visible with column headers:\n* ID\n* Call Sign\n* Pre-Game Source\n* Game Source\n* Post-Game Source\nAnd each row should display the override data\nAnd each row should have an edit icon (pencil) on the right side\nAnd each row should have a delete icon (trash/bin) on the right side\nAnd pagination should show the correct count based on available overrides (e.g., \"1-2 of 2\" if 2 overrides exist)\nAnd \"Rows per page\" dropdown should be set to \"25\" by default",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4229439b-a2b5-439b-a91f-dec1c641e98b",
+      "action": "*When* the user clicks on \"Broadcast Source Overrides\" from the navigation menu",
+      "data": "",
+      "result": "*Then* the user should see the Broadcast Source Overrides page loaded successfully\n*And* the page should display \"Broadcast Source Overrides\" in the navigation tab\n*And* a \"Create Override\" button should be prominently displayed at the top left\n*And* a \"Search\" field should be visible at the top right\n*And* a \"View\" button should be visible at the top right\n*And* a data table should be visible with column headers:\n\n* ID\n* Call Sign\n* Pre-Game Source\n* Game Source\n* Post-Game Source\n\n*And* each row should display the override data\n*And* each row should have an edit icon (pencil) on the right side\n*And* each row should have a delete icon (trash/bin) on the right side\n*And* pagination should show the correct count based on available overrides (e.g., \"1-2 of 2\" if 2 overrides exist)\n*And* \"Rows per page\" dropdown should be set to \"25\" by default"
+    }
+  ],
+  "originalTestType": "Manual"
+}

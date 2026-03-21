@@ -1,0 +1,21 @@
+{
+  "id": "WQO-821",
+  "issueId": "1164547",
+  "key": "WQO-821",
+  "summary": "ESNI Management | Media ID | Screen Loads and Displays Data Correctly",
+  "description": "Verify ESNI Management screen loads and displays data correctly",
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user navigates to the \"ESNI Management\" page using the Home screen or the left sidebar menu\nThen the \"Date\" filter should be visible at the top\nAnd the default date should be today's date or the most recent data\nAnd the \"Search\" input field should be visible on the top-right of the screen\nAnd the \"View\" button should be visible next to the \"Search\" input field, on the far right\nAnd the data table should be visible with columns:\n* Media ID\n* Game PK\n* Feed Type\n* Media Type\nAnd each row in the table should display valid values for all columns\nAnd each row should have a \"Media Details\" button (three-line icon) on the far right\nAnd pagination controls should be visible at the bottom of the table",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "df642e71-9391-4120-94d5-4e76c468574a",
+      "action": "*When* the user navigates to the \"ESNI Management\" page using the Home screen or the left sidebar menu",
+      "data": "",
+      "result": "*Then* the \"Date\" filter should be visible at the top\n\n*And* the default date should be today's date or the most recent data\n\n*And* the \"Search\" input field should be visible on the top-right of the screen\n\n*And* the \"View\" button should be visible next to the \"Search\" input field, on the far right\n\n*And* the data table should be visible with columns:\n\n* Media ID\n* Game PK\n* Feed Type\n* Media Type\n\n*And* each row in the table should display valid values for all columns\n\n*And* each row should have a \"Media Details\" button (three-line icon) on the far right\n\n*And* pagination controls should be visible at the bottom of the table"
+    }
+  ],
+  "originalTestType": "Manual"
+}

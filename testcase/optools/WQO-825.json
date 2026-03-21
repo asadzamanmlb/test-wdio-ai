@@ -1,0 +1,21 @@
+{
+  "id": "WQO-825",
+  "issueId": "1164553",
+  "key": "WQO-825",
+  "summary": "User Lookup | Page and Search Form Validation",
+  "description": "Verify User Lookup page loads and input fields are available",
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user navigates to the \"User Lookup\" page using the Home screen or the left sidebar menu\nThen a \"Select Date Range\" field should be visible on the top-left\nAnd a text field labeled \"Okta ID / Email\" should be visible next to the date range field\nAnd a \"Search\" button should be visible to the right of the Okta ID / Email field\nAnd all input fields should be empty by default\nAnd the \"Search\" button should be disabled or do nothing unless valid input is provided",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "65c57356-384e-4400-b27f-0211b3f5ed31",
+      "action": "*When* the user navigates to the \"User Lookup\" page using the Home screen or the left sidebar menu",
+      "data": "",
+      "result": "*Then* a \"Select Date Range\" field should be visible on the top-left\n\n*And* a text field labeled \"Okta ID / Email\" should be visible next to the date range field\n\n*And* a \"Search\" button should be visible to the right of the Okta ID / Email field\n\n*And* all input fields should be empty by default\n\n*And* the \"Search\" button should be disabled or do nothing unless valid input is provided"
+    }
+  ],
+  "originalTestType": "Manual"
+}

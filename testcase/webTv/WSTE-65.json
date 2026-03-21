@@ -1,0 +1,13 @@
+{
+  "id": "WSTE-65",
+  "issueId": "1130698",
+  "key": "WSTE-65",
+  "summary": "Smoke | Date navigation using url",
+  "description": "{panel:bgColor=#deebff}\nPlease Note that the Media Center is not behind the paywall and therefore does not need authentication to access this page.\n{panel}",
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "Given a user is on the mlb.com/live-stream-games (Media Center)\nWhen the user enters a specific date in the url\nThen the appropriate day with the appropriate games are displayed\nNOTE: Format is yyyy/mm/dd\nexample: mlb.com/live-stream-games/2024/09/18",
+  "unstructured": null,
+  "steps": []
+}

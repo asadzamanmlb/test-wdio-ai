@@ -1,0 +1,27 @@
+{
+  "id": "WQO-832",
+  "issueId": "1164762",
+  "key": "WQO-832",
+  "summary": "Blackout Overrides | Overrides | Page UI Validation",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user clicks on the \"Blackout Override\" tile from the left menu or the Home Page\nThen the user should land on the *User Info Lookup* page\nAnd the *User Lookup* tab should be highlighted as the active tab\nWhen the user clicks on the Overrides tab\nThen the user should see a *Create Override* button\nAnd the user should see a search bar\nAnd the suer should see a *View* button\nAnd the user should see a table with the following columns:\nCountry Code | Okta Id | IP Address | Zip Code | Status | Expiration | Created At",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1fd9b804-cc19-412a-b91d-985fe9d55ea7",
+      "action": "*When* the user clicks on the \"Blackout Override\" tile from the left menu or the Home Page",
+      "data": "",
+      "result": "*Then* the user should land on the *User Info Lookup* page\n\n*And* the *User Lookup* tab should be highlighted as the active tab"
+    },
+    {
+      "id": "c9e2fa56-cc73-4a70-a188-947558f936cb",
+      "action": "*When* the user clicks on the Overrides tab",
+      "data": "",
+      "result": "*Then* the user should see a *Create Override* button\n\n*And* the user should see a search bar\n\n*And* the suer should see a *View* button\n\n*And* the user should see a table with the following columns:\n\nCountry Code | Okta Id | IP Address | Zip Code | Status | Expiration | Created At"
+    }
+  ],
+  "originalTestType": "Manual"
+}

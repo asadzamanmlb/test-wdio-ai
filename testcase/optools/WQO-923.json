@@ -1,0 +1,21 @@
+{
+  "id": "WQO-923",
+  "issueId": "1192395",
+  "key": "WQO-923",
+  "summary": "Home | Validate Home Page After Login",
+  "description": null,
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user lands on the Home page after successful authentication\nThen the Page title \"Home\" is displayed in the header\nAnd \"Streaming Operator Platform\" is visible in the top left corner\nAnd Left sidebar shows all navigation items (Home highlighted)\nAnd Main content displays 11 tool tiles in grid layout:\n* BTC Tools\n* Overrides\n* Blackout Override\n* Logger\n* Media Validation\n* Milestones\n* Audit & Logging\n* Partner Delivery\n* ESNI Management\n* User Lookup and\n* QA Tools\nAnd Bottom sidebar shows: Submit Feedback, Settings, <User name>\nAnd All tool tiles are clickable and navigate to respective pages",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2f61e4ae-bfd3-4cad-be3a-189049625556",
+      "action": "*When* the user lands on the Home page after successful authentication",
+      "data": "",
+      "result": "*Then* the Page title \"Home\" is displayed in the header\n\n*And* \"Streaming Operator Platform\" is visible in the top left corner\n\n*And* Left sidebar shows all navigation items (Home highlighted)\n\n*And* Main content displays 11 tool tiles in grid layout:\n\n* BTC Tools\n* Overrides\n* Blackout Override\n* Logger\n* Media Validation\n* Milestones\n* Audit & Logging\n* Partner Delivery\n* ESNI Management\n* User Lookup and\n* QA Tools\n\n*And* Bottom sidebar shows: Submit Feedback, Settings, <User name>\n\n*And* All tool tiles are clickable and navigate to respective pages"
+    }
+  ],
+  "originalTestType": "Manual"
+}

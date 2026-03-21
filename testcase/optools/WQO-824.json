@@ -1,0 +1,21 @@
+{
+  "id": "WQO-824",
+  "issueId": "1164550",
+  "key": "WQO-824",
+  "summary": "ESNI Management | Audiences | Verify Audiences Tab UI",
+  "description": "Verify Audiences screen loads and displays audience data correctly",
+  "status": "Done",
+  "testType": "Cucumber",
+  "scenarioType": "scenario",
+  "gherkin": "When the user navigates to the \"Audiences\" tab in the ESNI Management section\nThen a button labeled \"Add Audience\" should be visible at the top-left of the screen\nAnd a \"Search\" input field should be visible at the top-right of the screen\nAnd a \"View\" button should be visible next to the search input\nAnd a data table should be displayed with the following columns:\n* Href\n* Match\n* Type\nAnd each row should display valid values for:\n* A unique Audience Href (e.g., /audience/a_mlb_108_abc)\n* A Match value (e.g., NONE or ALL)\n* A Type value (e.g., Authenticated or Country or Group or IP or Platform or Subscription or Zip)\nAnd each row should have a \"View Details\" button (three-line icon) on the far right\nAnd pagination controls should be visible at the bottom of the screen\nAnd the default rows per page should be set to \"25\"",
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6a4f5280-1cd3-4721-a7b1-554c0fb54746",
+      "action": "*When* the user navigates to the \"Audiences\" tab in the ESNI Management section",
+      "data": "",
+      "result": "*Then* a button labeled \"Add Audience\" should be visible at the top-left of the screen\n\n*And* a \"Search\" input field should be visible at the top-right of the screen\n\n*And* a \"View\" button should be visible next to the search input\n\n*And* a data table should be displayed with the following columns:\n\n* Href\n* Match\n* Type\n\n*And* each row should display valid values for:\n\n* A unique Audience Href (e.g., /audience/a_mlb_108_abc)\n\n* A Match value (e.g., NONE or ALL)\n\n* A Type value (e.g., Authenticated or Country or Group or IP or Platform or Subscription or Zip)\n\n*And* each row should have a \"View Details\" button (three-line icon) on the far right\n\n*And* pagination controls should be visible at the bottom of the screen\n\n*And* the default rows per page should be set to \"25\""
+    }
+  ],
+  "originalTestType": "Manual"
+}
