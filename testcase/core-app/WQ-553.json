@@ -1,0 +1,20 @@
+{
+  "id": "WQ-553",
+  "issueId": "1127879",
+  "key": "WQ-553",
+  "summary": "Fast forward to live stream live point",
+  "description": "GIVEN a user is playing a live stream\r\nAND the playhead is not at the live point",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f493421e-656c-4d9b-9f60-ef7181fcbce1",
+      "action": "WHEN a user initiates Fast forward\r\nAND the user does not stop fast forward",
+      "data": "",
+      "result": "THEN the playhead fast forwards to the live point\r\nAND once the playhead reaches the live point, fast forward stops automatically\r\nAND once fast forward stops, the stream starts playing from the live point"
+    }
+  ]
+}

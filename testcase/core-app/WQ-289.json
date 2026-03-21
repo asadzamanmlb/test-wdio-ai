@@ -1,0 +1,20 @@
+{
+  "id": "WQ-289",
+  "issueId": "1127601",
+  "key": "WQ-289",
+  "summary": "TBS MVPD - Unauthorized",
+  "description": "GIVEN a Postseason game is on the schedule\r\nAND TBS broadcasters are assigned\r\nAND the user's location is in the USA\r\nAND a user is unauthorized for TBS MVPD\r\nAND the game level entitledVideo = false\r\nAND the feed level tbsAuthRequired = true",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7eb2005c-0588-4a17-b3fc-0a58b51f8106",
+      "action": "WHEN the Postseason game with TBS broadcasters is present in the Hero",
+      "data": "",
+      "result": "THEN the MVPD pill displays above the Hero title / game match up\r\nAND MVPD messaging displays below the Hero title / game match up"
+    }
+  ]
+}

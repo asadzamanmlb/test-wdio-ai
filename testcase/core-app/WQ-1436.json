@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1436",
+  "issueId": "1128773",
+  "key": "WQ-1436",
+  "summary": "Create Account button",
+  "description": "GIVEN the user is not logged in\r\nAND TTS is turned ON\r\nAND the user is on the Create Free Account page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ee729439-a090-4bca-ab0a-336dbbfc90eb",
+      "action": "WHEN the user navigates to the \"Create Account\" button",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"The Create Account button is selected. By clicking Create Account, I accept and agree to the MLB.com Terms of Use and Privacy Policy. By watching MLB.TV Free Game of the Day, I agree to receive limited follow-up emails about MLB.TV. Press select to create your MLB.com account with the email address and password provided. Press or scroll up to navigate to your marketing emails preference selection.\""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1794",
+  "issueId": "1129211",
+  "key": "WQ-1794",
+  "summary": "Play Contents/Real Time",
+  "description": "Real time streaming is included in app content",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7f1c7fc8-7ae4-4126-97bf-2d1726dd3527",
+      "action": "Execute app → Access random streaming content",
+      "data": "",
+      "result": "Realtime streaming works properly without delay\r\n\r\n※ Check network environment"
+    }
+  ]
+}

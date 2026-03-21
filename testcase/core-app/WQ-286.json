@@ -1,0 +1,20 @@
+{
+  "id": "WQ-286",
+  "issueId": "1127598",
+  "key": "WQ-286",
+  "summary": "FOX MVPD - Unauthorized",
+  "description": "GIVEN a Postseason/All-Star Game is on the schedule\r\nAND FOX broadcasters are assigned\r\nAND the user's location is in the USA\r\nAND a user is unauthorized for FOX MVPD\r\nAND the game level entitledVideo = false\r\nAND the feed level foxAuthRequired = true",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e80b9a86-0fb9-4c00-bfe2-e23e8b8622f8",
+      "action": "WHEN the Postseason/All-Star Game with FOX broadcasters is present in the Hero",
+      "data": "",
+      "result": "THEN the MVPD pill displays above the Hero title / game match up\r\nAND MVPD messaging displays below the Hero title / game match up"
+    }
+  ]
+}

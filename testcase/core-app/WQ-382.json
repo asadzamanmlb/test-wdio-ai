@@ -1,0 +1,20 @@
+{
+  "id": "WQ-382",
+  "issueId": "1127694",
+  "key": "WQ-382",
+  "summary": "Home page load",
+  "description": "GIVEN a user is not on the Home page",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c76f39b2-9bc6-43bc-9767-85942f54dbe1",
+      "action": "WHEN a user selects the Home tab in the navigation header",
+      "data": "",
+      "result": "THEN the Home page loads"
+    }
+  ]
+}

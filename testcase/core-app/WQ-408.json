@@ -1,0 +1,20 @@
+{
+  "id": "WQ-408",
+  "issueId": "1127720",
+  "key": "WQ-408",
+  "summary": "SNY 24/7 feed - DAI requests stop after exiting a stream",
+  "description": "GIVEN a user has entitlements for SNY\r\nAND the user launches the MLB.TV app\r\nAND the user logs in\r\nAND the user has initiated playback of the 24/7 SNY feed\r\n\r\n**NOTE:** SNY entitlement = SNY_121",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a265b01e-8b59-40d5-be3e-a138611d2666",
+      "action": "WHEN a user exits the 24/7 live stream",
+      "data": "",
+      "result": "THEN video playback is dismissed\r\nAND \"id3-events.json\" network calls to dai.google.com are no longer occurring\r\n\r\n**NOTE:** Entering \"stream\" into the Network search of Dev Tools should filter out the id3-events.json network calls"
+    }
+  ]
+}

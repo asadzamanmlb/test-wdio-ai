@@ -1,0 +1,20 @@
+{
+  "id": "WQ-859",
+  "issueId": "1128187",
+  "key": "WQ-859",
+  "summary": "T-Mobile subscriber AppleTV+ archive - Feed Select modal",
+  "description": "GIVEN a user is a T-Mobile subscriber",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "898c9b3d-6ba9-4bde-8a8e-0b4974a4bc06",
+      "action": "WHEN a user selects an archive AppleTV+ game tile",
+      "data": "",
+      "result": "THEN the user will see the AppleTV+ feed button\r\nAND a message does not display letting the user know where the game can be watched\r\nAND the user can playback the AppleTV+ feed"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-844",
+  "issueId": "1128172",
+  "key": "WQ-844",
+  "summary": "Extra Innings subscriber YouTube archive - Game Tile",
+  "description": "GIVEN a user is an XtraInnings subscriber",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b514a4ea-2821-4867-93c4-cad722367add",
+      "action": "WHEN a user views/focuses an archive YouTube game tile",
+      "data": "",
+      "result": "THEN a lock icon does not display in the upper right corner of the game tile\r\nAND there is no dark overlay over the team colors in the game tile header\r\nAND the YouTube pill does not display in the game tile"
+    }
+  ]
+}

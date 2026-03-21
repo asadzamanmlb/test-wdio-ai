@@ -1,0 +1,20 @@
+{
+  "id": "WQ-541",
+  "issueId": "1127867",
+  "key": "WQ-541",
+  "summary": "Game Details Navigation - 9 innings",
+  "description": "GIVEN the user is logged in\r\nAND the user is in the MLB experience\r\nAND the user is entitled to archive game playback\r\nAND Start from the Beginning is selected for archive game playback of a 9 inning game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0e5ab41f-453f-4cca-adc4-d72d7a491fce",
+      "action": "WHEN the user navigates to \"Details\" in the scrubber\r\nAND the user navigates left, right, up, and down within the line score\r\nAND selects a focused half inning",
+      "data": "",
+      "result": "THEN the user is able to navigate to each half inning\r\nAND playback is moved to the beginning of the selected half inning"
+    }
+  ]
+}

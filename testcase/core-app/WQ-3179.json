@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3179",
+  "issueId": "1168609",
+  "key": "WQ-3179",
+  "summary": "bufferHealth metadata in DataDog",
+  "description": "GIVEN a tester has logged into the Core-App with a test user\nAND the tester opens this DataDog heuristics [<link>|https://us5.datadoghq.com/logs?query=service%3Aconnected-devices---mlb.tv---webstream%20%40usr.email%3Adm5tv%40gmail.com&agg_m=%40event.asset.fguid&agg_m_source=base&agg_q=%40model&agg_q_source=base&agg_t=cardinality&analyticsOptions=%5B%22line%22%2C%22dog_classic%22%2Cnull%2Cnull%2C%22value%22%5D&clustering_pattern_field_path=message&cols=host%2Cservice%2C%40usr.id%2C%40event.action%2C%40convivaTimestamp%2C%40event.reason%2C%40event.metadata.currentLevel%2C%40modelYear&context_event=AY_CgMDtAAD8tvFqYXPtGgAB&fromUser=true&messageDisplay=inline&refresh_mode=sliding&storage=hot&stream_sort=time%2Cdesc&top_n=10&top_o=top&view=spans&viz=stream&x_missing=true&from_ts=1752684037199&to_ts=1752687637199&live=true]\n\nNOTE: \n\n* In DataDog, @user.email value will need to be updated to the logged in test user\n\nSee this comment/ticket for more information: [https://baseball.atlassian.net/browse/COW-1087|https://baseball.atlassian.net/browse/COW-1087|smart-link] ",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "56c55483-555a-4438-b74e-9a7d4da25e7d",
+      "action": "WHEN the user selects content in the Core-App for playback\nAND the user initiates FF and RW to induce buffering\nAND the tester selects the log for {{EVENT.ACTION player_rebuffering}} in DataDog",
+      "data": "Content Types\n\n* Live Game\n* Archive Game\n* SVOD\n* VOD\n* SLIVE\n* FLIVE\n* MLBN 24/7 linear feed\n* RSN 24/7 linear feed",
+      "result": "THEN values should be present in this path: {{metadata}} -> {{bufferHealth}}"
+    }
+  ]
+}

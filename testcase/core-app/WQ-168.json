@@ -1,0 +1,20 @@
+{
+  "id": "WQ-168",
+  "issueId": "1127471",
+  "key": "WQ-168",
+  "summary": "TBS MVPD - Canada",
+  "description": "GIVEN a subscriber is located in Canada\r\nAND a postseason game has TBS broadcasters assigned\r\nAND the away feed level tbsAuthRequired = true\r\nAND feed level mediaState = MEDIA_ON",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "504e92fd-f02d-4212-9398-998cc5965e85",
+      "action": "WHEN the subscriber selects the TBS postseason game tile",
+      "data": "",
+      "result": "THEN a blackout message is displayed\r\nAND the user is unable to access feeds for the game\r\nAND the Feed Modal is dismissed after the user presses the CIRCLE button on the controller"
+    }
+  ]
+}

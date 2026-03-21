@@ -1,0 +1,20 @@
+{
+  "id": "WQ-696",
+  "issueId": "1128024",
+  "key": "WQ-696",
+  "summary": "Extra Innings subscriber ESPN/Sunday Night Baseball archive - Game Tile",
+  "description": "GIVEN a user has Extra Innings entitlement\r\nAND ESPN Sunday Night Baseball is archived",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4ee8d3eb-1e20-488c-90f9-ed23319e2126",
+      "action": "WHEN a user views/focuses an archived ESPN Sunday Night Baseball game tile",
+      "data": "",
+      "result": "THEN a lock icon doesn't display in the upper right corner of the game tile\r\nAND there is no dark overlay of the team match up\r\nAND a blackout pill does not display in the game tile"
+    }
+  ]
+}

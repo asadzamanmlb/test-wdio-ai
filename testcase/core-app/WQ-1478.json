@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1478",
+  "issueId": "1128815",
+  "key": "WQ-1478",
+  "summary": "TTS | Broadcast Options Tab - Audio Feed",
+  "description": "GIVEN a user is logged in\r\nAND TTS is enabled\r\nAND the user has selected a game feed for playback",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a596639a-f72e-4405-a99f-dc901d0ad77a",
+      "action": "WHEN focus is assigned to the Broadcast Options tab in the scrubber\r\nAND the user navigates down from the Broadcast tab to the audio feed options",
+      "data": "",
+      "result": "THEN \"Audio feed, <team_name>, <broadcast_name>, press select to change feed\" is spoken"
+    }
+  ]
+}

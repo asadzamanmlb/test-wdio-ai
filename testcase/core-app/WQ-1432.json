@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1432",
+  "issueId": "1128769",
+  "key": "WQ-1432",
+  "summary": "Password exposure button - password hidden",
+  "description": "GIVEN the user is not logged in\r\nAND TTS is turned ON\r\nAND the user is on the Create Free Account page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0307e475-b056-45cf-80c8-5266a4e4e1c6",
+      "action": "WHEN the user navigates to the \"Hide Password\" button\r\nAND the button does not have a line through the eye",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Password is currently hidden. Please select to show password. Press or scroll to the left to navigate to your password creation field. Press or scroll up to navigate to email field. Press or scroll down to navigate to your marketing preference selection.\""
+    }
+  ]
+}

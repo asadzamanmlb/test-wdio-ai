@@ -1,0 +1,20 @@
+{
+  "id": "WQ-967",
+  "issueId": "1128296",
+  "key": "WQ-967",
+  "summary": "Postgame show",
+  "description": "GIVEN a game is streaming a Postgame Show",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "56e811ec-2099-42c5-91c5-4e4cfcf4baea",
+      "action": "WHEN a user views game tiles for a live game with a postgame show",
+      "data": "",
+      "result": "THEN \"POSTGAME SHOWS\" is displayed in the upper left corner of the game tile"
+    }
+  ]
+}

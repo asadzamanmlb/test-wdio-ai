@@ -1,0 +1,20 @@
+{
+  "id": "WQ-973",
+  "issueId": "1128302",
+  "key": "WQ-973",
+  "summary": "Scheduled Game Unfocused",
+  "description": "GIVEN a game is in a scheduled state\nAND Hide Spoilers is set to OFF\n\n*NOTE:* Game Tile designs for reference - [https://www.figma.com/design/rGAWoDJL0fx7RTxv0er9U5/MLB.TV-Connected-Device-Developer-Spec?node-id=179-99767&t=2GMcHnOGaIH6wtRZ-0|https://www.figma.com/design/rGAWoDJL0fx7RTxv0er9U5/MLB.TV-Connected-Device-Developer-Spec?node-id=179-99767&t=2GMcHnOGaIH6wtRZ-0|smart-link]",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "df0467ac-fb0e-4117-938c-ca574c07d992",
+      "action": "WHEN the user views a game tile for a scheduled game",
+      "data": "",
+      "result": "THEN the tile background is dark gray\nAND the text is white (team records, player position and stats, and \"Broadcast Networks\" will be in gray text)\nAND the game start time is displayed in the upper left corner of the game tile\nAND the away team logo with team name displays left justified below the displayed scheduled game time\nAND the home team logo with team name displays left justified below the away team\nAND the team records are displayed right justified in-line with the respective teams\nAND the away probable pitcher's headshot with last name is displayed left justified below \"STARTING PITCHERS\"\nAND the home probable pitcher's headshot with last name is displayed to the right of the away team probable pitcher\nAND the stats of the respective probable pitchers is displayed\n\nNOTE: \n1. If probable pitchers are not yet available for the game, then show a generic headshot, dashes '-' for stats, and TBD in place of pitchers name"
+    }
+  ]
+}

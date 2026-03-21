@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1634",
+  "issueId": "1129051",
+  "key": "WQ-1634",
+  "summary": "Final game state - Game Tile",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0b21ba5d-f7f3-450d-9290-b9fa21c3651a",
+      "action": "WHEN",
+      "data": "",
+      "result": "\"Final\" text is seen on the Game tile in Games page for all the Archived games."
+    }
+  ]
+}

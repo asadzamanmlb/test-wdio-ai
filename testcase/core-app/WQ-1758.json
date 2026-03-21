@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1758",
+  "issueId": "1129175",
+  "key": "WQ-1758",
+  "summary": "UI Button",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a6d345de-8bcc-4864-b1bc-6d02b9a28073",
+      "action": "Execute app",
+      "data": "",
+      "result": "All UI buttons of screen works properly\r\n\r\n※ Compare to UX scenario submitted to Seller Lounge"
+    }
+  ]
+}

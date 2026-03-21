@@ -1,0 +1,20 @@
+{
+  "id": "WQ-592",
+  "issueId": "1127918",
+  "key": "WQ-592",
+  "summary": "VOD Fast Forward to end",
+  "description": "GIVEN a user (paid/free/anonymous) has launched the MLB app\r\nAND the user selects a VOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "305a6b97-6aaf-409c-9439-b3493f676291",
+      "action": "WHEN the user Fast Forwards the video to the end",
+      "data": "",
+      "result": "THEN the video player is dismissed\r\nAND the user is navigated back to the previous page"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1652",
+  "issueId": "1129069",
+  "key": "WQ-1652",
+  "summary": "Same session is resumed after app is backgrounded",
+  "description": "**NOTE:** This must be tested on a kit through the Remote Inspector, as there is no way to invoke backgrounding through the browser. Can be confirmed via the Remote Inspector Console, \"app/setIsBackgrounded\", \"next state\", \"experience\", \"MLB\", \"sessionId\". Be sure to grab the sessionId when the app is open, before backgrounding.\r\n\r\nGIVEN a user backgrounds their app for an hour",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "431d15e4-166c-410c-bd93-bf358148014f",
+      "action": "WHEN the user returns",
+      "data": "",
+      "result": "THEN the previous session is resumed"
+    }
+  ]
+}

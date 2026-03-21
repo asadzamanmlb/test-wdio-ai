@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1057",
+  "issueId": "1128387",
+  "key": "WQ-1057",
+  "summary": "Log In - QR Code Successful",
+  "description": "GIVEN the user already has an MLB Account\r\nAND the user is launching the app for the first time\r\nAND the user is not logged in\r\nAND the user selects the \"Have An MLB.TV Account?\" button",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "eaa85641-2be9-4169-9417-f68b90c1da5f",
+      "action": "WHEN the user scans the QR code on the screen with a mobile/tablet device\r\nAND follows the instructions on the device",
+      "data": "",
+      "result": "THEN the user is successfully logged into the app"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1513",
+  "issueId": "1128850",
+  "key": "WQ-1513",
+  "summary": "Quick Actions Menu | Hearing Navigation Prompts When on middle Option",
+  "description": "GIVEN the user is in the Quick Actions Menu\r\nAND there are multiple options available\r\nAND TTS is enabled\r\n",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5a79ff5c-73f9-462f-870d-236bdeb54236",
+      "action": "WHEN the user focuses on a middle option",
+      "data": "",
+      "result": "THEN the user will hear:  “In the Quick Actions Menu, <Option Name>, x out of y options. Press select to <quick_actions>, Press left or right for more quick actions options, Press down for player controls, Press back to dismiss controls.”"
+    }
+  ]
+}

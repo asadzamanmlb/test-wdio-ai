@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1397",
+  "issueId": "1128734",
+  "key": "WQ-1397",
+  "summary": "TTS | App announces Done button when navigated",
+  "description": "GIVEN TTS is enabled\r\nAND the user is on the Favorite Team page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8dd6bbe0-7186-43eb-8c3d-25b2769d9002",
+      "action": "WHEN a user navigated to the \"Done\" button",
+      "data": "",
+      "result": "THEN the app should say 'Press select to confirm your choice of {favorite_team}. Press or scroll left to go to navigate to the \"Cancel\" button. Press right to go back to select another team'"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-582",
+  "issueId": "1127908",
+  "key": "WQ-582",
+  "summary": "SVOD Fast Forward Stop",
+  "description": "GIVEN a user has SUBSCRIBERVOD entitlement\r\nAND the user selects an SVOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c1577de4-f699-447d-b0a6-6fcb10eee9cb",
+      "action": "WHEN the user initiates Fast Forward\r\nAND presses the \"X\" button on the controller after a few moments",
+      "data": "",
+      "result": "THEN Fast Forward stops\r\nAND playback resumes at the point where Fast Forward stopped\r\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1183",
+  "issueId": "1128520",
+  "key": "WQ-1183",
+  "summary": "TTS | Up button from the Email Address field",
+  "description": "GIVEN an unauthenticated user is on the Login Page\r\nAND the user has TTS Enabled\r\nAND the Email Address field is highlighted",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7531194b-e12c-4c4b-af2b-e5c92aa8a195",
+      "action": "WHEN the user hits the up button",
+      "data": "",
+      "result": "THEN the app should read \"There is no selectable content above the current position. There are three ways to login on this page. You are currently highlighting the email field. You may also use your phone to login via QR code; users also have the option to visit mlb.com/activate and enter the 8 digit code on your screen. Your code is {code}.\""
+    }
+  ]
+}

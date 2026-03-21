@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1431",
+  "issueId": "1128768",
+  "key": "WQ-1431",
+  "summary": "Password field",
+  "description": "GIVEN the user is not logged in\r\nAND TTS is turned ON\r\nAND the user is on the Create Free Account page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "df615796-23e7-40eb-8ab6-8737f3e50e01",
+      "action": "WHEN the user navigates to the \"Password\" field",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"The password field is selected Please hit select to enter your password that you would like associated with your MLB.TV account. Press or scroll to the right to expose or hide password. Press or scroll up to navigate to the email field, press or scroll down to navigate to your marketing preference selection.\""
+    }
+  ]
+}

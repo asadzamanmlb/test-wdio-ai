@@ -1,0 +1,20 @@
+{
+  "id": "WQ-978",
+  "issueId": "1128307",
+  "key": "WQ-978",
+  "summary": "Live Game Hide Spoilers ON",
+  "description": "GIVEN a game is live/in-progress\r\nAND Hide Spoilers is set to ON",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "735ad7c8-9e27-4631-ae39-9f55d90e5144",
+      "action": "WHEN a user views a game tile in a focused or unfocused state",
+      "data": "",
+      "result": "THEN a red \"LIVE\" badge is displayed in the upper left corner of the game tile\nAND the team match up displays away team above home team\nAND the team logos display to the left of the respective team name\nAND probable pitcher information is not displayed\nAND Broadcast Networks are displayed below the team match up\n\nNOTE: If the tile has focus, the background will be white with black text. If the tile does not have focus, the background will be a dark gray with white text. \"Broadcast Networks\" will always be in gray text."
+    }
+  ]
+}

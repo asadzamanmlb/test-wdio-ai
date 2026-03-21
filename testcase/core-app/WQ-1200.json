@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1200",
+  "issueId": "1128537",
+  "key": "WQ-1200",
+  "summary": "TTS | Focus on Upgrade",
+  "description": "GIVEN a single team user launches the app\r\nOR an audio only user launches the app\r\nAND the user has TTS enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "865c4f9c-01cf-4fbf-bfda-fa048df29de7",
+      "action": "WHEN a user focuses on the “Upgrade MLB.TV” button",
+      "data": "",
+      "result": "THEN the app reader says “Upgrade MLB.TV,  press select to Upgrade MLB.TV  now, X of X in the menu, press right or left for more items in the menu”\r\n\r\nNOTE: X should be based on how many buttons are visible to the user in the menu and the place that Upgrade MLB.TV  is in that order"
+    }
+  ]
+}

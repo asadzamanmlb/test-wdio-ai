@@ -1,0 +1,20 @@
+{
+  "id": "WQ-530",
+  "issueId": "1127856",
+  "key": "WQ-530",
+  "summary": "Broadcast Options - Switch Video Feed - Resume Switched-From Feed",
+  "description": "GIVEN the user is entitled for archive game playback\r\nAND the selected game has home and away video feeds\r\nAND the user initiates playback of the home team video feed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "77bde023-2ad2-47cf-bf40-79c07ac520d0",
+      "action": "WHEN the user opens the Broadcast Options in the scrubber\r\nAND the user selects the away team video feed\r\nAND lets the away team feed play for at-least several moments\r\nAND the user backs out of game playback\r\nAND the user resumes the home team video feed from the feed select modal",
+      "data": "",
+      "result": "THEN video playback resumes at the point from where video feeds were switched\r\nAND the TV audio for the associated video feed is playing back\r\nAND the audio is in-sync with the video"
+    }
+  ]
+}

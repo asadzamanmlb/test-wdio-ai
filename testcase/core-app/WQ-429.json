@@ -1,0 +1,20 @@
+{
+  "id": "WQ-429",
+  "issueId": "1127748",
+  "key": "WQ-429",
+  "summary": "VOD Playback",
+  "description": "GIVEN a logged in user is entitled for VOD content playback",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4555d75b-2d74-489e-bb25-1408587e03dc",
+      "action": "WHEN the user selects a VOD content tile for playback from the Home page\r\n\r\n**NOTE:** VOD content carousels: \"MLB Most Popular\", \"Get Caught Up\", \"Condensed Games\", \"Recaps\", \"<favorite_team> Most Popular\"",
+      "data": "",
+      "result": "THEN the VOD content plays back from the beginning of the video"
+    }
+  ]
+}

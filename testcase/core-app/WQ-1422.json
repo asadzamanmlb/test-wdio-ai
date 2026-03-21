@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1422",
+  "issueId": "1128759",
+  "key": "WQ-1422",
+  "summary": "TTS | App announces Cancel button when navigated",
+  "description": "GIVEN TTS is enabled\r\nAND the user is on the Following Teams page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "826d66f8-7fdb-494c-9699-3c854db033c6",
+      "action": "WHEN a user navigated to the \"Cancel\" button",
+      "data": "",
+      "result": "THEN the app should say 'Press select to cancel your actions and be taken back to the Settings page. Scroll or press right to navigate to the \"Done\" button.'"
+    }
+  ]
+}

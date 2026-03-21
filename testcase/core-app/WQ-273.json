@@ -1,0 +1,20 @@
+{
+  "id": "WQ-273",
+  "issueId": "1127585",
+  "key": "WQ-273",
+  "summary": "Non-Favorite team game is live - game not entitled single team subscriber",
+  "description": "GIVEN a user is a single team subscriber\r\nAND the user's favorite team is the same as the subscribed team\r\nAND the game in the hero does not contain the subscribed team\r\nAND the game is in a preview/live state",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "bb531b50-2694-426c-9a95-f8d0aac88c1a",
+      "action": "WHEN a user loads the Home page",
+      "data": "",
+      "result": "THEN a background image related to the home team is displayed in the hero\r\nAND a red pill with white \"LIVE\" text displays above the away team logo\r\nAND the away team logo displays and away team name are displayed\r\nAND the home team logo and home team name are displayed in the Hero\r\nAND the \"Watch Live\" button is white with black text\r\nAND the \"Watch Live\" button has focus when the Home page loads\r\nAND a lock icon displays in the \"Watch Live\" button \r\nAND the user lands on the paywall/subscriptions page after selecting the \"Watch Live\" button w/ a lock icon"
+    }
+  ]
+}

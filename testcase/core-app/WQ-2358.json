@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2358",
+  "issueId": "1129808",
+  "key": "WQ-2358",
+  "summary": "R5023D - Application runs after installation",
+  "description": "**Compatibility**\r\n\r\n**R5023 Requirement:** The application runs correctly in all possible combinations and orders of previously QA approved packages and the package to be submitted\r\n\r\n**Description:** Before submitting the current package, check that the application runs correctly in all possible combinations of previously QA passed application packages and additional contents.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6e2a4f57-e80e-4749-a98b-51027fdb2122",
+      "action": "1. On the home screen, select \"★Debug Settings\" > \"Game\" > \"Package Installer\" and install all additional content and the latest application\r\n2. Go back to the home screen, then select the \"Application\"\r\n3. Check throughout the entire application",
+      "data": "",
+      "result": "The application runs when installing the latest application after all additional content that has been released (including the latest) has been installed."
+    }
+  ]
+}

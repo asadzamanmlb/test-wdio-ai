@@ -1,0 +1,20 @@
+{
+  "id": "WQ-899",
+  "issueId": "1128228",
+  "key": "WQ-899",
+  "summary": "Single Team subscriber archive game non-subscribed team - Feed Select",
+  "description": "GIVEN a user is a single team subscriber\r\nAND an archive game includes the subscribed-to-team\r\nAND the game level blackedOutVideo equals false in MAST EPGv3\r\nAND the game level entitledVideo equals true in MAST EPGv3\r\nAND the feed level entitled equals true for the subscribed-to-team\r\nAND the feed level entitled equals false for the non-subscribed-to-team",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "29f0cb25-d9fa-4fd4-9205-6f8e60fd3ee6",
+      "action": "WHEN a user selects a game tile for an archive game of the subscribed-to-team",
+      "data": "",
+      "result": "THEN a lock icon displays on the feed button for the not entitled team\r\nAND the user is able to play the feed of the subscribed-to-team\r\nAND the user is navigated to the Subscriptions/Paywall page after clicking the feed button for the non-subscrined-to-team\r\nAND the user is navigated back to the selected game tile after pressing the CIRCLE button on the controller"
+    }
+  ]
+}

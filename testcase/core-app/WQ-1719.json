@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1719",
+  "issueId": "1129136",
+  "key": "WQ-1719",
+  "summary": "Start from the beginning Skip through inning markers - Hide Spoilers OFF",
+  "description": "GIVEN the user is entitled for live game playback\nAND Hide Spoilers is turned OFF\nAND a game is live in the 3rd inning or later\nAND the user selects the \"Start From Beginning\" button to initiate playback",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "da175346-bfd0-4969-8564-fb94a69a498e",
+      "action": "WHEN the user opens the scrubber/player controls\nAND the user selects each top and bottom inning in the line score",
+      "data": "",
+      "result": "THEN a tile with text and thumbnails display for each milestone\nAND game playback matches the inning marker"
+    }
+  ]
+}

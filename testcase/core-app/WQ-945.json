@@ -1,0 +1,20 @@
+{
+  "id": "WQ-945",
+  "issueId": "1128274",
+  "key": "WQ-945",
+  "summary": "Base Indicators Live Game Hide Spoilers OFF",
+  "description": "GIVEN a game is in-progress\r\nAND Hides Spoilers is set to OFF",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1a56c2c3-c4ad-40ce-8070-f197eff11175",
+      "action": "WHEN base runners are safe on a base",
+      "data": "",
+      "result": "THEN the corresponding base indicator is displayed in yellow\r\nAND base indicators are displayed in gray if there is not a corresponding safe base runner\r\nAND the square 1st, 2nd, and 3rd base indicators are displayed in a paw print orientation\r\nAND the right base indicator corresponds to 1st base\r\nAND the center base indicator corresponds to 2nd base\r\nAND the left base indicator corresponds to 3rd base\r\nAND the base indicators are center-right justified above the out indicators in the non-matchup portion of the game tile"
+    }
+  ]
+}

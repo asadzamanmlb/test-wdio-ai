@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1169",
+  "issueId": "1128504",
+  "key": "WQ-1169",
+  "summary": "Header Navigation - Settings tab focus",
+  "description": "GIVEN a user is on the Settings page\r\nAND focus is not in the header",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1bf55b69-74fc-40e1-8e71-1ecadfe3da66",
+      "action": "WHEN a user navigates to the header using the UP button",
+      "data": "",
+      "result": "THEN focus returns to the Settings tab in the header\r\nAND the 'Settings' text color changes from white to black"
+    }
+  ]
+}

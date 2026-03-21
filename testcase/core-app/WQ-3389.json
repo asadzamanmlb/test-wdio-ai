@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3389",
+  "issueId": "1248933",
+  "key": "WQ-3389",
+  "summary": "Basic RSN Forge tiles - focused",
+  "description": "GIVEN the user has RSN entitlements\nAND the user is logged in\n\n*NOTE:* RSN user examples: MASN/MASN2, SNLA+, SNY",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f513e470-6b49-4cbb-806f-4215d4ddd9a0",
+      "action": "WHEN a RSN user views a focused VOD basic tile on an RSN page",
+      "data": "",
+      "result": "THEN the tile has a white border to indicate focus\nAND the title section of the tile is white to indicate focus\nAND the associated thumbnail displays\nAND the duration of the VOD content is displayed in the lower right corner of the thumbnail\nAND the title is displayed left justified below the associated thumbnail\nAND the video published date is displayed left justified below the title\nAND user does not see a lock icon in the upper right corner of the tile"
+    }
+  ]
+}

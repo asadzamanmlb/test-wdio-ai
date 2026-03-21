@@ -1,0 +1,20 @@
+{
+  "id": "WQ-104",
+  "issueId": "1127407",
+  "key": "WQ-104",
+  "summary": "Resume Home Feed Selection - Live Game",
+  "description": "GIVEN a live game is in-progress\r\nAND videoFeeds for the game have a mediaState of MEDIA_ON\r\nAND the user is entitled to watch the game\r\nAND the user has previously played the feed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ca59606f-f9aa-4c48-8789-a7f5e498eb9e",
+      "action": "WHEN a user selects a game tile for a live in-progress game\r\nAND selects the home video feed button in the Feed Select Modal\r\nAND selects the [Resume] button in the Secondary Feed Select Modal",
+      "data": "",
+      "result": "THEN the feed select modal/games page is dismissed\r\nAND the video player maximizes to full screen\r\nAND the home video feed starts playing from the bookmarked/last watched point"
+    }
+  ]
+}

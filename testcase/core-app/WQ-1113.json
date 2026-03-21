@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1113",
+  "issueId": "1128443",
+  "key": "WQ-1113",
+  "summary": "Have an MLB account Log In - View password",
+  "description": "GIVEN the user launches the app without saved data\r\nAND selects the [Have an MLB account?] button on the Startup screen",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0d0fd474-fda7-4c8b-8ac8-5a3cec207659",
+      "action": "WHEN the Log In screen is displayed\r\nAND the user enters a password in the \"Password\" field\r\nAND the user selects the [eye] button",
+      "data": "",
+      "result": "THEN the [eye] button no longer contains a slash through the eye icon\r\nAND the user is able to see the password in the \"Password\" field"
+    }
+  ]
+}

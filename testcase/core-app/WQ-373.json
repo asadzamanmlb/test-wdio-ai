@@ -1,0 +1,20 @@
+{
+  "id": "WQ-373",
+  "issueId": "1127685",
+  "key": "WQ-373",
+  "summary": "Featured non-game tile selection - entitled",
+  "description": "GIVEN the user has the SUBSCRIBERVOD entitlement\r\nOR the user is a free user\r\nAND the user is logged in",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1fbe7461-35ce-45a0-b395-ac585ae31dc4",
+      "action": "WHEN a subscriber selects an SVOD/SLIVE featured tile for playback\r\nOR a free user selects a VOD/FLIVE featured tile for playback",
+      "data": "",
+      "result": "THEN the entitled user is able to playback content\r\nAND playback starts at the beginning\r\nAND the scrubber displays for 10 seconds before being dismissed\r\nAND users are navigated to the Home page after pressing the CIRCLE button on the controller\r\nAND focus gets assigned to the \"Watch Now\" button in the hero\r\n\r\n**Note:** If \"Watch Now\" button is not present in the Hero, focus should be assigned to the Home tab in the navigation header"
+    }
+  ]
+}

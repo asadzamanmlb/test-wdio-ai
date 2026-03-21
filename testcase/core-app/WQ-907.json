@@ -1,0 +1,20 @@
+{
+  "id": "WQ-907",
+  "issueId": "1128236",
+  "key": "WQ-907",
+  "summary": "Free subscriber archive game - Feed Select",
+  "description": "GIVEN a user is a free subscriber\r\nAND the game level blackedOutVideo equals false in MAST EPGv3\r\nAND the game level entitledVideo equals false in MAST EPGv3",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "904175e4-6f49-443f-beab-2f0315ce58fe",
+      "action": "WHEN a user selects an archive game tile",
+      "data": "",
+      "result": "THEN the following title text is displayed \"Full Game Access\"\nAND an [Upgrade Plan] button displays center justified below \"Full Game Access\"\nAND \"Recap\" and \"Condensed Game\" buttons displays center justified below the [Upgrade Plan] button\nAND the user is navigated to the Subscriptions/Paywall page if they select the \"Upgrade MLB.TV\" button\nAND the user is navigated back to the previous page after pressing the back button on the controller"
+    }
+  ]
+}

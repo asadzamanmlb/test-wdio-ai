@@ -1,0 +1,20 @@
+{
+  "id": "WQ-583",
+  "issueId": "1127909",
+  "key": "WQ-583",
+  "summary": "SVOD Fast Forward Cancel",
+  "description": "GIVEN a user has SUBSCRIBERVOD entitlement\r\nAND the user selects an SVOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e7b6acc6-be1a-4e11-9300-7c6307ce5a64",
+      "action": "WHEN the user initiates Fast Forward\r\nAND presses the \"O\" button on the controller after a few moments",
+      "data": "",
+      "result": "THEN Fast Forward stops\r\nAND playback resumes at the point where Fast Forward was initiated\r\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

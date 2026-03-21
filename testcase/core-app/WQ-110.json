@@ -1,0 +1,20 @@
+{
+  "id": "WQ-110",
+  "issueId": "1127413",
+  "key": "WQ-110",
+  "summary": "Resume National Feed Selection",
+  "description": "GIVEN a live game is in-progress\r\nAND the game has a national feed\r\nAND videoFeeds for the game have a mediaState of MEDIA_ON\r\nAND the user has the appropriate entitlements to watch the national feed\r\nAND the user has previously played the feed\r\n\r\n**Example:**\r\nFox Saturday Baseball w/ MLBALL entitlement\r\nAppleTV+ w/ EXEC entitlement\r\nPeacock w/ EXEC entitlement\r\nESPN Sunday Night Baseball w/ EXEC entitlement",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4d3331bb-5602-45a1-8ac1-e9ea615b44fb",
+      "action": "WHEN a user selects a game tile for a live in-progress game\r\nAND selects the national video feed button in the Feed Select Modal\r\nAND selects the [Resume] button in the Secondary Feed Select Modal",
+      "data": "",
+      "result": "THEN the feed select modal/games page is dismissed\r\nAND the video player maximizes to full screen\r\nAND the national video feed starts playing from the bookmarked/last watched point"
+    }
+  ]
+}

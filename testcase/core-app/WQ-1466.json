@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1466",
+  "issueId": "1128803",
+  "key": "WQ-1466",
+  "summary": "Focusing on Scrubber | Live Games",
+  "description": "GIVEN the user is watching a Live game\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3a4266e4-6c83-4334-9ba2-066b3554fb1e",
+      "action": "WHEN the user navigates down and the scrubber comes into focus",
+      "data": "",
+      "result": "THEN the user will hear \"<away_team> @ <home_team>, Press Select to Pause, Press Up for Quick Actions, Press Down for More Options, Press Back to dismiss controls.\"\r\n\r\nFor example: \"Dodgers @ Yankees, Press Select to Pause, Press Up for Quick Actions, Press down for More Options, Press Back to dismiss controls\""
+    }
+  ]
+}

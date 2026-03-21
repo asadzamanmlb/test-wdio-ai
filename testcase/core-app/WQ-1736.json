@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1736",
+  "issueId": "1129153",
+  "key": "WQ-1736",
+  "summary": "Live ad break pause",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8614dfc2-3701-470c-bb90-0002deeea670",
+      "action": "WHEN",
+      "data": "",
+      "result": "DAI ads playback is paused for a Live game when an ad break is paused"
+    }
+  ]
+}

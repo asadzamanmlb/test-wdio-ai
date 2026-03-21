@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2994",
+  "issueId": "1158437",
+  "key": "WQ-2994",
+  "summary": "Archive game playback from Hero",
+  "description": "GIVEN a user entitled for game playaback is logged in\n\nAND a game from today’s date is in a Final state\n\nAND the game in a Final state is in the Hero",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "054399a6-50e3-41b9-9539-db783d56b417",
+      "action": "WHEN the user selects the Watch button in the Hero",
+      "data": "",
+      "result": "THEN the Home page is dismissed\n\nAND the video player displays full screen\n\nAND playback starts successfully"
+    }
+  ]
+}

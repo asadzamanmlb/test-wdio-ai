@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1022",
+  "issueId": "1128351",
+  "key": "WQ-1022",
+  "summary": "Cannot access dates in next season - Feature not yet implemented",
+  "description": "GIVEN the current date is before July 1st\r\nAND the user is on the Games page\r\nAND the calendar is displayed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "deff61d0-8780-4df8-873a-b169d6e33bcc",
+      "action": "WHEN a user navigates to any date in the next season",
+      "data": "",
+      "result": "THEN any date in the next season cannot be accessed"
+    }
+  ]
+}

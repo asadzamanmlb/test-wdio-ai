@@ -1,0 +1,20 @@
+{
+  "id": "WQ-284",
+  "issueId": "1127596",
+  "key": "WQ-284",
+  "summary": "ESPN MVPD - Unauthorized",
+  "description": "GIVEN a Postseason game is on the schedule\r\nAND ESPN broadcasters are assigned\r\nAND the user's location is in the USA\r\nAND a user is unauthorized for ESPN MVPD\r\nAND the game level entitledVideo = false\r\nAND the feed level espnAuthRequired = true",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a1986ded-533f-460d-9bdc-e9816e706082",
+      "action": "WHEN the Postseason game with ESPN broadcasters is present in the Hero",
+      "data": "",
+      "result": "THEN the MVPD pill displays above the Hero title / game match up\r\nAND MVPD messaging displays below the Hero title / game match up"
+    }
+  ]
+}

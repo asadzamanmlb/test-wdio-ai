@@ -1,0 +1,20 @@
+{
+  "id": "WQ-975",
+  "issueId": "1128304",
+  "key": "WQ-975",
+  "summary": "Scheduled Game Hide Spoilers ON",
+  "description": "GIVEN a scheduled game has probable pitchers assigned\nAND Hide Spoilers is ON\n\n*NOTE:* Game Tile designs for reference - [https://www.figma.com/design/rGAWoDJL0fx7RTxv0er9U5/MLB.TV-Connected-Device-Developer-Spec?node-id=179-99767&t=2GMcHnOGaIH6wtRZ-0|https://www.figma.com/design/rGAWoDJL0fx7RTxv0er9U5/MLB.TV-Connected-Device-Developer-Spec?node-id=179-99767&t=2GMcHnOGaIH6wtRZ-0|smart-link]",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "329d44ce-d917-44c7-87b0-6b66162663a9",
+      "action": "WHEN a user views a scheduled game tile",
+      "data": "",
+      "result": "THEN the scheduled game time is displayed in the upper left corner of the game tile\nAND the team match up displays away team above home team\nAND the team logos display to the left of the respective team name\nAND probable pitcher information is not displayed\nAND Broadcast Networks are displayed below the team match up\n\nNOTE: If the tile has focus, the background will be white with black text. If the tile does not have focus, the background will be a dark gray with white text. \"Broadcast Networks\" will always be in gray text."
+    }
+  ]
+}

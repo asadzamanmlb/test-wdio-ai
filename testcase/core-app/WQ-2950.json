@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2950",
+  "issueId": "1146505",
+  "key": "WQ-2950",
+  "summary": "Verify HDR Toggle Description on focus",
+  "description": "GIVEN the user's device is HDR capable\nAND the user is on the settings page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b168544b-b0c9-46f9-b608-e7481e161d14",
+      "action": "WHEN the user highlights the HDR toggle",
+      "data": "",
+      "result": "THEN the user should see the following description on the left top of the screen:\nToggle on to receive the highest resolution streams, including HDR (where available), from Major League Baseball. If you experience buffering issues try toggling to off."
+    }
+  ]
+}

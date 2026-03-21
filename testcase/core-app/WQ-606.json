@@ -1,0 +1,20 @@
+{
+  "id": "WQ-606",
+  "issueId": "1127933",
+  "key": "WQ-606",
+  "summary": "Display scrubber when archive video plays",
+  "description": "GIVEN a user is logged in",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8f72f5ea-3eed-41a5-965e-e8de4f02c05d",
+      "action": "WHEN a user plays an archive game",
+      "data": "",
+      "result": "THEN the scrubber displays\r\nAND the selected broadcaster is displayed above the game match up\r\nAND the game match up displays left justified above the scrubber bar\r\nAND the scrubber bar playhead is appearing on the far left side of the scrubber bar\r\nAND the elapsed time is right justified below the scrubber bar\r\nAND \"Broadcast Options\" displays left justified, below the scrubber bar\r\nAND after 10 seconds of inactivity the scrubber is dismissed\r\nAND the video continues to play\r\n\r\n**NOTE:** Broadcast Options are only enabled for DM5/MLB Experience, in non-PROD environments"
+    }
+  ]
+}

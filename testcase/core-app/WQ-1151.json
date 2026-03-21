@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1151",
+  "issueId": "1128486",
+  "key": "WQ-1151",
+  "summary": "Favorite Team - Change",
+  "description": "GIVEN an existing subscriber is logged in\r\nAND has already selected a favorite team\r\nAND navigates to the Favorite Team screen",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9dc5a7b4-5f80-45e0-935a-83ce57b613a8",
+      "action": "WHEN a new favorite team is selected",
+      "data": "",
+      "result": "THEN the previously selected favorite team is no longer selected\r\nAND the new favorite team tile background changes to the team's primary color\r\nAND a star has been added to the upper right corner of the new favorite team tile\r\nAND the user's newly selected favorite team displays in the first game tile of the top row on the Games page, on day's the favorite team is playing\r\nAND the user's newly selected favorite team displays in the first game tile of the Games carousel, or Hero/Featured spot, on the Home page, on days the favorite team is playing\r\nAND the <favorite_team> Most Popular carousel is updated appropriately"
+    }
+  ]
+}

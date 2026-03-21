@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3059",
+  "issueId": "1161957",
+  "key": "WQ-3059",
+  "summary": "SNLA+ 24/7 feed FF to Live Point",
+  "description": "GIVEN a logged in user is entitled for SNLA+ RSN\nAND the user selects the SNLA+ 24/7 stream to watch\nAND the playhead is behind the live point",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1816db1e-7a55-4d83-bbda-3351770a8da8",
+      "action": "WHEN the user Fast Forwards the stream to the live point",
+      "data": "",
+      "result": "THEN Fast Forward stops when it reaches the live point\nAND playback resumes at the live point\nAND the Live indicator is red\nAND the \"Jump to Live\" button does not display\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

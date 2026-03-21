@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1536",
+  "issueId": "1128873",
+  "key": "WQ-1536",
+  "summary": "Milestones Tab | Hearing Announcement When Navigating to Inning Navigation in Milestones",
+  "description": "GIVEN the user is in the Milestones tab\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "bc00f931-05f3-4039-8551-d2f6b1f81f47",
+      "action": "WHEN the user navigates down from the Milestones tab and focuses on the right arrow key",
+      "data": "",
+      "result": "THEN the user will hear: “In the Inning navigation, press down to view milestones in <Insert inning displayed> inning, press right arrow key to view milestones in the next inning”"
+    }
+  ]
+}

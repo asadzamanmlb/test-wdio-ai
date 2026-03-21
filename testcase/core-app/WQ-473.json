@@ -1,0 +1,20 @@
+{
+  "id": "WQ-473",
+  "issueId": "1127799",
+  "key": "WQ-473",
+  "summary": "Watch Live inning markers - Hide Spoilers OFF",
+  "description": "GIVEN a user has Hide Spoilers OFF\r\nAND a game is in-progress",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1348b255-57f9-43f5-8a39-d4f2e9d5b911",
+      "action": "WHEN a user selects an in-progress game to watch from the live point",
+      "data": "",
+      "result": "THEN the user begins watching at the live point\r\nAND inning markers are populated in the scrubber bar to the left of the playhead as the innings begin\r\nAND as half innings begin, inning markers are populated in the scrubber bar\r\nAND an upward pointing triangle indicates top of the inning\r\nAND a downward pointing triangle indicates bottom of the inning\r\nAND a number indicates the inning"
+    }
+  ]
+}

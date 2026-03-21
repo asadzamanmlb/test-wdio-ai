@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1615",
+  "issueId": "1129032",
+  "key": "WQ-1615",
+  "summary": "Watch from Beginning",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1d17908a-db1f-4a5e-bdd6-9a0b1f64a70d",
+      "action": "WHEN",
+      "data": "",
+      "result": "Watch From Beginning option in the options menu after selecting the away/home feed will always start video playback at the beginning of the stream"
+    }
+  ]
+}

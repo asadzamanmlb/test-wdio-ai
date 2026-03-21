@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1508",
+  "issueId": "1128845",
+  "key": "WQ-1508",
+  "summary": "SLIVE | Fast Forwarding to the Live Point",
+  "description": "GIVEN the user is watching SLIVE content\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c088c903-040b-4228-9486-41ca4c2b7665",
+      "action": "WHEN the user Fast Forwards to the live point",
+      "data": "",
+      "result": "THEN the user will hear: “Fast Forward, Live Point press select to play”"
+    }
+  ]
+}

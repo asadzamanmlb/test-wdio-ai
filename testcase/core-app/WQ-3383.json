@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3383",
+  "issueId": "1248923",
+  "key": "WQ-3383",
+  "summary": "RSN Carousel navigation to the left",
+  "description": "GIVEN a user is on a RSN page\nAND focus is assigned to a carousel",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9d4bcb0c-77d2-4fa7-8997-83abbb5ac899",
+      "action": "WHEN the user presses the left arrow on the controller",
+      "data": "",
+      "result": "THEN focus remains on the furthest left full tile\r\nAND the tile that was previously to the left of the focused tile is now in the focused position of the carousel\r\nAND focus remains on the tile when the user is focused on the first tile in the carousel\r\nAND the user can no longer continue navigating left through the carousel once the beginning of the carousel has been reached"
+    }
+  ]
+}

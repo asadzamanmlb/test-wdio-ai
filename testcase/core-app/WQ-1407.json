@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1407",
+  "issueId": "1128744",
+  "key": "WQ-1407",
+  "summary": "TTS | Follow Team page load, bottom middle team set",
+  "description": "GIVEN TTS is enabled\r\nAND the user has the Toronto Blue Jays set as the Following Team\r\nAND the user is on the Settings page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "53d94db2-99e9-4a6d-aad0-a906add88b5a",
+      "action": "WHEN the user selects Following Teams",
+      "data": "",
+      "result": "THEN the app reader should say the following upon page load : 'The title reads: Add more teams to your clubhouse and help build your home screen on MLB.TV. You are following Toronto Blue Jays. Teams are organized in alphabetical order from left to right, and top to bottom. Press select to select a team to follow. You can follow more than one team. Once done, your selections will be saved and you can press or scroll left to navigate to the “Done” button. You can follow multiple teams. The {highlighted team} is highlighted. Press select to save this team as your Follow team. Move left, right, or up to hear additional teams to follow.'"
+    }
+  ]
+}

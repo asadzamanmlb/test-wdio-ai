@@ -1,0 +1,20 @@
+{
+  "id": "WQ-462",
+  "issueId": "1127788",
+  "key": "WQ-462",
+  "summary": "Video playback during app pause",
+  "description": "GIVEN a subscriber is playing a video stream",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "26f96d16-659a-44fd-bb07-c777171e890b",
+      "action": "WHEN the user pauses the app",
+      "data": "",
+      "result": "THEN the video is paused\r\nAND the app is dismissed\r\nAND the user is on the device home screen\r\nAND when the user opens the app again, the video displays paused at the playback point from when the app was paused\r\nAND the user can start playback from the paused point"
+    }
+  ]
+}

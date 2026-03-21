@@ -1,0 +1,20 @@
+{
+  "id": "WQ-496",
+  "issueId": "1127822",
+  "key": "WQ-496",
+  "summary": "Broadcast Options - Switch Alt Audio - FGoTD",
+  "description": "GIVEN the user is a free user\r\nAND a live Free Game of the Day is not blacked out\r\nAND the user has initiated playback of a live Free Game of the Day",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7cb2d078-3da7-495b-afe5-765a2389d082",
+      "action": "WHEN the user opens the Broadcast Options\r\nAND the user selects a non-TV audio feed",
+      "data": "",
+      "result": "THEN the newly selected audio feed begins playback\r\nAND the audio feed is in-sync with the video feed\r\nAND the scrubber is dismissed"
+    }
+  ]
+}

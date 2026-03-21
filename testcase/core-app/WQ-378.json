@@ -1,0 +1,20 @@
+{
+  "id": "WQ-378",
+  "issueId": "1127690",
+  "key": "WQ-378",
+  "summary": "MiLB carousel doesn't display",
+  "description": "Given a user has an MLB account\r\nAND a favorite team is not set",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d563dc27-7166-4120-b0af-8fb9b5d60cbb",
+      "action": "WHEN the user loads the Home page",
+      "data": "",
+      "result": "THEN a carousel called \"{team_name} Affiliated MiLB Games\" doesn't display on the Home page"
+    }
+  ]
+}

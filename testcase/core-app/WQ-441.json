@@ -1,0 +1,20 @@
+{
+  "id": "WQ-441",
+  "issueId": "1127761",
+  "key": "WQ-441",
+  "summary": "Date navigation using Calendar",
+  "description": "GIVEN the user is on the Games page\r\nAND the user has selected the calendar button\r\n\r\n**NOTE:** The calendar button is above the top-right game tile, to the right of the [>] right arrow button",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "896f8d89-f88f-4809-b724-3df55ff06467",
+      "action": "WHEN the user selects the \"<\" or \">\" buttons\r\nAND selects a day in the month that has games\r\nOR the user selects the \"Today\" button",
+      "data": "",
+      "result": "THEN the appropriate month is displayed as the user presses the \"<\" or \">\" buttons\r\nAND the appropriate day with the appropriate games are displayed on the games page after the user selects a day"
+    }
+  ]
+}

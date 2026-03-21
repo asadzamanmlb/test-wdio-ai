@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1597",
+  "issueId": "1129014",
+  "key": "WQ-1597",
+  "summary": "Override Service - overridden user receives the MLB experience",
+  "description": "Overridden user - mlboverride@gmail.com / Password23",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1f39bd74-2b83-4413-b04d-89c87923b99a",
+      "action": "WHEN an overridden user logs into the app",
+      "data": "",
+      "result": "THEN the user should receive the MLB experience"
+    }
+  ]
+}

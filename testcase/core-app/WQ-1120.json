@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1120",
+  "issueId": "1128450",
+  "key": "WQ-1120",
+  "summary": "Favorite Team - Onboarding Next",
+  "description": "GIVEN a user has selected the \"Getting Started\" button on the Startup Screen\r\nAND the user has selected a favorite team",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1dee9e01-413b-4b29-ae40-872bb4b8b79d",
+      "action": "WHEN the user selects the \"Next\" button",
+      "data": "",
+      "result": "THEN the user is taken to the Following Teams page\r\nAND the selected favorite team tile displays the team's primary color with a gold star in the upper right corner of the tile\r\nAND all other team tiles have a dark grey background without a gold star"
+    }
+  ]
+}

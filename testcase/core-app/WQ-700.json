@@ -1,0 +1,20 @@
+{
+  "id": "WQ-700",
+  "issueId": "1128028",
+  "key": "WQ-700",
+  "summary": "Executive user ESPN/Sunday Night Baseball - Game Tile",
+  "description": "GIVEN a user has EXEC entitlement\r\nAND ESPN Sunday Night Baseball is scheduled/live",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9c39d384-d515-4171-a088-bf5a225d35c1",
+      "action": "WHEN a user views/focuses a scheduled/live ESPN Sunday Night Baseball game tile",
+      "data": "",
+      "result": "THEN a lock icon doesn't display in the upper right corner of the game tile\r\nAND there is no dark overlay of the team match up\r\nAND a blackout pill does not display in the game tile"
+    }
+  ]
+}

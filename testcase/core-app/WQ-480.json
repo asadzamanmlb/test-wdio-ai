@@ -1,0 +1,20 @@
+{
+  "id": "WQ-480",
+  "issueId": "1127806",
+  "key": "WQ-480",
+  "summary": "Live Playback Wireless Connection",
+  "description": "GIVEN a users PlayStation is connected to the internet using a wireless connection",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e06a49a3-8be1-4a0b-971b-807fe0a885fa",
+      "action": "WHEN a user selects a live game to watch",
+      "data": "",
+      "result": "THEN the selected live game starts playing"
+    }
+  ]
+}

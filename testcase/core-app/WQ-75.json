@@ -1,0 +1,20 @@
+{
+  "id": "WQ-75",
+  "issueId": "1127087",
+  "key": "WQ-75",
+  "summary": "DSS - Ads for local in-market streaming - Out-Of-Market",
+  "description": "GIVEN the user is a subscriber with or without in-market streaming entitlement\r\nAND the user is outside the viewing market\r\n\r\n**NOTE:**  This needs to be tested on a browser, with the Network tab of the developer tools open",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "09d5e2e4-958a-4dbd-986e-d9c05d9097e2",
+      "action": "WHEN the user initiates playback for an out-of-market game feed",
+      "data": "",
+      "result": "THEN \"inMarket: false\" is present in the MAST EPG v3 response within the videoFeeds node for the in-market team\r\nAND \"market%3Dout-of-market\" is present in the DAI request URL"
+    }
+  ]
+}

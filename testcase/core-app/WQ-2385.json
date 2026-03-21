@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2385",
+  "issueId": "1129838",
+  "key": "WQ-2385",
+  "summary": "Closed Captions OFF",
+  "description": "GIVEN Closed Captions are set to ON on the Settings page",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6319729a-af3c-4e7c-b202-9e694e6e5df0",
+      "action": "WHEN a user sets Closed Captions to OFF",
+      "data": "",
+      "result": "THEN closed captions do not display during video playback"
+    }
+  ]
+}

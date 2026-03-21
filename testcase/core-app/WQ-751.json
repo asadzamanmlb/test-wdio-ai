@@ -1,0 +1,20 @@
+{
+  "id": "WQ-751",
+  "issueId": "1128079",
+  "key": "WQ-751",
+  "summary": "Free subscriber in market FGotD - Feed Select",
+  "description": "GIVEN a user is a free subscriber\r\nAND a FGotD is scheduled/in-progress in the users viewing market\r\nAND the game level blackedOutVideo equals true in MAST EPGv3\r\nAND the game level entitledVideo equals true in MAST EPGv3",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7ce21dfe-9fbe-4e3b-bfca-60d91327c567",
+      "action": "WHEN a user selects a scheduled/in-progress in-market FGotD game tile",
+      "data": "",
+      "result": "THEN video feed buttons are not displayed\r\nAND the following blackout messaging is displayed in the Feed Select modal: “This game is unavailable in your area. All Regular Season and Postseason live games are subject to blackout restrictions due to Major League Baseball exclusivities. An archive copy of the game will be available 90 minutes after the game.”"
+    }
+  ]
+}

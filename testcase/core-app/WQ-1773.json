@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1773",
+  "issueId": "1129190",
+  "key": "WQ-1773",
+  "summary": "Payment.2",
+  "description": "In-app purchase function is included",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e6f827d2-dd50-4b6f-ba13-bf9e80634faf",
+      "action": "Execute app → Check payment method and make payment → Play content",
+      "data": "",
+      "result": "1) Payment is properly made\r\n2) Purchased contents are listed on purchased contents list and My Page\r\n3) Video/audio output is proper when playing content"
+    }
+  ]
+}

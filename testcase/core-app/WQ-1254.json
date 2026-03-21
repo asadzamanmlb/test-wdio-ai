@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1254",
+  "issueId": "1128591",
+  "key": "WQ-1254",
+  "summary": "VOD Tile",
+  "description": "GIVEN TTS is turned ON\r\nAND a free user is logged in\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "36ea6f49-f417-4ab4-9a3f-9d3a0f648d82",
+      "action": "WHEN focus is assigned to a VOD tile",
+      "data": "",
+      "result": "The following statement is spoken, \"<content_title>, <content_description>, <content_length>, press select to play, X of Y items in the carousel, press <appropriate_directions> to view other videos in the carousel, press up or down to browse more content\""
+    }
+  ]
+}

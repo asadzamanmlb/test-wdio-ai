@@ -1,0 +1,20 @@
+{
+  "id": "WQ-590",
+  "issueId": "1127916",
+  "key": "WQ-590",
+  "summary": "VOD Fast Forward Stop",
+  "description": "GIVEN a user (paid/free/anonymous) has launched the MLB app\r\nAND the user selects a VOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4a4286ee-95d5-4b73-a625-9a9d3c77551b",
+      "action": "WHEN the user initiates Fast Forward\nAND presses the \"select\" button on the controller after a few moments",
+      "data": "",
+      "result": "THEN Fast Forward stops\r\nAND playback resumes at the point where Fast Forward stopped\r\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

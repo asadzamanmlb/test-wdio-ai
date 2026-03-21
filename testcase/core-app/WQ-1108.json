@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1108",
+  "issueId": "1128438",
+  "key": "WQ-1108",
+  "summary": "Success Log In From Header Navigation",
+  "description": "GIVEN the user launches the app without saved data\r\nAND selects the [Get Started] button on the Startup screen\r\nAND selects a favorite team on the Favorite Team page\r\nAND selects the [Next] button on the Favorite Team page\r\nAND the user selects the [Explore Free Content] button on the Welcome page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6bddcef3-581f-4542-99c9-b2ab09fddeeb",
+      "action": "WHEN the user lands on the Home page\r\nAND the user selects the [Log In] button in the top navigation bar\r\nAND the user enters log in details of an existing MLB.TV subscriber\r\nAND the user selects the [Log In] button",
+      "data": "",
+      "result": "THEN the user is successfully logged in\r\nAND the user lands on the Home page"
+    }
+  ]
+}

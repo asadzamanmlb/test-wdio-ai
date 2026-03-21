@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3251",
+  "issueId": "1220364",
+  "key": "WQ-3251",
+  "summary": "Navigation between Featured Image and first carousel",
+  "description": "GIVEN a user has launched the MLB.tv app\n\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "528028cc-deef-4c25-85cf-3df72128dce9",
+      "action": "WHEN the user navigates down from the Featured Image\n\nAND the user navigates up from the first carousel",
+      "data": "",
+      "result": "THEN focus moves between the Featured Image and the first tile in the first carousel"
+    }
+  ]
+}

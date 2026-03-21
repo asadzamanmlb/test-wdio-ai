@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1372",
+  "issueId": "1128709",
+  "key": "WQ-1372",
+  "summary": "Past month navigation button",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is on the Games page\r\nAND the user has selected the Calendar",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c43b73b6-916b-4d4e-8bfd-d7f1bf6b43e8",
+      "action": "WHEN focus is assigned to the past month button [<]",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Month Navigation, <current_month>, <current_year>, Left Button, press select to navigate to the previous month, Press right to navigate to the next month, Press down to navigate to dates in this month.\""
+    }
+  ]
+}

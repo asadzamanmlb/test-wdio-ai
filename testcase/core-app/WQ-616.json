@@ -1,0 +1,20 @@
+{
+  "id": "WQ-616",
+  "issueId": "1127943",
+  "key": "WQ-616",
+  "summary": "Live indicator in-progress game at live point",
+  "description": "GIVEN a user is playing an in-progress game at the live point",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "61048341-69a9-49eb-92e9-1388fabec618",
+      "action": "WHEN the scrubber displays",
+      "data": "",
+      "result": "THEN a red dot is displayed directly to the left of white text \"Live\"\r\nAND the \"Live\" text is right justified underneath the scrubber bar"
+    }
+  ]
+}

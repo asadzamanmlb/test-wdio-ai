@@ -1,0 +1,20 @@
+{
+  "id": "WQ-988",
+  "issueId": "1128317",
+  "key": "WQ-988",
+  "summary": "Unable to load Schedule data",
+  "description": "GIVEN the mastAPI or statsAPI request is blocked\r\nAND the MLB app is open\r\n\r\n**NOTE:** network requests URLs to block\r\nstatsAPI - *statsapi.mlb.com\r\nmastAPI - *mlbinfra.com\r\n",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "611dd36d-a344-489f-8a3a-7950c2db2079",
+      "action": "WHEN a user tries to load the Games page",
+      "data": "",
+      "result": "THEN an error screen displays\r\nAND the MLB logo and MLB text are displayed top center of the screen\r\nAND a message stating game data could not be loaded\r\nAND an [Okay] button is displayed with focus below the message"
+    }
+  ]
+}

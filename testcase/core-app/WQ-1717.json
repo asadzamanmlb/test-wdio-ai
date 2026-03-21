@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1717",
+  "issueId": "1129134",
+  "key": "WQ-1717",
+  "summary": "Resume bookmark after the top of the 1st inning Start from the beginning - Hide Spoilers ON",
+  "description": "GIVEN the user is entitled for live game playback\nAND Hide Spoilers is turned ON\nAND team feeds are mediaState=MEDIA_ON\nAND a team feed/stream has a resume bookmark after the top of the 1st inning",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c2b6c191-9e46-434c-9772-e85bed34b850",
+      "action": "WHEN the user selects the same game feed/stream before the game is Final\nAND the user selects the \"Start From The Beginning\" button\nAND the user watches the game for at least a half inning",
+      "data": "",
+      "result": "THEN playback starts at the game broadcast start milestone\nAND inning markers do not display to the right of the playback head indicating innings that have already occurred\nAND inning markers are populated to the left of the playback head as each half inning milestone is crossed"
+    }
+  ]
+}

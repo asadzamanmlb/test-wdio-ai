@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3068",
+  "issueId": "1162007",
+  "key": "WQ-3068",
+  "summary": "MASN 24/7 feed Jump to Live",
+  "description": "GIVEN a user is entitled for MASN RSN\nAND the user selects the MASN 24/7 stream to watch\nAND the playhead is behind the live point",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ff5b6643-0e15-4969-908e-cbde2515f2c9",
+      "action": "WHEN the scrubber is displayed\nAND the user selects the \"Jump to Live\" button",
+      "data": "",
+      "result": "THEN playback moves to the live point\nAND the playhead is all the way to the right on the scrubber\nAND the entire scrubber bar is blue\nAND a red Live indicator is displayed\nAND the \"Jump to Live\" button does not display\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

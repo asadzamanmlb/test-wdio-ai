@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1609",
+  "issueId": "1129026",
+  "key": "WQ-1609",
+  "summary": "Live playback from Games carousel",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c097f285-e58a-4f88-8571-b902f2ae65a7",
+      "action": "WHEN",
+      "data": "",
+      "result": "Users can launch a live stream from a game carousel"
+    }
+  ]
+}

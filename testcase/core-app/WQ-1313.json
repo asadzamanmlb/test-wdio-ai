@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1313",
+  "issueId": "1128650",
+  "key": "WQ-1313",
+  "summary": "Past date navigation button",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "647e6126-13b5-43e0-a3a3-a02a28210756",
+      "action": "WHEN focus is assigned to the back date navigation button [<]",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Left button, press select to navigate to the previous day. <x> of <y> button in the navigation, press up for the Main menu, press down for this day's games.\""
+    }
+  ]
+}

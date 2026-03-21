@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1359",
+  "issueId": "1128696",
+  "key": "WQ-1359",
+  "summary": "Game Tile Final Peacock Hide Spoilers ON",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND Hide Spoilers is turned ON\r\nAND the user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4140d84f-1d33-46c2-bfef-9094a268b013",
+      "action": "WHEN focus is assigned to an archive Peacock game tile",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Game <x> of <y>, <away_team>,<home_team>. Press select to play game. Move <appropriate_directions> to hear more games. Move up to navigate to a new date.\""
+    }
+  ]
+}

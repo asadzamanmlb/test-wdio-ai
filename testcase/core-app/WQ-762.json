@@ -1,0 +1,20 @@
+{
+  "id": "WQ-762",
+  "issueId": "1128090",
+  "key": "WQ-762",
+  "summary": "Single Team subscriber ESPN/Sunday Night Baseball - Game Tile",
+  "description": "GIVEN a user has a single team entitlement\r\nAND ESPN Sunday Night Baseball is scheduled/in-progress",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9565c795-a521-47ec-b83c-a9eefb27f820",
+      "action": "WHEN the user views the game tile focused or unfocused",
+      "data": "",
+      "result": "THEN a blackout pill is displayed left aligned at the bottom of the game tile\r\nAND a lock icon is displayed in the upper right corner of the game tile"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1582",
+  "issueId": "1128988",
+  "key": "WQ-1582",
+  "summary": "Share Button - XBOX",
+  "description": "GIVEN I have connected the Xbox Controller to the Xbox Console",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3611c030-8881-4914-8b01-b743f8bf2ce6",
+      "action": "WHEN I Press the Share (5) button\r\n\r\n![](index.php?/attachments/get/14344229)\r\n![](index.php?/attachments/get/14344231)",
+      "data": "",
+      "result": "THEN I should be able to capture game clips and screenshots"
+    }
+  ]
+}

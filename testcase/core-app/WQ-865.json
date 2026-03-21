@@ -1,0 +1,20 @@
+{
+  "id": "WQ-865",
+  "issueId": "1128193",
+  "key": "WQ-865",
+  "summary": "Executive user YouTube archive - Feed Select modal",
+  "description": "GIVEN a user is an Executive user",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4a534971-579e-4e62-82a9-fcb84ce54ab8",
+      "action": "WHEN a user selects an archive YouTube game tile",
+      "data": "",
+      "result": "THEN the user will see the YouTube feed button\r\nAND a message does not display letting the user know where the game can be watched\r\nAND the user can playback the YouTube feed"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3063",
+  "issueId": "1161964",
+  "key": "WQ-3063",
+  "summary": "SNLA+ VOD RW to the beginning",
+  "description": "GIVEN a logged in user is entitled for SNLA+ RSN\nAND the user is on the SNLA+ page\nAND the user selects a VOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "67bc4085-b266-48ac-9277-47813d7a551c",
+      "action": "WHEN the user Rewinds the stream to the beginning",
+      "data": "",
+      "result": "THEN Rewind stops once it reaches the start of the stream\nAND playback resumes at the beginning of the stream\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

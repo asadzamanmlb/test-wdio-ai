@@ -1,0 +1,20 @@
+{
+  "id": "WQ-809",
+  "issueId": "1128137",
+  "key": "WQ-809",
+  "summary": "Single Team subscriber AppleTV+ archive subscribed team - Feed Select modal",
+  "description": "GIVEN a user is a Single Team subscriber\r\nAND an archive AppleTV+ game contains the subscribed team",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8bdf03f4-16df-444f-a66a-b36a58302daf",
+      "action": "WHEN a user selects an archive AppleTV+ game tile",
+      "data": "",
+      "result": "THEN the user will see the AppleTV+ feed button\r\nAND a message does not display letting the user know where the game can be watched\r\nAND the user can playback the AppleTV+ feed"
+    }
+  ]
+}

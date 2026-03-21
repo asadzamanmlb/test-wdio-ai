@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1284",
+  "issueId": "1128621",
+  "key": "WQ-1284",
+  "summary": "Game Tile Final AppleTV+ Hide Spoilers ON",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND Hide Spoilers is turned ON\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7667f065-ce37-4498-85e7-a96f03110215",
+      "action": "WHEN focus is assigned to an archive AppleTV+ game in the Hero",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"<away_team>, <home_team>, Final, press select to play, press up for the Main Menu, press down to browse more content.\""
+    }
+  ]
+}

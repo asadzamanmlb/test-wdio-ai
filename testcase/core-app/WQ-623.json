@@ -1,0 +1,20 @@
+{
+  "id": "WQ-623",
+  "issueId": "1127950",
+  "key": "WQ-623",
+  "summary": "Scrubber UI - SLIVE/FLIVE",
+  "description": "GIVEN a user is playing an SLIVE/FLIVE stream",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c7d4d0b5-4460-4080-ba35-a85e692fa0bc",
+      "action": "WHEN the scrubber bar is displayed",
+      "data": "",
+      "result": "THEN the video title is displayed left justified above the scrubber bar\r\nAND an ellipsis (...) is displayed at the end of the title if the title contains more than 30 characters\r\nAND the entire scrubber bar is blue when watching at the live point\r\nAND the scrubber bar is blue on the left side of the playhead when watching behind the live point\r\nAND the scrubber bar grey on the right side of the playhead when watching behind the live point\r\nAND there is a gradient behind the scrubber\r\nAND the playback marker is at the current playback position during playback and pause\r\nAND the user’s current playback position time is represented below the scrubber on the right hand side (H:MM:SS time format)\r\nAND the closed captions button displays right justified above the scrubber bar\r\nAND a \"Watch Live\" button displays to the right of the closed captions button if the user is watching behind the live point"
+    }
+  ]
+}

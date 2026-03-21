@@ -1,0 +1,20 @@
+{
+  "id": "WQ-484",
+  "issueId": "1127810",
+  "key": "WQ-484",
+  "summary": "User is able to watch subsequent live games",
+  "description": "GIVEN a user is playing a live game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b56295fd-453a-4b8a-accc-792d3ea80ea6",
+      "action": "WHEN a user exits a live game\r\nAND a user selects a subsequent live game to watch",
+      "data": "",
+      "result": "THEN the subsequent live game plays successfully"
+    }
+  ]
+}

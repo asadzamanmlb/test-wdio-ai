@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1191",
+  "issueId": "1128528",
+  "key": "WQ-1191",
+  "summary": "TTS | Server Error on Login attempt",
+  "description": "GIVEN an unauthenticated user has entered their credentials on the Login Page\r\nAND the user has TTS Enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1fd3c2e0-0093-43e5-bb94-410921afb823",
+      "action": "WHEN the user attempts to Login and the server returns an error",
+      "data": "",
+      "result": "THEN the app reads \"We encountered an issue while trying to log you in. <Read error> \"\r\n\r\nExample: “We encountered an issue while trying to log you in. **The email address or password was incorrect. Please verify your login credentials and try again.**”"
+    }
+  ]
+}

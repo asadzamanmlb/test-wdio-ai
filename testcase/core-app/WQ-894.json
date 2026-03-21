@@ -1,0 +1,20 @@
+{
+  "id": "WQ-894",
+  "issueId": "1128223",
+  "key": "WQ-894",
+  "summary": "MLBN MVPD - International non-Canada",
+  "description": "GIVEN a Postseason game is on the schedule\r\nAND MLBN broadcasters are assigned\r\nAND the user's location is International non-Canada\r\nAND the game level entitledVideo = true\r\nAND the game level blackedOutVideo = false\r\nAND the AWAY (National) feed level mlbnAuthRequired = true\r\nAND the HOME (International) feed level mlbnAuthRequired = false",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3a9f1477-1db9-4739-90ed-eb8c807e7eab",
+      "action": "WHEN the user views a MLBN Postseason game tile",
+      "data": "",
+      "result": "THEN the MVPD pill does not display in the lower left corner of the game tile"
+    }
+  ]
+}

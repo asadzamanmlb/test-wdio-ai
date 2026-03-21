@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1636",
+  "issueId": "1129053",
+  "key": "WQ-1636",
+  "summary": "Pause",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "531c125e-eec9-4855-987b-52aeec85bb42",
+      "action": "WHEN",
+      "data": "",
+      "result": "When user presses pause or Ok button, then a pause icon will display in the middle of the screen and disappear after a second with the video still paused."
+    }
+  ]
+}

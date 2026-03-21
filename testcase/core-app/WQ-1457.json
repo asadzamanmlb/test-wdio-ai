@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1457",
+  "issueId": "1128794",
+  "key": "WQ-1457",
+  "summary": "Attempt to navigate below package tiles",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is not logged in\r\nAND the user is on the \"Browse Subscriptions\" page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9cd22e3b-0126-4a96-bfa4-c0dbf73c750b",
+      "action": "WHEN focus is on a package tile\r\nAND the user attempts to navigate down",
+      "data": "",
+      "result": "THEN the following statement should be spoken, \"There is nothing clickable below; however, the footer reads <footer_text>. Please scroll up to hear information about packages.\""
+    }
+  ]
+}

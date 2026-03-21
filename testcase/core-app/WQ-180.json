@@ -1,0 +1,20 @@
+{
+  "id": "WQ-180",
+  "issueId": "1127483",
+  "key": "WQ-180",
+  "summary": "Partial Subscriber Feed Select modal - Archive",
+  "description": "GIVEN a user is a free subscriber\r\nOR a user is a single team subscriber\r\nOR a user is not logged in/anonymous",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c6029daa-8a24-439d-8e84-24562de1d2ae",
+      "action": "WHEN a user selects a game tile for a game they are not entitled",
+      "data": "",
+      "result": "THEN \"Watch Free\" is displayed above the Recap and Condensed Game buttons, if available\r\nAND \"Full Game Access\" is displayed above a focused \"Get MLB.TV\" button, for not logged in/anonymous users\r\nAND \"Full Game Access\" is displayed above a focused \"Upgrade MLB.TV\" button, for free users, and single team users that are not entitled to either team"
+    }
+  ]
+}

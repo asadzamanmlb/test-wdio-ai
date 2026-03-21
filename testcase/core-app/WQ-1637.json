@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1637",
+  "issueId": "1129054",
+  "key": "WQ-1637",
+  "summary": "Unpause",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2d173234-6429-44e0-8e4e-3cfdd221a16e",
+      "action": "WHEN",
+      "data": "",
+      "result": "Once video is Paused then press Play/Ok/Enter/Select button, the play button will appear in the middle of the screen then disappear after a second.."
+    }
+  ]
+}

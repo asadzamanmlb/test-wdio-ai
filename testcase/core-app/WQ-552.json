@@ -1,0 +1,20 @@
+{
+  "id": "WQ-552",
+  "issueId": "1127878",
+  "key": "WQ-552",
+  "summary": "Rewind to live stream start",
+  "description": "GIVEN a user is playing a live stream\r\nAND the stream has been playing for some time",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b02f16a1-6f51-465a-9c5d-5687f90d7359",
+      "action": "WHEN a user initiates rewind\r\nAND the user does not stop rewind",
+      "data": "",
+      "result": "THEN the playhead rewinds to the beginning of the stream\r\nAND once the playhead reaches the beginning of the stream, rewind stops automatically\r\nAND once rewind stops, the stream starts playing from the beginning"
+    }
+  ]
+}

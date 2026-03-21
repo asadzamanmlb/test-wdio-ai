@@ -1,0 +1,20 @@
+{
+  "id": "WQ-722",
+  "issueId": "1128050",
+  "key": "WQ-722",
+  "summary": "Single Team subscriber live game subscribed team in market - Final Game State",
+  "description": "GIVEN the user is a single team subscriber\r\nAND the in-market game for the subscribed-to-team has a game state of Final\r\nAND the game has ended less than 90 minutes ago\r\nAND the game does not have a saving pitcher\r\nAND/OR the game level blackedOutVideo equals true in MASTepg\r\nAND the game is not a partner game\r\n\r\n**NOTE:** wiremock favorite team 121 Mets, gamePk - 661044",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "220ac72d-2d63-43ba-be40-681c224a050b",
+      "action": "WHEN the user views the game tile focused or unfocused",
+      "data": "",
+      "result": "THEN a blackout pill does not display\r\nAND a lock icon does not displayed in the upper right corner of the game tile\r\nAND the team colors in the matchup header does not have a dark overlay"
+    }
+  ]
+}

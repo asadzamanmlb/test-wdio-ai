@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1315",
+  "issueId": "1128652",
+  "key": "WQ-1315",
+  "summary": "Today navigation button",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is on the Games page\r\nAND the displayed date is not today",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "cd38acf1-cc0c-4d14-8697-0de8cd309f08",
+      "action": "WHEN focus is assigned to the \"Today\" button",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Today, press select to navigate directly to today’s Games. <x> of <y> buttons in the navigation, press up for the Main Menu, Press down for this day's games.\""
+    }
+  ]
+}

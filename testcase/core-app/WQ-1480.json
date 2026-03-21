@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1480",
+  "issueId": "1128817",
+  "key": "WQ-1480",
+  "summary": "TTS | Broadcast Options Tab from Feeds",
+  "description": "GIVEN a user is logged in\r\nAND TTS is enabled\r\nAND the user has selected a game feed for playback",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e232c877-a104-4ae3-82ba-af3a4bc9d74f",
+      "action": "WHEN the user has displayed the scrubber\r\nAND navigates up from Video/Audio Feeds to Broadcast Options",
+      "data": "",
+      "result": "THEN the user should hear \"Broadcast Options x of x options, press up for player controls, press down to navigate broadcast options, press left for more options, press back to dismiss controls\""
+    }
+  ]
+}

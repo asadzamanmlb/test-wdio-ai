@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1657",
+  "issueId": "1129074",
+  "key": "WQ-1657",
+  "summary": "Live Anonymous - Subscription options",
+  "description": "When an anonymous user selects the Live game, Feed Select modal should appear with subscription options. For Full game access, click on Get MLB.TV and Login",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "932476cb-2d85-4e0e-b831-a815bb775c5a",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-502",
+  "issueId": "1127828",
+  "key": "WQ-502",
+  "summary": "Game Details - Start from the Beginning Hide Spoilers OFF",
+  "description": "GIVEN the user is logged in\r\nAND the user is in the MLB experience\r\nAND the user is entitled to live game playback\r\nAND Hide Spoilers is set to OFF\r\nAND Start from the Beginning is selected for an in-progress live game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6ea57022-2eed-46f1-a865-64129878e4df",
+      "action": "WHEN a user initiates the scrubber bar to display\r\nAND the user assigns focus to the Details tab below the scrubber bar",
+      "data": "",
+      "result": "THEN \"Details\" is the furthest left position below the scrubber bar\r\nAND the inning numbers are displayed above the game matchup\r\nAND after the inning numbers, to the right, \"R\" is displayed for runs, \"H\" is displayed for hits, \"E\" is displayed for errors\r\nAND the away team displays above the home team\r\nAND below each inning of play that has been completed or in-progress, the number of runs scored by each team is displayed\r\nAND each teams total runs is displayed below \"R\"\r\nAND each teams total hits is displayed below \"H\"\r\nAND each teams total errors is displayed below \"E\""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-579",
+  "issueId": "1127905",
+  "key": "WQ-579",
+  "summary": "SVOD Rewind Stop",
+  "description": "GIVEN a user has SUBSCRIBERVOD entitlement\r\nAND the user selects an SVOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "40ef7b24-c09a-4fa4-874d-3dbfe9f2ac8c",
+      "action": "WHEN the user initiates Rewind\r\nAND presses the \"X\" button on the controller after a few moments",
+      "data": "",
+      "result": "THEN Rewind stops\r\nAND playback resumes at the point where Rewind stopped\r\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

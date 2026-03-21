@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1045",
+  "issueId": "1128375",
+  "key": "WQ-1045",
+  "summary": "Log In - invalid password format",
+  "description": "GIVEN a user is on the Log In page\r\nAND a user has entered an MLB account email address",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "956c95ba-5c25-4473-adf2-f361faf1e925",
+      "action": "WHEN a user enters an invalid format password (lower case letters only)\r\nAND a user selects the [Log In] button",
+      "data": "",
+      "result": "THEN the user is not logged in\r\nAND the following text displays in red below the password field, \"The email address or password was incorrect. Please verify your login credentials and try again.\"\r\nAND the email field has a red border\r\nAND the password field has a red border"
+    }
+  ]
+}

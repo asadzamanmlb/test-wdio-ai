@@ -1,0 +1,20 @@
+{
+  "id": "WQ-659",
+  "issueId": "1127987",
+  "key": "WQ-659",
+  "summary": "Single Team subscriber National Feed archive - Feed Select",
+  "description": "GIVEN the us is a Single Team Subscriber\r\nAND the subscribed-to-team is in the game\r\nAND the game mediaFeedType = NATIONAL\r\nAND the game mediaState = MEDIA_ARCHIVE\r\n\r\n**NOTE:** National TV game = Fox Saturday Baseball",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f10d1af4-1671-4e6d-a736-42db10bcd25a",
+      "action": "WHEN a user selects the archived game tile",
+      "data": "",
+      "result": "THEN buttons for Recap and Condensed Game display center justified, above the game feed\r\nAND the user will see a feed button for the home team\r\nAND the user achieves playback after selecting each button"
+    }
+  ]
+}

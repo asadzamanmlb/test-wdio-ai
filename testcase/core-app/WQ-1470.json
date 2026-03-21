@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1470",
+  "issueId": "1128807",
+  "key": "WQ-1470",
+  "summary": "TTS | Details Tab Innings",
+  "description": "GIVEN TTS is enabled\r\nAND the user is in the video player",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ecdaf179-7d59-40e5-ba20-7c2e1510ae9b",
+      "action": "WHEN the user navigates to each half inning",
+      "data": "",
+      "result": "THEN the user should hear \"<Half inning selected>, <Number of Runs Scored for team + Team>, Press select to playback from the start of this half inning\""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1754",
+  "issueId": "1129171",
+  "key": "WQ-1754",
+  "summary": "Correct Text",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1eb094fa-31a4-499d-b531-48507e1b8649",
+      "action": "Execute app → Check TEXT",
+      "data": "",
+      "result": "- Text output is proper without typos or broken text\r\n- If app includes UI button or text longer than screen area, text is not cropped, and rolling or ellipsis sign appears\r\n- If list/description contents are longer than screen area, scroll appears properly\r\n- UI Button and text allignment is proper"
+    }
+  ]
+}

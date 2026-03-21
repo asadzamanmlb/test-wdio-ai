@@ -1,0 +1,20 @@
+{
+  "id": "WQ-158",
+  "issueId": "1127461",
+  "key": "WQ-158",
+  "summary": "MLBN MVPD Messaging - Unauthorized and Entitled",
+  "description": "GIVEN a Postseason game is on the schedule\r\nAND MLBN broadcasters are assigned\r\nAND the user has one of the following entitlements: MLBALL, MLBVIDEOADOBEPASS, MLBVIDEOAR\r\nAND the user is unauthorized for MLBN MVPD\r\nAND the game level entitledVideo = false\r\nAND the AWAY (National) feed level mlbnAuthRequired = true",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0aaba3fd-ab6d-48ba-9a6c-f4ebd67c9f0a",
+      "action": "WHEN the user selects a game tile for an MLBN Postseason game tile",
+      "data": "",
+      "result": "THEN the Feed Select modal displays\r\nAND MLBN MVPD messaging displays in the Feed Select modal"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1467",
+  "issueId": "1128804",
+  "key": "WQ-1467",
+  "summary": "Focusing on Scrubber | Archive Games",
+  "description": "GIVEN the user is watching an Archive game\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e90ab5a9-13ea-4018-8218-41ed4b4bd288",
+      "action": "WHEN the user navigates down and the scrubber comes into focus",
+      "data": "",
+      "result": "THEN the user will hear \"<away_team> @ <home_team>, Press Select to Pause, Press Up for Quick Actions, Press Down for More Options, Press Back to dismiss controls.\"\r\n\r\nFor example: \"Dodgers @ Yankees, Press Select to Pause, Press Up for Quick Actions, Press down for More Options, Press Back to dismiss controls\""
+    }
+  ]
+}

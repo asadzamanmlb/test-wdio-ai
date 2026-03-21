@@ -1,0 +1,20 @@
+{
+  "id": "WQ-397",
+  "issueId": "1127709",
+  "key": "WQ-397",
+  "summary": "SNLA+ tab displays in the Header",
+  "description": "GIVEN a user has entitlements for SNLA+\r\nAND the user launches the MLB.TV app\r\n\r\n**NOTE:** SNLA+ entitlement = SNLA_119",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a24c3f24-7ae7-454b-a652-9c32dc120538",
+      "action": "WHEN the user logs in",
+      "data": "",
+      "result": "THEN the user should see [Home], [SNLA+], [Games], [Upgrade MLB.TV], [Settings] in the header\r\n\r\n**NOTE:** If the test user also has one of the following entitlements, \"EXECMLB\", \"MLBALL\", \"MLBVIDEOADOBEPASS\", \"MLBVIDEOAR\", [Upgrade MLB.TV] will NOT display."
+    }
+  ]
+}

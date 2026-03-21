@@ -1,0 +1,20 @@
+{
+  "id": "WQ-672",
+  "issueId": "1128000",
+  "key": "WQ-672",
+  "summary": "Extra Innings subscriber FGotD out of market - Game Tile",
+  "description": "GIVEN the user is an Xtra Innings subscriber\r\nAND the FGotD is scheduled/in-progress\r\nAND the FGotD is not in the subscribers viewing market",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0f8fabc4-5f63-4fce-8b87-86c872837f08",
+      "action": "WHEN the user views/focuses the FGotD game tile",
+      "data": "",
+      "result": "THEN a lock icon does not display in the upper right corner of the game tile\r\nAND there is no dark overlay over the team colors in the game tile header\r\nAND a Free Game of the Day pill displays left justified at the bottom of the game tile"
+    }
+  ]
+}

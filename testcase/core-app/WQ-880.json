@@ -1,0 +1,20 @@
+{
+  "id": "WQ-880",
+  "issueId": "1128209",
+  "key": "WQ-880",
+  "summary": "FOX MVPD Required Pill - Authorized",
+  "description": "GIVEN a Postseason game is on the schedule\r\nOR an All-Star Game is on the schedule\r\nAND FOX broadcasters are assigned\r\nAND the user's location is in the USA\r\nAND a user is authorized for FOX MVPD\r\nAND the game level entitledVideo = true\r\nAND the feed level foxAuthRequired = true",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "790baf2e-5f35-4606-bda7-2d72c23cbdd4",
+      "action": "WHEN the user views a FOX Postseason game tile\r\nOR the user views a FOX All-Star Game tile",
+      "data": "",
+      "result": "THEN the MVPD pill does not display in the lower left corner of the game tile"
+    }
+  ]
+}

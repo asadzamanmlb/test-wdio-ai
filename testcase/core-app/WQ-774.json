@@ -1,0 +1,20 @@
+{
+  "id": "WQ-774",
+  "issueId": "1128102",
+  "key": "WQ-774",
+  "summary": "Extra Innings subscriber ESPN/Sunday Night Baseball - Game Tile",
+  "description": "GIVEN a user has MLBVIDEOADOBEPASS entitlement\r\nAND ESPN Sunday Night Baseball is scheduled/in-progress",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c6ecd7da-18dd-46b5-9669-18b23b0338db",
+      "action": "WHEN the user views the game tile focused or unfocused",
+      "data": "",
+      "result": "THEN a blackout pill is displayed left aligned at the bottom of the game tile\r\nAND a lock icon is displayed in the upper right corner of the game tile"
+    }
+  ]
+}

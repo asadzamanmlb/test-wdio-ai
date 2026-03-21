@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1160",
+  "issueId": "1128495",
+  "key": "WQ-1160",
+  "summary": "Following Teams - Selecting Multiple Teams",
+  "description": "GIVEN the logged in user is on the Following Teams page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "536f1dca-d768-45a2-9607-0fbacecce73a",
+      "action": "WHEN the user selects multiple team tiles",
+      "data": "",
+      "result": "THEN each selected team tile background is the associated team primary color\r\nAND the user is navigated back to the Settings page after selecting the \"Done\" button\r\nAND the user's newly selected following teams display with secondary priority to a user's favorite team in the top row on the Games page, on day's the followed teams are playing\r\nAND the user's newly selected following teams display with secondary priority to a user's favorite team in the Games carousel, or Hero/Featured spot, on the Home page, on days the followed teams are playing"
+    }
+  ]
+}

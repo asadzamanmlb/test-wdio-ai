@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1244",
+  "issueId": "1128581",
+  "key": "WQ-1244",
+  "summary": "Game Tile Final Hide Spoilers ON",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND Hide Spoilers is turned ON\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "96f90d94-494a-46d2-b997-26fc77f641c7",
+      "action": "WHEN focus is assigned to an archive game tile in the Games Carousel",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Game <x> of <y>, <away_team>,<home_team>. Press select to play game. Move <appropriate_directions> to navigate to a new item. Move up or down to browse new content.\""
+    }
+  ]
+}

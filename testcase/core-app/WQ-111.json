@@ -1,0 +1,20 @@
+{
+  "id": "WQ-111",
+  "issueId": "1127414",
+  "key": "WQ-111",
+  "summary": "Live Point International Feed Selection",
+  "description": "GIVEN a live game is in-progress\r\nAND the game has an international feed\r\nAND videoFeeds for the game have a mediaState of MEDIA_ON\r\nAND the user has the appropriate entitlements to watch the international feed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "fd18d3ae-4b44-4f95-bc24-406c1055e4bc",
+      "action": "WHEN a user selects a game tile for a live in-progress game\r\nAND selects the international video feed button in the Feed Select Modal\r\nAND selects the [Watch Live] button in the Secondary Feed Select Modal",
+      "data": "",
+      "result": "THEN the feed select modal/games page is dismissed\r\nAND the video player maximizes to full screen\r\nAND the international feed starts playing from the live point"
+    }
+  ]
+}

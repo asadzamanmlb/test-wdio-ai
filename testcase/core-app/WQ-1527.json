@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1527",
+  "issueId": "1128864",
+  "key": "WQ-1527",
+  "summary": "Games Tab | Hearing Announcement When Focusing on a Free Game Tile",
+  "description": "GIVEN the user is in the Games tab\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ce74e811-a0a2-40e2-a699-ab972455d89d",
+      "action": "WHEN the user focuses on a free game tile",
+      "data": "",
+      "result": "THEN the user will hear: \"Free Game <Title of Video Stream>, Press select to play, X of X items\""
+    }
+  ]
+}

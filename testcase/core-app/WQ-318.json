@@ -1,0 +1,20 @@
+{
+  "id": "WQ-318",
+  "issueId": "1127630",
+  "key": "WQ-318",
+  "summary": "Game Data - Pregame - Hide Spoilers ON",
+  "description": "GIVEN Hide Spoilers is ON",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a7bae5c9-c207-4971-ad34-8042451500d3",
+      "action": "WHEN a scheduled game is present in the Hero",
+      "data": "",
+      "result": "THEN the away team probable pitcher is not displayed below the away team name\r\nAND the home team probable pitcher is not displayed below the home team name"
+    }
+  ]
+}

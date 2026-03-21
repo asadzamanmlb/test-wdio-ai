@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1521",
+  "issueId": "1128858",
+  "key": "WQ-1521",
+  "summary": "-Quick Actions Menu | Hearing Options When not in Rewinded State",
+  "description": "GIVEN the user is in the Quick Actions Menu\r\nAND TTS is enabled\r\nAND the user is not in the rewinded state",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "cdd0b3e3-d559-44bd-86a3-c24d0366b764",
+      "action": "WHEN the user focuses on the Quick Actions Menu",
+      "data": "",
+      "result": "THEN the user will hear:\"Gameday option (1/3), <Last Channel Game> option (2/3), captions option (3/3))\""
+    }
+  ]
+}

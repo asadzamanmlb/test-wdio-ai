@@ -1,0 +1,20 @@
+{
+  "id": "WQ-354",
+  "issueId": "1127666",
+  "key": "WQ-354",
+  "summary": "Games carousel date flip",
+  "description": "GIVEN a user is on the Home page\r\nAND the current time is before 10am ET\r\nAND games were on the schedule yesterday\r\nAND games are on the schedule today",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "aafa5c40-f7ec-46bb-a6cb-0ae72fc093d3",
+      "action": "WHEN the user is stagnate on the Home page\r\nAND time passes the 10am ET threshold",
+      "data": "",
+      "result": "THEN the games carousel updates with today's games\r\nAND yesterday's games are not displayed in the Games Carousel"
+    }
+  ]
+}

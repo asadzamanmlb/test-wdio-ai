@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1787",
+  "issueId": "1129204",
+  "key": "WQ-1787",
+  "summary": "LIVE Key",
+  "description": "[NetCast4.5/webOS1.0]\r\nRemote control has LIVE key",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b6af65e3-54f5-41dd-93b0-84f26d028664",
+      "action": "Execute app → Press LIVE key of remote control",
+      "data": "",
+      "result": "When pressing LIVE key of remote control, app moves properly to Live TV\r\n\r\n※ NetCast: Move to Live TV after terminating app\r\n※ webOS: OK if app moves properly to Live TV (irrelevant whether app is terminated or not)"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-450",
+  "issueId": "1127770",
+  "key": "WQ-450",
+  "summary": "Broadcast Options - Switch Alt Audio",
+  "description": "GIVEN the user is entitled for archive or live game playback\r\nAND the selected archive or live game has alt audio feeds\r\nAND the user selects a video feed to initiate playback",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1c534997-28e3-46c8-aab3-32ce89dd9633",
+      "action": "WHEN the user opens the Broadcast Options in the scrubber\r\nAND the user selects an alt audio feed",
+      "data": "",
+      "result": "THEN video playback continues\r\nAND the alt audio feed is playing back\r\nAND the alt audio is in-sync with the video"
+    }
+  ]
+}

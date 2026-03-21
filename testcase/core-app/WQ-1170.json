@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1170",
+  "issueId": "1128505",
+  "key": "WQ-1170",
+  "summary": "Settings Page Navigation",
+  "description": "GIVEN a user is on the Settings page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b2b7b35c-38db-40e3-baee-9991d4689608",
+      "action": "WHEN the user navigates from the Settings button in the header down through all the items on the page\r\nAND navigates back up to the Settings button in the header",
+      "data": "",
+      "result": "THEN focus is assigned to each item on the page"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1788",
+  "issueId": "1129205",
+  "key": "WQ-1788",
+  "summary": "Other Key",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "13f10983-8229-4da7-9dfd-d7bcdb03f995",
+      "action": "Execute app → When running app, press number key or other keys of remote control",
+      "data": "",
+      "result": "When pressing number key or other keys that are not supported in app, app works properly"
+    }
+  ]
+}

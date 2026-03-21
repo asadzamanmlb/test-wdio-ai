@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3125",
+  "issueId": "1163705",
+  "key": "WQ-3125",
+  "summary": "RSN Player Controls",
+  "description": "GIVEN a user has initiated playback of an RSN 24/7 feed or RSN VOD content",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3004032f-b52c-4432-8f2b-3a0d39e0c8b2",
+      "action": "WHEN the user initiates pause, fast forward, rewind, or play using the remote/controller",
+      "data": "",
+      "result": "THEN the stream reacts appropriately to the actions initiated"
+    }
+  ]
+}

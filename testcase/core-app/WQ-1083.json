@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1083",
+  "issueId": "1128413",
+  "key": "WQ-1083",
+  "summary": "Games page to Subscribe to Games page - Anonymous User",
+  "description": "GIVEN an anonymous user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "caf1d6ff-b638-4b51-9067-a123420b140f",
+      "action": "WHEN the user selects the \"Subscribe\" tab in the navigation header\nAND selects the \"Browse Subscriptions\" button on the Welcome page\nAND selects one of the subscription package tiles on the Subscriptions page\nAND selects the \"Log In\" button on the paywall page\nAND enters an email address and password for an existing user\nAND selects the \"Log In\" button on the Log In page",
+      "data": "",
+      "result": "THEN the user is navigated to the Games page\nAND focus is assigned to the top left (1st) game tile"
+    }
+  ]
+}

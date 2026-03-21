@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1305",
+  "issueId": "1128642",
+  "key": "WQ-1305",
+  "summary": "Resume",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND the user has already watched a portion of a Live or Archive game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9ab0fd09-b905-48c7-8f37-5978f74241a1",
+      "action": "WHEN the user selects a game tile for a game they've already partially watched\r\nAND selects the same team feed\r\nAND assigns focus to the Resume button",
+      "data": "",
+      "result": "THEN the Feed Modal displays\r\nAND the following statement is spoken, \"Resume, press select to resume the game from the previous point, press back to chose a different feed.\""
+    }
+  ]
+}

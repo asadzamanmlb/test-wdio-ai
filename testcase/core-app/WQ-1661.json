@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1661",
+  "issueId": "1129078",
+  "key": "WQ-1661",
+  "summary": "Live FGotD AtBat user",
+  "description": "When a Audio user select Live FGOD game, Feed Select modal should appear with Audio and Video feeds",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9aae3ae2-d040-489a-ab08-d041fdef6a16",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

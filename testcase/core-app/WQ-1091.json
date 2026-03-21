@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1091",
+  "issueId": "1128421",
+  "key": "WQ-1091",
+  "summary": "Subscription Purchase Page - Log In Anonymous",
+  "description": "GIVEN the user is on the Purchase page for a subscription package",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7bb61874-8db4-41b4-8c2e-6b4bc5a361c5",
+      "action": "WHEN the user selects the \"Log In\" button",
+      "data": "",
+      "result": "THEN the user is navigated to the Log In page\r\nAND the user is able to successfully log in"
+    }
+  ]
+}

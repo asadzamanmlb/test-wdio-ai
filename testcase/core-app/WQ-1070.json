@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1070",
+  "issueId": "1128400",
+  "key": "WQ-1070",
+  "summary": "Create Account Failure - Invalid Email",
+  "description": "GIVEN the user is not logged in\r\nAND the user selects the \"Get MLB.TV\" tab in the header\r\nAND the user selects the [Create Free Account] button on the Welcome page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "345b891c-8032-410e-8399-2c842c1c5870",
+      "action": "WHEN the user enters an invalid format email address in the \"Email Address\" field\r\nAND a valid format password in the \"Password\" field\r\nAND selects the [Create Account] button",
+      "data": "",
+      "result": "THEN the email address field has a red border\r\nAND \"Your e-mail address must be in the format of name@domain.com.\" is displayed between the email address field and password field"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1631",
+  "issueId": "1129048",
+  "key": "WQ-1631",
+  "summary": "Game stats update in line score (currently N/A)",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8f978204-7a7d-4441-8377-584518137da5",
+      "action": "WHEN",
+      "data": "",
+      "result": "Game stats update properly in the box score for mobile or line score for Connected Devices."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-396",
+  "issueId": "1127708",
+  "key": "WQ-396",
+  "summary": "SNY tab displays in the Header",
+  "description": "GIVEN a user has entitlements for SNY\r\nAND the user launches the MLB.TV app\r\n\r\n**NOTE:** SNY entitlement = SNY_121",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5fe90d79-e85c-4b99-a4a9-476bff4d9dbb",
+      "action": "WHEN the user logs in",
+      "data": "",
+      "result": "THEN the user should see [Home], [SNY], [Games], [Upgrade MLB.TV], [Settings] in the header\r\n\r\n**NOTE:** If the test user also has one of the following entitlements, \"EXECMLB\", \"MLBALL\", \"MLBVIDEOADOBEPASS\", \"MLBVIDEOAR\", [Upgrade MLB.TV] will NOT display."
+    }
+  ]
+}

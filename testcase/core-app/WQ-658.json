@@ -1,0 +1,20 @@
+{
+  "id": "WQ-658",
+  "issueId": "1127986",
+  "key": "WQ-658",
+  "summary": "Single Team subscriber National Feed archive - Game Tile",
+  "description": "GIVEN the us is a Single Team Subscriber\nAND Hide Spoilers is set to OFF\nAND the subscribed-to-team is in the game\nAND the game mediaFeedType = NATIONAL\nAND the game mediaState = MEDIA_ARCHIVE\n\n*NOTE:* National TV game = Fox Saturday Baseball, Roku Sunday Morning Baseball\n*NOTE:* Game Tile designs for reference - [https://www.figma.com/design/rGAWoDJL0fx7RTxv0er9U5/MLB.TV-Connected-Device-Developer-Spec?node-id=179-99767&t=2GMcHnOGaIH6wtRZ-0|https://www.figma.com/design/rGAWoDJL0fx7RTxv0er9U5/MLB.TV-Connected-Device-Developer-Spec?node-id=179-99767&t=2GMcHnOGaIH6wtRZ-0|smart-link]",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2e962177-e790-4d2f-92bc-be6b05956a0a",
+      "action": "WHEN a user views/focuses the archived game tile",
+      "data": "",
+      "result": "THEN a \"LOCKED\" badge does not display in the upper left corner of the game tile\nAND \"FINAL\" displays in the upper right corner of the game tile\nAND the game match up with respective score is displayed\nAND the Pitching Results are displayed\nAND the Broadcast Networks are displayed"
+    }
+  ]
+}

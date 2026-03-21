@@ -1,0 +1,20 @@
+{
+  "id": "WQ-752",
+  "issueId": "1128080",
+  "key": "WQ-752",
+  "summary": "AtBat subscriber live game in market - Game Tile",
+  "description": "GIVEN a user is an Audio Only subscriber\r\nAND a game is scheduled/in-progress in the users viewing market\r\nAND the game level blackedOutVideo equals true in MAST EPGv3\r\nAND the game level entitledVideo equals false in MAST EPGv3",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "254879db-7938-4594-8fb5-eca1dd49ca4c",
+      "action": "WHEN a user views/focuses a scheduled/in-progress in-market game tile",
+      "data": "",
+      "result": "THEN a lock icon displays in the upper right corner of the game tile\r\nAND the game tile header has a dark overlay over the team colors\r\nAND a blackout pill is displayed in the lower left corner of the game tile"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1168",
+  "issueId": "1128503",
+  "key": "WQ-1168",
+  "summary": "Header Navigation - Settings page",
+  "description": "GIVEN a user has launched the app",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f4220e93-d17b-4677-a0f5-88c5e5bf8f02",
+      "action": "WHEN a user selects the the [Settings] button in the navigation header",
+      "data": "",
+      "result": "THEN the Settings page loads\r\nAND focus leaves the 'Settings' button in the header\r\nAND the 'Settings' text color changes from black to white\r\nAND the 'Settings' text becomes bold\r\nAND all other button text in the header is not bold\r\nAND focus is assigned to the \"Log in/Log Out\" element on the page"
+    }
+  ]
+}

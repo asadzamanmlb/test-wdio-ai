@@ -1,0 +1,20 @@
+{
+  "id": "WQ-896",
+  "issueId": "1128225",
+  "key": "WQ-896",
+  "summary": "Single Team subscriber out of market non-subscribed team - Feed Select",
+  "description": "GIVEN a user is a single team subscriber\r\nAND a game includes the subscribed-to-team\r\nAND the game level blackedOutVideo equals false in MAST EPGv3\r\nAND the game level entitledVideo equals true in MAST EPGv3\r\nAND the feed level entitled equals true for the subscribed-to-team\r\nAND the feed level entitled equals false for the non-subscribed-to-team",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b18a99b3-8ddd-42e8-987f-46cb92c00e14",
+      "action": "WHEN a user selects a game tile for an in-progress game of the subscribed-to-team",
+      "data": "",
+      "result": "THEN a lock icon displays on the feed button for the not entitled team\nAND the user is able to play the feed of the subscribed-to-team\nAND the user is navigated to the Subscriptions/Paywall page after clicking the feed button for the non-subscrined-to-team\nAND the user is navigated back to the selected game tile after pressing the \"back\" button on the controller"
+    }
+  ]
+}

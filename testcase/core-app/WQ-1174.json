@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1174",
+  "issueId": "1128509",
+  "key": "WQ-1174",
+  "summary": "Samsung Only - User long presses Return on Bluetooth remote",
+  "description": "GIVEN the user is on the mlb app on Samsung tv\r\nAND the user is on a Detail page within the MLB app",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "95e86056-97c3-450d-8ce7-6307c6499f46",
+      "action": "WHEN the user long presses the Return button (on the bluetooth remote)",
+      "data": "",
+      "result": "THEN then the user should trigger the Exit confirmation page"
+    }
+  ]
+}

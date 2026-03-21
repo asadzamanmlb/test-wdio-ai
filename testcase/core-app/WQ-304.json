@@ -1,0 +1,20 @@
+{
+  "id": "WQ-304",
+  "issueId": "1127616",
+  "key": "WQ-304",
+  "summary": "FOX MVPD - International non-Canada",
+  "description": "GIVEN a Postseason game is on the schedule\r\nOR the All-Star Game is on the schedule\r\nAND FOX broadcasters are assigned\r\nAND the user's location is International non-Canada\r\nAND the game level entitledVideo = true\r\nAND the game level blackedOutVideo = false\r\nAND the AWAY (National) feed level foxAuthRequired = true\r\nAND the HOME (International) feed level foxAuthRequired = false",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e635f3fe-4f5c-4077-bbd0-fe282d1d104f",
+      "action": "WHEN the Postseason game with FOX broadcasters is present in the Hero",
+      "data": "",
+      "result": "THEN the MVPD pill does not display above the Hero title / game match up\r\nAND MVPD text does not display below the Hero title / game match up\r\nAND the user is able to achieve playback after the \"Watch Live\" button is selected"
+    }
+  ]
+}

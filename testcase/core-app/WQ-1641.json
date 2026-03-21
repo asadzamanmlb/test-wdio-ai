@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1641",
+  "issueId": "1129058",
+  "key": "WQ-1641",
+  "summary": "Resume - Hide Spoilers OFF",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "df9bd5bf-dcfd-4050-a317-dafdd78cf329",
+      "action": "WHEN",
+      "data": "",
+      "result": "HideSpoilers-Off: When Archived Home or Away Video feed is selected, then Game watched for few mins, later exists and  launches the same game, then bookmarking should set and user should able to watch the game where he left if Resume option is selected from Feed select modal."
+    }
+  ]
+}

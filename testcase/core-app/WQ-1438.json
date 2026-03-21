@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1438",
+  "issueId": "1128775",
+  "key": "WQ-1438",
+  "summary": "Cancel button",
+  "description": "GIVEN the user is not logged in\r\nAND TTS is turned ON\r\nAND the user is on the Create Free Account page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3c951dbd-4055-446b-9a2f-df2033150d3a",
+      "action": "WHEN the user navigates to the \"Cancel\" button",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

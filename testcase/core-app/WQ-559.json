@@ -1,0 +1,20 @@
+{
+  "id": "WQ-559",
+  "issueId": "1127885",
+  "key": "WQ-559",
+  "summary": "MLBN 24/7 Live Linear playback behind live point",
+  "description": "GIVEN a user is entitled for a 24/7 Live Linear feed\r\nAND the user is logged in\r\nAND the user selects a 24/7 Live Linear stream to watch\r\n\r\n**NOTE:** 24/7 Live Linear feed entitlements\r\n- MLBN\r\n- SNY_121\r\n- SNLA_119",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a4d54e24-c39d-499b-b3ec-d7e4e995c909",
+      "action": "WHEN the playhead is behind the live point",
+      "data": "",
+      "result": "THEN the live indicator is gray\r\nAND the \"Jump to Live\" button displays\r\nAND the scrubber bar to the left of the playhead is blue\r\nAND the scrubber bar to the right of the playhead gray\r\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

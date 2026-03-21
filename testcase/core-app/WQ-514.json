@@ -1,0 +1,20 @@
+{
+  "id": "WQ-514",
+  "issueId": "1127840",
+  "key": "WQ-514",
+  "summary": "Exit Archive Game",
+  "description": "GIVEN a user selects an archive game to watch\r\nAND the video plays for several minutes\r\nAND the scrubber is not displaying",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "666d0a28-1a1e-4dec-a034-fec549d08be0",
+      "action": "WHEN the user presses the [O] button on the controller",
+      "data": "",
+      "result": "THEN the archive game video is stopped\r\nAND the video player is dismissed\r\nAND the user is navigated back to the previous page\r\nAND the game tile of the selected game has focus"
+    }
+  ]
+}

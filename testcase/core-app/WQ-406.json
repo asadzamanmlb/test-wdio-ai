@@ -1,0 +1,20 @@
+{
+  "id": "WQ-406",
+  "issueId": "1127718",
+  "key": "WQ-406",
+  "summary": "SNY 24/7 feed - Mid-roll DAI Ads",
+  "description": "GIVEN a user has entitlements for SNY\r\nAND the user launches the MLB.TV app\r\nAND the user logs in\r\nAND the user has initiated playback of the 24/7 SNY feed\r\nAND the 24/7 SNY stream has adsEnabled equals true in the graphql Preview/Response (data->initPlaybackSession->adExperience->adsEnabled)\r\nAND an asset key is is returned in the same graphql Preview/Response (data->initPlaybackSession->adExperience->adEngineIdentifiers)\r\n\r\n**NOTE:** SNY entitlement = SNY_121\r\nEnter \"graphql\" into the Network search of Dev Tools to find the initPlaybackSession\r\nTHIS NEEDS TO BE TESTED IN A BROWSER",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d9b67429-1c5e-405b-8980-abc051f604e9",
+      "action": "WHEN an ad break is triggered",
+      "data": "",
+      "result": "THEN we should see ads playing back\r\nAND \"id3-events.json\" network calls are being made\r\nAND the \"id3-events.json\" network calls have a request URL starting with \"https://dai.google.com/\"\r\n\r\n**NOTE:** Entering \"stream\" into the Network search of Dev Tools should filter out the id3-events.json network calls"
+    }
+  ]
+}

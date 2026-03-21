@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1486",
+  "issueId": "1128823",
+  "key": "WQ-1486",
+  "summary": "Play | SLIVE Video",
+  "description": "GIVEN the user is watching SLIVE content\r\nAND TTS is enabled\r\nAND playback is pasued",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b942723a-7c29-417d-9171-4f8417c6da47",
+      "action": "WHEN the user plays the video",
+      "data": "",
+      "result": "THEN the user will hear: “Play, <time_behind_live>, press select to pause.”\r\n\r\nFor example: \"Play, 10 minutes 45 seconds behind live, press select to pause\""
+    }
+  ]
+}

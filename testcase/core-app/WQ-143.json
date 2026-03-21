@@ -1,0 +1,20 @@
+{
+  "id": "WQ-143",
+  "issueId": "1127446",
+  "key": "WQ-143",
+  "summary": "Blackedout No Feeds Available - Spring Training",
+  "description": "GIVEN a user is blackedout of a game\r\nAND the blackedout game has no feeds available",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6c79dfee-6808-4c3f-8b16-798f6343453f",
+      "action": "WHEN the user selects the game tile for the game that is blackedout and has no feeds available",
+      "data": "",
+      "result": "THEN the Feed Select modal displays\r\nAND the team logos and colors are displayed in the matchup header\r\nAND the \"Blackout Market\" message is displayed\r\nAND the video icon/title is not displayed\r\nAND \"No Broadcast Available\" is not displayed"
+    }
+  ]
+}

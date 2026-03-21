@@ -1,0 +1,20 @@
+{
+  "id": "WQ-595",
+  "issueId": "1127921",
+  "key": "WQ-595",
+  "summary": "SLIVE playback behind live point",
+  "description": "GIVEN a user has SUBSCRIBERVOD entitlement\r\nAND an SLIVE stream is in progress\r\nAND the user selects the SLIVE stream to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ca658de8-c4a1-49a2-8731-1c10e0267fb9",
+      "action": "WHEN the playhead is behind the live point",
+      "data": "",
+      "result": "THEN the live indicator is gray\r\nAND the \"Jump to Live\" button displays\r\nAND the scrubber bar to the left of the playhead is blue\r\nAND the scrubber bar to the right of the playhead gray\r\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

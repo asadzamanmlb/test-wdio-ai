@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1716",
+  "issueId": "1129133",
+  "key": "WQ-1716",
+  "summary": "Resume bookmark after the top of the 1st - Hide Spoilers ON",
+  "description": "GIVEN the user is entitled for live game playback\nAND Hide Spoilers is turned ON\nAND team feeds are mediaState=MEDIA_ON\nAND a team feed/stream has a resume bookmark after the top of the 1st inning",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e3d72547-8142-4c4f-bf27-e320eea5a320",
+      "action": "WHEN the user resumes the same game feed/stream before the game is Final\nAND the user watches the game for at least a half inning",
+      "data": "",
+      "result": "THEN inning markers display to the left of the playback head for the portion of the game the user watched previously\nAND inning markers do not display to the right of the playback head for the portion of the game that has occurred, but the user has not watched\nAND inning markers are populated to the left of the playback head as each half inning begins"
+    }
+  ]
+}

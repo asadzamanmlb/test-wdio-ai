@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1450",
+  "issueId": "1128787",
+  "key": "WQ-1450",
+  "summary": "Attempt to navigate in directions beyond the buttons",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is not logged in\r\nAND the user is on the Welcome page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "649c536f-1a6d-41c9-85fc-71f3f11f9613",
+      "action": "WHEN the user attempts to navigate left or right from any button \r\nAND the user attempts to navigate up from the \"Create Free Account\" button\r\nAND the user attempts to navigate below the \"Log In\" button",
+      "data": "",
+      "result": "THEN after each attempt the following statement is spoken, \"There is no selectable content available to the <direction> of the current position.\""
+    }
+  ]
+}

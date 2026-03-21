@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1771",
+  "issueId": "1129188",
+  "key": "WQ-1771",
+  "summary": "Adult Authentication",
+  "description": "Adult contents are included",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0a4659b0-b9b0-40f5-8ab4-344397b27714",
+      "action": "Execute app → Access adult content → Check adult authentication process",
+      "data": "",
+      "result": "Adult verification process is included when accessing adult content.\r\n* The adult verification process must be stated in the Comments section and the UX scenario document.\r\ne.g. PIN code method, parental locks, credit card verification process, etc.\r\n\r\n- Adult content is approved if an adult verification process is in place\r\n- Pornography content is strictly prohibited"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-971",
+  "issueId": "1128300",
+  "key": "WQ-971",
+  "summary": "Completed Game W/L Focused",
+  "description": "GIVEN a game has been completed\r\nAND the game state is Final\r\nAND Hide Spoilers is set to OFF",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "fe97382f-10cb-48ad-a3f9-65f894163244",
+      "action": "WHEN the user assigns focus to the game tile",
+      "data": "",
+      "result": "THEN the winning pitcher headshot is displayed with the team primary color as a circular background left justified below the \"FINAL\" game state\r\nAND W <winning_pitcher_name> is displayed to the right of player headshot\r\nAND Innings pitched is displayed below \"W <winning_pitcher_name>\"\r\nAND ERA is displayed to the right of innings pitched\r\nAND the losing pitcher headshot is displayed with the team primary color as a circular background left justified below the winning pitcher headshot\r\nAND L <losing_pitcher_name> is displayed to the right of player headshot\r\nAND Innings pitched is displayed below \"L <losing_pitcher_name>\"\r\nAND ERA is displayed to the right of the innings pitched\r\n\r\nNOTES:\r\n1. A silhouette image will display if a player headshot is not available\r\n2. If pitcher data is not available, \"-\" will display in its place\r\n3. Any partner tags will be hidden when there is a saving pitcher and the Game Tile is focused"
+    }
+  ]
+}

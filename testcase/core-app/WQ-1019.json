@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1019",
+  "issueId": "1128348",
+  "key": "WQ-1019",
+  "summary": "Cannot access games beyond past two seasons - Calendar",
+  "description": "GIVEN a user is on the Games page\r\nAND the calendar is displayed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a4bfcce1-e9a6-4d19-b766-ee0f1ab81213",
+      "action": "WHEN a user navigates to any date in the past beyond the previous two seasons\r\n\r\nWHEN the user selects the [<] button\r\nAND the user continues selecting [<] until January from two seasons ago is reached",
+      "data": "",
+      "result": "THEN the [<] button is grayed out\r\nAND once focus leaves the grayed out button, focus cannot be reassigned while displaying January\r\nAND the user cannot access games further back than the past two seasons"
+    }
+  ]
+}

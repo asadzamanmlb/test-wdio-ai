@@ -1,0 +1,20 @@
+{
+  "id": "WQ-610",
+  "issueId": "1127937",
+  "key": "WQ-610",
+  "summary": "Closed Caption Off persists same session",
+  "description": "GIVEN closed caption setting is off",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "380c5567-21fd-4e70-974a-bf547b54e1f8",
+      "action": "WHEN a user plays all video types",
+      "data": "",
+      "result": "THEN closed caption setting is off\r\nAND closed captions are not displaying for subsequent videos"
+    }
+  ]
+}

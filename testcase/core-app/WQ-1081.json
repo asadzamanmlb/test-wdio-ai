@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1081",
+  "issueId": "1128411",
+  "key": "WQ-1081",
+  "summary": "Settings page to Subscribe to Settings page - Create Account",
+  "description": "GIVEN an anonymous user is on the Settings page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d9fa0587-a525-4c12-9bd4-0f86689fd684",
+      "action": "WHEN the user selects the \"Subscribe\" tab in the navigation header\nAND the user selects the [Create Free Account] button\nAND the user scans the QR Code displayed on the screen\nAND the user follows the create account prompts on their phone to successfully create a new account",
+      "data": "",
+      "result": "THEN the user is navigated to the Settings page\r\nAND focus is assigned to the \"Log Out\" button"
+    }
+  ]
+}

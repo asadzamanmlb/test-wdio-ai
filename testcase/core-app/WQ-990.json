@@ -1,0 +1,20 @@
+{
+  "id": "WQ-990",
+  "issueId": "1128319",
+  "key": "WQ-990",
+  "summary": "Unable to load Schedule data - Retry Success",
+  "description": "GIVEN the MLB app is open\r\nAND the 'unable to load games' error screen is displayed\r\nAND the mastapi request is not blocked",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a6219ceb-c93c-4c9c-a6ca-56e8fd1176fa",
+      "action": "WHEN a user selects the [Okay] button",
+      "data": "",
+      "result": "THEN the error screen is dismissed\r\nAND a black screen with a spinning baseball is displayed\r\nAND the user is navigated to the previous page\r\nAND the games scheduled for today are displayed\r\nAND if navigated to the Home page, focus is assigned to the Watch button in the Hero\r\nOR focus is assigned to the Home tab if the Watch button is not in the Hero\r\nAND if navigated to the Games page, focus is assigned to the left most game tile in the top row"
+    }
+  ]
+}

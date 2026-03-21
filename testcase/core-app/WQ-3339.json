@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3339",
+  "issueId": "1232496",
+  "key": "WQ-3339",
+  "summary": "DAI Ads playback for MLBN",
+  "description": "GIVEN a user is entitled for MLBN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "cbd083a9-c641-4759-99b0-d703b806204c",
+      "action": "WHEN a user initiates MLBN playback from the Home page",
+      "data": "2 MGW/graphql calls made → \n\n* initplaybacksession (which includes dapi - {{mlbn-linear}} info)\n* contentCollections\n!xray-attachment://aae0afd1-32cd-47b4-8cc7-9828819856f6|width=1492,height=1102!",
+      "result": "THEN the stream is assigned a gsId (the gsId will display in the lower right corner of the screen in non-Prod environments)\nAND mid-roll ads are played during commercial breaks\nAND mid-roll ads do not play during the game outside the commercial breaks"
+    }
+  ]
+}

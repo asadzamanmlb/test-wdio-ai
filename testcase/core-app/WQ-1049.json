@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1049",
+  "issueId": "1128379",
+  "key": "WQ-1049",
+  "summary": "Log In from header - Cancel button functionality",
+  "description": "GIVEN the user is not logged in\r\nAND the user selects the Log In tab in the header",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "14cf168d-0f69-44c4-91b5-b060f185040a",
+      "action": "WHEN a user selects the [Cancel] button",
+      "data": "",
+      "result": "THEN the user is navigated to the previous page"
+    }
+  ]
+}

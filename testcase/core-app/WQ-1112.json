@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1112",
+  "issueId": "1128442",
+  "key": "WQ-1112",
+  "summary": "Settings page to Get MLB.TV to Settings page - Log In",
+  "description": "GIVEN an anonymous user is on the Settings page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3df66550-cb3d-43e1-bb42-eb1c04143e7f",
+      "action": "WHEN the user selects the \"Get MLB.TV\" tab in the navigation header\r\nAND selects the \"Log In\" button/link on the Welcome page\r\nAND enters an email address and password for an existing subscriber\r\nAND selects the \"Log In\" button on the Log In page",
+      "data": "",
+      "result": "THEN the user is logged in successfully\r\nAND the user is navigated to the Settings page\r\nAND focus is assigned to the \"Log Out\" button"
+    }
+  ]
+}

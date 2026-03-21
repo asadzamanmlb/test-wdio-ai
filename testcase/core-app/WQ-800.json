@@ -1,0 +1,20 @@
+{
+  "id": "WQ-800",
+  "issueId": "1128128",
+  "key": "WQ-800",
+  "summary": "Single Team subscriber Peacock archive unsubscribed team - Game Tile",
+  "description": "GIVEN a user is a Single Team subscriber\r\nAND an archive Peacock game does not contain the subscribed team",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "da4d516e-e03f-42ba-9ab2-891de48d4936",
+      "action": "WHEN a user views/focuses an archive Peacock game tile",
+      "data": "",
+      "result": "THEN a lock icon displays in the upper right corner of the game tile\r\nAND there is a dark overlay over the team colors in the game tile header\r\nAND the Peacock pill does not display in the game tile"
+    }
+  ]
+}

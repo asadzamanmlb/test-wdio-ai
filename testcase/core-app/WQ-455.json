@@ -1,0 +1,20 @@
+{
+  "id": "WQ-455",
+  "issueId": "1127781",
+  "key": "WQ-455",
+  "summary": "Slow down Rewind",
+  "description": "GIVEN a user is rewinding a game feed\nAND the rewind speed is 4, 8, 16, 32, 64, 128, or 256",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "785278b7-4806-4d69-9d65-d5a584c01260",
+      "action": "WHEN a user taps the right d-pad button, R2 button, or the left analog stick to the right",
+      "data": "",
+      "result": "THEN the rewind speed decreases by one increment for every tap"
+    }
+  ]
+}

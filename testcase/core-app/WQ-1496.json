@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1496",
+  "issueId": "1128833",
+  "key": "WQ-1496",
+  "summary": "Live/Archive | Fast Forward to the Live Point in Live Games",
+  "description": "GIVEN the user is watching a Live game\r\nAND TTS is enabled\r\nAND the user is Fast Forwarding",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "72ef45ed-b999-4828-8112-71d41e935d1c",
+      "action": "WHEN the user fast-forwards to the live point of the game",
+      "data": "",
+      "result": "THEN the user will hear: “Fast Forward, Live Point. Press Select to play\""
+    }
+  ]
+}

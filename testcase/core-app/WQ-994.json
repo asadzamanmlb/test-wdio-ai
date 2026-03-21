@@ -1,0 +1,20 @@
+{
+  "id": "WQ-994",
+  "issueId": "1128323",
+  "key": "WQ-994",
+  "summary": "Settings to Games",
+  "description": "GIVEN a user is on the Games page\r\nAND navigates to a date that is not today\r\nAND navigates to the Settings page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "25f3a040-e91f-4769-91a7-6deb5157974b",
+      "action": "WHEN the user navigates back to the Games page",
+      "data": "",
+      "result": "THEN the Games page loads with the most up to date information"
+    }
+  ]
+}

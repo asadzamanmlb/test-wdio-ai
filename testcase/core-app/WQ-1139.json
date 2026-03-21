@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1139",
+  "issueId": "1128474",
+  "key": "WQ-1139",
+  "summary": "Log Out",
+  "description": "GIVEN a subscriber is logged into the app\r\nAND the subscriber is on the Settings page",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "920407f5-0c85-4dae-8d51-ca4890e8ed93",
+      "action": "WHEN the subscriber selects Log Out",
+      "data": "",
+      "result": "THEN the subscriber is successfully logged out of their account\r\nAND the subscriber stays on the Settings page\r\nAND \"Log In\" is displayed in the header\r\nAND \"Get MLB.tv\" is displayed in the header"
+    }
+  ]
+}

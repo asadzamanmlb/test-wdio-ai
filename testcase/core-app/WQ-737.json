@@ -1,0 +1,20 @@
+{
+  "id": "WQ-737",
+  "issueId": "1128065",
+  "key": "WQ-737",
+  "summary": "Extra Innings subscriber live National TV Game in market - Feed Select modal",
+  "description": "GIVEN the user is an Extra Innings subscriber\r\nAND there is a National TV Game scheduled/in-progress\r\nAND the game level blackedOutVideo equals true in MASTepg\r\n\r\n**NOTE:**\r\nNational TV game = FOX Saturday Baseball or ESPN Sunday Night Baseball",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d054c6b5-1dbc-4dff-bd58-02a89687e207",
+      "action": "WHEN the user selects the National TV Game game tile with a Blackout pill",
+      "data": "",
+      "result": "THEN video feed buttons are not displayed\r\nAND the following blackout messaging is displayed in the Feed Select modal: “This game is unavailable in your area. All Regular Season and Postseason live games are subject to blackout restrictions due to Major League Baseball exclusivities. An archive copy of the game will be available 90 minutes after the game.”"
+    }
+  ]
+}

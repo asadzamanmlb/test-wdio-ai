@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1015",
+  "issueId": "1128344",
+  "key": "WQ-1015",
+  "summary": "Navigate to future months",
+  "description": "GIVEN a user is on the Games page\r\nAND the calendar is displaying",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b2610131-58d7-4f5b-bff3-c19fde435662",
+      "action": "WHEN the user selects the [>] button",
+      "data": "",
+      "result": "THEN the calendar month is updated to the next future month"
+    }
+  ]
+}

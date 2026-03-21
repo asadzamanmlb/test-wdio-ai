@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1483",
+  "issueId": "1128820",
+  "key": "WQ-1483",
+  "summary": "Pause | VOD/SVOD Video",
+  "description": "GIVEN the user is watching VOD/SVOD content\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "86d74324-359f-441d-bb32-619ef97837a1",
+      "action": "WHEN the user pauses the video",
+      "data": "",
+      "result": "THEN the user will hear: “Pause, <current_time> of <total_time>, press select to play.”\r\n\r\nFor example: \"Pause, 1 minute 30 seconds of 5 minutes 45 seconds, press select to play\""
+    }
+  ]
+}

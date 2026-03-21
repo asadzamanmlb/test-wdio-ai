@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1497",
+  "issueId": "1128834",
+  "key": "WQ-1497",
+  "summary": "Live/Archive | Rewind to Start of Game",
+  "description": "GIVEN the user is watching a Live or Archive game\r\nAND TTS is enabled\r\nAND the user is Rewinding",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "38a9d3cc-42e3-4363-b680-90f3b5e739c6",
+      "action": "WHEN the user rewinds to the start of the game",
+      "data": "",
+      "result": "THEN the user will hear: “Rewind, Start of Game. Press select to play”"
+    }
+  ]
+}

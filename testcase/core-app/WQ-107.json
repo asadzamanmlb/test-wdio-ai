@@ -1,0 +1,20 @@
+{
+  "id": "WQ-107",
+  "issueId": "1127410",
+  "key": "WQ-107",
+  "summary": "Resume Away Feed Selection - Live Game",
+  "description": "GIVEN a live game is in-progress\r\nAND videoFeeds for the game have a mediaState of MEDIA_ON\r\nAND the user is entitled to watch the game\r\nAND the user has previously played the feed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "61f312c6-e3be-4d0b-90f8-a75d6ea27e7f",
+      "action": "WHEN a user selects a game tile for a live in-progress game\r\nAND selects the away video feed button in the Feed Select Modal\r\nAND selects the [Resume] button in the Secondary Feed Select Modal",
+      "data": "",
+      "result": "THEN the feed select modal/games page is dismissed\r\nAND the video player maximizes to full screen\r\nAND the away video feed starts playing from the bookmarked/last watched point"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-903",
+  "issueId": "1128232",
+  "key": "WQ-903",
+  "summary": "AtBat subscriber - Feed Select",
+  "description": "GIVEN a user is an audio only subscriber\r\nAND the game level blackedOutVideo equals false in MAST EPGv3\r\nAND the game level entitledAudio equals true in MAST EPGv3\r\nAND the game level entitledVideo equals false in MAST EPGv3",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d0eebcba-f3ab-4b80-982b-f65f51bc886c",
+      "action": "WHEN a user selects an out-of-market scheduled/in-progress game tile\r\nOR a user selects an archive game tile",
+      "data": "",
+      "result": "THEN a lock icon displays on both feed buttons in the Feed Select modal\r\nAND the user is navigated to the Subscriptions/Paywall page if they select one of the feed buttons\r\nAND the user is navigated back to the selected game tile after pressing the CIRCLE button on the controller"
+    }
+  ]
+}

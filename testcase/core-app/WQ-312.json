@@ -1,0 +1,20 @@
+{
+  "id": "WQ-312",
+  "issueId": "1127624",
+  "key": "WQ-312",
+  "summary": "Game States - Live - Delayed - Hide Spoilers OFF",
+  "description": null,
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a90fb565-5cb8-4f69-8f7d-8b4f2ad3fdf7",
+      "action": "WHEN a game is in a Live state\r\nAND the game is Delayed\r\nAND one of the following statusCode's are present in the MAST response: (IV,IP,IY,IE,IA,IO,IZ,IR,IS,IG,IF,IC,ID,IB,IL,II))",
+      "data": "",
+      "result": "THEN a pill with the text \"DELAYED\" is displayed above the team info in the Hero"
+    }
+  ]
+}

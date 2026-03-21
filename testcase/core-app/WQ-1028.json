@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1028",
+  "issueId": "1128358",
+  "key": "WQ-1028",
+  "summary": "Log In page UI",
+  "description": "GIVEN the user launches the app\r\nAND the user is not logged in",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d1a26cf8-d1d7-4aa9-9cbe-889003cdbce8",
+      "action": "WHEN the user navigates to the \"Log In\" page",
+      "data": "",
+      "result": "THEN the user lands on the Login page\nAND the background is a blurred baseball related image\n\nAND the MLB logo is displayed at the top left of the screen\nAND \"MLB\" text is displayed directly to the right of the MLB logo\nAND below that, in bold text, \"Use This Device\" is displayed\nAND below that, the \"Email Address\" field displays with focus\nAND the \"Email Address\" field contains grey ghost text \"Email Address\"\nAND below that, the \"Password\" field is displayed with grey ghost text \"Password\"\nAND to the right of the \"Password\" field, a button with an eye icon is displayed\nAND below the \"Password\" field and view password button, a disabled [Sign In] button is displayed to the left of an enabled [Cancel] button\nAND below the [Log In] and [Cancel] buttons, the following text is displayed at the bottom of the screen, \"Blackout and other restrictions apply. Please visit mlb.com/ps5 to learn more.\"\nAND to the right of the text fields and buttons, two white vertical lines are displayed with \"OR\" separating them\nAND to the right of the \"OR\" and vertical lines, \"Express Sign In\" is displayed as a title\nAND \"Scan the QR code or go to mlb.com/activate and enter the code.\" is displayed below \"Express Sign In\"\nAND a QR code followed by an eight digit code is displayed below \"Scan the QR code or go to mlb.com/activate and enter the code.\"\nAND the footer displays \"Blackout and other restrictions apply. Visit mlb.com/<platform> to learn more.\""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-344",
+  "issueId": "1127656",
+  "key": "WQ-344",
+  "summary": "Play VOD from Hero",
+  "description": "GIVEN a user is anonymous/free/paid\r\nAND VOD content is present in the Hero",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "cb51d296-a43c-4646-9523-198e00a2174d",
+      "action": "WHEN a user selects the \"Watch Now\" button",
+      "data": "",
+      "result": "THEN VOD playback is successful"
+    }
+  ]
+}

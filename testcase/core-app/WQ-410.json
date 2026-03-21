@@ -1,0 +1,20 @@
+{
+  "id": "WQ-410",
+  "issueId": "1127722",
+  "key": "WQ-410",
+  "summary": "SNY 24/7 feed - Mid-roll DAI Ads failover mid-stream",
+  "description": "GIVEN a user has entitlements for SNY\r\nAND the user launches the MLB.TV app\r\nAND the user logs in\r\nAND the user has initiated playback of the 24/7 SNY feed\r\nAND the 24/7 SNY stream has adsEnabled equals true in the graphql Preview/Response (data->initPlaybackSession->adExperience->adsEnabled)\r\nAND an asset key is is returned in the same graphql Preview/Response (data->initPlaybackSession->adExperience->adEngineIdentifiers)\r\n\r\n**NOTE:** SNY entitlement = SNY_121\r\nEnter \"graphql\" into the Network search of Dev Tools to find the initPlaybackSession\r\nTHIS NEEDS TO BE TESTED IN A BROWSER",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5b3cea4c-df6f-4797-95c4-b604cdda4c6d",
+      "action": "WHEN an ad break is triggered\r\nAND network calls to \"dai.google.com*\" are blocked\r\nOR network calls to \"dai.google.com*\" are failing",
+      "data": "",
+      "result": "THEN the stream continues to playback with no video error modal popping up\r\nAND ads playback during ad breaks"
+    }
+  ]
+}

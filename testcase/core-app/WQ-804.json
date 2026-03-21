@@ -1,0 +1,20 @@
+{
+  "id": "WQ-804",
+  "issueId": "1128132",
+  "key": "WQ-804",
+  "summary": "Single Team subscriber YouTube archive subscribed team - Game Tile",
+  "description": "GIVEN a user is a Single Team subscriber\r\nAND an archive YouTube game contains the subscribed team",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3a5c1305-4148-41e9-a157-2931856c96e2",
+      "action": "WHEN a user views/focuses an archive YouTube game tile",
+      "data": "",
+      "result": "THEN a lock icon does not display in the upper right corner of the game tile\r\nAND there is not a dark overlay over the team colors in the game tile header\r\nAND the YouTube pill does not display in the game tile"
+    }
+  ]
+}

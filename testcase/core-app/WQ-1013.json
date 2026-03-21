@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1013",
+  "issueId": "1128342",
+  "key": "WQ-1013",
+  "summary": "Select date in previous season",
+  "description": "GIVEN a user has launched the app\r\nAND the user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3648105e-69e2-42fc-82f4-7df40ac0e16a",
+      "action": "WHEN the user select the [calendar] button\r\nAND the user navigates to the previous season\r\nAND the user selects a date with games",
+      "data": "",
+      "result": "THEN a loading screen with a spinning baseball image displays\r\nAND the user is navigated back to the Games page\r\nAND games for the selected date are displayed\r\nAND the selected date is displayed in the upper left corner of the screen below the navigation header"
+    }
+  ]
+}

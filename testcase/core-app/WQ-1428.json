@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1428",
+  "issueId": "1128765",
+  "key": "WQ-1428",
+  "summary": "Create free MLB account page load",
+  "description": "GIVEN the user is not logged in\r\nAND TTS is turned ON\r\nAND the user is on the Welcome page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "73925de3-c7b0-4132-9e8d-a89d9d401c05",
+      "action": "WHEN the user selects the \"Create Free Account\" button",
+      "data": "",
+      "result": "THEN the Create Free Account page loads\r\nAND the following statement is spoken, \"You are on the Create free MLB account page. Create your account today to watch the MLB.TV Free Game of the Day and much, much more. Press or scroll down to enter your email address. To exit creating an account, Press back to navigate back to welcome page. The email field is selected. Please hit select to enter your email address that you would like associated with your MLB.TV account. Press or scroll down to navigate to the password creation field.\""
+    }
+  ]
+}

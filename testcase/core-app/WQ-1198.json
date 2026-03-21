@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1198",
+  "issueId": "1128535",
+  "key": "WQ-1198",
+  "summary": "TTS | Focus on Login",
+  "description": "GIVEN a user launches the app\r\nAND the user is not logged in\r\nAND the user has TTS enabled\r\n",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4b44a572-c839-4481-a0dd-5784b6a572a2",
+      "action": "WHEN a user focuses on the \"Login\" button",
+      "data": "",
+      "result": "THEN the app reader says “Log In, press select to Log In to your MLB.TV account, X of Y in the menu, press right or left for more items in the menu”\r\n\r\nNOTE: X should be based on how many buttons are visible to the user in the menu and the place that Log In is in that order"
+    }
+  ]
+}

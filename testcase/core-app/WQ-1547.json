@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1547",
+  "issueId": "1128884",
+  "key": "WQ-1547",
+  "summary": "Samsung: Exit page Cancel button",
+  "description": "GIVEN a user has TTS turned ON\r\nAND the user has launched the app",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "22b808ec-050b-48b7-b1fc-329b2a6b6a1a",
+      "action": "WHEN the user initiates exiting the app\r\nAND the user moves focus to the Cancel button on the Exit screen",
+      "data": "",
+      "result": "THEN the following TTS statement is spoken: \"Press select to cancel your action and be taken back. Scroll or press left to navigate to the exit button.\""
+    }
+  ]
+}

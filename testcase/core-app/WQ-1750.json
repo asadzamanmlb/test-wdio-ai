@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1750",
+  "issueId": "1129167",
+  "key": "WQ-1750",
+  "summary": "Main Page",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "979cb1d8-96f1-4175-8165-cd902cc0096f",
+      "action": "Execute app",
+      "data": "",
+      "result": "- App main screen appears properly\r\n- App intro or loading screen appears properly\r\n- In app execution screen, buttons, texts, logos are placed within overscan frame\r\n- Layout and UI appears properly within TV screen.\r\n- Screen ratio fits the device ratio\r\n\r\n※ Compare\r\n- Screenshot, Splash Image, UX scenario"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-395",
+  "issueId": "1127707",
+  "key": "WQ-395",
+  "summary": "LG Only - Back button prompts Exit",
+  "description": "GIVEN the user is on the Home page\r\nAND focus is assigned to the Home tab in the header navigation",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8d9705ca-e69b-4921-87b7-b0be3e39c932",
+      "action": "WHEN the user presses the BACK button on the remote control",
+      "data": "",
+      "result": "THEN an LG/webOS modal displays\r\nAND the modal asks the user if they want to quit the app\r\nAND pressing \"Exit\" in the modal closes the app\r\nOR pressing \"Cancel\" in the modal dismisses the modal"
+    }
+  ]
+}

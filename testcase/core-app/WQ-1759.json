@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1759",
+  "issueId": "1129176",
+  "key": "WQ-1759",
+  "summary": "BACK Button",
+  "description": "BACK UI Button is supported",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0859e9ec-26a2-4a50-8751-c2118ce4209b",
+      "action": "Execute app → Select 'BACK' UI Button \r\n\r\n[CASE]\r\n1. Select BACK UI Button in Main screen\r\n2. After entering depth, select BACK UI button\r\n3. Select by using each magic remote cursor and Navigation Key",
+      "data": "",
+      "result": "Check if BACK UI Button and remote control Back Button is appearing properly and moves to the demand page.\r\n\r\n※ BACK button should direct screen to until where user first entered app\r\n※ BACK button function should be included  mandatorily if app only supports NetCast 2.0/Magic remote control (but not on main screen)\r\n\r\n※ webOS: Optional/NetCast: Required\r\nIf there is UI Back button created by developer, the UI button should function the same as BACK button of remote control"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1098",
+  "issueId": "1128428",
+  "key": "WQ-1098",
+  "summary": "Buy Now Single Team Subscription flow",
+  "description": "GIVEN the user is on the Subscriptions/Paywall page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "93a21361-deba-4507-ad4d-e9633aa41906",
+      "action": "WHEN the user navigates to the MLB.TV Single team tile\r\nAND the user selects the [Buy Now] button on the Subscriptions/Paywall page\r\nAND the user selects the [Log In] button on the Purchase Instructions page",
+      "data": "",
+      "result": "THEN the user is navigated to the Log In page"
+    }
+  ]
+}

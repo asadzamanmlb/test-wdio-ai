@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3017",
+  "issueId": "1159866",
+  "key": "WQ-3017",
+  "summary": "Verify Archive HDR stream when HDR toggle is set to ON",
+  "description": "GIVEN a device is HDR capable\r\nAND the User has HDR toggle set to “ON”",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "92945c2b-f44e-40a4-ba97-eaae84dddc73",
+      "action": "WHEN the user starts playback of an HDR available archive game stream",
+      "data": "",
+      "result": "THEN the user should receive an HDR archive game stream"
+    }
+  ]
+}

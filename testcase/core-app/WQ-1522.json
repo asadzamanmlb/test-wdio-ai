@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1522",
+  "issueId": "1128859",
+  "key": "WQ-1522",
+  "summary": "Games Tab | Hearing Announcement When Navigating to a Game Tile",
+  "description": "GIVEN the user is in the Games tab\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "79973edd-4dc2-40c7-9fc9-36a55581220c",
+      "action": "WHEN the user navigates down from the Games tab\r\nAND the user focuses on the first game tile",
+      "data": "",
+      "result": "THEN the user will hear: “In the games carousel, <Title of Video Stream>, Press select to play, X of X items”"
+    }
+  ]
+}

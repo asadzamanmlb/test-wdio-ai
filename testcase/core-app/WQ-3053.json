@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3053",
+  "issueId": "1161802",
+  "key": "WQ-3053",
+  "summary": "SNY VOD Pause/Play",
+  "description": "GIVEN a logged in user is entitled for SNY RSN\nAND the user is on the SNY page\nAND the user selects a VOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4ec86234-365e-41e0-8912-a64de844447f",
+      "action": "WHEN the user presses the \"select\" button on the controller\nAND the user presses the \"select\" button again after a few moments",
+      "data": "",
+      "result": "THEN video playback pauses after the first button press\nAND a pause flash icon is displayed for one second before it disappears\nAND video playback resumes after the second button press\nAND a play flash icon is displayed for one second before it disappears\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

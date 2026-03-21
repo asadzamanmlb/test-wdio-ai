@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3089",
+  "issueId": "1162039",
+  "key": "WQ-3089",
+  "summary": "MASN2 VOD RW Stop",
+  "description": "GIVEN a logged in user is entitled for MASN2 RSN\nAND the user is on the MASN2 page\nAND the user selects a VOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b52a9d16-92b1-4482-b8e6-a859e8b1ac4d",
+      "action": "WHEN the user initiates Rewind\nAND presses the \"select\" button on the controller after a few moments",
+      "data": "",
+      "result": "THEN Rewind stops\nAND playback resumes at the point where Rewind stopped\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

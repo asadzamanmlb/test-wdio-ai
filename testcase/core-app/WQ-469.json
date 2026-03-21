@@ -1,0 +1,20 @@
+{
+  "id": "WQ-469",
+  "issueId": "1127795",
+  "key": "WQ-469",
+  "summary": "DataDog Playback Heuristics",
+  "description": "GIVEN the tester is logged into DataDog\r\nAND the tester has the \"Playback Heuristics\" page open\r\nAND the tester has logged into the app with a test user\r\nAND the tester has initiated playback of content\r\n\r\n**NOTE:** Playback Heuristics URL: https://us5.datadoghq.com/logs?query=%22PLAYBACK%20HEURISTICS%22%20%40usr.id%3A00uhs4yw8qjJKy4xb357&agg_m=%40event.metadata.currentBitrate&agg_m_source=base&agg_q=%40asset.isLive&agg_q_source=base&agg_t=avg&analyticsOptions=%5B%22line%22%2C%22dog_classic%22%2Cnull%2Cnull%5D&cols=host%2Cservice%2C%40usr.id%2C%40event.action%2C%40event.reason%2C%40event.metadata.convivaTimestamp&context_event=AY_CgMDtAAD8tvFqYXPtGgAB&fromUser=true&messageDisplay=inline&refresh_mode=sliding&storage=hot&stream_sort=%40convivaTimestamp%2Casc&top_n=10&top_o=top&view=spans&viz=&x_missing=true&from_ts=1726669870274&to_ts=1726684270274&live=true",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "dabfda47-301d-46c4-999f-f14474365c6c",
+      "action": "WHEN the tester updates the \"@usr.id\" in the Playback Heuristics search bar to the Okta ID of the logged in test user\r\nAND clicks on the Events returned in the search results",
+      "data": "",
+      "result": "THEN the Event Attributes should contain the values being tested from the Jira ticket\nAND the user’s email address is not displayed in the logs"
+    }
+  ]
+}

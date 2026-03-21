@@ -1,0 +1,20 @@
+{
+  "id": "WQ-901",
+  "issueId": "1128230",
+  "key": "WQ-901",
+  "summary": "Single Team subscriber archive game non-subscribed teams - Feed Select",
+  "description": "GIVEN a user is a single team subscriber\r\nAND an archive game doesn't include the subscribed-to-team\r\nAND the game level blackedOutVideo equals false in MAST EPGv3\r\nAND the game level entitledVideo equals false in MAST EPGv3",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b5b0ddb0-4be3-46ee-8d66-cff6ac9a2045",
+      "action": "WHEN a user is not subscribed to either team\r\nAND the user selects an archive game tile",
+      "data": "",
+      "result": "THEN the following title text is displayed \"Subscription Required\"\nAND the following description text is displayed \"A subscription is needed to watch this game.\"\nAND the following title text is displayed \"Full Game Access\"\nAND an [Upgrade Plan] button is displayed below \"Full Game Access\"\nAND the user is navigated to the Subscriptions/Paywall page if they select the [Upgrade Plan] button\nAND the user is navigated back to the selected game tile after pressing the \"back\" button on the remote controller"
+    }
+  ]
+}

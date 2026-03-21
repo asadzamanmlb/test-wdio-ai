@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1740",
+  "issueId": "1129157",
+  "key": "WQ-1740",
+  "summary": "Ad break handles network connection issue",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d371e95e-602c-4875-bbc7-e4671fb5557a",
+      "action": "WHEN",
+      "data": "",
+      "result": "Verify platform behavior is as expected when network connection is lost during an ad break\r\n\r\nVerify platform behavior is as expected when network connection is reestablished during an ad break"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-576",
+  "issueId": "1127902",
+  "key": "WQ-576",
+  "summary": "FLIVE Fast Forward to Live Point",
+  "description": "GIVEN a user (paid/free/anonymous) has launched the MLB app\r\nAND an FLIVE stream is in progress\r\nAND the user selects the FLIVE stream to watch\r\nAND the playhead is behind the live point",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ec56cc23-79d4-40e2-b415-a70430c737db",
+      "action": "WHEN the user Fast Forwards the stream to the live point",
+      "data": "",
+      "result": "THEN Fast Forward stops when it reaches the live point\r\nAND playback resumes at the live point\r\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

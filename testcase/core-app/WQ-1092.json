@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1092",
+  "issueId": "1128422",
+  "key": "WQ-1092",
+  "summary": "Subscription Purchase Page - Log In non-Anonymous",
+  "description": "GIVEN the user is an AtBat, Single Team, or Free subscriber",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "03a148d9-4acf-416c-836a-49603457b016",
+      "action": "WHEN the user is on the Purchase page for a subscription package",
+      "data": "",
+      "result": "THEN the \"Log In\" button does not display"
+    }
+  ]
+}

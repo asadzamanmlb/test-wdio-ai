@@ -1,0 +1,20 @@
+{
+  "id": "WQ-163",
+  "issueId": "1127466",
+  "key": "WQ-163",
+  "summary": "ESPN MVPD - Canada",
+  "description": "GIVEN a subscriber is located in Canada\r\nAND a postseason game has ESPN broadcasters assigned\r\nAND the away feed level espnAuthRequired = true\r\nAND feed level mediaState = MEDIA_ON",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "931410fb-b0e0-44b8-bb15-895bf7f5f28f",
+      "action": "WHEN the subscriber selects the ESPN postseason game tile",
+      "data": "",
+      "result": "THEN a blackout message is displayed\r\nAND the user is unable to access feeds for the game\r\nAND the Feed Modal is dismissed after the user presses the CIRCLE button on the controller"
+    }
+  ]
+}

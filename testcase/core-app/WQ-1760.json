@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1760",
+  "issueId": "1129177",
+  "key": "WQ-1760",
+  "summary": "EXIT Button",
+  "description": "EXIT UI Button is supported",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5f9b44ae-c43c-4a80-94d1-e15dc13c0f24",
+      "action": "Execute app → Select 'EXIT' UI Button",
+      "data": "",
+      "result": "When pressing EXIT UI button, app is properly terminated and moves to LIVE TV or the screen where user first tried executing app\r\n\r\n※ If launcher bar appears on webOS, it is considered as normal movement \r\n\r\n※ Expected Results\r\nNetCast: App is terminated and move to Live TV or go back to the screen where user tried to execute app\r\nwebOS1.0/2.0: Launcher Bar appears\r\nwebOS3.0: When pressing EXIT UI button, it is considered as terminating app completely, so app is terminated and does not remain on recent list\r\n\r\n※ EXIT UI Button is an option"
+    }
+  ]
+}

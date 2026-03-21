@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1253",
+  "issueId": "1128590",
+  "key": "WQ-1253",
+  "summary": "Forge content Carousel first navigation",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c87bef81-a4b1-466f-a357-6df7fb78b3e2",
+      "action": "WHEN the user navigates to a Forge content carousel for the first time",
+      "data": "",
+      "result": "THEN the following statement is spoken before the Tile info, \"In the <carousel_name> Carousel,……\""
+    }
+  ]
+}

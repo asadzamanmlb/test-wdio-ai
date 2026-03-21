@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1418",
+  "issueId": "1128755",
+  "key": "WQ-1418",
+  "summary": "TTS | Navigation options in the top right",
+  "description": "GIVEN TTS is enabled\r\nAND the user is on the Following Teams page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "540912a2-7262-4d4e-86d2-38e1b07ed096",
+      "action": "WHEN the user navigates to the Atlanta Braves",
+      "data": "",
+      "result": "THEN the app should say \"The [focused_team] is highlighted. Press select to save this team as your follow team. Move left, or down to hear additional teams to follow. There is nothing selectable to the right.”"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-301",
+  "issueId": "1127613",
+  "key": "WQ-301",
+  "summary": "TBS MVPD - Canada",
+  "description": "GIVEN a Postseason game is on the schedule\r\nAND TBS broadcasters are assigned\r\nAND the user's location is in Canada\r\nAND the game level entitledVideo = true\r\nAND the game level blackedOutVideo = true\r\nAND the AWAY (National) feed level tbsAuthRequired = true\r\nAND the HOME (International) feed level tbsAuthRequired = false",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5cc16ac4-1732-4faf-9b02-8b180645e6eb",
+      "action": "WHEN the user views a TBS Postseason game tile",
+      "data": "",
+      "result": "THEN the MVPD pill does not display above the Hero title / game match up\r\nAND MVPD text does not display below the Hero title / game match up\r\nAND the Blackout pill displays above the Hero title / game match up"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1096",
+  "issueId": "1128426",
+  "key": "WQ-1096",
+  "summary": "Buy Now Yearly Subscription flow",
+  "description": "GIVEN the user is on the Subscriptions/Paywall page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1f8b4d93-1bf5-4c7d-b979-9021d8e4d59e",
+      "action": "WHEN the user navigates to the MLB.TV Yearly Package tile\nAND the user selects the Package tile on the Subscriptions/Paywall page\nAND the user selects the [Log In] button on the Purchase Instructions page",
+      "data": "",
+      "result": "THEN the user is navigated to the Log In page"
+    }
+  ]
+}

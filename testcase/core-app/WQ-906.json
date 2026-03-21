@@ -1,0 +1,20 @@
+{
+  "id": "WQ-906",
+  "issueId": "1128235",
+  "key": "WQ-906",
+  "summary": "Free subscriber archive game - Game Tile",
+  "description": "GIVEN a user is a free subscriber\nAND Hide Spoilers is set to OFF\nAND the game level blackedOutVideo equals false in MAST EPGv3\nAND the game level entitledVideo equals false in MAST EPGv3\n\n*NOTE:* Game Tile designs for reference - [https://www.figma.com/design/rGAWoDJL0fx7RTxv0er9U5/MLB.TV-Connected-Device-Developer-Spec?node-id=179-99767&t=2GMcHnOGaIH6wtRZ-0|https://www.figma.com/design/rGAWoDJL0fx7RTxv0er9U5/MLB.TV-Connected-Device-Developer-Spec?node-id=179-99767&t=2GMcHnOGaIH6wtRZ-0|smart-link]",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9f5021f6-7bae-4d4b-a572-4587f2d6ca9d",
+      "action": "WHEN a user views/focuses an archive game tile",
+      "data": "",
+      "result": "THEN a \"LOCKED\" badge displays in the upper left corner of the game tile\nAND \"FINAL\" displays in the upper right corner of the game tile\nAND the game match up with respective score is displayed\nAND the Pitching Results are displayed\nAND the Broadcast Networks are displayed"
+    }
+  ]
+}

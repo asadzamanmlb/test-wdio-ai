@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1035",
+  "issueId": "1128365",
+  "key": "WQ-1035",
+  "summary": "Header navigation - AtBat/Audio Only user",
+  "description": "GIVEN an AtBat/Audio Only subscriber is logged in\r\nAND one of the tabs in the header has focus",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "fdd8c517-e011-404d-8455-5771271dbe5a",
+      "action": "WHEN the user navigates left and right in the header",
+      "data": "",
+      "result": "THEN focus moves from \"Home\" to \"Games\" and vice versa\r\nAND focus moves from \"Games\" to \"Get MLB.tv\" and vice versa\r\nAND focus moves from \"Upgrade MLB.TV\" to \"Games\" and vice versa\r\nAND focus moves from \"Upgrade MLB.TV\" to \"Settings\" and vice versa\r\nAND focus moves from \"Settings\" to \"Upgrade MLB.TV\" and vice versa"
+    }
+  ]
+}

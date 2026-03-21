@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3453",
+  "issueId": "1285291",
+  "key": "WQ-3453",
+  "summary": "IMA SDK is not using Publica Service - Live",
+  "description": "GIVEN a Live game stream is playing\nAND a domestic user is logged in",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "09e5029b-df46-4da1-9885-f32410c7494d",
+      "action": "WHEN the user selects a Live in-progress game for playback\nAND an ad break occurs\nAND entering \"stream\" into the Network search of Dev Tools\nAND entering \"publica\" into the Network search of Dev Tools",
+      "data": "",
+      "result": "THEN ads playback during the break\nAND the \"streams\" call has {{pubads.g.doubleclick.net*}} as the request URL\nAND the \"publica\" call is not made"
+    }
+  ]
+}

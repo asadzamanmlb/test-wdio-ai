@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2352",
+  "issueId": "1129802",
+  "key": "WQ-2352",
+  "summary": "R5034A - Display a message when a network error occurs",
+  "description": "**Network**\r\n\r\n**R5034 Premise:** If network features are used\r\n\r\n**R5034 Requirement:** When a network error occurs, the application displays a message appropriate to the network error that occurred.\r\n\r\n**Description**\r\nWhen a network error occurs, notify the user with a message indicating the occurrence of the error such as, \"A network error occurred\". In addition to the error notification, it is recommended that the user is notified of the cause of the error and how to address the error. The appropriateness of this information is outside the scope of the requirement, however, it will be a violation of this requirement if a clearly incorrect message is displayed - for example, a message describing the cause of the error to be restrictions of social features when the real cause is a network disconnection.\r\n\r\nThis requirement excludes situations when a network error occurs upon an application suspend/resume, but the network communication can be restored and game progress can be resumed immediately.\r\n\r\nIf there is a game interruption due to an error code generated from the system or library, calling the error dialog is recommended. The appropriate message and/or error handling will be displayed according to the error code.\r\n\r\n**QA NOTE**\r\n- Check at all points where the application uses network features.\r\n- This requirement only applies when a communication error occurs during usage of network features and not when starting network features while disconnected from the network.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d9cbbe48-d67b-4fd6-9a01-cee060f6f7f9",
+      "action": "1. Select the \"Application\" on the home screen\r\n2. Proceed to a point that uses network features\r\n3. Disconnect from the network to cause a communication error\r\n\r\n**Notes:**\r\nConfirm by disconnecting from the network with the following methods.\r\n- When connected to a Wi-Fi network, turn off the power of the wireless router or unplug the WAN-side LAN cable from the wireless router.\r\n- When using a wired LAN connection, remove the LAN cable connected to the PlayStation®5 console.\r\n- Press and hold the PS button to return to the home screen > press the up button > select \"Settings\" > \"Network\" > \"Settings\" and disable \"Connect to the Internet\".",
+      "data": "",
+      "result": "When a communication error occurs, a message is displayed stating that a network error occurred"
+    }
+  ]
+}

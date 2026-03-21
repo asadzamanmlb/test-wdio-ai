@@ -1,0 +1,20 @@
+{
+  "id": "WQ-983",
+  "issueId": "1128312",
+  "key": "WQ-983",
+  "summary": "Navigate through future days",
+  "description": "GIVEN a user has launched the app\r\nAND the user is on the Games page",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "eb55f859-7360-493e-b704-b563b43a7661",
+      "action": "WHEN the user select the next day [->] button\nAND the user navigates 8 days into the future",
+      "data": "",
+      "result": "THEN a loading screen with a spinning baseball image displays for every date navigated to\nAND the Games page updates to display the games for each day that is navigated to\nAND a [Today] button appears to the left of the [<-] button"
+    }
+  ]
+}

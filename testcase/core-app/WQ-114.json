@@ -1,0 +1,20 @@
+{
+  "id": "WQ-114",
+  "issueId": "1127417",
+  "key": "WQ-114",
+  "summary": "National Feed Blackout",
+  "description": "GIVEN a live game has a national broadcast video feed\r\nAND the logged in user is entitled to the feed\r\nAND the user is in a blacked out market\r\n\r\n**Example:** \r\nFOX Saturday Baseball\r\nESPN Sunday Night Baseball",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "58a752c4-4b64-46f9-a8b0-c852bfa301fd",
+      "action": "WHEN a user selects a game tile for a live national game",
+      "data": "",
+      "result": "THEN a modal displays with the match up at the top\r\nAND a the following blackout message displays \"This game is unavailable in your area. All Regular Season and Postseason live games are subject to blackout restrictions due to Major League Baseball exclusivities. An archive copy of the game will be available 90 minutes after the game.\""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1459",
+  "issueId": "1128796",
+  "key": "WQ-1459",
+  "summary": "Attempt to navigate below the Log In button",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is not logged in\r\nAND the user is on the \"Purchase\" page for a package tile",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a6f73a22-5bf6-427b-accf-b35527825c4e",
+      "action": "WHEN the user attempts to navigate down from the Log In button",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"There is no selectable content available to the bottom of the current position. However, the footer reads <footer_text>.\""
+    }
+  ]
+}

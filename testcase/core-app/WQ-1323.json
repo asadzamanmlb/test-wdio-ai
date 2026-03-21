@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1323",
+  "issueId": "1128660",
+  "key": "WQ-1323",
+  "summary": "Game Tile Pregame MVPD Required",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND an MVPD Required game is on the schedule\r\nAND the user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "563d2f55-3168-4572-9c6a-86b07227042c",
+      "action": "WHEN focus is assigned to an MVPD Required game tile that has not gone live yet",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Game <x> of <y>, <away_team>, <away_team_wins> Wins, <away_team_losses> Losses at <home_team>, <home_team_wins> Wins, <home_team_losses> Losses, <game_start_time> Game Start Time, Not Entitled, MVPD Required, Pitching for the <away_team> <away_starting_pitcher>, <away_pitcher_wins> Wins, <away_pitcher_losses> Losses, <away_pitcher_ERA> Earned Run Average, Pitching for the <home_team> <home_starting_pitcher>, <home_pitcher_wins> Wins, <home_pitcher_losses> Losses, <home_pitcher_ERA> Earned Run Average. Press select to play game. Move <appropriate_directions> to hear more games. Move up to navigate to a new date.\""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-833",
+  "issueId": "1128161",
+  "key": "WQ-833",
+  "summary": "Anonymous user AppleTV+ scheduled/live - Feed Select modal",
+  "description": "GIVEN the user is anonymous\r\nAND there is a AppleTV+ Game scheduled/in-progress\r\nAND the game level blackedOutVideo equals true in MASTepg\r\nAND the game level entitledVideo equals false in MASTepg",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2bb4aa5c-8b9d-4905-bb12-a94ee36f89a1",
+      "action": "WHEN the user selects the AppleTV+ game tile",
+      "data": "",
+      "result": "THEN video feed buttons are not displayed\r\nAND a message displays letting the user know where the game can be watched\r\n\r\n**AppleTV+ message:**\r\nWatch on Apple TV+\r\nThis broadcast is available to watch only on Apple TV+. Open the Apple TV app to watch now or download for your streaming device. Archives will be available 90 minutes after the end of the game. Live audio is available on MLB.TV. For more information visit http://mlb.tv/appletvplus"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-932",
+  "issueId": "1128261",
+  "key": "WQ-932",
+  "summary": "Live Game state 'SUSPENDED'",
+  "description": "GIVEN a subscriber is on the Games page\r\nAND Hide Spoilers is set to OFF",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "147e1830-b328-42b6-9de4-3fb060e31890",
+      "action": "WHEN a live game has any of the following statusCode values: T,TR,TS,TG,TV,TF,TC,TD,TB,TP,TL,TE,TA,TO,TI,TU,UR,US,UG,UV,UF,UC,UD,UP,UL,UE,UA,UO,U,UZ,UI,UU",
+      "data": "",
+      "result": "THEN 'SUSPENDED' is displayed top-center in the match-up header of the game tile"
+    }
+  ]
+}

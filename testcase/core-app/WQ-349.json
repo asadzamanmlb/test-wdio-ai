@@ -1,0 +1,20 @@
+{
+  "id": "WQ-349",
+  "issueId": "1127661",
+  "key": "WQ-349",
+  "summary": "MLB Network Not Entitled - Hero",
+  "description": "GIVEN a subscriber is not entitled with the MLB Network entitlement (MLBN)\r\nAND a game for the subscribers favorite team is not present in the Hero\r\nAND an MLB Network feed is returned in the \"featured\" node in the MAST response\r\nAND \"live: true\" is returned in the the \"hero\" node in the MAST response",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0958d9ba-ac8a-4250-b152-a0442923a078",
+      "action": "WHEN the subscriber loads the Home page",
+      "data": "",
+      "result": "THEN MLB Network does not display in the Hero\nAND MLB Network does not display in the Today’s Lineup carousel"
+    }
+  ]
+}

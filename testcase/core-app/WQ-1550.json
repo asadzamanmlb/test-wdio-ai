@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1550",
+  "issueId": "1128952",
+  "key": "WQ-1550",
+  "summary": "SVOD Playback",
+  "description": "GIVEN a logged in user is entitled for SVOD content playback",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2c3aa878-991a-4842-bc85-0d23abb8535d",
+      "action": "WHEN the user selects a SVOD content tile for playback",
+      "data": "",
+      "result": "THEN the SVOD content plays back from the beginning"
+    }
+  ]
+}

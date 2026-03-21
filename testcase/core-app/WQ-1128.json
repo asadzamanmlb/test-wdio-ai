@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1128",
+  "issueId": "1128458",
+  "key": "WQ-1128",
+  "summary": "Select favorite/follow (Skip) Existing Account w/ favorite/follow",
+  "description": "GIVEN the user has an existing MLB Account\r\nAND the existing MLB Account has saved favorite and following teams\r\nAND the user is launching the app for the first time\r\nAND the user selects the \"Getting Started\" button",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c8399a13-7f68-42f1-a548-f19a25b18a14",
+      "action": "WHEN the user selects a favorite team\r\nAND the user selects the \"Skip\" button\r\nAND the user selects at least 1 following team\r\nAND the user selects the \"Skip\" button\r\nAND the user logs in with their existing account",
+      "data": "",
+      "result": "THEN the users existing favorite or following teams are not updated"
+    }
+  ]
+}

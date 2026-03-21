@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1607",
+  "issueId": "1129024",
+  "key": "WQ-1607",
+  "summary": "Live playback from Hero - Hide Spoilers OFF",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a01d2cd5-7554-4476-8fe8-f4901e587ad3",
+      "action": "WHEN",
+      "data": "",
+      "result": "1. Users can launch a live stream from the Watch Now Hero\r\n\r\n2. Video playback launch from Hero will begin at the live point if hide scores are NOT enabled"
+    }
+  ]
+}

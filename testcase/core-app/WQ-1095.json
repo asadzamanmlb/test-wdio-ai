@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1095",
+  "issueId": "1128425",
+  "key": "WQ-1095",
+  "summary": "Buy Now Yearly Subscription UI",
+  "description": "GIVEN the user is on the Subscriptions/Paywall page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "056e7eff-c332-4175-b10a-31ca5d13166a",
+      "action": "WHEN the user navigates to the MLB.TV Yearly Package tile\r\nAND the user selects the tile",
+      "data": "",
+      "result": "THEN the user is navigated to the purchase instructions page\r\nAND the MLB logo displays at the top-left of the screen\r\nAND the text \"MLB\" displays directly to the right of the MLB logo\r\nAND below that, the white text \"All Teams Yearly NOW $119.99/year\" displays (this text is configurable)\r\nAND below that, white text \"To purchase an MLB.TV subscription, visit mlb.com/ps5 or scan the QR Code to get started\" is displayed (this text is configurable)\r\nAND on the right side of the screen, a QR code displays\r\nAND below the text on the left side of the screen, a [Log In] button is displayed if a user is not already logged in\r\nAND the [Log In] button has focus\r\nAND at the bottom of the screen the white text \"Blackout and other restrictions apply. Visit mlb.com/ps5 to learn more.\" (this is configurable)"
+    }
+  ]
+}

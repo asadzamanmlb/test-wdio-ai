@@ -1,0 +1,20 @@
+{
+  "id": "WQ-525",
+  "issueId": "1127851",
+  "key": "WQ-525",
+  "summary": "Complete archive game playback",
+  "description": "GIVEN a user is entitled for archive game playback",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c4b3a202-6281-4460-960d-fb910c9d11f2",
+      "action": "WHEN a user initiates playback of an archive game from the beginning\r\nAND the user watches the entire game to the end of the stream",
+      "data": "",
+      "result": "THEN the user is able to watch a complete game\r\nAND the user does not experience any errors during playback that cause the user to restart the app"
+    }
+  ]
+}

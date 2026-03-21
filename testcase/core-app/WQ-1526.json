@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1526",
+  "issueId": "1128863",
+  "key": "WQ-1526",
+  "summary": "Game Tab | Hearing Announcement When Focusing on an Upcoming Game",
+  "description": "GIVEN the user is in the Games tab\r\nAND TTS is enabled\r\nAND the game has not started yet",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e993b7cc-ed1d-4691-ae1a-6042172ec836",
+      "action": "WHEN the user focuses on an upcoming game tile",
+      "data": "",
+      "result": "THEN the user will hear: “Start time <insert start time>, <Away team name> @ <Home Team Name>, X of X items”\r\nFor example: \"Start time 7:05 PM, Red Sox @ Blue Jays, 3 of 6 items\""
+    }
+  ]
+}

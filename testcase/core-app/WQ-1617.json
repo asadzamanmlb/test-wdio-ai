@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1617",
+  "issueId": "1129034",
+  "key": "WQ-1617",
+  "summary": "Scrubber - Hide Spoilers ON",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4872c41f-fcfd-452a-a9a9-35ed47133d98",
+      "action": "WHEN",
+      "data": "",
+      "result": "Hide spoilers ON will hide game stats, games scores, and scrubber markers if watching behind the live point"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1673",
+  "issueId": "1129090",
+  "key": "WQ-1673",
+  "summary": "Live Entitled Resume",
+  "description": "When a logged-in user select and play the Live Game for few mins, later exits the game and launches the same game, then Feed Select page should appear with Resume option.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a7d0395d-aa15-45bb-9310-fee9a6746b29",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

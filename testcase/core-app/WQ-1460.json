@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1460",
+  "issueId": "1128797",
+  "key": "WQ-1460",
+  "summary": "TTS | Quick Actions Menu | Navigation to Quick Actions Menu",
+  "description": "GIVEN TTS is enabled\r\nAND the user is in the video player",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "67d18baa-8337-4e5f-b489-2c85d866ad92",
+      "action": "WHEN the user navigates to \"Quick Actions Menu\" by navigating down once to scrubber\r\nAND the user navigates up once\r\nAND the user reopens the menu item after it closes",
+      "data": "",
+      "result": "THEN the user should see the focus moves to the scrubber\r\nTHEN the user should see the focus moves to the Quick Actions Menu\r\nAND the user should hear “Quick Actions Menu”\r\nAND the user should hear again “Quick Actions Menu”"
+    }
+  ]
+}

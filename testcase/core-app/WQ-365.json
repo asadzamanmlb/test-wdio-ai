@@ -1,0 +1,20 @@
+{
+  "id": "WQ-365",
+  "issueId": "1127677",
+  "key": "WQ-365",
+  "summary": "Basic non-game tiles - not entitled unfocused",
+  "description": "GIVEN the user is a free subscriber\r\nAND the user does not have the SUBSCRIBERVOD entitlement\r\nAND the user is logged in\r\nOR the user is not logged in",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9831d193-00b4-46a5-a23a-f7df0ea17d40",
+      "action": "WHEN a logged in user views an unfocused SVOD basic tile\r\nOR a not logged in user views any unfocused non-game basic tile",
+      "data": "",
+      "result": "THEN the associated thumbnail displays\r\nAND the duration of the SVOD content is displayed in the lower left corner of the thumbnail\r\nAND the title is displayed left justified below the associated thumbnail\r\nAND the video published date is displayed left justified below the title\r\nAND the user sees a lock icon in the upper right corner of the tile\r\nAND the tile is the same width as the game tiles\r\nAND two tiles are the same width as one featured tile"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1273",
+  "issueId": "1128610",
+  "key": "WQ-1273",
+  "summary": "Game Tile Live MVPD Required Hide Spoilers ON",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND Hide Spoilers is turned ON\r\nAND a Live MVPD Required game is on the schedule\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e6217e33-5d0c-466f-976b-2b294972ddaf",
+      "action": "WHEN focus is assigned to a Live MVPD Required game in the Hero",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"<away_team> at <home_team>, Live, Not Entitled, MVPD Required. Press select to play game. Press up for the main menu. Move down to browse more content.\""
+    }
+  ]
+}

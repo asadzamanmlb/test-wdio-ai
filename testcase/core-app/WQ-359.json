@@ -1,0 +1,20 @@
+{
+  "id": "WQ-359",
+  "issueId": "1127671",
+  "key": "WQ-359",
+  "summary": "Exit Game to Home Page",
+  "description": "GIVEN the subscriber is logged into mlb.com\r\nAND the subscriber is entitled for archive game playback\r\nAND the subscriber has initiated archive game playback from the Games carousel",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "bf9ffb37-1388-4dd5-b224-6304a35a51a3",
+      "action": "WHEN the user lands on mlb.com\r\nAND the user presses the O (circle) button on the controller",
+      "data": "",
+      "result": "THEN the video player should be dismissed\r\nAND the user should be returned back to the Home page\r\nAND focus should be assigned to the \"Watch Now\" button in the Hero"
+    }
+  ]
+}

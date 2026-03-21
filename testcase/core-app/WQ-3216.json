@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3216",
+  "issueId": "1195144",
+  "key": "WQ-3216",
+  "summary": "Media Recovery Buffer Stall - DataDog",
+  "description": "GIVEN a user that is entitled for video playback is logged in\nAND the tester has opened the below DataDog link (be sure to update the search filter for the logged in test user)\n\n**NOTE:** \nTest via the Core App URL in Chrome\nPlayback Heuristics URL: [https://us5.datadoghq.com/logs?query=%22PLAYBACK%20HEURISTICS%22%20%40usr.id%3A00uhs4yw8qjJKy4xb357&agg_m=%40event.metadata.currentBitrate&agg_m_source=base&agg_q=%40asset.isLive&agg_q_source=base&agg_t=avg&analyticsOptions=%5B%22line%22%2C%22dog_classic%22%2Cnull%2Cnull%5D&cols=host%2Cservice%2C%40usr.id%2C%40event.action%2C%40event.reason%2C%40event.metadata.convivaTimestamp&context_event=AY_CgMDtAAD8tvFqYXPtGgAB&fromUser=true&messageDisplay=inline&refresh_mode=sliding&storage=hot&stream_sort=%40convivaTimestamp%2Casc&top_n=10&top_o=top&view=spans&viz=&x_missing=true&from_ts=1726669870274&to_ts=1726684270274&live=true|https://us5.datadoghq.com/logs?query=%22PLAYBACK%20HEURISTICS%22%20%40usr.id%3A00uhs4yw8qjJKy4xb357&agg_m=%40event.metadata.currentBitrate&agg_m_source=base&agg_q=%40asset.isLive&agg_q_source=base&agg_t=avg&analyticsOptions=%5B%22line%22%2C%22dog_classic%22%2Cnull%2Cnull%5D&cols=host%2Cservice%2C%40usr.id%2C%40event.action%2C%40event.reason%2C%40event.metadata.convivaTimestamp&context_event=AY_CgMDtAAD8tvFqYXPtGgAB&fromUser=true&messageDisplay=inline&refresh_mode=sliding&storage=hot&stream_sort=%40convivaTimestamp%2Casc&top_n=10&top_o=top&view=spans&viz=&x_missing=true&from_ts=1726669870274&to_ts=1726684270274&live=true]",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f356ee0e-880d-4329-aa72-65b46cf55c85",
+      "action": "WHEN the user has initiated {{content}} playback\nAND the tester throttles the network speed via chrome dev tools\nAND the tester un-throttles the network speed after playback stops and the spinning baseball displays",
+      "data": "{{content}} =\n\n* Live / Archive game (network calls: [tv-fst.mlb.com|http://tv-fst.mlb.com] or [tv-gmc.mlb.com|http://tv-gmc.mlb.com])\n* MLBN / SLIVE (network calls: [tve-live.mlb.com|http://tve-live.mlb.com])\n* SVOD / VOD (network calls: [mlb-cuts-diamond.mlb.com|http://mlb-cuts-diamond.mlb.com])\n* RSN 24/7 (network calls: [tve-live.mlb.com|http://tve-live.mlb.com])\n* RSN VOD (network calls: [mlb-cuts-diamond.mlb.com|http://mlb-cuts-diamond.mlb.com])",
+      "result": "THEN DataDog should display log event.action as {{player_state_change}} and a event.reason as {{media_recovery}}\nAND {{media_recovery}} has a {{metadata.details}} field that looks like so: {{media recovery attempted due to buffering error. Number of attempts: buffering - 1, fatal - 0}} \n\n*Per Nolan this metadata.details will persist in all future events until updated, including but not necessarily limited to {{bitrate_dropped}}, {{buffering_recovered}}, {{buffering_started}}, and {{playback_ended events}}"
+    }
+  ]
+}

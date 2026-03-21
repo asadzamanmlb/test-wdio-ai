@@ -1,0 +1,20 @@
+{
+  "id": "WQ-323",
+  "issueId": "1127635",
+  "key": "WQ-323",
+  "summary": "Game States - Live - Suspended - Hide Spoilers ON",
+  "description": null,
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2b4d34ed-9c6e-456d-9573-c68f9cce98c1",
+      "action": "WHEN a game is in a Live state\r\nAND the game is Suspended\r\nAND one of the following statusCode's are present in the MAST response: (T,TR,TS,TG,TV,TF,TC,TD,TB,TP,TL,TE,TA,TO,TI,TU,UR,US,UG,UV,UF,UC,UD,UP,UL,UE,UA,UO,U,UZ,UI,UU)",
+      "data": "",
+      "result": "THEN a pill with the text \"SUSPENDED\" is not displayed above the team info in the Hero"
+    }
+  ]
+}

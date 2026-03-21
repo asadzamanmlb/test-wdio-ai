@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1587",
+  "issueId": "1128993",
+  "key": "WQ-1587",
+  "summary": "Power Button - Samsung",
+  "description": "GIVEN I have paired the Samsung TV remote with the Samsung TV",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9e9ba5f8-5ba8-4ff8-ae72-b082cd69aaed",
+      "action": "WHEN I press the Red Power![](index.php?/attachments/get/14189421) button \r\nAND I press the Red Power![](index.php?/attachments/get/14189421) button again",
+      "data": "",
+      "result": "THEN the Samsung TV should turn ON successfully\r\n\r\nTHEN the Samsung TV should turn OFF successfully\r\n\r\nNOTE: (If it doesn't work, try replacing the batteries)"
+    }
+  ]
+}

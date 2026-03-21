@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1793",
+  "issueId": "1129210",
+  "key": "WQ-1793",
+  "summary": "Play Contents/Replay",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f1572516-5d71-4462-a5b4-1201e2dc0919",
+      "action": "Start App → Enter random series playback content → Complete playback → Playback content again",
+      "data": "",
+      "result": "After finishing playback of a content, it is possible to replay content"
+    }
+  ]
+}

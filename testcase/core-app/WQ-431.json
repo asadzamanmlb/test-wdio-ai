@@ -1,0 +1,20 @@
+{
+  "id": "WQ-431",
+  "issueId": "1127750",
+  "key": "WQ-431",
+  "summary": "FLIVE Playback",
+  "description": "GIVEN a logged in user is entitled for FLIVE content playback",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e5da4243-f93a-4173-bd0e-24ff8b92c130",
+      "action": "WHEN the user selects a FLIVE content tile for playback from the Home page",
+      "data": "",
+      "result": "THEN the FLIVE content plays back from the live point"
+    }
+  ]
+}

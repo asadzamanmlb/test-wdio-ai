@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1245",
+  "issueId": "1128582",
+  "key": "WQ-1245",
+  "summary": "Game Tile Final Not Entitled Hide Spoilers ON",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is not logged in\r\nAND Hide Spoilers is turned ON\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "23b2eb44-1d57-4328-82bd-3f415e7d0235",
+      "action": "WHEN focus is assigned to an archive game tile in the Games Carousel",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Game <x> of <y>, <away_team>,<home_team>, Not Entitled. Press select to play game. Move <appropriate_directions> to navigate to a new item. Move up or down to browse new content.\""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-64",
+  "issueId": "1127076",
+  "key": "WQ-64",
+  "summary": "CCPA Parameter to DAI opt in/out - Archive Game",
+  "description": "GIVEN a user is entitled for Archive game playback\nAND the user has not opt'd out of CCPA\nOR the user has opt'd out of CCPA\n\n**NOTE:**\nLaunch the app in the browser and open the Network tab in DevTools. \n- For Legacy/DSS enter us_privacy=1Y in the search box of the Network tab.\n- For DM5 enter streams in the search box of the Network tab.\nOpt'd out test account: tvccpa@gmail.com / Password23 in both QA/PROD with MLBALL/SUBSCRIBERVOD\n\nAll other tests accounts should NOT be opt'd out",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8847c322-3f9a-4568-86b5-bbecc94127e4",
+      "action": "WHEN a user initiates playback of an archive game",
+      "data": "",
+      "result": "THEN parameter us_privacy=1YYY is passed for users that have opt'd out\r\nAND parameter us_privacy=1YNY is passed for users that have not opt'd out\r\n\r\n**NOTE:**\r\nus_privacy parameter will at the end of the dai request after the user initiates playback"
+    }
+  ]
+}

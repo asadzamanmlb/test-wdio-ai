@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1078",
+  "issueId": "1128408",
+  "key": "WQ-1078",
+  "summary": "Create Account - hide password",
+  "description": "GIVEN the user is on the Create Account page\r\nAND the eye button has a slash through it\r\nAND characters have been entered into the Password field",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "cf0a6d47-8b70-4728-bf5d-b03bed1fe554",
+      "action": "WHEN the user selects the eye button",
+      "data": "",
+      "result": "THEN the characters entered in the Password field are changed to dots (•)\r\nAND the eye button does not display a slash through the eye"
+    }
+  ]
+}

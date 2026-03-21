@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1767",
+  "issueId": "1129184",
+  "key": "WQ-1767",
+  "summary": "Sign Up",
+  "description": "Join membership function is supported",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e13a4a73-ceea-4c07-b735-8a3f2b3045da",
+      "action": "Execute app → Try joining membership\r\n\r\n[CASE1 - Information required when joining membership]\r\n1. Try joining membership after filling in all information \r\n2. Try joining membership after not filling in all information \r\n3. Try joining membership after filling in unclear information \r\n\r\n[CASE2 - Cancel membership joining process in the middle of procedure]\r\n1. Cancle after filling in all information \r\n2. Cancel after not filling in all information\r\n3. Try to join membership again and check screen and app movement",
+      "data": "",
+      "result": "Able to join membership without error"
+    }
+  ]
+}

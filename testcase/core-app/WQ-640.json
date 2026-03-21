@@ -1,0 +1,20 @@
+{
+  "id": "WQ-640",
+  "issueId": "1127967",
+  "key": "WQ-640",
+  "summary": "Samsung - Color Accessibility for CC",
+  "description": "GIVEN a user is logged into the MLB app on a Samsung TV\r\nAND the user is able to access the Accessibility Settings in the TV Settings",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "87a89a93-8349-4549-820a-7c35ddab72a9",
+      "action": "WHEN a user updates the following accessibility settings:\r\n- Font\r\n- Foreground color\r\n- Background color\r\n- Window color\r\n- Edge type\r\n- Edge color\r\nAND the user turns CC ON\r\nAND the user initiates playback of CC available content (ex: games, MLBN feed)",
+      "data": "",
+      "result": "THEN CC displays in the selected Font, Foreground, Background and Window color, Edge type and Edge color"
+    }
+  ]
+}

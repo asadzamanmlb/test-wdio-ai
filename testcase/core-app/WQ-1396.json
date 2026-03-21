@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1396",
+  "issueId": "1128733",
+  "key": "WQ-1396",
+  "summary": "TTS | Navigation options middle right",
+  "description": "GIVEN TTS is enabled\r\nAND the user is on the Favorite Team page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0f62ed9e-49cd-404f-b7d2-0ab150bbefae",
+      "action": "WHEN the user scrolls to highlight one of the following teams: CHC, CLE, HOU, LAD, MIN, PHI, SEA, TB",
+      "data": "",
+      "result": "THEN the app should say 'The {selected team} is highlighted. Press select to save this team as your favorite team. Move left, down, or up to continue to highlight teams to favorite. There is nothing selectable to the right.'"
+    }
+  ]
+}

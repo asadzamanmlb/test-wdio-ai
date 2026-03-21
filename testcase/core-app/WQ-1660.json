@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1660",
+  "issueId": "1129077",
+  "key": "WQ-1660",
+  "summary": "Live FGotD Anonymous",
+  "description": "When an anonymous user launches the app and selects the LIVE FGOD Game,Feed Select page should appear that allows the user to choose to Create free account or Login.\r\n\r\n**NOTE:** Have not specifically implemented this, but feed buttons with lock icons are displayed, and the user is taken to the subscriptions page after selecting a feed button.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "84e20a51-0694-46aa-8932-2e7d38ab14c0",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

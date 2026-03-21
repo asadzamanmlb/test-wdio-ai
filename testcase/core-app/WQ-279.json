@@ -1,0 +1,20 @@
+{
+  "id": "WQ-279",
+  "issueId": "1127591",
+  "key": "WQ-279",
+  "summary": "Peacock",
+  "description": "GIVEN a user's favorite team is playing in a Peacock game\r\nAND the user does not have the EXEC entitlement",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6c385b55-c502-4ef0-945b-93fe4f951326",
+      "action": "WHEN a Peacock game is present in the Hero",
+      "data": "",
+      "result": "THEN a white circle icon with the Peacock logo displays to the right of the blue game time pill above the away team\r\nOR a white circle icon with the Peacock logo displays to the right of the LIVE badge above the away team\r\nAND the text \"Watch on Peacock\" displays to the right of the Peacock logo above the away team\r\nAND Peacock messaging is displayed in the feed select modal after selecting the \"Watch Live\" button\r\nAND the user is unable to playback the video feed"
+    }
+  ]
+}

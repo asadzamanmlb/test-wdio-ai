@@ -1,0 +1,20 @@
+{
+  "id": "WQ-605",
+  "issueId": "1127932",
+  "key": "WQ-605",
+  "summary": "Display scrubber",
+  "description": "GIVEN a video is playing",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "89025fee-d0ef-4ffe-89b7-9064c399aee6",
+      "action": "WHEN a user presses any button other than [O], [Share], [Options], [PS], [track pad], [L2], [R2], or moving the right analog stick",
+      "data": "",
+      "result": "THEN the scrubber is displayed\r\nAND the playback position marker is the focused element\r\nAND \"Broadcast Options\" displays left justified, below the scrubber bar\r\nAND the video continues to play\r\n\r\n**NOTE:** Broadcast Options are only enabled for DM5/MLB Experience"
+    }
+  ]
+}

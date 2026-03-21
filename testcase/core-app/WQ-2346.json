@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2346",
+  "issueId": "1129796",
+  "key": "WQ-2346",
+  "summary": "R5028F - Default language displays if unsupported language is set",
+  "description": "**Graphical User Interface**\r\n\r\n**R5028 Requirement:** Check that the following content information is created in the specified format and is displayed/played back correctly.\r\n- Still image icons\r\n- Title names\r\n- Background image\r\n- BGM (optional)\r\n- Start-up image\r\n- Save data default icon (optional)\r\n\r\nAlso ensure that content information is pursuant to the following\r\n- If still image icons and title names support multilingual switching, content information correctly switches to the supported language",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e78acc0f-3089-45cc-b6f1-fee112fceb1d",
+      "action": "1. Press the up button on the home screen\r\n2. Change \"Settings\" > \"System\" > \"Language\" > \"Console Language\" to an arbitrary language\r\n3. Go back to the home screen, place the cursor over the \"Application\" and then check the still image icon and title name\r\n4. Select the \"Application\" on the home screen and check the start-up image\r\n\r\n**Notes:**\r\n- Check in all languages supported by the application. Only a single, arbitrary unsupported language requires checking.\r\n- In step (3), the still image icon and title names can also be checked by pressing the options button and selecting \"Information\" in the options menu.",
+      "data": "",
+      "result": "If an unsupported language is set, the still image icon, title name, and/or start-up image are displayed in the default language."
+    }
+  ]
+}

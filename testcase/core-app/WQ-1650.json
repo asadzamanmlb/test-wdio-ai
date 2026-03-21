@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1650",
+  "issueId": "1129067",
+  "key": "WQ-1650",
+  "summary": "registerDevice is called when logging in",
+  "description": "GIVEN an anonymous user launches the app",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "86f979cf-436d-42d5-aee3-d44241e00545",
+      "action": "WHEN the anonymous user logs in\r\nAND are in the MLB experience",
+      "data": "",
+      "result": "THEN clients should make a registerDevice request to Media-Gateway\r\nAND can be verified by searching \"graphql\" in the Network tab of browser dev tools\r\nAND \"clientExperience\", \"deviceId\", \"entitlements\", and \"sessionId\" are present in the \"registerDevice\" call\r\nAND an \"accessToken\" is present within \"mlbAuth\" in Redux"
+    }
+  ]
+}

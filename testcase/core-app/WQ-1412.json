@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1412",
+  "issueId": "1128749",
+  "key": "WQ-1412",
+  "summary": "TTS | Navigation options in the top left when no follow team is set",
+  "description": "GIVEN TTS is enabled\r\nAND the user is on the Following Teams page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b3f4a056-b939-49b0-837f-60198f9b6c12",
+      "action": "WHEN the user navigates to the Arizona Diamondbacks",
+      "data": "",
+      "result": "THEN the app should say 'The [focused_team] is highlighted. Press select to save this team as your follow team. Move right, or down to hear additional teams to follow. Move left to highlight the “Cancel” button.'"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1066",
+  "issueId": "1128396",
+  "key": "WQ-1066",
+  "summary": "Express Log In Code Update - Load Log In page",
+  "description": "GIVEN the user is not logged in",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "82f8c761-d3ea-463d-b541-be1956c8a830",
+      "action": "WHEN the user loads the Log In page\r\nAND the user does not log in\r\nAND the user navigates away from the Log In page\r\nAND the user navigates back to the Log In page",
+      "data": "",
+      "result": "THEN the displayed activation code is different each time the Log In page is loaded"
+    }
+  ]
+}

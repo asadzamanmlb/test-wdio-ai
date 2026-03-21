@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1507",
+  "issueId": "1128844",
+  "key": "WQ-1507",
+  "summary": "SLIVE | Hearing Playback Time Announcement After Pressing Play Following Fast Forward",
+  "description": "GIVEN the user is watching SLIVE content\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1f6fa392-28d5-41a6-89aa-81ebc0b684db",
+      "action": "WHEN the user presses select during Fast Forward",
+      "data": "",
+      "result": "THEN the user will hear: “Playing/pause, <time_behind_live>, press select to play/pause”\r\nFor example: “Pause, 10 minutes 45 seconds behind live, press select to play.”"
+    }
+  ]
+}

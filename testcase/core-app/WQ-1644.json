@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1644",
+  "issueId": "1129061",
+  "key": "WQ-1644",
+  "summary": "Playback via Why Fy",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b4a15476-4987-4e4f-8bb0-5f1758718f64",
+      "action": "WHEN",
+      "data": "",
+      "result": "User can stream video properly on WiFi without noticeable buffer"
+    }
+  ]
+}

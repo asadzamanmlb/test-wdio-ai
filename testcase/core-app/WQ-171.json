@@ -1,0 +1,20 @@
+{
+  "id": "WQ-171",
+  "issueId": "1127474",
+  "key": "WQ-171",
+  "summary": "FOX MVPD - International non-Canada",
+  "description": "GIVEN a subscriber is located international not in Canada\r\nAND a postseason/All-Star game has FOX broadcasters assigned\r\nAND the away feed level foxAuthRequired = true\r\nAND feed level mediaState = MEDIA_ON",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "179cb950-a013-41e0-bb97-1e673b421b69",
+      "action": "WHEN the subscriber selects the FOX postseason game tile",
+      "data": "",
+      "result": "THEN the feed select modal displays\r\nAND the FOX International (FOX-INT) feed button is the only button displayed in the modal\r\nAND the user is able to receive playback after selecting the feed button"
+    }
+  ]
+}

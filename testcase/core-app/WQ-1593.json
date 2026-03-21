@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1593",
+  "issueId": "1129010",
+  "key": "WQ-1593",
+  "summary": "App Config Feature Flags - useMLB TRUE and useTrafficSplitting FALSE",
+  "description": "GIVEN the \"useMLB\" feature flag in the PS5 config is set to \"true\"\r\nAND the \"useTrafficSplitting\" feature flag in the PS5 config is set to \"false\"",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9fff63f1-b10a-4cd1-bdc3-68f0410b86d4",
+      "action": "WHEN the PS5 app is launched",
+      "data": "",
+      "result": "THEN a graphql/bamgrid network call will NOT be made\r\nAND a \"traffic\" network call will NOT be made\r\nAND \"MLB SDK Init\" will show up in the browser console log"
+    }
+  ]
+}

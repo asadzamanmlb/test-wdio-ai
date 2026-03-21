@@ -1,0 +1,20 @@
+{
+  "id": "WQ-355",
+  "issueId": "1127667",
+  "key": "WQ-355",
+  "summary": "Exit Game to Home Page",
+  "description": "GIVEN I am logged into mlb.com\r\nAND the game must be a LIVE game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d7938b6c-b3e0-4d30-83e7-b0077691f46b",
+      "action": "WHEN I click on any LIVE game\r\nAND I click the play indicator to stop playing the game\r\nAND I click on \"MTV.Home\"",
+      "data": "",
+      "result": "THEN the game should stop playing\r\nAND I should be returned to the MLB.TV | Welcome Center | MLB.com page"
+    }
+  ]
+}

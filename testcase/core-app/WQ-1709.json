@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1709",
+  "issueId": "1129126",
+  "key": "WQ-1709",
+  "summary": "Start from the beginning with Resume bookmark from archive game - Hide Spoilers ON",
+  "description": "GIVEN the user is entitled for archive game playback\nAND Hide Spoilers is ON\nAND the user has previously watched an archive game feed/stream",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "83940f1f-8025-45b0-8ea7-9d7e452559d0",
+      "action": "WHEN the user selects the archive feed/stream that has a saved resume bookmark\nAND the user selects the \"Start From The Beginning\" button",
+      "data": "",
+      "result": "THEN playback starts from the broadcast start point\nAND the scrubber playhead is at the furthest left postion on the scrubber bar\nAND the elapsed time in the scrubber starts at 00:00"
+    }
+  ]
+}

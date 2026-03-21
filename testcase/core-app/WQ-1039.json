@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1039",
+  "issueId": "1128369",
+  "key": "WQ-1039",
+  "summary": "Header navigation - EXEC user",
+  "description": "GIVEN a user with MLBEXEC entitlement is logged in\r\nAND one of the tabs in the header has focus",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9827fecd-06bb-4c0d-b340-fe013bc83723",
+      "action": "WHEN the user navigates left and right in the header",
+      "data": "",
+      "result": "THEN focus moves from \"Home\" to \"MASN\" and vice versa\n\nAND focus moves from \"MASN\" to \"MASN2\" and vice versa\n\nAND focus moves from \"MASN2\" to \"SNLA+\" and vice versa\n\nAND focus moves from \"SNLA+\" to \"SNY\" and vice versa\n\nAND focus moves from \"SNY\" to \"Games\" and vice versa\n\nAND focus moves from \"Games\" to \"Settings\" and vice versa"
+    }
+  ]
+}

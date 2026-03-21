@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3002",
+  "issueId": "1158490",
+  "key": "WQ-3002",
+  "summary": "Resume Archive Game playback in the Today's Lineup carousel",
+  "description": "GIVEN a user who is entitled for Archive game playback is logged in\n\nAND the user is on the Games page\n\nAND the user selects an Archive game for playback from the Games page\n\nAND the user exits Archive game playback",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f9e00225-6a85-470c-a6b3-ad18ddf61f4c",
+      "action": "WHEN the user selects the same Archive game from the Today’s Lineup carousel\n\nAND selects the same team feed for Resume playback",
+      "data": "",
+      "result": "THEN the Home page is dismissed\n\nAND the video player displays full screen\n\nAND playback starts successfully from the resumed point"
+    }
+  ]
+}

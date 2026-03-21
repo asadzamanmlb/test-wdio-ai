@@ -1,0 +1,20 @@
+{
+  "id": "WQ-811",
+  "issueId": "1128139",
+  "key": "WQ-811",
+  "summary": "AtBat subscriber Peacock scheduled/live - Feed Select modal",
+  "description": "GIVEN the user is an Audio Only subscriber\r\nAND there is a Peacock Game scheduled/in-progress\r\nAND the game level blackedOutVideo equals true in MASTepg\r\nAND the game level entitledVideo equals false in MASTepg",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9c0f9b3e-daf4-4daa-8ffc-165c82cf0a9e",
+      "action": "WHEN the user selects the Peacock game tile",
+      "data": "",
+      "result": "THEN video feed buttons are not displayed\r\nAND a message displays letting the user know where the game can be watched\r\n\r\n**Peacock message:**\r\nWatch on Peacock\r\nThis broadcast is available to watch only on Peacock. Open the Peacock app to watch now or download for your streaming device. Archives will be available 90 minutes after the end of the game. Live audio is available on MLB.TV. For more information visit https://mlb.tv/peacock"
+    }
+  ]
+}

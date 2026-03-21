@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1798",
+  "issueId": "1129215",
+  "key": "WQ-1798",
+  "summary": "Contents Codec",
+  "description": "Video/Audio codecs supported by content of app",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8ca28060-9ec3-429d-8917-f6e4c8ee329c",
+      "action": "Execute app → Check content playback of all supported codecs",
+      "data": "",
+      "result": "Contents of all codecs playback normally"
+    }
+  ]
+}

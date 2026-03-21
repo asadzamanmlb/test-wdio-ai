@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1789",
+  "issueId": "1129206",
+  "key": "WQ-1789",
+  "summary": "Change Language",
+  "description": "\"Change language settings\" function is included in app",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "525a5138-6916-4e91-83a4-44da910493ba",
+      "action": "Check app support language → Execute app → Change language settings",
+      "data": "",
+      "result": "App language settings are properly changed"
+    }
+  ]
+}

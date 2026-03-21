@@ -1,0 +1,20 @@
+{
+  "id": "WQ-876",
+  "issueId": "1128205",
+  "key": "WQ-876",
+  "summary": "MLBN MVPD Required Pill - Unauthorized",
+  "description": "GIVEN a Postseason game is on the schedule\r\nAND MLBN broadcasters are assigned\r\nAND the user's location is in the USA\r\nAND a user is unauthorized for MLBN MVPD\r\nAND the game level entitledVideo = false\r\nAND the feed level mlbnAuthRequired = true",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "262d96da-451a-41d5-ab24-1ee1d2090161",
+      "action": "WHEN the user views a MLBN Postseason game tile",
+      "data": "",
+      "result": "THEN the MVPD pill displays in the lower left corner of the game tile"
+    }
+  ]
+}

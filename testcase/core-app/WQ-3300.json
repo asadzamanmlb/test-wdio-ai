@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3300",
+  "issueId": "1228176",
+  "key": "WQ-3300",
+  "summary": "\"BACK\" button navigates user to the top of the page - GAMES PAGE",
+  "description": "Given user is navigating the MLB app \n\nAnd user is on the GAMES page\n\nWhen the user select the “Back” button on their remote control\n\nThen the user is redirected to the top of the page - w/ focus on the Games nav button",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "25755909-b009-4253-9111-6ed084ac261a",
+      "action": "WHEN the user select the \"Back\" button on their remote control",
+      "data": "",
+      "result": "THEN the user is redirected to the top of the page - w/ focus on the Games nav button"
+    }
+  ]
+}

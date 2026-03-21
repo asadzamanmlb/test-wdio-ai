@@ -1,0 +1,20 @@
+{
+  "id": "WQ-465",
+  "issueId": "1127791",
+  "key": "WQ-465",
+  "summary": "Video Error at playback start",
+  "description": "GIVEN a user is entitled to a live feed or an archive feed\nAND network calls are blocked/failing before playback is initiated\n\n**NOTE:** Block network requests during video playback via Chrome DevTools.\nGame network calls in QA\n\n* .vtt:  [https://tv-npd-fst.mlb.com|https://tv-npd-fst.mlb.com/]\n* .ts:  [https://tv-npd-fst.mlb.com|https://tv-npd-fst.mlb.com/]\n\nGame network calls in DEV/PROD\n\n* .vtt, .ts: [https://tv-fst.mlb.com|https://tv-fst.mlb.com/] - verified video error modal pre and during playback\n\nRSN/MLBN network calls in DEV/PROD\n\n* .vtt, .ts: [https://tve-live.mlb.com|https://tve-live.mlb.com/] - verified video error modal pre and during playback (30 sec delay)\n\nVOD network calls in DEV/PROD\n\n* .vtt, .ts: [https://mlb-cuts-diamond.mlb.com|https://mlb-cuts-diamond.mlb.com/] - verified video error modal pre and during playback (20 sec delay)\n\nMiLB FGOTD network calls in DEV/PROD\n\n* .vtt, .ts: [https://adhoc-hlslive-fst-gcp.mlb.com|https://adhoc-hlslive-fst-gcp.mlb.com/] - verified video error modal pre and during playback (30 sec delay)\n\nMiLB Game (San Jose Giants) network calls in DEV/PROD\n\n* .vtt, .ts: [https://tv.milb.com|https://tv.milb.com/] - verified during playback (30 sec delay), there is a call to milb-carousel ([https://dai.tv.milb.com/api/v2/playback-info/games/788393/contents/60899/products/milb-carousel|https://dai.tv.milb.com/api/v2/playback-info/games/788393/contents/60899/products/milb-carousel]), which prevents any playback ([tv.milb.com|http://tv.milb.com/]) if blocked before.\n\nUpdate:SLIVE - Big Inning network calls in DEV/PROD\n\n* .vtt, .ts: : [https://svod-fst.mlb.com|https://svod-fst.mlb.com/] - verified video error during playback (30 sec delay), there is a call to [https://dai.svod-fst.mlb.com/|https://dai.svod-fst.mlb.com/], which prevents any playback if blocked before.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6587ff31-993b-4382-8c81-c630b3ec033a",
+      "action": "WHEN a user selects a feed to watch\r\nAND a video error is encountered at playback start",
+      "data": "",
+      "result": "THEN a \"Video Error\" modal displays\r\nAND the MLB logo and text is displayed center justified at the top of the screen\r\nAND \"Video Error\" displays above \"Please try again later.\" centered in the screen\r\nAND a [Go Back] button is displayed with focus\r\nAND the user is navigated back to the Previous page after selecting the [Go Back] button"
+    }
+  ]
+}

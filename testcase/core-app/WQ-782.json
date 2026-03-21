@@ -1,0 +1,20 @@
+{
+  "id": "WQ-782",
+  "issueId": "1128110",
+  "key": "WQ-782",
+  "summary": "Monthly/yearly subscriber AppleTV+ scheduled/live - Game Tile",
+  "description": "GIVEN the user is a monthly/yearly subscriber\r\nAND there is a AppleTV+ Game scheduled/in-progress\r\nAND the game level blackedOutVideo equals true in MASTepg\r\nAND the game level entitledVideo equals false in MASTepg",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f6a6f5dc-e26a-4592-b964-1691b8a13115",
+      "action": "WHEN the user views the AppleTV+ game tile focused or unfocused",
+      "data": "",
+      "result": "THEN \"Stream on: APPLE TV+\" is displayed above \"Broadcast Networks\" at the bottom of the game tile\n\nAnd the user should see a Locked badge and a Blackout badge in the upper left corner of the game tile - [COW-1491|https://baseball.atlassian.net/browse/COW-1491]"
+    }
+  ]
+}

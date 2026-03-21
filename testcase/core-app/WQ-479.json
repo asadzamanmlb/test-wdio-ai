@@ -1,0 +1,20 @@
+{
+  "id": "WQ-479",
+  "issueId": "1127805",
+  "key": "WQ-479",
+  "summary": "Live Playback Wired Connection",
+  "description": "GIVEN a users PlayStation is connected to the internet using a wired connection",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4741263a-78b2-4f5a-92be-32de8875543e",
+      "action": "WHEN a user selects a live game to watch",
+      "data": "",
+      "result": "THEN the selected live game starts playing"
+    }
+  ]
+}

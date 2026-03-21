@@ -1,0 +1,20 @@
+{
+  "id": "WQ-697",
+  "issueId": "1128025",
+  "key": "WQ-697",
+  "summary": "Extra Innings subscriber ESPN/Sunday Night Baseball archive - Feed Select modal",
+  "description": "GIVEN a user has Extra Innings entitlement\r\nAND ESPN Sunday Night Baseball is archived",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "713aa680-65fb-4194-8dea-45f4b631a6e1",
+      "action": "WHEN a user selects an archived ESPN Sunday Night Baseball game tile",
+      "data": "",
+      "result": "THEN a feed select modal displays\r\nAND buttons for Recap and Condensed Game display center justified, above the game feed\r\nAND the user will see an ESPN feed button for the home team\r\nAND the user achieves playback after selecting each button"
+    }
+  ]
+}

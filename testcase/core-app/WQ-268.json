@@ -1,0 +1,20 @@
+{
+  "id": "WQ-268",
+  "issueId": "1127580",
+  "key": "WQ-268",
+  "summary": "Favorite team game is live - blacked out",
+  "description": "GIVEN a user is entitled for live game playback\r\nAND the user's favorite team game is displaying in the Hero\r\nAND the user's location is in the viewing market of the game\r\nAND the game is not a partner game (AppleTV+, Peacock, etc.)\r\nAND the game is live/in-progress",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "fc439ce8-bc04-43f2-a6a0-cf5440fe4b50",
+      "action": "WHEN the user is on the Home page",
+      "data": "",
+      "result": "THEN a background image related to the home team is displayed in the hero \r\nAND the away team logo and away team name are displayed in the Hero\r\nAND the home team logo and home team name are displayed in the Hero\r\nAND a LIVE pill is displayed left justified above the away team\r\nAND a pill with text \"BLACKOUT\" is displayed above the away team to the right of the LIVE pill indicator\r\nAND the \"Watch Now\" button does not display if the user is blacked out"
+    }
+  ]
+}

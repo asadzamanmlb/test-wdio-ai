@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1543",
+  "issueId": "1128880",
+  "key": "WQ-1543",
+  "summary": "Account Limit Error",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged into 6 different sessions/devices\r\nAND the user is playing back game content on 5 of the sessions/devices",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "28fcea3f-6cfb-4b6d-bc79-7375be6f1e50",
+      "action": "WHEN the user attempts to playback game content on a 6th session/device\r\nAND the Account Error modal displays",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Account Error. Your account is currently in use at another location. Reset your password by logging in to mlb.com, and click on the profile icon to change your password. Press select to go back.\""
+    }
+  ]
+}

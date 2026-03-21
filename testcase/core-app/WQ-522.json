@@ -1,0 +1,20 @@
+{
+  "id": "WQ-522",
+  "issueId": "1127848",
+  "key": "WQ-522",
+  "summary": "Anonymous user cannot watch archive games",
+  "description": "GIVEN an anonymous user has launched the app",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "481e7185-7e48-4898-9c02-c9754eafd7ad",
+      "action": "WHEN a user selects an archive game to watch\r\nAND the user selects a team feed to playback",
+      "data": "",
+      "result": "THEN the archive game does not playback\r\nAND the user is displayed the Subscriptions page"
+    }
+  ]
+}

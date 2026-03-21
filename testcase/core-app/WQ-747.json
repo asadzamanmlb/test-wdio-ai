@@ -1,0 +1,20 @@
+{
+  "id": "WQ-747",
+  "issueId": "1128075",
+  "key": "WQ-747",
+  "summary": "National Blackout - Feed Select",
+  "description": "GIVEN a subscribers current location is international\nAND MASTepg has videoFeeds -> mediaFeedType equals \"NATIONAL\"\nAND MASTepg has game level videoStatusCodes equal to 2\n\n**NOTE:**\nNational TV game = -FOX Saturday Baseball or ESPN Sunday Night Baseball-   ESPN, Netflix, NBC/Peacock Sunday Night Baseball\n\nSeeing doc for specifics : [https://support.mlb.com/s/article/MLB-TV-Game-Availability?language=en_US|https://support.mlb.com/s/article/MLB-TV-Game-Availability?language=en_US|smart-link] ",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "cee95430-1923-437d-97d6-5abc164e31f1",
+      "action": "WHEN the user selects the game tile with a Blackout pill",
+      "data": "",
+      "result": "THEN video feed buttons are not displayed\r\nAND the following blackout messaging is displayed in the Feed Select modal: “This game is unavailable in your area. All Regular Season and Postseason live games are subject to blackout restrictions due to Major League Baseball exclusivities. An archive copy of the game will be available 90 minutes after the game.”"
+    }
+  ]
+}

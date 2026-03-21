@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2368",
+  "issueId": "1129820",
+  "key": "WQ-2368",
+  "summary": "Archive Game Playback - No Bookmarks",
+  "description": "GIVEN an entitled user is logged in",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2d41364f-8138-443b-b59b-bca794adafaf",
+      "action": "WHEN a user selects a previously unwatched archive game for playback\r\nAND selects a feed",
+      "data": "",
+      "result": "THEN playback starts at the beginning of the stream"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1779",
+  "issueId": "1129196",
+  "key": "WQ-1779",
+  "summary": "Navigation Key",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8d912201-0b88-4c99-ba02-c1d6ea82eaed",
+      "action": "Execute app → Press Navigations Key of remote control",
+      "data": "",
+      "result": "Navigations Key of remote control works properly\r\n\r\n※ If OSD button of function key (color key) is supported, navigation key does not have to support focusing movement"
+    }
+  ]
+}

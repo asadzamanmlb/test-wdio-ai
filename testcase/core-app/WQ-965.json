@@ -1,0 +1,20 @@
+{
+  "id": "WQ-965",
+  "issueId": "1128294",
+  "key": "WQ-965",
+  "summary": "Bottom Inning",
+  "description": "GIVEN a user is entitled to watch a live game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9a20dddd-30c8-42da-9a63-4b40a1d68be3",
+      "action": "WHEN a user plays in-progress live game\r\nAND the game is in the top of an inning",
+      "data": "",
+      "result": "THEN \"BOT <inning#>\" displays in white text directly to the right of the Live pill indicator under the game tile header"
+    }
+  ]
+}

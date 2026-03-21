@@ -1,0 +1,20 @@
+{
+  "id": "WQ-679",
+  "issueId": "1128007",
+  "key": "WQ-679",
+  "summary": "T-Mobile subscriber archive game - Feed Select",
+  "description": "GIVEN the user is a T-Mobile subscriber",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "dccd7405-ae97-4622-a676-245a0d66a2b8",
+      "action": "WHEN the user selects an archive game tile",
+      "data": "",
+      "result": "THEN buttons for Recap and Condensed Game display center justified, above the team feeds\r\nAND the user will see feed buttons for both teams\r\nAND the user achieves playback after selecting each button"
+    }
+  ]
+}

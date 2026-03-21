@@ -1,0 +1,20 @@
+{
+  "id": "WQ-375",
+  "issueId": "1127687",
+  "key": "WQ-375",
+  "summary": "Favorite team carousel displays",
+  "description": "Given a user has an MLB account\r\nAND a favorite team is set",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ab5b4e30-20e0-4d79-9249-1eb31ca60d0c",
+      "action": "WHEN the user loads the Home page",
+      "data": "",
+      "result": "THEN the users favorite team carousel called \"{team_name} Most Popular\", displays below the MLB Most Popular carousel\r\nAND content is present in the favorite team carousel\r\nAND the user is able to playback content from the carousel"
+    }
+  ]
+}

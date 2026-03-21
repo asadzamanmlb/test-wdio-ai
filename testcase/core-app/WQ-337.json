@@ -1,0 +1,20 @@
+{
+  "id": "WQ-337",
+  "issueId": "1127649",
+  "key": "WQ-337",
+  "summary": "VOD - Free User",
+  "description": "GIVEN a subscriber is a free user\r\nAND VOD content is present in the Hero",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6ae56da6-f750-41bb-bc32-36dfc7c85d1e",
+      "action": "WHEN a subscriber loads the Home page",
+      "data": "",
+      "result": "THEN a related background image is displayed for the VOD content in the hero\r\nAND the title for the VOD content in the hero is displayed\r\nAND the description for non-game content in the hero is displayed\r\nAND the \"Watch Now\" button is white with black text\r\nAND the \"Watch Now\" button has focus when the Home page loads\r\nAND the VOD content playback is successful after the user selects the \"Watch Now\" button"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-439",
+  "issueId": "1127758",
+  "key": "WQ-439",
+  "summary": "Playback from Games page",
+  "description": "GIVEN a game is live or archive\r\nAND a user is logged in\r\nAND entitled for game playback\r\nAND the user is on the Games page",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8e9ad7e0-137d-4f07-891a-794ae8a23837",
+      "action": "WHEN the user selects a live or archive game for playback",
+      "data": "",
+      "result": "THEN the game plays back successfully"
+    }
+  ]
+}

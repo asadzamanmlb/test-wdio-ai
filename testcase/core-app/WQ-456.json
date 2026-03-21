@@ -1,0 +1,20 @@
+{
+  "id": "WQ-456",
+  "issueId": "1127782",
+  "key": "WQ-456",
+  "summary": "Stop Fast Forward",
+  "description": "GIVEN a game feed is playing\nAND Fast Forward has been initiated",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a522dcdb-77b3-4125-aabd-d5b97835a0c0",
+      "action": "WHEN a user presses the \"select\" button on the controller",
+      "data": "",
+      "result": "THEN Fast Forward is stopped\r\nAND the playback head moves to the timestamp corresponding to when the [X] button was pressed\r\nAND the video begins playback at the playback head position"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-420",
+  "issueId": "1127739",
+  "key": "WQ-420",
+  "summary": "Exec user playback",
+  "description": "GIVEN an Exec user is logged in",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4c1d532f-f220-449b-8e0a-2fca4f3869bf",
+      "action": "WHEN the user attempts playback of a Live game\nAND the user attempts playback of an Archive game\nAND the user attempts playback of VOD content\nAND the user attempts playback of SVOD content\nAND the user attempts playback of MLBN 24/7 linear feed\nAND the user attempts playback of an RSN 24/7 linear feed\nAND the user attempts playback of RSN VOD content",
+      "data": "",
+      "result": "THEN the user is able to successfully playback a Live game\nAND the user is able to successfully playback an Archive game\nAND the user is able to successfully playback VOD content\nAND the user is able to successfully playback SVOD content\nAND the user is able to successfully playback the MLBN 24/7 linear feed\nAND the user is able to successfully playback the RSN 24/7 linear feed\nAND the user is able to successfully playback RSN VOD content"
+    }
+  ]
+}

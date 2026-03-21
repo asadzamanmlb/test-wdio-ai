@@ -1,0 +1,20 @@
+{
+  "id": "WQ-939",
+  "issueId": "1128268",
+  "key": "WQ-939",
+  "summary": "Final Game state 'FORFEIT' Hide Spoilers ON",
+  "description": "GIVEN a subscriber is on the Games page\r\nAND Hide Spoilers is set to ON",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "44b7a15b-f6d8-4909-bab1-a022af738763",
+      "action": "WHEN a completed game has any of the following statusCode values: Q,QK,QX,QQ,QJ,QI,QN,QV,QR,QO,R,RR,RK,RX,RQ,RJ,RI,RN,RV,RO",
+      "data": "",
+      "result": "THEN \r\n**PENDING PS5TV-340**"
+    }
+  ]
+}

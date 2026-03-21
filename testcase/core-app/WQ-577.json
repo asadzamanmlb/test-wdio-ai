@@ -1,0 +1,20 @@
+{
+  "id": "WQ-577",
+  "issueId": "1127903",
+  "key": "WQ-577",
+  "summary": "FLIVE Pause",
+  "description": "GIVEN a user (paid/free/anonymous) has launched the MLB app\r\nAND an FLIVE stream is in progress\r\nAND the user is playing back the FLIVE stream",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b5c24eae-a11d-46ff-b55c-8c5a6d2329c6",
+      "action": "WHEN the user presses the \"X\" button on the controller\r\nAND the user presses the \"X\" button again after a few moments",
+      "data": "",
+      "result": "THEN video playback pauses after the first button press\r\nAND video playback resumes after the second button press\r\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

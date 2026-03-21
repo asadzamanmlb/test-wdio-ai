@@ -1,0 +1,20 @@
+{
+  "id": "WQ-386",
+  "issueId": "1127698",
+  "key": "WQ-386",
+  "summary": "Assign Focus - First carousel to Watch Now button",
+  "description": "GIVEN a subscriber is entitled for video playback\r\nAND playable content is present in the hero\r\nAND focus is assigned to the first carousel below the Hero",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c2b6e4d5-4beb-4214-aec8-8755106305ce",
+      "action": "WHEN the user presses the up arrow on the controller",
+      "data": "",
+      "result": "THEN focus moves to the \"Watch Now\" button in the Hero"
+    }
+  ]
+}

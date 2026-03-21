@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1610",
+  "issueId": "1129027",
+  "key": "WQ-1610",
+  "summary": "Full live game playback",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e7086b6b-2b25-4a34-8081-afadeeb87e13",
+      "action": "WHEN",
+      "data": "",
+      "result": "1. Video player gracefully closes once user watches game in full\r\n\r\n2. Extended playback of live game from beginning to end has no issues"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2339",
+  "issueId": "1129789",
+  "key": "WQ-2339",
+  "summary": "R5017A - Application functions on a Testing Kit",
+  "description": "**Suspend/Resume feature**\r\n\r\n**R5017 Requirement:**  The features implemented in the application have been confirmed to run as intended with a Testing Kit with \"Release Check Mode\" set to \"Release Mode\".\r\n\r\n**Description:**  Since Development Kits are designed to prioritize convenience for development, some of the system behavior may vary from retail units. By using Testing Kits with \"Release Check Mode\" set to \"Release Mode\" to test application behavior, it will be possible to test the operation as intended in retail unit environments. Be sure to test the application with Testing Kits before submitting the master to SIE.\r\n\r\nNote that operation testing that assumes a retail unit environment will not be possible with a Testing Kit set to \"Assist Mode\", therefore it will not be possible to use it for operation testing of this requirement.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e82478f8-ea83-477a-90db-6e5a09b67bee",
+      "action": "1. Select the \"Application\"\r\n2. Check throughout the entire application",
+      "data": "",
+      "result": "The features implemented in the application work as intended on the Testing Kit."
+    }
+  ]
+}

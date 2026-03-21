@@ -1,0 +1,20 @@
+{
+  "id": "WQ-625",
+  "issueId": "1127952",
+  "key": "WQ-625",
+  "summary": "Jump to Live button hidden",
+  "description": "GIVEN a user is playing a live stream at the live point\r\nOR a user is playing a non-live video",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0d0611d5-b04b-41b6-abcf-3de3ecf55b73",
+      "action": "WHEN the user displays the scrubber",
+      "data": "",
+      "result": "THEN the \"Jump to Live\" button is not displayed"
+    }
+  ]
+}

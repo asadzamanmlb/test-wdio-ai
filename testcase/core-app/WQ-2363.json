@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2363",
+  "issueId": "1129813",
+  "key": "WQ-2363",
+  "summary": "N/A - R5096F - The application does not crash when there is insufficient free space for save data",
+  "description": "**NOTE:** The PS5 app doesn't use saved data on the kit.\r\n\r\n**Save Data/Download Data**\r\n\r\n**R5096 Requirement:** When there is insufficient space to create or update save data, the following are fulfilled.\r\n-- Allow the user to retry the saving process\r\n-- The user is not required to restart the application to enable saving\r\n-- The application calls sceSaveDataDialogOpen() using the values specified in the table in the Description section below\r\n\r\n**Description**\r\n**Cannot be saved**\r\nIf saving could not be performed due to insufficient space or another reason, allow the user to retry the saving process. The application can either allow the user to retry immediately or delay retrying until the user progresses to the next saving point. (Infinite loops, aside from situations related to insufficient space, are not recommended)\r\n\r\nSaving must not be disabled throughout the application after the process has been interrupted; whether the application utilizes an autosave feature or a user initiated save feature.\r\n\r\nIf an error occurs during saving of the save data, it is possible to display the type of error to the user by using the error code display mode of Save Data Dialog.\r\n\r\n**Cannot save due to insufficient free space**\r\nWhen there is insufficient free space to mount save data directories, sceSaveDataMount3() will return SCE_SAVE_DATA_ERROR_NO_SPACE_FS. When this occurs, the sceSaveDataDialogOpen() needs to be called as detailed below:\r\n\r\n|||Arguments|Value to specify\r\n||SceSaveDataDialogParam.mode|SCE_SAVE_DATA_DIALOG_MODE_SYSTEM_MSG\r\n||SceSaveDataDialogParam.dispType|SCE_SAVE_DATA_DIALOG_TYPE_SAVE\r\n||SceSaveDataDialogParam.sysMsgParam->sysMsgType|SCE_SAVE_DATA_DIALOG_SYSMSG_TYPE_NOSPACE or SCE_SAVE_DATA_DIALOG_SYSMSG_TYPE_NOSPACE_CONTINUABLE\r\n\r\nAfter displaying the system defined message, when free space is not available, the application can either allow game progress, or block it until the user frees the necessary space.\r\n\r\nSave data memory processing is not relevant to this requirement. However, for applications that use both save data memory and normal save data, ensure the normal save data complies with this requirement because insufficient free space is occurred for the normal save data.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "00452492-a4d8-4890-80b6-c9b29aa3f44a",
+      "action": "1. Press the up button on the home screen\r\n2. Select \"Settings\" > \"Saved Data and Game/Apps Settings\" > \"Saved Data (PS5)\" > \"Console Storage\" > \"Delete\", and check that the save data for the corresponding application has not been created\r\n3. Return to the home screen and set \"★Debug Settings\" > \"Game\" > \"SaveData\" > \"Fake Free Space\" to \"On\"\r\n4. Go back to the home screen, then select the \"Application\"\r\n5. Proceed to a save point and attempt to create save data\r\n\r\n**Notes**\r\nAlso check when overwriting existing save data.\r\nIt is permissible to display a system defined message until insufficient free space is resolved.",
+      "data": "",
+      "result": "1. If a save fails due to insufficient free space, the application recovers to a state where the save can be attempted again without losing any progress information.\r\n2. When save data mounting fails due to insufficient free space, one of the following system messages is displayed.\r\n\r\n[T-003][Info]\r\nSaveDataDialog:\r\nSystem Message - NOSPACE\r\n\r\n[T-003][Info]\r\nSaveDataDialog:\r\nSystem Message - NOSPACE_CONTINUABLE"
+    }
+  ]
+}

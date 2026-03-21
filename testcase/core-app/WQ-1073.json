@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1073",
+  "issueId": "1128403",
+  "key": "WQ-1073",
+  "summary": "Create Account Failure - Existing Account",
+  "description": "GIVEN the user is not logged in\r\nAND the user selects the \"Get MLB.TV\" tab in the header\r\nAND the user selects the [Create Free Account] button on the Welcome page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "94538df1-83a6-4fa3-9964-37a3669ac001",
+      "action": "WHEN the user enters an existing MLB.TV subscriber email address in the \"Email Address\" field\r\nAND the user enters a valid format password in the \"Password\" field\r\nAND the user selects the [Create Account] button",
+      "data": "",
+      "result": "THEN red text above the \"Email Address\" field displays stating, \"An error occurred, please try again. •duplicate email address\""
+    }
+  ]
+}

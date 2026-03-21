@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1158",
+  "issueId": "1128493",
+  "key": "WQ-1158",
+  "summary": "Following Teams - Settings page Cancel",
+  "description": "GIVEN a logged in user is on the Settings page\r\nAND the user selects \"Following Teams\" in the list of settings\r\nAND the user selects a following team\r\nOR the user does not select a following team",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e6c43a25-837a-4ac5-ab6a-8f29e5996170",
+      "action": "WHEN the user selects the \"Cancel\" button",
+      "data": "",
+      "result": "THEN the user is navigated back to the Settings page\r\nAND focus is assigned to \"Log Out\" in the list of settings\r\nAND the user's previously saved following team/s are shown on the Following Teams page\r\nAND the user's previously saved following team/s displays with secondary priority to the user's favorite team in the top row on the Games page, on day's the followed team is playing\r\nAND the user's previously saved following team/s displays with secondary priority to the user's favorite team in the Games carousel, or Hero/Featured spot, on the Home page, on days the followed team is playing\r\nIF a favorite team was not previously selected, the Games page, Games carousel, and Hero/Featured spot will first display any Following Teams the user may have selected\r\nIF no favorite or following team is selected, games will display in order of game time"
+    }
+  ]
+}

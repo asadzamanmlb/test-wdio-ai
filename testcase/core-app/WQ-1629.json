@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1629",
+  "issueId": "1129046",
+  "key": "WQ-1629",
+  "summary": "Broadcast switching (currently N/A)",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "fa80123c-93b2-4842-a4c6-96c63efe1496",
+      "action": "WHEN",
+      "data": "",
+      "result": "1. Users can switch to alternate video feeds when navigating to the broadcast options of the video player\r\n\r\n2. Video feed options will be available in the feed selector which includes a home or away feed"
+    }
+  ]
+}

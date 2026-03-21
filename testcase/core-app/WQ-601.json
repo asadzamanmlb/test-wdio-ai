@@ -1,0 +1,20 @@
+{
+  "id": "WQ-601",
+  "issueId": "1127928",
+  "key": "WQ-601",
+  "summary": "SLIVE Fast Forward Cancel",
+  "description": "GIVEN a user has SUBSCRIBERVOD entitlement\r\nAND an SLIVE stream is in progress\r\nAND the user selects the SLIVE stream to watch\r\nAND the playhead is behind the live point",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "709d0a2d-3f23-4f50-9386-41cda512a137",
+      "action": "WHEN the user initiates Fast Forward\nAND presses the \"back\" button on the controller after a few moments",
+      "data": "",
+      "result": "THEN Fast Forward stops\r\nAND playback resumes at the point where Fast Forward was initiated\r\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

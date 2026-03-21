@@ -1,0 +1,20 @@
+{
+  "id": "WQ-674",
+  "issueId": "1128002",
+  "key": "WQ-674",
+  "summary": "Extra Innings subscriber FGotD archive - Game Tile",
+  "description": "GIVEN the user is an Xtra Innings subscriber\r\nAND the FGotD is archived\r\n",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7def7fdf-ad33-4eb7-a6c5-2604273484ab",
+      "action": "WHEN the user views/focuses the FGotD game tile",
+      "data": "",
+      "result": "THEN a lock icon does not display in the upper right corner of the game tile\r\nAND there is no dark overlay over the team colors in the game tile header\r\nAND a Free Game of the Day pill displays left justified at the bottom of the game tile\r\n\r\n**Note:** If a FGotD has a saving pitcher, the FGotD pill will not display when the game tile has focus. The saving pitcher information will display in its place."
+    }
+  ]
+}

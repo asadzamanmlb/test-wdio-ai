@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1041",
+  "issueId": "1128371",
+  "key": "WQ-1041",
+  "summary": "Header navigation - Upgrade Plan",
+  "description": "GIVEN a Free user launches the app to explore free content",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "72ca8137-9eed-4308-8cc3-4e276b76ccd6",
+      "action": "WHEN the user selects \"Upgrade Plan\" in the header",
+      "data": "",
+      "result": "THEN the user is navigated to the Subscriptions page\nAND pressing the \"back\" button on the remote controller will navigate the user to the previous page"
+    }
+  ]
+}

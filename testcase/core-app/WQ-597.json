@@ -1,0 +1,20 @@
+{
+  "id": "WQ-597",
+  "issueId": "1127924",
+  "key": "WQ-597",
+  "summary": "SLIVE Rewind Stop",
+  "description": "GIVEN a user has SUBSCRIBERVOD entitlement\r\nAND an SLIVE stream is in progress\r\nAND the user selects the SLIVE stream to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2f62a556-ef8d-4a5a-b8be-14aa8e0562f7",
+      "action": "WHEN the user initiates Rewind\nAND presses the \"Select\" button on the controller after a few moments",
+      "data": "",
+      "result": "THEN Rewind stops\r\nAND playback resumes at the point where Rewind stopped\r\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

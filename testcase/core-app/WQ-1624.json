@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1624",
+  "issueId": "1129041",
+  "key": "WQ-1624",
+  "summary": "Audio from MLB app doesn't continue when switching to another app",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9c2e1f53-adcf-4cd1-91be-ef689c60f816",
+      "action": "WHEN",
+      "data": "",
+      "result": "New app's audio takes precedent over video player or audio player's live game audio"
+    }
+  ]
+}

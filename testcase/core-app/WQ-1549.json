@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1549",
+  "issueId": "1128951",
+  "key": "WQ-1549",
+  "summary": "VOD Playback",
+  "description": "GIVEN a logged in user is entitled for VOD content playback",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5ef552cc-7360-4438-a2d5-e2132e22ddc9",
+      "action": "WHEN the user selects a VOD content tile for playback",
+      "data": "",
+      "result": "THEN the VOD content plays back from the beginning"
+    }
+  ]
+}

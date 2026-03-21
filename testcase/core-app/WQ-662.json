@@ -1,0 +1,20 @@
+{
+  "id": "WQ-662",
+  "issueId": "1127990",
+  "key": "WQ-662",
+  "summary": "AtBat subscriber FGotD archive - Game Tile",
+  "description": "GIVEN a user is an Audio Only subscriber",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9b1139d4-a338-4656-85da-7973d42386ba",
+      "action": "WHEN a user views/focuses an archive FGotD game tile",
+      "data": "",
+      "result": "AND a Free Game of the Day pill displays left justified at the bottom of the game tile\r\n\r\n**Note:** If a FGotD has a saving pitcher, the FGotD pill will not display when the game tile has focus. The saving pitcher information will display in its place."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1131",
+  "issueId": "1128461",
+  "key": "WQ-1131",
+  "summary": "Select favorite (Next) no select follow (Next) New Account",
+  "description": "GIVEN the user does not have an MLB Account\r\nAND the user is launching the app for the first time\r\nAND the user selects the \"Getting Started\" button",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "641565b0-0299-41b8-a13c-62d9f947a00a",
+      "action": "WHEN the user selects a favorite team\r\nAND the user selects the \"Next\" button\r\nAND the user does not select any following teams\r\nAND the user selects the \"Next\" button\r\nAND the user creates a new account",
+      "data": "",
+      "result": "THEN the selected favorite team is saved to the new account profile\r\nAND no following teams are saved to the new account profile"
+    }
+  ]
+}

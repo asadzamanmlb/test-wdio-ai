@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2350",
+  "issueId": "1129800",
+  "key": "WQ-2350",
+  "summary": "R5065A - Application supports HD resolutions",
+  "description": "**Graphical User Interface**\r\n\r\n**R5065 Requirement:** In HD resolution, confirm that visibility required to use the application and play the game is maintained. Moreover, check that application progress is possible regardless of the video output format. Also confirm the visibility at HD resolutions for the essential items described in R5030.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "37bfa38f-4034-4e8c-8ae8-6a3f4c67e5cf",
+      "action": "1. Press the up button on the home screen.\r\n2. Confirm that \"Settings\" > \"Screen and Video\" > \"Video Output\" > \"Resolution\" is set to one of the resolutions to check (\"720p\", \"1080i\", \"1080p\", or \"2160p).\r\n3. Go back to the home screen and select the \"Application\".\r\n4. Check throughout the entire application.\r\n\r\n**Notes:**\r\n- Check with all resolutions in step (4), however when testing 1080 only test \"1080i\" or \"1080p\".\r\n- In particular, be sure to check full motion video/full motion animation.",
+      "data": "",
+      "result": "- The application can be started in all supported HD resolutions.\r\n- Visibility necessary to use the application and perform gameplay is maintained throughout."
+    }
+  ]
+}

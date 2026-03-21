@@ -1,0 +1,20 @@
+{
+  "id": "WQ-551",
+  "issueId": "1127877",
+  "key": "WQ-551",
+  "summary": "Slow down Rewind",
+  "description": "GIVEN a user is rewinding a video\r\nAND the rewind speed is 4, 8, 16, 32, 64, 128, or 256",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "81105611-007e-4a11-a9f9-357b85b6cc0c",
+      "action": "WHEN a user taps the right d-pad button, R2 button, or the left analog stick to the right",
+      "data": "",
+      "result": "THEN the rewind speed decreases by one increment for every tap"
+    }
+  ]
+}

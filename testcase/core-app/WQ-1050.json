@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1050",
+  "issueId": "1128380",
+  "key": "WQ-1050",
+  "summary": "Log In - Successful login paid user",
+  "description": "GIVEN the user is on the Log In page",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "344c0484-b648-4885-898e-63719b7ee038",
+      "action": "WHEN a user enters an existing MLB.TV subscriber email address in the \"Email Address\" field\r\nAND a user enters the existing subscriber password in the \"Password\" field\r\nAND a user selects the [Log In] button",
+      "data": "",
+      "result": "THEN the user is logged in successfully\r\nAND a spinning baseball is displayed indicating the page is loading\r\nAND the user is navigated to the previous page"
+    }
+  ]
+}

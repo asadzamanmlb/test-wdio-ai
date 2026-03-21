@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1720",
+  "issueId": "1129137",
+  "key": "WQ-1720",
+  "summary": "Resume Skip through inning markers - Hide Spoilers OFF",
+  "description": "GIVEN the user is entitle for live game playback\r\nAND Hide Spoilers is turned OFF\r\nAND a game is live in the 7th inning or later, but still in progress\r\nAND a resume bookmark is in the 2nd inning\r\nAND the user selects the \"Resume\" button to initiate playback",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a9bee73b-fffc-466c-a21f-31c2cc4ccd9c",
+      "action": "WHEN the user opens the scrubber/player controls\r\nAND the user selects each top and bottom inning in the line score",
+      "data": "",
+      "result": "THEN a tile with text and thumbnails display for each milestone\r\nAND game playback matches the inning marker"
+    }
+  ]
+}

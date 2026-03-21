@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3065",
+  "issueId": "1161967",
+  "key": "WQ-3065",
+  "summary": "SNLA+ VOD FF Cancel",
+  "description": "GIVEN a logged in user is entitled for SNLA+ RSN\nAND the user is on the SNLA+ page\nAND the user selects a VOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "fe047e9e-967b-422a-b169-02d003ed6caf",
+      "action": "WHEN the user initiates Fast Forward\nAND presses the \"back\" button on the controller after a few moments",
+      "data": "",
+      "result": "THEN Fast Forward stops\nAND playback resumes at the point where Fast Forward was initiated\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

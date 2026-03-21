@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1448",
+  "issueId": "1128785",
+  "key": "WQ-1448",
+  "summary": "Explore Free Content button",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is not logged in\r\nAND the user is on the Welcome page\r\nAND focus is not on the \"Explore Free Content\" button",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ad7bddb1-e66e-49e9-887d-fcc2b07e1bf3",
+      "action": "WHEN the user assigns focus to the \"Explore Free Content\" button",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Explore free account. Press or scroll down to hear the next option or up to hear the previous one.\""
+    }
+  ]
+}

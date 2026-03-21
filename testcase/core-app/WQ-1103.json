@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1103",
+  "issueId": "1128433",
+  "key": "WQ-1103",
+  "summary": "Yearly/Monthly Toggle Save",
+  "description": "GIVEN at least 1 yearly subscription package is set up in the Paywall Config tool\r\nAND at lease 1 monthly subscription package is set up in the Paywall Config tool\r\nAND the user is not logged in",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "25a6f625-1776-4770-9d6e-38ba94150cdc",
+      "action": "WHEN the user navigates to the \"Welcome\" page by clicking \"Get MLB.TV\" in the header\r\nAND the user selects the \"Browse Subscriptions\" button\r\nAND the user sets the Yearly/Monthly toggle to Yearly or Monthly\r\nAND the user selects a subscription package tile\r\nAND the user presses the BACK button on the controller",
+      "data": "",
+      "result": "THEN the Paywall page displays\r\nAND the toggle is still set to what was toggled to before selecting the subscription package tile\r\nAND focus is assigned to the left most tile"
+    }
+  ]
+}

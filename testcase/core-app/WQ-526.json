@@ -1,0 +1,20 @@
+{
+  "id": "WQ-526",
+  "issueId": "1127852",
+  "key": "WQ-526",
+  "summary": "Broadcast Options - Switch Video Feed - Paid Subscriber non-Single Team",
+  "description": "GIVEN the user is not anonymous, a free user, or a single team subscriber\r\nAND the user is entitled to archive game playback\r\nAND the user has initiated playback for an archive game that has home and away feeds",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7d24b589-142e-44f3-99f2-61233beaa71f",
+      "action": "WHEN the user displays the scrubber\r\nAND assigns focus to \"Broadcast Options\"\r\nAND navigates to the video feed button that is not blue\r\nAND presses the CROSS/X button",
+      "data": "",
+      "result": "THEN the newly selected video feed starts playing back\r\nAND audio playback is updated to the TV audio of the newly selected video feed\r\nAND the scrubber is dismissed after 10 seconds"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1306",
+  "issueId": "1128643",
+  "key": "WQ-1306",
+  "summary": "Start from the Beginning",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND the user has already watched a portion of a Live or Archive game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "47026319-74a0-4549-9c57-0e31276fd3a4",
+      "action": "WHEN the user selects a game tile for a game they've already partially watched\r\nAND selects the same team feed\r\nAND assigns focus to the Start from the Beginning button",
+      "data": "",
+      "result": "THEN the Feed Modal displays\r\nAND the following statement is spoken, \"Start from the Beginning, press select to start the game from the beginning. Press back to choose a different feed.\""
+    }
+  ]
+}

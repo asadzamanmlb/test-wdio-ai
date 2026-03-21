@@ -1,0 +1,20 @@
+{
+  "id": "WQ-516",
+  "issueId": "1127842",
+  "key": "WQ-516",
+  "summary": "Rewind to video start",
+  "description": "GIVEN a user is playing an archive game\r\nAND the playhead is in the middle of the scrubber bar",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8fbd8bf5-7ac0-4846-8819-7b10dae25897",
+      "action": "WHEN a user initiates rewind\r\nAND the user does not stop rewind",
+      "data": "",
+      "result": "THEN the playhead rewinds to the beginning of the video\r\nAND rewind stops automatically once the playhead reaches the beginning of the video\r\nAND the video starts playing from the beginning after rewind stops\r\nAND the scrubber bar is auto dismissed after 10 seconds"
+    }
+  ]
+}

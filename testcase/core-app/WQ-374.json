@@ -1,0 +1,20 @@
+{
+  "id": "WQ-374",
+  "issueId": "1127686",
+  "key": "WQ-374",
+  "summary": "Featured non-game tile selection - not entitled",
+  "description": "GIVEN the user is a free subscriber\r\nAND the user does not have the SUBSCRIBERVOD entitlement\r\nAND the user is logged in\r\nOR the user is not logged in",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b4c19854-9b33-4915-9492-1064b3c40d6a",
+      "action": "WHEN a logged in user selects an SVOD featured tile for playback\r\nOR a not logged in user selects any non-game featured tile for playback",
+      "data": "",
+      "result": "THEN the user is unable to playback content\r\nAND the not entitled user is navigated to the Subscriptions/Paywall page after selecting not entitled content\r\nAND the not entitled user is navigated to the Home page after pressing the BACK button on the controller\r\nAND focus is assigned to the \"Watch Now\" button in the hero\r\n\r\n**Note:** If \"Watch Now\" button is not present in the Hero, focus should be assigned to the Home tab in the navigation header"
+    }
+  ]
+}

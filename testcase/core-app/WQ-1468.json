@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1468",
+  "issueId": "1128805",
+  "key": "WQ-1468",
+  "summary": "Focusing on Scrubber | VOD/ SVOD",
+  "description": "GIVEN the user is watching VOD/SVOD content\r\nTTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "fbe126fa-911c-4136-9c45-903d77e6f455",
+      "action": "WHEN the user navigates down and the scrubber comes into focus",
+      "data": "",
+      "result": "THEN the user will hear: “<name_of_stream> Press select to Pause, Press up for quick actions, Press back to dismiss controls”"
+    }
+  ]
+}

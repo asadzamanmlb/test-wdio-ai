@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3255",
+  "issueId": "1220823",
+  "key": "WQ-3255",
+  "summary": "Carousel Title Animation",
+  "description": "GIVEN a user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c4143b44-2748-48b8-a994-ee37f5456401",
+      "action": "WHEN a user navigates to a carousel",
+      "data": "",
+      "result": "THEN the carousel title increases in size"
+    }
+  ]
+}

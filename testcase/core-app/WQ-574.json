@@ -1,0 +1,20 @@
+{
+  "id": "WQ-574",
+  "issueId": "1127900",
+  "key": "WQ-574",
+  "summary": "FLIVE Fast Forward Stop",
+  "description": "GIVEN a user (paid/free/anonymous) has launched the MLB app\r\nAND an FLIVE stream is in progress\r\nAND the user selects the FLIVE stream to watch\r\nAND the playhead is behind the live point",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0a8889d5-a50f-4416-af0b-14d089cdd1b1",
+      "action": "WHEN the user initiates Fast Forward\r\nAND presses the \"X\" button on the controller after a few moments",
+      "data": "",
+      "result": "THEN Fast Forward stops\r\nAND playback resumes at the point where Fast Forward stopped\r\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

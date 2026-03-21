@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1257",
+  "issueId": "1128594",
+  "key": "WQ-1257",
+  "summary": "Featured Tiles Entitled",
+  "description": "GIVEN TTS is turned ON\r\nAND a monthly user is logged in\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "232ddf7e-f170-4865-a0cd-11f014449403",
+      "action": "WHEN focus is assigned to a Featured tile",
+      "data": "",
+      "result": "The following statement is spoken, \"<content_title>, <content_description>, <content_length>, from <date>, press select to play, X of Y items in the carousel, press <appropriate_directions> to view other videos in the carousel, press up or down to browse more content\""
+    }
+  ]
+}

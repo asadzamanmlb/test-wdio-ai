@@ -1,0 +1,20 @@
+{
+  "id": "WQ-532",
+  "issueId": "1127858",
+  "key": "WQ-532",
+  "summary": "Broadcast Options - Switch Alt Audio - Paid Subscriber",
+  "description": "GIVEN the user is entitled for archive game playback\r\nAND the user has initiated playback of an archive game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0dd2654d-5d9d-4338-a684-b0ef91b11932",
+      "action": "WHEN the user opens the Broadcast Options\r\nAND the user selects a non-TV audio feed",
+      "data": "",
+      "result": "THEN the newly selected audio feed begins playback\r\nAND the audio feed is in-sync with the video feed\r\nAND the scrubber is dismissed after 10 seconds"
+    }
+  ]
+}

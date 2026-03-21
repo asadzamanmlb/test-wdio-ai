@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1781",
+  "issueId": "1129198",
+  "key": "WQ-1781",
+  "summary": "General/Ok Key",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2b329b08-9495-4394-b1d0-e5ffe5d0045d",
+      "action": "Execute app → Press OK key of remote control",
+      "data": "",
+      "result": "OK key of remote control works properly"
+    }
+  ]
+}

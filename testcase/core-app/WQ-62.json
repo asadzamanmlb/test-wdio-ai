@@ -1,0 +1,20 @@
+{
+  "id": "WQ-62",
+  "issueId": "1127074",
+  "key": "WQ-62",
+  "summary": "DAI requests stop after exiting a stream",
+  "description": "GIVEN a user is entitled to watch video streams",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "aac89fe3-3792-4f0a-98e7-6904a073246f",
+      "action": "WHEN a user exits a stream",
+      "data": "",
+      "result": "THEN network calls to dai.google.com are no longer occurring"
+    }
+  ]
+}

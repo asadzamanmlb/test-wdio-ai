@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1079",
+  "issueId": "1128409",
+  "key": "WQ-1079",
+  "summary": "Home page to Subscribe to Home page - Create Account",
+  "description": "GIVEN an anonymous user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8648bb4a-903a-4a43-88a4-d6255be41bf1",
+      "action": "WHEN the user selects the \"Subscribe\" tab in the navigation header\nAND the user selects the [Create Free Account] button\nAND the user scans the QR Code displayed on the screen\nAND the user follows the create account prompts on their phone to successfully create a new account",
+      "data": "",
+      "result": "THEN the user is navigated to the Home page\nAND focus is assigned to the featured image in the Hero"
+    }
+  ]
+}

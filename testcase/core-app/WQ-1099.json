@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1099",
+  "issueId": "1128429",
+  "key": "WQ-1099",
+  "summary": "Subscription Package Tile - Large",
+  "description": "GIVEN the user is on the Paywall page\r\nAND subscription packages have been returned from the Paywall Config\r\nAND \"large\" is the size returned from the Paywall Config\r\nAND at least 3 yearly and 3 monthly subscription packages are returned from the Paywall Config",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2b58ed13-88c5-411e-bba1-71cd27c94a76",
+      "action": "WHEN the user views the packages on the Paywall page",
+      "data": "",
+      "result": "THEN only two full tiles are displayed on the page\r\nAND a third tile is peaking from the right side of the screen\r\nAND as the user navigates focus to the right, the tiles slide to the left"
+    }
+  ]
+}

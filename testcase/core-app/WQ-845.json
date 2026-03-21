@@ -1,0 +1,20 @@
+{
+  "id": "WQ-845",
+  "issueId": "1128173",
+  "key": "WQ-845",
+  "summary": "Extra Innings subscriber YouTube archive - Feed Select modal",
+  "description": "GIVEN a user is an XtraInnings subscriber",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8c61d052-5f42-48e8-9a2b-635068bf7092",
+      "action": "WHEN a user selects an archive YouTube game tile",
+      "data": "",
+      "result": "THEN the user will see the YouTube feed button\r\nAND a message does not display letting the user know where the game can be watched\r\nAND the user can playback the YouTube feed"
+    }
+  ]
+}

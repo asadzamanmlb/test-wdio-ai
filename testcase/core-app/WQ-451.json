@@ -1,0 +1,20 @@
+{
+  "id": "WQ-451",
+  "issueId": "1127777",
+  "key": "WQ-451",
+  "summary": "Pause/Play",
+  "description": "GIVEN a user is playing a game feed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1ad10e69-2716-43bd-9342-bb35f5a1dde8",
+      "action": "WHEN a user presses the \"select\" button on the controller once\nAND presses the \"select\" button a second time",
+      "data": "",
+      "result": "THEN the scrubber displays\r\nAND the video pauses after the first button press\r\nAND the screen displays a pause icon in the center of the screen for 1 second\r\nAND the video plays after the second button press\r\nAND the screen displays a play icon in the center of the screen for 1 second"
+    }
+  ]
+}

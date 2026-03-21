@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1216",
+  "issueId": "1128553",
+  "key": "WQ-1216",
+  "summary": "Game Tile Pregame Not Entitled Hide Spoilers ON",
+  "description": "GIVEN TTS is turned ON\r\nAND a user is not logged in\r\nAND Hide Spoilers is turned ON\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "70823378-9d0d-46a1-a214-5d8c5901133f",
+      "action": "WHEN the user assigns focus to a game tile that is not yet Live in the Games Carousel",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Game <x> of <y>, <away_team> at <home_team>, <game_start_time> Game Start Time, Not Entitled, Press select to play game. Move <appropriate_directions> to navigate to a new item. Move up or down to browse new content.\""
+    }
+  ]
+}

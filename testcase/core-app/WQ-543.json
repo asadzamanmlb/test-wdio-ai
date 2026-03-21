@@ -1,0 +1,20 @@
+{
+  "id": "WQ-543",
+  "issueId": "1127869",
+  "key": "WQ-543",
+  "summary": "Game Details - Pitcher/Batter Matchup",
+  "description": "GIVEN the user is logged in\r\nAND the user is in the MLB experience\r\nAND the user is entitled to archive game playback\r\nAND playback of an archive game is initiated",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2a4b95f9-693e-4788-b99c-3e3caaad405d",
+      "action": "WHEN a user initiates the scrubber bar to display\r\nAND the user assigns focus to the Details tab below the scrubber bar",
+      "data": "",
+      "result": "THEN the current batter displays to the right of the line score\r\nAND the current batter's headshot is displayed\r\nAND the current batter's name is displayed to the right of the headshot\r\nAND the current batter's in-game at-bat results, season average, season OPS is displayed to the right of the headshot, below the batter's name (data will update as the game progresses)\r\nAND the current pitcher displays to the right of the current batter's name and stats\r\nAND the current pitcher's headshot is displayed\r\nAND the current pitcher's name is displayed to the right of the headshot\r\nAND the current pitcher's in-game pitches, in-game innings pitched, season ERA is displayed to the right of the headshot, below the pitcher's name (data will update as the game progresses)\r\n\r\n**NOTE:** if a player's headshot does not exist, an anonymous headshot will display"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1753",
+  "issueId": "1129170",
+  "key": "WQ-1753",
+  "summary": "Resolution",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ecea5d7f-2503-44b1-8456-3471f0f01229",
+      "action": "Execute app → Navigate to different menu and screen",
+      "data": "",
+      "result": "- When changing screen, screen resolution and ratio is proper\r\n- When navigating to different screen, layout and UI are displayed properly \r\n- Afterimage of playback image appears after changing screen\r\n\r\n※ TV Resolution\r\nLG Recomended: 1920x1080 \r\nNetCast: 1280x720 / webOS: 1920x1080\r\n\r\n※ TV Ratio: 16:9(Default)"
+    }
+  ]
+}

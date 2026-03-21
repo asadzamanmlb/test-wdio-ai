@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1060",
+  "issueId": "1128390",
+  "key": "WQ-1060",
+  "summary": "Log In - Activation Code Failure",
+  "description": "GIVEN the user already has an MLB Account\r\nAND the user is launching the app for the first time\r\nAND the user is not logged in\r\nAND the user selects the \"Have An MLB.TV Account?\" button",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9e6f73c2-1375-4e56-930e-847c634ebe09",
+      "action": "WHEN the user goes to mlb.com/activate\r\nAND enters the activation code displayed in the app\r\nAND doesn't complete the log in process within 10 minutes",
+      "data": "",
+      "result": "THEN a login failed message is displayed on the web page for mlb.com/activate"
+    }
+  ]
+}

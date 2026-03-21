@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3382",
+  "issueId": "1248920",
+  "key": "WQ-3382",
+  "summary": "RSN Carousel navigation to the right",
+  "description": "GIVEN a user is on a RSN page\nAND focus is assigned to a carousel",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9f97a715-5ca4-4012-b692-c389b0e34e77",
+      "action": "WHEN the user presses the right arrow on the controller",
+      "data": "",
+      "result": "THEN focus remains on the furthest left full tile\r\nAND the tile that was previously to the right of the focused tile is now in the focused position of the carousel\r\nAND focus remains on the tile once the user reaches the last tile in the carousel\r\nAND the user can no longer continue navigating right through the carousel once the end of the carousel has been reached"
+    }
+  ]
+}

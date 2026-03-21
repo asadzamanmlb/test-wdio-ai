@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1280",
+  "issueId": "1128617",
+  "key": "WQ-1280",
+  "summary": "Game Tile Final Hide Spoilers ON",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND Hide Spoilers is turned ON\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "18771f3d-2d4d-45a2-8138-9de4e2a06d33",
+      "action": "WHEN focus is assigned to an archive game in the Hero",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"<away_team>, <home_team>, Final, press select to play, press up for the Main Menu, press down to browse more content.\""
+    }
+  ]
+}

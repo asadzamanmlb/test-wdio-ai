@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1531",
+  "issueId": "1128868",
+  "key": "WQ-1531",
+  "summary": "Fast Forward 15 Seconds | Live/Archive/SLIVE",
+  "description": "GIVEN the user is watching a Live Game or Archive Game, or SLIVE content\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1cbd3980-1b84-43b8-a7fa-4b5c1a327499",
+      "action": "WHEN the user clicks the right button once to Fast Forward 15 seconds",
+      "data": "",
+      "result": "THEN the user will hear: \"Fast forward 15 seconds. Press Select to Pause, Press Up for Quick Actions, Press Down for More Options, Press Back to get back to video\""
+    }
+  ]
+}

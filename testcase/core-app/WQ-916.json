@@ -1,0 +1,20 @@
+{
+  "id": "WQ-916",
+  "issueId": "1128245",
+  "key": "WQ-916",
+  "summary": "Single Team subscriber ESPN/Sunday Night Baseball archive non-subscribed teams - Feed Select modal",
+  "description": "GIVEN a user is a single team subscriber\r\nAND an archived ESPN Sunday Night Baseball game doesn't include the subscribed-to-team\r\nAND the game level entitledVideo equals false in MAST EPGv3",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2da8e4fd-2dc0-436b-be53-8bf5845308fc",
+      "action": "WHEN the user selects an archive ESPN Sunday Night Baseball game tile",
+      "data": "",
+      "result": "THEN the feed select modal displays\r\nAND the user will see the ESPN feed button with a lock icon\r\nAND a blackout message does not display\r\nAND the user cannot playback the feed"
+    }
+  ]
+}

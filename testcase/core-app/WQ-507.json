@@ -1,0 +1,20 @@
+{
+  "id": "WQ-507",
+  "issueId": "1127833",
+  "key": "WQ-507",
+  "summary": "Game Details Navigation - Extra innings",
+  "description": "GIVEN the user is logged in\r\nAND the user is in the MLB experience\r\nAND the user is entitled to live game playback\r\nAND playback of an in-progress extra inning game is initiated",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c680b0c6-70d1-4e47-a10a-1f2df592d114",
+      "action": "WHEN the user navigates to \"Details\" in the scrubber\r\nAND the user presses down from the submenu\r\nAND the user navigates left, right, up, and down within the line score\r\nAND selects a focused half inning",
+      "data": "",
+      "result": "THEN focus gets assigned to the current half inning based on the point of playback\r\nAND the user is able to navigate to each half inning\r\nAND the innings with associated runs shifts to the left as the user navigates to the 9th inning and beyond (9 innings will always display)\r\nAND once the user reaches the final inning, the line score does not shift to the left\r\nAND from the second-most-left inning column, the innings with associated runs shifts to the right as the user attempts to navigate to the first inning (9 innings will always display)\r\nAND playback is moved to the beginning of the selected half inning"
+    }
+  ]
+}

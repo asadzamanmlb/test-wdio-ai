@@ -1,0 +1,20 @@
+{
+  "id": "WQ-310",
+  "issueId": "1127622",
+  "key": "WQ-310",
+  "summary": "Game Data - Live - Hide Spoilers OFF",
+  "description": "GIVEN Hide Spoilers is OFF",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1f8171ef-1d66-4144-b3c2-15aa301b5c8d",
+      "action": "WHEN an in-progress live game is present in the Hero",
+      "data": "",
+      "result": "THEN the current away team score is displayed to the right of the away team name\r\nAND the current home team score is displayed to the right of the home team name\r\nAND the current inning data is displayed below the home team logo\r\nAND the current base runners data is displayed in a paw print configuration to the right of the inning data, below the home team name\r\nAND the current balls-strikes data is displayed to the right of base runners paw print, below the home team name\r\nAND the current inning Outs data is displayed to the right of the balls-strikes, below the home team name"
+    }
+  ]
+}

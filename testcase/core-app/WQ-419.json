@@ -1,0 +1,20 @@
+{
+  "id": "WQ-419",
+  "issueId": "1127731",
+  "key": "WQ-419",
+  "summary": "SNLA+ 24/7 feed video error during playback",
+  "description": "GIVEN a user has entitlements for SNLA+\r\nAND the user launches the MLB.TV app\r\nAND the user logs in\r\nAND the user is on the SNLA+ page\r\n\r\n**NOTE:** SNLA+ entitlement = SNLA_119\r\nThis will need to be tested on a Chrome browser using DevTools",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9b204b63-8ac9-4a3c-b8ed-a5b59e20db0a",
+      "action": "WHEN the user selects the \"Watch Live\" button in the Hero\r\nAND lets the feed playback for a few moments\r\nAND network requests to \"tve-live.mlb.com\" are blocked via Chrome DevTools",
+      "data": "",
+      "result": "THEN playback of the 24/7 SNLA+ feed is unsuccessful\r\nAND a Video Error modal displays with a \"Go Back\" button\r\nAND the \"Go Back\" button navigates the user back to the SNLA+ page"
+    }
+  ]
+}

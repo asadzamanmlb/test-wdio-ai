@@ -1,0 +1,20 @@
+{
+  "id": "WQ-351",
+  "issueId": "1127663",
+  "key": "WQ-351",
+  "summary": "Today's Lineup Carousel UI",
+  "description": "GIVEN a subscriber is logged in\r\nAND the subscriber has a favorite team\r\nAND the favorite team game is in the Hero",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ff805efe-b889-4570-aea7-a45d3512f483",
+      "action": "WHEN the user views the Home page",
+      "data": "",
+      "result": "THEN the days games are displayed in a carousel below the Hero\nAND the carousel is labeled \"Today’s Lineup\"\nAND the tiles are displayed in the same order as the EPG response\nAND 5 mini tiles are fully displayed in the carousel\nAND a 6th mini tile is peaking on the far right side of the screen\nAND the game present in the Hero is not displayed in the Today’s Lineup carousel\n\n**NOTE**\nQA EPG: https://mastapi.mobileqa.mlbinfra.com/api/epg/v3/search?favoriteTeam=144&cachebust=true\nPROD EPG: https://mastapi.mobile.mlbinfra.com/api/epg/v3/search?favoriteTeam=144&cachebust=true\nUPDATE FAVORITE TEAM IN URL TO TEST ACCOUNT FAVORITE TEAM"
+    }
+  ]
+}

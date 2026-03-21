@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2998",
+  "issueId": "1158445",
+  "key": "WQ-2998",
+  "summary": "Live game playback from the Games page",
+  "description": "GIVEN a user who is entitled for Live game playback is logged in\n\nAND the user is on the Games page\n\nAND a Live game is present on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "28166765-9319-4c5a-a04f-c29117276688",
+      "action": "WHEN the user selects a Live game from the Games page\n\nAND selects a team feed for playback",
+      "data": "",
+      "result": "THEN the Games page is dismissed\n\nAND the video player displays full screen\n\nAND playback starts successfully"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-926",
+  "issueId": "1128255",
+  "key": "WQ-926",
+  "summary": "Preview/Scheduled Game state 'DELAYED'",
+  "description": "GIVEN a subscriber is on the Games page\r\nAND Hide Spoilers is set to OFF",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e4d46a58-0aa0-4aea-887d-3d31a52389ca",
+      "action": "WHEN a scheduled game has any of the following statusCode values: PV,PP,PY,PE,PA,PO",
+      "data": "",
+      "result": "THEN 'DELAYED' is displayed as a badge in the top left corner of the game tile"
+    }
+  ]
+}

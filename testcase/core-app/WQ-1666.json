@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1666",
+  "issueId": "1129083",
+  "key": "WQ-1666",
+  "summary": "Archive FGotD Anonymous Condensed Game and Recap",
+  "description": "When an anonymous user launches the app and selects the Archived FGOD Game, Feed select modal appears with Watch Free - Condensed and Recap, Full game access - Create Free Account or Log In buttons",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "cd8739bc-6fcb-488c-9162-bf803d3d2435",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

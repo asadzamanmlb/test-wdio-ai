@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1648",
+  "issueId": "1129065",
+  "key": "WQ-1648",
+  "summary": "registerDevice is called for Paid users",
+  "description": "GIVEN a paid user is already logged in",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e5e18542-bcbf-4738-8556-38f0cea0f2cb",
+      "action": "WHEN a paid user launches the app\r\nAND are in the MLB experience",
+      "data": "",
+      "result": "THEN clients should make a registerDevice request to Media-Gateway\r\nAND can be verified by searching \"graphql\" in the Network tab of browser dev tools\r\nAND \"clientExperience\", \"deviceId\", \"entitlements\", and \"sessionId\" are present in the \"registerDevice\" call\r\nAND an \"accessToken\" is present within \"mlbAuth\" in Redux"
+    }
+  ]
+}

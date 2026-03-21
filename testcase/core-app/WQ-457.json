@@ -1,0 +1,20 @@
+{
+  "id": "WQ-457",
+  "issueId": "1127783",
+  "key": "WQ-457",
+  "summary": "Stop Rewind",
+  "description": "GIVEN a game feed is playing\nAND Rewind has been initiated",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "929bee9c-7030-4e4e-9133-d0a6389c8f9f",
+      "action": "WHEN a user presses the \"select\" button on the controller",
+      "data": "",
+      "result": "THEN Rewind is stopped\r\nAND the playback head moves to the timestamp corresponding to when the [X] button was pressed\r\nAND the video begins playback at the playback head position"
+    }
+  ]
+}

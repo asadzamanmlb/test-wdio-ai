@@ -1,0 +1,20 @@
+{
+  "id": "WQ-620",
+  "issueId": "1127947",
+  "key": "WQ-620",
+  "summary": "Scrubber UI - Live Games",
+  "description": "GIVEN a user is playing a live game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d2926b5e-557d-419f-9bc8-321bb8a9a3be",
+      "action": "WHEN the scrubber bar is displayed",
+      "data": "",
+      "result": "THEN the game matchup is displayed left justified above the scrubber bar\r\nAND the away team is displayed to the left of the home team\r\nAND the respective team logos are displayed (generic baseball image for non-MLB teams)\r\nAND the respective team tri-codes are displayed\r\nAND the selected broadcaster is displayed above the away team logo\r\nAND the entire scrubber bar is blue when watching at the live point\r\nAND the scrubber bar is blue on the left side of the playhead when watching behind the live point\r\nAND there is a gradient behind the scrubber\r\nAND the playback marker is at the current playback position during playback and pause\r\nAND the user’s current playback position time is represented below the scrubber on the right hand side (H:MM:SS time format)\r\nAND the closed captions button displays right justified above the scrubber bar\r\nAND a \"Watch Live\" button displays to the right of the closed captions button if the user is watching behind the live point\r\nAND \"Details\" is displayed left justified, below the scrubber bar (DM5/MLB Experience only)\r\nAND \"Broadcast Options\" is displayed to the right of \"Details\", below the scrubber bar (DM5/MLB Experience only)"
+    }
+  ]
+}

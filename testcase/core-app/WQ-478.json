@@ -1,0 +1,20 @@
+{
+  "id": "WQ-478",
+  "issueId": "1127804",
+  "key": "WQ-478",
+  "summary": "End of live game stream",
+  "description": "GIVEN an in-progress game is playing from the live point",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "660cf91b-8670-43a4-8c71-edaae27e325d",
+      "action": "WHEN the stream ends",
+      "data": "",
+      "result": "THEN the video player is dismissed\r\nAND the user is navigated back to the previous page"
+    }
+  ]
+}

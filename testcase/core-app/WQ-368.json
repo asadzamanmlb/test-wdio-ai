@@ -1,0 +1,20 @@
+{
+  "id": "WQ-368",
+  "issueId": "1127680",
+  "key": "WQ-368",
+  "summary": "Featured non-game tiles - entitled focused",
+  "description": "GIVEN the user has the SUBSCRIBERVOD entitlement\r\nOR the user is a free user\r\nAND the user is logged in",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "bbcd9ea3-3ee7-4137-9383-af0c2f433c3e",
+      "action": "WHEN a user with SUBSCRIBERVOD entitlement views a focused VOD/SVOD/FLIVE/SLIVE basic tile\r\nOR a free user views a focused VOD/FLIVE basic tile",
+      "data": "",
+      "result": "THEN the featured tiles are 2 basic forge tiles wide\nAND the featured tiles are 2 basic forge tiles high\nAND the tile has a white border to indicate focus\nAND the title portion of the tile has a white background to indicate focus\nAND the associated thumbnail displays in the top 3/4 of the tile\nAND the video duration is displayed in the bottom right corner of the associated thumbnail\nAND the title displays left justified below the associated thumbnail\nAND the video published date displays left justified below the title\nAND a lock icon is not displayed in the upper right corner of the tile"
+    }
+  ]
+}

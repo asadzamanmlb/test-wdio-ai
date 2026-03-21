@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2957",
+  "issueId": "1147216",
+  "key": "WQ-2957",
+  "summary": "Comcast | Limit Ad Tracking (is_lat) Parameter to DAI - Live Game",
+  "description": "GIVEN a user is entitled for Live game playback\r\nAND the user has opted into \"Limit Ad Tracking\"\r\nOR the user has opted out of \"Limit Ad Tracking\"\r\n\r\n*NOTE:*\r\nLaunch the app in the browser, open the Network tab in DevTools (filter 'streams'), start a video \r\n\r\n",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "67b53f59-27dd-4e05-b60f-b8abebb34d26",
+      "action": "WHEN a user initiates playback of a live game",
+      "data": "",
+      "result": "THEN parameter {{is_lat}} is passed for users based upon {{lmt}} API value from Comcast (true / false)"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-423",
+  "issueId": "1127742",
+  "key": "WQ-423",
+  "summary": "Live Game Playback - Watch Live",
+  "description": "GIVEN a user that is entitled for Live game playback is logged in",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1f886f00-da04-48d4-b5b5-1b6f081c2a67",
+      "action": "WHEN the user selects a Live game for playback\r\nAND the user selects a feed button\r\nAND the user selects the \"Watch Live\" button in the secondary Feed Select modal",
+      "data": "",
+      "result": "THEN the user sees the Live game playing back at the live point"
+    }
+  ]
+}

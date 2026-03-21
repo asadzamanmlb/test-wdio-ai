@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1368",
+  "issueId": "1128705",
+  "key": "WQ-1368",
+  "summary": "Middle rows Sunday",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is on the Games page\r\nAND the user has selected the Calendar",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ebb56f97-0297-4d80-aba7-681403355767",
+      "action": "WHEN focus is assigned to Sun in a middle row of the calendar",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"<day_of_the_week>, <month>, <day>, <year>, <number_of_games_on_this_day>. Press up, down or right to navigate to more dates.\""
+    }
+  ]
+}

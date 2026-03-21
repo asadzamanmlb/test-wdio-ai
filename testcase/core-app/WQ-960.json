@@ -1,0 +1,20 @@
+{
+  "id": "WQ-960",
+  "issueId": "1128289",
+  "key": "WQ-960",
+  "summary": "Final/Completed Game - Unfocused Game Tile Data Hide Spoilers ON",
+  "description": "GIVEN a subscriber is logged in\r\nAND Hide Spoilers is set to ON\r\nAND the selected date has completed games",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "aa732ed7-95f3-4c64-af38-c647d82cea27",
+      "action": "WHEN a subscriber is on the Games page\r\nAND game tiles are displayed\r\nAND a completed game tile does not have focus",
+      "data": "",
+      "result": "THEN the away team primary color is displayed in the upper left of the game tile\r\nAND the away team logo is displayed\r\nAND the away team abbreviation is displayed below the team logo\r\nAND the home team primary color is displayed in the upper right of the game tile\r\nAND the home team logo is displayed\r\nAND the home team abbreviation is displayed below the team logo\r\nAND the final score does not display between the away and home team logos\r\nAND \"FINAL\" is displayed in white text left justified below the game tile header\r\nAND \"Hide Spoilers ON\" displays in white text centered in the non-matchup portion of the game tile\r\nAND any applicable pills are displayed left justified at the bottom of the game tile"
+    }
+  ]
+}

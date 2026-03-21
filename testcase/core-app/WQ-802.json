@@ -1,0 +1,20 @@
+{
+  "id": "WQ-802",
+  "issueId": "1128130",
+  "key": "WQ-802",
+  "summary": "Single Team subscriber AppleTV+ archive unsubscribed teams - Game Tile",
+  "description": "GIVEN a user is a Single Team subscriber\r\nAND an archive AppleTV+ game does not contain the subscribed team",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "cd702609-0c7f-44d7-8295-a68beda564e2",
+      "action": "WHEN a user views/focuses an archive AppleTV+ game tile",
+      "data": "",
+      "result": "THEN a lock icon displays in the upper right corner of the game tile\r\nAND there is a dark overlay over the team colors in the game tile header\r\nAND the AppleTV+ pill does not display in the game tile"
+    }
+  ]
+}

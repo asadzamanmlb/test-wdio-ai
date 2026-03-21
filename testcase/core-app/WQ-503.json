@@ -1,0 +1,20 @@
+{
+  "id": "WQ-503",
+  "issueId": "1127829",
+  "key": "WQ-503",
+  "summary": "Game Details - Start from the Beginning Hide Spoilers ON",
+  "description": "GIVEN the user is logged in\r\nAND the user is in the MLB experience\r\nAND the user is entitled to live game playback\r\nAND Hide Spoilers is set to ON\r\nAND Start from the Beginning is selected for an in-progress live game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "064711aa-b1f3-4a7f-9b15-4bd8f32509c3",
+      "action": "WHEN a user initiates the scrubber bar to display\r\nAND the user assigns focus to the Details tab below the scrubber bar",
+      "data": "",
+      "result": "THEN \"Details\" is the furthest left position below the scrubber bar\r\nAND the inning numbers are displayed above the game matchup\r\nAND after the inning numbers, to the right, \"R\" is displayed for runs, \"H\" is displayed for hits, \"E\" is displayed for errors\r\nAND the away team displays above the home team\r\nAND below each inning the number of runs scored by each team in the associated inning are not displayed\r\nAND each teams total runs are not displayed below \"R\"\r\nAND each teams total hits are not displayed below \"H\"\r\nAND each teams total errors are not displayed below \"E\"\r\nAND after each run is scored, hit is logged, error is logged, at the user's watch point, the line score updates accordingly\r\nAND scoring info is displayed as it happens and after the watch point\r\nAND scoring info is not displayed before the watch point"
+    }
+  ]
+}

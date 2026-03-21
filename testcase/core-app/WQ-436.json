@@ -1,0 +1,20 @@
+{
+  "id": "WQ-436",
+  "issueId": "1127755",
+  "key": "WQ-436",
+  "summary": "Playback from Hero - Game",
+  "description": "GIVEN a live game is present in the Hero\r\nAND a user entitled for live game playback is logged in",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "23dd0627-5d19-44fe-bf87-3c9b85cfc110",
+      "action": "WHEN the user selects the \"Watch Live\" button in the hero\r\n\r\n**NOTE:** If Hide Spoilers is ON, the button should say \"Watch Now\"",
+      "data": "",
+      "result": "THEN the game starts playback at the live point\r\n\r\n**NOTE:** If Hide Spoilers is ON, playback will start at the beginning"
+    }
+  ]
+}

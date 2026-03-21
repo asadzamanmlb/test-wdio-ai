@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3350",
+  "issueId": "1234536",
+  "key": "WQ-3350",
+  "summary": "Monthly/yearly subscriber live game Club.tv teams - Feed Select modal",
+  "description": "GIVEN the user is a monthly/yearly subscriber\nAND there is a game scheduled/in-progress between two Club.tv teams \nAND the user is in the viewing market of one of the teams\nAND the game level blackedOutVideo equals true in MASTepg\nAND the game level entitledVideo equals true in MASTepg",
+  "status": "To Do",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0bfb020c-79e7-4ba0-aa6c-cda6ab304ba6",
+      "action": "WHEN the user selects the game tile",
+      "data": "!xray-attachment://bb24db54-5f2e-4d09-bf55-1af4857be0ef|width=4032,height=3024!",
+      "result": "THEN video feed buttons are not displayed\nAND the following blackout messaging is displayed in the Feed Select modal: \n\n____.TV In-Market Entitlement Required   \n\n____.TV logo\n\nYour current package does not entitle you to in-market ___s games. Link your [MLB.TV|http://MLB.TV] account to a participating pay TV provider at [mlb.com/commerce/mvpd/rockies|http://mlb.com/commerce/mvpd/rockies] or upgrade to a ____.TV package at [mlb.com/live-stream-games/subscribe/rockies|http://mlb.com/live-stream-games/subscribe/rockies] to watch this game. \n\nFull Game Access\n\n‘Upgrade [MLB.TV|http://MLB.TV]’ - button which links to Subscriptions/Plans page"
+    }
+  ]
+}

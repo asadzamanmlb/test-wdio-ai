@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1689",
+  "issueId": "1129106",
+  "key": "WQ-1689",
+  "summary": "Heartbeat service integration - video pause",
+  "description": "NOTE: Test on a browser to see network traffic\r\n\r\nGIVEN the Dev Settings Experience is set to \"MLB\"\r\nAND the Dev Settings Environments is set to \"beta\"\r\nAND Dev Tools are open with the Network tab selected\r\nAND \"playback-heartbeat\" is entered in the search field of the Network tab\r\nAND playback of a DM5 stream is initiated",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e0a3525b-9f24-40c8-a842-633d80a4ed0b",
+      "action": "WHEN game playback is paused, live or archive",
+      "data": "",
+      "result": "THEN the heartbeat request url is not invoked while the stream is paused (Request URL: https://playback-heartbeat.mlb.com/...)"
+    }
+  ]
+}

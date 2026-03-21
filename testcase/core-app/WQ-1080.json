@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1080",
+  "issueId": "1128410",
+  "key": "WQ-1080",
+  "summary": "Games page to Subscribe to Games page - Create Account",
+  "description": "GIVEN an anonymous user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d542c4c1-eb3b-4e4c-91fc-08e6ccaa85e0",
+      "action": "WHEN the user selects the \"Subscribe\" tab in the navigation header\nAND the user selects the [Create Account] button\nAND the user scans the QR Code displayed on the screen\nAND the user follows the create account prompts on their phone to successfully create a new account",
+      "data": "",
+      "result": "THEN the user is navigated to the Games page\r\nAND focus is assigned to the furthest left game tile on the first row"
+    }
+  ]
+}

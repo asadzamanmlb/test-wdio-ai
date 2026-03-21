@@ -1,0 +1,26 @@
+{
+  "id": "WQ-2907",
+  "issueId": "1131563",
+  "key": "WQ-2907",
+  "summary": "MASN and MASN2 24/7 feed - Mid-roll DAI Ads failover mid-stream",
+  "description": "GIVEN a user has entitlements for MASN\nAND the user launches the MLB.tv Core App\nAND the user logs in\nAND the user has initiated playback of the 24/7 MASN feeds\nAND the 24/7 MASN streams have adsEnabled equals true in the graphql Preview/Response (data->initPlaybackSession->adExperience->adsEnabled)\nAND an asset key is is returned in the same graphql Preview/Response (data->initPlaybackSession->adExperience->adEngineIdentifiers)\n\n*NOTE:* \nMASN entitlement = MASN_110 and MASN_120\nNeeds to be tested in a browser\n\n*NOTE:* \nMASN entitlement = MASN_110 and MASN_120\n\nMASN Test users:\n\n|Username|Password|\n|masn@gmail.com|Password4MASN|\n|masnims@gmail.com (In Market)|Password4MASN|\n|masnoom@gmail.com (Out of Market)|Password4MASN|\n|masnintl@gmail.com (International)|Password4MASN|",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7a88a755-aa5e-4f0a-8449-5a830ba7d579",
+      "action": "WHEN an ad break is triggered on the MASN 24/7 feed\nAND network calls to \"[dai.google.com|http://dai.google.com]*\" are blocked\nOR network calls to \"[dai.google.com|http://dai.google.com]*\" are failing",
+      "data": "",
+      "result": "THEN the stream continues to playback with no video error modal popping up\nAND ads playback during ad breaks"
+    },
+    {
+      "id": "72f420c1-0a3a-41d2-b5e4-e6b25e42717b",
+      "action": "WHEN an ad break is triggered on the MASN2 24/7 feed\nAND network calls to \"[dai.google.com|http://dai.google.com/]*\" are blocked\nOR network calls to \"[dai.google.com|http://dai.google.com/]*\" are failing",
+      "data": "",
+      "result": "THEN the stream continues to playback with no video error modal popping up\nAND ads playback during ad breaks"
+    }
+  ]
+}

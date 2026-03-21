@@ -1,0 +1,20 @@
+{
+  "id": "WQ-622",
+  "issueId": "1127949",
+  "key": "WQ-622",
+  "summary": "Scrubber UI - VOD/SVOD",
+  "description": "GIVEN a user is playing a VOD/SVOD",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ba28c99a-ba9d-47cd-a1ec-215d3f8dde2c",
+      "action": "WHEN the scrubber bar is displayed",
+      "data": "",
+      "result": "THEN the video title is displayed left justified above the scrubber bar\r\nAND an ellipsis (...) is displayed at the end of the title if the title contains more than 30 characters\r\nAND the entire scrubber bar is grey when playback starts from the beginning of the video\r\nAND the scrubber bar turns blue on the left side of the playhead as the video plays\r\nAND there is a gradient behind the scrubber\r\nAND the playback marker is at the current playback position during playback and pause\r\nAND the user’s current playback position time is represented below the scrubber on the right hand side (currentPlaybackTime/totalPlaybackTime H:MM:SS time format)\r\nAND the closed captions button displays right justified above the scrubber bar"
+    }
+  ]
+}

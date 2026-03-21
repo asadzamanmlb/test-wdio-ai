@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1016",
+  "issueId": "1128345",
+  "key": "WQ-1016",
+  "summary": "Navigate to past months",
+  "description": "GIVEN a user is on the Games page\r\nAND the calendar is displaying",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "60da5929-9656-4074-9830-ad4600530b1a",
+      "action": "WHEN the user selects the [<] button",
+      "data": "",
+      "result": "THEN the calendar month is updated to the next past month"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1087",
+  "issueId": "1128417",
+  "key": "WQ-1087",
+  "summary": "Subscription Package Tile - UI",
+  "description": "GIVEN the user is on the Paywall page\r\nAND subscription packages have been returned from the Paywall Config",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "00b67bcb-baa7-4de6-a5b8-c822e136bb62",
+      "action": "WHEN the user views a subscription package tile",
+      "data": "",
+      "result": "THEN the name of the SKU will be left justified at the top of the tile (an ellipse will display at the end of the SKU name if it's longer than 1 line)\r\nAND \"Free for 7 days, then <price> / <period>\" is displayed below the name of the SKU (config driven)\r\nAND a description of the SKU will appear at the bottom of the tile\r\nAND if badging for the package is returned in the service, it will appear at the top of the tile with center justified text\r\n\r\n**NOTE:** Badging color and text will be returned in the service"
+    }
+  ]
+}

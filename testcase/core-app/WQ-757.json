@@ -1,0 +1,20 @@
+{
+  "id": "WQ-757",
+  "issueId": "1128085",
+  "key": "WQ-757",
+  "summary": "Anonymous user live game in market - Feed Select",
+  "description": "GIVEN the user is anonymous\r\nAND there is a game scheduled or in-progress in the viewing market of the user",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f840236b-dbdb-4e8e-8817-5000cd75cd76",
+      "action": "WHEN the user selects the game tile with a Blackout pill",
+      "data": "!xray-attachment://448965c5-6e85-434a-8197-40f2a3598fa2|width=4032,height=3024!",
+      "result": "THEN video feed buttons are not displayed\nAND the following blackout messaging is displayed in the Feed Select modal: \n\n____.TV In-Market Entitlement Required   \n\n____.TV logo\n\nYour current package does not entitle you to in-market ___s games. Link your [MLB.TV|http://MLB.TV] account to a participating pay TV provider at [mlb.com/commerce/mvpd/rockies|http://mlb.com/commerce/mvpd/rockies] or upgrade to a ____.TV package at [mlb.com/live-stream-games/subscribe/rockies|http://mlb.com/live-stream-games/subscribe/rockies] to watch this game. \n\nFull Game Access\n\n‘Upgrade [MLB.TV|http://MLB.TV]’ - button which links to Subscriptions/Plans page"
+    }
+  ]
+}

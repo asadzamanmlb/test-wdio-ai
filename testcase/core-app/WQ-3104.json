@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3104",
+  "issueId": "1162126",
+  "key": "WQ-3104",
+  "summary": "Game Scrubber - Match Up",
+  "description": "GIVEN a logged in user is entitled for live game playback",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "84ee4359-3ed8-4ad0-9c1b-3669dac32b74",
+      "action": "WHEN the user selects a live game/feed for playback",
+      "data": "",
+      "result": "THEN the video player is displayed\nAND the team logos are displayed left justified above the scrubber bar\nAND the logos display in order of Away team, Home team"
+    }
+  ]
+}

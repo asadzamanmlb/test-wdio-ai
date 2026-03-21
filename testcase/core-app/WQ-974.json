@@ -1,0 +1,20 @@
+{
+  "id": "WQ-974",
+  "issueId": "1128303",
+  "key": "WQ-974",
+  "summary": "Scheduled Game Focused",
+  "description": "GIVEN a game is in a scheduled state\r\nAND Hide Spoilers is set to OFF",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "29436685-fb20-45db-a2d3-5ab78d41d5f8",
+      "action": "WHEN the user assigns focus to a game tile for a scheduled game",
+      "data": "",
+      "result": "THEN the tile background is white\nAND the text is black (team records, player position and stats, and \"Broadcast Networks\" will be in gray text)\nAND the game start time is displayed in the upper left corner of the game tile\nAND the away team logo with team name displays left justified below the displayed scheduled game time\nAND the home team logo with team name displays left justified below the away team\nAND the team records are displayed right justified in-line with the respective teams\nAND the away probable pitcher's headshot with last name is displayed left justified below \"STARTING PITCHERS\"\nAND the home probable pitcher's headshot with last name is displayed to the right of the away team probable pitcher\nAND the stats of the respective probable pitchers is displayed\n\nNOTE:\n\n# If probable pitchers are not yet available for the game, then show a generic headshot, dashes '-' for stats, and TBD in place of pitchers name"
+    }
+  ]
+}

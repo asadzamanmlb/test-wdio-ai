@@ -1,0 +1,20 @@
+{
+  "id": "WQ-327",
+  "issueId": "1127639",
+  "key": "WQ-327",
+  "summary": "Game States - Final - Forfeit - Hide Spoilers ON",
+  "description": null,
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e021479e-29a6-4f55-9839-5479c6787ab3",
+      "action": "WHEN a game is in a Final state\r\nAND one of the teams in the game has Forfeited\r\nAND one of the following statusCode's are present in the MAST response: (Q,QK,QX,QQ,QJ,QI,QN,QV,QR,QO,R,RR,RK,RX,RQ,RJ,RI,RN,RV,RO)",
+      "data": "",
+      "result": "THEN a pill with the text \"<TRICODE of forfeit team> - FORFEIT\" is not displayed above the team info in the Hero"
+    }
+  ]
+}

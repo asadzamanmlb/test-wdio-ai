@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1739",
+  "issueId": "1129156",
+  "key": "WQ-1739",
+  "summary": "Archive playback starts in middle of ad break",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0d375f8a-f8de-437a-810c-16a109b1e488",
+      "action": "WHEN",
+      "data": "",
+      "result": "Verifying ads playback when game playback starts in the middle of an ad break (archive feed)"
+    }
+  ]
+}

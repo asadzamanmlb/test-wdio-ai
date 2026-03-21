@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1628",
+  "issueId": "1129045",
+  "key": "WQ-1628",
+  "summary": "Alternate audio (currently N/A)",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6e8c8335-1c25-478b-9b29-d24f4562c02c",
+      "action": "WHEN",
+      "data": "",
+      "result": "1. Users can switch to alternate audio feeds when navigating to the broadcast options of the video player\r\n\r\n2. Alternate audio feeds play properly for an extended amount of time"
+    }
+  ]
+}

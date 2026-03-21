@@ -1,0 +1,20 @@
+{
+  "id": "WQ-628",
+  "issueId": "1127955",
+  "key": "WQ-628",
+  "summary": "Broadcast Options - UI - Single/National Feed",
+  "description": "GIVEN the feature flag for Broadcast Options is set to true (environments: dev, qa, beta)\r\nAND the logged in user is in the MLB experience\r\nAND the logged in user is entitled for game playback\r\nAND the user has initiated playback of a Live or Archive game\r\nAND the scrubber is displayed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "73b543fc-e6c5-44e7-a55d-407c28ee306c",
+      "action": "WHEN the user presses the down arrow",
+      "data": "",
+      "result": "THEN focus is assigned to [Broadcast Options], text is black with a white background\r\nAND \"Video Feed\" is displayed below Broadcast Options, left justified\r\nAND the national video feed with broadcaster logo and broadcaster name is displayed below \"Video Feed\"\r\nAND \"Audio Feed\" is displayed to the right of \"Video Feed\"\r\nAND the audio feeds available for both teams are displayed below the \"Audio Feed\" heading\r\nAND Audio buttons display the team logo followed by \"TV\" (for TV audio), \"ES\" (if Spanish), then broadcast name\r\nAND the selected feed buttons have a blue background\r\nAND focus is indicated with a white button background\r\nAND unfocused/unselected buttons will have a white border with a transparent background\r\nAND the scrubber bar shrinks in vertical size\r\nAND the quick action buttons above the scrubber bar are hidden\r\nAND the the game metadata/title is hidden\r\n\r\n**NOTE:**\r\nIf more than 2 audio options are available, they will display in a grid with 2 per column\r\nIf a broadcast name is too long to fit in the button, an ellipsis will display on the right side of the button"
+    }
+  ]
+}

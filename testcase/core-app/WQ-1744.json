@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1744",
+  "issueId": "1129161",
+  "key": "WQ-1744",
+  "summary": "Ad playback resumed after unpaused (archive)",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5d04f31a-fe31-4fbe-9d1a-c1b3fd75b3d7",
+      "action": "WHEN",
+      "data": "",
+      "result": "DAI ads playback is resumed for an archive game when playback is unpaused during an ad break"
+    }
+  ]
+}

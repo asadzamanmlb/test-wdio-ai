@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2353",
+  "issueId": "1129803",
+  "key": "WQ-2353",
+  "summary": "R5068A - Audio outputs when set to 2ch LPCM",
+  "description": "**Audio**\r\n\r\n**R5068 Requirement:** 2ch linear PCM output is supported, and it has been confirmed that audio is output in all of the supported audio formats.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a03f1d8b-fead-4659-b2be-f07bc9b152d3",
+      "action": "1. On the home screen, set \"★Debug Settings\" > \"Sound and Screen\" > \"Audio Output Format\" to \"LPCM 2ch\"\r\n2. Go back to the home screen and select the \"Application\"\r\n3. Check throughout the entire application",
+      "data": "",
+      "result": "2ch LPCM output is supported and the user can hear audio"
+    }
+  ]
+}

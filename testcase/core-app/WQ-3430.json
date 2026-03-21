@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3430",
+  "issueId": "1268469",
+  "key": "WQ-3430",
+  "summary": "Games page to Upgrade Plan to Games page - Free User",
+  "description": "GIVEN a Free user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e812bb99-1076-479d-980e-889d12d0fa9c",
+      "action": "WHEN the user selects the \"Upgrade Plan\" tab in the navigation header\nAND selects one of the subscription package tiles on the Subscriptions page\nAND presses the \"back\" button on the remote controller twice",
+      "data": "",
+      "result": "THEN the user is navigated to the Games page\nAND focus is assigned to the top left (1st) game tile"
+    }
+  ]
+}

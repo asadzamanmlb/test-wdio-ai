@@ -1,0 +1,20 @@
+{
+  "id": "WQ-405",
+  "issueId": "1127717",
+  "key": "WQ-405",
+  "summary": "SNLA+ contentCollections calls are made in 5 minute intervals",
+  "description": "GIVEN a user has entitlements for SNLA+\r\nAND the user launches the MLB.TV app\r\nAND the user logs in\r\n\r\n**NOTE:** SNLA+ entitlement = SNLA_119",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "734f7a84-35d7-4bc5-a884-1cefaa3b0818",
+      "action": "WHEN the user sits stationary in the app",
+      "data": "",
+      "result": "THEN \"contentCollections\" calls are made via \"graphql\" every 5 minutes"
+    }
+  ]
+}

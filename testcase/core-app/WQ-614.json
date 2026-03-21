@@ -1,0 +1,20 @@
+{
+  "id": "WQ-614",
+  "issueId": "1127941",
+  "key": "WQ-614",
+  "summary": "Closed Caption On persists application pause",
+  "description": "GIVEN closed caption setting is on\r\nAND the app is open",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6b5433ec-1ffd-40fc-b5aa-b4d229aa3ac4",
+      "action": "WHEN the user taps the [PS] button to return to the PlayStation home screen\r\nAND the user re-opens the app\r\nAND the user plays all video types",
+      "data": "",
+      "result": "THEN closed caption setting is on\r\nAND closed captions are displaying for subsequent videos"
+    }
+  ]
+}

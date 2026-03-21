@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1355",
+  "issueId": "1128692",
+  "key": "WQ-1355",
+  "summary": "Game Tile Final Cancelled",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND the user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "dd10220b-288d-43bd-aaa9-f75e9e04927e",
+      "action": "WHEN focus is assigned to a game tile for a game that has been Cancelled",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Game <x> of <y>, <away_team>, <away_team>, <away_team_runs> Runs, <home_team>, <home_team_runs> Runs, <away_team>, <away_team_wins> Wins, <away_team_losses> Losses, <home_team>, <home_team_wins> Wins, <home_team_losses> Losses, FINAL, Cancelled, Winning Pitcher <pitcher>, <pitcher_innings_pitched> Innings Pitched, <pitcher_ERA> Earned Run Average, Losing Pitcher <pitcher>, <pitcher_innings_pitched> Innings Pitched, <pitcher_ERA> Earned Run Average. Press select to play game. Move <appropriate_directions> to hear more games. Move up to navigate to a new date.\""
+    }
+  ]
+}

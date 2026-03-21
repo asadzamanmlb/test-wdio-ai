@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1164",
+  "issueId": "1128499",
+  "key": "WQ-1164",
+  "summary": "Jump to Top Nav",
+  "description": "GIVEN the user is on the Settings page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "651a4239-14fa-44d1-b8df-73c2daae4a58",
+      "action": "WHEN the user navigates to the bottom of the Games page\r\nAND the user presses the [triangle] button on the controller",
+      "data": "",
+      "result": "THEN the [Setting] tab in the navigation header at the top of the screen gains focus\r\nAND the page scrolls to the top\r\nAND the user stays on the Settings page"
+    }
+  ]
+}

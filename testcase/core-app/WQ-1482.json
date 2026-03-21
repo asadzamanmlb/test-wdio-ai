@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1482",
+  "issueId": "1128819",
+  "key": "WQ-1482",
+  "summary": "Play | Live/Archive Game",
+  "description": "GIVEN the user is watching a Live or Archive game\r\nAND TTS is enabled\r\nAND playback is paused",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c3ef05cd-f247-4285-a968-f0223a261664",
+      "action": "WHEN the user initiates playback of the game",
+      "data": "",
+      "result": "THEN the user will hear: \"Play, <half_inning>, <away_team> <away_team_score>, <home_team> <Home_team_score>, Press select to Pause.”\r\n\r\nFor example: \"Play, Top of the 3rd, Red Sox 2, Yankees 2, Press Select to Pause.\""
+    }
+  ]
+}

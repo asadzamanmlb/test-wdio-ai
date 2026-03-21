@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1765",
+  "issueId": "1129182",
+  "key": "WQ-1765",
+  "summary": "Keyboard.3",
+  "description": "Input function is included",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "65c6632c-7f13-45ce-8824-edb01eed6537",
+      "action": "Execute app → Select input window",
+      "data": "",
+      "result": "Check the operation of UI Button linkage to the TV function in the Virtual Keyboard\r\nex) Check if Text is inputted by using Voice Search UI Button, when use the LG Virtual Keyboard"
+    }
+  ]
+}

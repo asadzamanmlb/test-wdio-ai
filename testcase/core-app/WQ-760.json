@@ -1,0 +1,20 @@
+{
+  "id": "WQ-760",
+  "issueId": "1128088",
+  "key": "WQ-760",
+  "summary": "US Monthly/yearly subscriber plain ESPN - Game Tile",
+  "description": "GIVEN a user has MLBALL entitlement\nAND a plain ESPN game is live\n\n**NOTE:**\nNational TV game = -FOX Saturday Baseball or ESPN Sunday Night Baseball-   ESPN, Netflix, NBC/Peacock Sunday Night Baseball\n\nSeeing doc for specifics : [https://support.mlb.com/s/article/MLB-TV-Game-Availability?language=en_US|https://support.mlb.com/s/article/MLB-TV-Game-Availability?language=en_US|smart-link] ",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c719c2e3-aabf-4680-b040-851327f8129d",
+      "action": "WHEN the user views the game tile focused or unfocused",
+      "data": "",
+      "result": "THEN a blackout pill is displayed in the upper left corner of the game tile (US based users)\nAND a lock icon is displayed in the upper right corner of the game tile (under authenticated users)"
+    }
+  ]
+}

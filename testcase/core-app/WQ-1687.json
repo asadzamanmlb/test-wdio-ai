@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1687",
+  "issueId": "1129104",
+  "key": "WQ-1687",
+  "summary": "Hitting initPlaybackSession endpoint",
+  "description": "GIVEN the ps5-config contains featureFlags->experience->useMLB:true\r\n\r\n**NOTE**\r\nConfig was updated in PROD",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ce5ae499-b004-42f0-8b5a-250a706892bb",
+      "action": "WHEN live or archive game playback is initiated",
+      "data": "",
+      "result": "THEN graphql network call request url is media-gateway.mlb.com/graphql\r\nAND the Payload tab for the graphql call contains operationName:\"initPlaybackSession\"\r\nAND \"playback\" is a field in the \"initPlaybackSession\" response\r\nAND the following fields are present in the request, \"cdn\", \"expiration\", \"token\", and \"url\""
+    }
+  ]
+}

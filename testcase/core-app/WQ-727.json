@@ -1,0 +1,20 @@
+{
+  "id": "WQ-727",
+  "issueId": "1128055",
+  "key": "WQ-727",
+  "summary": "Single Team subscriber FGotD non-subscribed teams in market - Feed Select modal",
+  "description": "GIVEN the user is a single team subscriber\r\nAND there is a FGotD that doesn't contain the subscribed-to-team\r\nAND the game is scheduled/in-progress in the viewing market of the user\r\nAND the game level blackedOutVideo equals true in MASTepg\r\nAND the game level entitledVideo equals true in MASTepg\r\nAND MASTepg has game level videoStatusCodes equal to 1\r\nAND the game is not a partner game\r\n\r\n**Example**\r\nCincinnati Reds subscriber, living in Denver. A Rockies Free Game of the Day will be blacked out",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c10699b0-668d-48a2-88b1-c1fe60f37a73",
+      "action": "WHEN the user selects the game tile with a Blackout pill",
+      "data": "",
+      "result": "THEN video feed buttons are not displayed\r\nAND the following blackout messaging is displayed in the Feed Select modal: “This game is unavailable in your area. All Regular Season and Postseason live games are subject to blackout restrictions due to Major League Baseball exclusivities. An archive copy of the game will be available 90 minutes after the game.”"
+    }
+  ]
+}

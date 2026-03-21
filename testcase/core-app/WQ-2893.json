@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2893",
+  "issueId": "1131382",
+  "key": "WQ-2893",
+  "summary": "Ad break failures at stream start logged in DataDog",
+  "description": "GIVEN a tester has access to DataDog\nAND is viewing Playback Heuristics in DataDog\nAND a user is logged in with dm5tv3@gmail.com / PasswordDM5\nAND the tester has blocked calls to {{dai.googl.com}} via Chrome Dev Tools\nAND has initiated playback of a Live ads enabled stream\n\n*NOTE:*\nThis test will need to be performed on a Chrome browser.\nURL for Playback Heuristics: [https://us5.datadoghq.com/logs?query=%22PLAYBACK%20HEURISTICS%22%20%40usr.id%3A00u24vtyge3Pzk2rY0h8&agg_m=%40event.metadata.currentBitrate&agg_m_source=base&agg_q=%40asset.isLive&agg_q_source=base&agg_t=avg&analyticsOptions=%5B%22line%22%2C%22dog_classic%22%2Cnull%2Cnull%5D&cols=host%2Cservice%2C%40usr.id%2C%40event.action%2C%40event.reason%2C%40event.metadata.convivaTimestamp&context_event=AY_CgMDtAAD8tvFqYXPtGgAB&fromUser=true&messageDisplay=inline&refresh_mode=sliding&storage=hot&stream_sort=%40convivaTimestamp%2Casc&top_n=10&top_o=top&view=spans&viz=&x_missing=true&from_ts=1726669870274&to_ts=1726684270274&live=true|https://us5.datadoghq.com/logs?query=%22PLAYBACK%20HEURISTICS%22%20%40usr.id%3A00u24vtyge3Pzk2rY0h8&agg_m=%40event.metadata.currentBitrate&agg_m_source=base&agg_q=%40asset.isLive&agg_q_source=base&agg_t=avg&analyticsOptions=%5B%22line%22%2C%22dog_classic%22%2Cnull%2Cnull%5D&cols=host%2Cservice%2C%40usr.id%2C%40event.action%2C%40event.reason%2C%40event.metadata.convivaTimestamp&context_event=AY_CgMDtAAD8tvFqYXPtGgAB&fromUser=true&messageDisplay=inline&refresh_mode=sliding&storage=hot&stream_sort=%40convivaTimestamp%2Casc&top_n=10&top_o=top&view=spans&viz=&x_missing=true&from_ts=1726669870274&to_ts=1726684270274&live=true]\n\nThe tester may need to update the User ID in DataDog to the Okta ID of the test user from the test environment.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d80ac75c-9013-4fa6-b46f-5a946b5f30ce",
+      "action": "WHEN a failed call to DAI occurs",
+      "data": "",
+      "result": "THEN the following action and reason are logged in DataDog: \nAction - {{player_state_change}} \nReason - {{ad_stream_failover}}\nAND the field {{gamSessionId}} is present in the {{metadata}} payload\nAND the GAM session ID is displayed (if available) for the {{gamSessionId}} field"
+    }
+  ]
+}

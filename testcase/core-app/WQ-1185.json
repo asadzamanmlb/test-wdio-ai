@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1185",
+  "issueId": "1128522",
+  "key": "WQ-1185",
+  "summary": "TTS | Password Entry",
+  "description": "GIVEN an unauthenticated user is on the Login Page\r\nAND the user has TTS Enabled\r\n",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b7d0cb7c-3b3c-4c58-aadb-f474ca98ff07",
+      "action": "WHEN the user moves focus to the Password entry\r\nOR the user selects to enter a Password\r\nOR the user complete their password entry",
+      "data": "",
+      "result": "THEN the app reader says \"The password field is selected. Please hit select to enter the password associated with your MLB.TV account. Press or scroll up to enter your email. Press or scroll right to uncover your password. Press or scroll down to hit the login button”"
+    }
+  ]
+}

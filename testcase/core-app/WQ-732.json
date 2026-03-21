@@ -1,0 +1,20 @@
+{
+  "id": "WQ-732",
+  "issueId": "1128060",
+  "key": "WQ-732",
+  "summary": "Extra Innings subscriber live game in market - Final Game State",
+  "description": "GIVEN the user is an Extra Innings subscriber\r\nAND the in-market game has a game state of Final\r\nAND the game has ended less than 90 minutes ago\r\nAND the game does not have a saving pitcher\r\nAND/OR the game level blackedOutVideo equals true in MASTepg\r\nAND the game is not a partner game\r\n\r\n**NOTE:** wiremock favorite team 121 Mets, gamePk - 1100002317",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "bdb6cba1-95ff-4109-a72a-ab0ca6d3e067",
+      "action": "WHEN the user views the game tile focused or unfocused",
+      "data": "",
+      "result": "THEN a blackout pill does not display\r\nAND a lock icon does not displayed in the upper right corner of the game tile\r\nAND the team colors in the matchup header does not have a dark overlay"
+    }
+  ]
+}

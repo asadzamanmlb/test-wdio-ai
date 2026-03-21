@@ -1,0 +1,20 @@
+{
+  "id": "WQ-615",
+  "issueId": "1127942",
+  "key": "WQ-615",
+  "summary": "Closed Caption On persists application close",
+  "description": "GIVEN closed caption setting is on\r\nAND the app is open",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e64712ea-bd7d-43a9-8f90-48450249435f",
+      "action": "WHEN the user holds the [PS] button\r\nAND the user selects \"Close Application\"\r\nAND the user re-opens the app\r\nAND the user plays all video types",
+      "data": "",
+      "result": "THEN closed caption setting is on\r\nAND closed captions are displaying for subsequent videos"
+    }
+  ]
+}

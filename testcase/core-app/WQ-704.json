@@ -1,0 +1,20 @@
+{
+  "id": "WQ-704",
+  "issueId": "1128032",
+  "key": "WQ-704",
+  "summary": "International user plain ESPN - Game Tile",
+  "description": "GIVEN a subscriber is located outside the United States\r\nAND the subscriber is entitled for live game playback\r\nAND a regular season game is scheduled with ESPN broadcaster\r\nAND the game is not ESPN Sunday Night Baseball",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "93923f91-ddc0-440b-ae92-d3036f170a36",
+      "action": "WHEN a user views/focuses any scheduled/in-progress ESPN game tile",
+      "data": "",
+      "result": "THEN a lock icon does not display in the upper right corner of the game tile\r\nAND there is no dark overlay over the team colors in the game tile header"
+    }
+  ]
+}

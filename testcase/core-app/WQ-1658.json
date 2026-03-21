@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1658",
+  "issueId": "1129075",
+  "key": "WQ-1658",
+  "summary": "Live Free User - Subscription options",
+  "description": "When a Free user select LIVE game, Feed Select modal should appear with an upgrade option in order to watch the live game.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "90283c5f-2ac8-4e7a-b963-bd89e16806b2",
+      "action": "WHEN",
+      "data": "",
+      "result": "Feed buttons with lock icons display, and user is directed to the subscriptions page after selecting one of the feed buttons."
+    }
+  ]
+}

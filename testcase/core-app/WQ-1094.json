@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1094",
+  "issueId": "1128424",
+  "key": "WQ-1094",
+  "summary": "Buy Now Monthly Subscription UI",
+  "description": "GIVEN the user is on the Subscriptions/Paywall page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "927edebf-f6bd-4e35-93eb-211abc1270b9",
+      "action": "WHEN the user navigates to the MLB.TV Monthly Package tile\r\nAND the user selects the [Buy Now] button",
+      "data": "",
+      "result": "THEN the user is navigated to the purchase instructions page\r\nAND the MLB logo displays at the top of the screen\r\nAND the text \"MLB\" displays directly to the right of the MLB logo\r\nAND the MLB logo with the \"MLB\" text is centered at the top of the screen\r\nAND below that, the white text \"Purchase an MLB.TV subscription to watch games LIVE or on demand.\" displays (this text is configurable)\r\nAND below that, white text \"MLB.TV Monthly Package <price>\" is displayed to the right of a check mark inside a translucent grey box\r\nAND below that, diagonally left, a number list of instructions displays the following, \"1. Visit mlb.com/ps5\", \"2. Select a package\", \"3. Log In or create an account\", \"4. Complete your purchase\", \"5. Return to your TV and log in\" (text is configurable)\r\nAND to the right of the list of instructions, a QR code displays\r\nAND below the QR code the following white text displays \"Scan to visit mlb.com/ps5\" (text is configurable)\r\nAND below the list of instructions and QR code a [Log In] button is displayed\r\nAND the [Log In] button has focus\r\nAND at the bottom of the screen the white text \"Blackout and other restrictions apply. Visit mlb.com/ps5 to learn more.\""
+    }
+  ]
+}

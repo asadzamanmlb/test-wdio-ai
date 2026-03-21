@@ -1,0 +1,20 @@
+{
+  "id": "WQ-394",
+  "issueId": "1127706",
+  "key": "WQ-394",
+  "summary": "Settings to Home",
+  "description": "GIVEN a user is on the Home page\r\nAND navigates to the Settings page",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6fa3d451-c12f-4864-8d5a-0ce6648f2388",
+      "action": "WHEN the user navigates back to the Home page",
+      "data": "",
+      "result": "THEN the Home page loads with the most up to date information"
+    }
+  ]
+}

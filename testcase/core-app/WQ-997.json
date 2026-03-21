@@ -1,0 +1,20 @@
+{
+  "id": "WQ-997",
+  "issueId": "1128326",
+  "key": "WQ-997",
+  "summary": "Today's Games Scheduled Start Times - UTC -11:00 American Samoa",
+  "description": "GIVEN games are scheduled for today\r\nAND the PlayStation time zone is set to UTC -11:00 American Samoa",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6e686356-20e0-4431-8b46-00fdb88ed91e",
+      "action": "WHEN the user is on the Games page for today",
+      "data": "",
+      "result": "THEN the game tiles show the scheduled start times in the UTC -11:00 American Samoa time zone (format: hh:mm [AM|PM])"
+    }
+  ]
+}

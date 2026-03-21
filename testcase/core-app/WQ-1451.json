@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1451",
+  "issueId": "1128788",
+  "key": "WQ-1451",
+  "summary": "Getting Started page load",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is launching the app for the first time\r\n\r\n**NOTE:** To simulate launching the app for the first time, the tester needs to select the \"Clear Browser Storage\" button in Dev Settings on the Settings page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "06dfe16f-e0ac-4c22-b35c-ce39c427f3e1",
+      "action": "WHEN the Getting Started page loads",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Welcome to the official streaming app of Major League Baseball. Press or scroll down to view your options. Getting Started, press select to create a new MLB.TV account, Press or scroll down if you already have an MLB.TV account.\""
+    }
+  ]
+}

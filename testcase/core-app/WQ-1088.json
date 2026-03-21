@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1088",
+  "issueId": "1128418",
+  "key": "WQ-1088",
+  "summary": "Subscription Purchase Page - UI",
+  "description": "GIVEN a user is on the Paywall page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "61e03ea7-e6e5-48c1-89c4-f9360a7250ce",
+      "action": "WHEN the user selects a subscription package tile",
+      "data": "",
+      "result": "THEN the user is navigated to the purchase page for the selected package\r\nAND the MLB log displays in the upper left corner of the screen\r\nAND the selected package title displays in white text, left justified below the MLB logo\r\nAND \"<price>/<period>\" displays in white text below the package title\r\nAND the subtitle text reads \"To purchase an MLB.TV subscription, visit mlb.com/ps5 or scan the QR Code to get started\" in white text (config driven)\r\nAND a button with text \"Log In\" is displayed below the subtitle\r\nAND the log in button is white with black text, to indicate focus\r\nAND a QR code is displayed on the right side of the screen"
+    }
+  ]
+}

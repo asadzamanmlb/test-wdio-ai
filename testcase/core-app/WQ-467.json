@@ -1,0 +1,20 @@
+{
+  "id": "WQ-467",
+  "issueId": "1127793",
+  "key": "WQ-467",
+  "summary": "mediaInfo called when scrubber is displayed",
+  "description": "GIVEN the user is entitled to live game playback\r\nAND the user is in the MLB experience\r\n\r\n**NOTE:** should be tested on a browser. Search network calls for \"graphql\". \"mediaInfo\" is one of the graphql calls.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "456e7d76-84be-4bff-bf71-d266e9177e55",
+      "action": "WHEN the user displays the scrubber\r\nAND keeps the scrubber displaying for at least 2 minutes",
+      "data": "",
+      "result": "THEN mediaInfo is called when the scrubber displays\r\nAND mediaInfo is called every 90 seconds while the scrubber displays"
+    }
+  ]
+}

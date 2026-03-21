@@ -1,0 +1,20 @@
+{
+  "id": "WQ-676",
+  "issueId": "1128004",
+  "key": "WQ-676",
+  "summary": "T-Mobile subscriber live game out of market - Game Tile",
+  "description": "GIVEN a user is an T-Mobile subscriber\r\nAND the user is not in the viewing market of the game\r\nAND the game level entitledVideo equals true in MAST EPGv3\r\nAND the game level blackedOutVideo equals false in MAST EPGv3",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "eecd54ae-062f-4b21-ae43-77771ca9e62c",
+      "action": "WHEN a user views/focuses a scheduled/in-progress game tile",
+      "data": "",
+      "result": "THEN a lock icon does not display in the upper right corner of the game tile\r\nAND there is no dark overlay over the team colors in the game tile header"
+    }
+  ]
+}

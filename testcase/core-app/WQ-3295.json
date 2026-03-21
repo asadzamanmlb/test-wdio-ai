@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3295",
+  "issueId": "1226807",
+  "key": "WQ-3295",
+  "summary": "Live Game state \"NO HITTER\" - Hide Spoilers ON",
+  "description": "GIVEN a subscriber is on the Games or Home page\r\nAND Hide Spoilers is set to ON",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4537ce82-c202-461d-a425-f09380a11d86",
+      "action": "WHEN a live game has a pitcher who has not allowed a hit to the opposing team and the game has reached the 6th inning - then statsAPI will send a statusCode value of ???",
+      "data": "",
+      "result": "THEN the Blue ‘NO HITTER’ badge is not displayed on any game tile (hero, expanded, mini)"
+    }
+  ]
+}

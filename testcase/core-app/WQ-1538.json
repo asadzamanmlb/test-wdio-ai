@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1538",
+  "issueId": "1128875",
+  "key": "WQ-1538",
+  "summary": "Milestones Tab | Hearing Announcement to the Last Inning",
+  "description": "GIVEN the user is in the Inning Navigation section\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f03c1d27-deee-4445-9540-0778857ece2b",
+      "action": "WHEN the user navigates to the last inning in the milestones section",
+      "data": "",
+      "result": "THEN the user will hear: \"Viewing <insert inning displayed> inning, press left arrow key to view milestones in the previous inning”\r\nFor example: \"Viewing the 9th inning, press left arrow key to view milestones in the previous inning\""
+    }
+  ]
+}

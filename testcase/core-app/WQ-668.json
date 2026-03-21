@@ -1,0 +1,20 @@
+{
+  "id": "WQ-668",
+  "issueId": "1127996",
+  "key": "WQ-668",
+  "summary": "Extra Innings subscriber live game out of market - Game Tile",
+  "description": "GIVEN a user is an Xtra Innings subscriber\r\nAND the user is not in the viewing market of the game\r\nAND the game level entitledVideo equals true in MAST EPGv3\r\nAND the game level blackedOutVideo equals false in MAST EPGv3",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "186cc911-64d9-465d-8772-fc51508f5856",
+      "action": "WHEN a user views/focuses a scheduled/in-progress game tile",
+      "data": "",
+      "result": "THEN a lock icon does not display in the upper right corner of the game tile\r\nAND there is no dark overlay over the team colors in the game tile header"
+    }
+  ]
+}

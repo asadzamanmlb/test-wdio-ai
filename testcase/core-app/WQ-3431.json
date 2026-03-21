@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3431",
+  "issueId": "1268470",
+  "key": "WQ-3431",
+  "summary": "Settings page to Upgrade Plan to Settings page - Free User",
+  "description": "GIVEN a Free user is on the Settings page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7653d479-fa90-42ab-83aa-49a0aa7a7b51",
+      "action": "WHEN the user selects the \"Upgrade Plan\" tab in the navigation header\nAND selects one of the subscription package tiles on the Subscriptions page\nAND presses the \"back\" button on the remote controller twice",
+      "data": "",
+      "result": "THEN the user is navigated to the Settings page\r\nAND focus is assigned to the \"Log Out\" button"
+    }
+  ]
+}

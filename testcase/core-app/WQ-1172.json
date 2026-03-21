@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1172",
+  "issueId": "1128507",
+  "key": "WQ-1172",
+  "summary": "Samsung Only - User Sees Exit Confirmations screen when trying to exit the app",
+  "description": "GIVEN the user is on the mlb app on Samsung tv",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c1dc5ae9-ec7d-4c6f-9f8f-7cb377137f20",
+      "action": "WHEN the user triggers the exit key by pressing the exit button on the IR remote\r\nOR the user triggers the exit key by pressing and holding the Return button on the Bluetooth remote",
+      "data": "",
+      "result": "THEN the user is presented with the Exit Confirmations Screen asking user: \"Do you really want to quit?\" Exit or Cancel"
+    }
+  ]
+}

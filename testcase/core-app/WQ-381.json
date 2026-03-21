@@ -1,0 +1,20 @@
+{
+  "id": "WQ-381",
+  "issueId": "1127693",
+  "key": "WQ-381",
+  "summary": "Anonymous user header navigation",
+  "description": "GIVEN an anonymous user has previously gone through the \"Explore Free Content\" onboarding flow\r\nAND the anonymous user launches the app\r\nAND the Home page displays",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "448638e7-bc85-4eb2-8bdd-71dd26a2f8ec",
+      "action": "WHEN the d-pad, left analog stick is used to navigate to each of the buttons in the navigation header",
+      "data": "",
+      "result": "THEN each button gains focus as it is navigated to\r\nAND as each button gains focus the text color changes from white to black\r\nAND as each button gains focus the background color changes from no background to white background"
+    }
+  ]
+}

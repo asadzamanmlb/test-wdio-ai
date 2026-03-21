@@ -1,0 +1,20 @@
+{
+  "id": "WQ-716",
+  "issueId": "1128044",
+  "key": "WQ-716",
+  "summary": "Monthly/yearly subscriber live FGotD in market - Game Tile",
+  "description": "GIVEN the user is a monthly/yearly subscriber\r\nAND there is a FGotD scheduled/in-progress in the viewing market of the user\r\nAND the game level blackedOutVideo equals true in MASTepg\r\nAND the game level entitledVideo equals true in MASTepg",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "017e0086-a6c0-49a0-abd4-45c2f19c1872",
+      "action": "WHEN the user views the FGotD game tile focused or unfocused",
+      "data": "",
+      "result": "THEN a blackout badge is displayed in the upper left corner of the game tile\nAND the \"GEICO FREE\" badge does not display in the game tile\nAND \"Stream on: <team_broadcast_partner_of_the_users_in-market_location>\" is displayed above \"Broadcast Networks\""
+    }
+  ]
+}

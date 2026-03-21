@@ -1,0 +1,20 @@
+{
+  "id": "WQ-166",
+  "issueId": "1127469",
+  "key": "WQ-166",
+  "summary": "FS1 MVPD - Canada",
+  "description": "GIVEN a subscriber is located in Canada\r\nAND a postseason game has FS1 broadcasters assigned\r\nAND the away feed level fs1AuthRequired = true\r\nAND feed level mediaState = MEDIA_ON",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c0f2b27a-939e-4f70-88ff-89a2991517fc",
+      "action": "WHEN the subscriber selects the FS1 postseason game tile",
+      "data": "",
+      "result": "THEN a blackout message is displayed\r\nAND the user is unable to access feeds for the game\r\nAND the Feed Modal is dismissed after the user presses the CIRCLE button on the controller"
+    }
+  ]
+}

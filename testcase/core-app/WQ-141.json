@@ -1,0 +1,20 @@
+{
+  "id": "WQ-141",
+  "issueId": "1127444",
+  "key": "WQ-141",
+  "summary": "Feed Modal size adjusts to content",
+  "description": "GIVEN a subscriber is logged in\r\nAND archive games are available\r\nAND a live in-progress game is avalable",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "eaf2125e-cb72-4c2c-8326-34df887db918",
+      "action": "WHEN the user views different Feed Select modals",
+      "data": "",
+      "result": "THEN the modal adjusts in size\r\nAND there is not an over excess of space in the modal"
+    }
+  ]
+}

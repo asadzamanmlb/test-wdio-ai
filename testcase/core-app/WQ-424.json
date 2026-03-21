@@ -1,0 +1,20 @@
+{
+  "id": "WQ-424",
+  "issueId": "1127743",
+  "key": "WQ-424",
+  "summary": "Live Game Playback - Resume",
+  "description": "GIVEN an entitled user is logged in\r\nAND the user has selected a Live game for playback \r\nAND the user has exited a Live game",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7a4185c1-1985-4c2d-835c-32602a8073e0",
+      "action": "WHEN the user selects the same game for playback\r\nAND selects the same feed\r\nAND selects the \"Resume\" button in the secondary feed select modal",
+      "data": "",
+      "result": "THEN playback resumes at the bookmarked time"
+    }
+  ]
+}

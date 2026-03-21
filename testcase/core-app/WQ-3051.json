@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3051",
+  "issueId": "1161799",
+  "key": "WQ-3051",
+  "summary": "SNY VOD FF Cancel",
+  "description": "GIVEN a logged in user is entitled for SNY RSN\nAND the user is on the SNY page\nAND the user selects a VOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "20db4df7-c9f4-4049-93fd-72b70201e435",
+      "action": "WHEN the user initiates Fast Forward\nAND presses the \"back\" button on the controller after a few moments",
+      "data": "",
+      "result": "THEN Fast Forward stops\nAND playback resumes at the point where Fast Forward was initiated\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-904",
+  "issueId": "1128233",
+  "key": "WQ-904",
+  "summary": "Free subscriber out of market - Game Tile",
+  "description": "GIVEN a user is a free subscriber\r\nAND the game level blackedOutVideo equals false in MAST EPGv3\r\nAND the game level entitledVideo equals false in MAST EPGv3",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "51eee6a0-d9f5-48c5-ba44-da9ebfeeaef6",
+      "action": "WHEN a user views/focuses a scheduled/in-progress out-of-market game tile\r\nOR a user views/focuses an archive game tile",
+      "data": "",
+      "result": "THEN a lock icon displays in the upper right corner of the game tile\r\nAND the game tile header has a dark overlay over the team colors"
+    }
+  ]
+}

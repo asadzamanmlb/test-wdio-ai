@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1512",
+  "issueId": "1128849",
+  "key": "WQ-1512",
+  "summary": "Quick Actions Menu | Hearing Navigation Prompts When on Rightmost Option",
+  "description": "GIVEN the user is in the Quick Actions Menu\r\nAND there are multiple options available\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "525d4fa0-854e-48bb-85b9-275f4be68e57",
+      "action": "WHEN the user focuses on the rightmost option",
+      "data": "",
+      "result": "THEN the user will hear:  “In the Quick Actions Menu, <Option Name>, x out of y options. Press select to <quick_actions>, Press left for more quick actions options, Press down for player controls, Press back to dismiss controls.”"
+    }
+  ]
+}

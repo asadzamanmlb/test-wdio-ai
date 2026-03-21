@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1114",
+  "issueId": "1128444",
+  "key": "WQ-1114",
+  "summary": "Have an MLB account Log In - Successful login",
+  "description": "GIVEN the user launches the app without saved data\r\nAND selects the [Have an MLB account?] button on the Startup screen",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "fcb60ced-1ee9-4000-b9db-915a8815cb74",
+      "action": "WHEN the Log In screen is displayed\r\nAND a user enters an existing MLB.TV subscriber email address in the \"Email Address\" field\r\nAND a user enters the existing subscriber password in the \"Password\" field\r\nAND a user selects the [Log In] button",
+      "data": "",
+      "result": "THEN the user is logged in successfully\r\nAND the user is navigated to the Home page"
+    }
+  ]
+}

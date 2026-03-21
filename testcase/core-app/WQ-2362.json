@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2362",
+  "issueId": "1129812",
+  "key": "WQ-2362",
+  "summary": "R5071A - The shake test",
+  "description": "**Peripheral Devices**\r\n\r\n**R5071 Requirement:**\r\nThe application does not instruct or ask the user to vigorously shake the controller with one hand.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "14b05930-8d69-4421-bff7-d40ab4c9c3ba",
+      "action": "1. Select the \"Application\" on the home screen\r\n2. Check throughout the entire application\r\n\r\n**Notes:**\r\nPay particular attention when motion sensor features are being used.",
+      "data": "",
+      "result": "Users are not requested or instructed to vigorously shake the wireless controller for PlayStation®5 with one hand."
+    }
+  ]
+}

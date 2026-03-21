@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1563",
+  "issueId": "1128965",
+  "key": "WQ-1563",
+  "summary": "Log In",
+  "description": "GIVEN a user is not already logged in\r\nAND a user is on the Log In page\r\n",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e1942983-c3bd-42e4-b22c-5388d53214b8",
+      "action": "WHEN a subscribers email address is entered in the \"Email Address\" field\r\nAND the associated password is entered in the \"Password\" field\r\nAND the user selects the \"Log In\" button",
+      "data": "",
+      "result": "THEN the user is successfully logged in"
+    }
+  ]
+}

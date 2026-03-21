@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3066",
+  "issueId": "1161968",
+  "key": "WQ-3066",
+  "summary": "SNLA+ VOD FF to the end",
+  "description": "GIVEN a logged in user is entitled for SNLA+ RSN\nAND the user is on the SNLA+ page\nAND the user selects a VOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4ce8d4dd-62e6-4232-bfd0-90c9cca56607",
+      "action": "WHEN the user Fast Forwards the video to the end",
+      "data": "",
+      "result": "THEN the video player is dismissed\nAND the user is navigated back to the previous page"
+    }
+  ]
+}

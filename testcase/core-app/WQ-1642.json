@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1642",
+  "issueId": "1129059",
+  "key": "WQ-1642",
+  "summary": "Game Tile - Hide Spoilers ON",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "50334d0a-02af-461c-8d80-0a5e598054e1",
+      "action": "WHEN",
+      "data": "",
+      "result": "When Archived game is selected with Hidespoilers -ON then the stats data on the game tile is hidden"
+    }
+  ]
+}

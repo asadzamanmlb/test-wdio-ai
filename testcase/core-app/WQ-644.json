@@ -1,0 +1,20 @@
+{
+  "id": "WQ-644",
+  "issueId": "1127972",
+  "key": "WQ-644",
+  "summary": "Monthly/yearly subscriber live FGotD out of market - Game Tile",
+  "description": "GIVEN a user is a Monthly/Yearly subscriber\r\nAND a FGotD is scheduled/in-progress\r\nAND the user is not in the viewing market of the FGotD\r\nAND the game level entitledVideo equals true in MAST EPGv3\r\nAND the game level blackedOutVideo equals false in MAST EPGv3\r\nAND the feed level freeGame equals true in MAST EPGv3",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "57f74f9d-f0d0-4a78-82c8-5e2b909a4444",
+      "action": "WHEN a user views/focuses a scheduled/in-progress FGotD game tile",
+      "data": "",
+      "result": "THEN a lock badge does not display in the upper right corner of the game tile\nAND there is no dark overlay over the team colors in the game tile header\nAND a Free Game badge displays left justified at the top of the game tile"
+    }
+  ]
+}

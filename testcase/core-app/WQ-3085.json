@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3085",
+  "issueId": "1162035",
+  "key": "WQ-3085",
+  "summary": "MASN2 24/7 feed FF Stop",
+  "description": "GIVEN a logged in user is entitled for MASN2 RSN\nAND the user selects the MASN2 24/7 stream to watch\nAND the playhead is behind the live point",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d860e0fb-8b9d-4846-8a42-eadf19d85bd5",
+      "action": "WHEN the user initiates Fast Forward\nAND presses the \"select\" button on the controller after a few moments",
+      "data": "",
+      "result": "THEN Fast Forward stops\nAND playback resumes at the point where Fast Forward stopped\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1188",
+  "issueId": "1128525",
+  "key": "WQ-1188",
+  "summary": "TTS | Focus on Login button",
+  "description": "GIVEN an unauthenticated user is on the Login Page\r\nAND the user has TTS Enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c6e85316-a5f2-41f9-8cbe-784299747c69",
+      "action": "WHEN the user focuses on the Login button",
+      "data": "",
+      "result": "THEN the app reads \"Press select to Login. Press right to cancel login. Press up to update password.”"
+    }
+  ]
+}

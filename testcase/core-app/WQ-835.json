@@ -1,0 +1,20 @@
+{
+  "id": "WQ-835",
+  "issueId": "1128163",
+  "key": "WQ-835",
+  "summary": "Anonymous user YouTube archive - Feed Select modal",
+  "description": "GIVEN a user is anonymous",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0c2b69c8-0d60-4b48-83c2-f6ef03aa7609",
+      "action": "WHEN a user selects an archive YouTube game tile",
+      "data": "",
+      "result": "THEN the user will see the YouTube feed button with a lock icon\r\nAND a message does not display letting the user know where the game can be watched\r\nAND the user cannot playback the YouTube feed\r\nAND the user is taken to the Subscriptions page after selecting the feed button"
+    }
+  ]
+}

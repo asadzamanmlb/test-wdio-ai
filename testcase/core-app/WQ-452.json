@@ -1,0 +1,20 @@
+{
+  "id": "WQ-452",
+  "issueId": "1127778",
+  "key": "WQ-452",
+  "summary": "Tap Fast Forward",
+  "description": "GIVEN a user is playing a game feed\nAND the scrubber is displayed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6659e5a9-b2f6-4415-8fbe-1eb9b511d791",
+      "action": "WHEN a user taps the right d-pad button, R2 button, or the left analog stick to the right",
+      "data": "",
+      "result": "THEN FF is engaged at speed 2x \r\nAND for every tap, the FF speed increments 4x, 8x, 16x, 32x, 64x, 128x, 256x\r\nAND the playback marker moves along the scrubber corresponding to the speed of FF\r\nAND video is paused while FF is engaged"
+    }
+  ]
+}

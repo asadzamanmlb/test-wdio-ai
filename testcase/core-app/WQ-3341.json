@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3341",
+  "issueId": "1232766",
+  "key": "WQ-3341",
+  "summary": "Where to watch - Monthly/yearly subscriber live game FGotD in market - Hero/Featured",
+  "description": "GIVEN the user is a monthly/yearly subscriber\nAND there is a FGotD scheduled/in-progress in the viewing market of the user\nAND the game level blackedOutVideo equals true in MASTepg\nAND the game level entitledVideo equals true in MASTepg",
+  "status": "To Do",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "fd3d0e77-6131-4e3e-b7ae-94a4821df47f",
+      "action": "WHEN the user views the FGotD game in the hero/featured spot",
+      "data": "",
+      "result": "THEN a blackout badge is displayed in the upper left corner of the hero/featured spot\nAND the \"GEICO FREE\" badge does not display\nAND \"Stream on: <team_broadcast_partner_of_the_users_in-market_location>\" is displayed above \"Broadcast Networks\""
+    }
+  ]
+}

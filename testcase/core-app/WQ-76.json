@@ -1,0 +1,20 @@
+{
+  "id": "WQ-76",
+  "issueId": "1127088",
+  "key": "WQ-76",
+  "summary": "Ad breaks logged in DataDog",
+  "description": "GIVEN a user has access to DataDog\r\nAND is viewing Playback Heuristics in DataDog\r\nAND a user is logged in with dm5tv3@gmail.com / PasswordDM5\r\nAND has initiated playback of a Live ads enabled stream\r\n\r\n**NOTE:** \r\nURL for Playback Heuristics: https://us5.datadoghq.com/logs?query=%22PLAYBACK%20HEURISTICS%22%20%40usr.id%3A00u24vtyge3Pzk2rY0h8&agg_m=%40event.metadata.currentBitrate&agg_m_source=base&agg_q=%40asset.isLive&agg_q_source=base&agg_t=avg&analyticsOptions=%5B%22line%22%2C%22dog_classic%22%2Cnull%2Cnull%5D&cols=host%2Cservice%2C%40usr.id%2C%40event.action%2C%40event.reason%2C%40event.metadata.convivaTimestamp&context_event=AY_CgMDtAAD8tvFqYXPtGgAB&fromUser=true&messageDisplay=inline&refresh_mode=sliding&storage=hot&stream_sort=%40convivaTimestamp%2Casc&top_n=10&top_o=top&view=spans&viz=&x_missing=true&from_ts=1726669870274&to_ts=1726684270274&live=true\r\n\r\nThe tester may need to update the User ID in DataDog to the Okta ID of the test user from the test environment.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2066668a-611d-489b-b6ab-a377234ef057",
+      "action": "WHEN a complete ad break plays",
+      "data": "",
+      "result": "THEN the following action and reason are logged in DataDog at an ad break start: \r\nAction - player_state_change \r\nReason - player_ad_break_started\r\nAND the following action and reason are logged in DataDog at an ad break end: \r\nAction - player_state_change \r\nReason - player_ad_break_end"
+    }
+  ]
+}

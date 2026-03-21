@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1267",
+  "issueId": "1128604",
+  "key": "WQ-1267",
+  "summary": "Game Tile Live Hide Spoilers ON",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND Hide Spoilers is turned ON\r\nAND a Live game is on the schedule\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9aa00c8a-cec8-489e-92ac-e8febffd8db9",
+      "action": "WHEN focus is assigned to a Live game in the Hero",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"<away_team> at <home_team>, Live. Press select to play game. Press up for the main menu. Move down to browse more content.\""
+    }
+  ]
+}

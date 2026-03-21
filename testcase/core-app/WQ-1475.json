@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1475",
+  "issueId": "1128812",
+  "key": "WQ-1475",
+  "summary": "Options Menu | Navigating to Milestones tab",
+  "description": "GIVEN the user is in the Options Menu\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "39be317b-af71-4ebe-8858-225990048f44",
+      "action": "WHEN the user navigates to the \"Milestones\" tab",
+      "data": "",
+      "result": "THEN the user will hear: “Milestones, <x> of <y> Options, press down to navigate milestones, Press up for player controls, Press <appropriate_directions> for more options, Press back to dismiss controls”"
+    }
+  ]
+}

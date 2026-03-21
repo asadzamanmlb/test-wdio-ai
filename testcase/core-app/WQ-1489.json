@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1489",
+  "issueId": "1128826",
+  "key": "WQ-1489",
+  "summary": "Live/Archive | Play Announcement after Fast Forward",
+  "description": "GIVEN the user is watching a Live Game or Archive Game\r\nAND TTS is enabled\r\nAND the user has Fast Forwarded",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "fded18a9-a822-451f-94c7-715b41c23719",
+      "action": "WHEN the user presses select to play after Fast Forward",
+      "data": "",
+      "result": "THEN the user will hear “<Which half of inning + Inning>, <Away Team + Away Team Score>, <Home Team + Home Team Score>, Press select to Pause” \r\nFor example: \"Top of the 5th, Dodgers 3, Yankees 2, Press select to Pause\""
+    }
+  ]
+}

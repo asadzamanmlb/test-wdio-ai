@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1109",
+  "issueId": "1128439",
+  "key": "WQ-1109",
+  "summary": "Welcome page Log In - Cancel button functionality",
+  "description": "GIVEN the user is Anonymous (not logged in)\r\nAND the user selects the \"Get MLB.TV\" tab in the header\r\nAND the user selects the \"Log In\" link on the Welcome page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4c682da3-91f4-4b3f-a7fa-d724d7fd24b8",
+      "action": "WHEN a user selects the [Cancel] button on the Log In page\r\nOR the user selects the BACK button on the controller",
+      "data": "",
+      "result": "THEN the user is navigated to Welcome page"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-108",
+  "issueId": "1127411",
+  "key": "WQ-108",
+  "summary": "Live Point National Feed Selection",
+  "description": "GIVEN a live game is in-progress\r\nAND the game only has a national feed\r\nAND videoFeeds for the game have a mediaState of MEDIA_ON\r\nAND the user has the appropriate entitlements to watch the national feed\r\n\r\n**Example:**\r\nFox Saturday Baseball w/ MLBALL entitlement\r\nAppleTV+ w/ EXEC entitlement\r\nPeacock w/ EXEC entitlement\r\nESPN Sunday Night Baseball w/ EXEC entitlement",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a652308b-f6a4-4919-9101-39a5269f4258",
+      "action": "WHEN a user selects a game tile for a live in-progress game\r\nAND selects the national video feed button in the Feed Select Modal\r\nAND selects the [Watch Live] button in the Secondary Feed Select Modal",
+      "data": "",
+      "result": "THEN the feed select modal/games page is dismissed\r\nAND the video player maximizes to full screen\r\nAND the national video feed starts playing from the live point"
+    }
+  ]
+}

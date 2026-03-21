@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1455",
+  "issueId": "1128792",
+  "key": "WQ-1455",
+  "summary": "Yearly/Monthly toggle",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is not logged in\r\nAND the user is on the Browse Subscriptions page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "09ebd2e6-4d13-4b89-b544-d5bef72979a1",
+      "action": "WHEN focus is assigned to the Yearly/Monthly toggle\r\nAND the user selects the toggle to toggle between yearly and monthly",
+      "data": "",
+      "result": "THEN the following statement should be spoken on focus and after each toggle, \"<yearly_or_monthly> is selected. Press the select or OK button to toggle to <yearly_or_monthly> options. Scroll down to hear information about packages.\""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-869",
+  "issueId": "1128197",
+  "key": "WQ-869",
+  "summary": "Executive user AppleTV+ archive - Feed Select modal",
+  "description": "GIVEN a user is an Executive user",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "32ec19a4-d2f0-4c47-a8c5-487cb3dd4baa",
+      "action": "WHEN a user selects an archive AppleTV+ game tile",
+      "data": "",
+      "result": "THEN the user will see the AppleTV+ feed button\r\nAND a message does not display letting the user know where the game can be watched\r\nAND the user can playback the AppleTV+ feed"
+    }
+  ]
+}

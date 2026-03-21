@@ -1,0 +1,13 @@
+{
+  "id": "WQ-1423",
+  "issueId": "1128760",
+  "key": "WQ-1423",
+  "summary": "Welcome page load",
+  "description": null,
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": []
+}

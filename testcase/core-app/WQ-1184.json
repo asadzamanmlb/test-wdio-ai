@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1184",
+  "issueId": "1128521",
+  "key": "WQ-1184",
+  "summary": "TTS | Email Entry",
+  "description": "GIVEN an unauthenticated user is on the Login Page\r\nAND the user has TTS Enabled\r\n",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "353f6e4c-4a76-462b-ba36-eab9cfce5667",
+      "action": "WHEN the user moves focus to the Email entry\r\nOR the user selects to enter an Email\r\nOR the user complete their Email entry",
+      "data": "",
+      "result": "THEN the app reader says \"The email field is selected. Please hit select to enter the email address associated with your MLB.TV account. Press or scroll down to enter your password.\""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1291",
+  "issueId": "1128628",
+  "key": "WQ-1291",
+  "summary": "TTS | SNLA+ VOD Tile",
+  "description": "GIVEN a user has entitlements for SNLA+\r\nAND the user launches the MLB.TV app\r\nAND the user has TTS enabled\r\nAND the user logs in\r\nAND the user is on the SNLA+ page\r\n\r\n**NOTE:** SNLA+ entitlement = SNLA_119",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "625e173e-94e8-410b-a742-3b4748c1366b",
+      "action": "WHEN focus is assigned to a VOD tile in a carousel",
+      "data": "",
+      "result": "The following statement is spoken, \"In the <carousel_name> <content_title>, <content_description>, <content_length>, press select to play, X of Y items in the carousel, press <appropriate_directions> to view other videos in the carousel, press up or down to browse more content\"\r\n\r\n**NOTE:** If there is no content below, “press down for more content” should not be spoken"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1645",
+  "issueId": "1129062",
+  "key": "WQ-1645",
+  "summary": "Feed metadata - Feed Select",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "fd2e35bf-a041-41bd-87fa-777cdb9df420",
+      "action": "WHEN",
+      "data": "",
+      "result": "Metadata for video feed selection and audio feed selection display as expected"
+    }
+  ]
+}

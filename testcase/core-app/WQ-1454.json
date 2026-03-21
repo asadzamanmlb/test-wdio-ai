@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1454",
+  "issueId": "1128791",
+  "key": "WQ-1454",
+  "summary": "Subscriptions page load",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is not logged in\r\nAND the user has selected the Get MLB.TV in the navigation header",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "cff4316c-fa97-41a0-80c7-8eda7813e4ad",
+      "action": "WHEN the user selects the \"Browse Subscriptions\" button on the Welcome page",
+      "data": "",
+      "result": "THEN the following statement should be spoken, \"Choose your Plan. <description_section>, Please scroll down to review subscription options.\""
+    }
+  ]
+}

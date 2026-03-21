@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1065",
+  "issueId": "1128395",
+  "key": "WQ-1065",
+  "summary": "Express Log In Code Update - Stay on Log In page",
+  "description": "GIVEN the user is not logged in\r\nAND the user is on the Log In page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7c86ce2f-0105-4c3b-b041-a8e867a71f25",
+      "action": "WHEN the user stays stagnate on the Log In page for at least 10 minutes",
+      "data": "",
+      "result": "THEN the activation code updates\r\nAND the activation code updates in 10 minute intervals"
+    }
+  ]
+}

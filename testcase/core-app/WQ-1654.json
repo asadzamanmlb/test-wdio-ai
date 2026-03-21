@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1654",
+  "issueId": "1129071",
+  "key": "WQ-1654",
+  "summary": "Archive Anonymous - Recap/Condensed Game",
+  "description": "1. When an anonymous user launches the app and selects the archived Game, Feed select page appears with  Recap/Condensed option.\r\n\r\n2. When an anonymous user selects the archived game, Feed Select page appear with Watch Free - Condensed Game and Recap and Full game access - Get MLB.TV and Login.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7bbceae6-7a44-4a2f-b94b-5d5a8a424543",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

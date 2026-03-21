@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1137",
+  "issueId": "1128467",
+  "key": "WQ-1137",
+  "summary": "Failing calls at app launch",
+  "description": "GIVEN the network calls to https://dpm.demdex.net are block\r\n\r\n**NOTE:** This should be tested in Chrome using Dev Tools",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0f5cbc8f-9704-4338-9dfa-58b3a3d855ed",
+      "action": "WHEN the user launches the app",
+      "data": "",
+      "result": "THEN the spinning baseball doesn't display infinitely\r\nAND the app loads as expected"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-547",
+  "issueId": "1127873",
+  "key": "WQ-547",
+  "summary": "Pause/Play",
+  "description": "GIVEN a user is playing a video",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "004f8673-47b8-44e0-8cee-5d46a3c4a62b",
+      "action": "WHEN a user presses the [X] button on the controller once\r\nAND presses the [X] button a second time",
+      "data": "",
+      "result": "THEN the scrubber displays\r\nAND the video pauses after the first button press\r\nAND the screen displays a pause icon in the center of the screen for 1 second\r\nAND the video plays after the first button press\r\nAND the screen displays a play icon in the center of the screen for 1 second"
+    }
+  ]
+}

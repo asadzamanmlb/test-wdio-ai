@@ -1,0 +1,20 @@
+{
+  "id": "WQ-330",
+  "issueId": "1127642",
+  "key": "WQ-330",
+  "summary": "SLIVE - Entitled",
+  "description": "GIVEN a subscriber has SUBSCRIBERVOD entitlement\r\nAND SLIVE content is present in the Hero",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0b0f34c7-f647-4a51-bf86-e4f3eacb33ad",
+      "action": "WHEN a subscriber loads the Home page",
+      "data": "",
+      "result": "MANUAL\r\n\r\nTHEN a related background image is displayed for the SLIVE content in the hero\r\nAND a LIVE indicator displays left justified above the title\r\nAND the title for the SLIVE content is displayed in the Hero\r\nAND the description for the SLIVE content is displayed in the Hero\r\nAND the \"Watch Now\" button is white with black text\r\nAND the \"Watch Now\" button has focus when the Home page loads\r\n\r\nAUTOMATION\r\nAND the SLIVE content playback is successful after the user selects the \"Watch Now\" button"
+    }
+  ]
+}

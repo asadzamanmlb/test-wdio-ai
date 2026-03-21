@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1148",
+  "issueId": "1128483",
+  "key": "WQ-1148",
+  "summary": "Favorite Team - Settings page Done",
+  "description": "GIVEN a logged in user is on the Settings page\r\nAND the user selects \"Favorite Team\" in the list of settings\r\nAND the user selects a favorite team",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8cb6ca53-6389-4c17-a9aa-8fee16919cea",
+      "action": "WHEN the user selects the \"Done\" button",
+      "data": "",
+      "result": "THEN the user is navigated back to the Settings page\r\nAND focus is assigned to \"Log Out\" in the list of settings\r\n*** (NOT IMPLEMENTED) AND the user's newly selected favorite team displays in the header, to the left of \"Settings\" ***\r\nAND the user's newly selected favorite team displays in the first game tile of the top row on the Games page, on day's the favorite team is playing\r\nAND the user's newly selected favorite team displays in the first game tile of the Games carousel, or Hero/Featured spot, on the Home page, on days the favorite team is playing"
+    }
+  ]
+}

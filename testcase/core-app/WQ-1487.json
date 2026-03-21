@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1487",
+  "issueId": "1128824",
+  "key": "WQ-1487",
+  "summary": "Fast Forward | Live/Archive Games",
+  "description": "GIVEN the user is watching a Live or Archive game\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "884a9677-8acd-41c4-b316-41ed06f7dfc5",
+      "action": "WHEN the user holds down the right button to Fast Forward",
+      "data": "",
+      "result": "THEN the user will hear: “Fast Forward, <Speed>, Press select to Play”\r\nFor example: The user will hear the speed even if FF/RW in 1x"
+    }
+  ]
+}

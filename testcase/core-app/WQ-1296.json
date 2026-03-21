@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1296",
+  "issueId": "1128633",
+  "key": "WQ-1296",
+  "summary": "Single Team Not Entitled - Live",
+  "description": "GIVEN TTS is turned ON\r\nAND a Single Team user is logged in",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "dadb14b3-236c-4f58-8f1e-b9755ff745f1",
+      "action": "WHEN the user selects a game tile for their subscribed team\r\nAND assigns focus to the not entitled feed",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"<away_team> @ <home_team>, <button_name/feed_name>, <feed_type>, Not Entitled, press <appropriate_directions> for more content. Press back to dismiss.\""
+    }
+  ]
+}

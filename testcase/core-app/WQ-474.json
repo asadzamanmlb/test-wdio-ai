@@ -1,0 +1,20 @@
+{
+  "id": "WQ-474",
+  "issueId": "1127800",
+  "key": "WQ-474",
+  "summary": "Watch from the beginning live game inning markers - Hide Spoilers ON",
+  "description": "GIVEN a user has Hide Spoilers ON\r\nAND an in-progress game has started\r\nAND the live point is after the top of the first inning",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "83057898-2ede-40ef-8efc-d41e0a03c0ef",
+      "action": "WHEN the user selects the in-progress game to watch from the beginning",
+      "data": "",
+      "result": "THEN the user starts watching the game from the broadcast start point\r\nAND inning markers are not populated to the right of the playback head\r\nAND as the half innings begin, inning markers are populated in the scrubber bar, to the left of the playback head"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-665",
+  "issueId": "1127993",
+  "key": "WQ-665",
+  "summary": "Free subscriber FGotD out of market - Feed Select",
+  "description": "GIVEN the user is a Free subscriber\r\nAND the FGotD is scheduled/in-progress\r\nAND the FGotD is not in the subscribers viewing market",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "96ac4a74-bc76-4e8a-a4fa-094821f660ca",
+      "action": "WHEN a user selects the FGotD game tile",
+      "data": "",
+      "result": "THEN a Feed Select modal displays\r\nAND the user is able to select both feeds in the Feed Select modal\r\nAND both team video feeds play successfully"
+    }
+  ]
+}

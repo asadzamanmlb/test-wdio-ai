@@ -1,0 +1,20 @@
+{
+  "id": "WQ-105",
+  "issueId": "1127408",
+  "key": "WQ-105",
+  "summary": "Live Point Away Feed Selection",
+  "description": "GIVEN a live game is in-progress\r\nAND videoFeeds for the game have a mediaState of MEDIA_ON\r\nAND the user is entitled to watch the game\r\nAND the user has not previously played the feed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c87c3b5a-846c-48b7-b90d-0cb5296d06ec",
+      "action": "WHEN a user selects a game tile for a live in-progress game\r\nAND selects the away video feed button in the Feed Select Modal\r\nAND selects the [Watch Live] button in the Secondary Feed Select Modal",
+      "data": "",
+      "result": "THEN the feed select modal/games page is dismissed\r\nAND the video player maximizes to full screen\r\nAND the away video feed starts playing from the live point"
+    }
+  ]
+}

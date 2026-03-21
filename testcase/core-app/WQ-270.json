@@ -1,0 +1,20 @@
+{
+  "id": "WQ-270",
+  "issueId": "1127582",
+  "key": "WQ-270",
+  "summary": "Non-Favorite team game is pre-game",
+  "description": "GIVEN a user is entitled for live game playback\r\nAND a game without the user's favorite team is present in the hero\r\nAND the game is in a pre-game/scheduled state",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "60d1927c-64d1-4c3f-b932-3cce653c3209",
+      "action": "WHEN a user loads the Home page",
+      "data": "",
+      "result": "THEN a background image related to the home team is displayed in the hero\r\nAND the away team logo displays and away team name are displayed\r\nAND the home team logo and home team name are displayed in the Hero\r\nAND a blue pill displays left justified above the away team logo\r\nAND the scheduled game time displays in the user's local timezone\r\nAND a \"Watch Now\" button does NOT display\r\nAND a \"LIVE\" indicator pill does NOT display"
+    }
+  ]
+}

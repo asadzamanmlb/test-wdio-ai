@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1729",
+  "issueId": "1129146",
+  "key": "WQ-1729",
+  "summary": "Resume archive playback Skip through inning markers - Hide Spoilers OFF",
+  "description": "GIVEN the user is entitle for archive game playback\r\nAND Hide Spoilers is turned OFF\r\nAND the archive game contains a resume bookmark anytime after the top of the 1st inning",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "44414f6c-2f09-4ff9-a938-5c75910b1248",
+      "action": "WHEN the user resumes archive game playback\r\nAND the user opens the scrubber/player controls\r\nAND the user selects each top and bottom inning in the line score",
+      "data": "",
+      "result": "THEN a tile with text and thumbnails display for each milestone\r\nAND the playback head jumps to the appropriate inning marker\r\nAND the game playback point matches the inning marker"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1603",
+  "issueId": "1129020",
+  "key": "WQ-1603",
+  "summary": "Non-overridden user receives the Legacy experience",
+  "description": "GIVEN a user is not overridden in Override Service or Adobe Target",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2f2eada0-4bdb-437b-a303-0dccfac6cdf4",
+      "action": "WHEN a non-overridden user logs into the app",
+      "data": "",
+      "result": "THEN the user should receive the Legacy experience"
+    }
+  ]
+}

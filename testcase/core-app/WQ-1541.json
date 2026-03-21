@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1541",
+  "issueId": "1128878",
+  "key": "WQ-1541",
+  "summary": "Video Error",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9f58651e-63ab-4911-b367-2991d1a0448c",
+      "action": "WHEN a video error modal is displayed",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Video Error. Please try again later. Press select to go back.\""
+    }
+  ]
+}

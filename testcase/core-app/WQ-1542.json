@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1542",
+  "issueId": "1128879",
+  "key": "WQ-1542",
+  "summary": "Content Blacked Out",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND the user attempts to play a feed they are unknowingly blacked out",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "55ad82d8-992c-4c6a-8472-2400dff3cf15",
+      "action": "WHEN the Content Blacked Out modal displays",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Content Blacked Out. We have determined this game is unavailable in your area. During the MLB Regular Season and Postseason, live games may be blacked out due to Major League Baseball exclusivities. An archive copy of the game will be available 90 minutes after the game ends. Press select to go back.\""
+    }
+  ]
+}

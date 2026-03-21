@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1668",
+  "issueId": "1129085",
+  "key": "WQ-1668",
+  "summary": "SVOD/SLIVE Entitled (Currently N/A)",
+  "description": "When a logged-in user launches the app and selects SVOD/SLIVE, Feed Select modal should appear that has the title of the video and a Watch button.\r\n\r\n**Behavior as of 7/13/23:** Directs to paywall after selecting the SVOD/SLIVE tile or \"Watch\" button in the Hero",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3437bee9-381c-4865-9d68-894b6518b37d",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

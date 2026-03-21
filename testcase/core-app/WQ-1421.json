@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1421",
+  "issueId": "1128758",
+  "key": "WQ-1421",
+  "summary": "TTS | App announces Done button when navigated",
+  "description": "GIVEN TTS is enabled\r\nAND the user is on the Following Teams page\r\nAND at least one team is selected/set",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ba3347eb-09de-4207-8fc9-a7582ded15c4",
+      "action": "WHEN a user navigated to the \"Done\" button",
+      "data": "",
+      "result": "THEN the app should say 'Press select to confirm your choice of {followed_teams_list}. Press or scroll left to the cancel button.'"
+    }
+  ]
+}

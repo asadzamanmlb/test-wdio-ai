@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1364",
+  "issueId": "1128701",
+  "key": "WQ-1364",
+  "summary": "Top row Saturday",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is on the Games page\r\nAND the user has selected the Calendar",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a5178544-e0b7-482f-9f11-56375d0fbb29",
+      "action": "WHEN focus is assigned to Sat in the top row of the calendar",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"<day_of_the_week>, <month>, <day>, <year>, <number_of_games_on_this_day>. Press down or left to navigate to more dates, press up to navigate to a different month or to Today's games.\""
+    }
+  ]
+}

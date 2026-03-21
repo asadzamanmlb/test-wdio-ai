@@ -1,0 +1,20 @@
+{
+  "id": "WQ-120",
+  "issueId": "1127423",
+  "key": "WQ-120",
+  "summary": "Resume Away Feed Selection - Archive Game",
+  "description": "GIVEN a user navigates to a past day with games\r\nAND videoFeeds for the game have a mediaState of MEDIA_ARCHIVE\r\nAND the user is entitled to watch archive game\r\nAND the user has previously played the archive feed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "149c07a5-1eb6-4d9d-b7cd-046815ff7150",
+      "action": "WHEN a user selects a game tile for an archive game\r\nAND selects the away video feed button in the Feed Select Modal\r\nAND selects the [Resume] button in the Secondary Feed Select Modal",
+      "data": "",
+      "result": "THEN the feed select modal/games page is dismissed\r\nAND the video player maximizes to full screen\r\nAND the away video feed starts playing from the bookmarked/last watched point"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-685",
+  "issueId": "1128013",
+  "key": "WQ-685",
+  "summary": "Executive user live game - Feed Select",
+  "description": "GIVEN a user is an Executive user",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "13011a5c-9e08-45d5-81d0-bc8f1ec72f03",
+      "action": "WHEN a user selects any scheduled/in-progress game tile",
+      "data": "",
+      "result": "THEN the user will see feed buttons for both teams\r\nAND the user can playback feeds for both teams"
+    }
+  ]
+}

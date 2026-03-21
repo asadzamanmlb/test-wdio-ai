@@ -1,0 +1,20 @@
+{
+  "id": "WQ-328",
+  "issueId": "1127640",
+  "key": "WQ-328",
+  "summary": "Preview/Scheduled - Game Time",
+  "description": "GIVEN the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "67a0815c-0fa0-44fd-af81-db8760407666",
+      "action": "WHEN a scheduled game is in the Hero",
+      "data": "",
+      "result": "THEN a blue pill displays left justified above the away team logo\r\nAND the scheduled game time displays in the user's local timezone\r\nAND any indication of timezone is not displayed"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-154",
+  "issueId": "1127457",
+  "key": "WQ-154",
+  "summary": "FS1 MVPD Messaging - Unauthorized and Not Entitled",
+  "description": "GIVEN a Postseason game is on the schedule\r\nAND FS1 broadcasters are assigned\r\nAND the user doesn't have the following entitlements: MLBALL, MLBVIDEOADOBEPASS, MLBVIDEOAR\r\nAND the user is unauthorized for FS1 MVPD\r\nAND the game level entitledVideo = false\r\nAND the AWAY (National) feed level fs1AuthRequired = true\r\n\r\nUser types: atBat/Audio, Free, Anonymous users",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "514326fb-ecab-4bff-9b08-4e6c3700457c",
+      "action": "WHEN the user selects a game tile for an FS1 Postseason game tile",
+      "data": "",
+      "result": "THEN the Feed Select modal displays\r\nAND FS1 MVPD messaging displays in the Feed Select modal"
+    }
+  ]
+}

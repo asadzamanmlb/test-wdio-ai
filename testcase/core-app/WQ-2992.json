@@ -1,0 +1,13 @@
+{
+  "id": "WQ-2992",
+  "issueId": "1158418",
+  "key": "WQ-2992",
+  "summary": "PS5 Custom 'BufferController' Config Settings for HDR Playback",
+  "description": "Similar to ABR Controller configs added for HDR playback, this bufferController config option will be passed in through the HLS.js. \r\n\r\nShould see the following params:\r\n# esvm=true; \r\n# pass_through=true",
+  "status": "To Do",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": []
+}

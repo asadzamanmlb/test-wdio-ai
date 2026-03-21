@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1799",
+  "issueId": "1129216",
+  "key": "WQ-1799",
+  "summary": "Contents DRM",
+  "description": "DRM method supported by paid content of app",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b4508ebf-ddaa-4ede-8b54-da62da571898",
+      "action": "Execute app → Playback DRM-paid content",
+      "data": "",
+      "result": "All DRM-Paid contents playback normally\r\n1) PlayReady\r\n2) Widevine Classic\r\n3) Widevine Modular\r\n4) Marlin\r\n5) ViewRights\r\n6) FairPlay Streaming"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1117",
+  "issueId": "1128447",
+  "key": "WQ-1117",
+  "summary": "Startup Screen - Have an Account",
+  "description": "GIVEN a user is launching the app for the first time\r\nOR, for testing purposes, the tester has selected the \"Clear Browser Storage\" button, within the Dev Settings on the Settings page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e06d78ce-94ba-4e7c-b092-090fcf9efa3d",
+      "action": "WHEN the Startup Screen is displayed\r\nAND the user selects the \"Have An MLB.TV Account\" button",
+      "data": "",
+      "result": "THEN the Log In page is displayed\r\nAND the user can log in successfully\r\nAND the user lands on the Home page after log in"
+    }
+  ]
+}

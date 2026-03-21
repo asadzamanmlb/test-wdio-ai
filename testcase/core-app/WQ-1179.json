@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1179",
+  "issueId": "1128514",
+  "key": "WQ-1179",
+  "summary": "Samsung Only - User exits from Home page",
+  "description": "GIVEN a user has launched the MLB.tv app on a Samsung TV\r\nAND the user is on the Home page\r\nAND a feed select modal is not displayed (feeds/blackout/other messaging)",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "46eddde1-d003-4446-b6ac-24fe5187717d",
+      "action": "WHEN the user short presses the \"Return\" key on a bluetooth remote control\r\nOR the user short presses the \"Return\" key on an IR remote control",
+      "data": "",
+      "result": "THEN the user should be presented with the Exit screen"
+    }
+  ]
+}

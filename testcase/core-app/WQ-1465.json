@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1465",
+  "issueId": "1128802",
+  "key": "WQ-1465",
+  "summary": "TTS | Quick Action Menu | Gameday",
+  "description": "GIVEN TTS is enabled\r\nAND the user is in the video player",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5093accb-fad3-476b-99e5-e4813abf13bd",
+      "action": "WHEN the user focuses on the “Gameday” mode option button",
+      "data": "",
+      "result": "THEN the user should hear \"Gameday Mode, Press Select to view Gameday feature.\""
+    }
+  ]
+}

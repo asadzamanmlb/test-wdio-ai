@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1551",
+  "issueId": "1128953",
+  "key": "WQ-1551",
+  "summary": "Game Player Controls",
+  "description": "GIVEN a user has initiated playback for a live or archive game ",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "80818248-870b-4718-86fd-4ef0be1e7c8c",
+      "action": "WHEN the user initiates pause, fast forward, rewind, or play",
+      "data": "",
+      "result": "THEN the stream reacts appropriately to the actions initiated"
+    }
+  ]
+}

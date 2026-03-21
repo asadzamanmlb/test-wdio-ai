@@ -1,0 +1,20 @@
+{
+  "id": "WQ-176",
+  "issueId": "1127479",
+  "key": "WQ-176",
+  "summary": "Game Recap",
+  "description": null,
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f71098cc-f6d6-4c11-9176-d5b5d20068c6",
+      "action": "WHEN a user selects a game tile for an archive game",
+      "data": "",
+      "result": "THEN a button labeled [Recap] is displayed above the [Condensed Game] button and video feeds, center justified in the feed select modal\r\nAND focus is assigned to the [Recap] button"
+    }
+  ]
+}

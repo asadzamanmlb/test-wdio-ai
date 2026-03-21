@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1138",
+  "issueId": "1128473",
+  "key": "WQ-1138",
+  "summary": "Log In",
+  "description": "GIVEN a user has launched the app\r\nAND the user is on the Settings page",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d4213e34-c6ee-4685-855d-c575aa33ff6a",
+      "action": "WHEN the user selects Log In\r\nAND enters valid subscriber login details on the Log In page",
+      "data": "",
+      "result": "THEN the subscriber is successfully logged in\r\nAND a loading screen is displayed with a spinning baseball image\r\nAND the subscriber is navigated to the Settings page"
+    }
+  ]
+}

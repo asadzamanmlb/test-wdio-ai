@@ -1,0 +1,20 @@
+{
+  "id": "WQ-709",
+  "issueId": "1128037",
+  "key": "WQ-709",
+  "summary": "International user ESPN Sunday Night Baseball archive - Feed Select modal",
+  "description": "GIVEN a subscriber is located outside the United States\r\nAND the subscriber is entitled for archive game playback",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5b94a490-0415-4f5e-b1ff-31984e9dcce5",
+      "action": "WHEN a user selects an archived ESPN Sunday Night Baseball game tile",
+      "data": "",
+      "result": "THEN a feed select modal displays\r\nAND buttons for Recap and Condensed Game display center justified, above the game feed\r\nAND the user will see an ESPN feed button for the home team\r\nAND the user achieves playback after selecting each button"
+    }
+  ]
+}

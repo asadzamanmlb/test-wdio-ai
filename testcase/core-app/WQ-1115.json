@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1115",
+  "issueId": "1128445",
+  "key": "WQ-1115",
+  "summary": "Startup Screen - UI",
+  "description": "GIVEN a user is launching the app for the first time\r\nOR, for testing purposes, the tester has selected the \"Clear Browser Storage\" button, within the Dev Settings on the Settings page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "72ff38ac-1186-4aad-b099-8677bef3ff80",
+      "action": "WHEN the Startup Screen is displayed",
+      "data": "",
+      "result": "THEN the MLB logo and \"MLB\" are displayed in the upper left corner of the screen\r\nAND \"Welcome to the official streaming app of Major League Baseball\" is displayed left justified below the MLB logo\r\nAND a button with text \"Getting Started\" is displayed left justified, halfway down the screen\r\nAND the Getting Started button is white with black text to indicate it has focus\r\nAND a button with text \"Have an MLB.TV Account?\" is displayed left justified below the Getting Started button\r\nAND the background image is an MLB related image"
+    }
+  ]
+}

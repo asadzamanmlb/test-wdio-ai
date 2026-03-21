@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1766",
+  "issueId": "1129183",
+  "key": "WQ-1766",
+  "summary": "Terms",
+  "description": "Terms are supported ",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1a8ffa77-2bd8-4cd4-b189-be9d379bddcb",
+      "action": "Execute app  → Select Terms\r\n\r\n[CASE]\r\n1. Terms appear right after executing app\r\n2. Terms are included when joining membership \r\n3. Others",
+      "data": "",
+      "result": "Terms and conditions apprear without error, and Agree/Disagree button works properly\r\n\r\n※ Agree: move to next stage\r\n※ Disagree: go back to previous stage"
+    }
+  ]
+}

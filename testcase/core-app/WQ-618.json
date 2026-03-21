@@ -1,0 +1,20 @@
+{
+  "id": "WQ-618",
+  "issueId": "1127945",
+  "key": "WQ-618",
+  "summary": "Live indicator RW",
+  "description": "GIVEN a user is playing an in-progress game at the live point",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9b576856-49fa-4ec9-92a6-c412950333c5",
+      "action": "WHEN the user engages rewind for some time\r\nAND plays the in-progress game before the live point",
+      "data": "",
+      "result": "THEN the live indicator and text are hidden while rewind is engaged\r\nAND a grey live indicator and grey text are displayed when video playback resumes"
+    }
+  ]
+}

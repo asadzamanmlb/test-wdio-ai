@@ -1,0 +1,20 @@
+{
+  "id": "WQ-670",
+  "issueId": "1127998",
+  "key": "WQ-670",
+  "summary": "Extra Innings subscriber archive game - Game Tile",
+  "description": "GIVEN a user is an Xtra Innings subscriber",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0a580199-e59e-4e05-91be-a49c65a42b79",
+      "action": "WHEN a user views/focuses an archive game tile",
+      "data": "",
+      "result": "THEN a lock icon does not display in the upper right corner of the game tile\r\nAND there is no dark overlay over the team colors in the game tile header"
+    }
+  ]
+}

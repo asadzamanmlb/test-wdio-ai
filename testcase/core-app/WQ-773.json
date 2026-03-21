@@ -1,0 +1,20 @@
+{
+  "id": "WQ-773",
+  "issueId": "1128101",
+  "key": "WQ-773",
+  "summary": "Anonymous user ESPN/Sunday Night Baseball - Feed Select modal",
+  "description": "GIVEN a user is not logged in\r\nAND ESPN Sunday Night Baseball is scheduled/in-progress",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f227e1a0-a0dd-40d7-92f6-d91edd028b1a",
+      "action": "WHEN the user selects the ESPN Sunday Night Baseball game tile with a Blackout pill",
+      "data": "",
+      "result": "THEN the feed select modal displays\r\nAND video feed buttons are not displayed\r\nAND a blackout messaging is displayed in the Feed Select modal"
+    }
+  ]
+}

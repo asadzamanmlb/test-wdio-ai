@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1540",
+  "issueId": "1128877",
+  "key": "WQ-1540",
+  "summary": "Milestones Tab | Hearing Announcement When Selecting a Milestone for Playback",
+  "description": "GIVEN the user is in the Milestones Tab\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a17c873d-812f-483b-91b4-c0ebc64449d8",
+      "action": "WHEN the user selects a milestone to view the play",
+      "data": "",
+      "result": "THEN the user will hear: “In the Milestones Carousel, X of X Milestones, *Play Type of Milestone*, *Play Description of Milestone*, Select to view this play”\r\nAND the user should only hear it only the first time entering the menu"
+    }
+  ]
+}

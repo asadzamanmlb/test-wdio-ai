@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1010",
+  "issueId": "1128339",
+  "key": "WQ-1010",
+  "summary": "Cancel date change from calendar view",
+  "description": "GIVEN a user has launched the app\r\nAND the user is on the Games page",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6b9a64a4-dd8b-4e2f-9233-7270a283368e",
+      "action": "WHEN the user select the [calendar] button\r\nAND the user navigates to a date in a different month\r\nAND the user presses the BACK button on the controller",
+      "data": "",
+      "result": "THEN the user is navigated back to the Games page\r\nAND games for the previously selected date are displayed\r\nAND the previously selected date is displayed in the upper left corner of the screen below the navigation header"
+    }
+  ]
+}

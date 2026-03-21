@@ -1,0 +1,26 @@
+{
+  "id": "WQ-3335",
+  "issueId": "1231932",
+  "key": "WQ-3335",
+  "summary": "Get Multiple Ad Offers from Adobe Target ",
+  "description": "To verify we are getting multiple Ad Offerings from Adobe Targeting (requires set up w/ help from Devs)\n\nGIVEN developers have set up Adobe Target w/ multiple offers\n\n\n\nMore info about implementation here:\n\n[https://baseball.atlassian.net/browse/WQ-3330|https://baseball.atlassian.net/browse/WQ-3330|smart-link] \n\nand in thread here: [https://mlbam.slack.com/archives/C074ZEST63A/p1765216082991009|https://mlbam.slack.com/archives/C074ZEST63A/p1765216082991009|smart-link] ",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "32885a8c-28e1-412b-aaa6-0e55d6893292",
+      "action": "WHEN user opens the ‘Network’ Tab in Dev Tools\n\nAND searchs for a '*mbox' POST* request",
+      "data": "!xray-attachment://7fbd717f-2bdd-401b-94be-0ea60fca5669|width=3398,height=1696!",
+      "result": "THEN the response should include multiple mboxes\n\nBasically looking for an [array] with with multiple options that will update our redux configs."
+    },
+    {
+      "id": "1e915bff-00b5-4663-ac33-4534edee677e",
+      "action": "WHEN a user then starts an archive or live game stream.\n\nAND that game is ads Enabled (adsEnabled: True can be found in ‘graphQL’ initPlaybackSession)\n\nAND one of these mboxes enabled DAI API Service",
+      "data": "!xray-attachment://babe9d76-9b02-403f-8747-05df0f044591|width=3786,height=1148!",
+      "result": "THEN the user should then be able to see a DAI API ‘stream’ calls in Network Tab:\n\n* {{https://dai.google.com/linear/v1/hls/event/*/stream}} (the stream init URL)\n* {{https://dai.google.com/linear/v1/pa/event/*/stream/{Google Stream ID}/metadata}} (this polls every 10 seconds or so)\n\n\n\nNote: \n\n* {{/stream}}: DAI API\n* {{/streams}}: IMA SDK"
+    }
+  ]
+}

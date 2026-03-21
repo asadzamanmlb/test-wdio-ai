@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2890",
+  "issueId": "1131329",
+  "key": "WQ-2890",
+  "summary": "DAI API - Failed calls at stream start do not result in a video error - 24/7 RSN",
+  "description": "GIVEN a 24/7 linear stream has adsEnabled equals true in the graphql Preview/Response (data->initPlaybackSession->adExperience->adsEnabled)\r\nAND a cmsId and a videoId is returned in the same graphql Preview/Response (data->initPlaybackSession->adExperience->adEngineIdentifiers)\r\n\r\n*NOTE:*\r\nEnter graphql into the Network search of Dev Tools to find the initPlaybackSession",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8e257d65-a900-48ab-8127-411429bcc7a5",
+      "action": "WHEN network calls to \"[dai.google.com|http://dai.google.com]*\" are blocked\nOR network calls to \"[dai.google.com|http://dai.google.com]*\" are failing\nAND the user initiates playback of a 24/7 RSN stream",
+      "data": "",
+      "result": "THEN the stream is able to playback with no video error modal popping up\nAND ads playback during ad breaks"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-124",
+  "issueId": "1127427",
+  "key": "WQ-124",
+  "summary": "Archive Game International feed without bookmarks",
+  "description": "GIVEN a user navigates to a past day with games\r\nAND the game has an international feed\r\nAND videoFeeds for the game have a mediaState of MEDIA_ARCHIVE\r\nAND the user has the appropriate entitlements to watch archive games\r\nAND the user has not previously played the international feed of the archive game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "00cbce22-834e-4dbc-bf93-b2c396a025d4",
+      "action": "WHEN a user selects a game tile for an archive game\r\nAND selects the international video feed button in the Feed Select Modal",
+      "data": "",
+      "result": "THEN the feed select modal/games page is dismissed\r\nAND the video player maximizes to full screen\r\nAND the international video feed starts playing from the beginning of the feed"
+    }
+  ]
+}

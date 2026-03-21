@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1571",
+  "issueId": "1128977",
+  "key": "WQ-1571",
+  "summary": "Power Button Functionality - LG",
+  "description": "GIVEN I have paired the LG remote with the LG TV",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2a21481d-f71a-4b44-826f-78ff62435e43",
+      "action": "WHEN I first press the power button to check if it turns the LG TV ON\r\n\r\nAND I press the power button again to check if it turns the LG TV OFF",
+      "data": "",
+      "result": "THEN I should notice that the LG TV turns ON when I first press the power button\r\n\r\nTHEN I should notice that the LG TV turns OFF when I press the power button again"
+    }
+  ]
+}

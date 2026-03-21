@@ -1,0 +1,20 @@
+{
+  "id": "WQ-964",
+  "issueId": "1128293",
+  "key": "WQ-964",
+  "summary": "Top Inning",
+  "description": "GIVEN a user is entitled to watch a live game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b12d0883-cf68-48d8-8135-868aa3f3e6cb",
+      "action": "WHEN a user plays in-progress live game \r\nAND the game is in the top of an inning",
+      "data": "",
+      "result": "THEN \"TOP <inning#>\" displays in white text directly to the right of the Live pill indicator under the game tile header"
+    }
+  ]
+}

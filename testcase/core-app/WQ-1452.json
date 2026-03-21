@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1452",
+  "issueId": "1128789",
+  "key": "WQ-1452",
+  "summary": "Getting started button",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is launching the app for the first time\r\nAND the user is on the Getting Started page\r\nAND focus is not on the \"Getting Started\" button\r\n\r\nNOTE: To simulate launching the app for the first time, the tester needs to select the \"Clear Browser Storage\" button in Dev Settings on the Settings page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6a0e2a0b-ffe1-4106-8e4f-d532c9794362",
+      "action": "WHEN the user assigns focus to the \"Getting Started\" button",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Getting Started, press select to create a new MLB.TV account, Press or scroll down if you already have an MLB.TV account.\""
+    }
+  ]
+}

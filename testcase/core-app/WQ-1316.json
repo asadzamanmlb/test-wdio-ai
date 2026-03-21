@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1316",
+  "issueId": "1128653",
+  "key": "WQ-1316",
+  "summary": "Calendar button",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "eb5035df-c217-4e8a-a0b5-4a52937aa006",
+      "action": "WHEN focus is assigned to the \"Calendar\" button",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Calendar, press select to see a calendar view of the dates available. <x> of <y> buttons in the navigation, press up for the Main Menu, Press down for this day's games.\""
+    }
+  ]
+}

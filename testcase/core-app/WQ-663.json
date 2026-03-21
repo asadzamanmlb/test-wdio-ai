@@ -1,0 +1,20 @@
+{
+  "id": "WQ-663",
+  "issueId": "1127991",
+  "key": "WQ-663",
+  "summary": "AtBat subscriber FGotD archive - Feed Select",
+  "description": "GIVEN a user is an Audio Only subscriber",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "56cd73ff-d24c-46d1-86e3-0271ec70aa62",
+      "action": "WHEN a user selects an archive FGotD game tile",
+      "data": "",
+      "result": "THEN buttons for Recap and Condensed Game display center justified, above the team feeds\r\nAND the user will see feed buttons for both teams\r\nAND the user achieves playback after selecting each button"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1362",
+  "issueId": "1128699",
+  "key": "WQ-1362",
+  "summary": "Calendar loads",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "81127591-e081-4310-98b1-9f8f3b109ff7",
+      "action": "WHEN the user selects the calendar button",
+      "data": "",
+      "result": "THEN the calendar displays\r\nAND the following statement is spoken, \"On the Games Calendar Page, <statement_of_focused_button>\""
+    }
+  ]
+}

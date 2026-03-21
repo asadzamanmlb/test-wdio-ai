@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1670",
+  "issueId": "1129087",
+  "key": "WQ-1670",
+  "summary": "Live Entitled Secondary Feed Select Options",
+  "description": "1. When a logged in user launches the app and selects Live Game,Feed select page appear with Audio and Video options and if any Video feed is selected, then second Feed select modal should appear with Watch Live/Start From Beginning Options\r\n\r\n2. Users have an option to watch live videos from the beginning, resume, or live when attempting to launch a game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e5a8f5be-b533-4a74-b405-a6b59e92f16d",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

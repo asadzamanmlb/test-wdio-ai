@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2947",
+  "issueId": "1146495",
+  "key": "WQ-2947",
+  "summary": "HDR Default should be 'ON'",
+  "description": "GIVEN a user’s device is HDR capable",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "205e0ea6-ac6b-49a8-8b95-2b77ed6b955f",
+      "action": "WHEN the user navigates to the settings page\n\nAND HDR toggle is available",
+      "data": "",
+      "result": "*THEN* HDR toggle is defaulted to {{on}}"
+    }
+  ]
+}

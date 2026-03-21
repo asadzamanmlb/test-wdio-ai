@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3018",
+  "issueId": "1159867",
+  "key": "WQ-3018",
+  "summary": "Verify Archive SDR stream when HDR toggle is set to ON",
+  "description": "GIVEN a device is HDR capable\r\nAND the User has HDR toggle set to “ON”",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "691c7f56-18d0-48a0-a123-866d62d4f9db",
+      "action": "WHEN the user starts playback of a non-HDR available archive game stream",
+      "data": "",
+      "result": "THEN the user should receive an SDR archive game stream"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-515",
+  "issueId": "1127841",
+  "key": "WQ-515",
+  "summary": "Play Archived Games",
+  "description": "GIVEN an archive game is available",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "168f05c7-c463-458d-9107-f0fddc82e07c",
+      "action": "WHEN a subscriber selects an archive game to watch",
+      "data": "",
+      "result": "THEN the video player fills the screen\r\nAND a loading screen with a spinning baseball image is displayed while the video is loading\r\nAND the archive game starts playing\r\nAND the scrubber bar displays\r\nAND the scrubber bar is dismissed after 10 seconds of inactivity"
+    }
+  ]
+}

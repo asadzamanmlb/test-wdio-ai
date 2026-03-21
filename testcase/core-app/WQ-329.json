@@ -1,0 +1,20 @@
+{
+  "id": "WQ-329",
+  "issueId": "1127641",
+  "key": "WQ-329",
+  "summary": "Non-MLB Team Logo - Hero",
+  "description": "GIVEN a matchup between an MLB team and a non-MLB team is on the schedule\r\n\r\n**NOTE:** Matchups between MLB teams and non-MLB teams occur during Spring Training",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "301835c1-ce2e-465f-a157-9a234c4aaead",
+      "action": "WHEN a matchup between an MLB team and a non-MLB team is displayed in the Hero",
+      "data": "",
+      "result": "THEN the logo for the non-MLB team is displayed as a generic baseball"
+    }
+  ]
+}

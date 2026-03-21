@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1036",
+  "issueId": "1128366",
+  "key": "WQ-1036",
+  "summary": "Header navigation - MLBALL user",
+  "description": "GIVEN a subscriber with MLBALL entitlement is logged in\r\nAND one of the tabs in the header has focus",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d761d723-353b-46d1-b754-5b41e2da9fdc",
+      "action": "WHEN the user navigates left and right in the header",
+      "data": "",
+      "result": "THEN focus moves from \"Home\" to \"Games\" and vice versa\r\nAND focus moves from \"Games\" to \"Settings\" and vice versa\r\nAND focus moves from \"Settings\" to \"Games\" and vice versa"
+    }
+  ]
+}

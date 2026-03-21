@@ -1,0 +1,20 @@
+{
+  "id": "WQ-282",
+  "issueId": "1127594",
+  "key": "WQ-282",
+  "summary": "Watch Now button does not display when MEDIA_OFF",
+  "description": "GIVEN a user is entitled for live game playback\r\nAND a scheduled game is present in the hero\r\nAND the scheduled game has broadcasters assigned\r\nAND the video feeds mediaState = MEDIA_OFF",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7f3618d7-21d8-4720-a053-50a82f453a1a",
+      "action": "WHEN the scheduled game displays in the hero",
+      "data": "",
+      "result": "THEN the \"Watch Live\" button does not display\r\nAND the user is unable to start playback"
+    }
+  ]
+}

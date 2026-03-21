@@ -1,0 +1,20 @@
+{
+  "id": "WQ-698",
+  "issueId": "1128026",
+  "key": "WQ-698",
+  "summary": "T-Mobile subscriber ESPN/Sunday Night Baseball archive - Game Tile",
+  "description": "GIVEN a user has T-Mobile entitlement\r\nAND ESPN Sunday Night Baseball is archived",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "426663ea-62f1-4c8f-9ed3-349b28631405",
+      "action": "WHEN a user views/focuses an archived ESPN Sunday Night Baseball game tile",
+      "data": "",
+      "result": "THEN a lock icon doesn't display in the upper right corner of the game tile\r\nAND there is no dark overlay of the team match up\r\nAND a blackout pill does not display in the game tile"
+    }
+  ]
+}

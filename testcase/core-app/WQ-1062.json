@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1062",
+  "issueId": "1128392",
+  "key": "WQ-1062",
+  "summary": "Games page to Login to Games page",
+  "description": "GIVEN an anonymous user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e0336ef5-505d-4d47-acf5-b194db71d464",
+      "action": "WHEN the user selects the \"Log In\" tab in the navigation header\r\nAND enters an email address and password of an existing subscriber\r\nAND selects the \"Log In\" button",
+      "data": "",
+      "result": "THEN the user is navigated to the Games page\r\nAND focus is assigned to the \"<\" button above the furthest right game tile"
+    }
+  ]
+}

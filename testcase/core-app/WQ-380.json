@@ -1,0 +1,20 @@
+{
+  "id": "WQ-380",
+  "issueId": "1127692",
+  "key": "WQ-380",
+  "summary": "Jump to navigation header on Home page",
+  "description": "GIVEN the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "080191cc-3a3b-4084-83c0-e11b18b4abbb",
+      "action": "WHEN the user navigates to the bottom of the Home page\r\nOR assigns focus to any element on the page\r\nAND the user presses the [triangle] button on the controller",
+      "data": "",
+      "result": "THEN the [Home] button in the navigation header at the top of the screen gains focus\r\nAND the page scrolls to the top\r\nAND the user stays on the Home page"
+    }
+  ]
+}

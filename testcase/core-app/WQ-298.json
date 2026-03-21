@@ -1,0 +1,20 @@
+{
+  "id": "WQ-298",
+  "issueId": "1127610",
+  "key": "WQ-298",
+  "summary": "FOX MVPD - Canada",
+  "description": "GIVEN a Postseason game is on the schedule\r\nOR the All-Star Game is on the schedule\r\nAND FOX broadcasters are assigned\r\nAND the user's location is in Canada\r\nAND the game level entitledVideo = true\r\nAND the game level blackedOutVideo = true\r\nAND the AWAY (National) feed level foxAuthRequired = true\r\nAND the HOME (International) feed level foxAuthRequired = false",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "71db7383-c240-4914-88ad-0618636ff88a",
+      "action": "WHEN the Postseason game with FOX broadcasters is present in the Hero\r\nOR the All-Star Game with FOX broadcasters is present in the Hero",
+      "data": "",
+      "result": "THEN the MVPD pill does not display above the Hero title / game match up\r\nAND MVPD text does not display below the Hero title / game match up\r\nAND the Blackout pill displays above the Hero title / game match up"
+    }
+  ]
+}

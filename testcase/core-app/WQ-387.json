@@ -1,0 +1,20 @@
+{
+  "id": "WQ-387",
+  "issueId": "1127699",
+  "key": "WQ-387",
+  "summary": "Assign Focus - Watch Now button to Home tab",
+  "description": "GIVEN a subscriber is entitled for video playback\r\nAND playable content is present in the hero\r\nAND focus is on the \"Watch Now\" button in the hero",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c2ce6730-2d3a-44b1-9ab4-074b3e62141f",
+      "action": "WHEN a user presses the up arrow on the controller",
+      "data": "",
+      "result": "THEN focus moves to the Home tab in the navigation header"
+    }
+  ]
+}

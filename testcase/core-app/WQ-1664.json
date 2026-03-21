@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1664",
+  "issueId": "1129081",
+  "key": "WQ-1664",
+  "summary": "Archive FGotD AtBat user",
+  "description": "When a Audio user select Archived FGOD game, Feed Select modal should appear with Audio and Video feeds",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "32dfc6e7-6a67-44f4-8a7d-4273ec2e9685",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

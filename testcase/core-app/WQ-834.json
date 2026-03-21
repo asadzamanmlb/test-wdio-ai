@@ -1,0 +1,20 @@
+{
+  "id": "WQ-834",
+  "issueId": "1128162",
+  "key": "WQ-834",
+  "summary": "Anonymous user YouTube archive - Game Tile",
+  "description": "GIVEN a user is anonymous",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6740c936-7d9e-48b3-9846-82800368e5b1",
+      "action": "WHEN a user views/focuses an archive YouTube game tile",
+      "data": "",
+      "result": "THEN a lock icon displays in the upper right corner of the game tile\r\nAND there is a dark overlay over the team colors in the game tile header\r\nAND the YouTube pill does not display in the game tile"
+    }
+  ]
+}

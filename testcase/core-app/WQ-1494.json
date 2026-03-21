@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1494",
+  "issueId": "1128831",
+  "key": "WQ-1494",
+  "summary": "Live/Archive | Hearing Speed Changes while Rewinding",
+  "description": "GIVEN the user is watching a Live or Archive game\r\nAND the TTS is enabled\r\nAND the user is Rewinding",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4b764af1-0cc6-4018-a8ab-6a0a9d094e7a",
+      "action": "WHEN the user changes the Rewind Speed",
+      "data": "",
+      "result": "THEN the user will hear: “Rewinding <speed>\"\r\nFor example: \"Rewinding 2x, Fast Forwarding 4x, Fast Forwarding 8x, press select to play\""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1651",
+  "issueId": "1129068",
+  "key": "WQ-1651",
+  "summary": "registerDevice passes device information",
+  "description": "GIVEN a user launches the app",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "40dc79d3-511f-4f61-8436-c996b223aee6",
+      "action": "WHEN registerDevice is called",
+      "data": "",
+      "result": "THEN the \"graphql\" type \"xhr\" Payload contains \"operationName\", \"query\", \"variables\"\r\nAND \"variables\" contains \"clientType\", \"device\", \"experience\"\r\nAND \"device\" contains \"applicationRuntime\", \"attributes\", \"deviceFamily\", \"deviceLanguage\", \"deviceProfile\", \"knownDeviceId\"\r\nAND \"attributes\" contains \"browserName\", \"browserVersion\", \"manufacturer\", \"model\", \"operatingSystem\", \"operatingSystemVersion\""
+    }
+  ]
+}

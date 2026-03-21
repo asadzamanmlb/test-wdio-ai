@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2341",
+  "issueId": "1129791",
+  "key": "WQ-2341",
+  "summary": "R5018A - Display an animation if the required loading time exceeds 30 seconds.",
+  "description": "**Graphical User Interface**\r\n\r\n**R5018 Requirement:** If the time required for scene transition (such as entering into a certain game mode or switching chapter/stage/level) exceeds 30 seconds, the application displays an animation. Progress information such as a progress bar or the remaining time is displayed if the time required for scene transition exceeds 60 seconds.\r\n\r\n**Description**\r\nIf the time required for scene transition exceeds 30 seconds, an animation must be displayed. Progress information must be displayed if the time required for scene transition exceeds 60 seconds so that it is not deemed as a \"suspended unresponsive screen state\" as defined in R5019.\r\n\r\nRecommended implementations for displaying progress information are:\r\n- Repeatedly flashing a message that explains what is being processed (ex. Now downloading required assets, Now waiting for other players, etc.)\"\r\n- Repeatedly moving an icon up and down\r\n\r\nIt is not recommended to use vague terms to explain scene transitions, especially, please refrain from using \"loading\" since no-loading user experience is one of the vision SIE would like to achieve with PlayStation®5 console.\r\n\r\nExamples of situations covered by this requirement that may prolong the time required for scene transitions are:\r\n- Downloading of files to download\r\n- Network activity that cannot be cancelled by the user e.g.\r\n-- Waiting for other players over the network\r\n-- Waiting on server response for score ranking, matching, etc\r\n\r\nNetwork related waiting times are also covered in R5033.\r\n\r\nDownloading package files for PlayGo scenarios is exempt from this requirement. However, if the files required for game progress are not completely downloaded and game progress becomes impossible, it is strongly recommended to display progress information to users, similar to this requirement.\r\n\r\n**QA NOTE**\r\n- For this test case, please set \"★Debug Settings\" >\"Game\" > \"Slow SSD Mode\" to \"Off\".\r\n- Check in all instances where scene transition occurs, such as when the application is launching and when changing chapters, stages, or modes.\r\n- Icons and text for scene transitions that do not move or change violate this requirement. Acceptable animations include scrolling the text or changing its color and moving or rotating icons.\r\n- Please perform this test case after the application starts up and processing on the application-side is started. Application startup can be confirmed with the following system message.\r\n[T-004][Info]\r\nSystemSoftware:\r\nApplication Started.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2a3bb88b-9a4f-4647-a4b7-8f631039e69b",
+      "action": "1. Select the \"Application\" on the home screen\r\n2. Proceed to where scene transition is performed",
+      "data": "",
+      "result": "The application displays an animation if the time required for scene transition exceeds 30 seconds.\r\n\r\nProgress information such as a progress bar or the remaining time is displayed if the time required for scene transition exceeds 60 seconds."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-546",
+  "issueId": "1127872",
+  "key": "WQ-546",
+  "summary": "Game Details Navigation - Hide Spoilers ON",
+  "description": "GIVEN the user is logged in\r\nAND the user is in the MLB experience\r\nAND Hide Spoilers is set to ON\r\nAND the user is entitled to archive game playback\r\nAND Start from the Beginning is selected for archive game playback of a 9 inning game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "99e44448-7324-4299-9720-845c96fb67bf",
+      "action": "WHEN the user navigates to \"Details\" in the scrubber\r\nAND the user navigates left, right, up, and down within the line score\r\nAND selects a focused half inning",
+      "data": "",
+      "result": "THEN the user is able to navigate to any half inning that displays an inning marker in the scrubber bar\r\nAND playback is moved to the beginning of the selected half inning"
+    }
+  ]
+}

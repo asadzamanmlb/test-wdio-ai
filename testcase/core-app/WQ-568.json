@@ -1,0 +1,20 @@
+{
+  "id": "WQ-568",
+  "issueId": "1127894",
+  "key": "WQ-568",
+  "summary": "FLIVE playback starts at live point",
+  "description": "GIVEN a user (paid/free/anonymous) has launched the MLB app\r\nAND an FLIVE stream is in progress",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a116c738-0523-4a85-b7f5-d1816a3c3f64",
+      "action": "WHEN the user selects the SLIVE stream to watch",
+      "data": "",
+      "result": "THEN initPlaybackSession is called via a graphql network call\nAND the video player enters full screen\nAND playback starts at the live point\nAND the playhead displays far right on the scrubber bar\nAND the entire scrubber bar is blue\nAND a red live indicator is displayed\nAND the \"Jump to Live\" button does not display\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

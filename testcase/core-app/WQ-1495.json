@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1495",
+  "issueId": "1128832",
+  "key": "WQ-1495",
+  "summary": "Live/Archive | Fast Forward to End of Archive Game",
+  "description": "GIVEN the user is watching an Archive game\r\nAND TTS is enabled\r\nAND the user is Fast Forwarding",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e1a10671-2bfc-438a-97c7-bbd246944900",
+      "action": "WHEN the user fast-forwards to the end of the game",
+      "data": "",
+      "result": "THEN the user will hear: “Fast Forward, End of Game. Press left to rewind to beginning of the game”\r\nAND the user will NOT hear: “Press Select to Pause, Press Up for Quick Actions, Press Down for More Options, Press Back to get back to video\""
+    }
+  ]
+}

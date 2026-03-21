@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1163",
+  "issueId": "1128498",
+  "key": "WQ-1163",
+  "summary": "Contact Support",
+  "description": "GIVEN a user is on the Settings page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "726f083a-6cf3-44c9-a4c1-cf3bb0bd7a3e",
+      "action": "WHEN \"Contact Support\" has focus",
+      "data": "",
+      "result": "THEN the following text appears on the left side of the screen, \"Have questions? For in-game support, please visit us on the web at https://mlb.tv/support\""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-860",
+  "issueId": "1128188",
+  "key": "WQ-860",
+  "summary": "Executive user Peacock scheduled/live - Game Tile",
+  "description": "GIVEN the user is an Executive user\r\nAND there is a Peacock Game scheduled/in-progress",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f74b30c8-4694-49bd-a914-300229e3df93",
+      "action": "WHEN the user views the Peacock game tile focused or unfocused",
+      "data": "",
+      "result": "THEN the Peacock pill is not displayed in the game tile\r\nAND a lock icon is not displayed in the game tile\r\nAND the team colors in the matchup header do not have a dark overlay"
+    }
+  ]
+}

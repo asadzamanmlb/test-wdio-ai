@@ -1,0 +1,20 @@
+{
+  "id": "WQ-929",
+  "issueId": "1128258",
+  "key": "WQ-929",
+  "summary": "Live Game state 'DELAYED - WEATHER' Hide Spoilers ON",
+  "description": "GIVEN a subscriber is on the Games page\r\nAND Hide Spoilers is set to ON",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5f0fe492-4d71-4f31-b8b6-999a872575a3",
+      "action": "WHEN a live game has any of the following statusCode values: IR,IS,IG,IF,IC,ID,IB,IL,II",
+      "data": "",
+      "result": "THEN 'DELAYED - WEATHER' is not displayed in the match-up header of the game tile"
+    }
+  ]
+}

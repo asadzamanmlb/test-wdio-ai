@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1156",
+  "issueId": "1128491",
+  "key": "WQ-1156",
+  "summary": "Following Teams - Selection UI",
+  "description": "GIVEN a user is on the Following Teams page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "783abb6d-0de9-4820-b403-8eba9be85d1b",
+      "action": "WHEN the user selects a team tile",
+      "data": "",
+      "result": "THEN the team logo and team name are present in the tile\r\nAND the tile background is updated to the team's primary color"
+    }
+  ]
+}

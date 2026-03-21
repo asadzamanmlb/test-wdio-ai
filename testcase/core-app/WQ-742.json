@@ -1,0 +1,20 @@
+{
+  "id": "WQ-742",
+  "issueId": "1128070",
+  "key": "WQ-742",
+  "summary": "T-Mobile subscriber live FGotD in market - Game Tile",
+  "description": "GIVEN the user is a T-Mobile subscriber\r\nAND there is a FGotD scheduled or in-progress in the viewing market of the user\r\nAND/OR the game level blackedOutVideo equals true in MASTepg",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9426b2cb-b28d-4254-912f-edd6b4c76c24",
+      "action": "WHEN the user views the FGotD game tile focused or unfocused",
+      "data": "",
+      "result": "THEN a blackout pill is displayed left aligned at the bottom of the game tile\r\nAND a lock icon is displayed in the upper right corner of the game tile\r\nAND the team colors in the matchup header have a dark overlay\r\nAND the FGotD pill does not display in the game tile"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1501",
+  "issueId": "1128838",
+  "key": "WQ-1501",
+  "summary": "VOD/SVOD | Hearing Playback Time Announcement After Pressing Play Following Rewind",
+  "description": "GIVEN the user is watching VOD/SVOD content\r\nAND TTS is enabled\r\nAND the user has initiated Rewind",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b0d22402-6828-43e8-a9be-73411e7e79b1",
+      "action": "WHEN the user presses select during Rewind",
+      "data": "",
+      "result": "THEN the user will hear: “Play/pause, <current_time> of <total_time>, press select to play/pause”"
+    }
+  ]
+}

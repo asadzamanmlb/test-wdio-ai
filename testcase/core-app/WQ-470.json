@@ -1,0 +1,20 @@
+{
+  "id": "WQ-470",
+  "issueId": "1127796",
+  "key": "WQ-470",
+  "summary": "Exit Live Game",
+  "description": "GIVEN a user selects a live game to watch\r\nAND the video plays for several minutes\r\nAND the scrubber is not displaying",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3e69a9a7-7c51-4163-b425-190416ec838b",
+      "action": "WHEN the user presses the [O] button on the controller",
+      "data": "",
+      "result": "THEN the live game video is stopped\r\nAND the video player is dismissed\r\nAND the user is navigated back to the previous page"
+    }
+  ]
+}

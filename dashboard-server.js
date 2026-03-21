@@ -77,13 +77,32 @@ function saveRuns(runs) {
   }
 }
 
-function getFlakyScenarios(runs, lastN = 20) {
+/** Check if scenario belongs to project (by key: WSTE->webTv, WQO->optools, WQ->core-app) */
+function scenarioBelongsToProject(scenario, project) {
+  if (!project || project === 'all') return true;
+  const name = scenario?.name || scenario?.id || '';
+  const keyMatch = name.match(/\((WSTE-\d+|WQO-\d+|WQ-\d+)\)/i);
+  const key = (scenario?.key || keyMatch?.[1] || '').toUpperCase();
+  if (!key) return true;
+  if (key.startsWith('WSTE')) return project === 'webTv';
+  if (key.startsWith('WQO')) return project === 'optools';
+  if (key.startsWith('WQ-')) return project === 'core-app';
+  return true;
+}
+
+function filterScenariosByProject(scenarios, project) {
+  if (!project || project === 'all') return scenarios || [];
+  return (scenarios || []).filter((s) => scenarioBelongsToProject(s, project));
+}
+
+function getFlakyScenarios(runs, lastN = 20, project = null) {
   const recent = runs.slice(-lastN);
   const byScenario = {};
 
   for (const run of recent) {
     if (!run.scenarios) continue;
-    for (const s of run.scenarios) {
+    const scenarios = filterScenariosByProject(run.scenarios, project);
+    for (const s of scenarios) {
       const id = s.id;
       if (!byScenario[id]) byScenario[id] = { id, feature: s.feature, name: s.name, outcomes: [] };
       byScenario[id].outcomes.push(s.status);
@@ -130,7 +149,7 @@ function findFeatureFiles(dir, acc = []) {
 /** Extract automated test keys from feature files (WSTE-xx, WQO-xxx) */
 function getAutomatedKeysFromFeatures() {
   const keys = new Set();
-  const keyRegex = /\b(WSTE-\d+|WQO-\d+)\b/gi;
+  const keyRegex = /\b(WSTE-\d+|WQO-\d+|WQ-\d+)\b/gi;
   const files = findFeatureFiles(FEATURES_DIR);
   for (const file of files) {
     try {
@@ -179,20 +198,75 @@ function getAutomationCoverage() {
   };
 }
 
-function getTrends(runs, limit = 30) {
+function getTrends(runs, limit = 30, project = null) {
   return runs
     .slice(-limit)
-    .map((r) => ({
-      date: r.timestamp,
-      label: new Date(r.timestamp).toLocaleDateString(),
-      passed: r.passed || 0,
-      failed: r.failed || 0,
-      total: r.total || 0,
-      passRate: r.total > 0 ? Math.round(((r.passed || 0) / r.total) * 100) : 0,
-    }));
+    .map((r) => {
+      const scenarios = filterScenariosByProject(r.scenarios || [], project);
+      const metrics = computeMetricsFromScenarios(scenarios);
+      return {
+        date: r.timestamp,
+        label: new Date(r.timestamp).toLocaleDateString(),
+        passed: metrics.passed,
+        failed: metrics.failed,
+        total: metrics.total,
+        passRate: metrics.passRate,
+      };
+    })
+    .filter((t) => t.total > 0);
+}
+
+function computeMetricsFromScenarios(scenarios) {
+  const filtered = scenarios || [];
+  let passed = 0;
+  let failed = 0;
+  let skipped = 0;
+  const byFeature = {};
+  for (const s of filtered) {
+    const f = s.feature || 'Unknown';
+    if (!byFeature[f]) byFeature[f] = { passed: 0, failed: 0, skipped: 0 };
+    if (s.status === 'passed') {
+      passed++;
+      byFeature[f].passed++;
+    } else if (s.status === 'failed') {
+      failed++;
+      byFeature[f].failed++;
+    } else {
+      skipped++;
+      byFeature[f].skipped++;
+    }
+  }
+  const total = filtered.length;
+  return {
+    passed,
+    failed,
+    skipped,
+    total,
+    passRate: total > 0 ? Math.round((passed / total) * 100) : 0,
+    byFeature: Object.entries(byFeature).map(([name, data]) => ({
+      name,
+      ...data,
+      total: data.passed + data.failed + data.skipped,
+    })),
+    failedScenarios: filtered
+      .filter((s) => s.status === 'failed')
+      .map((s) => {
+        const keyMatch = (s.name || s.id || '').match(/\((WSTE-\d+|WQO-\d+|WQ-\d+)\)/i);
+        return {
+          id: s.id,
+          feature: s.feature,
+          name: s.name,
+          key: (s.key || keyMatch?.[1] || '').toUpperCase() || null,
+          failStep: s.failStep || null,
+          failReason: s.failReason || null,
+          screenshot: getScreenshotUrl(s),
+        };
+      }),
+  };
 }
 
 app.get('/api/metrics', (req, res) => {
+  const project = req.query.project || 'all';
   const runs = loadRuns();
   const latest = runs[runs.length - 1];
   if (!latest) {
@@ -207,33 +281,44 @@ app.get('/api/metrics', (req, res) => {
       failedScenarios: [],
     });
   }
-  const failedScenarios = (latest.scenarios || [])
-    .filter((s) => s.status === 'failed')
-    .map((s) => {
-      const keyMatch = (s.name || s.id || '').match(/\((WSTE-\d+|WQO-\d+)\)/i);
-      return {
-        id: s.id,
-        feature: s.feature,
-        name: s.name,
-        key: (s.key || keyMatch?.[1] || '').toUpperCase() || null,
-        failStep: s.failStep || null,
-        failReason: s.failReason || null,
-        screenshot: getScreenshotUrl(s),
-      };
-    });
+  const scenarios = filterScenariosByProject(latest.scenarios || [], project);
+  const metrics = computeMetricsFromScenarios(scenarios);
   res.json({
-    hasData: true,
+    hasData: metrics.total > 0,
     runId: latest.id,
     timestamp: latest.timestamp,
-    passed: latest.passed || 0,
-    failed: latest.failed || 0,
-    skipped: latest.skipped || 0,
-    total: latest.total || 0,
-    passRate: latest.total > 0 ? Math.round((latest.passed / latest.total) * 100) : 0,
-    byFeature: latest.byFeature || [],
-    failedScenarios,
+    ...metrics,
   });
 });
+
+/** Fallback: find screenshot by matching scenario name when manifest key differs */
+function findScreenshotByScenarioName(manifest, scenarioName) {
+  if (!manifest || typeof manifest !== 'object') return null;
+  const norm = (s) => (s || '').replace(/\s+/g, ' ').trim().toLowerCase();
+  const needle = norm(scenarioName);
+  for (const [key, val] of Object.entries(manifest)) {
+    const keyScenario = key.includes('::') ? key.split('::').slice(1).join('::') : key;
+    const keyNorm = norm(keyScenario);
+    if (keyNorm === needle || keyNorm.includes(needle) || needle.includes(keyNorm)) return val;
+  }
+  return null;
+}
+
+/** Fallback: scan screenshots dir for file matching scenario name */
+function findScreenshotInDir(scenarioName) {
+  if (!fs.existsSync(SCREENSHOTS_DIR)) return null;
+  const files = fs.readdirSync(SCREENSHOTS_DIR).filter((f) => f.endsWith('.png'));
+  if (files.length === 0) return null;
+  const baseName = (scenarioName || '').replace(/\s*\([^)]*\)\s*$/, '').trim();
+  const slug = baseName.replace(/[^a-zA-Z0-9-]/g, '-').replace(/-+/g, '-').slice(0, 50).toLowerCase();
+  const match = files.find(
+    (f) =>
+      f.toLowerCase().replace(/-+/g, '-').includes(slug) ||
+      slug.includes(f.replace(/-\d+\.png$/i, '').toLowerCase().replace(/-+/g, '-'))
+  );
+  if (match) return match;
+  return files.length === 1 ? files[0] : null;
+}
 
 /** Resolve screenshot filename - use file if it exists, else try to find a matching one in dir */
 function resolveScreenshotFilename(requestedFilename, scenarioName) {
@@ -278,36 +363,26 @@ app.get('/api/screenshots/:filename', (req, res) => {
 
 app.get('/api/runs', (req, res) => {
   const limit = Math.min(parseInt(req.query.limit, 10) || 20, 100);
+  const project = req.query.project || 'all';
   const runs = loadRuns()
     .slice(-limit)
     .reverse()
     .map((r) => {
-      const failedScenarios = (r.scenarios || [])
-        .filter((s) => s.status === 'failed')
-        .map((s) => {
-          const keyMatch = (s.name || s.id || '').match(/\((WSTE-\d+|WQO-\d+)\)/i);
-          return {
-            id: s.id,
-            feature: s.feature,
-            name: s.name,
-            key: (s.key || keyMatch?.[1] || '').toUpperCase() || null,
-            failStep: s.failStep || null,
-            failReason: s.failReason || null,
-            screenshot: getScreenshotUrl(s),
-          };
-        });
+      const scenarios = filterScenariosByProject(r.scenarios || [], project);
+      const metrics = computeMetricsFromScenarios(scenarios);
       return {
         id: r.id,
         timestamp: r.timestamp,
         date: r.date,
         env: r.env,
-        passed: r.passed,
-        failed: r.failed,
-        total: r.total,
-        passRate: r.total > 0 ? Math.round((r.passed / r.total) * 100) : 0,
-        failedScenarios,
+        passed: metrics.passed,
+        failed: metrics.failed,
+        total: metrics.total,
+        passRate: metrics.passRate,
+        failedScenarios: metrics.failedScenarios,
       };
-    });
+    })
+    .filter((r) => r.total > 0);
   res.json({ runs });
 });
 
@@ -320,12 +395,22 @@ app.get('/api/runs/:id', (req, res) => {
 
 app.get('/api/trends', (req, res) => {
   const limit = parseInt(req.query.limit, 10) || 30;
+  const project = req.query.project || 'all';
   const runs = loadRuns();
-  res.json({ trends: getTrends(runs, limit) });
+  res.json({ trends: getTrends(runs, limit, project) });
 });
 
 app.get('/api/automation', (req, res) => {
-  res.json(getAutomationCoverage());
+  const project = req.query.project || 'all';
+  const data = getAutomationCoverage();
+  if (project && project !== 'all') {
+    const filtered = data.suites.filter((s) => s.name === project);
+    const total = filtered.reduce((sum, s) => sum + s.total, 0);
+    const totalAutomated = filtered.reduce((sum, s) => sum + s.automated, 0);
+    const totalManual = filtered.reduce((sum, s) => sum + s.manual, 0);
+    return res.json({ suites: filtered, totalAutomated, totalManual, total });
+  }
+  res.json(data);
 });
 
 function getScenariosForSuite(suiteName) {
@@ -350,11 +435,25 @@ function getScenariosForSuite(suiteName) {
     .sort((a, b) => a.key.localeCompare(b.key, undefined, { numeric: true }));
 }
 
-/** List all suites (folders in testcase/) with their scenarios. Automatically discovers new folders. */
+app.get('/api/projects', (req, res) => {
+  if (!fs.existsSync(TESTCASE_DIR)) return res.json({ projects: [] });
+  const entries = fs.readdirSync(TESTCASE_DIR, { withFileTypes: true });
+  const projects = entries
+    .filter((e) => e.isDirectory() && !e.name.startsWith('.'))
+    .map((e) => ({
+      id: e.name,
+      name: e.name.replace(/([A-Z])/g, ' $1').replace(/^./, (c) => c.toUpperCase()).trim(),
+    }))
+    .sort((a, b) => a.id.localeCompare(b.id));
+  res.json({ projects });
+});
+
+/** List all suites (folders in testcase/). ?project= filters to one suite. */
 app.get('/api/suites', (req, res) => {
   if (!fs.existsSync(TESTCASE_DIR)) return res.json({ suites: [] });
+  const project = req.query.project || 'all';
   const entries = fs.readdirSync(TESTCASE_DIR, { withFileTypes: true });
-  const suites = entries
+  let suites = entries
     .filter((e) => e.isDirectory() && !e.name.startsWith('.'))
     .map((e) => {
       const scenarios = getScenariosForSuite(e.name);
@@ -366,6 +465,9 @@ app.get('/api/suites', (req, res) => {
     })
     .filter((s) => s.scenarios.length > 0)
     .sort((a, b) => a.name.localeCompare(b.name));
+  if (project && project !== 'all') {
+    suites = suites.filter((s) => s.name === project);
+  }
   res.json({ suites });
 });
 
@@ -434,9 +536,34 @@ app.get('/api/sync-config', (req, res) => {
 
 app.get('/api/flaky', (req, res) => {
   const lastN = parseInt(req.query.lastN, 10) || 20;
+  const project = req.query.project || 'all';
   const runs = loadRuns();
-  res.json({ flaky: getFlakyScenarios(runs, lastN) });
+  res.json({ flaky: getFlakyScenarios(runs, lastN, project) });
 });
+
+/** Normalize gherkin for comparison: ignore whitespace/line-ending differences */
+function normalizeGherkin(str) {
+  if (!str || typeof str !== 'string') return '';
+  return str
+    .replace(/\r\n/g, '\n')
+    .replace(/\r/g, '\n')
+    .split('\n')
+    .map((line) => line.replace(/\s+/g, ' ').trim())
+    .filter(Boolean)
+    .join('\n')
+    .trim();
+}
+
+/** Returns true only if there is meaningful content difference (ignoring formatting).
+ * Do not flag as update when Xray returns empty gherkin but we have local content - that would overwrite with nothing. */
+function gherkinHasMeaningfulChange(oldStr, newStr) {
+  const a = normalizeGherkin(oldStr);
+  const b = normalizeGherkin(newStr);
+  if (!a && !b) return false;  // both empty: no change
+  if (a && !b) return false;   // we have content, Xray empty: don't flag (would overwrite with nothing)
+  if (!a && b) return true;     // we're empty, Xray has content: that's an update
+  return a !== b;               // both have content: compare
+}
 
 /** Simple word-level diff: returns [{ text, status: 'same'|'changed' }] */
 function wordDiff(oldStr, newStr) {
@@ -459,6 +586,45 @@ function wordDiff(oldStr, newStr) {
   }
   return result;
 }
+
+/** Check sync status: which scenarios are new or have updates in Xray (read-only, no pending data) */
+app.get('/api/sync/:suite/status', async (req, res) => {
+  const suite = req.params.suite;
+  if (!suite) return res.status(400).json({ error: 'Suite required' });
+  if (!fs.existsSync(SYNC_CONFIG)) return res.json({ new: [], updated: [] });
+  const config = JSON.parse(fs.readFileSync(SYNC_CONFIG, 'utf8'));
+  const issueKey = config[suite];
+  if (!issueKey) return res.json({ new: [], updated: [] });
+
+  try {
+    const { exportTests } = require('./xray/exportTestsToJson');
+    const newTests = await exportTests(issueKey, suite, { silent: true, write: false });
+    const dir = path.join(TESTCASE_DIR, suite);
+    const newKeys = [];
+    const updatedKeys = [];
+    for (const nt of newTests) {
+      const key = nt.key || nt.issueId;
+      const oldPath = path.join(dir, `${key}.json`);
+      if (!fs.existsSync(oldPath)) {
+        newKeys.push({ key, summary: nt.summary || key });
+      } else {
+        try {
+          const oldData = JSON.parse(fs.readFileSync(oldPath, 'utf8'));
+          const oldGherkin = oldData.gherkin || '';
+          const newGherkin = nt.gherkin || '';
+          if (gherkinHasMeaningfulChange(oldGherkin, newGherkin)) {
+            updatedKeys.push({ key, summary: nt.summary || key });
+          }
+        } catch (_) {
+          updatedKeys.push({ key, summary: nt.summary || key });
+        }
+      }
+    }
+    res.json({ new: newKeys, updated: updatedKeys });
+  } catch (e) {
+    res.status(500).json({ new: [], updated: [], error: e.message });
+  }
+});
 
 app.post('/api/sync/:suite/preview', async (req, res) => {
   const suite = req.params.suite;
@@ -485,7 +651,7 @@ app.post('/api/sync/:suite/preview', async (req, res) => {
       }
       const newGherkin = nt.gherkin || '';
       const diff = wordDiff(oldGherkin, newGherkin);
-      const hasChanges = diff.some((d) => d.status === 'changed');
+      const hasChanges = gherkinHasMeaningfulChange(oldGherkin, newGherkin);
       changes.push({
         key,
         summary: nt.summary,
@@ -548,7 +714,7 @@ app.post('/api/sync/:suite/:key/preview', async (req, res) => {
     }
     const newGherkin = newTest.gherkin || '';
     const diff = wordDiff(oldGherkin, newGherkin);
-    const hasChanges = diff.some((d) => d.status === 'changed');
+    const hasChanges = gherkinHasMeaningfulChange(oldGherkin, newGherkin);
     const pendingKey = `${suite}:${key}`;
     pendingSyncData[pendingKey] = [newTest];
     res.json({
@@ -617,7 +783,7 @@ function getTagExpressionForKey(suite, key) {
   const fullPath = path.join(__dirname, relPath);
   if (!fs.existsSync(fullPath)) return `@${key}`;
   const content = fs.readFileSync(fullPath, 'utf8');
-  const keyRegex = /@(WSTE-\d+|WQO-\d+)/gi;
+  const keyRegex = /@(WSTE-\d+|WQO-\d+|WQ-\d+)/gi;
   const keys = [...content.matchAll(keyRegex)].map((m) => m[1].toUpperCase());
   const others = keys.filter((k) => k !== key.toUpperCase());
   if (others.length === 0) return `@${key}`;
@@ -699,12 +865,16 @@ function runSingleTest(suite, key, envVal) {
                   }
                 }
               }
-              status = failed ? 'failed' : 'passed';
-              if (failed && fs.existsSync(manifestPath)) {
-                const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
-                screenshot = manifest[scenarioId] || null;
-              }
-              break;
+          status = failed ? 'failed' : 'passed';
+          if (failed && fs.existsSync(manifestPath)) {
+            const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+            const scenarioName = el.name || '';
+            screenshot =
+              manifest[scenarioId] ||
+              findScreenshotByScenarioName(manifest, scenarioName) ||
+              findScreenshotInDir(scenarioName);
+          }
+          break;
             }
           }
         }
@@ -845,7 +1015,11 @@ app.post('/api/execute', (req, res) => {
           status = failed ? 'failed' : 'passed';
           if (failed && fs.existsSync(manifestPath)) {
             const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
-            screenshot = manifest[scenarioId] || null;
+            const scenarioName = el.name || '';
+            screenshot =
+              manifest[scenarioId] ||
+              findScreenshotByScenarioName(manifest, scenarioName) ||
+              findScreenshotInDir(scenarioName);
           }
         }
         }
@@ -950,6 +1124,11 @@ app.post('/api/sync', (req, res) => {
     syncInProgress = false;
     res.status(500).json({ success: false, error: err.message });
   });
+});
+
+app.post('/api/restart', (req, res) => {
+  res.json({ success: true, message: 'Restarting server...' });
+  setTimeout(() => process.exit(0), 1500);
 });
 
 app.get('/metrics', (req, res) => {

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-260",
+  "issueId": "1127572",
+  "key": "WQ-260",
+  "summary": "Hero Content Update",
+  "description": "GIVEN a user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e7dbc2ab-2f0e-4898-b8f0-bf7df193db00",
+      "action": "WHEN content in the hero gets updated to a game\r\nOR content in the hero gets updated to an SLIVE\r\nOR content in the hero gets updated to an FLIVE\r\nOR content in the hero gets updated to a VOD/SVOD",
+      "data": "",
+      "result": "THEN the content is updated successfully\r\nAND no error messages are displayed\r\nAND focus is not lost from the page"
+    }
+  ]
+}

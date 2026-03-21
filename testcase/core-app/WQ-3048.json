@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3048",
+  "issueId": "1161796",
+  "key": "WQ-3048",
+  "summary": "SNY VOD RW Cancel",
+  "description": "GIVEN a logged in user is entitled for SNY RSN\nAND the user is on the SNY page\nAND the user selects a VOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3040943e-3c61-4df9-8297-eb4217d0cced",
+      "action": "WHEN the user initiates Rewind\nAND presses the \"back\" button on the controller after a few moments",
+      "data": "",
+      "result": "THEN Rewind stops\nAND playback resumes at the point where Rewind was initiated\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-993",
+  "issueId": "1128322",
+  "key": "WQ-993",
+  "summary": "Smooth scroll durning navigation",
+  "description": "GIVEN user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "dcd798ec-2beb-414a-a14b-f1ae51cddef0",
+      "action": "WHEN the user presses the [UP] or [DOWN] buttons on the controller",
+      "data": "",
+      "result": "THEN the screen smoothly scrolls vertical as the user navigates up and down the page\nAND the date shrinks in size while displaying in the upper left corner of the page"
+    }
+  ]
+}

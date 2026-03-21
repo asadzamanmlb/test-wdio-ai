@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1493",
+  "issueId": "1128830",
+  "key": "WQ-1493",
+  "summary": "Live/Archive | Hearing Speed Changes while Fast Forwarding",
+  "description": "GIVEN the user is watching a Live or Archive game\r\nAND the TTS is enabled\r\nAND the user is Fast Forwarding",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5ed998b8-fafc-4163-87e7-94ef075e6302",
+      "action": "WHEN the user changes the Fast Forward Speed",
+      "data": "",
+      "result": "THEN the user will hear: “Fast Forward <speed>\"\r\nFor example: \"Fast Forwarding 2x, Fast Forwarding 4x, Fast Forwarding 8x, press select to play\""
+    }
+  ]
+}

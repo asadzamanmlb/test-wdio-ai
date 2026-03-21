@@ -1,0 +1,20 @@
+{
+  "id": "WQ-931",
+  "issueId": "1128260",
+  "key": "WQ-931",
+  "summary": "Live Game state 'DELAYED' Hide Spoilers ON",
+  "description": "GIVEN a subscriber is on the Games page\r\nAND Hide Spoilers is set to ON",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "60f7eec5-1e25-4410-a957-7fcac7aaf4fb",
+      "action": "WHEN a live game has any of the following statusCode values: IV,IP,IY,IE,IA,IO,IZ",
+      "data": "",
+      "result": "THEN 'DELAYED' is not displayed in the match-up header of the game tile"
+    }
+  ]
+}

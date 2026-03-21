@@ -1,0 +1,20 @@
+{
+  "id": "WQ-445",
+  "issueId": "1127765",
+  "key": "WQ-445",
+  "summary": "Hide Spoilers ON",
+  "description": "GIVEN Hide Spoilers on the Settings page is set to ON ",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "23a23d23-655c-4955-b381-963777ceb9a2",
+      "action": "WHEN the user views game tiles\r\nOR the user views a game in the hero spot",
+      "data": "",
+      "result": "THEN score, inning, balls/strikes, bases, pitcher, or batter information is not displaying in the game tile or the Hero spot\r\nAND \"Hide Spoilers is ON\" is displayed in the game tile for archive games\r\nOR \"Pitcher Hidden\" and \"Batter Hidden\" is displayed in the game tile for in-progress live games\r\nOR \"Probable Pitcher Hidden\" is displayed in the game tile for scheduled games"
+    }
+  ]
+}

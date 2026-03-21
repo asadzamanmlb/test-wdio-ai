@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1545",
+  "issueId": "1128882",
+  "key": "WQ-1545",
+  "summary": "Network Error",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is in the app",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "51a1dd6c-a36d-4e07-abc1-ecb2097ae70b",
+      "action": "WHEN the network connection is no longer connected\r\nAND the Network Error modal displays",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Network Error. Please check your network connection and try again. This message will dismiss once a connection can be established.\""
+    }
+  ]
+}

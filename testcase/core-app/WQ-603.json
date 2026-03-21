@@ -1,0 +1,20 @@
+{
+  "id": "WQ-603",
+  "issueId": "1127930",
+  "key": "WQ-603",
+  "summary": "SLIVE Pause/Play",
+  "description": "GIVEN a user has SUBSCRIBERVOD entitlement\r\nAND an SLIVE stream is in progress\r\nAND the user is playing back the SLIVE stream",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f8f59a99-3d41-4c65-be1e-07af6b2594b6",
+      "action": "WHEN the user presses the \"select\" button on the controller\nAND the user presses the \"select\" button again after a a minute",
+      "data": "",
+      "result": "THEN video playback pauses after the first button press\r\nAND video playback resumes after the second button press\r\nAND the elapsed time in the scrubber reflects the playhead position\r\nAND the live indicator is grey, indicating not at the live point\r\nAND the \"Jump to Live\" button displays right justified above the scrubber bar"
+    }
+  ]
+}

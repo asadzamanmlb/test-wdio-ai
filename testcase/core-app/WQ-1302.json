@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1302",
+  "issueId": "1128639",
+  "key": "WQ-1302",
+  "summary": "Recap",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND Recap is available for an archive game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "150d257f-797f-4d90-bdac-2c5da4d1c9a0",
+      "action": "WHEN the user selects a game tile for an archive game\r\nAND assigns focus to the Recap button",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Recap, press select to watch a recap of the game, press back to dismiss.\""
+    }
+  ]
+}

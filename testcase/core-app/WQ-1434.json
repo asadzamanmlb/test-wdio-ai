@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1434",
+  "issueId": "1128771",
+  "key": "WQ-1434",
+  "summary": "Marketing emails checkbox - unchecked",
+  "description": "GIVEN the user is not logged in\r\nAND TTS is turned ON\r\nAND the user is on the Create Free Account page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4e18b387-2746-4a9d-b40e-6454028edc62",
+      "action": "WHEN the \"Marketing Emails\" checkbox is unchecked\r\nAND the user navigates to the \"Marketing Emails\" checkbox",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"You are currently not opted in to receive commercial emails from MLB.com and their partners. Press select to check the box if you would like to receive commercial emails from MLB.com and their partners. Press or scroll up to navigate to your password creation field. Press or scroll down to submit your new account information.\""
+    }
+  ]
+}

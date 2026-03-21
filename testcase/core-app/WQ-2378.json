@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2378",
+  "issueId": "1129831",
+  "key": "WQ-2378",
+  "summary": "Date navigation using Calendar",
+  "description": "GIVEN the calendar from the Games page is displayed",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6283ae73-f0ac-47e6-8a23-0a966916619d",
+      "action": "WHEN the user selects the \"<\" or \">\" buttons\r\nAND selects a day in the month that has games\r\nOR the user selects the \"Today\" button",
+      "data": "",
+      "result": "THEN the appropriate month is displayed as the user presses the \"<\" or \">\" buttons\r\nAND the appropriate day with the appropriate games are displayed on the games page after the user selects a day"
+    }
+  ]
+}

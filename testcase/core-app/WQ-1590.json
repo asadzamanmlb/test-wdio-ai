@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1590",
+  "issueId": "1128996",
+  "key": "WQ-1590",
+  "summary": "Remote App Function - Samsung",
+  "description": "GIVEN I have a Samsung Account\r\nGIVEN I have Wi-Fi enabled on the smartphone and on the SAME Wi-Fi network as your Samsung TV\r\nGIVEN I have the SmartThings app installed on the smartphone\r\n\r\n",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9d619232-8cb3-4f51-8330-14fd3e2a53d8",
+      "action": "WHEN I Press the Red Power button \r\nAND I Open the SmartThings App on the smartphone\r\nAND I tap the \"Device\" tab\r\nAND I tap the \"Home\" icon\r\nAND I tap to select a location where the Samsung TV is located\r\nAND I tap the \"Add\" + sign\r\nAND I tap \"TV\" under the \"By device type\" tab\r\nAND I tap \"Samsung\"\r\nAND I tap \"TV\" again\r\nAND I tap \"Start\"\r\nAND I tap to select a Location and Room\r\nAND I tap \"Next\"\r\nAND I tap to select the Samsung TV\r\nAND I tap \"OK\" \r\nAND I tap \"Done\"",
+      "data": "",
+      "result": "THEN I should notice that the Samsung TV has been added successfully\r\nTHEN I should notice that I can now use the Smartphone to control the Samsung TV"
+    }
+  ]
+}

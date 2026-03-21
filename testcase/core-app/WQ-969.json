@@ -1,0 +1,20 @@
+{
+  "id": "WQ-969",
+  "issueId": "1128298",
+  "key": "WQ-969",
+  "summary": "Completed Game W/L - Hide Spoilers OFF",
+  "description": "GIVEN a game has been completed\nAND the game state is Final\nAND Hide Spoilers is set to OFF\n\n*NOTE:* Game Tile designs for reference - [https://www.figma.com/design/rGAWoDJL0fx7RTxv0er9U5/MLB.TV-Connected-Device-Developer-Spec?node-id=179-99767&t=2GMcHnOGaIH6wtRZ-0|https://www.figma.com/design/rGAWoDJL0fx7RTxv0er9U5/MLB.TV-Connected-Device-Developer-Spec?node-id=179-99767&t=2GMcHnOGaIH6wtRZ-0|smart-link]",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "dc0fb7d5-d46c-472f-91f4-d64b6bacb163",
+      "action": "WHEN the user views an unfocused game tile",
+      "data": "",
+      "result": "THEN the winning pitcher headshot and last name displays left justified below \"PITCHING RESULTS\"\nAND \"WIN\" is displayed in green text\nAND the losing pitcher headshot and last name displays right justified below \"PITCHING RESULTS\"\nAND \"LOSS\" is displayed in red text"
+    }
+  ]
+}

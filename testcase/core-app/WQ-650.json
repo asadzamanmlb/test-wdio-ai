@@ -1,0 +1,20 @@
+{
+  "id": "WQ-650",
+  "issueId": "1127978",
+  "key": "WQ-650",
+  "summary": "Monthly/yearly subscriber National TV Game archive - Game Tile",
+  "description": "GIVEN a user is a Monthly/Yearly subscriber\nAND Hide Spoilers is set to OFF\n\n*NOTE:* National TV game = Fox Saturday Baseball, Roku Sunday Morning Baseball\n*NOTE:* Game Tile designs for reference - [https://www.figma.com/design/rGAWoDJL0fx7RTxv0er9U5/MLB.TV-Connected-Device-Developer-Spec?node-id=179-99767&t=2GMcHnOGaIH6wtRZ-0|https://www.figma.com/design/rGAWoDJL0fx7RTxv0er9U5/MLB.TV-Connected-Device-Developer-Spec?node-id=179-99767&t=2GMcHnOGaIH6wtRZ-0|smart-link]",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2b7aa494-7b9e-4273-8f1e-6593a04793c9",
+      "action": "WHEN a user views/focuses an archive National TV game tile",
+      "data": "",
+      "result": "THEN a \"LOCKED\" badge does not display in the upper left corner of the game tile\nAND \"FINAL\" displays in the upper right corner of the game tile\nAND the game match up with respective score is displayed\nAND the Pitching Results are displayed\nAND the Broadcast Networks are displayed"
+    }
+  ]
+}

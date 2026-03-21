@@ -1,0 +1,20 @@
+{
+  "id": "WQ-102",
+  "issueId": "1127405",
+  "key": "WQ-102",
+  "summary": "Live Point Home Feed Selection",
+  "description": "GIVEN a live game is in-progress\r\nAND videoFeeds for the game have a mediaState of MEDIA_ON\r\nAND the user is entitled to watch the game\r\nAND the user has not previously played the feed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d7909082-f887-48a1-9df0-6d95c31790f9",
+      "action": "WHEN a user selects a game tile for a live in-progress game\r\nAND selects the home video feed button in the Feed Select Modal\r\nAND selects the [Watch Live] button in the Secondary Feed Select Modal",
+      "data": "",
+      "result": "THEN the feed select modal/games page is dismissed\r\nAND the video player maximizes to full screen\r\nAND the home video feed starts playing from the live point"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-416",
+  "issueId": "1127728",
+  "key": "WQ-416",
+  "summary": "SNY 24/7 feed video error at start up",
+  "description": "GIVEN a user has entitlements for SNY\r\nAND the user launches the MLB.TV app\r\nAND the user logs in\r\nAND the user is on the SNY page\r\nAND network requests to \"tve-live.mlb.com\" are blocked via Chrome DevTools\r\n\r\n**NOTE:** SNY entitlement = SNY_121\r\nThis will need to be tested on a Chrome browser using DevTools",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "10dc85f5-08ea-4e60-ae9e-899d23fc4683",
+      "action": "WHEN the user selects the \"Watch Live\" button in the Hero",
+      "data": "",
+      "result": "THEN playback of the 24/7 SNY feed is unsuccessful\r\nAND a Video Error modal displays with a \"Go Back\" button\r\nAND the \"Go Back\" button navigates the user back to the SNY page"
+    }
+  ]
+}

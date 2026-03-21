@@ -1,0 +1,20 @@
+{
+  "id": "WQ-433",
+  "issueId": "1127752",
+  "key": "WQ-433",
+  "summary": "MLBN Playback",
+  "description": "GIVEN a logged in user is entitled for MLBN 24/7 feed playback",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "66086e72-b074-43c6-9f8e-287bd8b351af",
+      "action": "WHEN the user selects MLBN Live content for playback from the Home page",
+      "data": "",
+      "result": "THEN the MLBN 24/7 feed plays back from the live point"
+    }
+  ]
+}

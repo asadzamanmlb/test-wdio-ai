@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1167",
+  "issueId": "1128502",
+  "key": "WQ-1167",
+  "summary": "Log In - Paid subscriber",
+  "description": "GIVEN a user has a paid MLB subscription",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e464727a-5bbc-4786-a1b7-174624af8010",
+      "action": "WHEN a paid subscriber logs into the app",
+      "data": "",
+      "result": "THEN the subscriber is successfully logged in\r\nAND the header contains the MLB logo and text left justified\r\nAND \"Home\" displays to the right of the MLB logo and text\r\nAND \"Games\" displays to the right of \"Home\"\r\nAND \"Settings\" is displayed right justified"
+    }
+  ]
+}

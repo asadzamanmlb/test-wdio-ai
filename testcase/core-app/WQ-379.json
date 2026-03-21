@@ -1,0 +1,20 @@
+{
+  "id": "WQ-379",
+  "issueId": "1127691",
+  "key": "WQ-379",
+  "summary": "Basic non-game tiles - title length",
+  "description": "GIVEN the title of a piece of Forge content (VOD/SVOD) has a title length that is equal to, or greater than, 100 characters and spaces combined\r\n\r\n**Example:** In the \"Colorado Rockies Most Popular\" carousel, video title \"Juan Soto singles on a ground ball to shortstop Ezequiel Tovar.  Fernando Tatis Jr.  out at home, shortstop Ezequiel Tovar to first baseman Elehuris Montero to second baseman Brendan Rodgers to pitcher Brent Suter.\"",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "63529fd2-4e97-4f18-9e3a-dbb345824a04",
+      "action": "WHEN a user views the basic non-game tile that contains a very long title",
+      "data": "",
+      "result": "THEN the end of the third title line in the tile displays an ellipsis (...)"
+    }
+  ]
+}

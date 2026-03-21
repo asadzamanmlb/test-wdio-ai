@@ -1,0 +1,20 @@
+{
+  "id": "WQ-523",
+  "issueId": "1127849",
+  "key": "WQ-523",
+  "summary": "User is able to watch subsequent archive games",
+  "description": "GIVEN a user is playing an archive game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8395d5fd-503e-4c59-99a5-ceef72e8c67a",
+      "action": "WHEN a user exits an archive game\r\nAND a user selects a subsequent archive game to watch",
+      "data": "",
+      "result": "THEN the subsequent archive game plays successfully"
+    }
+  ]
+}

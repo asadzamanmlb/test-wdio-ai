@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1523",
+  "issueId": "1128860",
+  "key": "WQ-1523",
+  "summary": "Games Tab | Hearing Announcement When Focusing on a Live Game Tile",
+  "description": "GIVEN the user is in the Games tab\r\nAND TTS is enabled\r\nAND the game is currently live",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "27ecd62d-638a-40a4-96ef-eab973e220e8",
+      "action": "WHEN the user focuses on a live game tile",
+      "data": "",
+      "result": "THEN the user will hear: “Live, <Half of the inning + Inning>,  <Away team Name + Away team>, <Home Team Name + Home team score>, X of X items”"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-409",
+  "issueId": "1127721",
+  "key": "WQ-409",
+  "summary": "SNLA+ 24/7 feed - DAI requests stop after exiting a stream",
+  "description": "GIVEN a user has entitlements for SNLA+\r\nAND the user launches the MLB.TV app\r\nAND the user logs in\r\nAND the user has initiated playback of the 24/7 SNLA+ feed\r\n\r\n**NOTE:** SNLA+ entitlement = SNLA_119",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "51bc60bd-a229-4fc7-8fbb-f8c6aa0b72a3",
+      "action": "WHEN a user exits the 24/7 live stream",
+      "data": "",
+      "result": "THEN video playback is dismissed\r\nAND \"id3-events.json\" network calls to dai.google.com are no longer occurring\r\n\r\n**NOTE:** Entering \"stream\" into the Network search of Dev Tools should filter out the id3-events.json network calls"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-178",
+  "issueId": "1127481",
+  "key": "WQ-178",
+  "summary": "Full Subscriber Feed Select modal - Archive",
+  "description": "GIVEN a user with the MLBALL entitlement is logged in\r\nOR a user with the MLBVIDEOADOBEPASS entitlement is logged in\r\nOR a user with the MLBVIDEOAR entitlement is logged in\r\nOR a user with the MLBEXEC entitlement is logged in",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "56182c6c-f8a9-427c-a4b0-57d788828825",
+      "action": "WHEN the user selects an archive game tile for a game they are entitled",
+      "data": "",
+      "result": "THEN \"Recap\" and \"Condensed Game\" buttons display, if present in the EPG or statsAPI response\r\nAND available game feeds are displayed below the \"Video\" title\r\nAND \"Upgrade MLB.TV\" button does not display\r\nAND \"Get MLB.TV\" button does not display"
+    }
+  ]
+}

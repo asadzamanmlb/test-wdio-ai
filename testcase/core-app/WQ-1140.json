@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1140",
+  "issueId": "1128475",
+  "key": "WQ-1140",
+  "summary": "Turn Closed Captions ON",
+  "description": "GIVEN Closed Captions are turned \"Off\" on the Settings page\r\nAND the user is entitled to video playback",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9ad00777-eb30-493b-adec-15967d04ce70",
+      "action": "WHEN the user sets Closed Captions to \"On\" on the Setting page\r\nAND selects a video for playback",
+      "data": "",
+      "result": "THEN Closed Captioning displays during video playback\r\nAND the [CC] button in the scrubber displays \"CC TURN OFF\" when focused"
+    }
+  ]
+}

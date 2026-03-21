@@ -1,0 +1,20 @@
+{
+  "id": "WQ-137",
+  "issueId": "1127440",
+  "key": "WQ-137",
+  "summary": "Secondary Feed modal for In-Progress Live Games w/ a video bookmark",
+  "description": "GIVEN a subscribers is entitled to watch live games\r\nAND a live game is in-progress",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a5988a1e-1c7c-45b6-9151-97aef17c68cc",
+      "action": "WHEN a user selects a video feed option in the Feed Select modal",
+      "data": "",
+      "result": "THEN the Secondary Feed Select modal displays\r\nAND the Away team logo/colors should be visible top left\r\nAND the Home team logo/colors should be visible top right\r\nAND a [Resume] button is displayed center justified with focus\r\nAND a [Watch Live] button is displayed center justified below the [Resume] button\r\nAND a [Start From The Beginning] button is displayed center justified below the [Watch Live] button\r\nAND the user cannot navigate through elements behind the modal"
+    }
+  ]
+}

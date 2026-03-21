@@ -1,0 +1,20 @@
+{
+  "id": "WQ-849",
+  "issueId": "1128177",
+  "key": "WQ-849",
+  "summary": "Extra Innings subscriber AppleTV+ archive - Feed Select modal",
+  "description": "GIVEN a user is an XtraInnings subscriber",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "cb74f1f8-340b-47ad-8e7f-7578452026cd",
+      "action": "WHEN a user selects an archive AppleTV+ game tile",
+      "data": "",
+      "result": "THEN the user will see the AppleTV+ feed button\r\nAND a message does not display letting the user know where the game can be watched\r\nAND the user can playback the AppleTV+ feed"
+    }
+  ]
+}

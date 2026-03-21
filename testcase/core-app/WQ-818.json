@@ -1,0 +1,20 @@
+{
+  "id": "WQ-818",
+  "issueId": "1128146",
+  "key": "WQ-818",
+  "summary": "AtBat subscriber AppleTV+ archive - Game Tile",
+  "description": "GIVEN a user is an Audio Only subscriber",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8a398f6b-acd0-4ed7-8c71-687d9898a816",
+      "action": "WHEN a user views/focuses an archive AppleTV+ game tile",
+      "data": "",
+      "result": "THEN a lock icon displays in the upper right corner of the game tile\r\nAND there is a dark overlay over the team colors in the game tile header\r\nAND the AppleTV+ pill does not display in the game tile"
+    }
+  ]
+}

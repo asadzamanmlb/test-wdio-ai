@@ -1,0 +1,20 @@
+{
+  "id": "WQ-998",
+  "issueId": "1128327",
+  "key": "WQ-998",
+  "summary": "Today's Games Scheduled Start Times - UTC +00:00 London",
+  "description": "GIVEN games are scheduled for today\r\nAND the PlayStation time zone is set to UTC +00:00 London",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6c09b853-c309-4867-9c7e-b309e5c5a0f6",
+      "action": "WHEN the user is on the Games page for today",
+      "data": "",
+      "result": "THEN the game tiles show the scheduled start times in the UTC +00:00 London time zone (format: hh:mm [AM|PM])"
+    }
+  ]
+}

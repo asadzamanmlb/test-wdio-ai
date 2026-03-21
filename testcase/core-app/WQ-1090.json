@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1090",
+  "issueId": "1128420",
+  "key": "WQ-1090",
+  "summary": "Subscription Purchase Page - Go Back",
+  "description": "GIVEN the user is on the Purchase page for a subscription package",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1fd5d770-2a0a-4568-b613-51a6d5d9306b",
+      "action": "WHEN the user presses the BACK button on the controller",
+      "data": "",
+      "result": "THEN the user is navigated back to the Paywall page\r\nAND focus is assigned to the first tile in the carousel"
+    }
+  ]
+}

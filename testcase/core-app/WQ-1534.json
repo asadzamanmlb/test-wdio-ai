@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1534",
+  "issueId": "1128871",
+  "key": "WQ-1534",
+  "summary": "Rewinding 15 Seconds | VOD/SVOD",
+  "description": "GIVEN the user is watching a VOD/SVOD content\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1f39d9a6-2ff3-48dc-a4f7-d23d55cb4a7f",
+      "action": "WHEN the user clicks the left button once to Rewind 15 seconds",
+      "data": "",
+      "result": "THEN the user will hear: “Rewinding 15 seconds. Press select to pause, Press back to get back to video”"
+    }
+  ]
+}

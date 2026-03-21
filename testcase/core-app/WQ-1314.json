@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1314",
+  "issueId": "1128651",
+  "key": "WQ-1314",
+  "summary": "Future date navigation button",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4398adfe-38f3-4ff4-b994-71468205888d",
+      "action": "WHEN focus is assigned to the forward date navigation button [>]",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Right button, press select to navigate to the next day. <x> of <y> button in the navigation, press up for the Main menu, press down for this day's games.\""
+    }
+  ]
+}

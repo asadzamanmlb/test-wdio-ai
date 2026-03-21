@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1289",
+  "issueId": "1128626",
+  "key": "WQ-1289",
+  "summary": "TTS | SNLA+ Page load",
+  "description": "GIVEN a user has entitlements for SNLA+\r\nAND the user launches the MLB.TV app\r\nAND the user has TTS enabled\r\nAND the user logs in\r\n\r\n**NOTE:** SNLA+ entitlement = SNLA_119",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "348f45c2-3ddf-4e39-9b82-77d8d01ccb8e",
+      "action": "WHEN the user selects the SNLA+ button in the header",
+      "data": "",
+      "result": "THEN the SNLA+ page loads successfully\r\nAND the following TTS statement is spoken, \"On the <RSN> page. Watch Live, <name_of_feed>, <description> (if available), LIVE (if live content), Presented by (if available), <sponsorship_name>. Press select to play, press up for the main menu, press down to browse more content.\""
+    }
+  ]
+}

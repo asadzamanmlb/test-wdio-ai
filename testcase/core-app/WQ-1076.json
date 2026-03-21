@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1076",
+  "issueId": "1128406",
+  "key": "WQ-1076",
+  "summary": "Create Free Account Success",
+  "description": "GIVEN the user is not logged in\nAND the user selects the \"Subscribe\" tab in the header\nAND the user selects the [Create Free Account] button on the Welcome page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "86cf975c-41f4-43d2-b6f2-8d74ae55268c",
+      "action": "WHEN the user scans the QR Code displayed on the screen",
+      "data": "",
+      "result": "THEN the user is navigated to the Express Login flow with the 6 character Activation Code displayed\nAND the user is able to successfully create a new account by following the prompts on their phone\nAND the user selects the [Continue] button on the \"Your account was successfully created.\" page\nAND the user is successfully logged in on the connected device"
+    }
+  ]
+}

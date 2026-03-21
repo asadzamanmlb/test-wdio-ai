@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2355",
+  "issueId": "1129805",
+  "key": "WQ-2355",
+  "summary": "R5037A - No references are made to Sony or Playstation",
+  "description": "**Intellectual Property**\r\n\r\n**R5037 Requirement:** The four-letter SONY logo, PlayStation® related logos, and the SIE corporate logo are not used in the application except in the following cases.\r\n- Line drawing, newly-created illustration, or photo image provided by SIE is used pursuant to R5038\r\n- The SIE trademark notices are displayed pursuant to R5039\r\n- The combination of the PlayStation™Store logo and the PlayStation™Store icon is displayed pursuant to R5051\r\n- Promotional videos related to PlayStation® platform titles\r\n\r\n**Note:** The MLB app makes no references to, or mentions Sony/Playstation in any form or fashion.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f007c36b-c584-4bbc-bc68-c3f2a457dd4a",
+      "action": "1. Select the \"Application\" on the home screen\r\n2. Check throughout the entire application",
+      "data": "",
+      "result": "The SIE corporate logo is not used.\r\n\r\nThe four-letter SONY logo and PlayStation® related logos are not used on anything except SIE-provided line drawings of systems/peripherals, photo images, and when displaying the PlayStation™Store icon."
+    }
+  ]
+}

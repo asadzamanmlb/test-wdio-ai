@@ -1,0 +1,20 @@
+{
+  "id": "WQ-447",
+  "issueId": "1127767",
+  "key": "WQ-447",
+  "summary": "Closed Captions ON",
+  "description": "GIVEN Closed Captions are set to OFF on the Settings page",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3f37a46c-c7d8-4e2c-897f-20dbdee8e0f1",
+      "action": "WHEN a user sets Closed Captions to ON",
+      "data": "",
+      "result": "THEN closed captions are displayed during video playback\r\nAND the CC button in the scrubber displays \"CC Turn OFF\" with focus"
+    }
+  ]
+}

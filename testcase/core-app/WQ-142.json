@@ -1,0 +1,20 @@
+{
+  "id": "WQ-142",
+  "issueId": "1127445",
+  "key": "WQ-142",
+  "summary": "No Feeds Available - Spring Training",
+  "description": "GIVEN a user is entitled or not entitled to a game\r\nAND a game is in-progress\r\nAND there are no video feeds available for the game\r\n\r\n**Note:** Not entitled is valid until PS5TV-209 is implemented",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a873be1f-794b-4a7b-9dac-083e6a97d714",
+      "action": "WHEN the user selects the game tile",
+      "data": "",
+      "result": "THEN \"No Broadcast Available\" displays below the Video header in the Feed Select modal"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3064",
+  "issueId": "1161966",
+  "key": "WQ-3064",
+  "summary": "SNLA+ VOD FF Stop",
+  "description": "GIVEN a logged in user is entitled for SNLA+ RSN\nAND the user is on the SNLA+ page\nAND the user selects a VOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a0bbabda-57a6-46cc-80cb-d9317efb0569",
+      "action": "WHEN the user initiates Fast Forward\nAND presses the \"select\" button on the controller after a few moments",
+      "data": "",
+      "result": "THEN Fast Forward stops\nAND playback resumes at the point where Fast Forward stopped\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

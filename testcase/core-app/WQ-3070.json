@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3070",
+  "issueId": "1162009",
+  "key": "WQ-3070",
+  "summary": "MASN 24/7 feed RW Cancel",
+  "description": "GIVEN a logged in user is entitled for MASN RSN\nAND the user selects the MASN 24/7 stream to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7be88f3c-cc88-4fb3-9fd8-4e84e54ec9f5",
+      "action": "WHEN the user initiates Rewind\nAND presses the \"back\" button on the controller after a few moments",
+      "data": "",
+      "result": "THEN Rewind stops\nAND playback resumes at the point where Rewind was initiated\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

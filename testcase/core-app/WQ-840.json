@@ -1,0 +1,20 @@
+{
+  "id": "WQ-840",
+  "issueId": "1128168",
+  "key": "WQ-840",
+  "summary": "Extra Innings subscriber Peacock scheduled/live - Game Tile",
+  "description": "GIVEN the user is an XtraInnings subscriber\r\nAND there is a Peacock Game scheduled/in-progress\r\nAND the game level blackedOutVideo equals true in MASTepg\r\nAND the game level entitledVideo equals true in MASTepg",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ba091bb7-5f99-4fc3-8e18-5e68c0eb5556",
+      "action": "WHEN the user views the Peacock game tile focused or unfocused",
+      "data": "",
+      "result": "THEN the Peacock pill is displayed left aligned at the bottom of the game tile\r\nAND a lock icon is displayed in the upper right corner of the game tile\r\nAND the team colors in the matchup header have a dark overlay"
+    }
+  ]
+}

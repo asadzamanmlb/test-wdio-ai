@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1032",
+  "issueId": "1128362",
+  "key": "WQ-1032",
+  "summary": "Header navigation - Anonymous user",
+  "description": "GIVEN an anonymous user launches the app\r\nAND one of the tabs in the header has focus",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "cc4bb50f-cbbf-4ef9-b937-5ca65fb05efd",
+      "action": "WHEN the user navigates left and right in the header",
+      "data": "",
+      "result": "THEN focus moves from \"Home\" to \"Games\" and vice versa\r\nAND focus moves from \"Games\" to \"Log In\" and vice versa\r\nAND focus moves from \"Log In\" to \"Games\" and vice versa\r\nAND focus moves from \"Log In\" to \"Get MLB.tv\" and vice versa\r\nAND focus moves from \"Get MLB.tv\" to \"Log In\" and vice versa\r\nAND focus moves from \"Get MLB.tv\" to \"Settings\" and vice versa\r\nAND focus moves from \"Settings\" to \"Get MLB.tv\" and vice versa"
+    }
+  ]
+}

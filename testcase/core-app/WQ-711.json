@@ -1,0 +1,20 @@
+{
+  "id": "WQ-711",
+  "issueId": "1128039",
+  "key": "WQ-711",
+  "summary": "Non-MLB Team Logo - Feed Select modal",
+  "description": "GIVEN a non-MLB team has a matchup against an MLB team\r\n\r\n**NOTE:** These types of matchups occur during Spring Training",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "429ac6a8-7ac3-4c2b-beff-57d56344a1e9",
+      "action": "WHEN a user selects a game tile for a matchup between a non-MLB team and an MLB team",
+      "data": "",
+      "result": "THEN a feed select modal is displayed\r\nAND in the header of the feed select modal, the logo for the non-MLB team is displayed as a generic baseball"
+    }
+  ]
+}

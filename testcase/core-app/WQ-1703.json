@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1703",
+  "issueId": "1129120",
+  "key": "WQ-1703",
+  "summary": "Resume bookmark after game broadcast start Start from the beginning - Hide Spoilers ON",
+  "description": "GIVEN a user is entitled for live game playback\nAND Hide Spoilers is set to ON\nAND a team feed/stream is mediaState=MEDIA_ON\nAND the live point is before the game broadcast start time",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "97de0d2d-1591-4fb2-bfc5-33e20e6dab16",
+      "action": "WHEN the user starts watching at the live point, before the game broadcast start time\nAND the user exits the feed/stream at any point after the top of the 1st inning\nAND the user selects the same feed/stream again\nAND the user selects the \"Start From The Beginning\" button",
+      "data": "",
+      "result": "THEN playback will start at the game broadcast start point, before the top of the 1st inning\nAND inning markers are not displayed in the scrubber bar"
+    }
+  ]
+}

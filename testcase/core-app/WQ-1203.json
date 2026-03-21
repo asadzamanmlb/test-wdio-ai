@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1203",
+  "issueId": "1128540",
+  "key": "WQ-1203",
+  "summary": "TTS | Focus on SNLA+",
+  "description": "GIVEN a user has entitlements for SNLA+\r\nAND the user launches the MLB.TV app\r\nAND the user has TTS enabled\r\nAND the user logs in\r\n\r\n**NOTE:** SNLA+ entitlement = SNLA_119",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "28390aa6-0751-4150-abf3-b35ef32bed0a",
+      "action": "WHEN a user focuses on the \"SNLA+\" button in the header",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"<RSN Name>, press select to explore all available content, <x> of <y> in the menu, press right or left for more items in the menu.\""
+    }
+  ]
+}

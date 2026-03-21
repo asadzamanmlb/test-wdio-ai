@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1308",
+  "issueId": "1128645",
+  "key": "WQ-1308",
+  "summary": "Games Page load with games",
+  "description": "GIVEN TTS is turned ON\r\nAND there are games on the schedule",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "bb7f1b89-5363-48ff-8155-9b468f250a6d",
+      "action": "WHEN the user navigates to the Games page",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"On the Games page, Today's Games <today's_date>, <today's_number_of_games>, Game <x> of <y> Games, <game_tile_info>, <game_tile_navigation_options>\""
+    }
+  ]
+}

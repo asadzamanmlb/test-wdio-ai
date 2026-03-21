@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3052",
+  "issueId": "1161801",
+  "key": "WQ-3052",
+  "summary": "SNY VOD FF to the end",
+  "description": "GIVEN a logged in user is entitled for SNY RSN\nAND the user is on the SNY page\nAND the user selects a VOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "22bdf966-9907-4b14-a66e-2ba45a799489",
+      "action": "WHEN the user Fast Forwards the video to the end",
+      "data": "",
+      "result": "THEN the video player is dismissed\nAND the user is navigated back to the previous page"
+    }
+  ]
+}

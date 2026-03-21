@@ -1,0 +1,20 @@
+{
+  "id": "WQ-161",
+  "issueId": "1127464",
+  "key": "WQ-161",
+  "summary": "TBS MVPD Messaging - Unauthorized and Entitled",
+  "description": "GIVEN a Postseason game is on the schedule\r\nAND TBS broadcasters are assigned\r\nAND the user has one of the following entitlements: MLBALL, MLBVIDEOADOBEPASS, MLBVIDEOAR\r\nAND the user is unauthorized for TBS MVPD\r\nAND the game level entitledVideo = false\r\nAND the AWAY (National) feed level tbsAuthRequired = true",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "25180ff6-e74a-4bd5-b4d9-853d41a53985",
+      "action": "WHEN the user selects a game tile for a TBS Postseason game tile",
+      "data": "",
+      "result": "THEN the Feed Select modal displays\r\nAND TBS MVPD messaging displays in the Feed Select modal"
+    }
+  ]
+}

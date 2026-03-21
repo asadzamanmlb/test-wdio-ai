@@ -1,0 +1,20 @@
+{
+  "id": "WQ-909",
+  "issueId": "1128238",
+  "key": "WQ-909",
+  "summary": "Anonymous user live game out of market - Feed Select",
+  "description": "GIVEN a user is anonymous\r\nAND scheduled/in-progress games are available outside of the users current location/market",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0dc3259f-34e8-45b5-a56e-d3da223c1a8a",
+      "action": "WHEN the user selects a scheduled/in-progress game tile",
+      "data": "",
+      "result": "THEN the game matchup displays in the header\nAND the following title text displays \"[MLB.TV|http://MLB.TV] Subscription Required\" (subject to change via Content Restrictions)\nAND the following description text displays \"You need an active [MLB.TV|http://MLB.TV] subscription to view this game. [MLB.TV|http://MLB.TV] Single Team subscribers, click your team’s broadcast. New users please visit [www.mlb.com/|http://www.mlb.com/]<device_platform> to purchase.\" (subject to change via Content Restrictions)\nAND a \"Subscribe\" button displays with focus below \"Full Game Access\"\nAND text and buttons are center justified"
+    }
+  ]
+}

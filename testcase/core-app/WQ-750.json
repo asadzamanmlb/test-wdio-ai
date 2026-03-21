@@ -1,0 +1,20 @@
+{
+  "id": "WQ-750",
+  "issueId": "1128078",
+  "key": "WQ-750",
+  "summary": "Free subscriber in market FGotD - Game Tile",
+  "description": "GIVEN a user is a free subscriber\r\nAND a FGotD is scheduled/in-progress in the users viewing market\r\nAND the game level blackedOutVideo equals true in MAST EPGv3\r\nAND the game level entitledVideo equals true in MAST EPGv3",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b5ad50a4-2c6a-4c2f-a907-41444e2fd077",
+      "action": "WHEN a user views/focuses a scheduled/in-progress in-market FGotD game tile",
+      "data": "",
+      "result": "THEN a lock icon displays in the upper right corner of the game tile\r\nAND the game tile header has a dark overlay over the team colors\r\nAND a blackout pill is displayed in the lower left corner of the game tile\r\nAND the FGotD pill does not display in the game tile"
+    }
+  ]
+}

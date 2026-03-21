@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1121",
+  "issueId": "1128451",
+  "key": "WQ-1121",
+  "summary": "Favorite Team - Onboarding Skip",
+  "description": "GIVEN a user has selected the \"Getting Started\" button on the Startup Screen\r\nAND the user has selected a favorite team\r\nOR the user has not selected a favorite team",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f6bbe4f9-7662-4864-bc99-8d1957faa611",
+      "action": "WHEN the user selects the \"Skip\" button",
+      "data": "",
+      "result": "THEN the user is taken to the Following Teams page\r\nAND all team tiles have a dark grey background without a gold star"
+    }
+  ]
+}

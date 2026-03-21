@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2902",
+  "issueId": "1131549",
+  "key": "WQ-2902",
+  "summary": "Fetch MASN and MASN2 data via contentCollections",
+  "description": "GIVEN a user has entitlements for MASN\nAND the user launches the MLB.tv Core app\n\n*NOTE:* \nMASN entitlement = MASN_110 and MASN_120\n\nMASN Test users:\n\n|Username|Password|\n|[masn@gmail.com|mailto:masn@gmail.com]|Password4MASN|\n|[masnims@gmail.com|mailto:masnims@gmail.com] (In Market)|Password4MASN|\n|[masnoom@gmail.com|mailto:masnoom@gmail.com] (Out of Market)|Password4MASN|\n|[masnintl@gmail.com|mailto:masnintl@gmail.com] (International)|Password4MASN|",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e85a89aa-c14f-4ad8-ab8e-6c01a092eae1",
+      "action": "WHEN the user successfully logs in",
+      "data": "",
+      "result": "THEN a \"contentCollections\" network call is made via \"graphql\"\nAND the data returned from \"contentCollections\" is stored in Redux under \"rsn\"\n\n**NOTE:** This needs to be tested with access to network calls, and Redux. Best way is via Chrome. Redux is a browser extension that may need to be downloaded and added to your browser."
+    }
+  ]
+}

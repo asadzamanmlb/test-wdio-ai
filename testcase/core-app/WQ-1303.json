@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1303",
+  "issueId": "1128640",
+  "key": "WQ-1303",
+  "summary": "Condensed Game",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND Recap is available for an archive game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f52c8084-355a-478f-8b92-41aafaab85e3",
+      "action": "WHEN the user selects a game tile for an archive game\r\nAND assigns focus to the Condensed Game button",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Condensed Game, press select to watch the condensed version of this game, press back to dismiss.\""
+    }
+  ]
+}

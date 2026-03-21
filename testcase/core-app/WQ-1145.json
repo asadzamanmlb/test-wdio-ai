@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1145",
+  "issueId": "1128480",
+  "key": "WQ-1145",
+  "summary": "Favorite Team - UI",
+  "description": "GIVEN the MLB app has been launched",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1ddd3a0b-bb00-4292-ab9c-f1bda4aad57a",
+      "action": "WHEN the Favorite Team page is displayed",
+      "data": "",
+      "result": "THEN the left third of the screen contains text, buttons, and the MLB Logo\r\nAND \"Select your favorite team here\" is displayed as the title text (config driven)\r\nAND \"Help personalize your experience by selecting the team you go to bat for.\" is the text that displays below the title text (config driven)\r\nAND two buttons display below the text\r\nAND the left button is labeled \"Cancel\" or \"Skip\"\r\nAND the right button is labeled \"Done\" or \"Next\"\r\nAND the MLB logo is top left aligned\r\nAND the right two-thirds of the screen contains 3 columns of 10 scrollable tiles\r\nAND the tile backgrounds are dark grey\r\nAND all 30 teams are displayed in alphabetical order\r\nAND each team logo and team name is displayed in its own tile\r\nAND with focus on a tile in the top three rows, 3 rows of 3 tiles are displayed with a 4th row peaking from the bottom of the screen\r\nAND as the user navigates down through the teams, all 3 columns scroll up\r\nAND with focus on any tile in rows 4 through 8, 3 rows of 3 tiles are displayed with rows peaking from the top of the screen and bottom of the screen\r\nAND once the user navigates to the last row, 2 rows of 3 tiles are displayed with a 3rd row peaking from the top of the screen\r\n\r\n**NOTE:**\r\n\"Cancel\" and \"Done\" will display in the buttons if the Favorite Team page is loaded from the Settings page. \r\n\"Skip\" and \"Next\" will display in the buttons if the Favorite Team page is loaded as part of the onboarding flow."
+    }
+  ]
+}

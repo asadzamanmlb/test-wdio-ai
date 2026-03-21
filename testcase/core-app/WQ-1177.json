@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1177",
+  "issueId": "1128512",
+  "key": "WQ-1177",
+  "summary": "Samsung Only - User selects \"Cancel\" on Exit Confirmation screen",
+  "description": "GIVEN the user is on the mlb app on Samsung tv\r\nAND the user is on the Exit Confirmations Screen",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "51c4893d-4e0f-4db4-8380-6731958ce023",
+      "action": "WHEN the user selects the \"Cancel\" button",
+      "data": "",
+      "result": "THEN the user is returned to the previously viewed screen."
+    }
+  ]
+}

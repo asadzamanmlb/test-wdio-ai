@@ -1,0 +1,20 @@
+{
+  "id": "WQ-651",
+  "issueId": "1127979",
+  "key": "WQ-651",
+  "summary": "Monthly/yearly subscriber National TV Game archive - Feed Select",
+  "description": "GIVEN a user is a Monthly/Yearly subscriber\r\n\r\n**NOTE:** National TV game = Fox Saturday Baseball",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f8af8b36-66a0-4fec-9b9e-2f5c9cf2bbd3",
+      "action": "WHEN a user selects an archive National TV game tile",
+      "data": "",
+      "result": "THEN buttons for Recap and Condensed Game display center justified, above the game feed\r\nAND the user will see a feed button for the home team\r\nAND the user achieves playback after selecting each button"
+    }
+  ]
+}

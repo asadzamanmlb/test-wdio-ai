@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3296",
+  "issueId": "1226808",
+  "key": "WQ-3296",
+  "summary": "Live Game state \"NO HITTER\"",
+  "description": "GIVEN a subscriber is on the Games or Home page\r\nAND Hide Spoilers is set to OFF",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "63db6ddd-9629-4c35-bfb6-a07c75e45fcf",
+      "action": "WHEN a live game has a pitcher who has not allowed a hit to the opposing team and the game has reached the 6th inning - then statsAPI will send a statusCode value of ???",
+      "data": "!xray-attachment://d77f8da5-6821-4e62-8a96-d56cd6dac005|width=416,height=1056!",
+      "result": "THEN a Blue ‘NO HITTER’ tag is presented to user on Hero and Expanded Game Tile (Not present in mini)"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1623",
+  "issueId": "1129040",
+  "key": "WQ-1623",
+  "summary": "Not Entitled",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8e131c6d-fe97-48e4-93ef-bc8267ec2f4c",
+      "action": "WHEN",
+      "data": "",
+      "result": "1. Users receive non-entitled messaging when attempting to launch a game or stream that their account has no entitlements for\r\n\r\n2. Users are given an option to purchase and upgrade their mlb.tv account if not-entitled to a stream"
+    }
+  ]
+}

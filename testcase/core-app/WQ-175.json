@@ -1,0 +1,20 @@
+{
+  "id": "WQ-175",
+  "issueId": "1127478",
+  "key": "WQ-175",
+  "summary": "Condensed Game",
+  "description": null,
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e21425f4-072a-49c4-8826-39528d43623a",
+      "action": "WHEN a user selects a game tile for an archive game",
+      "data": "",
+      "result": "THEN a button labeled [Condensed Game] is displayed above the video feeds and below the [Recap] button, center justified in the feed select modal\r\nAND focus is assigned to the [Condensed Game] button if the [Recap] button is not present"
+    }
+  ]
+}

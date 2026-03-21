@@ -1,0 +1,20 @@
+{
+  "id": "WQ-986",
+  "issueId": "1128315",
+  "key": "WQ-986",
+  "summary": "Header Navigation - Games tab focus",
+  "description": "GIVEN a user is on the Games page\r\nAND focus is not in the header",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9cd730c4-e8c1-43d4-a281-2173395695ba",
+      "action": "WHEN a user navigates to the header using the UP button",
+      "data": "",
+      "result": "THEN focus returns to the Games tab in the header\r\nAND the 'Games' text color changes from white to black"
+    }
+  ]
+}

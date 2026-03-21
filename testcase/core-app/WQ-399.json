@@ -1,0 +1,20 @@
+{
+  "id": "WQ-399",
+  "issueId": "1127711",
+  "key": "WQ-399",
+  "summary": "SNLA+ page loads",
+  "description": "GIVEN a user has entitlements for SNLA+\r\nAND the user launches the MLB.TV app\r\nAND the user logs in\r\n\r\n**NOTE:** SNLA+ entitlement = SNLA_119",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "32866e1e-e7d7-4a23-b96e-4e8b19c7c8fa",
+      "action": "WHEN the user selects the [SNLA+] tab in the header",
+      "data": "",
+      "result": "THEN the SNLA+ page loads successfully\nAND SNLA+ content is present in the Hero\nAND a title is present in the Hero\nAND a description is present in the Hero\nAND a SNLA+ related background image is present in the Featured Image space\nAND the presented by Logo is displayed below the Hero content description\nAND SNLA+ related carousels are displayed\nAND VOD cards are displayed in the carousels for available VOD content\n\n**NOTE:** \"Presented By\" and logo are feature flagged and may not display based on the set value. This can be checked in one of the following (based on environment) \"base.json\", \"dev.json\", \"qa.json\", \"prod.json\". Path: rsn -> snla -> enabled"
+    }
+  ]
+}

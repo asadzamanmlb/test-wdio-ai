@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1194",
+  "issueId": "1128531",
+  "key": "WQ-1194",
+  "summary": "TTS | Focus on Games",
+  "description": "GIVEN a user launches the app\r\nAND the user has TTS enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e09d6749-5400-4070-ac83-0b34dab62c31",
+      "action": "WHEN a user focuses on the \"Games\" button",
+      "data": "",
+      "result": "THEN the app reader says “Games, press select to explore all available games, 2 of X in the menu, press right or left for more items in the menu”\r\n\r\nNOTE: X should be based on how many buttons are visible to the user in the menu"
+    }
+  ]
+}

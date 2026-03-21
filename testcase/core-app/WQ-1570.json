@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1570",
+  "issueId": "1128972",
+  "key": "WQ-1570",
+  "summary": "Archive Game Playback - Start from the Beginning",
+  "description": "GIVEN an entitled user is logged in\r\nAND has exited archived game playback",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "302b53cc-d7b1-43fa-a628-6df066a50c66",
+      "action": "WHEN a user selects the previously watched archive game for playback\r\nAND selects the previously watched feed\r\nAND selects the \"Start from the Beginning\" button in the secondary feed select modal",
+      "data": "",
+      "result": "THEN playback starts at the beginning of the feed"
+    }
+  ]
+}

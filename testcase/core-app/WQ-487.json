@@ -1,0 +1,20 @@
+{
+  "id": "WQ-487",
+  "issueId": "1127813",
+  "key": "WQ-487",
+  "summary": "Hero - Live game playback - Hide Spoilers OFF",
+  "description": "GIVEN a user is entitled for live game playback\r\nAND a live game is present in the Hero\r\nAND Hide Spoilers is set to OFF",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "94321ea9-e6f7-413f-a25e-3c48b199bcc3",
+      "action": "When a user selects the featured image from the Hero/featured content space",
+      "data": "",
+      "result": "THEN playback should launch at the live point"
+    }
+  ]
+}

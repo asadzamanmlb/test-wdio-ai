@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1524",
+  "issueId": "1128861",
+  "key": "WQ-1524",
+  "summary": "Games Tab | Hearing Announcement When Focusing on a Postgame/Archive Game Tile",
+  "description": "GIVEN the user is in the Games tab\r\nAND TTS is enabled\r\nAND the game has already ended (Postgame/Archive)",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "07210c85-69a6-4eb0-a4aa-390ccb29c60a",
+      "action": "WHEN the user focuses on a postgame/ archive game tile",
+      "data": "",
+      "result": "THEN the user will hear: “Final,<Half of the inning + Inning>,  <Away team Name + Away team>, <Home Team Name + Home team score>, X of X items”"
+    }
+  ]
+}

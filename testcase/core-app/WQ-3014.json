@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3014",
+  "issueId": "1159857",
+  "key": "WQ-3014",
+  "summary": "Verify Live HDR Stream When HDR Toggle is set to ON",
+  "description": "GIVEN a device is HDR capable\r\nAND the User has HDR toggle set to “ON”",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f582632e-2cd0-4022-b97d-d5a2bc03b50f",
+      "action": "WHEN the user starts playback of an HDR available live game stream",
+      "data": "",
+      "result": "Then the user should receive an HDR live game stream"
+    }
+  ]
+}

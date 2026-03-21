@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3405",
+  "issueId": "1251632",
+  "key": "WQ-3405",
+  "summary": "Adobe Tracking | Base Params",
+  "description": "***This test needs to be run via Chrome***\r\n[Adobe Experience Platform Debugger|https://chromewebstore.google.com/detail/adobe-experience-platform/bfnnokhpnncpkdmbokanobigaccjkpob] extension needs to be downloaded",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8ff3dcb7-976a-45fa-b16b-b20058e624bd",
+      "action": "WHEN a tester launches the Adobe Experience Platform Debugger\nAND the tester selects the \"Network\" tab in the Adobe Experience Platform Debugger\nAND a tester launches a Core App device URL in Chrome",
+      "data": "",
+      "result": "THEN values for {{c.app.platform}}, {{c.a.DeviceName}}, {{c.a.OSVersion}} display appropriate values based on the device platform URL"
+    }
+  ]
+}

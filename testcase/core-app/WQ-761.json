@@ -1,0 +1,20 @@
+{
+  "id": "WQ-761",
+  "issueId": "1128089",
+  "key": "WQ-761",
+  "summary": "US Monthly/yearly subscriber - ESPN - W2W modal",
+  "description": "GIVEN a user has MLBALL entitlement\nAND a plain ESPN game is live\n\n**NOTE:**\nNational TV game = -FOX Saturday Baseball or ESPN Sunday Night Baseball-   ESPN, Netflix, NBC/Peacock Sunday Night Baseball\n\nSeeing doc for specifics : [https://support.mlb.com/s/article/MLB-TV-Game-Availability?language=en_US|https://support.mlb.com/s/article/MLB-TV-Game-Availability?language=en_US|smart-link] ",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "dd15e928-f809-4fca-97df-adffabd33b38",
+      "action": "WHEN user clicks on game tile or hero",
+      "data": "",
+      "result": "THEN a blackout message displays in the W2W picker"
+    }
+  ]
+}

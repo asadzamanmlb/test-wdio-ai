@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1439",
+  "issueId": "1128776",
+  "key": "WQ-1439",
+  "summary": "Create Account Error - invalid email format",
+  "description": "GIVEN the user is not logged in\r\nAND TTS is turned ON\r\nAND the user is on the Create Free Account page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "61d8e27d-3166-4401-8fd9-4321b343f40c",
+      "action": "WHEN the user enters an invalid email format into the \"Email Address\" field\r\nAND the user enters a valid password format into the \"Password\" field\r\nAND the user selects the \"Create Account\" button",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"We encountered an issue while trying to create your account. Your email address is in the incorrect format. Your email address must be in the format of name<at>domain<dot>com.\""
+    }
+  ]
+}

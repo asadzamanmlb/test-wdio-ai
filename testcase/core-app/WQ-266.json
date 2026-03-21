@@ -1,0 +1,20 @@
+{
+  "id": "WQ-266",
+  "issueId": "1127578",
+  "key": "WQ-266",
+  "summary": "Favorite team game is live - home team not entitled",
+  "description": "GIVEN a user is a single team subscriber\r\nAND a game with the user's subscribed team is present in the hero\r\nAND the subscribed team is the away team\r\nAND the game is in a preview/live state",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "21ef2968-1db0-447a-87f6-d2e71d300dcb",
+      "action": "WHEN a user loads the Home page",
+      "data": "",
+      "result": "THEN a background image related to the home team is displayed in the hero\r\nAND a red pill with white \"LIVE\" text displays above the away team logo\r\nAND the away team logo displays and away team name are displayed\r\nAND the home team logo and home team name are displayed in the Hero\r\nAND the \"Watch Live\" button is white with black text\r\nAND the \"Watch Live\" button has focus when the Home page loads\r\nAND the away feed begins playback after selecting the \"Watch Live\" button"
+    }
+  ]
+}

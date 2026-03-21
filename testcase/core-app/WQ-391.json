@@ -1,0 +1,20 @@
+{
+  "id": "WQ-391",
+  "issueId": "1127703",
+  "key": "WQ-391",
+  "summary": "Bookmarked carousel position navigating on Home page",
+  "description": "GIVEN a user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "84a742b6-9a7b-46e6-a6bc-32c55423e404",
+      "action": "WHEN the user navigates right or left through a carousel\r\nAND focus is not on the first item in the carousel\r\nAND the user navigates to a different carousel above or below",
+      "data": "",
+      "result": "THEN the previous carousel doesn't reset its position/order\r\nAND the carousel doesn't reset its position/order after the user navigates back to the previous carousel"
+    }
+  ]
+}

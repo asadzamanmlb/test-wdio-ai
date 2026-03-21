@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1737",
+  "issueId": "1129154",
+  "key": "WQ-1737",
+  "summary": "Archive ad break pause",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "730776e4-d3fc-4dfb-9f39-d5a7fd062549",
+      "action": "WHEN",
+      "data": "",
+      "result": "DAI ads playback is paused for an archive game when an ad break is paused"
+    }
+  ]
+}

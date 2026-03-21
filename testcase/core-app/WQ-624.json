@@ -1,0 +1,20 @@
+{
+  "id": "WQ-624",
+  "issueId": "1127951",
+  "key": "WQ-624",
+  "summary": "Jump to Live button display",
+  "description": "GIVEN a user is playing a live stream\r\nAND the playback is behind the live point",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3e43368a-5e5a-4dcc-abc0-1e6f2e63fdf9",
+      "action": "WHEN the user displays the scrubber",
+      "data": "",
+      "result": "THEN a button with a circular arrow displays to the right of the CC button\r\nAND when the button has focus it grows in size\r\nAND with focus the button displays text \"JUMP TO LIVE\" to the right of the circular arrow"
+    }
+  ]
+}

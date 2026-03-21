@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1294",
+  "issueId": "1128631",
+  "key": "WQ-1294",
+  "summary": "Not Entitled - Live",
+  "description": "GIVEN TTS is turned ON\r\nAND a free user is logged in",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a7eff11e-8f11-4c48-8fd4-1b389fd76480",
+      "action": "WHEN the user selects a not entitled game tile",
+      "data": "",
+      "result": "THEN the Feed Modal displays\r\nAND the following statement is spoken, \"<away_team> @ <home_team>, Get MLB.TV, You are not entitled to this game, Press select to view subscription options, Press back to dismiss.\""
+    }
+  ]
+}

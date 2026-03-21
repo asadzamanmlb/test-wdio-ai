@@ -1,0 +1,20 @@
+{
+  "id": "WQ-740",
+  "issueId": "1128068",
+  "key": "WQ-740",
+  "summary": "T-Mobile subscriber live game in market - Final Game State",
+  "description": "GIVEN the user is a T-Mobile subscriber\r\nAND the in-market game has a game state of Final\r\nAND the game has ended less than 90 minutes ago\r\nAND the game does not have a saving pitcher\r\nAND/OR the game level blackedOutVideo equals true in MASTepg\r\nAND the game is not a partner game\r\n\r\n**NOTE:** wiremock favorite team 121 Mets, gamePk - 1100002317",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9b968cfb-ea97-4507-adfd-471e5fc21a13",
+      "action": "WHEN the user views the game tile focused or unfocused",
+      "data": "",
+      "result": "THEN a blackout pill does not display\r\nAND a lock icon does not displayed in the upper right corner of the game tile\r\nAND the team colors in the matchup header does not have a dark overlay"
+    }
+  ]
+}

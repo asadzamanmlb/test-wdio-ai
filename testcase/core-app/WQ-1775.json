@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1775",
+  "issueId": "1129192",
+  "key": "WQ-1775",
+  "summary": "Magic Remote Control",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ff537e29-634d-4a6a-9364-5b247e852525",
+      "action": "Execute app → Navigate and execute functions of app using Magic remote control",
+      "data": "",
+      "result": "Check if it supports magic remote control\r\n※ Check entire remote control Key >Check defined operation by Key\r\n※ Check if App goes back to the previous status after the operation of the Key.\r\n\r\n※ Magic Remote Control support is required"
+    }
+  ]
+}

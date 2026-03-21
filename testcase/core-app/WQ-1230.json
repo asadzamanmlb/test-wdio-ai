@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1230",
+  "issueId": "1128567",
+  "key": "WQ-1230",
+  "summary": "Game Tile Live Hide Spoilers ON",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND Hide Spoilers is turned ON\r\nAND a Live game is on the schedule\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e5ce851e-2cbc-4b7b-a752-ce2adb3bd8ef",
+      "action": "WHEN focus is assigned to a Live game tile in the Games Carousel",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Game <x> of <y>, <away_team> at <home_team>. Press select to play game. Move <appropriate_directions> to navigate to a new item. Move up or down to browse new content.\""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2895",
+  "issueId": "1131400",
+  "key": "WQ-2895",
+  "summary": "Ad break failures at stream start logged in Conviva",
+  "description": "GIVEN a tester has access to Conviva\r\nAND a user is logged into the Core App with dm5tv3@gmail.com / PasswordDM5\r\nAND the tester has blocked calls to dai.googl.com via Chrome Dev Tools\r\nAND has initiated playback of a Live ads enabled stream\r\n\r\nNOTE:\r\nThis test will need to be performed on a Chrome browser.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "64a0dd41-ccd8-4d70-9296-a7eb92eb4cdd",
+      "action": "WHEN a failed call to DAI occurs",
+      "data": "",
+      "result": "THEN the following is reported to Conviva when failing back to the non-ad stream: {{adAnalytics?.reportAdFailed(evt.message);}}"
+    }
+  ]
+}

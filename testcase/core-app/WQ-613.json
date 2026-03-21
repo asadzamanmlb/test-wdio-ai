@@ -1,0 +1,20 @@
+{
+  "id": "WQ-613",
+  "issueId": "1127940",
+  "key": "WQ-613",
+  "summary": "Closed Caption On persists same session",
+  "description": "GIVEN closed caption setting is on",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c6581d72-9bc0-41ae-b5ad-fbde39d1779e",
+      "action": "WHEN a user plays all video types",
+      "data": "",
+      "result": "THEN closed caption setting is on\r\nAND closed captions are displaying for subsequent videos"
+    }
+  ]
+}

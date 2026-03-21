@@ -1,0 +1,20 @@
+{
+  "id": "WQ-857",
+  "issueId": "1128185",
+  "key": "WQ-857",
+  "summary": "T-Mobile subscriber Peacock archive - Feed Select modal",
+  "description": "GIVEN a user is a T-Mobile subscriber",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "91617c27-80ec-4c59-b80f-267b7d761d6c",
+      "action": "WHEN a user selects an archive Peacock game tile",
+      "data": "",
+      "result": "THEN the user will see the Peacock feed button\r\nAND a message does not display letting the user know where the game can be watched\r\nAND the user can playback the Peacock feed"
+    }
+  ]
+}

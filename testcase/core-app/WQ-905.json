@@ -1,0 +1,20 @@
+{
+  "id": "WQ-905",
+  "issueId": "1128234",
+  "key": "WQ-905",
+  "summary": "Free subscriber out of market game - Feed Select",
+  "description": "GIVEN a user is a free subscriber\r\nAND a scheduled/in-progress game is outside the users viewing market\r\nAND the game level blackedOutVideo equals false in MAST EPGv3\r\nAND the game level entitledVideo equals false in MAST EPGv3",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e027a5e8-c510-4218-87bd-63867c9d4b86",
+      "action": "WHEN a user selects a scheduled/in-progress out-of-market game tile",
+      "data": "",
+      "result": "THEN the following title text is displayed \"[MLB.TV|http://MLB.TV] Subscription Required\" (subject to change via Content Restrictions)\nAND the following description text is displayed \"You need an active [MLB.TV|http://MLB.TV] subscription to view this game. [MLB.TV|http://MLB.TV] Single Team subscribers, click your team’s broadcast. New Users please visit [www.mlb.com/|http://www.mlb.com/]<device_platform> to purchase.\" (subject to change via Content Restrictions)\nAND the following title Text is displayed \"Full Game Access\"\nAND an [Upgrade Plan] button is displayed below \"Full Game Access\"\nAND the user is navigated to the Subscriptions/Paywall page if they select the [Upgrade Plan] button\nAND the user is navigated back to the Games page after pressing the \"back\" button on the controller"
+    }
+  ]
+}

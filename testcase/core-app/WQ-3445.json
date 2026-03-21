@@ -1,0 +1,13 @@
+{
+  "id": "WQ-3445",
+  "issueId": "1281318",
+  "key": "WQ-3445",
+  "summary": "US based users are not entitled to watch games nationally broadcasted by ESPN, NBC, and/or Netflix",
+  "description": "https://support.mlb.com/s/article/MLB-TV-Game-Availability?language=en_US\r\n\r\nRegular Season\r\n !image-2026-03-10-09-29-49-947.png|thumbnail! \r\nPost Season\r\n !image-2026-03-10-09-30-07-903.png|thumbnail! \r\nSpecial Events\r\n !image-2026-03-10-09-30-46-289.png|thumbnail! ",
+  "status": "To Do",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": []
+}

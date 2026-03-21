@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3297",
+  "issueId": "1227161",
+  "key": "WQ-3297",
+  "summary": "Game Tile - Badging Priority & Rules (Post UI Refresh)",
+  "description": "GIVEN a logged in user is on the Games or Home page\n\n# The Badge Priority should be as follows:\n## Live\n## Pre/Postgame shows\n## Entitlement Gated:\n### BLACKOUT\n### GEICO FREE GAME\n### MVPD REQUIRED\n### LOCKED\n## Interruption\n### Delayed, Suspended, Cancelled, etc.,\n## Special State\n### PERFECT\n### NO HITTER\n### etc.,\n\nRules:\n\n* In mini-state only show two badges. Game State (Red badges: Live, pregame show, etc) and User status  (White badges: Locked, MVPD Required, Time, Split Squad)\n* In the larger state it should go Game states (red badges), user state (white badges), blue (geico, perfect, no hitter etc)\n* If the game is MVPD Required, it should always show “MVPD Required” over “Locked.” We do not want to show “Locked” just for someone to then buy a package and see they need to MVPD auth anyway.\n* When break glass mode is turned on (no blackouts, entitled: yes) - no locked badges should be displayed on game card, even when no tv broadcasts exist.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6373728c-b644-447a-a1f1-d6c8b24e0afd",
+      "action": "WHEN a user views a game tile in a focused or unfocused state",
+      "data": "",
+      "result": "THEN the badges in the upper left corner of the screen follow the rules and priority outlined in the description"
+    }
+  ]
+}

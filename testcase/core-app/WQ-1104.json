@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1104",
+  "issueId": "1128434",
+  "key": "WQ-1104",
+  "summary": "Yearly/Monthly Toggle Hidden",
+  "description": "GIVEN a user is not logged in",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0189d832-3c03-44f0-a52b-e5552e485ab2",
+      "action": "WHEN the user is on the Paywall page\nAND only one offer group is returned in the paywall config json",
+      "data": "",
+      "result": "THEN the Yearly/Monthly toggle is not displayed\r\nAND package tiles are displayed"
+    }
+  ]
+}

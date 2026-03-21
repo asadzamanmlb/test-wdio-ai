@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1688",
+  "issueId": "1129105",
+  "key": "WQ-1688",
+  "summary": "Heartbeat service integration - video playback",
+  "description": "**NOTE:** Test on a browser to see network traffic\r\n\r\nGIVEN the Dev Settings Experience is set to \"MLB\"\r\nAND the Dev Settings Environments is set to \"beta\"\r\nAND Dev Tools are open with the Network tab selected\r\nAND \"playback-heartbeat\" is entered in the search field of the Network tab",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "cd0912cb-ded9-4d71-83bf-df92aece3a04",
+      "action": "WHEN game playback is initiated, live or archive",
+      "data": "",
+      "result": "THEN data.initPlaybackSession.heartbeatInfo.url is invoked with a GET request every 60 seconds (Request URL: https://playback-heartbeat.mlb.com/...)\r\nAND the heartbeat request url is not invoked after exiting the stream"
+    }
+  ]
+}

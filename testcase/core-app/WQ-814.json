@@ -1,0 +1,20 @@
+{
+  "id": "WQ-814",
+  "issueId": "1128142",
+  "key": "WQ-814",
+  "summary": "AtBat subscriber YouTube archive - Game Tile",
+  "description": "GIVEN a user is an Audio Only subscriber",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0e170a2e-7bfb-4ce2-a605-c5698694001f",
+      "action": "WHEN a user views/focuses an archive YouTube game tile",
+      "data": "",
+      "result": "THEN a lock icon displays in the upper right corner of the game tile\r\nAND there is a dark overlay over the team colors in the game tile header\r\nAND the YouTube pill does not display in the game tile"
+    }
+  ]
+}

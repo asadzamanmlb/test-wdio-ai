@@ -1,0 +1,20 @@
+{
+  "id": "WQ-153",
+  "issueId": "1127456",
+  "key": "WQ-153",
+  "summary": "FOX MVPD - Authorized",
+  "description": "GIVEN a Postseason game is on the schedule\r\nOR the All-Star Game is on the schedule\r\nAND FOX broadcasters are assigned\r\nAND the user has one of the following entitlements: MLBALL, MLBVIDEOADOBEPASS, MLBVIDEOAR\r\nAND the user is authorized for FOX MVPD\r\nAND the game level entitledVideo = true\r\nAND the AWAY (National) feed level foxAuthRequired = true",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "52d348bd-8bd6-420d-aeca-9ff06fd2d93c",
+      "action": "WHEN the user selects a game tile for a FOX Postseason game tile\r\nOR the user selects the All-Star Game tile",
+      "data": "",
+      "result": "THEN the Feed Select modal displays\r\nAND the feed button displays\r\nAND the user is able to initiate playback"
+    }
+  ]
+}

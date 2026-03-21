@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1619",
+  "issueId": "1129036",
+  "key": "WQ-1619",
+  "summary": "Jump to Live",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d285dc3c-fdd6-4290-8edd-e0b826177a69",
+      "action": "WHEN",
+      "data": "",
+      "result": "\"Jump to Live\" is available as a quick action button and sends user to the live point"
+    }
+  ]
+}

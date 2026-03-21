@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1287",
+  "issueId": "1128624",
+  "key": "WQ-1287",
+  "summary": "Non-Live Forge content",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND the user is on the Home page\r\nAND Non-Live Forge content is in the Hero (VOD, SVOD)",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "bb2e32b0-a896-452e-9997-12d6428f259b",
+      "action": "WHEN focus is assigned to Watch button in the Hero",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"<content_title>, <content_description>, Watch Now, press select to play, press up for the Main Menu, press down to browse more content.\""
+    }
+  ]
+}

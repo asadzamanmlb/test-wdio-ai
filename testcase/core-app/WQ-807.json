@@ -1,0 +1,20 @@
+{
+  "id": "WQ-807",
+  "issueId": "1128135",
+  "key": "WQ-807",
+  "summary": "Single Team subscriber Peacock archive subscribed team - Feed Select modal",
+  "description": "GIVEN a user is a Single Team subscriber\r\nAND an archive Peacock game contains the subscribed team",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "42d96e7b-505d-4b88-b80a-6d0ff10ec4ad",
+      "action": "WHEN a user selects an archive Peacock game tile",
+      "data": "",
+      "result": "THEN the user will see the Peacock feed button\r\nAND a message does not display letting the user know where the game can be watched\r\nAND the user can playback the Peacock feed"
+    }
+  ]
+}

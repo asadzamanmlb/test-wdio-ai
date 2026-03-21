@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1751",
+  "issueId": "1129168",
+  "key": "WQ-1751",
+  "summary": "Reboot",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d385642f-6c87-4f3a-acf8-57daf9a333c6",
+      "action": "Execute app → Terminate app → Reboot app\r\n\r\n[CASE0 - OS]\r\n1. NetCast\r\n- App launching screen, My Apps, Live TV, HOME Dashboard, Search\r\n\r\n2. webOS\r\n- When app is terminated: Launcher Bar, App launching screen, Search\r\n- When app remains on Recent List: Recent List, Launcher Bar, Search\r\n\r\n[CASE1 - Remote/HW Key]\r\n1. Execute app → Turn TV power off using Remote/HW Key → TV Power On → Execute app → check movement\r\n2. Execute app → play video content → Turn TV power off using Remote/HW Key → TV Power On → Execute app → Check video content playback\r\n\r\n[CASE2 - Plug]\r\n1. Execute app → Unplug → Plugin → TV Power on → Execute app → Check movement\r\n2. Execute app → Play video content → Unplug → Plugin → TV Power on → Execute app → Check movement",
+      "data": "",
+      "result": "When rebooting app, playback and movement is proper without any error\r\n\r\n※ Recent List\r\nwebOS: App does not remain on Recent List when rebooting TV (both AC/DC)\r\nwebOS2.0: AC Off > Initialize Recent List / DC Off: Remains on Recent List \r\nwebOS3.0: App remains on Recent List when rebooting TV (both AC and DC)\r\n\r\n※ Terminate app using EXIT UI Button\r\nNetCast: Move to Live TV of My App \r\nwebOS/webOS2.0: When user moves to Live TV, app should be remaining on Recent List\r\nwebOS3.0: When user moves to Live TV, app does not have to remain on Recent List (a concept for memory management)  \r\n\r\n※ Video contents should be divided as free/paid contents, and all of them should be checked\r\n\r\n※ webOS \r\n- Should check all ways of execution (both from Recent List and Launcher Bar) \r\n\r\n※ QSM+ supporting platform: Both QSM+ On/Off settings should be checked"
+    }
+  ]
+}

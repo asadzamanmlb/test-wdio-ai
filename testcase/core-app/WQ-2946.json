@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2946",
+  "issueId": "1146492",
+  "key": "WQ-2946",
+  "summary": "Verify HDR Toggle Appears on HDR-Capable Devices",
+  "description": "GIVEN a users device is HDR capable",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "823eb8eb-ff87-4372-8f57-8ed41dc38f86",
+      "action": "WHEN the user navigates to the settings page",
+      "data": "",
+      "result": "THEN the user will view the HDR toggle in Settings page as menu option.\n\n* Toggle Name: HDR\n* Values: On, off"
+    }
+  ]
+}

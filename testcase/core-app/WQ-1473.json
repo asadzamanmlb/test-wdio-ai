@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1473",
+  "issueId": "1128810",
+  "key": "WQ-1473",
+  "summary": "TTS | Details Tab from Line Score",
+  "description": "GIVEN TTS is enabled\r\nAND the user is in the video player",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5d6cedb9-da04-4da3-9764-c1c287150e59",
+      "action": "WHEN focus is in the line score\r\nAND the user navigates to the \"Details\" tab",
+      "data": "",
+      "result": "THEN the user should hear \"Details, <x> of <y> Options, Press up for player controls, Press down to navigate innings, Press <appropriate_directions> for more options, Press back to dismiss controls.\""
+    }
+  ]
+}

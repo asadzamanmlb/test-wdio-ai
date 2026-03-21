@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1374",
+  "issueId": "1128711",
+  "key": "WQ-1374",
+  "summary": "Today button",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is on the Games page\r\nAND the user has selected the Calendar",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "29b5f1e9-9dc2-4cf7-a9f1-d9a2395c988a",
+      "action": "WHEN focus is assigned to the Today button",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Today, press select to navigate directly to today’s Games. Press down for dates in <displayed_month>, Press left to navigate to the next month.\""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1755",
+  "issueId": "1129172",
+  "key": "WQ-1755",
+  "summary": "Mouse Over/Focus",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "280095b5-ed70-41be-a47b-20538ead3714",
+      "action": "Execute app → Put focus on UI Button",
+      "data": "",
+      "result": "When putting focus on UI button using remote control, mouse over effect appears properly\r\n\r\n※ Idle/Focused/Selected States should be distinguished\r\n※ When using navigations key of remote control, focusing on UI button should appear"
+    }
+  ]
+}

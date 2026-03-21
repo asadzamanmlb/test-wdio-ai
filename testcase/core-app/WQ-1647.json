@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1647",
+  "issueId": "1129064",
+  "key": "WQ-1647",
+  "summary": "registerDevice is called for Free users",
+  "description": "GIVEN a free user is already logged in",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8a173517-280b-41a9-93bb-52f2d7d96e1b",
+      "action": "WHEN a free user launches the app\r\nAND are in the MLB experience",
+      "data": "",
+      "result": "THEN clients should make a registerDevice request to Media-Gateway\r\nAND can be verified by searching \"graphql\" in the Network tab of browser dev tools\r\nAND \"clientExperience\", \"deviceId\", \"entitlements\", and \"sessionId\" are present in the \"registerDevice\" call\r\nAND an \"accessToken\" is present within \"mlbAuth\" in Redux"
+    }
+  ]
+}

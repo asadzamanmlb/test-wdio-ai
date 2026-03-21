@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1741",
+  "issueId": "1129158",
+  "key": "WQ-1741",
+  "summary": "Ads don't play during game (archive)",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b41ba1a8-7dc3-402c-af94-4368b2ba73c8",
+      "action": "WHEN",
+      "data": "",
+      "result": "DAI ads do not playback once the ad break ends, and game playback is resumed (archive game)"
+    }
+  ]
+}

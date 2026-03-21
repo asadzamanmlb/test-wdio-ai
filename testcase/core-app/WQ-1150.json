@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1150",
+  "issueId": "1128485",
+  "key": "WQ-1150",
+  "summary": "Favorite Team - Settings page Back",
+  "description": "GIVEN a logged in user is on the Settings page\r\nAND the user selects \"Favorite Team\" in the list of settings\r\nAND the user selects a favorite team",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "61987153-4717-40e8-8c1f-d11bc38739dc",
+      "action": "WHEN the user presses the BACK button on the controller",
+      "data": "",
+      "result": "THEN the user is navigated back to the Settings page\r\nAND focus is assigned to \"Log Out\" in the list of settings\r\n*** (NOT IMPLEMENTED) AND the user's previously selected favorite team displays in the header, to the left of \"Settings\" ***\r\nAND no updates were saved to the user's favorite team"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3069",
+  "issueId": "1162008",
+  "key": "WQ-3069",
+  "summary": "MASN 24/7 feed RW Stop",
+  "description": "GIVEN a logged in user is entitled for MASN RSN\nAND the user selects the MASN 24/7 stream to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "677a79a9-c848-4647-b8b0-0bd3af3fed82",
+      "action": "WHEN the user initiates Rewind\nAND presses the \"Select\" button on the controller after a few moments",
+      "data": "",
+      "result": "THEN Rewind stops\nAND playback resumes at the point where Rewind stopped\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

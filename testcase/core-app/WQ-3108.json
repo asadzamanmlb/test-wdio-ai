@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3108",
+  "issueId": "1162156",
+  "key": "WQ-3108",
+  "summary": "HDR Feature Flag set to OFF",
+  "description": "GIVEN the {{hasHDR}} {{featureFlags}} is set to {{false}} in the config\n\n*NOTE:* The configs can be seen via the Network tab using Dev Tools in Chrome. Configs will come through as {{dev.json}}, {{qa.json}}, {{stage.json}}, {{mock.json}}, {{prod.json}} depending on the environment the build is pointing to. You can view the configs by selecting the {{.json}} then selecting the Preview tab. Follow path {{featureFlags}} → {{video}} → {{hasHDR}} → {{enabled}}.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1589dbd4-ae92-4671-9df4-984543ec7ced",
+      "action": "WHEN the user launches the app\nAND navigates to the Settings page",
+      "data": "",
+      "result": "THEN the HDR toggle setting does not display on the Settings page"
+    }
+  ]
+}

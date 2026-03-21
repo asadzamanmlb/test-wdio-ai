@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2345",
+  "issueId": "1129795",
+  "key": "WQ-2345",
+  "summary": "R5028C - Background image in app icon",
+  "description": "**Graphical User Interface**\r\n\r\n**R5028 Requirement:** Check that the following content information is created in the specified format and is displayed/played back correctly.\r\n- Still image icons\r\n- Title names\r\n- Background image\r\n- BGM (optional)\r\n- Start-up image\r\n- Save data default icon (optional)\r\n\r\nAlso ensure that content information is pursuant to the following\r\n- If still image icons and title names support multilingual switching, content information correctly switches to the supported language",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e80a9fcb-9d3b-4d1b-ba6c-d9a855d2e1dd",
+      "action": "1. Place the cursor on the \"Application\" on the home screen",
+      "data": "",
+      "result": "The background image is displayed"
+    }
+  ]
+}

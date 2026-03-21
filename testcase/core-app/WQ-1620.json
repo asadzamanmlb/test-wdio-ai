@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1620",
+  "issueId": "1129037",
+  "key": "WQ-1620",
+  "summary": "FF/RW",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "22505c00-3226-40d1-96fb-6af423cb8e70",
+      "action": "WHEN",
+      "data": "",
+      "result": "Fast Forward/Rewind options are available on the video player as a quick action item"
+    }
+  ]
+}

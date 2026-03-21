@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1152",
+  "issueId": "1128487",
+  "key": "WQ-1152",
+  "summary": "Favorite Team - Cannot De-selected",
+  "description": "GIVEN the user is on the Favorite Team page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "38152b4a-9f42-4248-893f-41f9b39338a1",
+      "action": "WHEN the user selects the selected the favorite team",
+      "data": "",
+      "result": "THEN the team tile stays selected\r\nAND the user cannot have zero favorite team tiles selected once a favorite team has been selected"
+    }
+  ]
+}

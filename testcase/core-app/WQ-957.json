@@ -1,0 +1,20 @@
+{
+  "id": "WQ-957",
+  "issueId": "1128286",
+  "key": "WQ-957",
+  "summary": "Final/Completed Game - Focused Game Tile",
+  "description": "GIVEN a subscriber is logged in\r\nAND Hide Spoilers is off\r\nAND the selected date has completed games",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9a5f967f-cf84-43ed-9bbe-e460e9905ee5",
+      "action": "WHEN a subscriber is on the Games page\r\nAND game tiles are displayed\r\nAND a completed game tile has focus",
+      "data": "",
+      "result": "THEN the game tile is increased in size\r\nAND the game tile has a white border\r\nAND there is a slight gradient from the top\r\nAND the away team primary color is displayed in the upper left of the game tile\r\nAND the away team logo is displayed\r\nAND the away team abbreviation is displayed below the team logo\r\nAND the away team record is displayed below the team abbreviation\r\nAND the home team primary color is displayed in the upper right of the game tile\r\nAND the home team logo is displayed\r\nAND the home team abbreviation is displayed below the team logo\r\nAND the home team record is displayed below the team abbreviation\r\nAND the final score displays between the away and home team logos\r\nAND \"FINAL\" is displayed in white text left justified below the match up header\r\nAND the winning pitcher headshot is displayed with the team primary color as a circular background, left justified below \"FINAL\"\r\nAND W <winning_pitcher_name> is displayed to the right of player headshot\r\nAND Innings pitched is displayed below \"W <winning_pitcher_name>\"\r\nAND ERA is displayed to the right of the innings pitched\r\nAND the losing pitcher headshot is displayed below the winning pitcher's headshot with the team primary color as a circular background\r\nAND L <losing_pitcher_name> is displayed to the right of player headshot\r\nAND Innings pitched is displayed below \"L <losing_pitcher_name>\"\r\nAND ERA is displayed to the right of the innings pitched\r\nAND (if a game has a saving pitcher) the saving pitcher headshot is displayed with the team primary color as a circular background below the losing pitcher headshot\r\nAND S <saving_pitcher_name> is displayed to the right of saving pitcher headshot\r\nAND Innings pitched is displayed below \"S <saving_pitcher_name>\"\r\nAND ERA is displayed to the right of the innings pitched\r\nAND the bases/outs indicator is displayed right-center justified in the non-match up portion of the game tile\r\nAND the base/out indicators are gray in color\r\n\r\nNOTES: \r\n1. A silhouette image will display if a player headshot is not available\r\n2. If pitcher data is not available, \"-\" will display in its place\r\n3. Any partner tags will be hidden when there is a saving pitcher and the Game Tile is focused"
+    }
+  ]
+}

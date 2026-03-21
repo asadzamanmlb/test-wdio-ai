@@ -1,0 +1,20 @@
+{
+  "id": "WQ-486",
+  "issueId": "1127812",
+  "key": "WQ-486",
+  "summary": "Complete live game playback",
+  "description": "GIVEN a user is entitled for live game playback",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0ce9a1c3-0754-4c36-b4ce-45dae3d64c69",
+      "action": "WHEN a user initiates playback of a live game before the first pitch\r\nAND the user watches the entire game to the end of the stream",
+      "data": "",
+      "result": "THEN the user is able to watch a complete game\r\nAND the user does not experience any errors during playback that require the user to restart the app"
+    }
+  ]
+}

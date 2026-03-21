@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2960",
+  "issueId": "1147234",
+  "key": "WQ-2960",
+  "summary": "Resettable Device Identifier (rdid) Parameter to DAI - Archive Game",
+  "description": "GIVEN a user is entitled for Archive game playback\n\n*NOTE:*\nLaunch the app in the browser, open the Network tab in DevTools (filter 'streams'), start a video ",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3ce5bfbf-802e-4c8c-9866-12245c9f4d0e",
+      "action": "WHEN a user initiates playback of an archive game",
+      "data": "",
+      "result": "THEN parameter {{rdid}} is passed for users in UUID format"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1785",
+  "issueId": "1129202",
+  "key": "WQ-1785",
+  "summary": "BACK Key",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "dac8d150-cefa-4df7-a30e-b55c31195acf",
+      "action": "Execute app → Press BACK key of remote control\r\n\r\n[CASE]\r\n1. Main screen → Press BACK key of remote control\r\n2. Enter depth → Press BACK key of remote control",
+      "data": "",
+      "result": "When pressing BACK key of remote control, app moves properly to previous screen\r\n\r\n※ BACK key should direct to where user first entered the app\r\n※ When verifying issue, depth and layer should be distinguished"
+    }
+  ]
+}

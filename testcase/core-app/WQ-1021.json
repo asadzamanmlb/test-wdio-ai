@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1021",
+  "issueId": "1128350",
+  "key": "WQ-1021",
+  "summary": "Can access dates in next season",
+  "description": "GIVEN the current date is not before July 1st\r\nAND the user is on the Games page\r\nAND the calendar is displayed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "fca2b1eb-4550-45ee-9a19-8fbe19098acd",
+      "action": "WHEN a user navigates to any date in the next season",
+      "data": "",
+      "result": "THEN any date in the next season can be accessed"
+    }
+  ]
+}

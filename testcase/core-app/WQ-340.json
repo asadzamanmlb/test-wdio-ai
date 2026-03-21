@@ -1,0 +1,20 @@
+{
+  "id": "WQ-340",
+  "issueId": "1127652",
+  "key": "WQ-340",
+  "summary": "FLIVE - Free User",
+  "description": "GIVEN a subscriber is a free user\r\nAND FLIVE content is present in the Hero",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "aca72a68-1e51-4120-8206-f75e18dc889e",
+      "action": "WHEN a subscriber loads the Home page",
+      "data": "",
+      "result": "THEN a related background image is displayed for the FLIVE content in the hero\r\nAND a red pill with \"LIVE\" text displays left justified above the FLIVE title\r\nAND the title for the FLIVE content in the hero is displayed\r\nAND the description for non-game content in the hero is displayed\r\nAND the \"Watch Now\" button is white with black text\r\nAND the \"Watch Now\" button has focus when the Home page loads\r\nAND the FLIVE content playback is successful after the user selects the \"Watch Now\" button"
+    }
+  ]
+}

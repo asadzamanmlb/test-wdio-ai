@@ -1,0 +1,20 @@
+{
+  "id": "WQ-938",
+  "issueId": "1128267",
+  "key": "WQ-938",
+  "summary": "Final Game state 'FORFEIT'",
+  "description": "GIVEN a subscriber is on the Games page\r\nAND Hide Spoilers is set to OFF",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "167a3ded-f81b-4455-be7f-4f898781921c",
+      "action": "WHEN a completed game has any of the following statusCode values: Q,QK,QX,QQ,QJ,QI,QN,QV,QR,QO,R,RR,RK,RX,RQ,RJ,RI,RN,RV,RO",
+      "data": "",
+      "result": "THEN '[tricode of forfeit team] - FORFEIT' is displayed top-center in the match-up header of the game tile\r\nAND 'FORFEIT' is displayed left justified below the match-up header in the game tile"
+    }
+  ]
+}

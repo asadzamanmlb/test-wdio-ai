@@ -7,6 +7,7 @@
     "start": "node platform.js",
     "xray": "node xray/fetchTests.js",
     "xray:export": "node xray/exportTestsToJson.js",
+    "xray:export:core-app": "node xray/exportTestsToJson.js project WQ core-app",
     "optools:convert": "node scripts/convertOptoolsToGherkin.js",
     "sync:xray": "node scripts/syncXrayTests.js",
     "test:webtv": "wdio run wdio.conf.js",
@@ -22,9 +23,9 @@
     "test:grid": "ENV=qa wdio run wdio.grid.conf.js",
     "test:grid:qa": "ENV=qa wdio run wdio.grid.conf.js",
     "test:grid:beta": "ENV=beta wdio run wdio.grid.conf.js",
-    "dashboard": "node dashboard-server.js",
+    "dashboard": "node scripts/dashboardWithRestart.js",
     "dashboard:build": "cd dashboard && npm run build",
-    "dashboard:dev": "concurrently \"node dashboard-server.js\" \"wait-on -d 100 -t 30000 http://localhost:4000/api/metrics && cd dashboard && npm run dev\" --names \"api,dev\" --prefix-colors \"blue,green\"",
+    "dashboard:dev": "concurrently \"node scripts/dashboardWithRestart.js\" \"wait-on -d 100 -t 30000 http://localhost:4000/api/metrics && cd dashboard && npm run dev\" --names \"api,dev\" --prefix-colors \"blue,green\"",
     "dashboard:dev:only": "cd dashboard && npm run dev"
   },
   "dependencies": {

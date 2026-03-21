@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1234",
+  "issueId": "1128571",
+  "key": "WQ-1234",
+  "summary": "Game Tile Live Peacock Hide Spoilers ON",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND Hide Spoilers is turned ON\r\nAND a Live Peacock game is on the schedule\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a1a8ccc2-79fa-4069-beeb-077aaddc64f8",
+      "action": "WHEN focus is assigned to a Live Peacock game tile in the Games Carousel",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Game <x> of <y>, <away_team> at <home_team>, Blacked Out, Watch on Peacock. Press select to play game. Move <appropriate_directions> to navigate to a new item. Move up or down to browse new content.\""
+    }
+  ]
+}

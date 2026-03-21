@@ -1,0 +1,20 @@
+{
+  "id": "WQ-463",
+  "issueId": "1127789",
+  "key": "WQ-463",
+  "summary": "Video playback during app close",
+  "description": "GIVEN a subscriber is playing a video stream",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8bd04c4d-6cc9-4161-9b92-6b7cb2247eae",
+      "action": "WHEN the user presses and holds the [PS] button on the controller to bring them back to the Playstation home screen\r\nAND presses the [Options] button on the controller\r\nAND selects \"Close App\" from the menu\r\nAND the user opens the app again",
+      "data": "",
+      "result": "THEN the Home page is displayed\r\nAND \"Today's Games\" are displayed on the Games carousel\r\nAND a the user is able to resume the stream at the point when the [PS] button was pressed"
+    }
+  ]
+}

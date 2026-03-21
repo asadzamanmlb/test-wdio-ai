@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1444",
+  "issueId": "1128781",
+  "key": "WQ-1444",
+  "summary": "Create Account Success page navigation",
+  "description": "GIVEN TTS is turned on\r\nAND the user is not logged in\r\nAND the user has created a new account\r\nAND the user is on the Create Account Success page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6f2b338a-f00c-43e1-99ec-d2feac4b3826",
+      "action": "WHEN the user attempts to navigate in any direction",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"There is no other selectable content on the page\""
+    }
+  ]
+}

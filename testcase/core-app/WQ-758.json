@@ -1,0 +1,20 @@
+{
+  "id": "WQ-758",
+  "issueId": "1128086",
+  "key": "WQ-758",
+  "summary": "Monthly/yearly subscriber ESPN/Sunday Night Baseball - Game Tile",
+  "description": "GIVEN a user has MLBALL entitlement\r\nAND ESPN Sunday Night Baseball is scheduled/in-progress",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f8461bfe-2d8d-49bc-9f4b-428d3d81e20c",
+      "action": "WHEN the user views the game tile focused or unfocused",
+      "data": "",
+      "result": "THEN a blackout pill is displayed left aligned at the bottom of the game tile\r\nAND a lock icon is displayed in the upper right corner of the game tile\r\nAND the team colors in the matchup header have a dark overlay"
+    }
+  ]
+}

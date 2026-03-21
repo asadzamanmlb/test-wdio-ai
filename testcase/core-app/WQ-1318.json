@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1318",
+  "issueId": "1128655",
+  "key": "WQ-1318",
+  "summary": "Game Tile Pregame Blacked Out",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND the user is on the games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c9139d5b-23d6-4f77-b057-98a717c120b1",
+      "action": "WHEN a game tile for a game that has not gone Live yet has focus\r\nAND the game tile has a blackout pill",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Game <x> of <y>, <away_team>, <away_team_wins> Wins, <away_team_losses> Losses at <home_team>, <home_team_wins> Wins, <home_team_losses> Losses, <game_start_time> Game Start Time, Blacked Out, Pitching for the <away_team> <away_starting_pitcher>, <away_pitcher_wins> Wins, <away_pitcher_losses> Losses, <away_pitcher_ERA> Earned Run Average, Pitching for the <home_team> <home_starting_pitcher>, <home_pitcher_wins> Wins, <home_pitcher_losses> Losses, <home_pitcher_ERA> Earned Run Average. Press select to play game. Move <appropriate_directions> to hear more games. Move up to navigate to a new date.\""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1757",
+  "issueId": "1129174",
+  "key": "WQ-1757",
+  "summary": "Full Size",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ee2698ea-cbb5-401c-a990-5d02303df4b6",
+      "action": "Execute app → Play video content",
+      "data": "",
+      "result": "There are no margins around video and video appears in full size\r\n\r\n※ Margins can be left if original ratio of content is 4:3\r\n※ OK if user can change to full screen using Q.Menu (Settings)"
+    }
+  ]
+}

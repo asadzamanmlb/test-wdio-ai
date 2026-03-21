@@ -1,0 +1,20 @@
+{
+  "id": "WQ-756",
+  "issueId": "1128084",
+  "key": "WQ-756",
+  "summary": "Anonymous user live game in market - Game Tile",
+  "description": "GIVEN the user is anonymous\r\nAND there is a game scheduled or in-progress in the viewing market of the user",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "63894604-13cd-4851-8f39-52f4cc47ea53",
+      "action": "WHEN the user views the game tile focused or unfocused",
+      "data": "",
+      "result": "THEN a blackout pill is displayed left aligned at the bottom of the game tile\r\nAND a lock icon is displayed in the upper right corner of the game tile\r\nAND the team colors in the matchup header have a dark overlay"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1282",
+  "issueId": "1128619",
+  "key": "WQ-1282",
+  "summary": "Game Tile Final FGotD Hide Spoilers ON",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND Hide Spoilers is turned ON\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5a160887-42fa-4702-9d7c-398dc0b7023a",
+      "action": "WHEN focus is assigned to an archive Free Game of the Day in the Hero",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"<away_team>, <home_team>, Final, Free Game of the Day, press select to play, press up for the Main Menu, press down to browse more content.\""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-746",
+  "issueId": "1128074",
+  "key": "WQ-746",
+  "summary": "National Blackout - Game Tile",
+  "description": "GIVEN a game has a mediaFeedType of NATIONAL\nAND mediaState does not equal MEDIA_ARCHIVE\nAND the game level blackedOutVideo equals true in MASTepg\n\n**NOTE:**\nNational TV game = -FOX Saturday Baseball or ESPN Sunday Night Baseball-   ESPN, Netflix, NBC/Peacock Sunday Night Baseball\n\nSeeing doc for specifics : [https://support.mlb.com/s/article/MLB-TV-Game-Availability?language=en_US|https://support.mlb.com/s/article/MLB-TV-Game-Availability?language=en_US|smart-link] ",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9ff775bb-a168-4727-9119-92aaac777c62",
+      "action": "WHEN the US based user views the game tile focused or unfocused",
+      "data": "",
+      "result": "THEN a blackout badge is displayed upper left corner of the game tile (blackout for US users)\nAND a locked badge is displayed in the left upper left corner of the game tile (locked for underauthenticated users)"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2356",
+  "issueId": "1129806",
+  "key": "WQ-2356",
+  "summary": "R5005A - Age level for Boot Restriction is set",
+  "description": "**Parental Control and Content Restriction**\r\n\r\n**R5005 Requirement:** The Age Level for Boot Restriction is correctly specified in the parameter file (param.json) based on obtained/expected rating.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ac792c61-2411-4522-980c-85beaa342eb3",
+      "action": "1. Place the cursor on the \"Application\" on the home screen\r\n2. Press the options button and select \"★Check\"\r\n3. Check the value of \"param.json: Age Level=\" in [Log #000 (original app)]",
+      "data": "",
+      "result": "The lowest age is correctly set for application launch in the application's target license area.\r\n\r\nFor the MLB app, I believe this should be \"0\""
+    }
+  ]
+}

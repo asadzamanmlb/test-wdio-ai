@@ -1,0 +1,20 @@
+{
+  "id": "WQ-563",
+  "issueId": "1127889",
+  "key": "WQ-563",
+  "summary": "MLBN 24/7 Live Linear Rewind to beginning",
+  "description": "GIVEN a user is entitled for MLBN\nAND the user is logged in\nAND the user selects the MLBN 24/7 Live Linear stream to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "cf418a11-a47c-4794-8c42-cdb396ab69f5",
+      "action": "WHEN the user Rewinds the stream to the beginning",
+      "data": "",
+      "result": "THEN Rewind stops once it reaches the start of the stream\r\nAND playback resumes at the beginning of the stream\r\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

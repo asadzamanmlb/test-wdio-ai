@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1387",
+  "issueId": "1128724",
+  "key": "WQ-1387",
+  "summary": "TTS | Navigation options middle left when No Team is selected",
+  "description": "GIVEN TTS is enabled\r\nAND the user does not have a Favorite Team set\r\nAND the user is logged in\r\nAND the user is on the Favorite Team page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "88023659-c3ab-4c00-a124-845d9e16e400",
+      "action": "WHEN the user scrolls to highlight any of the following teams: BAL, CWS, COL, KC, MIA, NYM, PIT, SF",
+      "data": "",
+      "result": "THEN the app should say 'The {selected team} is highlighted. Press select to save this team as your favorite team. Move right, up, or down to hear additional teams to favorite. Move left to highlight the “Cancel” button.'"
+    }
+  ]
+}

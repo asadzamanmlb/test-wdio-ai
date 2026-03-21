@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3042",
+  "issueId": "1161786",
+  "key": "WQ-3042",
+  "summary": "SNY 24/7 feed RW Cancel",
+  "description": "GIVEN a logged in user is entitled for SNY RSN\nAND the user selects the SNY 24/7 stream to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c08a3e0d-1ac4-4798-b215-72b5bb56bad7",
+      "action": "WHEN the user initiates Rewind\nAND presses the \"back\" button on the controller after a few moments",
+      "data": "",
+      "result": "THEN Rewind stops\nAND playback resumes at the point where Rewind was initiated\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

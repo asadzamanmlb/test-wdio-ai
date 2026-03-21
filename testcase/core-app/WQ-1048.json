@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1048",
+  "issueId": "1128378",
+  "key": "WQ-1048",
+  "summary": "Log In - Log In button enabled",
+  "description": "GIVEN a user launches the app\r\nAND a user is not logged in",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "315b7ab1-a7fc-42a9-a43d-b2610b5453a8",
+      "action": "WHEN a user navigates to the Log In page\r\nAND a user enters a valid format email address in the \"Email Address\" field\r\nAND a user enters one character in the \"Password\" field",
+      "data": "",
+      "result": "THEN the [Log In] button is enabled"
+    }
+  ]
+}

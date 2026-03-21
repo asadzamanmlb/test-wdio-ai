@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2951",
+  "issueId": "1146510",
+  "key": "WQ-2951",
+  "summary": "Verify Live SDR Stream When HDR Toggle set to OFF",
+  "description": "GIVEN a device is HDR capable\nAND the User has HDR toggle set to “OFF”",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a3316a14-8770-4f9e-b18a-09233a8f632b",
+      "action": "WHEN the user starts playback of an HDR available live game stream",
+      "data": "",
+      "result": "THEN the user should receive an SDR live game stream"
+    }
+  ]
+}

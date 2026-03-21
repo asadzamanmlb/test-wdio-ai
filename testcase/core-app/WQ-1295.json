@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1295",
+  "issueId": "1128632",
+  "key": "WQ-1295",
+  "summary": "Not Entitled - Archive",
+  "description": "GIVEN TTS is turned ON\r\nAND a free user is logged in",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4011bfb3-7373-4580-872d-593d397c2d52",
+      "action": "WHEN the user selects a not entitled game tile\r\nAND navigates to the [Get MLB.TV] button",
+      "data": "",
+      "result": "THEN the Feed Modal displays\r\nAND the following statement is spoken, \"<away_team> @ <home_team>, Recap, press select to watch a recap of the game, press back to dismiss.\"\r\nAND on focus of the [Get MLB.TV] button the following statement is spoken, \"Get MLB.TV, You are not entitled to this game, Press select to view subscription options, Press back to dismiss.\""
+    }
+  ]
+}

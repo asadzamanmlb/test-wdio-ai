@@ -1,0 +1,20 @@
+{
+  "id": "WQ-902",
+  "issueId": "1128231",
+  "key": "WQ-902",
+  "summary": "AtBat subscriber - Game Tile",
+  "description": "GIVEN a user is an audio only subscriber\r\nAND the game level blackedOutVideo equals false in MAST EPGv3\r\nAND the game level entitledAudio equals true in MAST EPGv3\r\nAND the game level entitledVideo equals false in MAST EPGv3",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0668c8e7-fb6a-47ab-aeab-202310120127",
+      "action": "WHEN a user views/focuses an out-of-market scheduled/in-progress game tile\r\nOR a user views/focuses an archive game tile",
+      "data": "",
+      "result": "THEN a lock icon displays in the upper right corner of the game tile\r\nAND the game tile header has a dark overlay over the team colors"
+    }
+  ]
+}

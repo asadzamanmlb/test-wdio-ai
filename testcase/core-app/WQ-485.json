@@ -1,0 +1,20 @@
+{
+  "id": "WQ-485",
+  "issueId": "1127811",
+  "key": "WQ-485",
+  "summary": "Jump to Live",
+  "description": "GIVEN the user is playing a live stream\r\nAND playback is behind the live point",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8e5327f8-de2b-4ae3-ac29-6f165bd2a597",
+      "action": "WHEN the user displays the scrubber\r\nAND the user selects the \"Jump to Live\" button",
+      "data": "",
+      "result": "THEN the video jumps playback to the live point\r\nAND the Live indicator in the scrubber is red\r\nAND the scrubber playback head increases in size indicating it has focus"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1756",
+  "issueId": "1129173",
+  "key": "WQ-1756",
+  "summary": "Flickering",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "64fbe05b-7f16-48c8-be8f-fa0c1adbdc74",
+      "action": "Execute app → Access content",
+      "data": "",
+      "result": "Content is not flickering when entering or playing contents"
+    }
+  ]
+}

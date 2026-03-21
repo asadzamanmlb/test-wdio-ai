@@ -1,0 +1,20 @@
+{
+  "id": "WQ-915",
+  "issueId": "1128244",
+  "key": "WQ-915",
+  "summary": "Single Team subscriber ESPN/Sunday Night Baseball archive non-subscribed teams - Game Tile",
+  "description": "GIVEN a user is a single team subscriber\r\nAND an ESPN Sunday Night Baseball game doesn't include the subscribed-to-team\r\nAND the game level entitledVideo equals false in MAST EPGv3",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3abe35e9-313e-4be9-ba64-0a08beba595d",
+      "action": "WHEN a user is not subscribed to either team\r\nAND a user views/focuses an archive ESPN Sunday Night Baseball game tile",
+      "data": "",
+      "result": "THEN a lock icon does not display in the upper right corner of the game tile\r\nAND there is no dark overlay of the team match up"
+    }
+  ]
+}

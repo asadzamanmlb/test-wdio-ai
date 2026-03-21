@@ -1,0 +1,20 @@
+{
+  "id": "WQ-422",
+  "issueId": "1127741",
+  "key": "WQ-422",
+  "summary": "Log Out",
+  "description": "GIVEN a user is already logged in\r\nAND a user is on the Settings page",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f046b81b-0771-4e80-b4c7-354da8dc7133",
+      "action": "WHEN a user selects the \"Log Out\" button",
+      "data": "",
+      "result": "THEN the user is successfully logged out\r\nAND the \"Log Out\" button has changed to the \"Log In\" button"
+    }
+  ]
+}

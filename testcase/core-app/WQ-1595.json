@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1595",
+  "issueId": "1129012",
+  "key": "WQ-1595",
+  "summary": "Anonymous user returns an experience",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c67dfd59-be0a-4fe6-b721-aa78af9e32ce",
+      "action": "WHEN an anonymous user launches the app",
+      "data": "",
+      "result": "THEN the traffic splitting service is called\r\nAND an experience is returned"
+    }
+  ]
+}

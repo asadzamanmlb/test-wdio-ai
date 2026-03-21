@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1043",
+  "issueId": "1128373",
+  "key": "WQ-1043",
+  "summary": "Header navigation - focus does not leave the page",
+  "description": "GIVEN a user has launched the app",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "461a4264-12ba-49b6-944a-64cfdd34c9be",
+      "action": "WHEN a user navigates through the header\r\nAND navigates through the elements on the page",
+      "data": "",
+      "result": "THEN focus does not leave the page"
+    }
+  ]
+}

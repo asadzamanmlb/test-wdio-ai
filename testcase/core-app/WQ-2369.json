@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2369",
+  "issueId": "1129821",
+  "key": "WQ-2369",
+  "summary": "Archive Game Playback - Resume",
+  "description": "GIVEN an entitled user is logged in\r\nAND has exited archived game playback",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e7b441e5-d6a7-44f8-ad43-cc7f855fb326",
+      "action": "WHEN a user selects the previously watched archive game for playback\r\nAND selects the previously watched feed\r\nAND selects the \"Resume\" button in the secondary feed select modal",
+      "data": "",
+      "result": "THEN playback starts at the booked marked time"
+    }
+  ]
+}

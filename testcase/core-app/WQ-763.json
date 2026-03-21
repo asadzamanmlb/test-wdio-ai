@@ -1,0 +1,20 @@
+{
+  "id": "WQ-763",
+  "issueId": "1128091",
+  "key": "WQ-763",
+  "summary": "Single Team subscriber ESPN/Sunday Night Baseball - Feed Select modal",
+  "description": "GIVEN a user has a single team entitlement\r\nAND ESPN Sunday Night Baseball is scheduled/in-progress",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1ce4c7da-0ece-4e10-9ddd-32c9d1bf5568",
+      "action": "WHEN the user selects the ESPN Sunday Night Baseball game tile with a Blackout pill",
+      "data": "",
+      "result": "THEN the feed select modal displays\r\nAND video feed buttons are not displayed\r\nAND a blackout messaging is displayed in the Feed Select modal"
+    }
+  ]
+}

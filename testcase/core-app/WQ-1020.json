@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1020",
+  "issueId": "1128349",
+  "key": "WQ-1020",
+  "summary": "Cannot access games beyond past two seasons - Games page",
+  "description": "GIVEN a user is on the Games page\r\nAND displayed date is January 2nd, two seasons ago",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f336e0f0-d042-46ad-a087-63c965e6be45",
+      "action": "WHEN the user selects the [<] button",
+      "data": "",
+      "result": "THEN the displayed date is January 1\r\nAND the [<] button is grayed out\r\nAND focus cannot be reassigned to the [<] button once focus is removed\r\nAND the user cannot access dates further back than the previous two seasons"
+    }
+  ]
+}

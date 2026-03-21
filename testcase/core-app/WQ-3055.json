@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3055",
+  "issueId": "1161952",
+  "key": "WQ-3055",
+  "summary": "SNLA+ 24/7 feed RW Stop",
+  "description": "GIVEN a logged in user is entitled for SNLA+ RSN\nAND the user selects the SNLA+ 24/7 stream to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "223f3e5b-b7f1-4d2e-a362-04718f99d641",
+      "action": "WHEN the user initiates Rewind\nAND presses the \"Select\" button on the controller after a few moments",
+      "data": "",
+      "result": "THEN Rewind stops\nAND playback resumes at the point where Rewind stopped\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-421",
+  "issueId": "1127740",
+  "key": "WQ-421",
+  "summary": "Log In",
+  "description": "GIVEN a user is not already logged in\r\nAND a user is on the Log In page\r\n",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "744a766c-a8e7-46fe-ac6c-c196c2c061ef",
+      "action": "WHEN a subscribers email address is entered in the \"Email Address\" field\r\nAND the associated password is entered in the \"Password\" field\r\nAND the user selects the \"Log In\" button",
+      "data": "",
+      "result": "THEN the user is successfully logged in"
+    }
+  ]
+}

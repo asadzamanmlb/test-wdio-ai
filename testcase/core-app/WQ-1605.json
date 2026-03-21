@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1605",
+  "issueId": "1129022",
+  "key": "WQ-1605",
+  "summary": "Legacy experience does not call Media Gateway",
+  "description": "Legacy user: adobelegacy@gmail.com / Password23",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b324e665-4674-48db-a0d3-57b3b80e7e01",
+      "action": "WHEN a user is using the Legacy experience",
+      "data": "",
+      "result": "THEN no calls are made via the Media-Gateway (https://media-gateway.mlb.com/graphql)\r\nAND calls are made via the BAMSDK (https://*.bamgrid.com/*/graphql)"
+    }
+  ]
+}

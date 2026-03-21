@@ -1,0 +1,20 @@
+{
+  "id": "WQ-459",
+  "issueId": "1127785",
+  "key": "WQ-459",
+  "summary": "Cancel Rewind",
+  "description": "GIVEN a game feed is playing\nAND Rewind has been initiated",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ae166540-a69e-4355-9145-93c4c32e07d2",
+      "action": "WHEN a user presses the \"back\" button on the controller",
+      "data": "",
+      "result": "THEN Rewind is stopped\r\nAND the playback head moves back to the position before Rewind was initiated\r\nAND the video begins playback at the playback head position"
+    }
+  ]
+}

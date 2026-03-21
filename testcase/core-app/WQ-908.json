@@ -1,0 +1,20 @@
+{
+  "id": "WQ-908",
+  "issueId": "1128237",
+  "key": "WQ-908",
+  "summary": "Anonymous user live game out of market - Game Tile",
+  "description": "GIVEN a user is anonymous",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f3bc7ca4-67c2-43ae-8212-e0cab456a2bd",
+      "action": "WHEN the user views/focuses a scheduled/in-progress game tile",
+      "data": "",
+      "result": "THEN a lock icon displays in the upper right corner of the game tile\r\nAND the game tile header has a dark overlay over the team colors"
+    }
+  ]
+}

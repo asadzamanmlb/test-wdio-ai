@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1671",
+  "issueId": "1129088",
+  "key": "WQ-1671",
+  "summary": "Archive Entitled",
+  "description": "When a logged in selects Archived Game,Feed Select modal should appear with Watch Free: Condensed Game and Recap/Video/Audio feeds",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d27a4011-1edf-4da4-a73f-f06abf1a4671",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

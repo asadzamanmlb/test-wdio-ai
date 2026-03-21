@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1429",
+  "issueId": "1128766",
+  "key": "WQ-1429",
+  "summary": "Email field",
+  "description": "GIVEN the user is not logged in\r\nAND TTS is turned ON\r\nAND the user is on the Create Free Account page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3c5e9efc-550e-4ade-9aaa-75412ba3d8a3",
+      "action": "WHEN the user navigates to the \"Email Address\" field",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"The email field is selected. Please hit select to enter your email address that you would like associated with your MLB.TV account. Press or scroll down to navigate to the password creation field.\""
+    }
+  ]
+}

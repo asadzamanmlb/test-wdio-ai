@@ -1,0 +1,13 @@
+{
+  "id": "WQ-1424",
+  "issueId": "1128761",
+  "key": "WQ-1424",
+  "summary": "Welcome page Create Free Account button",
+  "description": null,
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": []
+}

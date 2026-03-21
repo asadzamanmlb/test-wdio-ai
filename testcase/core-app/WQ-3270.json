@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3270",
+  "issueId": "1222427",
+  "key": "WQ-3270",
+  "summary": "DAI API is not called when graphql initPlaybackSession \"adsEnabled\": false",
+  "description": "GIVEN a user is entitled to watch video streams (archive, SVOD, RSN) ",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a5cbf2f9-2a68-4086-83fa-b31ad099dbfd",
+      "action": "WHEN a user selects a stream with ads disabled",
+      "data": "!xray-attachment://17741be3-8302-4f62-992c-88690f5c690d|width=2092,height=342!",
+      "result": "Then no calls are made to [dai.google.com|http://dai.google.com]  (this call is ok for sdkloader: [https://imasdk.googleapis.com/js/sdkloader/ima3_dai.js|https://imasdk.googleapis.com/js/sdkloader/ima3_dai.js])"
+    }
+  ]
+}

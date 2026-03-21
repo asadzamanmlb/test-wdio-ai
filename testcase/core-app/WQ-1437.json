@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1437",
+  "issueId": "1128774",
+  "key": "WQ-1437",
+  "summary": "Create Account button - Navigate down",
+  "description": "GIVEN the user is not logged in\r\nAND TTS is turned ON\r\nAND the user is on the Create Free Account page\r\nAND focus is already assigned to the \"Create Account\" button",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "979649c5-7887-4cb5-bc50-a3fc5422a8d8",
+      "action": "WHEN the user attempts to navigate down from the \"Create Account\" button",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"There is no selectable content below the current position.\""
+    }
+  ]
+}

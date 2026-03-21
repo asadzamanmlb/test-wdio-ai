@@ -1,0 +1,20 @@
+{
+  "id": "WQ-435",
+  "issueId": "1127754",
+  "key": "WQ-435",
+  "summary": "Forge Player Controls",
+  "description": "GIVEN a user has initiated playback of VOD/SVOD/FLIVE/SLIVE content",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a6f1a764-e330-4223-a9f9-efe3d5c7dfae",
+      "action": "WHEN the user initiates pause, fast forward, rewind, or play using the remote/controller",
+      "data": "",
+      "result": "THEN the stream reacts appropriately to the actions initiated"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-918",
+  "issueId": "1128247",
+  "key": "WQ-918",
+  "summary": "AtBat subscriber ESPN/Sunday Night Baseball archive - Feed Select modal",
+  "description": "GIVEN a user has AtBat entitlement\r\nAND ESPN Sunday Night Baseball is archived\r\n\r\nAtBat entitlements = MLBAUDIO, IPHONEATBAT, ANDROIDATBAT, SUBSCRIBERVOD",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3faae278-e775-4661-91ba-854702b06e22",
+      "action": "WHEN the user selects the ESPN Sunday Night Baseball game tile",
+      "data": "",
+      "result": "THEN the feed select modal displays\r\nAND the user will see the ESPN feed button with a lock icon\r\nAND a blackout message does not display\r\nAND the user cannot playback the feed\r\nAND the user is taken to the paywall/subscriptions page after selecting the feed button"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2898",
+  "issueId": "1131410",
+  "key": "WQ-2898",
+  "summary": "MASN+ tabs displays in the Header",
+  "description": "GIVEN a user has entitlements for MASN\nAND the user launches the MLB.tv app\n\n*NOTE:* \nMASN entitlement = MASN_110\n\nMASN Test users:\n\n|Username|Password|\n|masn@gmail.com|Password4MASN|\n|masnims@gmail.com (In Market)|Password4MASN|\n|masnoom@gmail.com (Out of Market)|Password4MASN|\n|masnintl@gmail.com (International)|Password4MASN|",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "91051b53-5906-4b78-aae3-5d38d80d219b",
+      "action": "WHEN the user logs in",
+      "data": "",
+      "result": "THEN the user should see [Home], [MASN+], [Games], [Upgrade MLB.TV], [Settings] in the header\n\n**NOTE:** If the test user also has one of the following entitlements, \"EXECMLB\", \"MLBALL\", \"MLBVIDEOADOBEPASS\", \"MLBVIDEOAR\", [Upgrade MLB.TV] will NOT display."
+    }
+  ]
+}

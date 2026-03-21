@@ -1,0 +1,20 @@
+{
+  "id": "WQ-121",
+  "issueId": "1127424",
+  "key": "WQ-121",
+  "summary": "Archive Game National feed without bookmarks",
+  "description": "GIVEN a user navigates to a past day with games\r\nAND the game has a national feed\r\nAND videoFeeds for the game have a mediaState of MEDIA_ARCHIVE\r\nAND the user has the appropriate entitlements to watch archive games\r\nAND the user has not previously played the national feed of the archive game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "94d45d01-146d-4652-8f15-c3136d7af4c1",
+      "action": "WHEN a user selects a game tile for an archive game\r\nAND selects the national video feed button in the Feed Select Modal",
+      "data": "",
+      "result": "THEN the feed select modal/games page is dismissed\r\nAND the video player maximizes to full screen\r\nAND the national video feed starts playing from the beginning of the feed"
+    }
+  ]
+}

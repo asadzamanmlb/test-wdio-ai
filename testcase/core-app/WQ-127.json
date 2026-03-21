@@ -1,0 +1,20 @@
+{
+  "id": "WQ-127",
+  "issueId": "1127430",
+  "key": "WQ-127",
+  "summary": "Condensed Game - Playback",
+  "description": "GIVEN a user has selected a game tile for an archive game\r\nAND the Feed Select modal is displayed",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6328b6af-7abd-4032-b2c8-de4ad5b0be80",
+      "action": "WHEN the user selects the [Condensed Game] button",
+      "data": "",
+      "result": "THEN playback of the Condensed Game is initiated at the beginning of the video\r\nAND the condensed game video is for the game/game tile that was selected\r\nAND the video player is dismissed once playback has completed\r\nAND focus is assigned to the previously selected game tile"
+    }
+  ]
+}

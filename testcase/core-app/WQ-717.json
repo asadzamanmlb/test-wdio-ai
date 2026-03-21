@@ -1,0 +1,20 @@
+{
+  "id": "WQ-717",
+  "issueId": "1128045",
+  "key": "WQ-717",
+  "summary": "Monthly/yearly subscriber live FGotD in market - Feed Select modal",
+  "description": "GIVEN the user is a monthly/yearly subscriber\r\nAND there is a FGotD scheduled/in-progress in the viewing market of the user\r\nAND the game level blackedOutVideo equals true in MASTepg\r\nAND the game level entitledVideo equals true in MASTepg",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b4f0fa3d-43d4-4057-97d5-24a8434b9421",
+      "action": "WHEN the user selects the FGotD game tile with a Blackout pill",
+      "data": "",
+      "result": "THEN video feed buttons are not displayed\nAND a title displays with text \"_Stream On: <Partner Service>_\"\nAND the following blackout messaging is displayed in the Feed Select modal: \"_This broadcast is available to watch exclusively on <Broadcast Partner Name>. Please download from your device app store to watch now or visit [link tbd] to learn more. Archives will be available 90 minutes after the end of the game._\""
+    }
+  ]
+}

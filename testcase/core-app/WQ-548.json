@@ -1,0 +1,20 @@
+{
+  "id": "WQ-548",
+  "issueId": "1127874",
+  "key": "WQ-548",
+  "summary": "Tap Fast Forward",
+  "description": "GIVEN a user is playing a video\r\nAND the scrubber is displayed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "216a3da9-3fb4-4510-b799-c7e386131122",
+      "action": "WHEN a user taps the right d-pad button, R2 button, or the left analog stick to the right, multiple times",
+      "data": "",
+      "result": "THEN for every tap, the FF speed increments 2, 4, 8, 16, 32, 64, 128, 256\r\nAND video is paused while FF is engaged"
+    }
+  ]
+}

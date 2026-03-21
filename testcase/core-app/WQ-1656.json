@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1656",
+  "issueId": "1129073",
+  "key": "WQ-1656",
+  "summary": "Archive STP User - Recap/Condensed Game",
+  "description": "When a Single Team user selects Archived game, Feed Select modal should appear with Condensed Game and Recap option, along with Audio and Video feeds with a lock symbol for any feed the user doesn't have access to.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c473e7b2-692f-49d3-8dbf-935144480a29",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

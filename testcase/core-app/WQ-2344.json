@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2344",
+  "issueId": "1129794",
+  "key": "WQ-2344",
+  "summary": "R5028B - Start-up image on application launch",
+  "description": "**Graphical User Interface**\r\n\r\n**R5028 Requirement:** Check that the following content information is created in the specified format and is displayed/played back correctly.\r\n- Still image icons\r\n- Title names\r\n- Background image\r\n- BGM (optional)\r\n- Start-up image\r\n- Save data default icon (optional)\r\n\r\nAlso ensure that content information is pursuant to the following\r\n- If still image icons and title names support multilingual switching, content information correctly switches to the supported language",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7899eec7-3262-470e-baeb-01a28999ba80",
+      "action": "1. Select the \"Application\" on the home screen\r\n\r\n**Notes:**\r\n- A start-up image other than a black image is strongly recommended.\r\n- Please note that R5019 is also applicable in displaying the start-up image.\r\n- After the application is finished displaying the start-up image, if a blacked out screen is displayed before a screen that the application displays, it must be for less than 30 seconds according to R5019.",
+      "data": "",
+      "result": "The start-up image continues to be displayed until the application displays its screen."
+    }
+  ]
+}

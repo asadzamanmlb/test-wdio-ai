@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1681",
+  "issueId": "1129098",
+  "key": "WQ-1681",
+  "summary": "Live Hero STP User (Currently N/A)",
+  "description": "When Single Team user favorite any team which is LIVE and select Watch LIVE or Watch Now from Hero, Feed Select modal should appear with Audio and Video feeds with a lock symbol for any feed the user doesn't have access to",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d10f1209-e85c-485e-9d42-298bef5f8ec2",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

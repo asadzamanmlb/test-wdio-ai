@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1530",
+  "issueId": "1128867",
+  "key": "WQ-1530",
+  "summary": "TTS | Milestone Tab",
+  "description": "GIVEN TTS is enabled\r\nAND the user is in the video player",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f9f09e60-cb8e-4f0c-822c-6c26fd419867",
+      "action": "When the focus is on the \"Milestones\" tab",
+      "data": "",
+      "result": "THEN the user should hear \"Milestones, 2 of 4 Options, press down to navigate milestones\""
+    }
+  ]
+}

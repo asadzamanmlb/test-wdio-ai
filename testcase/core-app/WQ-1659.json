@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1659",
+  "issueId": "1129076",
+  "key": "WQ-1659",
+  "summary": "Scheduled/Postponed No Broadcast Available",
+  "description": "1. When an anonymous user launches the app and selects Postponed game,Feed Select page should appear  stating \"This game has no available feed at this time\" message.\r\n\r\n2. When a logged in user launches the app and selects Postponed game, Feed Select page should appear  stating \"This game has no available feed at this time\" message.\r\n\r\n**NOTE:** Have not specifically implemented this, but feed buttons with lock icons are displayed, and the user is taken to the subscriptions page after selecting a feed button.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5bd326e2-bf86-498c-9a92-add75b7cc183",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1635",
+  "issueId": "1129052",
+  "key": "WQ-1635",
+  "summary": "FF/RW",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f6f142d8-348c-4ae3-9b84-af6d016dc34d",
+      "action": "WHEN",
+      "data": "",
+      "result": "When fast forward or Rewind is pressed, then the video will scrubbed by 4x, 8x, 16x, 32x and an additional arrow will be shown in the FF/RW box."
+    }
+  ]
+}

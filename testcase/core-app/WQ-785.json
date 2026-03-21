@@ -1,0 +1,20 @@
+{
+  "id": "WQ-785",
+  "issueId": "1128113",
+  "key": "WQ-785",
+  "summary": "Monthly/yearly subscriber YouTube archive - Feed Select modal",
+  "description": "GIVEN a user is a Monthly/Yearly subscriber",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7bab20ae-efd7-4294-9624-83ba2b4edd0f",
+      "action": "WHEN a user selects an archive YouTube game tile",
+      "data": "",
+      "result": "THEN the user will see the YouTube feed button\r\nAND a message does not display letting the user know where the game can be watched\r\nAND the user can playback the YouTube feed"
+    }
+  ]
+}

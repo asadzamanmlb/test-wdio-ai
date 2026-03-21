@@ -1,0 +1,20 @@
+{
+  "id": "WQ-578",
+  "issueId": "1127904",
+  "key": "WQ-578",
+  "summary": "SVOD Playback",
+  "description": "GIVEN a user has SUBSCRIBERVOD entitlement\r\n\r\n",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "dd8557ee-26b1-4765-85c2-0098b16c7392",
+      "action": "WHEN the user selects an SVOD to watch",
+      "data": "",
+      "result": "THEN initPlaybackSession is called via a graphql network call\nAND the video player goes full screen\nAND playback starts from the beginning\nAND the playhead displays far left on the scrubber bar\nAND the entire scrubber bar is gray\nAND the scrubber bar turns blue to the left of the playhead as playback progresses\nAND the \"Jump to Live\" button does not display\nAND the \"CC\" button displays right justified above the scrubber bar\nAND <elapsed_time>/<total_run_time> displays right justified below the scrubber bar\nAND the <elapsed_time> value increases as playback continues"
+    }
+  ]
+}

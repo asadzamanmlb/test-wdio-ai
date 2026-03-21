@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1585",
+  "issueId": "1128991",
+  "key": "WQ-1585",
+  "summary": "All Button Press Test - PS5",
+  "description": "GIVEN I have paired the PS 5 Controller to the PS 5 Console",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0c826915-fa00-4957-8f9b-6193d548c3f3",
+      "action": "WHEN I Press the \"PS\" (G) button once\r\nAND I Press and Hold the \"PS\" (G) button\r\nAND I Press the \"Create\" (B) button\r\nAND I Press the \"Touch pad/touch pad\" (C) button\r\nAND I Press the \"Options\" (D) button\r\nAND I Press the \"Actions/Cross\" button\r\nAND I Press the \"Actions/Circle\" button\r\nAND I Press the \"Actions/Triangle\" button\r\nAND I Press the \"Actions/Square\" button\r\nAND I Press the \"Left stick/L3\" button\r\nAND I Press the \"Right stick/R3\" button\r\nAND I Press the \"Mute\" button",
+      "data": "",
+      "result": "THEN I should notice pressing the \"PS\" (G) button once accesses the control center\r\nTHEN I should notice pressing and holding the \"PS\" (G) button should go to the home screen\r\nTHEN I should notice that the \"Create\" button displays the Create menu\r\nTHEN I should notice that the \"Touch pad/touch pad\" button is recognized for gameplay functions\r\nTHEN I should notice that the \"Options\" button displays the Option menu\r\nTHEN I should notice the \"Actions/Cross\" button selects the highlighted item\r\nTHEN I should notice the \"Actions/Circle\" button cancels a command\r\nTHEN I should notice the \"Actions/Triangle\" button rearranges the items in a list, or views related information\r\nTHEN I should notice the \"Actions/Square\" button can be used as a shortcut for context-sensitive commands\r\nTHEN I should notice the \"Left stick/L3\" button can be used for movement and gameplay functions\r\nTHEN I should notice the \"Right stick/R3\" button can be used for movement and gameplay functions\r\nTHEN I should notice that the \"Mute\" button mutes the controller mic and speaker"
+    }
+  ]
+}

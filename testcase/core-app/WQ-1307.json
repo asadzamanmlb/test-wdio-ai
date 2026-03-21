@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1307",
+  "issueId": "1128644",
+  "key": "WQ-1307",
+  "summary": "Partner games",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND an partner game is on the schedule\r\n\r\nNOTE: Partner games = AppleTV+, Peacock, etc.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "71df06bc-7f94-42be-a519-d8f26fdf39f1",
+      "action": "WHEN the user selects a game tile with a partner pill",
+      "data": "",
+      "result": "THEN the Feed Modal displays\r\nAND the following statement is spoken, \"<away_team> @ <home_team>, <body_text>, Press back to dismiss.\""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2376",
+  "issueId": "1129829",
+  "key": "WQ-2376",
+  "summary": "Playback from Games page",
+  "description": "GIVEN a game is live\r\nAND a user is logged in\r\nAND entitled for game playback\r\nAND the user is on the Games page",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1042cd26-5016-4f99-8a40-64671a60f686",
+      "action": "WHEN the user selects a live game for playback",
+      "data": "",
+      "result": "THEN the game plays back successfully"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-497",
+  "issueId": "1127823",
+  "key": "WQ-497",
+  "summary": "Broadcast Options - Switch Alt Audio - Resume",
+  "description": "GIVEN the user is entitled for live game playback\r\nAND the user is not blacked out of the selected live game\r\nAND the selected game has alt audio feeds\r\nAND the user selects a video feed to initiate live playback",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "edd2e2bb-eb84-494f-9fc8-3e4686acac22",
+      "action": "WHEN the user opens the Broadcast Options in the scrubber\r\nAND the user selects an alt audio feed\r\nAND lets the game continue playing back for at-least several moments\r\nAND the user backs out of game playback\r\nAND the user resumes the same video feed from the feed select modal",
+      "data": "",
+      "result": "THEN video playback resumes at the bookmarked point\r\nAND the alt audio feed that was selected before backing out is playing back\r\nAND the alt audio is in-sync with the video"
+    }
+  ]
+}

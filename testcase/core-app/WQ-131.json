@@ -1,0 +1,20 @@
+{
+  "id": "WQ-131",
+  "issueId": "1127434",
+  "key": "WQ-131",
+  "summary": "Empty Feed Selection",
+  "description": "GIVEN a subscriber is logged in\r\nAND the subscriber is on the Games page\r\nAND the displayed date with games is in the future\r\nAND games have videoFeeds with a mediaState of MEDIA_OFF\r\nAND the subscriber is entitled\r\nAND the subscriber is not blacked out",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0c708b39-4232-41fb-b031-f879654bb225",
+      "action": "WHEN a user selects a game tile for a scheduled game",
+      "data": "",
+      "result": "THEN the Feed Select modal displays\r\nAND the Away team logo/colors should be visible top left\r\nAND the Home team logo/colors should be visible top right\r\nAND a broadcast tower icon is displayed\r\nAND the following text is displayed \"You're a bit early! There are no feeds available yet. Please come back later.\"\r\nAND the user cannot navigate through elements behind the modal"
+    }
+  ]
+}

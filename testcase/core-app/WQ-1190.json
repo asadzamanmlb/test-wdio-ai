@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1190",
+  "issueId": "1128527",
+  "key": "WQ-1190",
+  "summary": "TTS | Scrolling below Login or Cancel button",
+  "description": "GIVEN an unauthenticated user is on the Login Page\r\nAND the user has TTS Enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6d4b893c-9942-45bd-b9f4-3fd2e9335220",
+      "action": "WHEN the user attempts to scroll below the Login or Cancel button",
+      "data": "",
+      "result": "THEN the app reads \"There is no selectable content below. The footer reads {footer}.\r\n\r\nNOTE: unable to confirm the footer part of the requirements since i dont have device access.\r\n**Please delete this note once test case has been reviewed**"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-352",
+  "issueId": "1127664",
+  "key": "WQ-352",
+  "summary": "No Scheduled Games - Offseason/All-Star break",
+  "description": "GIVEN there are no games scheduled for the day",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "78d52ee7-332c-4750-a66e-e2d6be266f17",
+      "action": "WHEN the user loads the Home page",
+      "data": "",
+      "result": "THEN the Games carousel should not display"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1621",
+  "issueId": "1129038",
+  "key": "WQ-1621",
+  "summary": "Play/Pause",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "88215a25-0784-4535-942a-9cd584945f20",
+      "action": "WHEN",
+      "data": "",
+      "result": "Play/Pause options are available on the video player as a quick action item"
+    }
+  ]
+}

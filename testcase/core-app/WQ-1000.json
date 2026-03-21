@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1000",
+  "issueId": "1128329",
+  "key": "WQ-1000",
+  "summary": "Today's Games Scheduled Start Times - UTC +13:00 Independent State of Samoa",
+  "description": "GIVEN games are scheduled for today\r\nAND the PlayStation time zone is set to UTC +13:00 Independent State of Samoa",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d2bcf75a-63d0-4eff-9da2-d23e2bde5ab8",
+      "action": "WHEN the user is on the Games page for today",
+      "data": "",
+      "result": "THEN the game tiles show the scheduled start times in the UTC +13:00 Independent State of Samoa time zone (format: hh:mm [AM|PM])"
+    }
+  ]
+}

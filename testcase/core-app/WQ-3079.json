@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3079",
+  "issueId": "1162022",
+  "key": "WQ-3079",
+  "summary": "MASN VOD FF Cancel",
+  "description": "GIVEN a logged in user is entitled for MASN RSN\nAND the user is on the MASN page\nAND the user selects a VOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "56a920c8-cff3-4fd5-9c8a-5025ae057e3b",
+      "action": "WHEN the user initiates Fast Forward\nAND presses the \"back\" button on the controller after a few moments",
+      "data": "",
+      "result": "THEN Fast Forward stops\nAND playback resumes at the point where Fast Forward was initiated\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

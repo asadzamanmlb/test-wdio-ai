@@ -1,0 +1,20 @@
+{
+  "id": "WQ-911",
+  "issueId": "1128240",
+  "key": "WQ-911",
+  "summary": "Anonymous user archive game - Feed Select",
+  "description": "GIVEN a user is anonymous",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d900dd22-5abf-45ce-8517-583504e72168",
+      "action": "WHEN the user selects an archive game tile",
+      "data": "",
+      "result": "THEN the following text displays in the Feed Select modal \"Subscription Required\", \"A subscription is needed to watch this game.\", \"Full Game Access\" (subject to change via Content Restrictions)\nAND a [Upgrade Plan] button is displayed below \"Full Game Access\"\nAND the user is navigated to the Subscriptions/Paywall page if they select the [Upgrade Plan] button\nAND the user is navigated back to the previous page after pressing the \"BACK\" button on the controller"
+    }
+  ]
+}

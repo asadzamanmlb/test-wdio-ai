@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2349",
+  "issueId": "1129799",
+  "key": "WQ-2349",
+  "summary": "R5031A - Essential text is correctly displayed in all supported languages",
+  "description": "**Graphical User Interface**\r\n\r\n**R5031 Requirement:** All essential text is correctly displayed in all languages supported by the application.\r\n\r\n**Description:**\r\n\"Essential text\" refers to the following:\r\n- Error messages and warning messages defined by the TRC\r\n- Legal texts such as the EULA and other copyright indications\r\n\r\nPlease also make sure that the content does not vary between different languages.\r\n\r\n**QA NOTE:** If the application has the option to change language settings within the application and languages other than those supported by the system are available, ensure that essential text is also checked in these languages.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9db66933-1ab1-454d-a44c-8252b45b8ade",
+      "action": "1. Press the up button on the home screen\r\n2. Set \"Settings\" > \"System\" > \"Language\" > \"Console Language\" to any language supported by the application.\r\n3. Go back to the home screen, then select the \"Application\"\r\n4. Proceed to points where essential text is displayed",
+      "data": "",
+      "result": "All essential text is displayed in the set language"
+    }
+  ]
+}

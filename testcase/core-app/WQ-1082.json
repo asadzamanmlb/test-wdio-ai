@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1082",
+  "issueId": "1128412",
+  "key": "WQ-1082",
+  "summary": "Home page to Subscribe to Home page - Anonymous User",
+  "description": "GIVEN an anonymous user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1c06eafd-9f90-45b1-b735-a9bc941f2d43",
+      "action": "WHEN the user selects the \"Subscribe\" tab in the navigation header\nAND selects the \"Browse Subscriptions\" button on the Welcome page\nAND selects one of the subscription package tiles on the Subscriptions page\nAND selects the \"Log In\" button on the paywall page\nAND enters an email address and password for an existing user\nAND selects the \"Log In\" button on the Log In page",
+      "data": "",
+      "result": "THEN the user is navigated to the Home page\nAND focus is assigned to the featured image in the Hero"
+    }
+  ]
+}

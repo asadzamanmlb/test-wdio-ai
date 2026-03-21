@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1077",
+  "issueId": "1128407",
+  "key": "WQ-1077",
+  "summary": "Create Account - view password",
+  "description": "GIVEN the user is on the Create Account page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "95e40346-5762-48da-b1f9-b207957259bc",
+      "action": "WHEN the user selects the eye button\r\nAND enters characters into the Password field",
+      "data": "",
+      "result": "THEN a user is able to see the characters entered in the Password field\r\nAND the eye button displays a slash through the eye"
+    }
+  ]
+}

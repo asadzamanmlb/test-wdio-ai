@@ -1,0 +1,26 @@
+{
+  "id": "WQ-2910",
+  "issueId": "1131566",
+  "key": "WQ-2910",
+  "summary": "MASN 24/7 feed video error at start up",
+  "description": "GIVEN a user has entitlements for MASN\nAND the user launches the MLB.tv app\nAND the user logs in\nAND network requests to \"tve-live.mlb.com\" are blocked via Chrome DevTools\n\n*NOTE:* \nMASN entitlement = MASN_110\nThis will need to be tested on a Chrome browser using DevTools\n\nMASN Test users:\n\n|Username|Password|\n|masn@gmail.com|Password4MASN|\n|masnims@gmail.com (In Market)|Password4MASN|\n|masnoom@gmail.com (Out of Market)|Password4MASN|\n|masnintl@gmail.com (International)|Password4MASN|",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "af986bb0-ec06-4430-bc25-55fe861c9f75",
+      "action": "WHEN the user is on the MASN page\nAND the user selects the \"Watch Live\" button in the Hero",
+      "data": "",
+      "result": "THEN playback of the 24/7 MASN feed is unsuccessful\nAND a Video Error modal displays with a \"Go Back\" button\nAND the \"Go Back\" button navigates the user back to the SNY page"
+    },
+    {
+      "id": "bdf4e70b-314c-4edb-a4ce-1b129c6071d2",
+      "action": "WHEN the user is on the MASN2 page\nAND the user selects the \"Watch Live\" button in the Hero",
+      "data": "",
+      "result": "THEN playback of the 24/7 MASN2 feed is unsuccessful\nAND a Video Error modal displays with a \"Go Back\" button\nAND the \"Go Back\" button navigates the user back to the SNY page"
+    }
+  ]
+}

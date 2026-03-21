@@ -1,0 +1,20 @@
+{
+  "id": "WQ-536",
+  "issueId": "1127862",
+  "key": "WQ-536",
+  "summary": "Game Details",
+  "description": "GIVEN the user is logged in\nAND the user is entitled to archive game playback\nAND archive game playback is initiated ",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a7209c3d-6503-49f3-9454-d504981b8bbc",
+      "action": "WHEN a user initiates the scrubber bar to display",
+      "data": "",
+      "result": "THEN \"Details\" is the furthest left position below the scrubber bar"
+    }
+  ]
+}

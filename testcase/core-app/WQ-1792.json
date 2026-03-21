@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1792",
+  "issueId": "1129209",
+  "key": "WQ-1792",
+  "summary": "Play Contents/Playback Control/MMRC",
+  "description": "Uses developer company's own API",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b8b441ce-cc54-4cb4-80df-f8b30d4b5bcc",
+      "action": "Execute app → Access random video content → Play content → Check Playback Control movement \r\n\r\n[CASE]\r\n1. Each UI button works properly - refer to UX scenario for movement details\r\n2. Each remote control key mapped in UI button works properly\r\n3. UI button and remote key works identically",
+      "data": "",
+      "result": "- Check if playback control function is working properly\r\n   ->  Check Play, Pause, Stop, Fast Forward, Rewind, Seek, \r\n        Previous, Next, button\r\n   -> Check Playback Control operation with magic remote \r\n        control\r\n- Check if content playback in accordance with playback time\r\n- Check the synchronize of Sound and page\r\n\r\n※ UI Button: Should be able to access by using navigation key and screen cursor\r\n※ If playback control button is installed on remote control as well, the function should work the same by using remote control\r\n※ If app is MHP type,\r\n- Playback control key of remote control may not work"
+    }
+  ]
+}

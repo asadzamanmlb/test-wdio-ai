@@ -1,0 +1,20 @@
+{
+  "id": "WQ-868",
+  "issueId": "1128196",
+  "key": "WQ-868",
+  "summary": "Executive user AppleTV+ archive - Game Tile",
+  "description": "GIVEN a user is an Executive user",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "74e58cc9-1682-4a95-a916-a9e2245c9895",
+      "action": "WHEN a user views/focuses an archive AppleTV+ game tile",
+      "data": "",
+      "result": "THEN a lock icon does not display in the upper right corner of the game tile\r\nAND there is no dark overlay over the team colors in the game tile header\r\nAND the AppleTV+ pill does not display in the game tile"
+    }
+  ]
+}

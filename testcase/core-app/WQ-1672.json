@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1672",
+  "issueId": "1129089",
+  "key": "WQ-1672",
+  "summary": "Entitled user Scheduled game",
+  "description": "When a logged in user launches  the app and selects Future Game, Feed select page appears with “You’re a bit Early” message.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2f8c98aa-c43e-4741-9e50-81d4feae3596",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

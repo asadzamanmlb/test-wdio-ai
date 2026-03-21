@@ -1,0 +1,20 @@
+{
+  "id": "WQ-642",
+  "issueId": "1127970",
+  "key": "WQ-642",
+  "summary": "Monthly/yearly subscriber live game out of market - Game Tile",
+  "description": "GIVEN a user is a Monthly/Yearly subscriber\r\nAND a regular game is scheduled/in-progress\r\nAND the user is not in the viewing market of the game\r\nAND the game level entitledVideo equals true in MAST EPGv3\r\nAND the game level blackedOutVideo equals false in MAST EPGv3",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "841baabe-7e47-4608-add4-8ea30ae474df",
+      "action": "WHEN a user views/focuses a scheduled/in-progress game tile",
+      "data": "",
+      "result": "THEN a lock icon does not display in the upper right corner of the game tile\r\nAND there is no dark overlay over the team colors in the game tile header\r\nAND the team logos are displayed in the game tile header, away team then home team"
+    }
+  ]
+}

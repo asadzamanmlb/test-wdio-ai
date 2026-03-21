@@ -1,0 +1,20 @@
+{
+  "id": "WQ-454",
+  "issueId": "1127780",
+  "key": "WQ-454",
+  "summary": "Slow down Fast Forward",
+  "description": "GIVEN a user is fast forwarding a game feed\nAND the fast forward speed is 4, 8, 16, 32, 64, 128, or 256",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "77912264-9b04-4c95-815c-2da036ec41ff",
+      "action": "WHEN a user taps the left d-pad button, L2 button, or the left analog stick to the left",
+      "data": "",
+      "result": "THEN the fast forward speed decreases by one increment for every tap"
+    }
+  ]
+}

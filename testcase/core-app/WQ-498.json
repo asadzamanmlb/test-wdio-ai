@@ -1,0 +1,20 @@
+{
+  "id": "WQ-498",
+  "issueId": "1127824",
+  "key": "WQ-498",
+  "summary": "Broadcast Options - Reset Alt Audio - Start from the Beginning",
+  "description": "GIVEN a user is logged in\r\nAND the user is entitled for live game playback",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f684dbfe-5c9a-46c7-9ccd-a6bc9512b029",
+      "action": "WHEN the user selects a live game for playback\r\nAND selects an alt audio feed in the Broadcast Options\r\nAND dismisses playback\r\nAND selects the same feed again, from the feed select modal\r\nAND selects \"Start from the Beginning\" in the secondary feed select modal",
+      "data": "",
+      "result": "THEN playback starts at the broadcast start point\r\nAND the TV audio feed is highlighted in blue, in Broadcast Options\r\nAND the TV audio plays back and is synced with the video feed"
+    }
+  ]
+}

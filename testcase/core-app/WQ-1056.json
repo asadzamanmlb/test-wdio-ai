@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1056",
+  "issueId": "1128386",
+  "key": "WQ-1056",
+  "summary": "Log In - hide password",
+  "description": "GIVEN the user is on the Log In page\r\nAND the eye button has a slash through it\r\nAND characters have been entered into the Password field",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b2127f30-b8aa-403f-8987-ff22fc016a40",
+      "action": "WHEN the user selects the eye button",
+      "data": "",
+      "result": "THEN the characters entered in the Password field are changed to dots (•)\r\nAND the eye button does not display a slash through the eye"
+    }
+  ]
+}

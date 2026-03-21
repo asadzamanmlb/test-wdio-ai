@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1196",
+  "issueId": "1128533",
+  "key": "WQ-1196",
+  "summary": "TTS | Focus on Shows",
+  "description": "GIVEN a user launches the app\r\nAND the user has TTS enabled\r\nAND the app has \"Shows\" in the header",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c67e0136-2862-42d9-9440-8e42f7dc1f00",
+      "action": "WHEN a user focuses on the \"Shows\" button",
+      "data": "",
+      "result": "THEN the app reader says “Shows, press select to explore long form MLB content, X of X in the menu, press right or left for more items in the menu”\r\n\r\nNOTE: X should be based on how many buttons are visible to the user in the menu and the place that Shows is in that order"
+    }
+  ]
+}

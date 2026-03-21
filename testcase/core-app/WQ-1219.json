@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1219",
+  "issueId": "1128556",
+  "key": "WQ-1219",
+  "summary": "Game Tile Pregame AppleTV+ Hide Spoilers ON",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND Hide Spoilers is turned ON\r\nAND an AppleTV+ game is on the schedule\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e1c4bb9d-d532-4a44-be4c-7ad7eca19e28",
+      "action": "WHEN focus is assigned to an AppleTV+ game tile that has not yet gone to Live in the Games Carousel",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Game <x> of <y>, <away_team> at <home_team>, <game_start_time> Game Start Time, Blacked Out, Watch On AppleTV+, Press select to play game. Move <appropriate_directions> to navigate to a new item. Move up or down to browse new content.\""
+    }
+  ]
+}

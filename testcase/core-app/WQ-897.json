@@ -1,0 +1,20 @@
+{
+  "id": "WQ-897",
+  "issueId": "1128226",
+  "key": "WQ-897",
+  "summary": "Single Team subscriber out of market non-subscribed teams - Game Tile",
+  "description": "GIVEN a user is a single team subscriber\r\nAND a game doesn't include the subscribed-to-team\r\nAND the game is not in the subscribers viewing market\r\nAND the game level entitledVideo equals false in MAST EPGv3",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "cbc6345d-9213-4b32-81d1-27138e07b5da",
+      "action": "WHEN a user is not subscribed to either team\r\nAND a user views/focuses a scheduled/in-progress game tile",
+      "data": "",
+      "result": "THEN a lock icon displays in the upper right corner of the game tile\r\nAND the game tile header has a dark overlay over the team colors"
+    }
+  ]
+}

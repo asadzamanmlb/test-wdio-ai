@@ -1,0 +1,20 @@
+{
+  "id": "WQ-151",
+  "issueId": "1127454",
+  "key": "WQ-151",
+  "summary": "FOX MVPD Messaging - Unauthorized and Not Entitled",
+  "description": "GIVEN a Postseason game is on the schedule\r\nOR the All-Star Game is on the schedule\r\nAND FOX broadcasters are assigned\r\nAND the user doesn't have the following entitlements: MLBALL, MLBVIDEOADOBEPASS, MLBVIDEOAR\r\nAND the user is unauthorized for FOX MVPD\r\nAND the game level entitledVideo = false\r\nAND the AWAY (National) feed level foxAuthRequired = true\r\n\r\nUser types: atBat/Audio, Free, Anonymous users",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "994657d4-78a2-4dcc-9316-8ce2bfa16cb2",
+      "action": "WHEN the user selects a game tile for a FOX Postseason game tile\r\nOR the user selects the All-Star Game tile",
+      "data": "",
+      "result": "THEN the Feed Select modal displays\r\nAND FOX MVPD messaging displays in the Feed Select modal"
+    }
+  ]
+}

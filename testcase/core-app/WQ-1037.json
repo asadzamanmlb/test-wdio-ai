@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1037",
+  "issueId": "1128367",
+  "key": "WQ-1037",
+  "summary": "Header navigation - T-Mobile user",
+  "description": "GIVEN a T-Mobile subscriber is logged in\r\nAND one of the tabs in the header has focus",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f990b1a1-c46b-4bb5-ad15-faaac096ebb8",
+      "action": "WHEN the user navigates left and right in the header",
+      "data": "",
+      "result": "THEN focus moves from \"Home\" to \"Games\" and vice versa\r\nAND focus moves from \"Games\" to \"Settings\" and vice versa\r\nAND focus moves from \"Settings\" to \"Games\" and vice versa"
+    }
+  ]
+}

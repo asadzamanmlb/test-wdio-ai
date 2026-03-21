@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1044",
+  "issueId": "1128374",
+  "key": "WQ-1044",
+  "summary": "Log in - invalid email format",
+  "description": "GIVEN a user is on the Log In page",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "33fa03b1-ce83-4c6b-b218-65d213e9b887",
+      "action": "WHEN a user has entered an incorrectly formatted email address (no @)\r\nAND a user enters a valid format password",
+      "data": "",
+      "result": "THEN the [Log In] button is not enabled"
+    }
+  ]
+}

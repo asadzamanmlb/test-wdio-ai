@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3384",
+  "issueId": "1248925",
+  "key": "WQ-3384",
+  "summary": "Bookmarked carousel position navigating on RSN page",
+  "description": "GIVEN a user is on a RSN page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1beab419-0c73-46b7-969a-0dfa16091e3d",
+      "action": "WHEN the user navigates right or left through a carousel\r\nAND focus is not on the first item in the carousel\r\nAND the user navigates to a different carousel above or below",
+      "data": "",
+      "result": "THEN the previous carousel doesn't reset its position/order\r\nAND the carousel doesn't reset its position/order after the user navigates back to the previous carousel"
+    }
+  ]
+}

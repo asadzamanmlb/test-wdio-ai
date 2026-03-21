@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1251",
+  "issueId": "1128588",
+  "key": "WQ-1251",
+  "summary": "Live Featured Content Not Entitled",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND the user is on the Home page\r\nAND Live featured content is in the Games carousel\r\nAND the user is not Entitled to Live Featured content\r\n\r\n*NOTE: Live Featured Content = SLive, FLive, MLBN*",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "071108df-4586-49b6-9627-64097be83bc2",
+      "action": "WHEN focus is assigned to Live Featured Content in the Games Carousel",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Live, <content_title>, <content_description>, Not Entitled. Move <appropriate_directions> to navigate to a new item. Move up or down to browse new content.\""
+    }
+  ]
+}

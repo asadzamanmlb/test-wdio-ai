@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1795",
+  "issueId": "1129212",
+  "key": "WQ-1795",
+  "summary": "Play Contents/Subtitle",
+  "description": "Subtitles are supported",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3c793036-74f9-47d4-afc9-de887b508bdc",
+      "action": "Execute app → Playback subtitle supporting content → Check subtitles",
+      "data": "",
+      "result": "Check if subtitles are displayed properly\r\n\r\n※ If subtitle settings are available (color, size, brightness, etc.), check if set conditions are applied properly"
+    }
+  ]
+}

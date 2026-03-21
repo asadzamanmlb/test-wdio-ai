@@ -1,0 +1,20 @@
+{
+  "id": "WQ-825",
+  "issueId": "1128153",
+  "key": "WQ-825",
+  "summary": "Free subscriber YouTube archive - Feed Select modal",
+  "description": "GIVEN a user is a Free subscriber",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d8711284-3813-4ce8-bd88-a8da5f3de7c6",
+      "action": "WHEN a user selects an archive YouTube game tile",
+      "data": "",
+      "result": "THEN the user will see the YouTube feed button with a lock icon\r\nAND a message does not display letting the user know where the game can be watched\r\nAND the user cannot playback the YouTube feed\r\nAND the user is taken to the Subscriptions page after selecting the feed button"
+    }
+  ]
+}

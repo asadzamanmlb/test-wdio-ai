@@ -1,0 +1,20 @@
+{
+  "id": "WQ-119",
+  "issueId": "1127422",
+  "key": "WQ-119",
+  "summary": "Watch From Beginning Away Feed Selection - Archive Game",
+  "description": "GIVEN a user navigates to a past day with games\r\nAND videoFeeds for the game have a mediaState of MEDIA_ARCHIVE\r\nAND the user has previously played the archive feed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "618dd4a2-4737-460d-8047-f56669f0a7ae",
+      "action": "WHEN a user selects a game tile for an archive game\r\nAND selects the away video feed button in the Feed Select Modal\r\nAND selects the [Start From The Beginning] button in the Secondary Feed Select Modal",
+      "data": "",
+      "result": "THEN the feed select modal/games page is dismissed\r\nAND the video player maximizes to full screen\r\nAND the away video feed starts playing from the beginning of the feed"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1085",
+  "issueId": "1128415",
+  "key": "WQ-1085",
+  "summary": "Browse Subscriptions page UI",
+  "description": "GIVEN the user is on the Get MLB.TV/Welcome page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ae671675-bfab-46e1-a760-c719b727f3f5",
+      "action": "WHEN the user selects the [Browse Subscriptions] button on the Welcome page",
+      "data": "",
+      "result": "THEN the user lands on the Subscriptions/Paywall page\r\nAND the background is a generic baseball image\r\nAND all the elements of the page are Left justified on the screen\r\nAND the MLB logo displays at the top of the screen\r\nAND the text \"MLB\" displays directly to the right of the MLB logo\r\nAND below that, the white text \"Choose your plan\" displays (config driven)\r\nAND below that, the white text \"Stream MLB action, minor league games, and exclusive content\" displays (config driven)\r\nAND below that, a Yearly/Monthly toggle displays\r\nAND below that, the available package tiles display in a carousel\r\nAND no more than 3 package tiles are fully displayed in the carousel\r\nIF more than 3 packages are returned from the service, the 4th package tile is peeking from the right side of the screen\r\nAND the text \"Blackout and other restrictions apply. Visit mlb.com/{platform} to learn more.\" displays left justified at the bottom of the screen (config driven)\r\n\r\n**NOTE:** The displayed subscriptions are driven by the paywall config tool. It is possible to have less than three subscription options displaying. The contents of the tiles are also subject to the paywall config tool and may be different than what is mentioned in the test. The displayed subscription options will be left justified."
+    }
+  ]
+}

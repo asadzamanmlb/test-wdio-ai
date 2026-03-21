@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1118",
+  "issueId": "1128448",
+  "key": "WQ-1118",
+  "summary": "Startup Screen - After Log In",
+  "description": "GIVEN a user is logged in\r\nAND the app has been closed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f17c0a99-1dd0-49f3-9f8f-6c8508ac463c",
+      "action": "WHEN the user launches the app from a closed state",
+      "data": "",
+      "result": "THEN the Startup Screen doesn't display\r\nAND the Home page displays"
+    }
+  ]
+}

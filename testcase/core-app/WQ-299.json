@@ -1,0 +1,20 @@
+{
+  "id": "WQ-299",
+  "issueId": "1127611",
+  "key": "WQ-299",
+  "summary": "FS1 MVPD - Canada",
+  "description": "GIVEN a Postseason game is on the schedule\r\nAND FS1 broadcasters are assigned\r\nAND the user's location is in Canada\r\nAND the game level entitledVideo = true\r\nAND the game level blackedOutVideo = true\r\nAND the AWAY (National) feed level fs1AuthRequired = true\r\nAND the HOME (International) feed level fs1AuthRequired = false",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8fb387ed-136d-474a-a5cf-2ffd850f1d78",
+      "action": "WHEN the user views a FS1 Postseason game tile",
+      "data": "",
+      "result": "THEN the MVPD pill does not display above the Hero title / game match up\r\nAND MVPD text does not display below the Hero title / game match up\r\nAND the Blackout pill displays above the Hero title / game match up"
+    }
+  ]
+}

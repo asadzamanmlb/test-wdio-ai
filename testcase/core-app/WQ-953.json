@@ -1,0 +1,20 @@
+{
+  "id": "WQ-953",
+  "issueId": "1128282",
+  "key": "WQ-953",
+  "summary": "Live Game - Focused Game Tile",
+  "description": "GIVEN a subscriber is logged in\r\nAND Hide Spoilers is off\r\nAND the selected date has in-progress/live games",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d2ca2a2c-d023-4e95-9b4a-39d1510d1dc7",
+      "action": "WHEN a subscriber is on the Games page\r\nAND game tiles are displayed\r\nAND an in-progress/live game tile has focus",
+      "data": "",
+      "result": "THEN the game tile is increased in size\r\nAND the game tile has a white border\r\nAND there is a slight gradient from the top\r\nAND the away team primary color is displayed in the upper left of the game tile\r\nAND the away team logo is displayed\r\nAND the away team abbreviation is displayed below the team logo\r\nAND the away team record is displayed below the team abbreviation\r\nAND the home team primary color is displayed in the upper right of the game tile\r\nAND the home team logo is displayed\r\nAND the home team abbreviation is displayed below the team logo\r\nAND the home team record is displayed below the team abbreviation\r\nAND the current score displays between the away and home team logos\r\nAND a \"LIVE\" pill indicator is displayed left justified below the match-up header\r\nAND the current inning status is displayed to the right of the Live pill indicator\r\nAND the current pitcher headshot with the primary team color as the background is displayed left justified below the Live indicator\r\nAND the current pitcher name is displayed to the right of their headshot\r\nAND the current pitcher's innings pitched in the game followed by their season ERA are displayed to the right of their headshot, below their name\r\nAND the current batter headshot with the primary team color as the background is displayed left justified below the current pitcher headshot\r\nAND the current batter's name is displayed to the right of their headshot\r\nAND the current batter's game at-bat's followed by their season batting average are displayed to the right of their headshot, below their name\r\nAND the bases/outs indicators display right-center justified in the non-matchup portion of the game tile\r\nAND the bases indicator reflect the current base runners\r\nAND the outs indicator reflect the current inning outs\r\nAND any applicable pills display left justified at the bottom of the game tile"
+    }
+  ]
+}

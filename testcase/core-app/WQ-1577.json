@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1577",
+  "issueId": "1128983",
+  "key": "WQ-1577",
+  "summary": "Button Press Test - XBOX",
+  "description": "GIVEN I have the Xbox controller connected to the console",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "88d5da8a-bf31-4f75-ba0c-d6c12f857b66",
+      "action": "WHEN I Press the Xbox (4) button/Nexus button\r\n\r\nWHEN I Press and Hold the Xbox (4) button\r\n\r\n![](index.php?/attachments/get/14344227)\r\n![](index.php?/attachments/get/14344743)\r\n\r\n![](index.php?/attachments/get/14344744)",
+      "data": "",
+      "result": "THEN the Xbox console/PC should open the guide on the Xbox console\r\n\r\nTHEN I should notice on a PC during game play that the Game Bar opens\r\n\r\nTHEN I should notice when I Press and Hold the Xbox (4) button that it opens the \r\n\r\nTHEN I should notice when I Press and Hold the Xbox (4) button for about 6 seconds that the controller should turn off"
+    }
+  ]
+}

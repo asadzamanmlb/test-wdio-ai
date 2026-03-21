@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1147",
+  "issueId": "1128482",
+  "key": "WQ-1147",
+  "summary": "Favorite Team - Selection UI",
+  "description": "GIVEN a user is on the Favorite Team page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "084bdb0d-9b26-42e6-a88b-5578d979959f",
+      "action": "WHEN the user selects a team tile",
+      "data": "",
+      "result": "THEN the team logo and team name are present in the tile\r\nAND the tile background is updated to the team's primary color\r\nAND a gold start is displayed in the upper right corner of the team tile"
+    }
+  ]
+}

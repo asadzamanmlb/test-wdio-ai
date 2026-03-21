@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2375",
+  "issueId": "1129827",
+  "key": "WQ-2375",
+  "summary": "Playback from Games carousel",
+  "description": "GIVEN a game is live\r\nAND a user is logged in\r\nAND entitled for game playback\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a0b3d5a5-1be8-45a4-9473-7a6f4ecd706d",
+      "action": "WHEN the user selects a live game for playback from the Games carousel",
+      "data": "",
+      "result": "THEN the game plays back successfully"
+    }
+  ]
+}

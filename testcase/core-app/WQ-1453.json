@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1453",
+  "issueId": "1128790",
+  "key": "WQ-1453",
+  "summary": "Have an MLB Account button",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is launching the app for the first time\r\nAND the user is on the Getting Started page\r\nAND focus is not on the \"Have an MLB.TV Account\" button\r\n\r\nNOTE: To simulate launching the app for the first time, the tester needs to select the \"Clear Browser Storage\" button in Dev Settings on the Settings page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "aeaaac25-725d-4f0e-9bdc-20ee6e08346d",
+      "action": "WHEN the user assigns focus to the \"Have an MLB.TV Account\" button",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Have An MLB.TV Account?, press select if you already have an MLB.TV account. Press or scroll up if you do not have an MLB.TV account.\""
+    }
+  ]
+}

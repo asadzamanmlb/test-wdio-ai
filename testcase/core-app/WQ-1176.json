@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1176",
+  "issueId": "1128511",
+  "key": "WQ-1176",
+  "summary": "Samsung Only - User confirms exit on Exit Confirmation screen",
+  "description": "GIVEN the user is on the mlb app on Samsung tv\r\nAND the user is on the Exit Confirmations Screen",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "fc8ba8c3-efdc-456b-86c4-8932542dc26f",
+      "action": "WHEN the user selects the \"Yes, Exit\" button",
+      "data": "",
+      "result": "THEN the user successfully exits the app"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1161",
+  "issueId": "1128496",
+  "key": "WQ-1161",
+  "summary": "Hide Spoilers UI",
+  "description": "GIVEN a user is on the Settings page\r\nAND focus is assigned to \"Hide Spoilers\"",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "569883a7-fda9-489a-8c39-90d0bf999575",
+      "action": "WHEN the user presses the ENTER/SELECT button on the controller",
+      "data": "",
+      "result": "THEN the Hide Spoilers value is toggled between Off/On\r\nAND the following text displays on the left side of the screen, \"Scores can be hidden for live and archived games to avoid display of spoilers.\""
+    }
+  ]
+}

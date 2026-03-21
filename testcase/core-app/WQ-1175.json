@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1175",
+  "issueId": "1128510",
+  "key": "WQ-1175",
+  "summary": "Samsung Only - Exit screen UI",
+  "description": "GIVEN the user is on the mlb app on Samsung tv",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "dcfda8bd-5fc1-4c06-8ae8-b69508ba7377",
+      "action": "WHEN the user triggers the exit key",
+      "data": "",
+      "result": "THEN the user should see the MLB logo in the top left of the screen\r\nAND the user should see a title which reads \"Exit the App\"\r\nAND the user should see the text \"Are you sure you want to leave MLBTV?\"\r\nAND the user should see a button option that read \"Yes, Exit\"\r\nAND the user should see another button option the reads \"No, Go Back\""
+    }
+  ]
+}

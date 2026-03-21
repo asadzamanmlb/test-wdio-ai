@@ -1,0 +1,20 @@
+{
+  "id": "WQ-643",
+  "issueId": "1127971",
+  "key": "WQ-643",
+  "summary": "Monthly/Yearly subscriber live game out of market - Feed Select",
+  "description": "GIVEN a user is a Monthly/Yearly subscriber\r\nAND a regular game is scheduled/in-progress\r\nAND the user is not in the viewing market of the game\r\nAND the game level entitledVideo equals true in MAST EPGv3\r\nAND the game level blackedOutVideo equals false in MAST EPGv3",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2787de3f-67a0-4f34-9d7d-bfca08ca6116",
+      "action": "WHEN a user selects a scheduled/in-progress game tile",
+      "data": "",
+      "result": "THEN the user will see feed buttons for both teams\r\nAND the user can playback feeds for both teams"
+    }
+  ]
+}

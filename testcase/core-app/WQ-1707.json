@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1707",
+  "issueId": "1129124",
+  "key": "WQ-1707",
+  "summary": "First playback of an archive game - Hide Spoilers ON",
+  "description": "GIVEN the user is entitled for archive game playback\nAND Hide Spoilers is ON\nAND the user has not previously watched a game feed/stream",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "fa17da69-a748-45d6-a51e-a51c6b22e547",
+      "action": "WHEN the user selects an archive feed/stream that doesn't have any saved resume bookmarks",
+      "data": "",
+      "result": "THEN playback starts from the broadcast start point\nAND the scrubber playhead is at the furthest left postion on the scrubber bar\nAND the elapsed time in the scrubber starts at 00:00"
+    }
+  ]
+}

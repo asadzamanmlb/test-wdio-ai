@@ -1,0 +1,20 @@
+{
+  "id": "WQ-749",
+  "issueId": "1128077",
+  "key": "WQ-749",
+  "summary": "Free subscriber in market - Feed Select",
+  "description": "GIVEN a user is a free subscriber\r\nAND a game is scheduled/in-progress in the users viewing market\r\nAND the game level blackedOutVideo equals true in MAST EPGv3\r\nAND the game level entitledVideo equals false in MAST EPGv3",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "eb6bf2d3-9870-4180-aa45-5ae890eabaea",
+      "action": "WHEN a user selects a scheduled/in-progress in-market game tile",
+      "data": "!xray-attachment://6e1427b0-14c3-4c2a-88fe-4825d8558b59|width=720,height=540!",
+      "result": "THEN video feed buttons are not displayed\nAND the following blackout messaging is displayed in the Feed Select modal: \n\n____.TV In-Market Entitlement Required   \n\n____.TV logo\n\nYour current package does not entitle you to in-market ___s games. Link your [MLB.TV|http://MLB.TV] account to a participating pay TV provider at [mlb.com/commerce/mvpd/rockies|http://mlb.com/commerce/mvpd/rockies] or upgrade to a ____.TV package at [mlb.com/live-stream-games/subscribe/rockies|http://mlb.com/live-stream-games/subscribe/rockies] to watch this game. \n\nFull Game Access\n\n‘Upgrade [MLB.TV|http://MLB.TV]’ - button which links to Subscriptions/Plans page"
+    }
+  ]
+}

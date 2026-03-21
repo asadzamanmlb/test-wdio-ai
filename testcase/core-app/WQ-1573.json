@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1573",
+  "issueId": "1128979",
+  "key": "WQ-1573",
+  "summary": "Smart TV Features - LG",
+  "description": "GIVEN I have a LG TV remote with Smart TV Functions",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "51aa4c42-ca4f-4389-b68b-b1d93c984d38",
+      "action": "WHEN I launch the MLB.TV app\r\nAND I select any streaming service \r\nAND I select the voice control feature from the LG TV remote",
+      "data": "",
+      "result": "THEN the MLB.TV app should launch without issue\r\nTHEN the streaming service should start to play without issue\r\nTHEN the voice control should allow the use of my voice to be used"
+    }
+  ]
+}

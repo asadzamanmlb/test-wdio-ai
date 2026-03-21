@@ -1,0 +1,20 @@
+{
+  "id": "WQ-768",
+  "issueId": "1128096",
+  "key": "WQ-768",
+  "summary": "US AtBat subscriber plain ESPN - Game Tile",
+  "description": null,
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f4f10f33-16aa-4569-a4f3-39a4d6040c89",
+      "action": "WHEN",
+      "data": "",
+      "result": "THEN a blackout pill displays in the game tile"
+    }
+  ]
+}

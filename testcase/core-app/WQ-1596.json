@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1596",
+  "issueId": "1129013",
+  "key": "WQ-1596",
+  "summary": "Logged in user returns an experience",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7c20707b-5ff5-4cd6-92f2-32bad0def498",
+      "action": "WHEN a logged in user launches the app",
+      "data": "",
+      "result": "THEN the traffic splitting service is called \r\nAND an experience is returned"
+    }
+  ]
+}

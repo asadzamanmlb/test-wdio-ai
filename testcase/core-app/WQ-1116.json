@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1116",
+  "issueId": "1128446",
+  "key": "WQ-1116",
+  "summary": "Startup Screen - Getting Started",
+  "description": "GIVEN a user is launching the app for the first time\r\nOR, for testing purposes, the tester has selected the \"Clear Browser Storage\" button, within the Dev Settings on the Settings page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a1078445-da1a-45cc-8402-8eb35eebdd76",
+      "action": "WHEN the Startup Screen is displayed\r\nAND the user selects the Getting Started button",
+      "data": "",
+      "result": "THEN the Favorite Team page is displayed"
+    }
+  ]
+}

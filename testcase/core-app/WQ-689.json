@@ -1,0 +1,20 @@
+{
+  "id": "WQ-689",
+  "issueId": "1128017",
+  "key": "WQ-689",
+  "summary": "Executive user FGotD - Feed Select",
+  "description": "GIVEN a user is an Executive user",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a399c31e-91c6-4b6d-a1ce-2e1b1cc3d794",
+      "action": "WHEN a user selects any scheduled/in-progress FGotD game tile",
+      "data": "",
+      "result": "THEN the user will see feed buttons for both teams\r\nAND the user can playback feeds for both teams"
+    }
+  ]
+}

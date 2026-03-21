@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1505",
+  "issueId": "1128842",
+  "key": "WQ-1505",
+  "summary": "SLIVE | Hearing Speed Announcement While Rewinding",
+  "description": "GIVEN the user is watching SLIVE content\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "870396ff-f7ef-4b80-92d6-d2eeb04cd0ea",
+      "action": "WHEN the user initiates Rewind",
+      "data": "",
+      "result": "THEN the user will hear: “Rewind, <speed>, Press select to Play”"
+    }
+  ]
+}

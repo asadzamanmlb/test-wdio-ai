@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3103",
+  "issueId": "1162124",
+  "key": "WQ-3103",
+  "summary": "Game Scrubber - Match Up",
+  "description": "GIVEN a logged in user is entitled for archive game playback\r\n",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "bec5c3cd-4658-4603-aa29-386a26ec3b78",
+      "action": "WHEN the user selects an archive game/feed for playback",
+      "data": "",
+      "result": "THEN the video player is displayed\nAND the team logos and city abbreviations (ATL, CIN) are displayed left justified above the scrubber bar\nAND the logos display in order of Away team, Home team"
+    }
+  ]
+}

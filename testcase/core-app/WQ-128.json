@@ -1,0 +1,20 @@
+{
+  "id": "WQ-128",
+  "issueId": "1127431",
+  "key": "WQ-128",
+  "summary": "Condensed Game - Playback dismiss",
+  "description": "GIVEN a user has selected a game tile for an archive game\r\nAND the user has initiated playback of a Condensed Game from the Feed Select modal\r\nAND the scrubber bar is not displaying in the video player",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9f16d08a-8ca8-41a7-a72a-7c73c6934dad",
+      "action": "WHEN the user presses the CIRCLE button on the controller",
+      "data": "",
+      "result": "THEN the video player is dismissed\r\nAND focus is assigned to the previously selected game tile"
+    }
+  ]
+}

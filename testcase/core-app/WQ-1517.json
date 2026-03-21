@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1517",
+  "issueId": "1128854",
+  "key": "WQ-1517",
+  "summary": "-Quick Actions Menu | Gameday Mode Option",
+  "description": "GIVEN the user is in the Quick Actions Menu\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1345997c-5576-4d42-8962-e169b576271d",
+      "action": "WHEN the user navigates the \"Gameday\" mode option",
+      "data": "",
+      "result": "THEN the user will hear: “Gameday Mode, x out of y options. Press Select to view Gameday feature, Press <appropriate_directions> for more quick actions options, Press down for player controls, Press back to dismiss controls.”"
+    }
+  ]
+}

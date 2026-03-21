@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3046",
+  "issueId": "1161792",
+  "key": "WQ-3046",
+  "summary": "SNY 24/7 feed Pause/Play",
+  "description": "GIVEN a logged in user is entitled for SNY RSN\nAND the user is playing back the SNY 24/7 stream",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8e48cc33-1543-43e0-af2b-59aee7ad6d17",
+      "action": "WHEN the user presses the \"select\" button on the controller\nAND the user presses the \"select\" button again after a a minute",
+      "data": "",
+      "result": "THEN video playback pauses after the first button press\nAND video playback resumes after the second button press\nAND the elapsed time in the scrubber reflects the playhead position\nAND the live indicator is grey, indicating not at the live point\nAND the \"Jump to Live\" button displays right justified above the scrubber bar"
+    }
+  ]
+}

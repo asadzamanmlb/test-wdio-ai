@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1669",
+  "issueId": "1129086",
+  "key": "WQ-1669",
+  "summary": "SVOD/SLIVE Free User (Currently N/A)",
+  "description": "When Free user launches the app and selects SVOD/SLIVE, Feed Select modal should appear that has the title of the video and the button with Upgrade MLB.TV\r\n\r\n**Behavior as of 7/13/23:** Directs to paywall after selecting the SVOD/SLIVE tile or \"Watch\" button in the Hero",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b7b89c69-bcce-4b8c-a428-d4fce3cc5a21",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2991",
+  "issueId": "1158406",
+  "key": "WQ-2991",
+  "summary": "SLIVE End of live stream",
+  "description": "GIVEN a logged in user is entitled for SLIVE playback\n\nAND an SLIVE is available for playback",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4cbf93b4-b248-4b19-a7d9-542040a824dc",
+      "action": "WHEN an SLIVE program is playing from the live point\n\nAND the stream ends",
+      "data": "",
+      "result": "THEN the video player is dismissed\nAND the user is navigated back to the previous page"
+    }
+  ]
+}

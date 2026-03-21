@@ -1,0 +1,20 @@
+{
+  "id": "WQ-961",
+  "issueId": "1128290",
+  "key": "WQ-961",
+  "summary": "Preview - TBD - Spring Training",
+  "description": "GIVEN the user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6367d9dc-ef0a-4e16-9118-73e05a91d9ff",
+      "action": "WHEN a user views the game tile details for a game without a scheduled time",
+      "data": "",
+      "result": "THEN \"TBD\" will display left justified below the match-up header"
+    }
+  ]
+}

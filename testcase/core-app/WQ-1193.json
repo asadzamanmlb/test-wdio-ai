@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1193",
+  "issueId": "1128530",
+  "key": "WQ-1193",
+  "summary": "TTS | Focus on Home",
+  "description": "GIVEN a user launches the app\r\nAND the user has TTS enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7b07c5bf-ed63-4612-a941-f4d8b238220a",
+      "action": "WHEN a user focuses on the \"Home\" button",
+      "data": "",
+      "result": "THEN the app reader says \"Home, press select to explore Homepage content, 1 of X in the menu, press right for more items in the menu”\r\n\r\nNOTE: X should be based on how many buttons are visible to the user in the menu"
+    }
+  ]
+}

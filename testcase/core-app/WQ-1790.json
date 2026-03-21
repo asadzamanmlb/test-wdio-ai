@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1790",
+  "issueId": "1129207",
+  "key": "WQ-1790",
+  "summary": "Sound",
+  "description": "Sound is included",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "214e50c1-7be1-4f71-ab9e-f5e16a7e7de4",
+      "action": "Execute app → Check sound",
+      "data": "",
+      "result": "- Sound (BGM, Sound Effect, etc.) is coming out properly\r\n- When sound is coming out, check whether Noise occurs.\r\n- Sound Volume is properly operating\r\n- Sound On/Off function is working properly\r\n\r\n※ Refer to BGM/Sound Effect item of UX scenario"
+    }
+  ]
+}

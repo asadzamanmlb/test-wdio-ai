@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1772",
+  "issueId": "1129189",
+  "key": "WQ-1772",
+  "summary": "Payment.1",
+  "description": "In-app purchase function is included\r\n",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "930bcd4e-fcbb-45e0-acb2-eed21388a8b0",
+      "action": "Execute app → Purchase content",
+      "data": "",
+      "result": "Content payment works properly"
+    }
+  ]
+}

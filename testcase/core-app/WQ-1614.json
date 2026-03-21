@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1614",
+  "issueId": "1129031",
+  "key": "WQ-1614",
+  "summary": "Resume",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c3a277b2-c7ba-4a25-ac05-6c072241bbe2",
+      "action": "WHEN",
+      "data": "",
+      "result": "Resume option in the options menu after selecting the away/home feed will always start video playback at the bookmarked point"
+    }
+  ]
+}

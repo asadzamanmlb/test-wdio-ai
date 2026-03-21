@@ -1,0 +1,26 @@
+{
+  "id": "WQ-283",
+  "issueId": "1127595",
+  "key": "WQ-283",
+  "summary": "No Broadcasters Available",
+  "description": "GIVEN a user navigates to our Home Page, Today’s Lineup Carousel on the Home Page, or Games Page\nAND a non-blacked out/entitled game without broadcasters is on the schedule (spring training)",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f59aaf44-20a6-44de-8528-36adbf2549bc",
+      "action": "WHEN a non-blacked out Live game without broadcasters is present\n\nAnd the user selects the game",
+      "data": "!xray-attachment://0f17ba6a-c477-44ce-a340-b17d6b76d3f2|width=3454,height=1910!",
+      "result": "THEN a \"No Broadcast Available\" modal is displayed with both team logos in the header."
+    },
+    {
+      "id": "6844b79f-21f5-4e41-914c-565a4288cbb8",
+      "action": "When a non-blacked out Upcoming game without broadcasters is present\n\nAnd the user selects the game",
+      "data": "!xray-attachment://25d16635-1f75-4156-abe0-dd6db5faad13|width=3454,height=1910!",
+      "result": "Then a \"You’re a bit early!\" modal is displayed with both team logos in the header and a note that states: \"There are no feeds available yet. Please come back later.\""
+    }
+  ]
+}

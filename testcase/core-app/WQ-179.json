@@ -1,0 +1,20 @@
+{
+  "id": "WQ-179",
+  "issueId": "1127482",
+  "key": "WQ-179",
+  "summary": "Partial Subscriber Feed Select modal - Live",
+  "description": "GIVEN a user is a free subscriber\nOR a user is a single team subscriber\nOR a user is not logged in/anonymous",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "fc7aa14c-dd5e-4a0c-95f5-0bef9acdaa46",
+      "action": "WHEN a user selects a game tile for a game they are not entitled",
+      "data": "",
+      "result": "THEN the following text is displayed in the Feed Select modal \"[MLB.TV|http://MLB.TV] Subscription Required\", \"You need an active [MLB.TV|http://MLB.TV] subscription to view this game. [MLB.TV|http://MLB.TV] Single Team subscribers, click your team’s broadcast. New users please visit [www.mlb.com/|http://www.mlb.com/]<device> to purchase.\", \"Full Game Access\"\nAND an [Upgrade [MLB.TV|http://MLB.TV]] button is displayed below \"Full Game Access\""
+    }
+  ]
+}

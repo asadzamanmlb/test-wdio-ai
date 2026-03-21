@@ -1,0 +1,20 @@
+{
+  "id": "WQ-956",
+  "issueId": "1128285",
+  "key": "WQ-956",
+  "summary": "Live Game - Unfocused Game Tile Hide Spoilers ON",
+  "description": "GIVEN a subscriber is logged in\r\nAND Hide Spoilers is set to ON\r\nAND the selected date has in-progress/live games",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "587eaf3d-819f-4727-92b6-61bd1cab50c8",
+      "action": "WHEN a subscriber is on the Games page\r\nAND game tiles are displayed\r\nAND an in-progress/live game tile does not have focus",
+      "data": "",
+      "result": "THEN the away team primary color is displayed in the upper left of the game tile\r\nAND the away team logo is displayed\r\nAND the away team abbreviation is displayed below the team logo\r\nAND the home team primary color is displayed in the upper right of the game tile\r\nAND the home team logo is displayed\r\nAND the home team abbreviation is displayed below the team logo\r\nAND a \"LIVE\" pill indicator is displayed left justified below the match-up header\r\nAND the current pitcher displays as \"Pitcher Hidden\" left justified below the Live indicator\r\nAND the current batter displays as \"Batter Hidden\" left justified below the current pitcher\r\nAND the bases/outs indicators do not display\r\nAND any applicable pills display left justified at the bottom of the game tile"
+    }
+  ]
+}

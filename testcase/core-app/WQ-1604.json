@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1604",
+  "issueId": "1129021",
+  "key": "WQ-1604",
+  "summary": "MLB experience does not call BAMSDK",
+  "description": "MLB user: adobemlb@gmail.com / Password23",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "aae937ea-e090-46ee-a340-00619596f557",
+      "action": "WHEN a user is using the MLB experience",
+      "data": "",
+      "result": "THEN no calls are made via the BAMSDK (https://*.bamgrid.com/*/graphql)\r\nAND calls are made via the Media-Gateway (https://media-gateway.mlb.com/graphql)"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1047",
+  "issueId": "1128377",
+  "key": "WQ-1047",
+  "summary": "Log In - unsuccessful wrong password",
+  "description": "GIVEN a user is on the Log In page\r\nAND a user has entered an MLB account email address",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1155b56c-d11d-4042-9a48-c69228a85e74",
+      "action": "WHEN a user enters an incorrect account password\r\nAND a user selects the [Log In] button",
+      "data": "",
+      "result": "THEN the user is not logged in\r\nAND the following text displays in red below the password field, \"The email address or password was incorrect. Please verify your login credentials and try again.\"\r\nAND the email field has a red border\r\nAND the password field has a red border"
+    }
+  ]
+}

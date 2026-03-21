@@ -1,0 +1,20 @@
+{
+  "id": "WQ-593",
+  "issueId": "1127919",
+  "key": "WQ-593",
+  "summary": "VOD Pause",
+  "description": "GIVEN a user (paid/free/anonymous) has launched the MLB app\r\nAND the user selects a VOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f6432f04-1685-45da-b700-415c23bbedf1",
+      "action": "WHEN the user presses the \"select\" button on the controller\nAND the user presses the \"select\" button again after a few moments",
+      "data": "",
+      "result": "THEN video playback pauses after the first button press\r\nAND a pause flash icon is displayed for one second before it disappears\r\nAND video playback resumes after the second button press\r\nAND a play flash icon is displayed for one second before it disappears\r\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

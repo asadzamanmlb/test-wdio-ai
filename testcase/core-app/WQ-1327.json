@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1327",
+  "issueId": "1128664",
+  "key": "WQ-1327",
+  "summary": "Game Tile Pregame Blacked Out Hide Spoilers ON",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged\r\nAND Hide Spoilers is turned ON\r\nAND the user is blacked out of a game on the schedule\r\nAND the user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8b416db4-5635-4aa0-afcc-d28edd55951c",
+      "action": "WHEN the user assigns focus to a game tile that has a blackout pill that is not live yet",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Game <x> of <y>, <away_team> at <home_team>, <game_start_time> Game Start Time, Blacked Out, Press select to play game. Move <appropriate_directions> to hear more games. Move up to navigate to a new date.\""
+    }
+  ]
+}

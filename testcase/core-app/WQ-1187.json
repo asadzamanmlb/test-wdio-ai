@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1187",
+  "issueId": "1128524",
+  "key": "WQ-1187",
+  "summary": "TTS | Select Uncover Password button",
+  "description": "GIVEN an unauthenticated user is on the Login Page\r\nAND the user has TTS Enabled\r\nAND the password is currently Hidden",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "eb6e28fe-77a3-43c1-8468-cc8a1bb4bf31",
+      "action": "WHEN the user selects the Unhide Password button",
+      "data": "",
+      "result": "THEN the app reader says \"The password is currently unhidden. Hit select to hide your password. Scroll or hit left to edit your password. Scroll down to cancel your login.”"
+    }
+  ]
+}

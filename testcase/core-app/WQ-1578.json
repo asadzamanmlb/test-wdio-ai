@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1578",
+  "issueId": "1128984",
+  "key": "WQ-1578",
+  "summary": "All Buttons Press Test - XBOX",
+  "description": "GIVEN I am logged into the MLB.TV app",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f05e71f7-22ee-4c88-a285-64b3e38708e0",
+      "action": "WHEN I connect the gamepad controller to the computer\r\n\r\nAND I press the LEFT STICK (1) button \r\n\r\nAND I press the LEFT BUMPER (2) button\r\n\r\nAND I press the VIEW (3) button\r\n\r\nAND I release the VIEW (3) button\r\n\r\nAND I press the MENU (6) button \r\n\r\nAND I press the RIGHT BUMPER (7) button\r\n\r\nAND I press the DIRECTIONAL PAD (D-pad) (8) button\r\n\r\nAND I press the RIGHT STICK (10) button\r\n\r\nAND I press the \"A\" button\r\n\r\nAND I press the \"B\" button\r\n\r\nAND I press the \"X\" button\r\n\r\nAND I press the \"Y\" button\r\n\r\n![](index.php?/attachments/get/14345375)\r\n\r\n![](index.php?/attachments/get/14345376)\r\n![](index.php?/attachments/get/14345377)",
+      "data": "",
+      "result": "THEN the LEFT STICK (1) button should function as a clickable button and move directionally\r\n\r\nTHEN the LEFT BUMPER (2) button button should allow the user to jump between sections of the of the user interface\r\n\r\nTHEN the LEFT BUMPER (2) button should be released without issue\r\n\r\nTHEN the VIEW (3) button should function as intended in the MLB.TV app\r\n\r\nTHEN the MENU (6) button should allow the user to access the MLB.TV app's menu options: \"Settings\", \"Help\" and \"Go To Channel\"\r\n\r\nTHEN the RIGHT BUMPER (7) button should allow the user to jump between sections of the of the user interface\r\n\r\nTHEN DIRECTIONAL PAD (D-pad) (8) button should allow the user to move the focus up, down, right, and left in the MLB .TV app\r\n\r\nTHEN the RIGHT STICK (10) button should function as a clickable button and move directionally\r\n\r\nTHEN the \"A\" button should interact with the app and the console interface\r\n\r\nTHEN the \"B\" button should interact with the app and the console interface.\r\n\r\nTHEN the \"X\" button should interact with the app and the console interface\r\n\r\nTHEN the \"Y\" button should interact with the app and the console interface"
+    }
+  ]
+}

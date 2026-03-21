@@ -1,0 +1,20 @@
+{
+  "id": "WQ-415",
+  "issueId": "1127727",
+  "key": "WQ-415",
+  "summary": "SNLA+ VOD Playback",
+  "description": "GIVEN a user has entitlements for SNLA+\r\nAND the user launches the MLB.TV app\r\nAND the user logs in\r\nAND the user is on the SNLA+ page\r\n\r\n**NOTE:** SNLA+ entitlement = SNLA_119",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "15072093-1c3d-487a-9f3f-62f935957eb2",
+      "action": "WHEN the user selects a VOD tile from a carousel",
+      "data": "",
+      "result": "THEN initPlaybackSession is called via a graphql network call\nAND the VOD plays back successfully\nAND the video title displays left justified above the scrubber bar"
+    }
+  ]
+}

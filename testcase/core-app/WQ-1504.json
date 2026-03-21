@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1504",
+  "issueId": "1128841",
+  "key": "WQ-1504",
+  "summary": "SLIVE | Hearing Speed Announcement While Fast Forwarding",
+  "description": "GIVEN the user is watching SLIVE content\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1551d780-356c-4433-ac66-d03010717f3f",
+      "action": "WHEN the user starts Fast Forwarding",
+      "data": "",
+      "result": "THEN the user will hear: “Fast Forward, <Speed>, Press select to Play”"
+    }
+  ]
+}

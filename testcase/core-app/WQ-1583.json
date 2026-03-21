@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1583",
+  "issueId": "1128989",
+  "key": "WQ-1583",
+  "summary": "Analog Stick Test - PS5",
+  "description": "GIVEN I have connected the analog stick to the console\r\n\r\nRefer manual for more info- https://manuals.plus/playstation/ps5-dual-sense-wireless-controller-manual",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ba28ced3-f58d-4c69-acc8-0c0cf94cea79",
+      "action": "WHEN I Press the Left Thumbstick (L1) button \r\nAND I Press the Left Thumbstick (L2) button\r\n\r\nAND I Press the Right Thumbstick (R1) button\r\nAND I Press the Right Thumbstick (R2) button",
+      "data": "",
+      "result": "THEN I should notice the Left Thumbstick (L1) button to move to the Left\r\nTHEN I should notice the Left Thumbstick (L2) button to move to the Left\r\n\r\nTHEN I should notice the Right Thumbstick (R1) button to move to the Right\r\nTHEN I should notice the Right Thumbstick (R2) button to move to the Right"
+    }
+  ]
+}

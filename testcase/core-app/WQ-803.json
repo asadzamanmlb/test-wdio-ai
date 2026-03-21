@@ -1,0 +1,20 @@
+{
+  "id": "WQ-803",
+  "issueId": "1128131",
+  "key": "WQ-803",
+  "summary": "Single Team subscriber AppleTV+ archive unsubscribed teams - Feed Select modal",
+  "description": "GIVEN a user is a Single Team subscriber\r\nAND an archive AppleTV+ game does not contain the subscribed team",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1da337dd-88a9-4457-8b27-a626593097bd",
+      "action": "WHEN a user selects an archive AppleTV+ game tile",
+      "data": "",
+      "result": "THEN the user will see the AppleTV+ feed button with a lock icon\r\nAND a message does not display letting the user know where the game can be watched\r\nAND the user cannot playback the AppleTV+ feed\r\nAND the user is taken to the Subscriptions page after select the feed button with a lock icon"
+    }
+  ]
+}

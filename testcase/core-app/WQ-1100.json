@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1100",
+  "issueId": "1128430",
+  "key": "WQ-1100",
+  "summary": "Subscription Package Tile - Medium",
+  "description": "GIVEN the user is on the Paywall page\r\nAND subscription packages have been returned from the Paywall Config\r\nAND \"medium\" is the size returned from the Paywall Config\r\nAND at least 4 yearly and 4 monthly subscription packages are returned from the Paywall Config",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "817bab70-c035-44ee-b250-70a2bdfc884c",
+      "action": "WHEN the user views the packages on the Paywall page",
+      "data": "",
+      "result": "THEN only three full tiles are displayed on the page\r\nAND a fourth tile is peaking from the right side of the screen\r\nAND as the user navigates focus to the right, the carousel slide to the left"
+    }
+  ]
+}

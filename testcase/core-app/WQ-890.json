@@ -1,0 +1,20 @@
+{
+  "id": "WQ-890",
+  "issueId": "1128219",
+  "key": "WQ-890",
+  "summary": "ESPN MVPD - International non-Canada",
+  "description": "GIVEN a Postseason game is on the schedule\r\nAND ESPN broadcasters are assigned\r\nAND the user's location is International non-Canada\r\nAND the game level entitledVideo = true\r\nAND the game level blackedOutVideo = false\r\nAND the AWAY (National) feed level espnAuthRequired = true\r\nAND the HOME (International) feed level espnAuthRequired = false",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2c6c8159-e9bb-4964-b8b1-e9b31a278c26",
+      "action": "WHEN the user views a ESPN Postseason game tile",
+      "data": "",
+      "result": "THEN the MVPD pill does not display in the lower left corner of the game tile"
+    }
+  ]
+}

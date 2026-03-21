@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1277",
+  "issueId": "1128614",
+  "key": "WQ-1277",
+  "summary": "Game Tile Final Free Game of the Day",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5e5fba51-1f05-44db-bf7d-9e451f88dbc0",
+      "action": "WHEN focus is assigned to an archive Free Game of the Day in the Hero",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"<away_team>, <away_team_score>, <home_team>, <home_team_score>, Final, Free Game of the Day, press select to play, press up for the Main Menu, press down to browse more content.\""
+    }
+  ]
+}

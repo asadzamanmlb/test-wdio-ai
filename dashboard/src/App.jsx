@@ -83,6 +83,7 @@ function FailedScenarios({ items, runs, selectedRunId, onRunSelect, currentRunId
                   headers: { 'Content-Type': 'application/json' },
                   body: JSON.stringify({ scenarioIds: displayItems.map((s) => s.id) }),
                 });
+                onRunSelect?.(null);
                 onRefresh?.();
               }}
               className="rounded border border-[var(--danger)]/50 px-2 py-1 text-xs text-[var(--danger)] hover:bg-[var(--danger)]/10"
@@ -236,7 +237,7 @@ function Metrics({ data, runs, failedScenariosRunId, setFailedScenariosRunId, on
       </div>
       <FailedScenarios
         items={data.failedScenarios}
-        runs={runs}
+        runs={(runs || []).filter((r) => (r.failedScenarios?.length || 0) > 0)}
         selectedRunId={failedScenariosRunId}
         onRunSelect={setFailedScenariosRunId}
         currentRunId={failedScenariosRunId || data.runId}
@@ -407,6 +408,7 @@ function SyncDiffModal({ suite, key: scenarioKey, changes, onClose, onApply, onR
   }
 
   const withChanges = changes?.filter((c) => c.hasChanges) ?? [];
+  const showUpdateButton = withChanges.length > 0;
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60" onClick={onClose}>
       <div
@@ -443,15 +445,17 @@ function SyncDiffModal({ suite, key: scenarioKey, changes, onClose, onApply, onR
             onClick={onClose}
             className="rounded px-3 py-1.5 text-sm border border-[var(--border)] hover:bg-black/20"
           >
-            Cancel
+            {showUpdateButton ? 'Cancel' : 'Close'}
           </button>
-          <button
-            onClick={handleApply}
-            disabled={applying}
-            className="rounded px-3 py-1.5 text-sm bg-[var(--success)] text-white hover:opacity-90 disabled:opacity-50"
-          >
-            {applying ? 'Updating...' : 'Update'}
-          </button>
+          {showUpdateButton && (
+            <button
+              onClick={handleApply}
+              disabled={applying}
+              className="rounded px-3 py-1.5 text-sm bg-[var(--success)] text-white hover:opacity-90 disabled:opacity-50"
+            >
+              {applying ? 'Updating...' : 'Update'}
+            </button>
+          )}
         </div>
         {toast && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -465,7 +469,7 @@ function SyncDiffModal({ suite, key: scenarioKey, changes, onClose, onApply, onR
   );
 }
 
-function ScenarioRow({ scenario, suiteName, env, persistedResult, onSync, syncLoading, fixStatus, onFixStart, onFixStop }) {
+function ScenarioRow({ scenario, suiteName, env, persistedResult, onSync, syncLoading, fixStatus, onFixStart, onFixStop, syncStatus }) {
   const [runState, setRunState] = useState(null); // { status, failReason?, screenshot? } | null - from current session
   const [running, setRunning] = useState(false);
   const [showFailDetails, setShowFailDetails] = useState(false);
@@ -507,8 +511,22 @@ function ScenarioRow({ scenario, suiteName, env, persistedResult, onSync, syncLo
     <>
       <tr className="border-b border-[var(--border)]/50 hover:bg-black/20">
         <td className="px-4 py-2 font-mono text-xs">{scenario.key}</td>
-        <td className="px-4 py-2 max-w-[400px] truncate" title={scenario.summary}>
-          {scenario.summary}
+        <td className="px-4 py-2 max-w-[400px]" title={scenario.summary}>
+          <span className="block truncate">{scenario.summary}</span>
+          {syncStatus && (
+            <span className="flex gap-1 mt-0.5 flex-wrap">
+              {syncStatus.newKeys?.has(scenario.key) && (
+                <span className="inline-flex items-center rounded px-1.5 py-0.5 text-[10px] font-medium bg-[var(--accent)]/20 text-[var(--accent)]">
+                  New in Xray
+                </span>
+              )}
+              {syncStatus.updatedKeys?.has(scenario.key) && !syncStatus.newKeys?.has(scenario.key) && (
+                <span className="inline-flex items-center rounded px-1.5 py-0.5 text-[10px] font-medium bg-[var(--warning)]/20 text-[var(--warning)]">
+                  Update available
+                </span>
+              )}
+            </span>
+          )}
         </td>
         <td className="px-4 py-2">
           <span className={scenario.automated ? 'text-[var(--success)]' : 'text-[var(--muted)]'}>
@@ -577,13 +595,16 @@ function ScenarioRow({ scenario, suiteName, env, persistedResult, onSync, syncLo
                   </pre>
                 )}
                 {effectiveState.screenshot && (
-                  <a href={effectiveState.screenshot} target="_blank" rel="noopener noreferrer">
-                    <img
-                      src={effectiveState.screenshot}
-                      alt="Failure screenshot"
-                      className="max-h-40 rounded border border-[var(--border)] object-contain"
-                    />
-                  </a>
+                  <div className="space-y-1">
+                    <div className="text-xs font-medium text-[var(--muted)]">Screenshot</div>
+                    <a href={effectiveState.screenshot} target="_blank" rel="noopener noreferrer" className="inline-block">
+                      <img
+                        src={effectiveState.screenshot}
+                        alt="Failure screenshot"
+                        className="max-h-48 rounded border border-[var(--border)] object-contain hover:opacity-90"
+                      />
+                    </a>
+                  </div>
                 )}
               </div>
             )}
@@ -594,11 +615,37 @@ function ScenarioRow({ scenario, suiteName, env, persistedResult, onSync, syncLo
   );
 }
 
-function ScenarioList({ scenarios, title, suiteName, suiteId, onRefresh, env, executeResults, fixStatus, onFixStart, onFixStop }) {
+function ScenarioList({ scenarios, title, suiteName, suiteId, onRefresh, env, executeResults, fixStatus, onFixStart, onFixStop, searchQuery }) {
   const [syncLoading, setSyncLoading] = useState(false);
   const [syncLoadingKey, setSyncLoadingKey] = useState(null);
   const [syncPreview, setSyncPreview] = useState(null);
   const [syncPreviewKey, setSyncPreviewKey] = useState(null);
+  const [syncStatus, setSyncStatus] = useState(null);
+
+  async function fetchSyncStatus() {
+    if (!suiteName) return;
+    try {
+      const res = await fetch(`${API}/sync/${suiteName}/status`);
+      const data = await res.json();
+      if (res.ok && data) {
+        const newList = data.new || [];
+        const updatedList = data.updated || [];
+        setSyncStatus({
+          newKeys: new Set(newList.map((x) => x.key)),
+          newList, // for banner (scenarios not yet in local list)
+          updatedKeys: new Set(updatedList.map((x) => x.key)),
+        });
+      } else {
+        setSyncStatus(null);
+      }
+    } catch (_) {
+      setSyncStatus(null);
+    }
+  }
+
+  useEffect(() => {
+    if (suiteName) fetchSyncStatus();
+  }, [suiteName]);
 
   async function handleSync() {
     if (!suiteName) return;
@@ -658,10 +705,34 @@ function ScenarioList({ scenarios, title, suiteName, suiteId, onRefresh, env, ex
       </div>
     );
   }
+  const newCount = syncStatus?.newList?.length ?? 0;
+  const q = (searchQuery || '').trim().toLowerCase();
+  const filtered = q
+    ? scenarios.filter(
+        (s) =>
+          (s.key && s.key.toLowerCase().includes(q)) ||
+          (s.summary && s.summary.toLowerCase().includes(q))
+      )
+    : scenarios;
+
   return (
     <div className="overflow-hidden rounded-lg bg-[var(--surface)]">
+      {newCount > 0 && (
+        <div className="border-b border-[var(--accent)]/30 bg-[var(--accent)]/10 px-4 py-2 text-xs text-[var(--accent)] flex items-center justify-between gap-2">
+          <span>{newCount} new scenario{newCount !== 1 ? 's' : ''} in Xray — use Sync to pull</span>
+          <button
+            onClick={handleSync}
+            disabled={syncLoading}
+            className="rounded border border-[var(--accent)]/50 px-2 py-1 text-[var(--accent)] hover:bg-[var(--accent)]/20 disabled:opacity-50"
+          >
+            {syncLoading ? 'Syncing…' : 'Sync'}
+          </button>
+        </div>
+      )}
       <div className="border-b border-[var(--border)] px-4 py-3 flex items-center justify-between">
-        <h3 className="text-sm font-medium uppercase tracking-wider text-[var(--muted)]">{title} ({scenarios.length})</h3>
+        <h3 className="text-sm font-medium uppercase tracking-wider text-[var(--muted)]">
+          {title} ({filtered.length}{q ? ` of ${scenarios.length}` : ''})
+        </h3>
         {suiteName && (
           <button
             onClick={handleSync}
@@ -684,7 +755,14 @@ function ScenarioList({ scenarios, title, suiteName, suiteId, onRefresh, env, ex
             </tr>
           </thead>
           <tbody>
-            {scenarios.map((s) => (
+            {filtered.length === 0 ? (
+              <tr>
+                <td colSpan={5} className="px-4 py-4 text-center text-[var(--muted)] text-sm">
+                  {q ? `No scenarios match "${searchQuery.trim()}"` : 'No scenarios'}
+                </td>
+              </tr>
+            ) : (
+            filtered.map((s) => (
               <ScenarioRow
                 key={s.key}
                 scenario={s}
@@ -696,8 +774,10 @@ function ScenarioList({ scenarios, title, suiteName, suiteId, onRefresh, env, ex
                 fixStatus={fixStatus}
                 onFixStart={onFixStart}
                 onFixStop={onFixStop}
+                syncStatus={syncStatus}
               />
-            ))}
+            ))
+            )}
           </tbody>
         </table>
       </div>
@@ -710,8 +790,8 @@ function ScenarioList({ scenarios, title, suiteName, suiteId, onRefresh, env, ex
           key={syncPreviewKey}
           changes={syncPreview}
           onClose={() => { setSyncPreview(null); setSyncPreviewKey(null); }}
-          onApply={onRefresh}
-          onRefresh={onRefresh}
+          onApply={() => { onRefresh?.(); setTimeout(fetchSyncStatus, 600); }}
+          onRefresh={() => { onRefresh?.(); setTimeout(fetchSyncStatus, 600); }}
         />
       )}
     </div>
@@ -767,6 +847,8 @@ function FlakyTable({ data }) {
 }
 
 function App() {
+  const [selectedProject, setSelectedProject] = useState('all');
+  const [projects, setProjects] = useState([]);
   const [metrics, setMetrics] = useState(null);
   const [trends, setTrends] = useState([]);
   const [flaky, setFlaky] = useState([]);
@@ -782,6 +864,8 @@ function App() {
   const [failedScenariosRunId, setFailedScenariosRunId] = useState(null);
   const [executeResults, setExecuteResults] = useState({});
   const [fixStatus, setFixStatus] = useState(null);
+  const [restartStatus, setRestartStatus] = useState(null);
+  const [scenarioSearch, setScenarioSearch] = useState('');
 
   async function handleSync() {
     setSyncing(true);
@@ -805,17 +889,20 @@ function App() {
   async function fetchAll() {
     setLoading(true);
     setError(null);
+    const projectParam = `&project=${encodeURIComponent(selectedProject || 'all')}`;
     try {
-        const [m, t, f, a, s, c, runsData, execData] = await Promise.all([
-          fetchJson(`${API}/metrics`),
-          fetchJson(`${API}/trends?limit=30`),
-          fetchJson(`${API}/flaky?lastN=20`),
-          fetchJson(`${API}/automation`),
-          fetchJson(`${API}/suites`),
+        const [projData, m, t, f, a, s, c, runsData, execData] = await Promise.all([
+          fetchJson(`${API}/projects`),
+          fetchJson(`${API}/metrics?project=${selectedProject || 'all'}`),
+          fetchJson(`${API}/trends?limit=30${projectParam}`),
+          fetchJson(`${API}/flaky?lastN=20${projectParam}`),
+          fetchJson(`${API}/automation?project=${selectedProject || 'all'}`),
+          fetchJson(`${API}/suites?project=${selectedProject || 'all'}`),
           fetchJson(`${API}/sync-config`),
-          fetchJson(`${API}/runs?limit=30`),
+          fetchJson(`${API}/runs?limit=30${projectParam}`),
           fetchJson(`${API}/execute-results`),
         ]);
+        setProjects((projData && projData.projects) || []);
         setMetrics(m);
         setTrends((t && t.trends) || []);
         setFlaky((f && f.flaky) || []);
@@ -835,7 +922,7 @@ function App() {
     fetchAll();
     const id = setInterval(fetchAll, 15000);
     return () => clearInterval(id);
-  }, []);
+  }, [selectedProject]);
 
   useEffect(() => {
     const pollFix = async () => {
@@ -879,14 +966,15 @@ function App() {
 
   return (
     <div className="min-h-screen p-4 md:p-6 lg:p-8">
-      <header className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <h1 className="text-2xl font-bold text-[var(--text)]">QA Dashboard</h1>
-          <p className="mt-1 text-sm text-[var(--muted)]">
-            Charts, trends, and flaky detection for unified QA platform
-          </p>
-        </div>
-        <div className="flex items-center gap-3">
+      <header className="mb-8 flex flex-col gap-4">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h1 className="text-2xl font-bold text-[var(--text)]">QA Dashboard</h1>
+            <p className="mt-1 text-sm text-[var(--muted)]">
+              Charts, trends, and flaky detection for unified QA platform
+            </p>
+          </div>
+          <div className="flex items-center gap-3">
           <div className="flex items-center gap-1 rounded-lg border border-[var(--border)] bg-[var(--surface)] p-0.5">
             <span className="px-2 py-1 text-xs text-[var(--muted)]">Execute on</span>
             <button
@@ -909,12 +997,83 @@ function App() {
           >
             {syncing ? 'Syncing...' : 'Sync from Xray'}
           </button>
+          <button
+            onClick={async () => {
+              setRestartStatus('restarting');
+              try {
+                await fetch(`${API}/restart`, { method: 'POST' });
+              } catch (_) {}
+              const pollUntilBack = async () => {
+                // Phase 1: wait for server to go down (fetch fails)
+                for (let i = 0; i < 15; i++) {
+                  await new Promise((r) => setTimeout(r, 500));
+                  try {
+                    await fetch(`${API}/metrics`);
+                  } catch (_) {
+                    break; // server is down, proceed to phase 2
+                  }
+                }
+                // Phase 2: poll until server is back online
+                for (let i = 0; i < 40; i++) {
+                  await new Promise((r) => setTimeout(r, 500));
+                  try {
+                    const res = await fetch(`${API}/metrics`);
+                    if (res.ok) {
+                      setRestartStatus('back');
+                      fetchAll();
+                      setTimeout(() => {
+                        setRestartStatus(null);
+                        window.location.reload();
+                      }, 1500);
+                      return;
+                    }
+                  } catch (_) {}
+                }
+                setRestartStatus(null);
+              };
+              pollUntilBack();
+            }}
+            disabled={restartStatus === 'restarting'}
+            className="rounded-lg border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-medium text-[var(--muted)] hover:bg-black/30 hover:text-[var(--text)] disabled:opacity-50 disabled:cursor-not-allowed"
+            title="Restart dashboard server"
+          >
+            {restartStatus === 'restarting' ? 'Restarting…' : restartStatus === 'back' ? '✓ Back online' : 'Restart server'}
+          </button>
+        </div>
+        </div>
+        <div className="flex flex-wrap items-center gap-1 rounded-lg border border-[var(--border)] bg-[var(--surface)] p-0.5">
+          <button
+            onClick={() => setSelectedProject('all')}
+            className={`rounded px-3 py-2 text-sm font-medium transition-colors ${selectedProject === 'all' ? 'bg-[var(--accent)] text-white' : 'text-[var(--muted)] hover:bg-black/20 hover:text-[var(--text)]'}`}
+          >
+            All
+          </button>
+          {projects.map((p) => (
+            <button
+              key={p.id}
+              onClick={() => setSelectedProject(p.id)}
+              className={`rounded px-3 py-2 text-sm font-medium transition-colors ${selectedProject === p.id ? 'bg-[var(--accent)] text-white' : 'text-[var(--muted)] hover:bg-black/20 hover:text-[var(--text)]'}`}
+            >
+              {p.name}
+            </button>
+          ))}
         </div>
       </header>
 
       {syncMessage && (
         <div className="mb-6 rounded-lg border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-sm text-[var(--muted)]">
           {syncMessage}
+        </div>
+      )}
+
+      {restartStatus === 'restarting' && (
+        <div className="mb-6 rounded-lg border border-[var(--accent)]/50 bg-[var(--accent)]/10 px-4 py-3 text-sm text-[var(--accent)]">
+          Restarting server… waiting for it to go down, then come back online. Page will refresh when ready.
+        </div>
+      )}
+      {restartStatus === 'back' && (
+        <div className="mb-6 rounded-lg border border-[var(--success)]/50 bg-[var(--success)]/10 px-4 py-3 text-sm text-[var(--success)]">
+          Server restarted successfully.
         </div>
       )}
 
@@ -926,7 +1085,7 @@ function App() {
 
       <section className="mb-8">
         <h2 className="mb-4 text-sm font-medium uppercase tracking-wider text-[var(--muted)]">
-          Automation Coverage (Optools & WebTV)
+          Automation Coverage{selectedProject !== 'all' ? ` — ${projects.find((p) => p.id === selectedProject)?.name || selectedProject}` : ''}
         </h2>
         <AutomationCoverage data={automation} />
       </section>
@@ -935,6 +1094,24 @@ function App() {
         <h2 className="mb-4 text-sm font-medium uppercase tracking-wider text-[var(--muted)]">
           Test Scenarios by Suite
         </h2>
+        <div className="mb-4 flex items-center gap-3">
+          <input
+            type="text"
+            placeholder="Search by key (e.g. 35, 67) or summary (e.g. login, smoke)..."
+            value={scenarioSearch}
+            onChange={(e) => setScenarioSearch(e.target.value)}
+            className="min-w-[280px] rounded border border-[var(--border)] bg-[var(--surface)] px-3 py-2 text-sm text-[var(--text)] placeholder-[var(--muted)] focus:border-[var(--accent)] focus:outline-none"
+          />
+          {scenarioSearch && (
+            <button
+              type="button"
+              onClick={() => setScenarioSearch('')}
+              className="text-xs text-[var(--muted)] hover:text-[var(--text)]"
+            >
+              Clear
+            </button>
+          )}
+        </div>
         <div className="space-y-8">
           {suites.map((suite) => (
             <ScenarioList
@@ -949,6 +1126,7 @@ function App() {
               fixStatus={fixStatus}
               onFixStart={handleFixStart}
               onFixStop={handleFixStop}
+              searchQuery={scenarioSearch}
             />
           ))}
           {suites.length === 0 && (

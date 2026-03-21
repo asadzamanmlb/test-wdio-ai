@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1301",
+  "issueId": "1128638",
+  "key": "WQ-1301",
+  "summary": "Archive game w/ Feeds",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND a game is on the schedule with broadcasters\r\nAND the `mediaState` for the feeds is set to `MEDIA_ARCHIVE`",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "dacd08c9-5903-42c5-8839-51c0663090e4",
+      "action": "WHEN the user selects a game tile for an archive game",
+      "data": "",
+      "result": "THEN the Feed Modal displays\r\nAND the following statement is spoken, \"<away_team> @ <home_team>, <button_name/feed_name>, <feed_type>, press select to play, press <appropriate_directions> for more content. Press back to dismiss.\""
+    }
+  ]
+}

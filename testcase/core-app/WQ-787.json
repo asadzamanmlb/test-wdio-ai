@@ -1,0 +1,20 @@
+{
+  "id": "WQ-787",
+  "issueId": "1128115",
+  "key": "WQ-787",
+  "summary": "Monthly/yearly subscriber Peacock archive - Feed Select modal",
+  "description": "GIVEN a user is a Monthly/Yearly subscriber",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8e1f3304-1c38-4b3a-9f75-aff0686d561a",
+      "action": "WHEN a user selects an archive Peacock game tile",
+      "data": "",
+      "result": "THEN the user will see the Peacock feed button\r\nAND a message does not display letting the user know where the game can be watched\r\nAND the user can playback the Peacock feed"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1458",
+  "issueId": "1128795",
+  "key": "WQ-1458",
+  "summary": "Purchase page load",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is not logged in\r\nAND the user is on the \"Browse Subscriptions\" page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0e52e0d7-6f3c-48bf-a306-f8e3d1892b9a",
+      "action": "WHEN the user selects a package tile",
+      "data": "",
+      "result": "THEN the purchase page for that tile is displayed\r\nAND the following statement is spoken, \"Thank you for selecting the <package_name>. The package price is <$> per year. This page contains information on how to purchase the package. There are two ways to purchase this package on your <platform> device. Text on the page reads To purchase an MLB.TV subscription, visit MLB.com/<platform> or scan the QR code to get started. There is a QR code on the right side of your screen. To complete your purchase please use the photo app on your phone to continue the purchase process. If you are an existing subscriber hit select to be taken to the Log In page.\""
+    }
+  ]
+}

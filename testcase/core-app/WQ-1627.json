@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1627",
+  "issueId": "1129044",
+  "key": "WQ-1627",
+  "summary": "Scrubber game data (currently N/A)",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "415039f9-dfde-493e-9af5-2f88ba432959",
+      "action": "WHEN",
+      "data": "",
+      "result": "Users see the correct player headshots in video player box score and gameday sections. If no headshot, a default silhouette is shown."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-858",
+  "issueId": "1128186",
+  "key": "WQ-858",
+  "summary": "T-Mobile subscriber AppleTV+ archive - Game Tile",
+  "description": "GIVEN a user is a T-Mobile subscriber",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "60d9ef8a-2d49-4819-8b22-9e262232b67a",
+      "action": "WHEN a user views/focuses an archive AppleTV+ game tile",
+      "data": "",
+      "result": "THEN a lock icon does not display in the upper right corner of the game tile\r\nAND there is no dark overlay over the team colors in the game tile header\r\nAND the AppleTV+ pill does not display in the game tile"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1576",
+  "issueId": "1128982",
+  "key": "WQ-1576",
+  "summary": "Remote App Function - LG",
+  "description": "GIVEN I have a LG Smart TV\r\nGIVEN I have a smartphone with the SmartShare app installed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3df19186-baf8-42da-bdaa-851441ee6eb9",
+      "action": "WHEN I select enable \"Wi-Fi Direct\" on the smartphone\r\nAND I select Smart Home ![](index.php?/attachments/get/14188509) > Settings > ![](index.php?/attachments/get/14188510)\r\nAND I select \"Wi-Fi Direct\" to be turned \"On\"\r\nAND I select \"Yes\" on the smartphone\r\nAND I tap \"Accept\" on the smartphone \r\nAND I run the \"SmartShare\" app on the smartphone\r\nAND I tap \"From\" selecting \"My phone\"\r\nAND I tap \"To\" to select the Smart TV",
+      "data": "",
+      "result": "THEN I should notice that the Wi-FI connection was set to \"On\" successfully\r\nTHEN I should be able to select \"Yes\" to send a connection request from your Smart TV to the smartphone\r\nTHEN \"Accept\" should be able to complete the connection\r\nTHEN the \"SmartShare\" app should launch successfully\r\nTHEN I should be able to select \"My Phone\"\r\nTHEN I should be able to tap \"To\" to select the Smart TV and complete the connection\r\nTHEN I should be able to send content from the My Phone folder to the TV in order to view it on the Smart TV"
+    }
+  ]
+}

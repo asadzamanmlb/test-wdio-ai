@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1566",
+  "issueId": "1128968",
+  "key": "WQ-1566",
+  "summary": "Entitlements - STP",
+  "description": "GIVEN the logged in user has MLBTV_STP_<team_tri_code> and SUBSCRIBERVOD entitlements",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6ba65136-b5eb-4112-b8c6-222732220e4e",
+      "action": "WHEN the user selects any content for playback\r\n\r\n**NOTE: Excluded Live Content**\r\nMVPD - ASG and Postseason\r\nPartner - AppleTV+, Peacock\r\nBlackouts - In-market games, ESPN Sunday Night Baseball\r\nGames that do not involve the subscribed team",
+      "data": "",
+      "result": "THEN the user receives successful playback of entitled content"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2958",
+  "issueId": "1147228",
+  "key": "WQ-2958",
+  "summary": "Resettable Device Identifier (rdid) Parameter to DAI - Live Game",
+  "description": "GIVEN a user is entitled for Live game playback\n\n*NOTE:*\nLaunch the app in the browser, open the Network tab in DevTools (filter 'streams'), start a video ",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "65db5f3f-ad06-46bf-8631-cc3e053ecc91",
+      "action": "WHEN a user initiates playback of a live game",
+      "data": "",
+      "result": "THEN parameter {{rdid}} is passed for users in UUID format"
+    }
+  ]
+}

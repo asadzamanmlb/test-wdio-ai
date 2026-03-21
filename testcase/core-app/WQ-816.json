@@ -1,0 +1,20 @@
+{
+  "id": "WQ-816",
+  "issueId": "1128144",
+  "key": "WQ-816",
+  "summary": "AtBat subscriber Peacock archive - Game Tile",
+  "description": "GIVEN a user is an Audio Only subscriber",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1d79bda5-cb24-4f18-8109-9c7db424e72c",
+      "action": "WHEN a user views/focuses an archive Peacock game tile",
+      "data": "",
+      "result": "THEN a lock icon displays in the upper right corner of the game tile\r\nAND there is a dark overlay over the team colors in the game tile header\r\nAND the Peacock pill does not display in the game tile"
+    }
+  ]
+}

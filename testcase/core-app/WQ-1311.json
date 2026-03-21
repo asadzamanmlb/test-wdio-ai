@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1311",
+  "issueId": "1128648",
+  "key": "WQ-1311",
+  "summary": "Games Page load future date",
+  "description": "GIVEN TTS is turned ON",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "cd0fa365-4c10-467a-b245-657d8f4988a9",
+      "action": "WHEN the user navigates to a future date",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"On the Games page, <date>, <number_of_games, Right Button, press select to navigate to the next day. <x> of <y> buttons in the navigation, press up for the Main Menu, Press down for this day's games.\""
+    }
+  ]
+}

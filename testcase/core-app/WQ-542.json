@@ -1,0 +1,20 @@
+{
+  "id": "WQ-542",
+  "issueId": "1127868",
+  "key": "WQ-542",
+  "summary": "Game Details Navigation - Extra innings",
+  "description": "GIVEN the user is logged in\r\nAND the user is in the MLB experience\r\nAND the user is entitled to archive game playback\r\nAND Start from the Beginning is selected for archive game playback of an extra inning game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "90ccee7e-1553-4e47-81a3-7b2ce4f5196c",
+      "action": "WHEN the user navigates to \"Details\" in the scrubber\r\nAND the user navigates left, right, up, and down within the line score\r\nAND selects a focused half inning",
+      "data": "",
+      "result": "THEN the user is able to navigate to each half inning\r\nAND the innings with associated runs shifts to the left as the user navigates to the 9th inning and beyond (9 innings will always display)\r\nAND once the user reaches the final inning, the line score does not shift to the left\r\nAND from the second-most-left inning column, the innings with associated runs shifts to the right as the user attempts to navigate to the first inning (9 innings will always display)\r\nAND playback is moved to the beginning of the selected half inning"
+    }
+  ]
+}

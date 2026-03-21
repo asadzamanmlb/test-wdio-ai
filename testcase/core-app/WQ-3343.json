@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3343",
+  "issueId": "1232770",
+  "key": "WQ-3343",
+  "summary": "Where to watch - Monthly/yearly subscriber live game overlap market - Hero/Featured",
+  "description": "GIVEN the user is a monthly/yearly subscriber\r\nAND there is a game scheduled/in-progress between teams in an overlapping viewing market \r\nAND the user is in the viewing market of the game\r\nAND the game level blackedOutVideo equals true in MASTepg\r\nAND the game level entitledVideo equals true in MASTepg",
+  "status": "To Do",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6bb1579f-3aba-421b-bb30-26d2d648223b",
+      "action": "WHEN the user views the overlapping viewing market teams game in the hero/featured spot",
+      "data": "",
+      "result": "THEN a blackout badge is displayed in the top left of the hero/featured spot\nAND \"Stream on: <away_broadcast_partner>, <home_broadcast_partner>\" is displayed above \"Broadcast Networks\""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1101",
+  "issueId": "1128431",
+  "key": "WQ-1101",
+  "summary": "Subscription Package Tile - Small",
+  "description": "GIVEN the user is on the Paywall page\r\nAND subscription packages have been returned from the Paywall Config\r\nAND \"small\" is the size returned from the Paywall Config\r\nAND at least 5 yearly and 5 monthly subscription packages are returned from the Paywall Config",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b0279acb-43e4-4fb3-884a-4e1ee5a06327",
+      "action": "WHEN the user views the packages on the Paywall page",
+      "data": "",
+      "result": "THEN only four full tiles are displayed on the page\r\nAND a fifth tile is peaking from the right side of the screen\r\nAND as the user navigates focus to the right, the tiles slide to the left"
+    }
+  ]
+}

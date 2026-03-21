@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1685",
+  "issueId": "1129102",
+  "key": "WQ-1685",
+  "summary": "Archive AtBat User",
+  "description": "When an Audio user select Archived game, Feed Select modal should appear with Audio and Video feeds with a lock symbol for any feed the user doesn't have access to. ",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6e11d5b7-1b0f-4ccb-b1ff-6374aff9f9ba",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

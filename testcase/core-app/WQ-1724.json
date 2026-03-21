@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1724",
+  "issueId": "1129141",
+  "key": "WQ-1724",
+  "summary": "Start from the beginning archive playback - Hide Spoilers OFF",
+  "description": "GIVEN the user is entitled for archive game playback\nAND Hide Spoilers is turned OFF\nAND team feeds are mediaState=MEDIA_ARCHIVE\nAND the feed contains a resume bookmark after the top of the 1st inning",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "bb5d0568-e85d-41a9-8c9e-2fac17d95885",
+      "action": "WHEN the user selects a previously watched archive game\nAND the user selects a previously watched team feed\nAND the user selects the \"Start From The Beginning\" button",
+      "data": "",
+      "result": "THEN playback starts at the game broadcast milestone\nAND the elapsed time in the scrbber starts at 00:00, and counts up as the video plays\nAND all inning markers for the game are displayed in the scrubber bar\nAND the top of the inning is identified with a triangle pointing up, left of the inning number\nAND the bottom of the inning is identified with a triangle pointing down, left of the inning number"
+    }
+  ]
+}

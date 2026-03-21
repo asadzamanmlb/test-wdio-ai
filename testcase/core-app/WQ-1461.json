@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1461",
+  "issueId": "1128798",
+  "key": "WQ-1461",
+  "summary": "TTS | Quick Actions Menu | Jump to Live Option",
+  "description": "GIVEN TTS is enabled\r\nAND the user is in the video player",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "16abfd7d-7b20-4221-97d4-7580686adf26",
+      "action": "WHEN the user focuses on the “Jump to Live” button",
+      "data": "",
+      "result": "THEN the user should hear \"Jump to Live, Press Select to jump to live in this game.\""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1386",
+  "issueId": "1128723",
+  "key": "WQ-1386",
+  "summary": "TTS | Navigation options bottom left when No Team is selected",
+  "description": "GIVEN TTS is enabled\r\nAND the user does not have a Favorite Team set\r\nAND the user is logged in\r\nAND the user is on the Favorite Team page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "254ae440-8102-4963-ab2e-b26a360cf967",
+      "action": "WHEN the user scrolls to highlight the Texas Rangers",
+      "data": "",
+      "result": "THEN the app should say 'The {selected team} is highlighted. Press select to save this team as your favorite team. Move right, or up to hear additional teams to favorite. Move left to highlight the “Cancel” button.'"
+    }
+  ]
+}

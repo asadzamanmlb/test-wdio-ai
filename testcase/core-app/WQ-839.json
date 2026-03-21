@@ -1,0 +1,20 @@
+{
+  "id": "WQ-839",
+  "issueId": "1128167",
+  "key": "WQ-839",
+  "summary": "Anonymous user AppleTV+ archive - Feed Select modal",
+  "description": "GIVEN a user is anonymous",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f22c2b34-c95d-4b0b-9bab-af4b4d2627bf",
+      "action": "WHEN a user selects an archive AppleTV+ game tile",
+      "data": "",
+      "result": "THEN the user will see the AppleTV+ feed button with a lock icon\r\nAND a message does not display letting the user know where the game can be watched\r\nAND the user cannot playback the AppleTV+ feed\r\nAND the user is taken to the Subscriptions page after selecting the feed button"
+    }
+  ]
+}

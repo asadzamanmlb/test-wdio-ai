@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1612",
+  "issueId": "1129029",
+  "key": "WQ-1612",
+  "summary": "Post-broadcast slate",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0025e7fa-1977-4f79-b106-5b0066c789a8",
+      "action": "WHEN",
+      "data": "",
+      "result": "\"Thank you for Watching\" slate is displayed after broadcast if stream has ended"
+    }
+  ]
+}

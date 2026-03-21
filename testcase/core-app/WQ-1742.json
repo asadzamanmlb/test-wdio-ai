@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1742",
+  "issueId": "1129159",
+  "key": "WQ-1742",
+  "summary": "Ads don't play during game (live)",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "74cd8efe-c21d-4c8f-af00-3aaf8f8866c5",
+      "action": "WHEN",
+      "data": "",
+      "result": "DAI ads do not playback once the ad break ends, and game playback is resumed (live game)"
+    }
+  ]
+}

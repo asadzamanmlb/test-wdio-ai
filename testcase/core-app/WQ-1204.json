@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1204",
+  "issueId": "1128541",
+  "key": "WQ-1204",
+  "summary": "Games Carousel first navigation",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "06ee469e-4fed-444a-bdc4-ba9e75121dc4",
+      "action": "WHEN the user navigates to the Games carousel for the first time",
+      "data": "",
+      "result": "THEN the following statement is spoken before the Game Tile info, \"In the <carousel_name> Carousel,……\""
+    }
+  ]
+}

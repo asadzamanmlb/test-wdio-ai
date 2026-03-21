@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1783",
+  "issueId": "1129200",
+  "key": "WQ-1783",
+  "summary": "Support Only MMRC/General/No Basic",
+  "description": "Magic remote control only\r\n",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "db1cae60-608e-4f4f-91ac-4cd576503855",
+      "action": "Execute app → Check if keys other than POWER, HOME, BACK, EXIT, VOLUME of general remote control works properly",
+      "data": "",
+      "result": "Keys other than POWER, HOME, BACK, EXIT, VOLUME of general remote control works properly\r\n\r\n※ NG if other keys than Power, HOME, BACK, EXIT, and VOLUME work\r\nNot on NetCast 2.0 Marmalade app"
+    }
+  ]
+}

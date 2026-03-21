@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2361",
+  "issueId": "1129811",
+  "key": "WQ-2361",
+  "summary": "R5026A - Verify SIE-licensed peripherals work as expected",
+  "description": "**Peripheral Devices**\r\n\r\n**R5026 Requirement:**\r\nThe application runs correctly when any supported SIE-licensed peripheral is:\r\n- already connected on boot\r\n- connected or disconnected while the application is running\r\n\r\n**Description:**\r\nConnecting or disconnecting SIE-licensed peripherals that are supported by the application must not cause the application to malfunction.\r\n\r\nIf a non-SIE-licensed peripheral (the use of which has been previously approved by SIE) is required, SIE may request provision of the peripheral upon master submission.\r\n\r\n**QA NOTE:**\r\nPeripherals to be tested by GFQA are as follows. Only peripherals that are supported by the application are used for testing.\r\n- Wireless controller for PlayStation®5",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "761e581e-2bfb-4e91-a6b9-36213e9d1dfd",
+      "action": "For each peripheral device:\r\n1. Connect the peripheral\r\n2. Select the \"Application\" on the home screen\r\n3. Proceed to where the peripheral will be used and use it\r\n4. Disconnect the peripheral\r\n5. Reconnect the peripheral\r\n\r\n**Notes**\r\nPerform this test at various points in each application mode, the options screen, and any screens that display messages.",
+      "data": "",
+      "result": "The peripheral to be tested can be used.\r\nWhen connecting and disconnecting the peripheral, the application does not freeze or otherwise become inoperable."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-356",
+  "issueId": "1127668",
+  "key": "WQ-356",
+  "summary": "Home and Away Feeds",
+  "description": "GIVEN the subscriber is entitled for LIVE game playback\r\nAND the subscriber is logged into mlb.com\r\nAND a game is LIVE with home and away video feeds",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ae217ad1-d6a3-42b8-958d-ea366d7fb558",
+      "action": "WHEN the user is on mlb.com",
+      "data": "",
+      "result": "THEN the user should see the feed picker open for the selected game\r\n\r\nAND focus should be assigned to the away team video feed option"
+    }
+  ]
+}

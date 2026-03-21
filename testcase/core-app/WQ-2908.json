@@ -1,0 +1,26 @@
+{
+  "id": "WQ-2908",
+  "issueId": "1131564",
+  "key": "WQ-2908",
+  "summary": "MASN and MASN2 24/7 feed - DAI Ads failover at stream start",
+  "description": "GIVEN a user has entitlements for MASN\nAND the user launches the MLB.tv Core app\nAND the user logs in\nAND network calls to \"pubads.g.doubleclick.net\" are blocked\nOR network calls to \"pubads.g.doubleclick.net\" are failing\n\n*NOTE:* \nMASN entitlement = MASN_110 and MASN_120\nNeeds to be tested in a browser\n\nMASN Test users:\n\n|Username|Password|\n|masn@gmail.com|Password4MASN|\n|masnims@gmail.com (In Market)|Password4MASN|\n|masnoom@gmail.com (Out of Market)|Password4MASN|\n|masnintl@gmail.com (International)|Password4MASN|",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "191fd8cf-fad3-4803-b22b-f6e50b6e3216",
+      "action": "WHEN the user initiates playback of the 24/7 MASN feed",
+      "data": "",
+      "result": "THEN playback is initiated with no video error modal popping up\nAND a gsId is not displayed in the lower right corner of the screen"
+    },
+    {
+      "id": "2e47e94e-d9ae-487c-a758-42e515dc6bef",
+      "action": "WHEN the user initiates playback of the 24/7 MASN2 feed",
+      "data": "",
+      "result": "THEN playback is initiated with no video error modal popping up\nAND a gsId is not displayed in the lower right corner of the screen"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3060",
+  "issueId": "1161960",
+  "key": "WQ-3060",
+  "summary": "SNLA+ 24/7 feed Pause/Play",
+  "description": "GIVEN a logged in user is entitled for SNLA+ RSN\nAND the user is playing back the SNLA+ 24/7 stream",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "350c4450-c025-4962-90c8-1661f130639e",
+      "action": "WHEN the user presses the \"select\" button on the controller\nAND the user presses the \"select\" button again after a a minute",
+      "data": "",
+      "result": "THEN video playback pauses after the first button press\nAND video playback resumes after the second button press\nAND the elapsed time in the scrubber reflects the playhead position\nAND the live indicator is grey, indicating not at the live point\nAND the \"Jump to Live\" button displays right justified above the scrubber bar"
+    }
+  ]
+}

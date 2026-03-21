@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1633",
+  "issueId": "1129050",
+  "key": "WQ-1633",
+  "summary": "Picture-in-picture (PIP) (currently N/A)",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8e527f99-c312-4c57-a1a3-eab090c193e3",
+      "action": "WHEN",
+      "data": "",
+      "result": "1. Users are able to select the picture-in-picture option on the video player to minimize the live stream\r\n\r\n2. Users are able to move the PiP mini player around the app and screen\r\n\r\n3. Users are able to launch a new app or audio during PiP is enabled\r\n\r\n4. Users are able to maximize their PiP video player by selecting the full-screen button"
+    }
+  ]
+}

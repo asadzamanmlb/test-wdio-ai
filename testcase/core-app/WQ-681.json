@@ -1,0 +1,20 @@
+{
+  "id": "WQ-681",
+  "issueId": "1128009",
+  "key": "WQ-681",
+  "summary": "T-Mobile subscriber FGotD out of market - Feed Select",
+  "description": "GIVEN a user is a T-Mobile subscriber\r\nAND there is a scheduled/in-progress FGotD\r\nAND the user is not in the viewing market of the game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6fbb1b4b-b32e-4645-9e63-47a651de39aa",
+      "action": "WHEN a user selects a scheduled/in-progress FGotD game tile",
+      "data": "",
+      "result": "THEN the user will see feed buttons for both teams\r\nAND the user can playback feeds for both teams"
+    }
+  ]
+}

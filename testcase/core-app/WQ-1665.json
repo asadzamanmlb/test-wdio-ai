@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1665",
+  "issueId": "1129082",
+  "key": "WQ-1665",
+  "summary": "Archive FGotD Free user",
+  "description": "When a Free user select archived FGOD game,Feed Select modal should appear and that allows the user to choose Audio/Video feed to watch.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "fb1a709b-da55-4e8b-9bbf-5f67bcebc982",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

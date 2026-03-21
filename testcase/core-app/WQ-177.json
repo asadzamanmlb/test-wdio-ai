@@ -1,0 +1,20 @@
+{
+  "id": "WQ-177",
+  "issueId": "1127480",
+  "key": "WQ-177",
+  "summary": "Full Subscriber Feed Select modal - Live",
+  "description": "Entitlements/Users: \r\nMLBALL for yearly/monthly subscribers\r\nMLBVIDEOADOBEPASS for Xtra Inning subscribers\r\nMLBVIDEOAR for T-Mobile subscribers",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2b388538-bbf7-4c23-8d14-a2d5b0148b78",
+      "action": "WHEN",
+      "data": "",
+      "result": "THEN Away and home feed buttons display respectively, below the Video header"
+    }
+  ]
+}

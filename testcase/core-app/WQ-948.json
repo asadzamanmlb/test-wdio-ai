@@ -1,0 +1,20 @@
+{
+  "id": "WQ-948",
+  "issueId": "1128277",
+  "key": "WQ-948",
+  "summary": "Bases/Outs Indicators Hide Spoilers ON",
+  "description": "GIVEN a game is in a scheduled/in-progress/final state\r\nAND Hide Spoilers is set to ON",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "02055f91-14dc-40c2-ab9e-69fba6500664",
+      "action": "WHEN a user assigns focus to a game tile\r\nOR does not assign focus to a game tile",
+      "data": "",
+      "result": "THEN base indicators are not displayed\r\nAND out indicators are not displayed"
+    }
+  ]
+}

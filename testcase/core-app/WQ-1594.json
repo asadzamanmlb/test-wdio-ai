@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1594",
+  "issueId": "1129011",
+  "key": "WQ-1594",
+  "summary": "App Config Feature Flags - useMLB FALSE and useTrafficSplitting TRUE",
+  "description": "GIVEN the \"useMLB\" feature flag in the PS5 config is set to \"false\"\r\nAND the \"useTrafficSplitting\" feature flag in the PS5 config is set to \"true\"",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "da09e216-382b-4e0d-8d1e-b9ba96276d4f",
+      "action": "WHEN the PS5 app is launched",
+      "data": "",
+      "result": "THEN a \"traffic\" network call will be made\r\n\r\n**NOTE:**\r\nDepending on the traffic splitting service configuration, it could be pointing to DSS or MLB"
+    }
+  ]
+}

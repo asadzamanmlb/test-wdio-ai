@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1498",
+  "issueId": "1128835",
+  "key": "WQ-1498",
+  "summary": "VOD/ SVOD | Hearing Speed Announcement While Fast Forwarding",
+  "description": "GIVEN the user is watching a VOD/SVOD content\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e1c2098b-8177-44de-8a33-0ff1eea6b913",
+      "action": "WHEN the user starts fast-forwarding",
+      "data": "",
+      "result": "THEN the user will hear: “Fast Forward <speed>, Press Select to Play”"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-678",
+  "issueId": "1128006",
+  "key": "WQ-678",
+  "summary": "T-Mobile subscriber archive game - Game Tile",
+  "description": "GIVEN a user is a T-Mobile subscriber",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f9f760d5-1e49-4cf7-b573-81a02df85ff3",
+      "action": "WHEN a user views/focuses an archive game tile",
+      "data": "",
+      "result": "THEN a lock icon does not display in the upper right corner of the game tile\r\nAND there is no dark overlay over the team colors in the game tile header"
+    }
+  ]
+}

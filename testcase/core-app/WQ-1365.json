@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1365",
+  "issueId": "1128702",
+  "key": "WQ-1365",
+  "summary": "Top row Sunday",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is on the Games page\r\nAND the user has selected the Calendar",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "948b6996-c767-4ec5-97f0-de6fdffc466d",
+      "action": "WHEN focus is assigned to Sun in the top row of the calendar",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"<day_of_the_week>, <month>, <day>, <year>, <number_of_games_on_this_day>. Press down or right to navigate to more dates, press up to navigate to a different month or to Today's games.\""
+    }
+  ]
+}

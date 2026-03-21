@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1776",
+  "issueId": "1129193",
+  "key": "WQ-1776",
+  "summary": "MMRC/Pointer",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f61c968f-6d5c-4b78-b5e5-02738277dca7",
+      "action": "Execute app → Move Magic remote control screen cursor (pointer) in app screen",
+      "data": "",
+      "result": "Cursor moves properly in accordance with Magic remote control movement"
+    }
+  ]
+}

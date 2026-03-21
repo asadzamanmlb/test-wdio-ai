@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3429",
+  "issueId": "1268468",
+  "key": "WQ-3429",
+  "summary": "Home page to Upgrade Plan to Home page - Free User",
+  "description": "GIVEN a Free user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1ddebc76-b63b-4fbe-a037-08d76a6959ff",
+      "action": "WHEN the user selects the \"Upgrade Plan\" tab in the navigation header\nAND selects one of the subscription package tiles on the Subscriptions page\nAND the user selects the \"back\" button twice",
+      "data": "",
+      "result": "THEN the user is navigated to the Home page\nAND focus is assigned to the featured image in the Hero"
+    }
+  ]
+}

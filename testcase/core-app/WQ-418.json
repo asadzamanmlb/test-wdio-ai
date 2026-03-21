@@ -1,0 +1,20 @@
+{
+  "id": "WQ-418",
+  "issueId": "1127730",
+  "key": "WQ-418",
+  "summary": "SNY 24/7 feed video error during playback",
+  "description": "GIVEN a user has entitlements for SNY\r\nAND the user launches the MLB.TV app\r\nAND the user logs in\r\nAND the user is on the SNY page\r\n\r\n**NOTE:** SNY entitlement = SNY_121\r\nThis will need to be tested on a Chrome browser using DevTools",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1b88edf5-ca0c-4458-9dad-538ee66d0eb6",
+      "action": "WHEN the user selects the \"Watch Live\" button in the Hero\r\nAND lets the feed playback for a few moments\r\nAND network requests to \"tve-live.mlb.com\" are blocked via Chrome DevTools",
+      "data": "",
+      "result": "THEN playback of the 24/7 SNY feed is interrupted \r\nAND a Video Error modal displays with a \"Go Back\" button\r\nAND the \"Go Back\" button navigates the user back to the SNY page"
+    }
+  ]
+}

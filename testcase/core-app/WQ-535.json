@@ -1,0 +1,20 @@
+{
+  "id": "WQ-535",
+  "issueId": "1127861",
+  "key": "WQ-535",
+  "summary": "Broadcast Options - Reset Alt Audio - Start from the Beginning",
+  "description": "GIVEN a user is logged in\r\nAND the user is entitled for archive game playback",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "bff9e5b6-49ab-4bf0-99e4-ea73451bb200",
+      "action": "WHEN the user selects an archive game for playback\r\nAND selects an alt audio feed in the Broadcast Options\r\nAND dismisses playback\r\nAND selects the same feed again, from the feed select modal\r\nAND selects \"Start from the Beginning\" in the secondary feed select modal",
+      "data": "",
+      "result": "THEN playback starts at the beginning of the feed, 00:00:00\r\nAND the TV audio feed is highlighted in blue, in Broadcast Options\r\nAND the TV audio plays back and is synced with the video feed"
+    }
+  ]
+}

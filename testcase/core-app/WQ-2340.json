@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2340",
+  "issueId": "1129790",
+  "key": "WQ-2340",
+  "summary": "R5017B - Application functions when waking from Rest Mode",
+  "description": "**Suspend/Resume feature**\r\n\r\n**R5017 Requirement:**  The features implemented in the application have been confirmed to run as intended with a Testing Kit with \"Release Check Mode\" set to \"Release Mode\".\r\n\r\n**Description:**  Since Development Kits are designed to prioritize convenience for development, some of the system behavior may vary from retail units. By using Testing Kits with \"Release Check Mode\" set to \"Release Mode\" to test application behavior, it will be possible to test the operation as intended in retail unit environments. Be sure to test the application with Testing Kits before submitting the master to SIE.\r\n\r\nNote that operation testing that assumes a retail unit environment will not be possible with a Testing Kit set to \"Assist Mode\", therefore it will not be possible to use it for operation testing of this requirement.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "dd2dc183-4dc5-46a2-a294-ec5ba937917d",
+      "action": "1. Select the \"Application\"\r\n2. Advance to an arbitrary point in the application\r\n3. Press and release the PS button > press the down button on the Control Center > select \"Power\" > \"Enter Rest Mode\"\r\n4. Leave the system in rest mode for 6 to 9 hours\r\n5. Press the PS button on the wireless controller for PlayStation®5 to wake the system from rest mode\r\n6. Check throughout the entire application\r\n\r\n**Notes:**\r\n- When the PS button is pressed during mid-action (e.g. when a character is mid-fall) if the application resumes gameplay at the same point when the PS button is pressed again then the same should also occur at that point when resuming from Rest Mode when performing steps (3) to (5).\r\n- Perform step (3) throughout the application and especially check the following areas.\r\n---- Just prior to an event occurring or an item being obtained\r\n---- During use of network features. Note, when resuming from rest mode in a network feature a network disconnection will occur",
+      "data": "",
+      "result": "When the application wakes from the rest mode, the following occurs.\r\n\r\nThe application does not freeze or otherwise become inoperable.\r\nAll areas and game modes (e.g. menus) are displayed and are accessible."
+    }
+  ]
+}

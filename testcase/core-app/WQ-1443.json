@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1443",
+  "issueId": "1128780",
+  "key": "WQ-1443",
+  "summary": "Create Account Success",
+  "description": "GIVEN TTS is turned on\r\nAND the user is not logged in\r\nAND the user has entered a valid email and password on the Create Free Account page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "abd45a0d-bb8a-4310-9cfa-5c06d6111778",
+      "action": "WHEN the user selects the \"Create Account\" button",
+      "data": "",
+      "result": "THEN the account created successfully page displays\r\nAND the following statement is spoken, \"Your account was successfully created. Press select to continue and return to the <home/games/settings> page.\""
+    }
+  ]
+}

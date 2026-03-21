@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1762",
+  "issueId": "1129179",
+  "key": "WQ-1762",
+  "summary": "Abnormal End",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b7f891f5-d881-4968-ad98-5f8215700e7e",
+      "action": "Execute app → App function movement",
+      "data": "",
+      "result": "App is terminated abnormally\r\n\r\n※ Check network environment of apps with network settings set as \"Y\"\r\n: Check wired/wireless LAN settings, and check once again using static/dynamic IP"
+    }
+  ]
+}

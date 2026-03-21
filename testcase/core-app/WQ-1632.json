@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1632",
+  "issueId": "1129049",
+  "key": "WQ-1632",
+  "summary": "Skipping via inning markers (currently N/A)",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "bb683b99-9f1d-4bc9-94dd-3c2eab6209c4",
+      "action": "WHEN",
+      "data": "",
+      "result": "Users can move around in the game by selecting the scores in the innings markers/Game Details"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-710",
+  "issueId": "1128038",
+  "key": "WQ-710",
+  "summary": "Non-MLB Team Logo - Game Tile",
+  "description": "GIVEN a non-MLB team has a matchup against an MLB team\n\n*NOTE:* These types of matchups occur during Spring Training",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "27d522ee-329e-4ca4-848b-0147a61d2301",
+      "action": "WHEN a game tile has focus\r\nOR a game tile does not have focus",
+      "data": "",
+      "result": "THEN a \"LOCKED\" badge does not display in the upper left corner of the game tile\nAND \"FINAL\" displays in the upper right corner of the game tile\nAND the game match up with respective score is displayed\nAND the Pitching Results are displayed\nAND the Broadcast Networks are displayed \nAND the logo for the non-MLB team is displayed as a generic baseball"
+    }
+  ]
+}

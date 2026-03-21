@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2909",
+  "issueId": "1131565",
+  "key": "WQ-2909",
+  "summary": "MASN+ VOD Playback",
+  "description": "GIVEN a user has entitlements for MASN+\nAND the user launches the MLB.tv Core App\nAND the user logs in\n\n*NOTE:* \nMASN+ entitlement = MASN_110\n\nMASN+ Test users: [https://docs.google.com/spreadsheets/d/15fajYxYv0k04eO4aKGtXxWVPABEvgaK26Jt5OoQBC6Y/edit?usp=sharing|https://docs.google.com/spreadsheets/d/15fajYxYv0k04eO4aKGtXxWVPABEvgaK26Jt5OoQBC6Y/edit?usp=sharing|smart-link] ",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "93a66680-8ba7-46d2-bbb5-e2423f7cd728",
+      "action": "WHEN the user is on the MASN+ page\nAND the user selects a VOD tile from a carousel",
+      "data": "",
+      "result": "THEN initPlaybackSession is called via a graphql network call\nAND the VOD plays back successfully\nAND the video title displays left justified above the scrubber bar"
+    }
+  ]
+}

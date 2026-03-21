@@ -1,0 +1,20 @@
+{
+  "id": "WQ-949",
+  "issueId": "1128278",
+  "key": "WQ-949",
+  "summary": "Scheduled Game - Focused Game Tile",
+  "description": "GIVEN a subscriber is logged in\r\nAND Hide Spoilers is off\r\nAND the selected date has scheduled games",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2e4ac5d6-b024-4f4f-b5e3-6a679f8c4fa1",
+      "action": "WHEN a subscriber is on the Games page\r\nAND game tiles are displayed\r\nAND a scheduled game tile has focus",
+      "data": "",
+      "result": "THEN the game tile is increased in size\r\nAND the game tile has a white border\r\nAND there is a slight gradient from the top\r\nAND the away team primary color is displayed in the upper left of the game tile\r\nAND the away team logo is displayed\r\nAND the away team abbreviation is displayed below the team logo\r\nAND the away team record is displayed below the team abbreviation\r\nAND the home team primary color is displayed in the upper right of the game tile\r\nAND the home team logo is displayed\r\nAND the home team abbreviation is displayed below the team logo\r\nAND the home team record is displayed below the team abbreviation\r\nAND the scheduled game time displays left-justified below the game tile header\r\nAND below the scheduled game time, the pitching match-up displays with the away pitcher above the home pitcher\r\nAND a headshot of the away pitcher displays\r\nAND to the right of the headshot, the team tri-code, the pitcher's name, win-loss record, and ERA are displayed\r\nAND a headshot of the home pitcher displays\r\nAND to the right of the headshot, the team tri-code, the pitcher's name, win-loss record, and ERA are displayed\r\nAND to the right of the pitcher match-up, gray base icons display above  gray outs icons\r\n*******BELOW FEATURES HAVE NOT BEEN IMPLEMENTED YET*******\r\nAND below the pitcher match-up, call letters for the available live feeds are displayed"
+    }
+  ]
+}

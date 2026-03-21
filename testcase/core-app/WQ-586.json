@@ -1,0 +1,20 @@
+{
+  "id": "WQ-586",
+  "issueId": "1127912",
+  "key": "WQ-586",
+  "summary": "VOD Playback",
+  "description": "GIVEN a user (paid/free/anonymous) has launched the MLB app",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "62ba9d3a-58bd-4989-b93f-9c77867ef31f",
+      "action": "WHEN the user selects a VOD to watch",
+      "data": "",
+      "result": "THEN initPlaybackSession is called via a graphql network call\nAND the video player goes full screen\nAND playback starts from the beginning\nAND the content title displays left justified above the scrubber bar\nAND the playhead displays far left on the scrubber bar\nAND the entire scrubber bar is gray\nAND the scrubber bar turns blue to the left of the playhead as playback progresses\nAND the \"Jump to Live\" button does not display\nAND the \"CC\" button displays right justified above the scrubber bar\nAND <elapsed_time>/<total_run_time> displays right justified below the scrubber bar\nAND the <elapsed_time> value increases as playback continues"
+    }
+  ]
+}

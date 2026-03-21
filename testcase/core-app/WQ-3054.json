@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3054",
+  "issueId": "1161951",
+  "key": "WQ-3054",
+  "summary": "SNLA+ 24/7 feed Jump to Live",
+  "description": "GIVEN a user is entitled for SNLA+ RSN\nAND the user selects the SNLA+ 24/7 stream to watch\nAND the playhead is behind the live point",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "518fa078-97e0-476a-89fc-99c6d0a80fd7",
+      "action": "WHEN the scrubber is displayed\nAND the user selects the \"Jump to Live\" button",
+      "data": "",
+      "result": "THEN playback moves to the live point\nAND the playhead is all the way to the right on the scrubber\nAND the entire scrubber bar is blue\nAND a red Live indicator is displayed\nAND the \"Jump to Live\" button does not display\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

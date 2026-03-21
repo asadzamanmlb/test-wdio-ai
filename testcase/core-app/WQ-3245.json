@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3245",
+  "issueId": "1218580",
+  "key": "WQ-3245",
+  "summary": "Publica requests stop after exiting a stream",
+  "description": "GIVEN a user is entitled to watch a live video stream",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ce435ac8-a0d2-4ffa-84ef-45fc1a37c724",
+      "action": "WHEN a user exits a stream",
+      "data": "",
+      "result": "THEN network calls to \"[pbs.getpublica.com|http://pbs.getpublica.com]\" are no longer occuring"
+    }
+  ]
+}

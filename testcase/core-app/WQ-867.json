@@ -1,0 +1,20 @@
+{
+  "id": "WQ-867",
+  "issueId": "1128195",
+  "key": "WQ-867",
+  "summary": "Executive user Peacock archive - Feed Select modal",
+  "description": "GIVEN a user is an Executive user",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1d3c9889-e959-4d1d-8cec-e8302ca35ab9",
+      "action": "WHEN a user selects an archive Peacock game tile",
+      "data": "",
+      "result": "THEN the user will see the Peacock feed button\r\nAND a message does not display letting the user know where the game can be watched\r\nAND the user can playback the Peacock feed"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-432",
+  "issueId": "1127751",
+  "key": "WQ-432",
+  "summary": "SLIVE Playback",
+  "description": "GIVEN a logged in user is entitled for SLIVE content playback",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c2e85fd1-a88a-4760-ac9e-552afa42a1cf",
+      "action": "WHEN the user selects a SLIVE content tile for playback from the Home page\r\n\r\n**NOTE:** SLIVE content example: \"Big Inning\"",
+      "data": "",
+      "result": "THEN the SLIVE content plays back from the live point"
+    }
+  ]
+}

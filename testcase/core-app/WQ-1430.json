@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1430",
+  "issueId": "1128767",
+  "key": "WQ-1430",
+  "summary": "Email field - Navigate up",
+  "description": "GIVEN the user is not logged in\r\nAND TTS is turned ON\r\nAND the user is on the Create Free Account page\r\nAND focus is already on the \"Email Address\" field",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a992a465-9ccb-4f43-8b39-46c4f26c68be",
+      "action": "WHEN the user attempts to navigate up from the \"Email Address\" field",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"There is no selectable content above the current position.\""
+    }
+  ]
+}

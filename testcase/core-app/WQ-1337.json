@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1337",
+  "issueId": "1128674",
+  "key": "WQ-1337",
+  "summary": "Game Tile Live Peacock",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND a Live Peacock game is on the schedule\r\nAND the user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6e79f2cf-6441-4b1f-aa51-b7a5a518c418",
+      "action": "WHEN focus is assigned to a Live Peacock game tile",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Game <x> of <y>, <away_team>, <away_team_runs> Runs at <home_team>, <home_team_runs> Runs, <away_team>, <away_team_wins> Wins, <away_team_losses> Losses, <home_team>, <home_team_wins> Wins, <home_team_losses> Losses, LIVE, <half_inning>, Blacked Out, Watch on Peacock, Pitching <pitcher>, <pitcher_innings_pitched> Innings Pitched, <pitcher_ERA> Earned Run Average, Hitting <hitter>, <x_of_y> Hitting Today, <season_average> Season Batting Average, <men_on_base>, <number_of_outs>. Press select to play game. Move <appropriate_directions> to hear more games. Move up to navigate to a new date.\""
+    }
+  ]
+}

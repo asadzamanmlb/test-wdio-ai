@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1201",
+  "issueId": "1128538",
+  "key": "WQ-1201",
+  "summary": "TTS | No Selectable Content",
+  "description": "GIVEN a user launches the app\r\nAND the user has TTS enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f057c48d-5d7a-46f9-8035-ff121900b3f2",
+      "action": "WHEN a user navigates in a direction that has no selectable content",
+      "data": "",
+      "result": "THEN the app reads \"There is no selectable content available to the <direction> of the current position”\r\n\r\n**Examples:**\r\nUp press on the directional pad or joystick, “There is no selectable content available above the current position”\r\n\r\nLeft press on the directional pad or joystick when focused on the “Home” button, “There is no selectable content available to the left of the current position”\r\n\r\nRight press on the directional pad or joystick when focused on the “Settings” button, “There is no selectable content available to the right of the current position”"
+    }
+  ]
+}

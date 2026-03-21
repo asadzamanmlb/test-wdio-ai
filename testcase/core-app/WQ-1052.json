@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1052",
+  "issueId": "1128382",
+  "key": "WQ-1052",
+  "summary": "Log In from header - back button on controller",
+  "description": "GIVEN the user is not logged in\r\nAND the user selects the Log In tab in the header",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e760a8d1-b144-4b38-9ecc-95d4662e7f1a",
+      "action": "WHEN a user presses the [O] button on the controller",
+      "data": "",
+      "result": "THEN the user is navigated to the previous page"
+    }
+  ]
+}

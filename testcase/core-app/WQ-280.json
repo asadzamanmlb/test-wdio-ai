@@ -1,0 +1,20 @@
+{
+  "id": "WQ-280",
+  "issueId": "1127592",
+  "key": "WQ-280",
+  "summary": "Free Game of the Day",
+  "description": "GIVEN a user's favorite team is playing in a Free Game of the Day\r\nAND the user is logged in\r\nAND the user does not have the EXEC entitlement\r\n",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "bf53b9d8-0cfd-4bec-bfc5-c67f6bc93f21",
+      "action": "WHEN a Free Game of the Day is present in the Hero",
+      "data": "",
+      "result": "THEN a white circle icon with the MLB Batter-man logo displays to the right of the blue game time pill above the away team \r\nOR a white circle icon with the MLB Batter-man logo displays to the right of the LIVE badge above the away team\r\nAND the text \"Free Game of the Day\" displays to the right of the MLB Batter-man logo above the away team\r\nAND the user is able to playback the video feed after selecting the \"Watch Now\"/\"Watch Live\" button if the game is live"
+    }
+  ]
+}

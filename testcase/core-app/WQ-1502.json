@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1502",
+  "issueId": "1128839",
+  "key": "WQ-1502",
+  "summary": "VOD/SVOD | Fast Forwarding to end of Video",
+  "description": "GIVEN the user is watching VOD/ SVOD content\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "55a9d49a-8a52-4bda-9f6c-474b6c70ba27",
+      "action": "WHEN the user fast forwards to the end of the video",
+      "data": "",
+      "result": "THEN the user will hear: “Fast Forward, End of Video”"
+    }
+  ]
+}

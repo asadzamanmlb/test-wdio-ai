@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1042",
+  "issueId": "1128372",
+  "key": "WQ-1042",
+  "summary": "Header navigation - Log In",
+  "description": "GIVEN an anonymous user launches the app to explore free content",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1171f77b-1b56-4dfd-b5d2-9dadd7422c4a",
+      "action": "WHEN the user selects \"Log In\" in the header\r\nAND enters valid subscriber login details on the Log In page",
+      "data": "",
+      "result": "THEN the user is successfully logged in\r\nAND the Log In page is dismissed\r\nAND a loading screen with a spinning baseball image is displayed\r\nAND the user is navigated to the page that was displayed when the user selected \"Log In\""
+    }
+  ]
+}

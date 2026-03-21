@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1186",
+  "issueId": "1128523",
+  "key": "WQ-1186",
+  "summary": "TTS | Focus on Uncover Password button",
+  "description": "GIVEN an unauthenticated user is on the Login Page\r\nAND the user has TTS Enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "cf4ceaab-77e1-4baa-a174-f72bf3b37fce",
+      "action": "WHEN the user shifts focus to the Uncover Password button",
+      "data": "",
+      "result": "THEN the app reads \"The password is currently hidden. Hit select to unhide your password. Scroll or hit left to edit your password. Scroll down to cancel your login.”"
+    }
+  ]
+}

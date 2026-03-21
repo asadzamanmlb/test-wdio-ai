@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2364",
+  "issueId": "1129814",
+  "key": "WQ-2364",
+  "summary": "N/A - R5100B - The total save data doesn't exceed 1GB",
+  "description": "**NOTE:** The PS5 app doesn't use saved data on the kit.\r\n\r\n**Save Data/Download  Data**\r\n\r\n**R5100 Requirement:** The total save data size used by the application is 1 GiB or less per user\r\n\r\n**Description**\r\nThe backup data size for save data and size of the save data system area are not included in the save data size.\r\nRefer to the SaveData Library Overview document regarding size of the save data system area.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c6c8f3b1-7fb4-4fb4-8a58-a83990a80814",
+      "action": "1. Select \"Application\" on the home screen\r\n2. Create all save data that can be created by the application\r\n3. Go back to the home screen, then press the up button\r\n4. Select \"Settings\" > \"Saved Data and Games/Apps Settings\" > \"Saved Data (PS5)\" > \"Console Storage\" > \"Delete\" > the applicable application and press options button\r\n5. Check the value of XXXX of \"★Size XXXXMB\" in \"★Information\"",
+      "data": "",
+      "result": "The total save data size per user is \"1.08 GB\" or less."
+    }
+  ]
+}

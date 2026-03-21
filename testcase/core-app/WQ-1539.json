@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1539",
+  "issueId": "1128876",
+  "key": "WQ-1539",
+  "summary": "Milestones Tab | Hearing Announcement When Focusing on a Milestone",
+  "description": "GIVEN the user is in the Milestones tab\r\nAND TTS is enabled\r\n",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e473b7b6-d8cd-4833-bacd-3f782a98b5e1",
+      "action": "WHEN the user focuses on a milestone",
+      "data": "",
+      "result": "THEN the user will hear: “In the <insert inning number> in the Milestones Carousel, X of X Milestones, *Play Type of Milestone*, *Play Description of Milestone*, Select to view this play”"
+    }
+  ]
+}

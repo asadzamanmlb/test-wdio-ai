@@ -1,0 +1,20 @@
+{
+  "id": "WQ-135",
+  "issueId": "1127438",
+  "key": "WQ-135",
+  "summary": "Dismiss Secondary Feed Select Modal",
+  "description": "GIVEN a user is on the Games page\r\nAND a user selects a game tile for a live/in-progress game\r\nAND the user selects a video feed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f54ad745-6288-4226-907f-408b72ed7d9f",
+      "action": "WHEN presses the [O] button on the controller",
+      "data": "",
+      "result": "THEN the secondary feed modal is dismissed\r\nAND the first feed modal is displayed\r\nAND the previously selected feed button has focus"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1064",
+  "issueId": "1128394",
+  "key": "WQ-1064",
+  "summary": "Triangle button doesn't move focus",
+  "description": "GIVEN a user is on a page that does not contain a navigation header\r\n\r\n**NOTE - Pages/modals that don't contain a navigation header:**\r\nLog in, Create Account, Welcome, Subscriptions, Paywall, Feed Select modal, Secondary Feed Select modal",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0e43c798-010f-4bdb-86f5-774cc66c23eb",
+      "action": "WHEN focus is assigned to a selectable element\r\nAND the user presses the TRIANGLE button on the controller",
+      "data": "",
+      "result": "THEN focus remains on the currently focused element\r\nAND focus does not leave the page"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1529",
+  "issueId": "1128866",
+  "key": "WQ-1529",
+  "summary": "TTS | Milestones Tab Inning Navigation",
+  "description": "GIVEN TTS is enabled\r\nAND the user is in the video player",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "924288af-b6e0-4296-a6ca-719d39126b9c",
+      "action": "WHEN the user focuses on the \"Milestone\" tab\r\nAND the user navigates down from the Milestone tab and focus on the right arrow key (For example: the user is in the second inning)\r\nAND the user navigates to the right or left to view another Inning\r\nAND the user navigates on the last Inning",
+      "data": "",
+      "result": "THEN the user should hear \"In the Inning navigation, press down to view milestones in first inning, press right arrow key to view milestones in the next inning\"\r\nAND the user should hear \"Viewing first inning, press left arrow key to view milestones in the previous inning, press right arrow key to view milestones in the next inning\"\r\nAND the user should hear \"Viewing first inning, press left arrow ket to view milestones in the previous inning\""
+    }
+  ]
+}

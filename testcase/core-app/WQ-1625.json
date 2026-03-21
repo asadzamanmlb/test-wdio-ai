@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1625",
+  "issueId": "1129042",
+  "key": "WQ-1625",
+  "summary": "Broadcast metadata",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "01e9e128-d176-469b-9d30-64053442bb53",
+      "action": "WHEN",
+      "data": "",
+      "result": "Metadata for video feed selection and audio feed selection display as expected"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-494",
+  "issueId": "1127820",
+  "key": "WQ-494",
+  "summary": "Broadcast Options - Cannot Switch Video Feed - Single Team Subscriber - Resume",
+  "description": "GIVEN the user is a Single Team subscriber\r\nAND the user is not blacked out of a live game\r\nAND the user has initiated live playback of a video feed for which they are entitled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "656a8f8d-812e-4a08-84d4-1d515a5d5fd7",
+      "action": "WHEN the user opens the Broadcast Options in the scrubber\r\nAND the user selects the video feed for the team which they are not subscribed\r\nAND the user selects the \"Okay\" button on the \"Content Not Entitled\"",
+      "data": "",
+      "result": "THEN the \"Content Not Entitled\" modal is dismissed\r\nAND the subscribed team feed continues playing\r\nAND focus is assigned to the video feed button for which they are not entitled\r\nAND the scrubber is dismissed after 10 seconds"
+    }
+  ]
+}

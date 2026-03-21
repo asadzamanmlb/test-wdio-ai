@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1058",
+  "issueId": "1128388",
+  "key": "WQ-1058",
+  "summary": "Log In - QR Code Failure",
+  "description": "GIVEN the user already has an MLB Account\r\nAND the user is launching the app for the first time\r\nAND the user is not logged in\r\nAND the user selects the \"Have An MLB.TV Account?\" button",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "be78863b-da1c-4e2c-8ed2-ceffbe1755b6",
+      "action": "WHEN the user scans the QR code on the screen with a mobile/tablet device\r\nAND doesn't complete the login process within 10 minutes",
+      "data": "",
+      "result": "THEN a login failed message is displayed on the mobile/tablet device"
+    }
+  ]
+}

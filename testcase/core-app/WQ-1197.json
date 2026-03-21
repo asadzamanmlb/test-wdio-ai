@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1197",
+  "issueId": "1128534",
+  "key": "WQ-1197",
+  "summary": "TTS | Focus on Settings",
+  "description": "GIVEN a user launches the app\r\nAND the user has TTS enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "eb79655a-e3c1-4195-9dbd-045339027548",
+      "action": "WHEN a user focuses on the \"Settings\" button",
+      "data": "",
+      "result": "THEN the app reader says “Settings, press select to access your account settings, X of Y in the menu, press left for more items in the menu”\r\n\r\nNOTE: X should be based on how many buttons are visible to the user in the menu and the place that settings is in that order"
+    }
+  ]
+}

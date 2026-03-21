@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1009",
+  "issueId": "1128338",
+  "key": "WQ-1009",
+  "summary": "Select date in the future",
+  "description": "GIVEN a user has launched the app\r\nAND the user is on the Games page",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "92fbf761-798f-4ef0-9221-9d9c841b5173",
+      "action": "WHEN the user select the [calendar] button\r\nAND the user navigates to the next month, after the current month, with games\r\nAND the user selects a date with games",
+      "data": "",
+      "result": "THEN a loading screen with a spinning baseball image displays\r\nAND the user is navigated back to the Games page\r\nAND games for the selected date are displayed\r\nAND the selected date is displayed in the upper left corner of the screen below the navigation header"
+    }
+  ]
+}

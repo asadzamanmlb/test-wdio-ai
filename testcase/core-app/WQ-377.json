@@ -1,0 +1,20 @@
+{
+  "id": "WQ-377",
+  "issueId": "1127689",
+  "key": "WQ-377",
+  "summary": "Favorite team carousel doesn't display",
+  "description": "Given a user has an MLB account\r\nAND a favorite team is not set",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7b7fca2e-44bf-4000-aa16-f5acc2474817",
+      "action": "WHEN the user loads the Home page",
+      "data": "",
+      "result": "THEN a carousel called \"{team_name} Most Popular\" does not display on the Home page"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1533",
+  "issueId": "1128870",
+  "key": "WQ-1533",
+  "summary": "Rewinding 15 Seconds | Live/Archive/ SLIVE",
+  "description": "GIVEN the user is watching a Live Game, Archive Game, or SLIVE content\r\nAND TTS is enabled\r\n\r\n",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f0688d49-0d59-42d7-a131-376a4116f304",
+      "action": "WHEN the user clicks the left button once to Rewind 15 seconds",
+      "data": "",
+      "result": "THEN the user will hear: \"Rewinding 15 seconds. Press Select to Pause, Press Up for Quick Actions, Press Down for More Options, Press Back to get back to video\""
+    }
+  ]
+}

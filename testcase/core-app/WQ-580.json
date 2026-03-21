@@ -1,0 +1,20 @@
+{
+  "id": "WQ-580",
+  "issueId": "1127906",
+  "key": "WQ-580",
+  "summary": "SVOD Rewind Cancel",
+  "description": "GIVEN a user has SUBSCRIBERVOD entitlement\r\nAND the user selects an SVOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2fae1daa-de75-421e-921f-baeb859601bc",
+      "action": "WHEN the user initiates Rewind\r\nAND presses the \"O\" button on the controller after a few moments",
+      "data": "",
+      "result": "THEN Rewind stops\r\nAND playback resumes at the point where Rewind was initiated\r\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

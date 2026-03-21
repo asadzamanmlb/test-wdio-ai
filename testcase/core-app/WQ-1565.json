@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1565",
+  "issueId": "1128967",
+  "key": "WQ-1565",
+  "summary": "Entitlements - MLBALL",
+  "description": "GIVEN the logged in user has MLBALL and SUBSCRIBERVOD entitlements",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "50e2ad25-df2e-41b1-a0b6-07ce3f73f8cc",
+      "action": "WHEN the user selects any content for playback\r\n\r\n**NOTE: Excluded Live Content**\r\nMVPD - ASG and Postseason\r\nPartner - AppleTV+, Peacock\r\nBlackouts - In-market games, ESPN Sunday Night Baseball",
+      "data": "",
+      "result": "THEN the user receives successful playback of content"
+    }
+  ]
+}

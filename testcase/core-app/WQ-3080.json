@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3080",
+  "issueId": "1162023",
+  "key": "WQ-3080",
+  "summary": "MASN VOD FF to the end",
+  "description": "GIVEN a logged in user is entitled for MASN RSN\nAND the user is on the MASN page\nAND the user selects a VOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e60f464e-97b9-4e15-907b-597dffd9bd35",
+      "action": "WHEN the user Fast Forwards the video to the end",
+      "data": "",
+      "result": "THEN the video player is dismissed\nAND the user is navigated back to the previous page"
+    }
+  ]
+}

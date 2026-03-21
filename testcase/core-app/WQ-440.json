@@ -1,0 +1,20 @@
+{
+  "id": "WQ-440",
+  "issueId": "1127760",
+  "key": "WQ-440",
+  "summary": "Date navigation using Games page",
+  "description": "GIVEN a user is on the games page",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "327dd9f7-48f4-479b-99ee-711bffe5e3a9",
+      "action": "WHEN the user selects the \"<\" or \">\" buttons\r\nOR the user selects the \"Today\" button",
+      "data": "",
+      "result": "THEN the appropriate day with the appropriate games are displayed"
+    }
+  ]
+}

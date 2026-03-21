@@ -1,0 +1,20 @@
+{
+  "id": "WQ-483",
+  "issueId": "1127809",
+  "key": "WQ-483",
+  "summary": "Anonymous user cannot watch live games",
+  "description": "GIVEN an anonymous user has launched the app\r\nAND a live game is in progress",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0051f10b-f0a3-4165-8ab3-d80bfa920e1b",
+      "action": "WHEN a user selects a live game to watch",
+      "data": "",
+      "result": "THEN the live game does not playback"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1181",
+  "issueId": "1128516",
+  "key": "WQ-1181",
+  "summary": "PS5 Only - Long press PS button prompts Exit",
+  "description": "GIVEN a user has launched the MLB.tv app on a PS5",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ced6d7a8-b6bd-46aa-af54-3d4255cf7cbd",
+      "action": "WHEN the user long presses the \"PS\" button on the controller",
+      "data": "",
+      "result": "THEN the app is dismissed\r\nAND the user lands on the Playstation Home screen"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1575",
+  "issueId": "1128981",
+  "key": "WQ-1575",
+  "summary": "Channel Controls - LG",
+  "description": "GIVEN I have paired the LG remote with the LG TV",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b1d076c0-2aef-4c50-ab9a-668eff405781",
+      "action": "WHEN I press the channel Up button\r\nAND I press the channel Down button",
+      "data": "",
+      "result": "THEN I should notice the channel moving up to the Next channel \r\n\r\nTHEN I should notice the channel moving down to the Previous channel"
+    }
+  ]
+}

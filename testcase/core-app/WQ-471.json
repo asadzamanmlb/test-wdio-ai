@@ -1,0 +1,20 @@
+{
+  "id": "WQ-471",
+  "issueId": "1127797",
+  "key": "WQ-471",
+  "summary": "Play live game from live point",
+  "description": "GIVEN a live game is in-progress",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "55f8cf6d-f09c-48c9-b965-34fe1eb9c81f",
+      "action": "WHEN a subscriber selects a live game to watch\r\nAND the user selects the [Watch Live] button in the secondary feed select modal",
+      "data": "",
+      "result": "THEN the video player fills the screen\r\nAND a spinning baseball is displayed while the video is loading\r\nAND the live game starts playing from the live point\r\nAND the scrubber displays\r\nAND the scrubber disappears after 10 seconds of inactivity"
+    }
+  ]
+}

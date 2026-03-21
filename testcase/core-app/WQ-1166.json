@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1166",
+  "issueId": "1128501",
+  "key": "WQ-1166",
+  "summary": "Log In - Free user",
+  "description": "GIVEN a user has a free MLB account\r\nAND does not pay for a subscription",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9466f750-53aa-4721-9a8c-705642c7b00e",
+      "action": "WHEN a free account user logs into the app",
+      "data": "",
+      "result": "THEN the user is successfully logged in\r\nAND the header contains the MLB logo and text left justified\r\nAND \"Home\" displays to the right of the MLB logo and text\r\nAND \"Games\" displays to the right of \"Home\"\r\nAND \"Upgrade MLB.TV\" and \"Settings\" is displayed right justified"
+    }
+  ]
+}

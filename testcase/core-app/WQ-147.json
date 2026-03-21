@@ -1,0 +1,20 @@
+{
+  "id": "WQ-147",
+  "issueId": "1127450",
+  "key": "WQ-147",
+  "summary": "ESPN MVPD - Authorized",
+  "description": "GIVEN a Postseason game is on the schedule\r\nAND ESPN broadcasters are assigned\r\nAND the user has one of the following entitlements: MLBALL, MLBVIDEOADOBEPASS, MLBVIDEOAR\r\nAND the user is authorized for ESPN MVPD\r\nAND the game level entitledVideo = true\r\nAND the AWAY (National) feed level espnAuthRequired = true",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "cb9d0158-841c-4a19-a36a-a337e6ecd0d8",
+      "action": "WHEN the user selects a game tile for an ESPN Postseason game tile",
+      "data": "",
+      "result": "THEN the Feed Select modal displays\r\nAND the feed button displays\r\nAND the user is able to initiate playback"
+    }
+  ]
+}

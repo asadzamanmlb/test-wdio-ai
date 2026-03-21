@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1714",
+  "issueId": "1129131",
+  "key": "WQ-1714",
+  "summary": "Live point before 1st inning - Hide Spoilers ON",
+  "description": "GIVEN the user is entitled for live game playback\nAND Hide Spoilers is turned ON\nAND team feeds are mediaState=MEDIA_ON\nAND the game has not started the 1st inning",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d2679e60-a6db-47d5-ae5f-60ce0b2db93f",
+      "action": "WHEN the user starts watching at the live point\nAND the live point is before the 1st inning\nAND the user continues watching the entire game",
+      "data": "",
+      "result": "THEN inning markers are displayed in the scrubber bar as each half inning begins\nAND the top of the inning is identified with a triangle pointing up, left of the inning number\nAND the bottom on the inning is identified with a triangle pointing down, left of the inning number"
+    }
+  ]
+}

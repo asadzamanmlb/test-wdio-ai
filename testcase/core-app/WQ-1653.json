@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1653",
+  "issueId": "1129070",
+  "key": "WQ-1653",
+  "summary": "Playback Expiration Handling",
+  "description": "GIVEN an entitled user has initiated game playback, Live or Archive\r\nAND the user pauses video playback\r\nAND the user backgrounds the app for at least 24 hours",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "35e70640-c886-4fbc-aa55-3a593e7e3685",
+      "action": "WHEN a user returns to the app\r\nAND initiates playback",
+      "data": "",
+      "result": "THEN video playback resumes at the paused point"
+    }
+  ]
+}

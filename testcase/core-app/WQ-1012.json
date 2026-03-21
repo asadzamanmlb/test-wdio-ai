@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1012",
+  "issueId": "1128341",
+  "key": "WQ-1012",
+  "summary": "Select day with no games",
+  "description": "GIVEN a user has launched the app\r\nAND the user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0a3a2ba5-2b7e-432a-8f0d-e4742756a13c",
+      "action": "WHEN the user select the [calendar] button\r\nAND the user selects a date that has no games",
+      "data": "",
+      "result": "THEN a loading screen with a spinning baseball image displays\nAND the user is navigated back to the Games page\nAND no game tiles are displayed\nAND the text \"_NO GAMES SCHEDULED There are no game scheduled today. Take a look at the archive._\" displays in the center of the screen\nAND the selected date is displayed in the upper left corner of the screen below the navigation header"
+    }
+  ]
+}

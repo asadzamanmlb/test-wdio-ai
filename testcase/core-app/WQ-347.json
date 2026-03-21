@@ -1,0 +1,20 @@
+{
+  "id": "WQ-347",
+  "issueId": "1127659",
+  "key": "WQ-347",
+  "summary": "MLB Network Entitled - Hero",
+  "description": "GIVEN a subscriber is entitled with the MLB Network entitlement (MLBN)\r\nAND a game for the subscribers favorite team is not present in the Hero\r\nAND an MLB Network feed is returned in the \"featured\" node in the MAST response\r\nAND \"live: true\" is returned in the the \"hero\" node in the MAST response",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1a2e1e0e-6636-4cca-85d4-f9cd922a36fc",
+      "action": "WHEN the subscriber loads the Home page",
+      "data": "",
+      "result": "THEN MLB Network displays in the Hero\r\nAND a \"Watch Now\" button displays without a lock icon\r\nAND the MLB Network feed plays back after the user selects the \"Watch Now\" button"
+    }
+  ]
+}

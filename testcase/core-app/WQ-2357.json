@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2357",
+  "issueId": "1129807",
+  "key": "WQ-2357",
+  "summary": "R5023A - Application runs after app version is updated",
+  "description": "**Compatibility**\r\n\r\n**R5023 Requirement:** The application runs correctly in all possible combinations and orders of previously QA approved packages and the package to be submitted\r\n\r\n**Description:** Before submitting the current package, check that the application runs correctly in all possible combinations of previously QA passed application packages and additional contents.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a592078e-ff1b-4b6b-9719-c211d16058a9",
+      "action": "1. Place the cursor on the \"Application\" on the home screen\r\n2. Press the options button and select \"★Check\"\r\n3. Confirm the value of \"param.json Content Version = \" is larger than 01.000.000 in [Log #000 (original app)]\r\n4. Go back to the home screen, then select the \"Application\"\r\n5. Check throughout the entire application",
+      "data": "",
+      "result": "The application runs correctly when installing an application package with an application version (contentVersion) greater than 01.000.000 without prior installation of the 01.000.000 version package."
+    }
+  ]
+}

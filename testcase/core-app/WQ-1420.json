@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1420",
+  "issueId": "1128757",
+  "key": "WQ-1420",
+  "summary": "TTS | Navigation options in the middle right",
+  "description": "GIVEN TTS is enabled\r\nAND the user is on the Following Teams page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e2a7dd29-e83e-40b1-8134-1e7894853eb4",
+      "action": "WHEN the user navigates to one of the following: CHC, CLE, HOU, LAD, MIN, PHI, SEA, TB",
+      "data": "",
+      "result": "THEN the app should say \"The [focused_team] is highlighted. Press select to save this team as your follow team. Move left, down, or up to continue to highlight teams to follow. There is nothing selectable to the right.”"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1398",
+  "issueId": "1128735",
+  "key": "WQ-1398",
+  "summary": "TTS | App announces Done button when a Favorite Team is selected",
+  "description": "GIVEN TTS is enabled\r\nAND the user doesn't already have a Favorite Team set\r\nAND the user is logged in\r\nAND the user is on the Favorite Team page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4e13e06b-11d4-49c7-a523-20c85799f412",
+      "action": "WHEN a user selects a Favorite Team",
+      "data": "",
+      "result": "THEN the app should say 'Press select to confirm your choice of {favorite_team}. Press or scroll left to go to navigate to the \"Cancel\" button. Press right to go back to select another team'"
+    }
+  ]
+}

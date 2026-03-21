@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3091",
+  "issueId": "1162041",
+  "key": "WQ-3091",
+  "summary": "MASN2 VOD RW to the beginning",
+  "description": "GIVEN a logged in user is entitled for MASN2 RSN\nAND the user is on the MASN2 page\nAND the user selects a VOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "aceb530f-b0ac-4e2a-92c1-af4a1a8e22c5",
+      "action": "WHEN the user Rewinds the stream to the beginning",
+      "data": "",
+      "result": "THEN Rewind stops once it reaches the start of the stream\nAND playback resumes at the beginning of the stream\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

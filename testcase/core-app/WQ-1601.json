@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1601",
+  "issueId": "1129018",
+  "key": "WQ-1601",
+  "summary": "OS & AT - overridden user receives the MLB experience",
+  "description": "OS = Override Service\r\nAT = Adobe Target\r\nOverridden user - adobemlbboth@gmail.com / Password23",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c3d9a7df-808b-4b0e-8657-8c1b9acb20e7",
+      "action": "WHEN an overridden user logs into the app",
+      "data": "",
+      "result": "THEN the user should receive the MLB experience"
+    }
+  ]
+}

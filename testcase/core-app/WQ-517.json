@@ -1,0 +1,20 @@
+{
+  "id": "WQ-517",
+  "issueId": "1127843",
+  "key": "WQ-517",
+  "summary": "Fast forward to video end",
+  "description": "GIVEN a user is playing an archive game\r\nAND the playhead is in the middle of the scrubber bar",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2cc9c96f-88a6-47f5-bac7-845cc0f2d282",
+      "action": "WHEN a user initiates fast forward\r\nAND the user does not stop fast forward",
+      "data": "",
+      "result": "THEN the playhead fast forwards to the end of the video\r\nAND fast forward stops automatically once the playhead reaches the end of the video\r\nAND the video player is dismissed once fast forward stops\r\nAND the user is navigated back to the previous page"
+    }
+  ]
+}

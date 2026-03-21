@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1027",
+  "issueId": "1128357",
+  "key": "WQ-1027",
+  "summary": "Create Account page UI",
+  "description": "GIVEN the user is Anonymous (not logged in)\nAND the user selects the \"Subscribe\" tab in the header",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d65eaa7b-8bd2-45dc-bdbd-3fdaa88f7002",
+      "action": "WHEN the user selects the [Create Free Account] button on the Welcome page",
+      "data": "",
+      "result": "THEN the user lands on the Create Account page\nAND the background is a picture of baseball bats\nAND all the elements of the page are left justified on the screen\nAND the MLB logo displays in the upper left of the screen\nAND the text \"MLB\" displays directly to the right of the MLB logo\nAND below that, the title displays \"Create a free MLB account\" (config driven)\nAND below the title, the subtitle displays \"Create your MLB account today to watch free content and much, much more.\" (config driven)\nAND at the bottom of the screen the white text \"By watching Free Game of the Day I agreeto receive limited follow-up emails about MLB subscriptions.\" (config driven)"
+    }
+  ]
+}

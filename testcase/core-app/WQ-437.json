@@ -1,0 +1,20 @@
+{
+  "id": "WQ-437",
+  "issueId": "1127756",
+  "key": "WQ-437",
+  "summary": "Playback from Hero - Non-Game",
+  "description": "GIVEN a VOD/SVOD/FLIVE/SLIVE is present in the Hero\r\nAND a user entitled for playback is logged in",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b4ec8b31-0d21-41df-844f-a3ea588a7037",
+      "action": "WHEN the user selects the \"Watch Now\" button in the hero",
+      "data": "",
+      "result": "THEN FLIVE/SLIVE starts playback at the live point\r\nAND VOD/SVOD starts playback at the beginning"
+    }
+  ]
+}

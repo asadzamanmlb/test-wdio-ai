@@ -1,0 +1,20 @@
+{
+  "id": "WQ-936",
+  "issueId": "1128265",
+  "key": "WQ-936",
+  "summary": "Final Game state 'POSTPONED'",
+  "description": "GIVEN a subscriber is on the Games page\r\nAND Hide Spoilers is set to OFF",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e4867e86-2c2e-4a9c-82e8-a77e8c1a0a02",
+      "action": "WHEN a completed game has any of the following statusCode values: DR,DS,DG,DV,DF,DC,DD,DB,DP,Dl,DE,DA,DO,DI",
+      "data": "",
+      "result": "THEN 'POSTPONED' is displayed in the top left corner of the game tile"
+    }
+  ]
+}

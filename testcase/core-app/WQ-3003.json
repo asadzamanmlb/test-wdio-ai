@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3003",
+  "issueId": "1158506",
+  "key": "WQ-3003",
+  "summary": "Resume Live Game after broadcast start milestone",
+  "description": "GIVEN a user who is entitled for Live game playback is logged in\n\nAND the user is on the Games page\n\nAND the user selects a Live pregame for playback\n\nAND the user exits Live pregame playback",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "70657360-c0fa-4380-8072-db42b76740d6",
+      "action": "WHEN the user selects the same Live game after the first inning has started\n\nAND selects the same team feed for Resume playback",
+      "data": "",
+      "result": "THEN the Games page is dismissed\n\nAND the video player displays full screen\n\nAND playback starts successfully from the resumed point"
+    }
+  ]
+}

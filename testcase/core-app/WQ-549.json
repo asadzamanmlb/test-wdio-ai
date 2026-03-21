@@ -1,0 +1,20 @@
+{
+  "id": "WQ-549",
+  "issueId": "1127875",
+  "key": "WQ-549",
+  "summary": "Tap Rewind",
+  "description": "GIVEN a user is playing a video\r\nAND the scrubber is displayed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3e3b4e6f-247b-42f7-a5cb-e33132bbedd6",
+      "action": "WHEN a user taps the left d-pad button, L2 button, or the left analog stick to the left, multiple times",
+      "data": "",
+      "result": "THEN for every tap, the RW speed increments 2, 4, 8, 16, 32, 64, 128, 256\r\nAND video is paused while RW is engaged"
+    }
+  ]
+}

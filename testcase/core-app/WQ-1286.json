@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1286",
+  "issueId": "1128623",
+  "key": "WQ-1286",
+  "summary": "Live Forge content",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND the user is on the Home page\r\nAND Live Forge content is in the Hero (MLBN linear, SLive)",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "72d4f72e-ccda-44b3-a3ab-f1bc1c573dae",
+      "action": "WHEN focus is assigned to Watch button in the Hero",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Live, <content_title>, <content_description>, Watch Now, press select to play, press up for the Main Menu, press down to browse more content.\""
+    }
+  ]
+}

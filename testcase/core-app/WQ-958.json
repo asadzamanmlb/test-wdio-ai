@@ -1,0 +1,20 @@
+{
+  "id": "WQ-958",
+  "issueId": "1128287",
+  "key": "WQ-958",
+  "summary": "Final/Completed Game - Focused Game Tile Data Hide Spoilers ON",
+  "description": "GIVEN a subscriber is logged in\r\nAND Hide Spoilers is set to ON\r\nAND the selected date has completed games",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7fe0779c-d60d-4f27-91fc-4029326b2b23",
+      "action": "WHEN a subscriber is on the Games page\r\nAND game tiles are displayed\r\nAND a completed game tile has focus",
+      "data": "",
+      "result": "THEN the game tile is increased in size\r\nAND the game tile has a white border\r\nAND there is a slight gradient from the top\r\nAND the away team primary color is displayed in the upper left of the game tile\r\nAND the away team logo is displayed\r\nAND the away team abbreviation is displayed below the team logo\r\nAND the away team record is not displayed below the team abbreviation\r\nAND the home team primary color is displayed in the upper right of the game tile\r\nAND the home team logo is displayed\r\nAND the home team abbreviation is displayed below the team logo\r\nAND the home team record is not displayed below the team abbreviation\r\nAND the final score does not display between the away and home team logos\r\nAND \"FINAL\" is displayed in white text left justified below the game tile header\r\nAND \"Hide Spoilers ON\" displays in white text centered in the non-matchup portion of the game tile"
+    }
+  ]
+}

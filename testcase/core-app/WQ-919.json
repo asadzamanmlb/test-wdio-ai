@@ -1,0 +1,20 @@
+{
+  "id": "WQ-919",
+  "issueId": "1128248",
+  "key": "WQ-919",
+  "summary": "Free subscriber ESPN/Sunday Night Baseball archive - Game Tile",
+  "description": "GIVEN a user is a free subscriber\r\nAND ESPN Sunday Night Baseball is archived",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "535dc443-b64f-4d7f-a951-fb352fc5c1bd",
+      "action": "WHEN the user views the game tile focused or unfocused",
+      "data": "",
+      "result": "THEN a lock icon displays in the upper right corner of the game tile\r\nAND there is a dark overlay of the team match up"
+    }
+  ]
+}

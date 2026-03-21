@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1445",
+  "issueId": "1128782",
+  "key": "WQ-1445",
+  "summary": "Welcome Screen load",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is not logged in\r\n",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "301abcbc-4374-4cbf-b1b0-8812a73694d9",
+      "action": "WHEN the user selects \"Get MLB.TV\" in the navigation header",
+      "data": "",
+      "result": "THEN the Welcome page is displayed\r\nAND the following statement is spoken, \"Welcome to the MLB App. Let's play ball. Choose how you’d like to explore MLB.TV today. Press or scroll down to view your options. Click to create a free account. Press or scroll down to hear the next option.\""
+    }
+  ]
+}

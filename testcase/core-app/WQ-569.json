@@ -1,0 +1,20 @@
+{
+  "id": "WQ-569",
+  "issueId": "1127895",
+  "key": "WQ-569",
+  "summary": "FLIVE playback behind live point",
+  "description": "GIVEN a user (paid/free/anonymous) has launched the MLB app\r\nAND an FLIVE stream is in progress\r\nAND the user selects the FLIVE stream to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "bf95c55b-4e4f-4136-80e9-cae390b3b188",
+      "action": "WHEN the playhead is behind the live point",
+      "data": "",
+      "result": "THEN the red live indicator does not display\r\nAND the \"Jump to Live\" button displays\r\nAND the scrubber bar to the left of the playhead is blue\r\nAND the scrubber bar to the right of the playhead gray\r\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

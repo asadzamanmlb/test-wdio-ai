@@ -1,0 +1,20 @@
+{
+  "id": "WQ-765",
+  "issueId": "1128093",
+  "key": "WQ-765",
+  "summary": "US Single Team subscriber plain ESPN - Feed Select modal",
+  "description": null,
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "782ad52b-2550-4ac9-95e9-0dea9e48c51f",
+      "action": "WHEN",
+      "data": "",
+      "result": "THEN a blackout message displays in the feed picker"
+    }
+  ]
+}

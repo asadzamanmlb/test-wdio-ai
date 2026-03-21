@@ -1,0 +1,20 @@
+{
+  "id": "WQ-59",
+  "issueId": "1127071",
+  "key": "WQ-59",
+  "summary": "Mid-Roll Ads appear during Live Game Feeds",
+  "description": "GIVEN a user is entitled to play a live/in-progress game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8daa3b2e-a0fb-44bf-81db-398e5d1abbb1",
+      "action": "WHEN a user plays a live/in-progress game",
+      "data": "",
+      "result": "THEN mid-roll ads are played during commercial breaks\r\nAND mid-roll ads do not play during the game outside the commercial breaks"
+    }
+  ]
+}

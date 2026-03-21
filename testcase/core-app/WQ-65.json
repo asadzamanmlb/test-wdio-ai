@@ -1,0 +1,20 @@
+{
+  "id": "WQ-65",
+  "issueId": "1127077",
+  "key": "WQ-65",
+  "summary": "IMA SDK is being used - Live",
+  "description": "GIVEN a LIVE game stream has adsEnabled equals true in the graphql Preview/Response (data->initPlaybackSession->adExperience->adsEnabled)\nAND an asset key is is returned in the same graphql Preview/Response (data->initPlaybackSession->adExperience->adEngineIdentifiers)\n\n**NOTE:** \nEnter graphql into the Network search of Dev Tools to find the initPlaybackSession",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "39234666-e27a-40be-ba0d-25af0735fa34",
+      "action": "WHEN the user selects a Live in-progress ads enabled feed for playback\nAND entering \"stream\" into the Network search of Dev Tools\nAND an ad break occurs",
+      "data": "",
+      "result": "THEN the \"streams\" call has \"pubads.g.doubleclick.net*\" as the request URL\nAND ads playback during ad breaks"
+    }
+  ]
+}

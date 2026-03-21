@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3044",
+  "issueId": "1161789",
+  "key": "WQ-3044",
+  "summary": "SNY 24/7 feed FF Cancel",
+  "description": "GIVEN a logged in user is entitled for SNY RSN\nAND the user selects the SNY 24/7 stream to watch\nAND the playhead is behind the live point",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "fdc094c2-f37e-4e69-9f5a-72a6856280d1",
+      "action": "WHEN the user initiates Fast Forward\nAND presses the \"back\" button on the controller after a few moments",
+      "data": "",
+      "result": "THEN Fast Forward stops\nAND playback resumes at the point where Fast Forward was initiated\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

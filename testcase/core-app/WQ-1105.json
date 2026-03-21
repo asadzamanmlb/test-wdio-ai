@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1105",
+  "issueId": "1128435",
+  "key": "WQ-1105",
+  "summary": "Explore Free Content to Home page",
+  "description": "GIVEN the user is not a paid subscriber\r\nAND the user is on the Home page ",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1236e5ee-9db4-43c5-901f-c044d8963087",
+      "action": "WHEN the user selects the \"Get MLB.TV\" tab in the navigation header\r\nAND selects the \"Explore Free Content\" button on the Onboarding page",
+      "data": "",
+      "result": "THEN the user is navigated to the Home page\r\nAND focus is assigned to the \"Watch Now\" button in the Hero\r\n\r\n**NOTE:** If a \"Watch\" button is not present in the hero, focus will be assigned to the Home tab"
+    }
+  ]
+}

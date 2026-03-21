@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1297",
+  "issueId": "1128634",
+  "key": "WQ-1297",
+  "summary": "Single Team Not Entitled - Archive",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is not logged in",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9cb6bdcf-3cca-4155-a3ab-cb68d9fd0be1",
+      "action": "WHEN the user selects a game tile\r\nAND assigns focus to the not entitled feed",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"<away_team> @ <home_team>, <button_name/feed_name>, <feed_type>, Not Entitled, press <appropriate_directions> for more content. Press back to dismiss.\""
+    }
+  ]
+}

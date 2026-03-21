@@ -1,0 +1,20 @@
+{
+  "id": "WQ-766",
+  "issueId": "1128094",
+  "key": "WQ-766",
+  "summary": "AtBat subscriber ESPN/Sunday Night Baseball - Game Tile",
+  "description": "GIVEN a user has AtBat entitlements\r\nAND ESPN Sunday Night Baseball is scheduled/in-progress\r\n\r\nAtBat entitlements = MLBAUDIO, IPHONEATBAT, ANDROIDATBAT, SUBSCRIBERVOD",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2e9fe42f-9af0-44d0-8f79-d6adc63a8b2b",
+      "action": "WHEN the user views the game tile focused or unfocused",
+      "data": "",
+      "result": "THEN a blackout pill is displayed left aligned at the bottom of the game tile\r\nAND a lock icon is displayed in the upper right corner of the game tile"
+    }
+  ]
+}

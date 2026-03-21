@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1674",
+  "issueId": "1129091",
+  "key": "WQ-1674",
+  "summary": "National Feed Blackout",
+  "description": "When a logged in user launches  the app and selects Live National Blackout Game, Feed select page appears with Blackout message.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a27fa16d-b5df-49ce-a67f-d16322ca7090",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

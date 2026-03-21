@@ -1,0 +1,20 @@
+{
+  "id": "WQ-271",
+  "issueId": "1127583",
+  "key": "WQ-271",
+  "summary": "Non-Favorite team game is live",
+  "description": "GIVEN a user is entitled for live game playback\r\nAND a game without the user's favorite team is present in the hero\r\nAND the game is in a preview/live state",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "43be9ea2-a6a4-4b1c-b513-af31fe1f1387",
+      "action": "WHEN a user loads the Home page",
+      "data": "",
+      "result": "THEN a background image related to the home team is displayed in the hero\r\nAND a red pill with white \"LIVE\" text displays above the away team logo\r\nAND the away team logo displays and away team name are displayed\r\nAND the home team logo and home team name are displayed in the Hero\r\nAND the \"Watch Live\" button is white with black text\r\nAND the \"Watch Live\" button has focus when the Home page loads\r\nAND game playback is successful after the user selects the \"Watch Live\" button\r\nAND the home team feed begins playback"
+    }
+  ]
+}

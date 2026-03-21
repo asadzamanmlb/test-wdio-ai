@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1752",
+  "issueId": "1129169",
+  "key": "WQ-1752",
+  "summary": "Return to app screen after advertisement",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3f5f6a1d-8e73-4cca-9f01-8f9579621bcd",
+      "action": "Execute app → An advertisement which requires entering depth is exposed → Access advertisement → Check whether user can return to app",
+      "data": "",
+      "result": "User can return to app screen after accessing advertisement\r\n\r\n※ Should be able to change back to app by using BACK key, UI button, etc."
+    }
+  ]
+}

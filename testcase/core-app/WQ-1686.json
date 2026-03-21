@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1686",
+  "issueId": "1129103",
+  "key": "WQ-1686",
+  "summary": "Home/Away Feed options",
+  "description": "Video feed options will be available in the feed selector which includes a home or away feed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b6d3a5b5-63e2-4b2e-88eb-b4ce52fab6ce",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

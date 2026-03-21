@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1344",
+  "issueId": "1128681",
+  "key": "WQ-1344",
+  "summary": "Game Tile Live Not Entitled Hide Spoilers ON",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is not logged in\r\nAND Hide Spoilers is turned ON\r\nAND a Live game is on the schedule\r\nAND the user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "776af155-d246-460b-8586-624c801fd7c3",
+      "action": "WHEN focus is assigned to a Live game tile with a Lock icon",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Game <x> of <y>, <away_team> at <home_team>, Not Entitled. Press select to play game. Move <appropriate_directions> to hear more games. Move up to navigate to a new date.\""
+    }
+  ]
+}

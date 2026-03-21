@@ -1,0 +1,20 @@
+{
+  "id": "WQ-492",
+  "issueId": "1127818",
+  "key": "WQ-492",
+  "summary": "Broadcast Options - Switch Video Feed - Resume Switched-To Feed",
+  "description": "GIVEN the user is entitled for live game playback\r\nAND the user is not blacked out of the selected live game\r\nAND the selected live game has home and away video feeds\r\nAND the user initiates live playback of the home team video feed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "fdbf2a79-d380-4657-b21e-232a449a6851",
+      "action": "WHEN the user opens the Broadcast Options in the scrubber\r\nAND the user selects the away team video feed\r\nAND lets the away team feed play for at-least several moments\r\nAND the user backs out of game playback\r\nAND the user resumes the away team video feed from the feed select modal",
+      "data": "",
+      "result": "THEN video playback resumes at the bookmarked point\r\nAND the TV audio for the associated video feed is playing back\r\nAND the audio is in-sync with the video"
+    }
+  ]
+}

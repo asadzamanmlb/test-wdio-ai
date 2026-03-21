@@ -1,0 +1,20 @@
+{
+  "id": "WQ-995",
+  "issueId": "1128324",
+  "key": "WQ-995",
+  "summary": "Games Page updates after games player is dismissed",
+  "description": "GIVEN a user is entitled for game playback\r\nAND a user is on the Games page\r\nAND a user has initiated playback of an in progress game\r\nAND the continues playback for a few innings",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "59afba6d-8b68-48f5-8b4f-8cfee87d76ba",
+      "action": "WHEN the user dismisses playback",
+      "data": "",
+      "result": "THEN the video player is dismissed\r\nAND the user is brought back to the Games page\r\nAND the Games page updates to display the most up to date game info"
+    }
+  ]
+}

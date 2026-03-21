@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1778",
+  "issueId": "1129195",
+  "key": "WQ-1778",
+  "summary": "MMRC/Wheel",
+  "description": "Wheel function is supported",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "456ac524-65ac-430c-b79e-016e6820437a",
+      "action": "Execute app → Use Magic remote control wheel on Page/List scroll contents\r\n\r\n[CASE]\r\n1. Check upper/lower, left/right movrment \r\n2. If map is included, check zoom in/out function",
+      "data": "",
+      "result": "Magic remote control wheel works properly in page/list scroll contents"
+    }
+  ]
+}

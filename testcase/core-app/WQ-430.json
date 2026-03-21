@@ -1,0 +1,20 @@
+{
+  "id": "WQ-430",
+  "issueId": "1127749",
+  "key": "WQ-430",
+  "summary": "SVOD Playback",
+  "description": "GIVEN a logged in user is entitled for SVOD content playback",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e807af5c-4090-4e45-af18-4fa9929e995b",
+      "action": "WHEN the user selects a SVOD content tile for playback from the Home page\r\n\r\n**NOTE:** SVOD content carousels: \"MLB.TV Original Shows\", \"MLB Network Presents\"",
+      "data": "",
+      "result": "THEN the SVOD content plays back from the beginning of the video"
+    }
+  ]
+}

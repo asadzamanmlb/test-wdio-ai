@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1144",
+  "issueId": "1128479",
+  "key": "WQ-1144",
+  "summary": "Favorite Team - Text",
+  "description": "GIVEN a user is on the Settings page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "24ac2731-ba41-448c-a727-3730e75b58a9",
+      "action": "WHEN focus is assigned to \"Favorite Team\"",
+      "data": "",
+      "result": "THEN \"Select your favorite team. Chosen teams will always appear first on the Homepage\" displays on the left side of the screen, below the header (config driven)"
+    }
+  ]
+}

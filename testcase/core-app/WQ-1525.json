@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1525",
+  "issueId": "1128862",
+  "key": "WQ-1525",
+  "summary": "Games Tab | Hearing Announcement When Focusing on a Postgame Live Game",
+  "description": "GIVEN the user is in the Games tab\r\nAND TTS is enabled\r\nAND the game is marked as Postgame Live",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "987edf8e-023a-440b-aa55-976512cc5f53",
+      "action": "WHEN the user focuses on a Postgame Live game",
+      "data": "",
+      "result": "THEN the user will hear: \"Postgame Live, <Half of the inning + Inning>,  <Away team Name + Away team>, <Home Team Name + Home team score>, X of X items”"
+    }
+  ]
+}

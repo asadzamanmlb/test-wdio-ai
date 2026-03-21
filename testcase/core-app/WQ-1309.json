@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1309",
+  "issueId": "1128646",
+  "key": "WQ-1309",
+  "summary": "Games Page load without games",
+  "description": "GIVEN TTS is turned ON\r\nAND there are no games on the schedule",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "bb41b8d6-3eef-4411-82e8-80ba549aa90e",
+      "action": "WHEN the user navigates to the Games page",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"On the Games page, Today's Games <today's_date>, zero games, Date Navigation, Left Button, press select to navigate to the previous day. <x> of <y> buttons in the navigation, press up for the Main Menu.\""
+    }
+  ]
+}

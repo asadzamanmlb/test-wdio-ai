@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1153",
+  "issueId": "1128488",
+  "key": "WQ-1153",
+  "summary": "Following Teams - Text",
+  "description": "GIVEN a user is on the Settings page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "290f064c-70b8-4567-ac67-9cd102760ec2",
+      "action": "WHEN focus is assigned to \"Following Teams\"",
+      "data": "",
+      "result": "THEN \"Select your teams you wish to follow. Chosen teams will always appear after the favorite team on the Homepage.\" displays on the left side of the screen, below the header (config driven)"
+    }
+  ]
+}

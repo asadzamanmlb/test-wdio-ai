@@ -1,0 +1,20 @@
+{
+  "id": "WQ-925",
+  "issueId": "1128254",
+  "key": "WQ-925",
+  "summary": "Preview/Scheduled Game state 'DELAYED - WEATHER' Hide Spoilers ON",
+  "description": "GIVEN a subscriber is on the Games page\r\nAND Hide Spoilers is set to ON",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b3a673b1-a9ce-4c18-b6ea-263de77ad6f4",
+      "action": "WHEN a scheduled game has any of the following statusCode values: PR,PS,PG,PF,PC,PD,PB,PL,PI",
+      "data": "",
+      "result": "THEN 'DELAYED - WEATHER' is not displayed in the match-up header of the game tile"
+    }
+  ]
+}

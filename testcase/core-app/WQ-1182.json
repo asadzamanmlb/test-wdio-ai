@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1182",
+  "issueId": "1128519",
+  "key": "WQ-1182",
+  "summary": "TTS | Login Page Load with Email Address field highlighted",
+  "description": "GIVEN an unauthenticated user selects the Login button\r\nAND the user has TTS Enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4ae59287-311c-455a-8ff9-20a89face319",
+      "action": "WHEN the Login Page loads",
+      "data": "",
+      "result": "THEN the Email Address field should be highlighted \r\nAND the app should communicate: “There are three ways to login on this page. You are currently highlighting the email field. You may also use your phone to login via QR code; users also have the option to visit mlb.com/activate and enter the 8 digit code on your screen. Your code is {code}.\"\r\n\r\n**NOTE** : The express Login only applies if the app being tested has that feature."
+    }
+  ]
+}

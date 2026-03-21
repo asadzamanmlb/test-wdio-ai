@@ -1,0 +1,20 @@
+{
+  "id": "WQ-140",
+  "issueId": "1127443",
+  "key": "WQ-140",
+  "summary": "Secondary Feed modal for Archive Games",
+  "description": "GIVEN a subscribers is entitled to watch archive games\r\nAND an archive feed has been previously played/has a bookmark",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c17ae775-1912-4bef-97de-917fcafaac71",
+      "action": "WHEN a user selects a video feed option in the Feed Select modal",
+      "data": "",
+      "result": "THEN the Secondary Feed Select modal displays\r\nAND the Away team logo/colors should be visible top left\r\nAND the Home team logo/colors should be visible top right\r\nAND a [Resume] button is displayed center justified with focus\r\nAND a [Start From The Beginning] button is displayed center justified below the [Resume] button\r\nAND the user cannot navigate through elements behind the modal"
+    }
+  ]
+}

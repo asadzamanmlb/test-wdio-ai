@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1784",
+  "issueId": "1129201",
+  "key": "WQ-1784",
+  "summary": "HOME Key",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "42e3d32e-320f-4c45-b614-3dabe12d28fd",
+      "action": "Execute app → Press HOME key of remote control",
+      "data": "",
+      "result": "HOME key of remote control works properly\r\n\r\n※ NetCast: App should move to Home dashboard after terminating\r\n※ webOS: Home Launcher Bar should appear"
+    }
+  ]
+}

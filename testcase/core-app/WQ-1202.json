@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1202",
+  "issueId": "1128539",
+  "key": "WQ-1202",
+  "summary": "TTS | Focus on SNY",
+  "description": "GIVEN a user has entitlements for SNY\r\nAND the user launches the MLB.TV app\r\nAND the user has TTS enabled\r\nAND the user logs in\r\n\r\n**NOTE:** SNY entitlement = SNY_121",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9c2d4b26-1c0e-4cf3-bd7a-4cc8917266e1",
+      "action": "WHEN a user focuses on the \"SNY\" button in the header",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"<RSN Name>, press select to explore all available content, <x> of <y> in the menu, press right or left for more items in the menu.\""
+    }
+  ]
+}

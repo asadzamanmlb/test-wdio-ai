@@ -1,0 +1,20 @@
+{
+  "id": "WQ-862",
+  "issueId": "1128190",
+  "key": "WQ-862",
+  "summary": "Executive user AppleTV+ scheduled/live - Game Tile",
+  "description": "GIVEN the user is an Executive user\r\nAND there is a AppleTV+ Game scheduled/in-progress",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "759fcd39-51e1-40e1-9018-d67d0a4783ef",
+      "action": "WHEN the user views the AppleTV+ game tile focused or unfocused",
+      "data": "",
+      "result": "THEN the AppleTV+ pill is not displayed in the game tile\r\nAND a lock icon is not displayed in the game tile\r\nAND the team colors in the matchup header do not have a dark overlay"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "WQ-2906",
+  "issueId": "1131562",
+  "key": "WQ-2906",
+  "summary": "MASN and MASN2 24/7 feed - DAI requests stop after exiting a stream",
+  "description": "GIVEN a user has entitlements for MASN\nAND the user launches the MLB.tv Core App\nAND the user logs in\nAND the user has initiated playback of the 24/7 MASN feeds\n\n*NOTE:* \nMASN entitlement = MASN_110 and MASN_120\n\nMASN Test users:\n\n|Username|Password|\n|masn@gmail.com|Password4MASN|\n|masnims@gmail.com (In Market)|Password4MASN|\n|masnoom@gmail.com (Out of Market)|Password4MASN|\n|masnintl@gmail.com (International)|Password4MASN|",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d630573d-ce61-46bd-bb65-c74899a9f0df",
+      "action": "WHEN a user exits the MASN 24/7 live stream",
+      "data": "",
+      "result": "THEN video playback is dismissed\nAND \"id3-events.json\" network calls to [dai.google.com|http://dai.google.com] are no longer occurring\n\n**NOTE:** Entering \"stream\" into the Network search of Dev Tools should filter out the id3-events.json network calls"
+    },
+    {
+      "id": "3378a157-8667-434a-a9c0-95f2612b968e",
+      "action": "WHEN a user exits the MASN2 24/7 live stream",
+      "data": "",
+      "result": "THEN video playback is dismissed\nAND \"id3-events.json\" network calls to [dai.google.com|http://dai.google.com] are no longer occurring\n\n**NOTE:** Entering \"stream\" into the Network search of Dev Tools should filter out the id3-events.json network calls"
+    }
+  ]
+}

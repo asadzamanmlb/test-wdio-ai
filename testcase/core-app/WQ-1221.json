@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1221",
+  "issueId": "1128558",
+  "key": "WQ-1221",
+  "summary": "Game Tile Live",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND a Live game is on the schedule\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "78135334-ca2f-4f5a-af2f-05617bc9b22b",
+      "action": "WHEN focus is assigned to a Live game tile in the Games Carousel",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Game <x> of <y>, <away_team>, <away_team_runs> Runs at <home_team>, <home_team_runs> Runs, <away_team>, <away_team_wins> Wins, <away_team_losses> Losses, <home_team>, <home_team_wins> Wins, <home_team_losses> Losses, LIVE, <half_inning>, Pitching <pitcher>, <pitcher_innings_pitched> Innings Pitched, <pitcher_ERA> Earned Run Average, Hitting <hitter>, <x_of_y> Hitting Today, <season_average> Season Batting Average, <men_on_base>, <number_of_outs>. Press select to play game. Move <appropriate_directions> to navigate to a new item. Move up or down to browse new content.\""
+    }
+  ]
+}

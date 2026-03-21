@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1680",
+  "issueId": "1129097",
+  "key": "WQ-1680",
+  "summary": "Live STP User",
+  "description": "When a Single Team user select Live game, Feed Select modal appears with Audio and Video feeds with a lock symbol for any feed the user doesn't have access to.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f52e75bc-44a2-450a-b752-8fe6b5d1abd3",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

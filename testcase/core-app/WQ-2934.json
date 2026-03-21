@@ -1,0 +1,26 @@
+{
+  "id": "WQ-2934",
+  "issueId": "1143637",
+  "key": "WQ-2934",
+  "summary": "Closed Caption setting is saved after app close and relaunch",
+  "description": "GIVEN a user has an MLB.tv account\r\nAND the user is logged in",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "22f9bead-692d-46c5-8b96-b157192b2c52",
+      "action": "WHEN the user sets Closed Captions on the Settings page to ON\nAND the user closes the app\nAND the user relaunches the app\nAND the user navigates to the Settings page",
+      "data": "",
+      "result": "THEN Closed Captions is set to ON"
+    },
+    {
+      "id": "13b4d501-0b1b-4ee2-9b64-f296e7bfd5ec",
+      "action": "WHEN the user sets Closed Captions on the Settings page to OFF\nAND the user closes the app\nAND the user relaunches the app\nAND the user navigates to the Settings page",
+      "data": "",
+      "result": "THEN the Closed Captions is set to OFF"
+    }
+  ]
+}

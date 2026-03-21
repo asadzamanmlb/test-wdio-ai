@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1106",
+  "issueId": "1128436",
+  "key": "WQ-1106",
+  "summary": "Explore Free Content to Games page",
+  "description": "GIVEN the user is not a paid subscriber\r\nAND the user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0d39169e-e6bc-445f-bae2-5611caf21597",
+      "action": "WHEN the user selects the \"Get MLB.TV\" tab in the navigation header\r\nAND selects the \"Explore Free Content\" button on the Onboarding page",
+      "data": "",
+      "result": "THEN the user is navigated to the Games page\r\nAND focus is assigned to the top furthest left game tile"
+    }
+  ]
+}

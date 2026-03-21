@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1535",
+  "issueId": "1128872",
+  "key": "WQ-1535",
+  "summary": "TTS | Games Tab",
+  "description": "GIVEN TTS is enabled\r\nAND the user is in the video player",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9b809140-e277-44da-9e8d-aa85b908438c",
+      "action": "When the focus is on the \"Games\" tab",
+      "data": "",
+      "result": "THEN the user should hear \"Games, 3 of 4 Options, press down to navigate games\""
+    }
+  ]
+}

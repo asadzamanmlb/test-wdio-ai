@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1532",
+  "issueId": "1128869",
+  "key": "WQ-1532",
+  "summary": "Fast Forward 15 Seconds | VOD/SVOD",
+  "description": "GIVEN the user is watching a VOD/SVOD content\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "24d3e977-339b-45c9-ab2b-93e910f98315",
+      "action": "WHEN the user clicks the right button once to Fast Forward 15 seconds",
+      "data": "",
+      "result": "THEN the user will hear: “Fast Forward 15 seconds. Press select to pause, Press back to get back to video”"
+    }
+  ]
+}

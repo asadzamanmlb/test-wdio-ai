@@ -1,0 +1,20 @@
+{
+  "id": "WQ-702",
+  "issueId": "1128030",
+  "key": "WQ-702",
+  "summary": "Executive user ESPN/Sunday Night Baseball archive - Game Tile",
+  "description": "GIVEN a user has EXEC entitlement\r\nAND ESPN Sunday Night Baseball is archived",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ba4d6c78-ae9b-40bb-bbe7-267668c452d1",
+      "action": "WHEN a user views/focuses an archived ESPN Sunday Night Baseball game tile",
+      "data": "",
+      "result": "THEN a lock icon doesn't display in the upper right corner of the game tile\r\nAND there is no dark overlay of the team match up\r\nAND a blackout pill does not display in the game tile"
+    }
+  ]
+}

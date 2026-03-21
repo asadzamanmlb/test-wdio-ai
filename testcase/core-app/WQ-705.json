@@ -1,0 +1,20 @@
+{
+  "id": "WQ-705",
+  "issueId": "1128033",
+  "key": "WQ-705",
+  "summary": "International user plain ESPN - Feed Select modal",
+  "description": "GIVEN a subscriber is located outside the United States\r\nAND the subscriber is entitled for live game playback\r\nAND a regular season game is scheduled with ESPN broadcaster\r\nAND the game is not ESPN Sunday Night Baseball",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0eb772c1-bbc5-4426-9616-058a4327d3fe",
+      "action": "WHEN a user selects a scheduled/in-progress ESPN game tile",
+      "data": "",
+      "result": "THEN the user will see an ESPN feed button\r\nAND the user can playback the ESPN feed"
+    }
+  ]
+}

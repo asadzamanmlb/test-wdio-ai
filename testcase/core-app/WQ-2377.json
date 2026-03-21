@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2377",
+  "issueId": "1129830",
+  "key": "WQ-2377",
+  "summary": "Date navigation using Games page",
+  "description": "GIVEN a user is on the games page",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "90400163-cae6-4217-afb8-e9f803c94fd6",
+      "action": "WHEN the user selects the \"<\" or \">\" buttons\r\nOR the user selects the \"Today\" button",
+      "data": "",
+      "result": "THEN the appropriate day with the appropriate games are displayed"
+    }
+  ]
+}

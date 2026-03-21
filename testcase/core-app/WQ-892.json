@@ -1,0 +1,20 @@
+{
+  "id": "WQ-892",
+  "issueId": "1128221",
+  "key": "WQ-892",
+  "summary": "FOX MVPD - International non-Canada",
+  "description": "GIVEN a Postseason game is on the schedule\r\nOR the All-Star Game is on the schedule\r\nAND FOX broadcasters are assigned\r\nAND the user's location is International non-Canada\r\nAND the game level entitledVideo = true\r\nAND the game level blackedOutVideo = false\r\nAND the AWAY (National) feed level foxAuthRequired = true\r\nAND the HOME (International) feed level foxAuthRequired = false",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d5a30d50-5cf0-4468-90f5-047beaca8667",
+      "action": "WHEN the user views a FOX Postseason game tile\r\nOR the user views a FOX All-Star Game tile",
+      "data": "",
+      "result": "THEN the MVPD pill does not display in the lower left corner of the game tile"
+    }
+  ]
+}

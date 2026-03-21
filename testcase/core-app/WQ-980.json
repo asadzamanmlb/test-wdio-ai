@@ -1,0 +1,20 @@
+{
+  "id": "WQ-980",
+  "issueId": "1128309",
+  "key": "WQ-980",
+  "summary": "Game Tile Order",
+  "description": "GIVEN a user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2f1b804e-5722-4aae-894c-b4d0c52983b8",
+      "action": "WHEN a user selects the [calendar] button\r\nAND selects a day with games",
+      "data": "",
+      "result": "THEN the number of game tiles is the same as was selected on the calendar\r\nAND there are 4 tiles per row\r\nAND games should be ordered by favorite team, following teams, live games with more progress to live games with less progress, games that have not started by nearest start time to latest start time, completed games, cancelled/postponed"
+    }
+  ]
+}

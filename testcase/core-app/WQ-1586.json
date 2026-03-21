@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1586",
+  "issueId": "1128992",
+  "key": "WQ-1586",
+  "summary": "Power Button Test - PS5",
+  "description": "GIVEN I have the PS5 controller connected to the PS5 \r\n\r\nRefer manual for more info- https://manuals.plus/playstation/ps5-dual-sense-wireless-controller-manual\r\n",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e0c8c225-8eab-40cd-90b8-1c95229ef57c",
+      "action": "WHEN I Press the PlayStation button once\r\n\r\nAND I Press and Hold the PlayStation button",
+      "data": "",
+      "result": "THEN I should expect the PlayStation 5 console to recognize the controller and sync with it\r\n\r\nTHEN I should expect the PlayStation 5 to go to the home screen after pressing and holding down the PlayStation  button"
+    }
+  ]
+}

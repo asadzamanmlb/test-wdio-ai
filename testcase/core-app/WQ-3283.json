@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3283",
+  "issueId": "1226330",
+  "key": "WQ-3283",
+  "summary": "Games page background",
+  "description": "GIVEN a user has launched the app\n\nNOTE: [https://www.figma.com/design/rGAWoDJL0fx7RTxv0er9U5/MLB.TV-Connected-Device-Developer-Spec?node-id=421-74460&m=dev|https://www.figma.com/design/rGAWoDJL0fx7RTxv0er9U5/MLB.TV-Connected-Device-Developer-Spec?node-id=421-74460&m=dev|smart-link] ",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4d09d8d1-79cf-46a4-a516-47758c192b4b",
+      "action": "WHEN the user navigates to the Games page",
+      "data": "",
+      "result": "THEN the Games page loads successfully\nAND the displayed background is what is shown in the Figma designs"
+    }
+  ]
+}

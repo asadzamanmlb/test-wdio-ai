@@ -1,0 +1,20 @@
+{
+  "id": "WQ-261",
+  "issueId": "1127573",
+  "key": "WQ-261",
+  "summary": "Favorite team game is pre-game",
+  "description": "GIVEN a user is entitled for live game playback\r\nAND a game with the user's favorite team is present in the hero\r\nAND the game is in a pre-game/scheduled state\r\nAND the mediaState=MEDIA_OFF",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "25b7b0ca-bdf5-4c79-be75-3fd630569416",
+      "action": "WHEN a user loads the Home page",
+      "data": "",
+      "result": "THEN a background image related to the home team is displayed in the hero\r\nAND the away team logo displays and away team name are displayed\r\nAND the home team logo and home team name are displayed in the Hero\r\nAND a blue pill displays left justified above the away team logo\r\nAND the scheduled game time displays in the user's local timezone\r\nAND a \"Watch Now\" button does NOT display\r\nAND a \"LIVE\" indicator pill does NOT display"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1030",
+  "issueId": "1128360",
+  "key": "WQ-1030",
+  "summary": "Welcome Page - Navigation",
+  "description": "GIVEN the user launches the app without saved data\r\nAND selects the [Get Started] button on the Startup screen\r\nAND selects a favorite team on the Favorite Team page\r\nAND selects the [Next] button on the Favorite Team page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "626aa977-6917-4333-859e-ec560c299e89",
+      "action": "WHEN the Welcome screen displays\r\nAND the user navigates to the [Create Free Account] button\r\nAND the user navigates to the [Browse Subscriptions] button\r\nAND the user navigates to the [Explore Free Content] button\r\nAND the user navigates to the \"LOG IN\" link",
+      "data": "",
+      "result": "THEN as the [Create Free Account] button gains focus, it grows in size\r\nAND as the the [Create Free Account] button gains focus, the button background turns grey\r\nAND as the the [Create Free Account] button gains focus, the button text turns black\r\nAND as the the [Create Free Account] button gains focus, the following text displays in the center of the screen left justified, \"Create an MLB Account\", \"Watch the MLB.TV Free Game of the Day\", \"TODAY'S MLB.TV FREE GAME OF THE DAY\"\r\nAND as the the [Create Free Account] button loses focus, it returns to its original size with a translucent background with white text\r\nAND as the [Browse Subscriptions] button gains focus, it grows in size\r\nAND as the the [Browse Subscriptions] button gains focus, the button background turns grey\r\nAND as the the [Browse Subscriptions] button gains focus, the button text turns black\r\nAND as the the [Browse Subscriptions] button gains focus, the following text displays in the center of the screen left justified, \"Browse Subscriptions\", \"Stream every game LIVE or on demand on you favorite supported devices with MLB.TV\", \"Start your free trial today\"\r\nAND as the the [Browse Subscriptions] button loses focus, it returns to its original size with a translucent background with white text\r\nAND as the [Explore Free Content] button gains focus, it grows in size\r\nAND as the the [Explore Free Content] button gains focus, the button background turns grey\r\nAND as the the [Explore Free Content] button gains focus, the button text turns black\r\nAND as the the [Explore Free Content] button gains focus, the following text displays in the center of the screen left justified, \"Browse Free Content\", \"Explore the MLB app today. Check scores, watch game recaps, team news and more\"\r\nAND as the the [Explore Free Content] button loses focus, it returns to its original size with a translucent background with white text\r\nAND as the \"LOG IN\" link gains focus, \"LOG IN\" is underlined"
+    }
+  ]
+}

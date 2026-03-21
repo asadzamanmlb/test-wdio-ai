@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1462",
+  "issueId": "1128799",
+  "key": "WQ-1462",
+  "summary": "TTS | Quick Action Menu | Closed Captions ON",
+  "description": "GIVEN TTS is enabled\r\nAND the user is in the video player",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "08ec0804-ae4c-4d19-a956-04e6b2044f28",
+      "action": "WHEN the user focuses on the “Captions” button",
+      "data": "",
+      "result": "THEN the user should hear \"Closed Captions, On, Press Select to Off\"\r\nAND the user should hear the current state, “On”"
+    }
+  ]
+}

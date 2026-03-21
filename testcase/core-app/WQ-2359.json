@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2359",
+  "issueId": "1129809",
+  "key": "WQ-2359",
+  "summary": "R5024A - Application runs with Slow SSD Mode ON",
+  "description": "**Compatibility**\r\n\r\n**R5024 Requirement:** When setting \"★Debug Settings\" > \"Game\" > \"Slow SSD Mode\" to \"On\", the application behaves the same way as when the option is set to \"Off\".",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "44e84c3f-dba2-4e74-8618-d3054925a470",
+      "action": "1. Select the \"Application\"\r\n2. Check the performance in the application\r\n\r\n**QA NOTE:**\r\nPlease also check the state where set \"★Debug Settings\" >\"Game\" > \"Slow SSD Mode\" to \"Off\"\r\nPay particular attention to the following locations.\r\n- Locations where streaming playback is performed.\r\n- Locations with a high operation load such as when many characters are active on screen.",
+      "data": "",
+      "result": "Performance issues, such as the following, do not occur due to \"Slow SSD Mode\" being set to \"On\":\r\n- Any processing delays (including video and audio).\r\n- The application freezes or otherwise becomes inoperable."
+    }
+  ]
+}

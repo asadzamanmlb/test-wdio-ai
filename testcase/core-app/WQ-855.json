@@ -1,0 +1,20 @@
+{
+  "id": "WQ-855",
+  "issueId": "1128183",
+  "key": "WQ-855",
+  "summary": "T-Mobile subscriber YouTube archive - Feed Select modal",
+  "description": "GIVEN a user is a T-Mobile subscriber",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "39a704c4-c9be-417a-882e-8b844fb700f8",
+      "action": "WHEN a user selects an archive YouTube game tile",
+      "data": "",
+      "result": "THEN the user will see the YouTube feed button\r\nAND a message does not display letting the user know where the game can be watched\r\nAND the user can playback the YouTube feed"
+    }
+  ]
+}

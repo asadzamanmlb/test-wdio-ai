@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1023",
+  "issueId": "1128353",
+  "key": "WQ-1023",
+  "summary": "Welcome Page UI - Create Free Account",
+  "description": "GIVEN the user is an Anonymous (a user that is not logged in)",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4bdeb134-a6bb-45be-b1a6-134c026a51c1",
+      "action": "WHEN the user selects \"Subscribe\" in the header\nAND the Welcome screen is displayed\nAND the [Create Free Account] button has focus",
+      "data": "",
+      "result": "THEN the background is a picture of baseball bats\nAND near the upper left corner of the screen the MLB logo and \"MLB\" are displayed\nAND below the MLB logo, left justified, a title displays \"Let's Play Ball\" (config driven)\nAND below that, the [Create Free Account] button, [Browse Subscriptions] button, [Explore Free Content] button are displayed vertically aligned and left justified\nAND below the buttons, \"Already have an account?\" is displayed\nAND below that, a \"Log In\" button is displayed\nAND at the bottom left of the screen, \"Blackout and other restrictions apply. Visit mlb.com/<device_platform> to learn more.\" is displayed (config driven)"
+    }
+  ]
+}

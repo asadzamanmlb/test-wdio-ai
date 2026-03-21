@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3047",
+  "issueId": "1161795",
+  "key": "WQ-3047",
+  "summary": "SNY VOD RW Stop",
+  "description": "GIVEN a logged in user is entitled for SNY RSN\nAND the user is on the SNY page\nAND the user selects a VOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "673396c3-bd70-44f9-81b5-43b482cabe83",
+      "action": "WHEN the user initiates Rewind\nAND presses the \"select\" button on the controller after a few moments",
+      "data": "",
+      "result": "THEN Rewind stops\nAND playback resumes at the point where Rewind stopped\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

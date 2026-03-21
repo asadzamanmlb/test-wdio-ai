@@ -1,0 +1,20 @@
+{
+  "id": "WQ-364",
+  "issueId": "1127676",
+  "key": "WQ-364",
+  "summary": "Basic non-game tiles - entitled focused",
+  "description": "GIVEN the user has the SUBSCRIBERVOD entitlement\r\nOR the user is a free user\r\nAND the user is logged in",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "debadf57-9fd1-4364-b204-80d0628c8252",
+      "action": "WHEN a user with SUBSCRIBERVOD entitlement views a focused VOD/SVOD/FLIVE/SLIVE basic tile\r\nOR a free user views a focused VOD/FLIVE basic tile",
+      "data": "",
+      "result": "THEN the tile has a white border to indicate focus\nAND the title section of the tile is white to indicate focus\nAND the associated thumbnail displays\nAND the duration of the VOD/SVOD content is displayed in the lower right corner of the thumbnail\nAND the title is displayed left justified below the associated thumbnail\nAND the video published date is displayed left justified below the title\nAND user does not see a lock icon in the upper right corner of the tile\nAND the tile is the same width as the game tiles\nAND two tiles are the same width as one featured tile"
+    }
+  ]
+}

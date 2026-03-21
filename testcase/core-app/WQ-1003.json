@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1003",
+  "issueId": "1128332",
+  "key": "WQ-1003",
+  "summary": "Game tiles do not display on days with no scheduled games",
+  "description": "GIVEN a user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a6d5111c-eef5-4634-92b5-f3998b1e0492",
+      "action": "WHEN a user selects a date that does not have scheduled games",
+      "data": "",
+      "result": "THEN there are no game tiles displaying and \"NO GAMES SCHEDULED\" text appears on the page."
+    }
+  ]
+}

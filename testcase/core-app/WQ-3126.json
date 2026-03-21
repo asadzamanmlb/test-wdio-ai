@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3126",
+  "issueId": "1163710",
+  "key": "WQ-3126",
+  "summary": "RSN 24/7 Feed Playback",
+  "description": "GIVEN a logged in user is entitled for RSN 24/7 feed playback",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8f789dcb-e4fb-4c3e-a15c-ffdc32d7d829",
+      "action": "WHEN the user selects an RSN 24/7 Live feed for playback from an RSN page",
+      "data": "",
+      "result": "THEN the RSN 24/7 feed plays back from the live point"
+    }
+  ]
+}

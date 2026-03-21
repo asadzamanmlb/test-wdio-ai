@@ -1,0 +1,20 @@
+{
+  "id": "WQ-621",
+  "issueId": "1127948",
+  "key": "WQ-621",
+  "summary": "Scrubber UI - Archive Games",
+  "description": "GIVEN a user is playing an archive game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "26e2cdef-0ce3-4e88-83ca-1b1f5bb5c261",
+      "action": "WHEN the scrubber bar is displayed",
+      "data": "",
+      "result": "THEN the game matchup is displayed left justified above the scrubber bar\r\nAND the away team is displayed to the left of the home team\r\nAND the respective team logos are displayed (generic baseball image for non-MLB teams)\r\nAND the respective team tri-codes are displayed\r\nAND the selected broadcaster is displayed above the away team logo\r\nAND the scrubber bar is blue on the left side of the playhead\r\nAND there is a gradient behind the scrubber\r\nAND the playback marker is at the current playback position during playback and pause\r\nAND the user’s current playback position time is represented below the scrubber on the right hand side as currentTime/totalTime (H:MM:SS time format)\r\nAND the closed captions button displays right justified above the scrubber bar\r\nAND \"Details\" is displayed left justified, below the scrubber bar (DM5/MLB Experience only)\r\nAND \"Broadcast Options\" is displayed to the right of \"Details\", below the scrubber bar (DM5/MLB Experience only)"
+    }
+  ]
+}

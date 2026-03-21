@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1678",
+  "issueId": "1129095",
+  "key": "WQ-1678",
+  "summary": "Pregame - Game Tile",
+  "description": "When a logged in user launches the app and selects Live game, before the game starts, the user should see the Pre-game text on the game tile for both or any one team until that is Live.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "768766c2-2e18-493b-b194-dbbd6df9f27a",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

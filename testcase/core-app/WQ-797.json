@@ -1,0 +1,20 @@
+{
+  "id": "WQ-797",
+  "issueId": "1128125",
+  "key": "WQ-797",
+  "summary": "Single Team subscriber AppleTV+ scheduled/live non-subscribed teams - Feed Select modal",
+  "description": "GIVEN the user is a single team subscriber\r\nAND there is a AppleTV+ Game scheduled/in-progress without the subscribed-to-team\r\nAND the game level blackedOutVideo equals true in MASTepg\r\nAND the game level entitledVideo equals false in MASTepg",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "721ad3bc-d050-414a-9a68-faa6a17ca79d",
+      "action": "WHEN the user selects the AppleTV+ game tile",
+      "data": "",
+      "result": "THEN video feed buttons are not displayed\r\nAND a message displays letting the user know where the game can be watched"
+    }
+  ]
+}

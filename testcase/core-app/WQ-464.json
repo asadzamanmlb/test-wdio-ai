@@ -1,0 +1,20 @@
+{
+  "id": "WQ-464",
+  "issueId": "1127790",
+  "key": "WQ-464",
+  "summary": "Video Error during playback",
+  "description": "GIVEN a user is entitled to a live feed or an archive feed\r\nAND the user is playing a live feed or archive feed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7d300b2f-cada-4fcb-9807-49270c66a6e7",
+      "action": "WHEN a video error is encountered during playback\n\n**NOTE:** Block network requests during video playback via Chrome DevTools.\nGame network calls in QA\n\n* .vtt:  https://tv-npd-fst.mlb.com\n* .ts:  https://tv-npd-fst.mlb.com\n\nGame network calls in PROD/DEV\n\n* .vtt:  https://tv-fst.mlb.com or https://tv-gmc.mlb.com\n* .ts:  https://tv-fst.mlb.com or https://tv-gmc.mlb.com\n\nRSN/MLBN network calls in PROD/DEV\n\n* .vtt:  https://tve-live.mlb.com\n* .ts:  https://tve-live.mlb.com\n\nSLIVE network calls in PROD/DEV\n\n* .vtt:  https://svod-fst.mlb.com\n* .ts:  https://svod-fst.mlb.com\n\nVOD network calls in PROD/DEV\n\n* .vtt, .ts: https://mlb-cuts-diamond.mlb.com",
+      "data": "",
+      "result": "THEN a \"Video Error\" modal displays\r\nAND the MLB logo and text is displayed center justified at the top of the screen\r\nAND \"Video Error\" displays above \"Please try again later.\" centered in the screen\r\nAND an [Go Back] button is displayed with focus\r\nAND the user is navigated back to the previous page after selecting the [Go Back] button"
+    }
+  ]
+}

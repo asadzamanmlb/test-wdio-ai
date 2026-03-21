@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1725",
+  "issueId": "1129142",
+  "key": "WQ-1725",
+  "summary": "Initial archive playback - Hide Spoilers ON",
+  "description": "GIVEN the user is entitled for archive game playback\nAND Hide Spoilers is turned ON\nAND team feeds are mediaState=MEDIA_ARCHIVE\nAND the feed does not contain a resume bookmark",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a798cac1-5311-4ff7-9c24-c87af652f870",
+      "action": "WHEN the user selects an archive game\nAND the user selects a team feed for playback\nAND the user watches the game for at least a half inning",
+      "data": "",
+      "result": "THEN playback starts at the broadcast start milestone\nAND all inning markers for the game are not displayed in the scrubber bar\nAND inning markers are populated to the left of the playback head as each half inning milestone is crossed"
+    }
+  ]
+}

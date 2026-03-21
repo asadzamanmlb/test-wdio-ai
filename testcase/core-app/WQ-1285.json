@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1285",
+  "issueId": "1128622",
+  "key": "WQ-1285",
+  "summary": "Game Tile Final Extra Innings Hide Spoilers ON",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND Hide Spoilers is turned ON\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "cb14dd5f-603e-4d89-b51c-89cddeef0271",
+      "action": "WHEN focus is assigned to an extra innings archive game in the Hero",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"<away_team>, <home_team>, Final, press select to play, press up for the Main Menu, press down to browse more content.\""
+    }
+  ]
+}

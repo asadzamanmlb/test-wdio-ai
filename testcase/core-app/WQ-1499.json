@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1499",
+  "issueId": "1128836",
+  "key": "WQ-1499",
+  "summary": "VOD/ SVOD | Hearing Speed Announcement While Rewinding",
+  "description": "GIVEN the user is watching a VOD/SVOD content\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a1a4d343-e113-4351-a690-f1bc8c273c05",
+      "action": "WHEN the user starts Rewinding",
+      "data": "",
+      "result": "THEN the user will hear: “Rewind <speed>, Press Select to Play”"
+    }
+  ]
+}

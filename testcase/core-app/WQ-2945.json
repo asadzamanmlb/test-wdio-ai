@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2945",
+  "issueId": "1143837",
+  "key": "WQ-2945",
+  "summary": "Welcome Page UI - Footer",
+  "description": "GIVEN the user is an Anonymous user (a user that is not logged in)\nAND the user has launched the app",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4876b85f-d65d-42f3-90cc-32bbcd22d30b",
+      "action": "WHEN the user selects \"Get [MLB.TV|http://MLB.TV]\" in the header\nAND the Welcome screen is displayed",
+      "data": "",
+      "result": "THEN the footer displays \"Blackout and other restrictions apply. Visit mlb.com/<platform> to learn more.\""
+    }
+  ]
+}

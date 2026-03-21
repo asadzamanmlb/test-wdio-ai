@@ -1,0 +1,20 @@
+{
+  "id": "WQ-106",
+  "issueId": "1127409",
+  "key": "WQ-106",
+  "summary": "Watch From Beginning Away Feed Selection - Live Game",
+  "description": "GIVEN a live game is in-progress\r\nAND videoFeeds for the game have a mediaState of MEDIA_ON\r\nAND the user is entitled to watch the game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "dc495eeb-2046-47ad-b200-c136993bc39d",
+      "action": "WHEN a user selects a game tile for a live in-progress game\r\nAND selects the away video feed button in the Feed Select Modal\r\nAND selects the [Start From The Beginning] button in the Secondary Feed Select Modal",
+      "data": "",
+      "result": "THEN the feed select modal/games page is dismissed\r\nAND the video player maximizes to full screen\r\nAND the away video feed starts playing from the broadcast start point"
+    }
+  ]
+}

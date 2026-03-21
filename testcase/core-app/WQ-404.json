@@ -1,0 +1,20 @@
+{
+  "id": "WQ-404",
+  "issueId": "1127716",
+  "key": "WQ-404",
+  "summary": "SNY contentCollections calls are made in 5 minute intervals",
+  "description": "GIVEN a user has entitlements for SNY\r\nAND the user launches the MLB.TV app\r\nAND the user logs in\r\n\r\n**NOTE:** SNY entitlement = SNY_121",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "51d1dca2-2663-478b-ad6f-02a7d87eb3be",
+      "action": "WHEN the user sits stationary in the app",
+      "data": "",
+      "result": "THEN \"contentCollections\" calls are made via \"graphql\" every 5 minutes"
+    }
+  ]
+}

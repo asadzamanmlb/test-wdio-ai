@@ -1,0 +1,20 @@
+{
+  "id": "WQ-587",
+  "issueId": "1127913",
+  "key": "WQ-587",
+  "summary": "VOD Rewind Stop",
+  "description": "GIVEN a user (paid/free/anonymous) has launched the MLB app\r\nAND the user selects a VOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "cef37605-a914-4ca9-bc25-aa5411712184",
+      "action": "WHEN the user initiates Rewind\nAND presses the \"select\" button on the controller after a few moments",
+      "data": "",
+      "result": "THEN Rewind stops\r\nAND playback resumes at the point where Rewind stopped\r\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

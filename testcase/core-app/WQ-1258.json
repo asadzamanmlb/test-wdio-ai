@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1258",
+  "issueId": "1128595",
+  "key": "WQ-1258",
+  "summary": "Featured Tiles Not Entitled",
+  "description": "GIVEN TTS is turned ON\r\nAND a free user is logged in\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9e9b2b74-2722-4729-aacb-6bc9cb9ff37c",
+      "action": "WHEN focus is assigned to a Featured tile with a lock icon",
+      "data": "",
+      "result": "The following statement is spoken, \"<content_title>, <content_description>, <content_length>, from <date>, Not Entitled, X of Y items in the carousel, press <appropriate_directions> to view other videos in the carousel, press up or down to browse more content\""
+    }
+  ]
+}

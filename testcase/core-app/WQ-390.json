@@ -1,0 +1,20 @@
+{
+  "id": "WQ-390",
+  "issueId": "1127702",
+  "key": "WQ-390",
+  "summary": "Carousel navigation to the left",
+  "description": "GIVEN a user is on the Home page\r\nAND focus is assigned to a carousel",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "04d1ff8e-02d4-4ac1-b824-a84079385bd3",
+      "action": "WHEN the user presses the left arrow on the controller",
+      "data": "",
+      "result": "THEN focus remains on the furthest left full tile\r\nAND the tile that was previously to the left of the focused tile is now in the focused position of the carousel\r\nAND focus remains on the tile when the user is focused on the first tile in the carousel\r\nAND the user can no longer continue navigating left through the carousel once the beginning of the carousel has been reached"
+    }
+  ]
+}

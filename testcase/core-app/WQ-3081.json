@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3081",
+  "issueId": "1162024",
+  "key": "WQ-3081",
+  "summary": "MASN VOD Pause/Play",
+  "description": "GIVEN a logged in user is entitled for MASN RSN\nAND the user is on the MASN page\nAND the user selects a VOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9b5025fc-e5c3-4846-a56e-12bb5fc0bf64",
+      "action": "WHEN the user presses the \"select\" button on the controller\nAND the user presses the \"select\" button again after a few moments",
+      "data": "",
+      "result": "THEN video playback pauses after the first button press\nAND a pause flash icon is displayed for one second before it disappears\nAND video playback resumes after the second button press\nAND a play flash icon is displayed for one second before it disappears\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-411",
+  "issueId": "1127723",
+  "key": "WQ-411",
+  "summary": "SNLA+ 24/7 feed - Mid-roll DAI Ads failover mid-stream",
+  "description": "GIVEN a user has entitlements for SNLA+\r\nAND the user launches the MLB.TV app\r\nAND the user logs in\r\nAND the user has initiated playback of the 24/7 SNLA+ feed\r\nAND the 24/7 SNLA+ stream has adsEnabled equals true in the graphql Preview/Response (data->initPlaybackSession->adExperience->adsEnabled)\r\nAND an asset key is is returned in the same graphql Preview/Response (data->initPlaybackSession->adExperience->adEngineIdentifiers)\r\n\r\n**NOTE:** SNLA+ entitlement = SNLA_119\r\nEnter \"graphql\" into the Network search of Dev Tools to find the initPlaybackSession\r\nTHIS NEEDS TO BE TESTED IN A BROWSER",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "47695fa9-66a8-44bd-913f-e91c948155af",
+      "action": "WHEN an ad break is triggered\r\nAND network calls to \"dai.google.com*\" are blocked\r\nOR network calls to \"dai.google.com*\" are failing",
+      "data": "",
+      "result": "THEN the stream continues to playback with no video error modal popping up\r\nAND ads playback during ad breaks"
+    }
+  ]
+}

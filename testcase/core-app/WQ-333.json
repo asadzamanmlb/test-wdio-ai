@@ -1,0 +1,20 @@
+{
+  "id": "WQ-333",
+  "issueId": "1127645",
+  "key": "WQ-333",
+  "summary": "SVOD - Entitled",
+  "description": "GIVEN a subscriber has SUBSCRIBERVOD entitlement\r\nAND SVOD content is present in the Hero",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "cfe1fd65-6290-4d95-a066-2da7a406c032",
+      "action": "WHEN a subscriber loads the Home page",
+      "data": "",
+      "result": "THEN a related background image is displayed for the SVOD content in the hero\r\nAND the title for the SVOD content in the hero is displayed\r\nAND the description for non-game content in the hero is displayed\r\nAND the \"Watch Now\" button is white with black text\r\nAND the \"Watch Now\" button has focus when the Home page loads\r\nAND the SVOD content playback is successful after the user selects the \"Watch Now\" button"
+    }
+  ]
+}

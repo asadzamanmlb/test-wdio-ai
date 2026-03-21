@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1238",
+  "issueId": "1128575",
+  "key": "WQ-1238",
+  "summary": "Game Tile Final Extra Innings",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2015d73a-badb-4797-8c6a-8361a51fd5ed",
+      "action": "WHEN focus is assigned to an extra innings archive game tile in the Games Carousel",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Game <x> of <y>, <away_team>, <away_team>, <away_team_runs> Runs, <home_team>, <home_team_runs> Runs, <away_team>, <away_team_wins> Wins, <away_team_losses> Losses, <home_team>, <home_team_wins> Wins, <home_team_losses> Losses, FINAL, Winning Pitcher <pitcher>, <pitcher_innings_pitched> Innings Pitched, <pitcher_ERA> Earned Run Average, Losing Pitcher <pitcher>, <pitcher_innings_pitched> Innings Pitched, <pitcher_ERA> Earned Run Average. Press select to play game. Move <appropriate_directions> to navigate to a new item. Move up or down to browse new content.\""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-888",
+  "issueId": "1128217",
+  "key": "WQ-888",
+  "summary": "MLBN MVPD - Canada",
+  "description": "GIVEN a Postseason game is on the schedule\r\nAND MLBN broadcasters are assigned\r\nAND the user's location is in Canada\r\nAND the game level entitledVideo = true\r\nAND the game level blackedOutVideo = true\r\nAND the AWAY (National) feed level mlbnAuthRequired = true\r\nAND the HOME (International) feed level mlbnAuthRequired = false",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ecc35f55-414e-441c-a46a-a517ca7b35ef",
+      "action": "WHEN the user views a MLBN Postseason game tile",
+      "data": "",
+      "result": "THEN the MVPD pill does not display in the lower left corner of the game tile\r\nAND the Blackout pill displays in the lower left corner of the game tile"
+    }
+  ]
+}

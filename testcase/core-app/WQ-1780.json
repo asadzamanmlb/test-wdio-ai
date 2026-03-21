@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1780",
+  "issueId": "1129197",
+  "key": "WQ-1780",
+  "summary": "Function(Color) Key",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "01573145-ec81-41e8-9381-7558436e5c50",
+      "action": "Execute app → Press function key (color key) of remote control",
+      "data": "",
+      "result": "Function key (color key) of remote control works properly\r\n\r\n※ When UI button is set to match each function key color, check whether the UI button works properly in accordance with each key"
+    }
+  ]
+}

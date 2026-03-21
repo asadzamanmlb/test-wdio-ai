@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1143",
+  "issueId": "1128478",
+  "key": "WQ-1143",
+  "summary": "Comcast - Device Closed Captions OFF",
+  "description": "GIVEN Close Captions is set to OFF in the settings of the Comcast device\r\nAND the user launches the MLB.TV app on a Comcast device\r\nAND the user logs in",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ca956238-0a48-45f3-8bb5-4de03c8a14cc",
+      "action": "WHEN the user navigates to the Settings page",
+      "data": "",
+      "result": "THEN Closed Captions on the Settings page is set to OFF\r\nAND Closed Captions do not display when playing back video content"
+    }
+  ]
+}

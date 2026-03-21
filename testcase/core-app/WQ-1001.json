@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1001",
+  "issueId": "1128330",
+  "key": "WQ-1001",
+  "summary": "Game Tile Focus State",
+  "description": "GIVEN the user is on the Games page\r\nAND the selected date has scheduled games",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "99a7c9a3-61d7-44f6-93d3-40ff16afcc56",
+      "action": "WHEN a user navigates to any game tile",
+      "data": "",
+      "result": "THEN the focused game tile has a white border surrounding the tile\nAND the focused game tile is larger than non-focused game tiles"
+    }
+  ]
+}

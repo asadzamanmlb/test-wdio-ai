@@ -1,0 +1,20 @@
+{
+  "id": "WQ-589",
+  "issueId": "1127915",
+  "key": "WQ-589",
+  "summary": "VOD Rewind to beginning",
+  "description": "GIVEN a user (paid/free/anonymous) has launched the MLB app\r\nAND the user selects a VOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "df5318e8-b1fc-4b83-8447-d0c213041125",
+      "action": "WHEN the user Rewinds the stream to the beginning",
+      "data": "",
+      "result": "THEN Rewind stops once it reaches the start of the stream\r\nAND playback resumes at the beginning of the stream\r\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

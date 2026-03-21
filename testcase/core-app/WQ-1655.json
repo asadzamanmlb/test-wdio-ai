@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1655",
+  "issueId": "1129072",
+  "key": "WQ-1655",
+  "summary": "Archive Free User - Recap/Condensed Game",
+  "description": "When a Free user select archived game, Feed Select modal should appear with Watch Free: Condensed Game and Recap or for full game access to upgrade to MLB.TV button.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6d05531f-1d4f-4e76-af7c-d19fb279578d",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

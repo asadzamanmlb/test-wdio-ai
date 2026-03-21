@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1581",
+  "issueId": "1128987",
+  "key": "WQ-1581",
+  "summary": "Power Button Test - XBOX",
+  "description": "GIVEN I have connected the controller to the console",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b2cb89a1-2565-470c-8ad4-fa14e7dc3156",
+      "action": "WHEN I press the Xbox (4) button/ Nexus button\r\n\r\n![](index.php?/attachments/get/14344230)",
+      "data": "",
+      "result": "THEN the power should turn on the console."
+    }
+  ]
+}

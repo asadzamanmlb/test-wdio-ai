@@ -1,0 +1,20 @@
+{
+  "id": "WQ-673",
+  "issueId": "1128001",
+  "key": "WQ-673",
+  "summary": "Extra Innings subscriber FGotD out of market - Feed Select",
+  "description": "Given the user is an Xtra Innings subscriber\r\nAND the FGotD is scheduled/in-progress\r\nAND the FGotD is not in the subscribers viewing market",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a77ba5ac-b161-4045-98d9-ee4338a55bc2",
+      "action": "WHEN a user selects the FGotD game tile",
+      "data": "",
+      "result": "THEN a Feed Select modal displays\r\nAND the user is able to select both feeds in the Feed Select modal\r\nAND both team video feeds play successfully"
+    }
+  ]
+}

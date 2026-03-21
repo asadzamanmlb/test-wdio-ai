@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1746",
+  "issueId": "1129163",
+  "key": "WQ-1746",
+  "summary": "RW does initiate during Ad break at live point",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "30c3f343-1490-4cd3-8bb2-02aec430ee7e",
+      "action": "WHEN",
+      "data": "",
+      "result": "Verify if the user can REW/ Pause the Ad during ad break on Game Live point"
+    }
+  ]
+}

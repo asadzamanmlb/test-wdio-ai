@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1269",
+  "issueId": "1128606",
+  "key": "WQ-1269",
+  "summary": "Game Tile Live Not Entitled Hide Spoilers ON",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is not logged in\r\nAND Hide Spoilers is turned ON\r\nAND a Live game is on the schedule\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "dd4e0dea-0985-41cf-9479-3c161c831f6f",
+      "action": "WHEN focus is assigned to a not entitled Live game in the Hero",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"<away_team> at <home_team>, Live, Not Entitled. Press select to play game. Press up for the main menu. Move down to browse more content.\""
+    }
+  ]
+}

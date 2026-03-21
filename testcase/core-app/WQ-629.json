@@ -1,0 +1,20 @@
+{
+  "id": "WQ-629",
+  "issueId": "1127956",
+  "key": "WQ-629",
+  "summary": "Broadcast Options - UI - Navigation",
+  "description": "GIVEN the user is entitled for game playback\r\nAND the user has initiated playback of a Live or Archive game\r\nAND the scrubber is displayed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "06b18b06-9852-4073-84be-39a5965772db",
+      "action": "WHEN focus is on the Broadcast Options menu",
+      "data": "",
+      "result": "THEN pressing ‘down’ or 'X' will move focus to the first available video option\r\nAND pressing ‘right' or 'left’ will move focus to the corresponding option on the right or left\r\nAND pressing ‘right’ after reaching the right most option in the list will not move focus\r\nAND pressing ‘left’ after reaching the left most option in the list will not move focus\r\nAND pressing ‘down' or 'up’ will move focus to the corresponding option below or above\r\nAND pressing ‘down’ after reaching the bottom most option in the list will not move focus\r\nAND if focus is on the top most tile of any column, pressing ‘Up’ will return focus to “Broadcast Options”"
+    }
+  ]
+}

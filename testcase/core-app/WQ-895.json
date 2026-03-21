@@ -1,0 +1,20 @@
+{
+  "id": "WQ-895",
+  "issueId": "1128224",
+  "key": "WQ-895",
+  "summary": "TBS MVPD - International non-Canada",
+  "description": "GIVEN a Postseason game is on the schedule\r\nAND TBS broadcasters are assigned\r\nAND the user's location is International non-Canada\r\nAND the game level entitledVideo = true\r\nAND the game level blackedOutVideo = false\r\nAND the AWAY (National) feed level tbsAuthRequired = true\r\nAND the HOME (International) feed level tbsAuthRequired = false",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7937ffd8-b88d-44f4-ae44-236320a9e8ca",
+      "action": "WHEN the user views a TBS Postseason game tile",
+      "data": "",
+      "result": "THEN the MVPD pill does not display in the lower left corner of the game tile"
+    }
+  ]
+}

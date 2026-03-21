@@ -1,0 +1,20 @@
+{
+  "id": "WQ-521",
+  "issueId": "1127847",
+  "key": "WQ-521",
+  "summary": "Resume archive game inning markers - Hide Spoilers OFF",
+  "description": "GIVEN a user has Hide Spoilers OFF\r\nAND a user has exited an archive game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2b5b78fb-4fca-46fe-82d3-b6ff829d2183",
+      "action": "WHEN a user resumes an archive game",
+      "data": "",
+      "result": "THEN the video starts playing from the bookmarked point\r\nAND inning markers display in the scrubber, to the left of the playback head, for the portion of the game the user has already watched\r\nAND inning markers are displayed between the users watch point and the end of the game, to the right of the playback head"
+    }
+  ]
+}

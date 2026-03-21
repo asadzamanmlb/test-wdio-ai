@@ -1,0 +1,20 @@
+{
+  "id": "WQ-985",
+  "issueId": "1128314",
+  "key": "WQ-985",
+  "summary": "Header Navigation - Games page",
+  "description": "GIVEN a user has launched the app",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "13fc4acf-7afa-41b0-bfea-6f8f7ce985a7",
+      "action": "WHEN a user selects the the [Games] button in the navigation header",
+      "data": "",
+      "result": "THEN the Games page loads\r\nAND focus leaves the 'Games' button in the header\r\nAND the 'Games' text color changes from black to white\r\nAND the 'Games' text becomes bold\r\nAND all other button text in the header is not bold\r\nAND focus is assigned to the top row furthest left game tile"
+    }
+  ]
+}

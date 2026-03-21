@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1007",
+  "issueId": "1128336",
+  "key": "WQ-1007",
+  "summary": "Calendar UI",
+  "description": "GIVEN a user has launched the app\r\nAND the user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3f50fb2f-484b-4b45-b166-d42e006bfab8",
+      "action": "WHEN the user selects the [calendar] button",
+      "data": "",
+      "result": "THEN the calendar for the current month is displayed\nAND the games page date is highlighted white\nAND each date displays its total number of games for that date in black text\nAND the days of the week are 3-letter abbreviations\nAND the month with year is left justified at the top of the page\nAND the correct number of days is displayed for the given month\nAND the previous month [<-] button displays to the right of the month/year\nAND the next month [->] button displays to the right of the [<-] button\nAND the [Today] button displays to the right of the [->] button\nAND the background is black\nAND the week starts with Sunday\nAND the day numbers are in the upper left corner of the day tiles in gray text"
+    }
+  ]
+}

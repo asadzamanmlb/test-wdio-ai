@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1734",
+  "issueId": "1129151",
+  "key": "WQ-1734",
+  "summary": "Live ad break start",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "62639e39-0568-4600-983b-81d588daecb3",
+      "action": "WHEN",
+      "data": "",
+      "result": "DAI ads playback for a Live game when an ad-break starts"
+    }
+  ]
+}

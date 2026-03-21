@@ -1,0 +1,20 @@
+{
+  "id": "WQ-699",
+  "issueId": "1128027",
+  "key": "WQ-699",
+  "summary": "T-Mobile subscriber ESPN/Sunday Night Baseball archive - Feed Select modal",
+  "description": "GIVEN a user has T-Mobile entitlement\r\nAND ESPN Sunday Night Baseball is archived",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1405481e-1a03-48a4-954c-8ffad479d7dd",
+      "action": "WHEN a user selects an archived ESPN Sunday Night Baseball game tile",
+      "data": "",
+      "result": "THEN a feed select modal displays\r\nAND buttons for Recap and Condensed Game display center justified, above the game feed\r\nAND the user will see an ESPN feed button for the home team\r\nAND the user achieves playback after selecting each button"
+    }
+  ]
+}

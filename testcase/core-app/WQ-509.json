@@ -1,0 +1,20 @@
+{
+  "id": "WQ-509",
+  "issueId": "1127835",
+  "key": "WQ-509",
+  "summary": "Game Details - Resume Hide Spoilers OFF",
+  "description": "GIVEN the user is logged in\r\nAND the user is in the MLB experience\r\nAND the user is entitled to live game playback\r\nAND Hide Spoilers is set to OFF\r\nAND the user backs out of playback at the Live Point\r\nAND waits 10 minutes to resume",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6faf1a94-8b15-4302-b250-8401ef76431d",
+      "action": "WHEN the user Resumes playback of the in-progress live game\r\nAND the user focuses on Game Details below the scrubber bar",
+      "data": "",
+      "result": "THEN the pitcher/batter info matches the resumed playback position\r\nAND the Linescore displays any updated info that occurred after the user exited the feed"
+    }
+  ]
+}

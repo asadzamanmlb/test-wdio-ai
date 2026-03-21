@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1178",
+  "issueId": "1128513",
+  "key": "WQ-1178",
+  "summary": "Samsung Only - User Sees proper background image on Exit Confirmations screen",
+  "description": "GIVEN the user is on the mlb app on Samsung tv",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "01a10db9-b7a9-48b8-b1d8-f0e85b4a5644",
+      "action": "WHEN the user triggers the exit key by pressing the exit button on the IR remote\r\nOR the user triggers the exit key by pressing and holding the Return button on the Bluetooth remote",
+      "data": "",
+      "result": "THEN the Exit confirmation screen appears\r\nAND the background image should be rendered from branding service\r\n\r\nNOTE: this is the link from the branding service - https://img.mlbstatic.com/mlb-mobile/oms/branding/mlbtv/welcome/MLB-0-c3b6338e-c939-4788-9e46-67369048b2ab"
+    }
+  ]
+}

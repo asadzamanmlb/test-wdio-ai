@@ -1,0 +1,20 @@
+{
+  "id": "WQ-647",
+  "issueId": "1127975",
+  "key": "WQ-647",
+  "summary": "Monthly/yearly subscriber archive game - Feed Select",
+  "description": "GIVEN a user is a Monthly/Yearly subscriber",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3c7d9962-e288-475b-a2a7-cede0ee80d72",
+      "action": "WHEN a user selects an archive game tile",
+      "data": "",
+      "result": "THEN buttons for Recap and Condensed Game display center justified, above the team feeds\r\nAND the user will see feed buttons for both teams\r\nAND the user achieves playback after selecting each button"
+    }
+  ]
+}

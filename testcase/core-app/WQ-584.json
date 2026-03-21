@@ -1,0 +1,20 @@
+{
+  "id": "WQ-584",
+  "issueId": "1127910",
+  "key": "WQ-584",
+  "summary": "SVOD Fast Forward to end",
+  "description": "GIVEN a user has SUBSCRIBERVOD entitlement\r\nAND the user selects an SVOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c39bcb11-a2bf-444e-984b-5c3b03f07785",
+      "action": "WHEN the user Fast Forwards the video to the end",
+      "data": "",
+      "result": "THEN the video player is dismissed\r\nAND the user is navigated back to the previous page"
+    }
+  ]
+}

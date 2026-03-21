@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3260",
+  "issueId": "1220961",
+  "key": "WQ-3260",
+  "summary": "Header - Avatar",
+  "description": "Given a User has selected a Favorite Team and saved that choice by clicking ‘Done’ in the Fav Team modal\n\n* through the Getting Started workflow\n* and/or through the Settings → Favorite Team workflow",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "09ea85d5-0a8a-402f-8245-3750ea2f5804",
+      "action": "WHEN a user has selected a Favorite Team and navigates to the Home, Games or Settings page",
+      "data": "",
+      "result": "Then user should see their favorite team’s logo/avatar in the upper right hand corner of the page - in line with nav buttons"
+    }
+  ]
+}

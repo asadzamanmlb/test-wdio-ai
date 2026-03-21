@@ -1,0 +1,20 @@
+{
+  "id": "WQ-599",
+  "issueId": "1127926",
+  "key": "WQ-599",
+  "summary": "SLIVE Rewind to beginning",
+  "description": "GIVEN a user has SUBSCRIBERVOD entitlement\r\nAND an SLIVE stream is in progress\r\nAND the user selects the SLIVE stream to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "542444b5-b397-4288-a09b-dd7f87dd3f36",
+      "action": "WHEN the user Rewinds the stream to the beginning",
+      "data": "",
+      "result": "THEN Rewind stops once it reaches the start of the stream\r\nAND playback resumes at the beginning of the stream\r\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

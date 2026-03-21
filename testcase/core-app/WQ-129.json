@@ -1,0 +1,20 @@
+{
+  "id": "WQ-129",
+  "issueId": "1127432",
+  "key": "WQ-129",
+  "summary": "Game Recap - Playback",
+  "description": "GIVEN a user has selected a game tile for an archive game\r\nAND the Feed Select modal is displayed",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4b3f8df6-6d15-479f-b71e-3b4df4f35301",
+      "action": "WHEN the user selects the [Recap] button",
+      "data": "",
+      "result": "THEN playback of the Game Recap is initiated at the beginning of the video\r\nAND the Game Recap video is for the game/game tile that was selected\r\nAND the video player is dismissed once playback has completed\r\nAND focus is assigned to the previously selected game tile"
+    }
+  ]
+}

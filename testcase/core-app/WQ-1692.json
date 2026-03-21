@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1692",
+  "issueId": "1129109",
+  "key": "WQ-1692",
+  "summary": "5 devices don't trip concurrency",
+  "description": "Given the same user is signed into 5 devices, then the user can successfully stream on the 5 devices",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3c3aa088-ee0e-4373-b3d3-2638b9f07a80",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

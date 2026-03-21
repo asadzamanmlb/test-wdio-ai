@@ -1,0 +1,20 @@
+{
+  "id": "WQ-61",
+  "issueId": "1127073",
+  "key": "WQ-61",
+  "summary": "Mid-Roll Ads Scrubbing",
+  "description": "GIVEN a user is playing a live or archived game\r\nAND a commercial break is playing",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e97194bf-a68f-463d-8e56-900108386ac5",
+      "action": "WHEN a user engages rewind or fast forward",
+      "data": "",
+      "result": "THEN the user is able to rewind or fast forward during the ad breaks"
+    }
+  ]
+}

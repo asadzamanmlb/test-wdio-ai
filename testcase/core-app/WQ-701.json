@@ -1,0 +1,20 @@
+{
+  "id": "WQ-701",
+  "issueId": "1128029",
+  "key": "WQ-701",
+  "summary": "Executive user ESPN/Sunday Night Baseball - Feed Select modal",
+  "description": "GIVEN a user has EXEC entitlement\r\nAND ESPN Sunday Night Baseball is scheduled/live",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5c4a7601-ed97-4f58-8995-8e4b2fb5d445",
+      "action": "WHEN a user selects a scheduled/live ESPN Sunday Night Baseball game tile",
+      "data": "",
+      "result": "THEN a feed select modal displays\r\nAND the user will see an ESPN feed button for the home team\r\nAND the user achieves playback after selecting the feed button"
+    }
+  ]
+}

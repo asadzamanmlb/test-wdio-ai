@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1786",
+  "issueId": "1129203",
+  "key": "WQ-1786",
+  "summary": "EXIT Key",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "81c237a2-549c-43c0-b2e4-66852ad5980f",
+      "action": "Execute app → Press EXIT key of remote control",
+      "data": "",
+      "result": "When pressing EXIT key of remote control, app is properly terminated and moves to Live TV\r\n\r\n※ If app is MHP type,\r\n- OK if pop-up appears when terminating app by using EXIT key and EXIT UI button"
+    }
+  ]
+}

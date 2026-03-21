@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1606",
+  "issueId": "1129023",
+  "key": "WQ-1606",
+  "summary": "Closed Captions",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ce477500-9e2d-4ef3-bb26-62a2d26fdbec",
+      "action": "WHEN",
+      "data": "",
+      "result": "1. Users can enable or disable closed captions on the video player using quick action button\r\n\r\n2. Closed captions display properly when enabled in the video player for an extended amount of time\r\n\r\n3. Closed captioning will remain enabled or disabled on new video playback based on user's previous selection"
+    }
+  ]
+}

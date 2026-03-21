@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1747",
+  "issueId": "1129164",
+  "key": "WQ-1747",
+  "summary": "FF and RW during an ad break (archive)",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "334091d7-4810-4a8a-9c20-42e3a62c909a",
+      "action": "WHEN",
+      "data": "",
+      "result": "Verify if the user can Rew, FF, Pause during the AD break and Archived games"
+    }
+  ]
+}

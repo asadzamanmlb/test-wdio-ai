@@ -1,0 +1,20 @@
+{
+  "id": "WQ-353",
+  "issueId": "1127665",
+  "key": "WQ-353",
+  "summary": "One Scheduled Game - ASG/Postseason",
+  "description": "GIVEN there is 1 game scheduled for the day\r\nAND the 1 game is present in the Hero",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c929c916-6978-4a76-8039-77944893838e",
+      "action": "WHEN the user loads the Home page",
+      "data": "",
+      "result": "THEN the Games carousel should not display"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1132",
+  "issueId": "1128462",
+  "key": "WQ-1132",
+  "summary": "Select favorite/follow (Next) Existing Account w/ diff favorite/follow",
+  "description": "GIVEN the user has an existing MLB Account\r\nAND the existing MLB Account has saved favorite and following teams\r\nAND the user is launching the app for the first time\r\nAND the user selects the \"Getting Started\" button",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e6300a62-87a2-4838-9390-b7f07cb6cddc",
+      "action": "Note: Select teams that are different from the existing account saved teams\r\n\r\nWHEN the user selects a favorite team\r\nAND the user selects the \"Next\" button\r\nAND the user selects at least 1 following team\r\nAND the user selects the \"Next\" button\r\nAND the user logs in with their existing account",
+      "data": "",
+      "result": "THEN the users existing favorite or following teams are not updated"
+    }
+  ]
+}

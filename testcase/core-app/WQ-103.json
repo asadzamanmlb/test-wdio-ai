@@ -1,0 +1,20 @@
+{
+  "id": "WQ-103",
+  "issueId": "1127406",
+  "key": "WQ-103",
+  "summary": "Watch From Beginning Home Feed Selection - Live Game",
+  "description": "GIVEN a live game is in-progress\r\nAND videoFeeds for the game have a mediaState of MEDIA_ON\r\nAND the user is entitled to watch the game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "235b4915-b35b-41d6-a525-7feb005f7ce9",
+      "action": "WHEN a user selects a game tile for a live in-progress game\r\nAND selects the home video feed button in the Feed Select Modal\r\nAND selects the [Start From The Beginning] button in the Secondary Feed Select Modal",
+      "data": "",
+      "result": "THEN the feed select modal/games page is dismissed\r\nAND the video player maximizes to full screen\r\nAND the home video feed starts playing from the broadcast start point"
+    }
+  ]
+}

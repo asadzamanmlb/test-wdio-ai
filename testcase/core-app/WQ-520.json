@@ -1,0 +1,20 @@
+{
+  "id": "WQ-520",
+  "issueId": "1127846",
+  "key": "WQ-520",
+  "summary": "Resume archive game inning markers - Hide Spoilers ON",
+  "description": "GIVEN a user has Hide Spoilers ON\r\nAND a user has exited an archive game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "bc0ee4fa-c3d2-46f1-9054-0fa812db2643",
+      "action": "WHEN a user resumes an archive game",
+      "data": "",
+      "result": "THEN the video starts playing from the bookmarked point\r\nAND inning markers display in the scrubber, to the left of the playback head, for the portion of the game the user has already watched\r\nAND as the half innings begin, inning markers are populated in the scrubber bar to the left of the playhead\r\nAND inning markers are not populated between the users watch point and the end of the game, to the right of the playback head"
+    }
+  ]
+}

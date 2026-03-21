@@ -1,0 +1,20 @@
+{
+  "id": "WQ-581",
+  "issueId": "1127907",
+  "key": "WQ-581",
+  "summary": "SVOD Rewind to beginning",
+  "description": "GIVEN a user has SUBSCRIBERVOD entitlement\r\nAND the user selects an SVOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "945c044f-8ad1-430c-a756-2dbb0b55caa9",
+      "action": "WHEN the user Rewinds the stream to the beginning",
+      "data": "",
+      "result": "THEN Rewind stops once it reaches the start of the stream\r\nAND playback resumes at the beginning of the stream\r\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

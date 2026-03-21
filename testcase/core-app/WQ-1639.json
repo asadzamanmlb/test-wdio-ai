@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1639",
+  "issueId": "1129056",
+  "key": "WQ-1639",
+  "summary": "Closed Captions on subsequent playback",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5399c9a2-8a1b-4362-b478-3aa7fe3672d1",
+      "action": "WHEN",
+      "data": "",
+      "result": "Closed captioning will remain enabled or disabled on new video playback based on user's previous selection"
+    }
+  ]
+}

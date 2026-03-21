@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1180",
+  "issueId": "1128515",
+  "key": "WQ-1180",
+  "summary": "LG Only - Back button prompts Exit",
+  "description": "GIVEN the user is on the Startup screen",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a36bfb97-dbdb-468c-88c5-ea348a716a39",
+      "action": "WHEN the user presses the BACK button on the remote control",
+      "data": "",
+      "result": "THEN an LG/webOS modal displays\r\nAND the modal asks the user if they want to quit the app\r\nAND pressing \"Exit\" in the modal closes the app\r\nOR pressing \"Cancel\" in the modal dismisses the modal"
+    }
+  ]
+}

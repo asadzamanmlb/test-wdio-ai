@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1600",
+  "issueId": "1129017",
+  "key": "WQ-1600",
+  "summary": "Adobe Target - overridden user receives the Legacy experience",
+  "description": "Overridden user - adobelegacy@gmail.com / Password23",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f791866a-3ce8-46b4-bf74-52ebecac63cb",
+      "action": "WHEN an overridden user logs into the app",
+      "data": "",
+      "result": "THEN the user should receive the Legacy experience"
+    }
+  ]
+}

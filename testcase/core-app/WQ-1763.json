@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1763",
+  "issueId": "1129180",
+  "key": "WQ-1763",
+  "summary": "Keyboard.1",
+  "description": "Input function is included",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "64725f18-d444-4ad5-8880-1486fca75c6a",
+      "action": "Execute app → Select input window",
+      "data": "",
+      "result": "When input the Text/Num, check if it appears properly in the input page\r\n※ Transfer to capital/small letter and examine every UI Button in the Virtual Keyboard\r\n\r\n※ Check if capital/small letter transfer UI Button is included\r\n(Issue rating: P4)\r\n\r\n※ When use the LG Virtual Keyboard, need to check the operation of activated UI Button (ex_Voice Search, </> UI Button, OK...)\r\n\r\n[CASE]\r\n1. Check if Text Cursor moves by using <, > UI Button"
+    }
+  ]
+}

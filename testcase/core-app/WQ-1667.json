@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1667",
+  "issueId": "1129084",
+  "key": "WQ-1667",
+  "summary": "SVOD/SLIVE Anonymous (Currently N/A)",
+  "description": "When an anonymous user selects SVOD/SLIVE,Feed Select modal should appear that has the title of the video and two buttons to either Get MLB.TV or Login\r\n\r\n**Behavior as of 7/13/23:** Directs to paywall after selecting the SVOD/SLIVE tile or \"Watch\" button in the Hero",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "16388a9c-841a-477b-86de-3135e7220e8d",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

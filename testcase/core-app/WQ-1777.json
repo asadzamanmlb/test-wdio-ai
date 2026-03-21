@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1777",
+  "issueId": "1129194",
+  "key": "WQ-1777",
+  "summary": "MMRC/OK Key",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6bec32ca-ebda-4189-b202-1f30bb27bdf2",
+      "action": "Execute app → Use Magic remote control → Put pointer over on UI Button → Input OK Key",
+      "data": "",
+      "result": "App moves properly when putting Magic remote control pointer over the UI button and press OK key"
+    }
+  ]
+}

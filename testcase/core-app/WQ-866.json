@@ -1,0 +1,20 @@
+{
+  "id": "WQ-866",
+  "issueId": "1128194",
+  "key": "WQ-866",
+  "summary": "Executive user Peacock archive - Game Tile",
+  "description": "GIVEN a user is an Executive user",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ceeddb3b-d43d-46cc-8d25-76f3bc0d20f7",
+      "action": "WHEN a user views/focuses an archive Peacock game tile",
+      "data": "",
+      "result": "THEN a lock icon does not display in the upper right corner of the game tile\r\nAND there is no dark overlay over the team colors in the game tile header\r\nAND the Peacock pill does not display in the game tile"
+    }
+  ]
+}

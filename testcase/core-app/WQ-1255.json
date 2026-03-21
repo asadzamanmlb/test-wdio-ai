@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1255",
+  "issueId": "1128592",
+  "key": "WQ-1255",
+  "summary": "SVOD Tile Entitled",
+  "description": "GIVEN TTS is turned ON\r\nAND a monthly user is logged in\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7c0001b8-78e9-427b-b90b-157d81110e5b",
+      "action": "WHEN focus is assigned to an SVOD tile",
+      "data": "",
+      "result": "The following statement is spoken, \"<content_title>, <content_description>, <content_length>, press select to play, X of Y items in the carousel, press <appropriate_directions> to view other videos in the carousel, press up or down to browse more content\""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-877",
+  "issueId": "1128206",
+  "key": "WQ-877",
+  "summary": "TBS MVPD Required Pill - Unauthorized",
+  "description": "GIVEN a Postseason game is on the schedule\r\nAND TBS broadcasters are assigned\r\nAND the user's location is in the USA\r\nAND a user is unauthorized for TBS MVPD\r\nAND the game level entitledVideo = false\r\nAND the feed level tbsAuthRequired = true",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "28d0d3d7-e9e6-49ec-8820-ade95ed1d923",
+      "action": "WHEN the user views a TBS Postseason game tile",
+      "data": "",
+      "result": "THEN the MVPD pill displays in the lower left corner of the game tile"
+    }
+  ]
+}

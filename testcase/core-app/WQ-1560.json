@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1560",
+  "issueId": "1128962",
+  "key": "WQ-1560",
+  "summary": "Broadcast Options - Switch Video Feed",
+  "description": "GIVEN the user is not anonymous, a free user, or a single team subscriber\r\nAND the user is entitled to archive game playback\r\nAND the user has initiated playback for an archive game that has home and away feeds",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "518fcd34-a37d-4c1a-8877-8cc684abc686",
+      "action": "WHEN the user displays the scrubber\r\nAND assigns focus to \"Broadcast Options\"\r\nAND navigates to the video feed button that is not blue\r\nAND presses the CROSS/X button",
+      "data": "",
+      "result": "THEN the newly selected video feed starts playing back\r\nAND audio playback is updated to the TV audio of the newly selected video feed\r\nAND the scrubber is dismissed after 10 seconds"
+    }
+  ]
+}

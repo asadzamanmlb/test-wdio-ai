@@ -1,0 +1,20 @@
+{
+  "id": "WQ-132",
+  "issueId": "1127435",
+  "key": "WQ-132",
+  "summary": "Live/In-Progress Game Feed Select Modal UI Design - Live single feed",
+  "description": "GIVEN a subscriber is logged in\r\nAND the subscriber is on the Games page\r\nAND games have videoFeeds with a mediaState of MEDIA_ON\r\nAND only a single feed is available",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "84cb916c-d925-4b54-b796-93b012721c56",
+      "action": "WHEN a user selects a game tile for a live/in-progress game",
+      "data": "",
+      "result": "THEN the Feed Select modal displays\r\nAND the Away team logo/colors should be visible top left\r\nAND the Home team logo/colors should be visible top right\r\nAND a video icon followed by the text \"Video\" is displayed centered above the video feed button\r\nAND the video feed button displays centered near the top of the feed select modal\r\nAND the video feed button contains the home team abbreviation followed by the video feed call letters\r\nAND the video feed button has focus\r\nAND the user cannot navigate through elements behind the modal"
+    }
+  ]
+}

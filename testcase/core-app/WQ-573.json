@@ -1,0 +1,20 @@
+{
+  "id": "WQ-573",
+  "issueId": "1127899",
+  "key": "WQ-573",
+  "summary": "FLIVE Rewind to beginning",
+  "description": "GIVEN a user (paid/free/anonymous) has launched the MLB app\r\nAND an FLIVE stream is in progress\r\nAND the user selects the FLIVE stream to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2305d3f0-6dcf-4155-b8f2-493a43631426",
+      "action": "WHEN the user Rewinds the stream to the beginning",
+      "data": "",
+      "result": "THEN Rewind stops once it reaches the start of the stream\r\nAND playback resumes at the beginning of the stream\r\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-883",
+  "issueId": "1128212",
+  "key": "WQ-883",
+  "summary": "TBS MVPD Required Pill - Authorized",
+  "description": "GIVEN a Postseason game is on the schedule\r\nAND TBS broadcasters are assigned\r\nAND the user's location is in the USA\r\nAND a user is authorized for TBS MVPD\r\nAND the game level entitledVideo = true\r\nAND the feed level tbsAuthRequired = true",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "01f998e3-4ee7-4d0b-b2b2-faef9172739c",
+      "action": "WHEN the user views a TBS Postseason game tile",
+      "data": "",
+      "result": "THEN the MVPD pill does not display in the lower left corner of the game tile"
+    }
+  ]
+}

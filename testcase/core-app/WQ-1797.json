@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1797",
+  "issueId": "1129214",
+  "key": "WQ-1797",
+  "summary": "Contents Resolution",
+  "description": "Resolution supported by content of app",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8e00bb6b-b180-49c8-924f-9ba78939e678",
+      "action": "Execute app → Playback content of all available resolutions",
+      "data": "",
+      "result": "1) SD resolution content video out is normal\r\n2) HD resolution content video out is normal\r\n3) FHD resolution content video out is normal\r\n4) UHD resolution content video out is normal"
+    }
+  ]
+}

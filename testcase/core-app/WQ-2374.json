@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2374",
+  "issueId": "1129826",
+  "key": "WQ-2374",
+  "summary": "Forge Player Controls",
+  "description": "GIVEN a user has initiated playback of VOD/SVOD/FLIVE/SLIVE content",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6ff0e7dd-1bb2-48f4-ae8f-bfb9a9ec3ef2",
+      "action": "WHEN the user initiates pause, fast forward, rewind, or play",
+      "data": "",
+      "result": "THEN the stream reacts appropriately to the actions initiated"
+    }
+  ]
+}

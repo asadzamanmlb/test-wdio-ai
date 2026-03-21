@@ -1,0 +1,20 @@
+{
+  "id": "WQ-519",
+  "issueId": "1127845",
+  "key": "WQ-519",
+  "summary": "Archive game inning markers - Hide Spoilers OFF",
+  "description": "GIVEN a user has Hide Spoilers OFF",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8c678694-d206-47be-b6a9-d9a46a4900a0",
+      "action": "WHEN a user watches the archive game from the beginning",
+      "data": "",
+      "result": "THEN inning markers are displayed in the scrubber\r\nAND an up arrow indicates the beginning of the top of the inning\r\nAND a down arrow indicates the beginning of the bottom of the inning\r\nAND a number indicates the inning"
+    }
+  ]
+}

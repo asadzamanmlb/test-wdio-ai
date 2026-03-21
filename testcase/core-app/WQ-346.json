@@ -1,0 +1,20 @@
+{
+  "id": "WQ-346",
+  "issueId": "1127658",
+  "key": "WQ-346",
+  "summary": "Hero Title and Description",
+  "description": "GIVEN a user is logged in\r\nAND a game is not present in the Hero\r\nAND MAST is returning \"live: true\" in the hero node of the MAST response\r\n\r\nNOTE: MAST call example\r\nhttps://mastapi.mobileqa.mlbinfra.com/api/epg/v3/search?exp=LEGACY&favoriteTeam=119",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6b01d8be-75ff-4525-9f39-7788cfb32929",
+      "action": "WHEN Forge content is displaying in the Hero",
+      "data": "",
+      "result": "THEN the title displays the value of the \"heading\" key in the returned Dapi url of the MAST call\r\nAND the description displays the value of the \"text\" key in the returned Dapi url of the MAST call\r\n\r\nNOTE: Dapi URL from MAST call example https://dapi-qa.mlbinfra.com/v2/content/en-us/vsmcontents/mlbn-live (found in the hero node of the response)"
+    }
+  ]
+}

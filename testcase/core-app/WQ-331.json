@@ -1,0 +1,20 @@
+{
+  "id": "WQ-331",
+  "issueId": "1127643",
+  "key": "WQ-331",
+  "summary": "SLIVE - Not Entitled",
+  "description": "GIVEN a subscriber is a free user\r\nAND SLIVE content is present in the Hero",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3f945ae9-6574-44fe-97b4-19e181ea3e7f",
+      "action": "WHEN a subscriber loads the Home page",
+      "data": "",
+      "result": "MANUAL\r\n\r\nTHEN a related background image is displayed for the SLIVE content in the hero\r\nAND a LIVE indicator displays left justified above the title\r\nAND the title for the SLIVE content in the hero is displayed\r\nAND the description for the SLIVE content in the hero is displayed\r\nAND the \"Watch Now\" button is white with black text\r\nAND the \"Watch Now\" button has focus when the Home page loads\r\n\r\nAUTOMATION\r\nAND a lock icon displays in the \"Watch Now\" button\r\nAND the user lands on the paywall/subscriptions page after selecting the \"Watch Now\" button w/ a lock icon"
+    }
+  ]
+}

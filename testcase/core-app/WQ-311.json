@@ -1,0 +1,20 @@
+{
+  "id": "WQ-311",
+  "issueId": "1127623",
+  "key": "WQ-311",
+  "summary": "Game States - Preview/Scheduled - Delayed - Hide Spoilers OFF",
+  "description": null,
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "006ac96d-8394-4f86-9b22-72f68b28db23",
+      "action": "WHEN a game is in a Preview/Scheduled state\r\nAND the game is Delayed\r\nAND one of the following statusCode's are present in the MAST response: (PV,PP,PY,PE,PA,PO,PR,PS,PG,PF,PC,PD,PB,PL,PI)",
+      "data": "",
+      "result": "THEN a pill with the text \"DELAYED\" is displayed above the team info in the Hero"
+    }
+  ]
+}

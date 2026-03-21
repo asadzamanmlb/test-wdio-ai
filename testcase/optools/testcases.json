@@ -1,27 +1,47 @@
 [
   {
-    "id": "WQO-806",
-    "issueId": "1163656",
-    "key": "WQO-806",
-    "summary": "BTC Tools | Pipeline Configs | Verify Pipeline Configs",
+    "id": "WQO-1094",
+    "issueId": "1277688",
+    "key": "WQO-1094",
+    "summary": "ESNI Management | Rules | Display All rules with correct columns",
     "description": null,
     "status": "Done",
     "testType": "Cucumber",
     "scenarioType": "scenario",
-    "gherkin": "When the user clicks on the \"BTC Tools\" tile from the homepage\nThen the user lands on the Schedule Page\nAnd the user should see tabs for \"Schedule\", \"Configs\", \"CDN Status\", \"Broadcast Source Overrides\" and \"Team Zixi Sources\" tabs\nWhen the user clicks on the \"Configs\" tab\nAnd the user clicks on Pipeline\nAnd !xray-attachment://06249374-63c5-4cce-a5e9-4f9fa6ab8b28|width=522,height=404!\nThen the user should see the \"Pipeline Configs\" page\nAnd the user should see a search box under the Pipeline Configs\nAnd the user should see the following for every card within the Pipeline Configs grid:\n-Team Name\n-Team abbreviation\n-ID and\n-Config ID",
+    "gherkin": "When the user navigate to \"ESNI Management\" page by clicking ESNI Management tab on the home page or from the side bar\nThen the user should land on the ESNI Management \"Media ID\" page by default\nWhen the user clicks on the \"Rules\" tab from the top header\nAnd https://sop-qa.mlb.com/esni/rules\n!xray-attachment://6bf3d6d1-5a19-4150-b759-7fddf9637fad|width=1483,height=1386!\nThen the user should see the Rules tab selected and the rules list displayed.\nAnd the user should see the rules table with the following columns:\n* Name\n* Status\n* Type\n* Priority\n* Actions\nAnd the rules list should be displayed for the current page (default rows per page).\nAnd pagination should be visible showing:\n* Total count of rules\n* Current range (e.g., {{1–25 of 50}})\n* Rows per page control and next/previous navigation",
     "unstructured": null,
     "steps": [
       {
-        "id": "b33aa006-07a8-4036-abe6-f51b1dbae645",
-        "action": "*When* the user clicks on the \"BTC Tools\" tile from the homepage",
+        "id": "ab510260-52ad-44c4-aa6d-d56cf093709c",
+        "action": "*When* the user navigate to \"ESNI Management\" page by clicking ESNI Management tab on the home page or from the side bar",
         "data": "",
-        "result": "*Then* the user lands on the Schedule Page\n\n*And* the user should see tabs for \"Schedule\", \"Configs\", \"CDN Status\", \"Broadcast Source Overrides\" and \"Team Zixi Sources\" tabs"
+        "result": "*Then* the user should land on the ESNI Management \"Media ID\" page by default"
       },
       {
-        "id": "e3cd0c0c-765a-412a-89c2-18e1986a8fd2",
-        "action": "*When* the user clicks on the \"Configs\" tab\n\n*And*  the user clicks on Pipeline",
-        "data": "!xray-attachment://06249374-63c5-4cce-a5e9-4f9fa6ab8b28|width=522,height=404!",
-        "result": "*Then* the user should see the \"Pipeline Configs\" page\n\n*And* the user should see a search box under the Pipeline Configs \n\n*And* the user should see the following for every card within the Pipeline Configs grid:\n-Team Name \n-Team abbreviation \n-ID and\n-Config ID"
+        "id": "a36eb826-f6a5-47b3-aab3-01603c34cb7b",
+        "action": "*When* the user clicks on the \"Rules\" tab from the top header",
+        "data": "[https://sop-qa.mlb.com/esni/rules|https://sop-qa.mlb.com/esni/rules]\n\n!xray-attachment://6bf3d6d1-5a19-4150-b759-7fddf9637fad|width=1483,height=1386!",
+        "result": "*Then* the user should see the Rules tab selected and the rules list displayed.\n\n*And* the user should see the rules table with the following columns:\n\n* Name\n* Status\n* Type\n* Priority\n* Actions\n\nAnd the rules list should be displayed for the current page (default rows per page).\n\n And pagination should be visible showing:\n\n* Total count of rules\n* Current range (e.g., {{1–25 of 50}})\n* Rows per page control and next/previous navigation"
+      }
+    ]
+  },
+  {
+    "id": "WQO-815",
+    "issueId": "1164537",
+    "key": "WQO-815",
+    "summary": " Partner Delivery | Mapping | Verify Page Loads Successfully",
+    "description": " Partner Delivery Page should load with all sections visible and correctly positioned",
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user navigates to the \"Partner Delivery\" page using the Home screen or the left sidebar menu\nThen the \"Partner Delivery\" page should be displayed.\nAnd the user lands on the Mapping Page by default\nAnd the \"Data Centers\" panel should be visible on the top-left\nAnd the \"Channels\" panel should be visible to the right of the \"Data Centers\" panel\nAnd the \"Partners\" panel should be visible on the bottom-left\nAnd the \"Targets\" panel should be visible to the right of the \"Partners\" panel\nAnd search input fields should be present above both \"Channels\" and \"Targets\" sections\nAnd the \"Clear\" and \"Confirm\" buttons should be visible below the \"Targets\" panel",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "d883530f-d8d2-4117-8cae-4f05b9ffce66",
+        "action": "*When* the user navigates to the \"Partner Delivery\" page using the Home screen or the left sidebar menu",
+        "data": "",
+        "result": "*Then* the \"Partner Delivery\" page should be displayed.\n\n*And* the user lands on the Mapping Page by default\n\n*And* the \"Data Centers\" panel should be visible on the top-left\n\n*And* the \"Channels\" panel should be visible to the right of the \"Data Centers\" panel\n\n*And* the \"Partners\" panel should be visible on the bottom-left\n\n*And* the \"Targets\" panel should be visible to the right of the \"Partners\" panel\n\n*And* search input fields should be present above both \"Channels\" and \"Targets\" sections\n\n*And* the \"Clear\" and \"Confirm\" buttons should be visible below the \"Targets\" panel"
       }
     ]
   },
@@ -52,6 +72,32 @@
     ]
   },
   {
+    "id": "WQO-806",
+    "issueId": "1163656",
+    "key": "WQO-806",
+    "summary": "BTC Tools | Pipeline Configs | Verify Pipeline Configs",
+    "description": null,
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user clicks on the \"BTC Tools\" tile from the homepage\nThen the user lands on the Schedule Page\nAnd the user should see tabs for \"Schedule\", \"Configs\", \"CDN Status\", \"Broadcast Source Overrides\" and \"Team Zixi Sources\" tabs\nWhen the user clicks on the \"Configs\" tab\nAnd the user clicks on Pipeline\nAnd !xray-attachment://06249374-63c5-4cce-a5e9-4f9fa6ab8b28|width=522,height=404!\nThen the user should see the \"Pipeline Configs\" page\nAnd the user should see a search box under the Pipeline Configs\nAnd the user should see the following for every card within the Pipeline Configs grid:\n-Team Name\n-Team abbreviation\n-ID and\n-Config ID",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "b33aa006-07a8-4036-abe6-f51b1dbae645",
+        "action": "*When* the user clicks on the \"BTC Tools\" tile from the homepage",
+        "data": "",
+        "result": "*Then* the user lands on the Schedule Page\n\n*And* the user should see tabs for \"Schedule\", \"Configs\", \"CDN Status\", \"Broadcast Source Overrides\" and \"Team Zixi Sources\" tabs"
+      },
+      {
+        "id": "e3cd0c0c-765a-412a-89c2-18e1986a8fd2",
+        "action": "*When* the user clicks on the \"Configs\" tab\n\n*And*  the user clicks on Pipeline",
+        "data": "!xray-attachment://06249374-63c5-4cce-a5e9-4f9fa6ab8b28|width=522,height=404!",
+        "result": "*Then* the user should see the \"Pipeline Configs\" page\n\n*And* the user should see a search box under the Pipeline Configs \n\n*And* the user should see the following for every card within the Pipeline Configs grid:\n-Team Name \n-Team abbreviation \n-ID and\n-Config ID"
+      }
+    ]
+  },
+  {
     "id": "WQO-416",
     "issueId": "1146097",
     "key": "WQO-416",
@@ -72,42 +118,48 @@
     ]
   },
   {
-    "id": "WQO-970",
-    "issueId": "1217142",
-    "key": "WQO-970",
-    "summary": "User Lookup | Single Date Selection Validation",
-    "description": null,
+    "id": "WQO-818",
+    "issueId": "1164540",
+    "key": "WQO-818",
+    "summary": " Partner Delivery | Mapping | Verify Channel-to-Target Mapping",
+    "description": "Verify selecting a channel and target and confirming the mapping",
     "status": "Done",
     "testType": "Cucumber",
     "scenarioType": "scenario",
-    "gherkin": "When the user navigate to User Lookup page\nAnd the user click on \"Select A Date Range\" button\nAnd the user Select today's date in the calendar\nAnd the user Verify only one date is selected (not a range)\nAnd the user Enter \"dm5tv@gmail.com\" in the email field\nAnd the user Click on Search button\nAnd the user Verify search results are displayed\nThen the user Lookup page loads successfully\nAnd the Calendar dropdown appears\nAnd Today's date is selected and displayed\nAnd Single date is shown, no range indicators present\nAnd the Email address is entered successful\nAnd the Search executes successful\nAnd the user should see the User Information and User Sessions tables are shown",
+    "gherkin": "When the user selects the Data Center \"MLBDEV\"\nAnd selects the channel  Eg: \"ATH-PD01-CH-MLBDEV-ONPREM-SCS\"\nAnd selects the Targets  Eg: \"abc-def-123-456-testing-123\"\nAnd clicks the \"Confirm\" button\nThen the user should see a Mapping popup on the screen\nAnd the user should see \"Confirm Mapping For: ARI-PD01-CH-MLBDEV-ONPREM-DNV\"\nAnd the user should see the popup disappear after clicking on the \"Confirm\" button on the Confirming Mapping popup.",
     "unstructured": null,
     "steps": [
       {
-        "id": "bc2da14e-422c-40a4-ac22-e7d4ba7f6c69",
-        "action": "*When* the user navigate to User Lookup page\n\n*And* the user click on \"Select A Date Range\" button\n\n*And* the user Select today's date in the calendar\n\n*And* the user Verify only one date is selected (not a range)\n\n*And* the user Enter \"[dm5tv@gmail.com|mailto:dm5tv@gmail.com]\" in the email field\n\n*And* the user Click on Search button\n\n*And* the user Verify search results are displayed",
+        "id": "21dc512d-c456-466c-b0a6-9736cb7e5323",
+        "action": "*When* the user selects the Data Center \"MLBDEV\"\n\n*And* selects the channel  Eg: \"ATH-PD01-CH-MLBDEV-ONPREM-SCS\"\n\n*And* selects the Targets  Eg: \"abc-def-123-456-testing-123\"\n\n*And* clicks the \"Confirm\" button",
         "data": "",
-        "result": "*Then* the user Lookup page loads successfully\n\n*And* the Calendar dropdown appears\n\n*And* Today's date is selected and displayed\n\n*And* Single date is shown, no range indicators present\n\n*And* the Email address is entered successful\n\n*And* the Search executes successful\n\n*And* the user should see the User Information and User Sessions tables are shown"
+        "result": "*Then* the user should see a Mapping popup on the screen \n\n*And* the user should see \"Confirm Mapping For: ARI-PD01-CH-MLBDEV-ONPREM-DNV\"\n\n*And* the user should see the popup disappear after clicking on the \"Confirm\" button on the Confirming Mapping popup."
       }
     ]
   },
   {
-    "id": "WQO-1115",
-    "issueId": "1283416",
-    "key": "WQO-1115",
-    "summary": "BTC Tools | Configs | Skyview | Navigation and UI Validation",
-    "description": null,
+    "id": "WQO-820",
+    "issueId": "1164542",
+    "key": "WQO-820",
+    "summary": "Partner Delivery | Target | List Verification",
+    "description": "Verify target rows display correct data, statuses, and edit buttons",
     "status": "Done",
     "testType": "Cucumber",
     "scenarioType": "scenario",
-    "gherkin": "When the user clicks on the BTC Tools Page\nAnd the user clicks on the Configs Dropdown\nAnd the user clicks on the Skyview\nAnd !xray-attachment://9fc42c68-aad8-46fc-90af-b5a93122bb93|width=1469,height=405!\nThen the user lands on the Schedule Page by default\nAnd the user should see: \"Pipeline\", \"Pipeline Input\", \"Skyview\", and \"Multicast\nMapping\"\nAnd the user lands on the Skyview Configs page\nAnd the user should see the \"Search teams\" search box\nAnd the user should see team cards (logo, name, abbreviation, ID) with Language and\nStatus columns\nAnd the user should see a toggle switch for Eng and a toggle switch for Spa on each\nteam card\nAnd the user should see the \"Enable All Configs\" and \"Disable All Configs\" buttons in\nthe top-right area",
+    "gherkin": "When the user is on the \"Partner Delivery\" Targets tab\nThen each row should display the following columns:\n* Target\n* Channel\n* Partner\n* Type\n* Status\nAnd the status column should show correct tags based on data:\n* Status Value: no_channel  - Blue tag labeled \"no_channel\"\n* Status Value: pending - Blue tag labeled \"pending\"\n* Status Value: bad - Red tag labeled \"bad\"\nAnd each row should have a clickable \"Edit\" button\nWhen the user clicks the \"Edit\" button for any row\nThen it should navigate to the Mapping page",
     "unstructured": null,
     "steps": [
       {
-        "id": "f0fce5a1-0473-4f79-9acf-bccc3514941d",
-        "action": "*When* the user clicks on the BTC Tools Page\n*And* the user clicks on the Configs Dropdown\n*And* the user clicks on the Skyview",
-        "data": "!xray-attachment://9fc42c68-aad8-46fc-90af-b5a93122bb93|width=1469,height=405!",
-        "result": "*Then* the user lands on the Schedule Page by default\n*And* the user should see: \"Pipeline\", \"Pipeline Input\", \"Skyview\", and \"Multicast\nMapping\"\n*And* the user lands on the Skyview Configs page\n*And* the user should see the \"Search teams\" search box\n*And* the user should see team cards (logo, name, abbreviation, ID) with Language and\nStatus columns\n*And* the user should see a toggle switch for Eng and a toggle switch for Spa on each\nteam card\n*And* the user should see the \"Enable All Configs\" and \"Disable All Configs\" buttons in\nthe top-right area"
+        "id": "29ee3ff3-7b97-4de8-99c3-ad9e28f2a1ee",
+        "action": "*When* the user is on the \"Partner Delivery\" Targets tab",
+        "data": "",
+        "result": "*Then* each row should display the following columns:\n\n* Target\n* Channel\n* Partner\n* Type\n* Status\n\n*And* the status column should show correct tags based on data:\n\n* Status Value: no_channel  - Blue tag labeled \"no_channel\" \n* Status Value: pending - Blue tag labeled \"pending\"\n* Status Value: bad - Red tag labeled \"bad\"\n\n*And* each row should have a clickable \"Edit\" button"
+      },
+      {
+        "id": "a58c8177-9423-478f-8f18-e060b23ca792",
+        "action": "*When* the user clicks the \"Edit\" button for any row",
+        "data": "",
+        "result": "*Then* it should navigate to the Mapping page"
       }
     ]
   },
@@ -152,26 +204,6 @@
     ]
   },
   {
-    "id": "WQO-415",
-    "issueId": "1146096",
-    "key": "WQO-415",
-    "summary": "Disable Copy Okta ID & Token Access for logged out users",
-    "description": null,
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user clicks on \"Settings\" located at the bottom left side of the page\nThen the user should see the \"Version\" and the version number. For example: v5.2.0\nAnd the user should see \"Theme\" icon to change the theme",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "e34a9faf-0961-44d2-ab51-f8c851a936bd",
-        "action": "When the user clicks on \"Settings\" located at the bottom left side of the page",
-        "data": "",
-        "result": "Then the user should see the \"Version\" and the version number. For example: v5.2.0\nAnd the user should see \"Theme\" icon to change the theme"
-      }
-    ]
-  },
-  {
     "id": "WQO-406",
     "issueId": "1146087",
     "key": "WQO-406",
@@ -212,6 +244,26 @@
     ]
   },
   {
+    "id": "WQO-415",
+    "issueId": "1146096",
+    "key": "WQO-415",
+    "summary": "Disable Copy Okta ID & Token Access for logged out users",
+    "description": null,
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user clicks on \"Settings\" located at the bottom left side of the page\nThen the user should see the \"Version\" and the version number. For example: v5.2.0\nAnd the user should see \"Theme\" icon to change the theme",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "e34a9faf-0961-44d2-ab51-f8c851a936bd",
+        "action": "When the user clicks on \"Settings\" located at the bottom left side of the page",
+        "data": "",
+        "result": "Then the user should see the \"Version\" and the version number. For example: v5.2.0\nAnd the user should see \"Theme\" icon to change the theme"
+      }
+    ]
+  },
+  {
     "id": "WQO-1092",
     "issueId": "1268569",
     "key": "WQO-1092",
@@ -228,6 +280,26 @@
         "action": "*When* the user navigates to BTC Tools from the main menu\n\n*And* the user clicks on the \"Multicast Mapping\" tab, located at the top right of BTC Tools\n\n*And* the user enters a multicast mapping value (Call Sign, Multicast Address, or ID) into the search box\n\n*And* the user clicks on the delete (trash icon) button next to the selected multicast mapping\n\n*And* the user clicks on the \"Delete\" button in the confirmation popup",
         "data": "",
         "result": "*Then* the user should land on the \"Schedule\" Page\n\n*And* the user should be redirected to the \"Multicast Mapping\" page\n\n*And* the user verifies that the correct multicast mapping entry appears in the filtered results\n\n*And* a confirmation popup titled \"Delete Multicast Mapping\" should appear, displaying the details of the selected entry\n\n*And* the user should see the details in the confirmation popup (ID, Call Sign, Priority, Source Location, Multicast Address) match the selected entry\n\n*And* the user should see a success message confirming the multicast mapping has been deleted\n\n*And* the deleted multicast mapping should no longer appear in the search results\n\n*And* the user should see that the table refreshes automatically after deletion\n\n*And* if the user searches for the deleted mapping again, it should not be found"
+      }
+    ]
+  },
+  {
+    "id": "WQO-405",
+    "issueId": "1146086",
+    "key": "WQO-405",
+    "summary": "Milestones | Verify Milestones Page Loads with Calendar Navigation and Game Card Details",
+    "description": null,
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user clicks on the Milestones tile on the homepage\nThen the user should be navigated to the Milestones page\nAnd the page should display:\n* A calendar icon with the date format \"YYYY-MM-DD\"\n* Previous and Next arrow icons to navigate between dates\nAND a game card for each scheduled game containing:\n* Team Names (e.g., \"BOS vs TB\")\n* Game PK\n* Venue\n* Game Date\n* Game Status (e.g., \"Scheduled\", \"In Progress\", \"Final\")\nAnd an \"Edit Milestone\" button",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "3d9c15cc-487b-48f3-b9be-6db28ebe6184",
+        "action": "When the user clicks on the Milestones tile on the homepage",
+        "data": "",
+        "result": "Then the user should be navigated to the Milestones page\nAnd the page should display:\n\n* A calendar icon with the date format \"YYYY-MM-DD\"\n* Previous and Next arrow icons to navigate between dates\n\nAND a game card for each scheduled game containing:\n\n* Team Names (e.g., \"BOS vs TB\")\n* Game PK\n* Venue\n* Game Date\n* Game Status (e.g., \"Scheduled\", \"In Progress\", \"Final\")\nAnd an \"Edit Milestone\" button"
       }
     ]
   },
@@ -254,6 +326,26 @@
         "action": "*When* the user clicks on the Team Zixi Sources tab",
         "data": "!xray-attachment://202a7cfd-de43-4756-8d98-f62a1ffb33e0|width=1392,height=888!\n\n!xray-attachment://bebbe50e-ae60-4f64-b91e-c58be5e08c83|width=1297,height=645!",
         "result": "*Then* the user lands on the Team Zixi Sources page\n\n*And* the user sees a search box at the top\n\n*And* the user sees team cards (one card per team)\n\n*And* each team card shows the following:\n\n* Team logo\n* Team ID\n* \"Partner Lock Orchestration\" with status (e.g. Disabled)\n* \"Lock Zixi Sources\" and \"Unlock Zixi Sources\" buttons\n* A warning icon when the Lock/Unlock buttons are disabled\n* *And* each team card shows either a table of Zixi sources or the message \"No Zixi Sources found\""
+      }
+    ]
+  },
+  {
+    "id": "WQO-1089",
+    "issueId": "1268566",
+    "key": "WQO-1089",
+    "summary": "BTC Tools | Multicast Mapping | Navigate to Multicast Mapping",
+    "description": null,
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user clicks on the BTC Tools tile\nAnd the user clicks on the \"Configs\" tab on the top navigation\nAnd the user clicks on the Multicast Mapping\nThen the user lands on the Schedule page\nAnd the user should see \"Pipeline\", \"Pipeline Input\", \"Skyview\" and \"Multicast Mapping\" tab\nAnd the Multicast Mapping table displays headers: {{ID}}, {{Call Sign}}, {{Priority}}, {{Source Location}}, {{Multicast Address}}, {{HDR Multicast Address}}",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "55207302-7185-494c-b6e0-3f132c2d23e1",
+        "action": "*When* the user clicks on the BTC Tools tile \n\n*And*  the user clicks on the \"Configs\" tab on the top navigation\n\n*And* the user clicks on the Multicast Mapping",
+        "data": "",
+        "result": "*Then* the user lands on the Schedule page\n\n*And* the user should see \"Pipeline\", \"Pipeline Input\", \"Skyview\" and \"Multicast Mapping\" tab\n\n*And* the Multicast Mapping table displays headers: {{ID}}, {{Call Sign}}, {{Priority}}, {{Source Location}}, {{Multicast Address}}, {{HDR Multicast Address}}"
       }
     ]
   },
@@ -298,112 +390,6 @@
     ]
   },
   {
-    "id": "WQO-1089",
-    "issueId": "1268566",
-    "key": "WQO-1089",
-    "summary": "BTC Tools | Multicast Mapping | Navigate to Multicast Mapping",
-    "description": null,
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user clicks on the BTC Tools tile\nAnd the user clicks on the \"Configs\" tab on the top navigation\nAnd the user clicks on the Multicast Mapping\nThen the user lands on the Schedule page\nAnd the user should see \"Pipeline\", \"Pipeline Input\", \"Skyview\" and \"Multicast Mapping\" tab\nAnd the Multicast Mapping table displays headers: {{ID}}, {{Call Sign}}, {{Priority}}, {{Source Location}}, {{Multicast Address}}, {{HDR Multicast Address}}",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "55207302-7185-494c-b6e0-3f132c2d23e1",
-        "action": "*When* the user clicks on the BTC Tools tile \n\n*And*  the user clicks on the \"Configs\" tab on the top navigation\n\n*And* the user clicks on the Multicast Mapping",
-        "data": "",
-        "result": "*Then* the user lands on the Schedule page\n\n*And* the user should see \"Pipeline\", \"Pipeline Input\", \"Skyview\" and \"Multicast Mapping\" tab\n\n*And* the Multicast Mapping table displays headers: {{ID}}, {{Call Sign}}, {{Priority}}, {{Source Location}}, {{Multicast Address}}, {{HDR Multicast Address}}"
-      }
-    ]
-  },
-  {
-    "id": "WQO-405",
-    "issueId": "1146086",
-    "key": "WQO-405",
-    "summary": "Milestones | Verify Milestones Page Loads with Calendar Navigation and Game Card Details",
-    "description": null,
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user clicks on the Milestones tile on the homepage\nThen the user should be navigated to the Milestones page\nAnd the page should display:\n* A calendar icon with the date format \"YYYY-MM-DD\"\n* Previous and Next arrow icons to navigate between dates\nAND a game card for each scheduled game containing:\n* Team Names (e.g., \"BOS vs TB\")\n* Game PK\n* Venue\n* Game Date\n* Game Status (e.g., \"Scheduled\", \"In Progress\", \"Final\")\nAnd an \"Edit Milestone\" button",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "3d9c15cc-487b-48f3-b9be-6db28ebe6184",
-        "action": "When the user clicks on the Milestones tile on the homepage",
-        "data": "",
-        "result": "Then the user should be navigated to the Milestones page\nAnd the page should display:\n\n* A calendar icon with the date format \"YYYY-MM-DD\"\n* Previous and Next arrow icons to navigate between dates\n\nAND a game card for each scheduled game containing:\n\n* Team Names (e.g., \"BOS vs TB\")\n* Game PK\n* Venue\n* Game Date\n* Game Status (e.g., \"Scheduled\", \"In Progress\", \"Final\")\nAnd an \"Edit Milestone\" button"
-      }
-    ]
-  },
-  {
-    "id": "WQO-430",
-    "issueId": "1146111",
-    "key": "WQO-430",
-    "summary": "Media Validation | Litmus tool Search | Invalid Input",
-    "description": null,
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user clicks on the \"Media Validation\" tile on the dashboard\nAnd the user inputs an invalid query into the \"Search for GamePK\" box. For example: 7470900\nThen the user should see the \"Search For GamePK\" box displayed above the games component\nAnd the user should see \"No Games Today\"",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "893a3c8e-5413-483f-8832-475496cef959",
-        "action": "*When* the user clicks on the \"Media Validation\" tile on the dashboard\n*And* the user inputs an invalid query into the \"Search for GamePK\" box. For example: 7470900",
-        "data": "",
-        "result": "*Then* the user should see the \"Search For GamePK\" box displayed above the games component\n*And* the user should see \"No Games Today\""
-      }
-    ]
-  },
-  {
-    "id": "WQO-404",
-    "issueId": "1146085",
-    "key": "WQO-404",
-    "summary": "Media Validation | Page Verification",
-    "description": null,
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user clicks on the Media Validation tile on the Home page\nAnd the user should land on \"Litmus\" page\nAnd the user should see the header of the page display \"Media Validation\" at top of the page\nAnd the user should see a calendar icon with the format \"YYYY-MM-DD\" with Previous arrow and Next arrow\nAnd the user should see a \"Search For GamePK\" box on the ride side of the Next arrow of the calendar\nAnd the user should see a game card with the following information\n-Team Names\n-Game PK\n-Venue\n-Game Date\n-Status\nAnd the user should see \"Validation Suite\"\nAnd the user should see \"Game Pre Provision\" dorpdown\nAnd the user should see a \"Run Validation\" button on the right side of the dropdown\nAnd the user should see three columns with the following items in the header:\n-Name\n-Description\n-Result",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "372352d6-3519-473a-b48d-031bb089fa3e",
-        "action": "*When* the user clicks on the Media Validation tile on the Home page",
-        "data": "",
-        "result": "*And* the user should land on \"Litmus\" page\n*And* the user should see the header of the page display \"Media Validation\" at top of the page\n*And* the user should see a calendar icon with the format \"YYYY-MM-DD\" with Previous arrow and Next arrow\n*And* the user should see a \"Search For GamePK\" box on the ride side of the Next arrow of the calendar\n*And* the user should see a game card with the following information\n-Team Names\n-Game PK\n-Venue\n-Game Date\n-Status\n*And* the user should see \"Validation Suite\"\n*And* the user should see \"Game Pre Provision\" dorpdown\n*And* the user should see a \"Run Validation\" button on the right side of the dropdown\n*And* the user should see three columns with the following items in the header:\n-Name\n-Description\n-Result"
-      }
-    ]
-  },
-  {
-    "id": "WQO-835",
-    "issueId": "1164922",
-    "key": "WQO-835",
-    "summary": "User Lookup | View Datadog Logs Form User-Lookup",
-    "description": "As a User-Lookup tool user, I want the ability to view a client's Datadog logs without needing to create a custom query and search Datadog myself. This will streamline the process of debugging and resolving user issues.",
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user clicks on the \"User Lookup\" tile\nThen the user lands on the User Lookup page\nWhen the user enters \"dm5tv2@gmail.com\" in the \"Okta ID / Email\" field\nAnd the user clicks the \"Search\" button\nThen the user should see \"DataDog Logs\" button",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "9cb9a4cd-657f-408a-b423-f52c4d37f7de",
-        "action": "*When* the user clicks on the \"User Lookup\" tile",
-        "data": "",
-        "result": "*Then* the user lands on the User Lookup page"
-      },
-      {
-        "id": "7d8bc3ce-a655-4893-9e6b-461e5a6f3766",
-        "action": "*When* the user enters \"[dm5tv2@gmail.com|mailto:dm5tv2@gmail.com]\" in the \"Okta ID / Email\" field\n\n*And* the user clicks the \"Search\" button",
-        "data": "",
-        "result": "*Then* the user should see \"DataDog Logs\" button"
-      }
-    ]
-  },
-  {
     "id": "WQO-1087",
     "issueId": "1268547",
     "key": "WQO-1087",
@@ -420,6 +406,26 @@
         "action": "*When* the user clicks on the \"Audit & Logging\" tile on the homepage or the side nav\n*And* the user clicks on the \"Instigator\" button\n*And* the user enters a valid Instigator in the instigator input field\nFor example: 00uki697am7j6YgvF1t7\n*And* the user presses Enter or clicks on the magnifying glass",
         "data": "!xray-attachment://8898226a-948a-44c6-8767-3c07fdac9378|width=1941,height=848!",
         "result": "*Then* the user should land on the \"Audits\" page\n\n*And* the user sees \"Instigator\" button\n\n*And* the entered Instigator should appear in the input field\n\n*And* upon submission, a list of logs associated with that instigator should appear\n\n*And* the logs should be shown in a table with the following column headers:\n-Source System\n-Operation\n-Instigator\n-Email\n-Created At\n-Trace ID\n-Event Data\n-Resource Tags"
+      }
+    ]
+  },
+  {
+    "id": "WQO-1083",
+    "issueId": "1268529",
+    "key": "WQO-1083",
+    "summary": "Audit & Logging | Audits | Search by Game PK",
+    "description": null,
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user clicks on the \"Audit & Logging\" tile on the homepage or the side nav\nAnd the user clicks on the \"Resource Tag\" button\nAnd the user select and enters a valid Game PK in the Game PK input field\nFor example: 831644\nAnd the user presses Enter or clicks on the magnifying glass\nAnd !xray-attachment://33d76d9f-5751-4233-9b41-dfcc89dfa1a3|width=1645,height=737!\nThen the user should land on the \"Audits\" page\nAnd the user sees \"Game PK\" and \"Media ID\" buttons\nAnd the entered Game PK should appear in the input field\nAnd upon submission, a list of logs associated with that Game PK should appear\nAnd the logs should be shown in a table with the following column headers:\n-Source System\n-Operation\n-Instigator\n-Email\n-Created At\n-Trace ID\n-Event Data\n-Resource Tags",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "5fff5991-f4a9-4b08-a988-618dda1465b0",
+        "action": "*When* the user clicks on the \"Audit & Logging\" tile on the homepage or the side nav\n*And* the user clicks on the \"Resource Tag\" button\n*And* the user select and enters a valid Game PK in the Game PK input field\nFor example: 831644\n*And* the user presses Enter or clicks on the magnifying glass",
+        "data": "!xray-attachment://33d76d9f-5751-4233-9b41-dfcc89dfa1a3|width=1645,height=737!",
+        "result": "*Then* the user should land on the \"Audits\" page\n\n*And* the user sees \"Game PK\" and \"Media ID\" buttons\n\n*And* the entered Game PK should appear in the input field\n\n*And* upon submission, a list of logs associated with that Game PK should appear\n\n*And* the logs should be shown in a table with the following column headers:\n-Source System\n-Operation\n-Instigator\n-Email\n-Created At\n-Trace ID\n-Event Data\n-Resource Tags"
       }
     ]
   },
@@ -462,22 +468,88 @@
     ]
   },
   {
-    "id": "WQO-1083",
-    "issueId": "1268529",
-    "key": "WQO-1083",
-    "summary": "Audit & Logging | Audits | Search by Game PK",
+    "id": "WQO-430",
+    "issueId": "1146111",
+    "key": "WQO-430",
+    "summary": "Media Validation | Litmus tool Search | Invalid Input",
     "description": null,
     "status": "Done",
     "testType": "Cucumber",
     "scenarioType": "scenario",
-    "gherkin": "When the user clicks on the \"Audit & Logging\" tile on the homepage or the side nav\nAnd the user clicks on the \"Resource Tag\" button\nAnd the user select and enters a valid Game PK in the Game PK input field\nFor example: 831644\nAnd the user presses Enter or clicks on the magnifying glass\nAnd !xray-attachment://33d76d9f-5751-4233-9b41-dfcc89dfa1a3|width=1645,height=737!\nThen the user should land on the \"Audits\" page\nAnd the user sees \"Game PK\" and \"Media ID\" buttons\nAnd the entered Game PK should appear in the input field\nAnd upon submission, a list of logs associated with that Game PK should appear\nAnd the logs should be shown in a table with the following column headers:\n-Source System\n-Operation\n-Instigator\n-Email\n-Created At\n-Trace ID\n-Event Data\n-Resource Tags",
+    "gherkin": "When the user clicks on the \"Media Validation\" tile on the dashboard\nAnd the user inputs an invalid query into the \"Search for GamePK\" box. For example: 7470900\nThen the user should see the \"Search For GamePK\" box displayed above the games component\nAnd the user should see \"No Games Today\"",
     "unstructured": null,
     "steps": [
       {
-        "id": "5fff5991-f4a9-4b08-a988-618dda1465b0",
-        "action": "*When* the user clicks on the \"Audit & Logging\" tile on the homepage or the side nav\n*And* the user clicks on the \"Resource Tag\" button\n*And* the user select and enters a valid Game PK in the Game PK input field\nFor example: 831644\n*And* the user presses Enter or clicks on the magnifying glass",
-        "data": "!xray-attachment://33d76d9f-5751-4233-9b41-dfcc89dfa1a3|width=1645,height=737!",
-        "result": "*Then* the user should land on the \"Audits\" page\n\n*And* the user sees \"Game PK\" and \"Media ID\" buttons\n\n*And* the entered Game PK should appear in the input field\n\n*And* upon submission, a list of logs associated with that Game PK should appear\n\n*And* the logs should be shown in a table with the following column headers:\n-Source System\n-Operation\n-Instigator\n-Email\n-Created At\n-Trace ID\n-Event Data\n-Resource Tags"
+        "id": "893a3c8e-5413-483f-8832-475496cef959",
+        "action": "*When* the user clicks on the \"Media Validation\" tile on the dashboard\n*And* the user inputs an invalid query into the \"Search for GamePK\" box. For example: 7470900",
+        "data": "",
+        "result": "*Then* the user should see the \"Search For GamePK\" box displayed above the games component\n*And* the user should see \"No Games Today\""
+      }
+    ]
+  },
+  {
+    "id": "WQO-835",
+    "issueId": "1164922",
+    "key": "WQO-835",
+    "summary": "User Lookup | View Datadog Logs Form User-Lookup",
+    "description": "As a User-Lookup tool user, I want the ability to view a client's Datadog logs without needing to create a custom query and search Datadog myself. This will streamline the process of debugging and resolving user issues.",
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user clicks on the \"User Lookup\" tile\nThen the user lands on the User Lookup page\nWhen the user enters \"dm5tv2@gmail.com\" in the \"Okta ID / Email\" field\nAnd the user clicks the \"Search\" button\nThen the user should see \"DataDog Logs\" button",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "9cb9a4cd-657f-408a-b423-f52c4d37f7de",
+        "action": "*When* the user clicks on the \"User Lookup\" tile",
+        "data": "",
+        "result": "*Then* the user lands on the User Lookup page"
+      },
+      {
+        "id": "7d8bc3ce-a655-4893-9e6b-461e5a6f3766",
+        "action": "*When* the user enters \"[dm5tv2@gmail.com|mailto:dm5tv2@gmail.com]\" in the \"Okta ID / Email\" field\n\n*And* the user clicks the \"Search\" button",
+        "data": "",
+        "result": "*Then* the user should see \"DataDog Logs\" button"
+      }
+    ]
+  },
+  {
+    "id": "WQO-404",
+    "issueId": "1146085",
+    "key": "WQO-404",
+    "summary": "Media Validation | Page Verification",
+    "description": null,
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user clicks on the Media Validation tile on the Home page\nAnd the user should land on \"Litmus\" page\nAnd the user should see the header of the page display \"Media Validation\" at top of the page\nAnd the user should see a calendar icon with the format \"YYYY-MM-DD\" with Previous arrow and Next arrow\nAnd the user should see a \"Search For GamePK\" box on the ride side of the Next arrow of the calendar\nAnd the user should see a game card with the following information\n-Team Names\n-Game PK\n-Venue\n-Game Date\n-Status\nAnd the user should see \"Validation Suite\"\nAnd the user should see \"Game Pre Provision\" dorpdown\nAnd the user should see a \"Run Validation\" button on the right side of the dropdown\nAnd the user should see three columns with the following items in the header:\n-Name\n-Description\n-Result",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "372352d6-3519-473a-b48d-031bb089fa3e",
+        "action": "*When* the user clicks on the Media Validation tile on the Home page",
+        "data": "",
+        "result": "*And* the user should land on \"Litmus\" page\n*And* the user should see the header of the page display \"Media Validation\" at top of the page\n*And* the user should see a calendar icon with the format \"YYYY-MM-DD\" with Previous arrow and Next arrow\n*And* the user should see a \"Search For GamePK\" box on the ride side of the Next arrow of the calendar\n*And* the user should see a game card with the following information\n-Team Names\n-Game PK\n-Venue\n-Game Date\n-Status\n*And* the user should see \"Validation Suite\"\n*And* the user should see \"Game Pre Provision\" dorpdown\n*And* the user should see a \"Run Validation\" button on the right side of the dropdown\n*And* the user should see three columns with the following items in the header:\n-Name\n-Description\n-Result"
+      }
+    ]
+  },
+  {
+    "id": "WQO-973",
+    "issueId": "1217393",
+    "key": "WQO-973",
+    "summary": "User Lookup | Select July to November Date Range and Search",
+    "description": null,
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user navigate to User Lookup page\nAnd the user click on \"Select A Date Range\" button\nAnd the user navigate to July and select July 1st by clicking on the previous button on the calendar\nAnd the user navigate to November and select November 30th by clicking on the next button on the calendar\nAnd the user enter \"dm5tv@gmail.com\" and click Search\nThen the User Lookup page loads successfully\nAnd the Calendar dropdown appears\nAnd July 1st is selected as start date\nAnd November 30th is selected as end date\nAnd the search executes successfully with date range and the user verify search results are displayed\nAnd the User Information table and External Logs are shown",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "24528f71-b2b9-4ff0-be01-37884a58fdd9",
+        "action": "*When* the user navigate to User Lookup page    \n\n*And* the user click on \"Select A Date Range\" button   \n\n*And* the user navigate to July and select July 1st by clicking on the previous button on the calendar\n\n*And* the user navigate to November and select November 30th by clicking on the next button on the calendar\n\n*And* the user enter \"[dm5tv@gmail.com|mailto:dm5tv@gmail.com]\" and click Search",
+        "data": "",
+        "result": "*Then* the User Lookup page loads successfully\n\n*And* the Calendar dropdown appears\n\n*And* July 1st is selected as start date\n\n*And* November 30th is selected as end date\n\n*And* the search executes successfully with date range and the user verify search results are displayed\n\n*And* the User Information table and External Logs are shown"
       }
     ]
   },
@@ -508,26 +580,6 @@
     ]
   },
   {
-    "id": "WQO-973",
-    "issueId": "1217393",
-    "key": "WQO-973",
-    "summary": "User Lookup | Select July to November Date Range and Search",
-    "description": null,
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user navigate to User Lookup page\nAnd the user click on \"Select A Date Range\" button\nAnd the user navigate to July and select July 1st by clicking on the previous button on the calendar\nAnd the user navigate to November and select November 30th by clicking on the next button on the calendar\nAnd the user enter \"dm5tv@gmail.com\" and click Search\nThen the User Lookup page loads successfully\nAnd the Calendar dropdown appears\nAnd July 1st is selected as start date\nAnd November 30th is selected as end date\nAnd the search executes successfully with date range and the user verify search results are displayed\nAnd the User Information table and External Logs are shown",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "24528f71-b2b9-4ff0-be01-37884a58fdd9",
-        "action": "*When* the user navigate to User Lookup page    \n\n*And* the user click on \"Select A Date Range\" button   \n\n*And* the user navigate to July and select July 1st by clicking on the previous button on the calendar\n\n*And* the user navigate to November and select November 30th by clicking on the next button on the calendar\n\n*And* the user enter \"[dm5tv@gmail.com|mailto:dm5tv@gmail.com]\" and click Search",
-        "data": "",
-        "result": "*Then* the User Lookup page loads successfully\n\n*And* the Calendar dropdown appears\n\n*And* July 1st is selected as start date\n\n*And* November 30th is selected as end date\n\n*And* the search executes successfully with date range and the user verify search results are displayed\n\n*And* the User Information table and External Logs are shown"
-      }
-    ]
-  },
-  {
     "id": "WQO-1015",
     "issueId": "1242731",
     "key": "WQO-1015",
@@ -544,112 +596,6 @@
         "action": "*When* the user clicks on the \"Playback\" tab within the overrides page\n\n*And* the user clicks on the \"Create Override\" button\n\n*And* the user type in and Okta ID in the \"OktaId\" box\n\n*And* the user selects \"Client Type\" from the Client Type dropdown\n\n*And* the user selects \"Experience\" from the Experience dropdown\n\n*And* the user selects \"Features\" from the Features dropdown\n\n*And* the user clicks on the \"Save\" button",
         "data": "",
         "result": "*Then* the user should see the Playback page\n\n*And* the user should see \"Create Override\" popup on the screen\n\n*And* the user should see the Okta ID entered information in \"OktaId\" box\n\n*And* the user should see the selected \"Client Type\" in the dropdown\n\n*And* the user should see the selected \"Experiences\" in the dropdown\n\n*And* the user should see the \"Features\" in the dropdown\n\n*And* the user should see  \"Playback Override successfully created\"\n\n!xray-attachment://a6082a9d-cb02-4bee-8256-49c7999b3e48|width=418,height=93!"
-      }
-    ]
-  },
-  {
-    "id": "WQO-432",
-    "issueId": "1146113",
-    "key": "WQO-432",
-    "summary": "Media Validation | Litmus Tool | Landing Page and Games List",
-    "description": null,
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user clicks on the Media Validation tile\nThen the user should see the \"Litmus\" tool\nAnd the user should see a table view of the days game contains \"GamePK\", \"Matchup\", \"Venue\", \"Game Date\", \"Status\"\nAnd the user should see the date selector above the games component on the \"Media Validation\" page",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "ea0b8a95-1c96-4e06-8f4d-5557ee59ea55",
-        "action": "*When* the user clicks on the Media Validation tile",
-        "data": "",
-        "result": "*Then* the user should see the \"Litmus\" tool\n*And* the user should see a table view of the days game contains \"GamePK\", \"Matchup\", \"Venue\", \"Game Date\", \"Status\"\n*And* the user should see the date selector above the games component on the \"Media Validation\" page"
-      }
-    ]
-  },
-  {
-    "id": "WQO-417",
-    "issueId": "1146098",
-    "key": "WQO-417",
-    "summary": "Navigation | Home page tiles for  Milestones, Audit & Logging, Partner Delivery, ESNI Management: Part II",
-    "description": null,
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user clicks on the Home on the side nav\nAnd the user clicks on the Milestones tile on the Home page\nAnd the user clicks on the Home on the side nav\nAnd the user clicks on the Audit & Logging tile on the Home page\nAnd the user clicks on the Home on the side nav\nAnd the user clicks on Partner Stream Delivery tile on the Home page\nAnd the user clicks on the Home on the side nav\nAnd the user clicks on ESNI Management tile on the Home page\nAnd the user should land on the Home page\nAnd the user should land on the Milestones page\nAnd the user should see the header of the page display \"Milestones\" on top of the page\nAnd the user should see a calendar icon with the format \"YYYY-MM-DD\" with Previous arrow and Next arrow\nAnd the user should land on the Home page\nAnd the user should land on the \"Schedule\" page\nAnd the user should see a calendar icon with the format \"YYYY-MM-DD\" with Previous arrow and Next arrow\nAnd the user should see the header of the page \"Audit & Logging\"\nAnd the user should see \"Schedule\", \"Search by Game\", \"Search by Media\", and \"Search by User\" tabs on top of the page\nAnd the user should land on the Home page\nAnd the user should land on the \"Mapping\" page\nAnd the user should see the header of the page \"Partner Delivery\" on top of the page\nAnd the the user should see \"Mapping\", and \"Targets\" tabs on top of the page right next to Partner Delivery\nAnd the user should land on the Home page\nAnd the user should land on the \"Media ID\" page\nAnd the user should see \"Policies\" and \"Audiences\" tab on top of the page\nAnd the user should see a calendar icon with the format \"YYYY-MM-DD\" with Previous arrow and Next arrow\nAnd the user should see a \"Search\" box, and a \"View\" button on the right side of the page",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "dfe9f402-8052-40a9-bef0-855fb5163f5a",
-        "action": "When the user clicks on the Home on the side nav\nAnd the user clicks on the Milestones tile on the Home page\nAnd the user clicks on the Home on the side nav\nAnd the user clicks on the Audit & Logging tile on the Home page\nAnd the user clicks on the Home on the side nav\nAnd the user clicks on Partner Stream Delivery tile on the Home page\nAnd the user clicks on the Home on the side nav\nAnd the user clicks on ESNI Management tile on the Home page",
-        "data": "",
-        "result": "And the user should land on the Home page\nAnd the user should land on the Milestones page\nAnd the user should see the header of the page display \"Milestones\" on top of the page\nAnd the user should see a calendar icon with the format \"YYYY-MM-DD\" with Previous arrow and Next arrow\n\nAnd the user should land on the Home page\nAnd the user should land on the \"Schedule\" page\nAnd the user should see a calendar icon with the format \"YYYY-MM-DD\" with Previous arrow and Next arrow\nAnd the user should see the header of the page \"Audit & Logging\"\nAnd the user should see \"Schedule\", \"Search by Game\", \"Search by Media\", and \"Search by User\" tabs on top of the page\n\nAnd the user should land on the Home page\nAnd the user should land on the \"Mapping\" page\nAnd the user should see the header of the page \"Partner Delivery\" on top of the page\nAnd the the user should see \"Mapping\", and \"Targets\" tabs on top of the page right next to Partner Delivery\n\nAnd the user should land on the Home page\nAnd the user should land on the \"Media ID\" page\nAnd the user should see \"Policies\" and \"Audiences\" tab on top of the page\nAnd the user should see a calendar icon with the format \"YYYY-MM-DD\" with Previous arrow and Next arrow\nAnd the user should see a \"Search\" box, and a \"View\" button on the right side of the page"
-      }
-    ]
-  },
-  {
-    "id": "WQO-427",
-    "issueId": "1146108",
-    "key": "WQO-427",
-    "summary": "Overrides | Playback | Edit Create Override",
-    "description": null,
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user clicks on the \"Override\" tile on the dashboard\nAnd the user clicks on the \"Playback\" tab\nAnd the user either search for select an override playback that needs to be edit\nAnd the user clicks on the \"Edit Override\" pencil button\nAnd the user edits the information in \"OktaId\"\nAnd the user edits the information in \"Client Type\" in the dropdown\nAnd the user edits the information in \"Experience\" in the dropdown\nAnd the user edits the information in \"Features\" in the dropdown\nAnd the user clicks on the \"Save\" button\nThen the user should land on the Session page by default\nAnd the user should land on the Playback page\nAnd the user should see \"Search\" box on the right side of the screen\nAnd the user should see the \"Update Override\" modal on the screen\nAnd the user should see the edited entered information in \"OktaId\"\nAnd the user should see the edited entered information in \"Client Type\" in the dropdown\nAnd the user should see the edited entered information in \"Features\" in the dropdown\nAnd the user should see a successful message \"Session Override successfully updated\"\n!xray-attachment://3a478799-76bc-4e75-8903-fb70eefec2f1|width=292,height=41!",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "0d00ebda-9d64-4fe5-a25d-2a0c23100784",
-        "action": "*When* the user clicks on the \"Override\" tile on the dashboard\n\n*And* the user clicks on the \"Playback\" tab\n\n*And* the user either search for select an override playback that needs to be edit\n\n*And* the user clicks on the \"Edit Override\" pencil button\n\n*And* the user edits the information in \"OktaId\"\n\n*And* the user edits the information in \"Client Type\" in the dropdown\n\n*And* the user edits the information in \"Experience\" in the dropdown\n\n*And* the user edits the information in \"Features\" in the dropdown\n\n*And* the user clicks on the \"Save\" button",
-        "data": "",
-        "result": "*Then* the user should land on the Session page by default\n\n*And* the user should land on the Playback page\n\n*And* the user should see \"Search\" box on the right side of the screen\n\n*And* the user should see the \"Update Override\" modal on the screen\n\n*And* the user should see the edited entered information in \"OktaId\" \n\n*And* the user should see the edited entered information in \"Client Type\" in the dropdown\n\n*And* the user should see the edited entered information in \"Features\" in the dropdown\n\n*And* the user should see a successful message \"Session Override successfully updated\"\n\n!xray-attachment://3a478799-76bc-4e75-8903-fb70eefec2f1|width=292,height=41!"
-      }
-    ]
-  },
-  {
-    "id": "WQO-1051",
-    "issueId": "1252214",
-    "key": "WQO-1051",
-    "summary": "Milestone | Edit A Milestone",
-    "description": null,
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user clicks on the \"Edit\" icon on the far right of the newly created milestone\nThen the user should see a popup window titled \"Adjust Milestone\"\nAnd the user should see the current milestone details filled in\nWhen the user clicks on the timestamp toggle button within the \"Adjust Milestone\" dialog\nAnd the user clicks on the calendar button within the \"Adjust Milestone\" dialog\nAnd the user picks the date \"June 12 2024\" from the calendar\nAnd the user clicks on the calendar button again within the \"Adjust Milestone\" dialog\nAnd the user clicks the \"Submit\" button within the \"Adjust Milestone\" dialog\nThen the popup window should disappear\nAnd the user should see a green success message saying \"Adjust Milestone Success\"",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "8aee8ffa-bf91-4429-b267-05744d9ec8fc",
-        "action": "*When* the user clicks on the \"Edit\" icon on the far right of the newly created milestone",
-        "data": "",
-        "result": "*Then* the user should see a popup window titled \"Adjust Milestone\"\n\n*And* the user should see the current milestone details filled in"
-      },
-      {
-        "id": "88e20bcf-b203-4566-a381-1923c5892ab5",
-        "action": "*When* the user clicks on the timestamp toggle button within the \"Adjust Milestone\" dialog\n\n*And* the user clicks on the calendar button within the \"Adjust Milestone\" dialog\n\n*And* the user picks the date \"June 12 2024\" from the calendar\n\n*And* the user clicks on the calendar button again within the \"Adjust Milestone\" dialog\n\n*And* the user clicks the \"Submit\" button within the \"Adjust Milestone\" dialog",
-        "data": "",
-        "result": "*Then* the popup window should disappear\n\n*And* the user should see a green success message saying \"Adjust Milestone Success\""
-      }
-    ]
-  },
-  {
-    "id": "WQO-972",
-    "issueId": "1217347",
-    "key": "WQO-972",
-    "summary": "User Lookup | Navigate to July in Calendar",
-    "description": null,
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user Navigate to User Lookup page\nAnd the user Click on \"Select A Date Range\" button\nAnd the user Navigate to July in the calendar by clicking on the previous button\nThen the User Lookup page loads successfully\nAnd the Calendar dropdown appears\nAnd the Calendar shows the month of July",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "b65ee096-303c-44bf-bb59-68b832b10d51",
-        "action": "*When* the user Navigate to User Lookup page\n\n*And* the user Click on \"Select A Date Range\" button\n\n*And* the user Navigate to July in the calendar by clicking on the previous button",
-        "data": "",
-        "result": "*Then* the User Lookup page loads successfully\n\n*And* the Calendar dropdown appears\n\n*And* the Calendar shows the month of July"
       }
     ]
   },
@@ -718,6 +664,32 @@
     ]
   },
   {
+    "id": "WQO-1051",
+    "issueId": "1252214",
+    "key": "WQO-1051",
+    "summary": "Milestone | Edit A Milestone",
+    "description": null,
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user clicks on the \"Edit\" icon on the far right of the newly created milestone\nThen the user should see a popup window titled \"Adjust Milestone\"\nAnd the user should see the current milestone details filled in\nWhen the user clicks on the timestamp toggle button within the \"Adjust Milestone\" dialog\nAnd the user clicks on the calendar button within the \"Adjust Milestone\" dialog\nAnd the user picks the date \"June 12 2024\" from the calendar\nAnd the user clicks on the calendar button again within the \"Adjust Milestone\" dialog\nAnd the user clicks the \"Submit\" button within the \"Adjust Milestone\" dialog\nThen the popup window should disappear\nAnd the user should see a green success message saying \"Adjust Milestone Success\"",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "8aee8ffa-bf91-4429-b267-05744d9ec8fc",
+        "action": "*When* the user clicks on the \"Edit\" icon on the far right of the newly created milestone",
+        "data": "",
+        "result": "*Then* the user should see a popup window titled \"Adjust Milestone\"\n\n*And* the user should see the current milestone details filled in"
+      },
+      {
+        "id": "88e20bcf-b203-4566-a381-1923c5892ab5",
+        "action": "*When* the user clicks on the timestamp toggle button within the \"Adjust Milestone\" dialog\n\n*And* the user clicks on the calendar button within the \"Adjust Milestone\" dialog\n\n*And* the user picks the date \"June 12 2024\" from the calendar\n\n*And* the user clicks on the calendar button again within the \"Adjust Milestone\" dialog\n\n*And* the user clicks the \"Submit\" button within the \"Adjust Milestone\" dialog",
+        "data": "",
+        "result": "*Then* the popup window should disappear\n\n*And* the user should see a green success message saying \"Adjust Milestone Success\""
+      }
+    ]
+  },
+  {
     "id": "WQO-816",
     "issueId": "1164538",
     "key": "WQO-816",
@@ -740,6 +712,106 @@
         "action": "*When* the user selects the partner \"abc\"\n\n*And* enters \"456\" into the Targets search field",
         "data": "",
         "result": "*Then* only targets containing \"456\" should be displayed"
+      }
+    ]
+  },
+  {
+    "id": "WQO-432",
+    "issueId": "1146113",
+    "key": "WQO-432",
+    "summary": "Media Validation | Litmus Tool | Landing Page and Games List",
+    "description": null,
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user clicks on the Media Validation tile\nThen the user should see the \"Litmus\" tool\nAnd the user should see a table view of the days game contains \"GamePK\", \"Matchup\", \"Venue\", \"Game Date\", \"Status\"\nAnd the user should see the date selector above the games component on the \"Media Validation\" page",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "ea0b8a95-1c96-4e06-8f4d-5557ee59ea55",
+        "action": "*When* the user clicks on the Media Validation tile",
+        "data": "",
+        "result": "*Then* the user should see the \"Litmus\" tool\n*And* the user should see a table view of the days game contains \"GamePK\", \"Matchup\", \"Venue\", \"Game Date\", \"Status\"\n*And* the user should see the date selector above the games component on the \"Media Validation\" page"
+      }
+    ]
+  },
+  {
+    "id": "WQO-427",
+    "issueId": "1146108",
+    "key": "WQO-427",
+    "summary": "Overrides | Playback | Edit Create Override",
+    "description": null,
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user clicks on the \"Override\" tile on the dashboard\nAnd the user clicks on the \"Playback\" tab\nAnd the user either search for select an override playback that needs to be edit\nAnd the user clicks on the \"Edit Override\" pencil button\nAnd the user edits the information in \"OktaId\"\nAnd the user edits the information in \"Client Type\" in the dropdown\nAnd the user edits the information in \"Experience\" in the dropdown\nAnd the user edits the information in \"Features\" in the dropdown\nAnd the user clicks on the \"Save\" button\nThen the user should land on the Session page by default\nAnd the user should land on the Playback page\nAnd the user should see \"Search\" box on the right side of the screen\nAnd the user should see the \"Update Override\" modal on the screen\nAnd the user should see the edited entered information in \"OktaId\"\nAnd the user should see the edited entered information in \"Client Type\" in the dropdown\nAnd the user should see the edited entered information in \"Features\" in the dropdown\nAnd the user should see a successful message \"Session Override successfully updated\"\n!xray-attachment://3a478799-76bc-4e75-8903-fb70eefec2f1|width=292,height=41!",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "0d00ebda-9d64-4fe5-a25d-2a0c23100784",
+        "action": "*When* the user clicks on the \"Override\" tile on the dashboard\n\n*And* the user clicks on the \"Playback\" tab\n\n*And* the user either search for select an override playback that needs to be edit\n\n*And* the user clicks on the \"Edit Override\" pencil button\n\n*And* the user edits the information in \"OktaId\"\n\n*And* the user edits the information in \"Client Type\" in the dropdown\n\n*And* the user edits the information in \"Experience\" in the dropdown\n\n*And* the user edits the information in \"Features\" in the dropdown\n\n*And* the user clicks on the \"Save\" button",
+        "data": "",
+        "result": "*Then* the user should land on the Session page by default\n\n*And* the user should land on the Playback page\n\n*And* the user should see \"Search\" box on the right side of the screen\n\n*And* the user should see the \"Update Override\" modal on the screen\n\n*And* the user should see the edited entered information in \"OktaId\" \n\n*And* the user should see the edited entered information in \"Client Type\" in the dropdown\n\n*And* the user should see the edited entered information in \"Features\" in the dropdown\n\n*And* the user should see a successful message \"Session Override successfully updated\"\n\n!xray-attachment://3a478799-76bc-4e75-8903-fb70eefec2f1|width=292,height=41!"
+      }
+    ]
+  },
+  {
+    "id": "WQO-417",
+    "issueId": "1146098",
+    "key": "WQO-417",
+    "summary": "Navigation | Home page tiles for  Milestones, Audit & Logging, Partner Delivery, ESNI Management: Part II",
+    "description": null,
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user clicks on the Home on the side nav\nAnd the user clicks on the Milestones tile on the Home page\nAnd the user clicks on the Home on the side nav\nAnd the user clicks on the Audit & Logging tile on the Home page\nAnd the user clicks on the Home on the side nav\nAnd the user clicks on Partner Stream Delivery tile on the Home page\nAnd the user clicks on the Home on the side nav\nAnd the user clicks on ESNI Management tile on the Home page\nAnd the user should land on the Home page\nAnd the user should land on the Milestones page\nAnd the user should see the header of the page display \"Milestones\" on top of the page\nAnd the user should see a calendar icon with the format \"YYYY-MM-DD\" with Previous arrow and Next arrow\nAnd the user should land on the Home page\nAnd the user should land on the \"Schedule\" page\nAnd the user should see a calendar icon with the format \"YYYY-MM-DD\" with Previous arrow and Next arrow\nAnd the user should see the header of the page \"Audit & Logging\"\nAnd the user should see \"Schedule\", \"Search by Game\", \"Search by Media\", and \"Search by User\" tabs on top of the page\nAnd the user should land on the Home page\nAnd the user should land on the \"Mapping\" page\nAnd the user should see the header of the page \"Partner Delivery\" on top of the page\nAnd the the user should see \"Mapping\", and \"Targets\" tabs on top of the page right next to Partner Delivery\nAnd the user should land on the Home page\nAnd the user should land on the \"Media ID\" page\nAnd the user should see \"Policies\" and \"Audiences\" tab on top of the page\nAnd the user should see a calendar icon with the format \"YYYY-MM-DD\" with Previous arrow and Next arrow\nAnd the user should see a \"Search\" box, and a \"View\" button on the right side of the page",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "dfe9f402-8052-40a9-bef0-855fb5163f5a",
+        "action": "When the user clicks on the Home on the side nav\nAnd the user clicks on the Milestones tile on the Home page\nAnd the user clicks on the Home on the side nav\nAnd the user clicks on the Audit & Logging tile on the Home page\nAnd the user clicks on the Home on the side nav\nAnd the user clicks on Partner Stream Delivery tile on the Home page\nAnd the user clicks on the Home on the side nav\nAnd the user clicks on ESNI Management tile on the Home page",
+        "data": "",
+        "result": "And the user should land on the Home page\nAnd the user should land on the Milestones page\nAnd the user should see the header of the page display \"Milestones\" on top of the page\nAnd the user should see a calendar icon with the format \"YYYY-MM-DD\" with Previous arrow and Next arrow\n\nAnd the user should land on the Home page\nAnd the user should land on the \"Schedule\" page\nAnd the user should see a calendar icon with the format \"YYYY-MM-DD\" with Previous arrow and Next arrow\nAnd the user should see the header of the page \"Audit & Logging\"\nAnd the user should see \"Schedule\", \"Search by Game\", \"Search by Media\", and \"Search by User\" tabs on top of the page\n\nAnd the user should land on the Home page\nAnd the user should land on the \"Mapping\" page\nAnd the user should see the header of the page \"Partner Delivery\" on top of the page\nAnd the the user should see \"Mapping\", and \"Targets\" tabs on top of the page right next to Partner Delivery\n\nAnd the user should land on the Home page\nAnd the user should land on the \"Media ID\" page\nAnd the user should see \"Policies\" and \"Audiences\" tab on top of the page\nAnd the user should see a calendar icon with the format \"YYYY-MM-DD\" with Previous arrow and Next arrow\nAnd the user should see a \"Search\" box, and a \"View\" button on the right side of the page"
+      }
+    ]
+  },
+  {
+    "id": "WQO-972",
+    "issueId": "1217347",
+    "key": "WQO-972",
+    "summary": "User Lookup | Navigate to July in Calendar",
+    "description": null,
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user Navigate to User Lookup page\nAnd the user Click on \"Select A Date Range\" button\nAnd the user Navigate to July in the calendar by clicking on the previous button\nThen the User Lookup page loads successfully\nAnd the Calendar dropdown appears\nAnd the Calendar shows the month of July",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "b65ee096-303c-44bf-bb59-68b832b10d51",
+        "action": "*When* the user Navigate to User Lookup page\n\n*And* the user Click on \"Select A Date Range\" button\n\n*And* the user Navigate to July in the calendar by clicking on the previous button",
+        "data": "",
+        "result": "*Then* the User Lookup page loads successfully\n\n*And* the Calendar dropdown appears\n\n*And* the Calendar shows the month of July"
+      }
+    ]
+  },
+  {
+    "id": "WQO-402",
+    "issueId": "1146083",
+    "key": "WQO-402",
+    "summary": "Blackout Override | Overrides | Verify Overrides Page UI Elements and Column Headers",
+    "description": null,
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user clicks on the \"Overrides\" tab\nThen the user should land on the Overrides page\nAnd the user should see the \"Blackout Override\", \"User Lookup\" and \"Overrides\" on top of the page\nAnd the user should see a \"+Create Override\" button, a \"Search\" box, and a \"View\" (Toggle Columns) button in the top right corner\nAnd the user should see a table with the following columns:\n\"Country Code\", \"Okta ID\", \"IP Address\", \"Zip Code\", \"Status\", \"Expiration\", \"Created At\"\nAnd the user should see pagination in the following format:\n||*AND the user should see pagination below the table*|\"Rows per page\" dropdown (default set to 25)|\n||*AND the user should see pagination below the table*|A pagination summary (e.g \"1-25\" of X\")|\n||*AND the user should see pagination below the table*|First, Previous, Next and Last button|",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "9018ad29-d1a8-4dbd-bd08-92627d451645",
+        "action": "When the user clicks on the \"Overrides\" tab",
+        "data": "",
+        "result": "Then the user should land on the Overrides page\nAnd the user should see the \"Blackout Override\", \"User Lookup\" and \"Overrides\" on top of the page\nAnd the user should see a \"+Create Override\" button, a \"Search\" box, and a \"View\" (Toggle Columns) button in the top right corner\nAnd the user should see a table with the following columns:\n\"Country Code\", \"Okta ID\", \"IP Address\", \"Zip Code\", \"Status\", \"Expiration\", \"Created At\"\nAnd the user should see pagination in the following format:\n\n||*AND the user should see pagination below the table*|\"Rows per page\" dropdown (default set to 25)|\n||*AND the user should see pagination below the table*|A pagination summary (e.g \"1-25\" of X\")|\n||*AND the user should see pagination below the table*|First, Previous, Next and Last button|"
       }
     ]
   },
@@ -776,22 +848,42 @@
     ]
   },
   {
-    "id": "WQO-402",
-    "issueId": "1146083",
-    "key": "WQO-402",
-    "summary": "Blackout Override | Overrides | Verify Overrides Page UI Elements and Column Headers",
+    "id": "WQO-905",
+    "issueId": "1189570",
+    "key": "WQO-905",
+    "summary": "BTC Tools | Verify CDN Status Page UI",
+    "description": "[https://baseball.atlassian.net/browse/OPTOOLS-720|https://baseball.atlassian.net/browse/OPTOOLS-720|smart-link] ",
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user clicks on the BTC Tools page\nAnd the user clicks on the \"CDN Status\" tab at the top of the page\nAnd !xray-attachment://5d50b519-80c7-4d0a-9533-1b563a79018a|width=1182,height=612!\nThen the user lands on the Schedule Page by default\nAnd the user lands on the CDN Status page\nAnd the user sees two distinct tiles, one for \"Fastly\" and one for \"Media CDN\"\nAnd each tile contains a toggle switch to enable or disable the respective CDN",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "6f0d3810-d7d9-4b31-946b-016694e03ed2",
+        "action": "*When* the user clicks on the BTC Tools page\n\n*And* the user clicks on the \"CDN Status\" tab at the top of the page",
+        "data": "!xray-attachment://5d50b519-80c7-4d0a-9533-1b563a79018a|width=1182,height=612!",
+        "result": "*Then* the user lands on the Schedule Page by default \n\n*And* the user lands on the CDN Status page\n\n*And* the user sees two distinct tiles, one for \"Fastly\" and one for \"Media CDN\"\n\n*And* each tile contains a toggle switch to enable or disable the respective CDN"
+      }
+    ]
+  },
+  {
+    "id": "WQO-971",
+    "issueId": "1217325",
+    "key": "WQO-971",
+    "summary": "User Lookup | Email Search Without Date Selection",
     "description": null,
     "status": "Done",
     "testType": "Cucumber",
     "scenarioType": "scenario",
-    "gherkin": "When the user clicks on the \"Overrides\" tab\nThen the user should land on the Overrides page\nAnd the user should see the \"Blackout Override\", \"User Lookup\" and \"Overrides\" on top of the page\nAnd the user should see a \"+Create Override\" button, a \"Search\" box, and a \"View\" (Toggle Columns) button in the top right corner\nAnd the user should see a table with the following columns:\n\"Country Code\", \"Okta ID\", \"IP Address\", \"Zip Code\", \"Status\", \"Expiration\", \"Created At\"\nAnd the user should see pagination in the following format:\n||*AND the user should see pagination below the table*|\"Rows per page\" dropdown (default set to 25)|\n||*AND the user should see pagination below the table*|A pagination summary (e.g \"1-25\" of X\")|\n||*AND the user should see pagination below the table*|First, Previous, Next and Last button|",
+    "gherkin": "When the user navigate to User Lookup page\nAnd the user verify no dates are selected in calendar\nAnd the user enter \"dm5tv@gmail.com\" in the email field\nAnd the user click on Search button\nThen the User Lookup page loads successfully\nAnd the Date range field is empty or shows no selection\nAnd the Email address is entered successfully\nAnd the Search executes successfully\nAnd the user Verify \"External Logs\" text appears \"External Logs\" section is displayed\nAnd the user Verify \"User Information\" table loads with correct columns  Table shows:\n* First Name\n* Last Name\n* Okta ID\n* Email\n* Do Not Sell\n* Favorite Team\n* Entitlements\nAnd the user Verify \"User Sessions\" table is present User Sessions table is visible\nAnd the user Verify no error messages are displayed  No error messages or warnings appear",
     "unstructured": null,
     "steps": [
       {
-        "id": "9018ad29-d1a8-4dbd-bd08-92627d451645",
-        "action": "When the user clicks on the \"Overrides\" tab",
+        "id": "64cfaba0-5673-4a29-ae5c-c444f4b1ec28",
+        "action": "*When* the user navigate to User Lookup page   \n\n*And* the user verify no dates are selected in calendar    \n\n*And* the user enter \"[dm5tv@gmail.com|mailto:dm5tv@gmail.com]\" in the email field  \n\n*And* the user click on Search button",
         "data": "",
-        "result": "Then the user should land on the Overrides page\nAnd the user should see the \"Blackout Override\", \"User Lookup\" and \"Overrides\" on top of the page\nAnd the user should see a \"+Create Override\" button, a \"Search\" box, and a \"View\" (Toggle Columns) button in the top right corner\nAnd the user should see a table with the following columns:\n\"Country Code\", \"Okta ID\", \"IP Address\", \"Zip Code\", \"Status\", \"Expiration\", \"Created At\"\nAnd the user should see pagination in the following format:\n\n||*AND the user should see pagination below the table*|\"Rows per page\" dropdown (default set to 25)|\n||*AND the user should see pagination below the table*|A pagination summary (e.g \"1-25\" of X\")|\n||*AND the user should see pagination below the table*|First, Previous, Next and Last button|"
+        "result": "*Then* the User Lookup page loads successfully\n\n*And* the Date range field is empty or shows no selection\n\n*And* the Email address is entered successfully\n\n*And* the Search executes successfully\n\n*And* the user Verify \"External Logs\" text appears \"External Logs\" section is displayed\n\n*And* the user Verify \"User Information\" table loads with correct columns  Table shows:\n\n* First Name\n* Last Name \n* Okta ID\n* Email\n* Do Not Sell\n* Favorite Team\n* Entitlements\n\n*And* the user Verify \"User Sessions\" table is present User Sessions table is visible\n\n*And* the user Verify no error messages are displayed  No error messages or warnings appear"
       }
     ]
   },
@@ -846,26 +938,6 @@
     ]
   },
   {
-    "id": "WQO-828",
-    "issueId": "1164577",
-    "key": "WQO-828",
-    "summary": "User Lookup | User Views Conviva Sessions",
-    "description": null,
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user has searched for a user and their information is displayed\nAnd the user clicks the \"Conviva Sessions\" button\nThen a new browser tab should open\nAnd The new tab should navigate to the Conviva Viewer Module URL with the user's Okta ID appended\nAnd The Conviva Viewer Module should list the active sessions for the user for the last 24 hours",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "c2144121-d7de-4a7c-b342-820f32dba9de",
-        "action": "*When* the user has searched for a user and their information is displayed\n\n*And* the user clicks the \"Conviva Sessions\" button",
-        "data": "",
-        "result": "*Then* a new browser tab should open\n\n*And* The new tab should navigate to the Conviva Viewer Module URL with the user's Okta ID appended\n\n*And* The Conviva Viewer Module should list the active sessions for the user for the last 24 hours"
-      }
-    ]
-  },
-  {
     "id": "WQO-1052",
     "issueId": "1252215",
     "key": "WQO-1052",
@@ -898,42 +970,68 @@
     ]
   },
   {
-    "id": "WQO-905",
-    "issueId": "1189570",
-    "key": "WQO-905",
-    "summary": "BTC Tools | Verify CDN Status Page UI",
-    "description": "[https://baseball.atlassian.net/browse/OPTOOLS-720|https://baseball.atlassian.net/browse/OPTOOLS-720|smart-link] ",
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user clicks on the BTC Tools page\nAnd the user clicks on the \"CDN Status\" tab at the top of the page\nAnd !xray-attachment://5d50b519-80c7-4d0a-9533-1b563a79018a|width=1182,height=612!\nThen the user lands on the Schedule Page by default\nAnd the user lands on the CDN Status page\nAnd the user sees two distinct tiles, one for \"Fastly\" and one for \"Media CDN\"\nAnd each tile contains a toggle switch to enable or disable the respective CDN",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "6f0d3810-d7d9-4b31-946b-016694e03ed2",
-        "action": "*When* the user clicks on the BTC Tools page\n\n*And* the user clicks on the \"CDN Status\" tab at the top of the page",
-        "data": "!xray-attachment://5d50b519-80c7-4d0a-9533-1b563a79018a|width=1182,height=612!",
-        "result": "*Then* the user lands on the Schedule Page by default \n\n*And* the user lands on the CDN Status page\n\n*And* the user sees two distinct tiles, one for \"Fastly\" and one for \"Media CDN\"\n\n*And* each tile contains a toggle switch to enable or disable the respective CDN"
-      }
-    ]
-  },
-  {
-    "id": "WQO-971",
-    "issueId": "1217325",
-    "key": "WQO-971",
-    "summary": "User Lookup | Email Search Without Date Selection",
+    "id": "WQO-828",
+    "issueId": "1164577",
+    "key": "WQO-828",
+    "summary": "User Lookup | User Views Conviva Sessions",
     "description": null,
     "status": "Done",
     "testType": "Cucumber",
     "scenarioType": "scenario",
-    "gherkin": "When the user navigate to User Lookup page\nAnd the user verify no dates are selected in calendar\nAnd the user enter \"dm5tv@gmail.com\" in the email field\nAnd the user click on Search button\nThen the User Lookup page loads successfully\nAnd the Date range field is empty or shows no selection\nAnd the Email address is entered successfully\nAnd the Search executes successfully\nAnd the user Verify \"External Logs\" text appears \"External Logs\" section is displayed\nAnd the user Verify \"User Information\" table loads with correct columns  Table shows:\n* First Name\n* Last Name\n* Okta ID\n* Email\n* Do Not Sell\n* Favorite Team\n* Entitlements\nAnd the user Verify \"User Sessions\" table is present User Sessions table is visible\nAnd the user Verify no error messages are displayed  No error messages or warnings appear",
+    "gherkin": "When the user has searched for a user and their information is displayed\nAnd the user clicks the \"Conviva Sessions\" button\nThen a new browser tab should open\nAnd The new tab should navigate to the Conviva Viewer Module URL with the user's Okta ID appended\nAnd The Conviva Viewer Module should list the active sessions for the user for the last 24 hours",
     "unstructured": null,
     "steps": [
       {
-        "id": "64cfaba0-5673-4a29-ae5c-c444f4b1ec28",
-        "action": "*When* the user navigate to User Lookup page   \n\n*And* the user verify no dates are selected in calendar    \n\n*And* the user enter \"[dm5tv@gmail.com|mailto:dm5tv@gmail.com]\" in the email field  \n\n*And* the user click on Search button",
+        "id": "c2144121-d7de-4a7c-b342-820f32dba9de",
+        "action": "*When* the user has searched for a user and their information is displayed\n\n*And* the user clicks the \"Conviva Sessions\" button",
         "data": "",
-        "result": "*Then* the User Lookup page loads successfully\n\n*And* the Date range field is empty or shows no selection\n\n*And* the Email address is entered successfully\n\n*And* the Search executes successfully\n\n*And* the user Verify \"External Logs\" text appears \"External Logs\" section is displayed\n\n*And* the user Verify \"User Information\" table loads with correct columns  Table shows:\n\n* First Name\n* Last Name \n* Okta ID\n* Email\n* Do Not Sell\n* Favorite Team\n* Entitlements\n\n*And* the user Verify \"User Sessions\" table is present User Sessions table is visible\n\n*And* the user Verify no error messages are displayed  No error messages or warnings appear"
+        "result": "*Then* a new browser tab should open\n\n*And* The new tab should navigate to the Conviva Viewer Module URL with the user's Okta ID appended\n\n*And* The Conviva Viewer Module should list the active sessions for the user for the last 24 hours"
+      }
+    ]
+  },
+  {
+    "id": "WQO-938",
+    "issueId": "1213773",
+    "key": "WQO-938",
+    "summary": "BTC Tools | Broadcast Source Overrides | Verify UI",
+    "description": "Ticket [https://baseball.atlassian.net/browse/OPTOOLS-640|https://baseball.atlassian.net/browse/OPTOOLS-640|smart-link] \n\nSOP-QA: Click here to get to Broadcast Source Overrides[https://sop-qa.mlb.com/btc-tools/broadcast-source-overrides|https://sop-qa.mlb.com/btc-tools/broadcast-source-overrides|smart-link] ",
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user clicks on \"Broadcast Source Overrides\" from the navigation menu\nThen the user should see the Broadcast Source Overrides page loaded successfully\nAnd the page should display \"Broadcast Source Overrides\" in the navigation tab\nAnd a \"Create Override\" button should be prominently displayed at the top left\nAnd a \"Search\" field should be visible at the top right\nAnd a \"View\" button should be visible at the top right\nAnd a data table should be visible with column headers:\n* ID\n* Call Sign\n* Pre-Game Source\n* Game Source\n* Post-Game Source\nAnd each row should display the override data\nAnd each row should have an edit icon (pencil) on the right side\nAnd each row should have a delete icon (trash/bin) on the right side\nAnd pagination should show the correct count based on available overrides (e.g., \"1-2 of 2\" if 2 overrides exist)\nAnd \"Rows per page\" dropdown should be set to \"25\" by default",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "4229439b-a2b5-439b-a91f-dec1c641e98b",
+        "action": "*When* the user clicks on \"Broadcast Source Overrides\" from the navigation menu",
+        "data": "",
+        "result": "*Then* the user should see the Broadcast Source Overrides page loaded successfully\n*And* the page should display \"Broadcast Source Overrides\" in the navigation tab\n*And* a \"Create Override\" button should be prominently displayed at the top left\n*And* a \"Search\" field should be visible at the top right\n*And* a \"View\" button should be visible at the top right\n*And* a data table should be visible with column headers:\n\n* ID\n* Call Sign\n* Pre-Game Source\n* Game Source\n* Post-Game Source\n\n*And* each row should display the override data\n*And* each row should have an edit icon (pencil) on the right side\n*And* each row should have a delete icon (trash/bin) on the right side\n*And* pagination should show the correct count based on available overrides (e.g., \"1-2 of 2\" if 2 overrides exist)\n*And* \"Rows per page\" dropdown should be set to \"25\" by default"
+      }
+    ]
+  },
+  {
+    "id": "WQO-831",
+    "issueId": "1164753",
+    "key": "WQO-831",
+    "summary": "Overrides | Playback | Validate Playback Overrides Table",
+    "description": null,
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user clicks on the \"Overrides\" tile\nThen the user should be navigated to the \"Overrides\" page\nAnd the \"Session\" tab should be selected by default\nWhen the user clicks on the \"Playback\" tab\nThen the user should see the \"Playback\" overrides table\nAnd the table should have the columns:\nID | Okta Id | Client Type | Experience | Features | Actions\nAnd the user should see the \"Create Override\" button\nAnd the user should see a search bar with a \"View\" button",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "51ed5254-315b-4da3-b651-0f63bfc9116d",
+        "action": "*When* the user clicks on the \"Overrides\" tile",
+        "data": "",
+        "result": "*Then* the user should be navigated to the \"Overrides\" page\n\n*And* the \"Session\" tab should be selected by default"
+      },
+      {
+        "id": "d77041df-81df-400c-a159-99b13cee8844",
+        "action": "*When* the user clicks on the \"Playback\" tab",
+        "data": "",
+        "result": "*Then* the user should see the \"Playback\" overrides table\n\nAnd the table should have the columns:\nID | Okta Id | Client Type | Experience | Features | Actions\n\n*And* the user should see the \"Create Override\" button\n\n*And* the user should see a search bar with a \"View\" button"
       }
     ]
   },
@@ -960,6 +1058,78 @@
         "action": "*When* the user clicks on the BTC Tools tile",
         "data": "",
         "result": "*Then* the user should land on the \"Schedule\" page\n\n*And* the user should see the date format as \"YYYY-MM-DD\"\n\n*And* the user should see a Search box. (i.e, search box can be used to search for a game via team name, Venue and GamePK)\n\n*And* the user should see the team matchups (for example: SF @ PIT)\n\n*And* the user validates the content of the first row includes:\n\nTeam Matchup (BOS @PIT) | Game PK | Venue | Game Date | Status"
+      }
+    ]
+  },
+  {
+    "id": "WQO-410",
+    "issueId": "1146091",
+    "key": "WQO-410",
+    "summary": "Partner Delivery | Mapping | Filter Search on Target and Channel List",
+    "description": null,
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user clicks on the \"Partner Stream Delivery\" tile on the dashboard\nThen the user should see the \"Mapping\" Tab\nAnd the user should see a \"Search\" bar display on the \"Channels\" and \"Targets\" section\nWhen the user inputs data in the \"Search\" bar\nThen the user should see \"Channels\" or \"Targets\" that fit the criteria is displayed\nAnd the \"Channels\" or \"Targets\" that is currently selected/ mapped should be displayed",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "8c0c584c-e272-48ac-a789-47ca04d2d77e",
+        "action": "*When* the user clicks on the \"Partner Stream Delivery\" tile on the dashboard",
+        "data": "",
+        "result": "*Then* the user should see the \"Mapping\" Tab\n\n*And* the user should see a \"Search\" bar display on the \"Channels\" and \"Targets\" section"
+      },
+      {
+        "id": "c700f6ee-41cf-4efc-b5f8-149b5180335b",
+        "action": "*When* the user inputs data in the \"Search\" bar",
+        "data": "",
+        "result": "*Then* the user should see \"Channels\" or \"Targets\" that fit the criteria is displayed\n\n*And* the \"Channels\" or \"Targets\" that is currently selected/ mapped should be displayed"
+      }
+    ]
+  },
+  {
+    "id": "WQO-399",
+    "issueId": "1146080",
+    "key": "WQO-399",
+    "summary": "Blackout Override | User Look up Page | Ul Validation - without User Info Lookup",
+    "description": null,
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user clicks on the \"Blackout Override\" tile on the dashboard\nAnd !xray-attachment://6142ebd0-ab28-4d2c-8cb5-5c8a5c3113c1|width=944,height=656!\nThen the user should land on the \"User Info Lookup\" page\nAnd the user should see the \"Blackout Override\" in the header of the page\nAnd the user should see the \"User Lookup\" and \"Overrides\" tabs at the top of the page\nAnd the user should see a search bar labeled \"Email\"\nAnd the instruction text should read:\n\"Search for a user by email to view their information, existing overrides and recent Conviva sessions\"",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "ab8911c2-d049-4b3f-8dd9-6163c2361bb9",
+        "action": "*When* the user clicks on the \"Blackout Override\" tile on the dashboard",
+        "data": "!xray-attachment://6142ebd0-ab28-4d2c-8cb5-5c8a5c3113c1|width=944,height=656!",
+        "result": "*Then* the user should land on the \"User Info Lookup\" page\n*And* the user should see the \"Blackout Override\" in the header of the page\n*And* the user should see the \"User Lookup\" and \"Overrides\" tabs at the top of the page\n*And* the user should see a search bar labeled \"Email\"\n*And* the instruction text should read:\n\"Search for a user by email to view their information, existing overrides and recent Conviva sessions\""
+      }
+    ]
+  },
+  {
+    "id": "WQO-822",
+    "issueId": "1164548",
+    "key": "WQO-822",
+    "summary": "ESNI Management | Media ID | Media Details Modal Displays Metadata And Viewing Policies",
+    "description": "Verify Media Details modal displays metadata and viewing policies",
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user clicks the \"Media Details\" button (three-line icon) for any media row\nAnd For Example: https://sop-qa.mlb.com/esni/media?searchType=DATE&searchValue=2026-02-12&details=media_2d25be4e-05cf-4657-ada3-4842183e5228\n!xray-attachment://df65f1f1-22c1-4edd-9853-84d6479d9ed7|width=1149,height=212!\nThen a modal should appear displaying media metadata including:\n* Media ID\n* Feed Type\n* Media ID\n* Sub Type\n* Team (with logo)\n* Process Rules (with an information tooltip on it)\nAnd the modal should display a \"Viewing Policies\" section with:\n* Policy Name\n* Action\n* Action Label\n* Audience Href\nAnd each viewing policy row should have a delete button (ⓧ icon) on the left\nAnd a \"Search\" input field should be visible on the top-right of the Viewing Policies table\nAnd a \"View\"  button should be visible next to the search field\nAnd a button labeled \"Add Viewing Policy\" should be present above the Viewing Policies table\nWhen the user clicks the \"X\" button on the modal on the top corner\nThen the modal should close and return the user to the ESNI Management table view",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "5bd2dad9-3afb-4cf3-a97b-e24afb67b067",
+        "action": "*When* the user clicks the \"Media Details\" button (three-line icon) for any media row",
+        "data": "For Example: [https://sop-qa.mlb.com/esni/media?searchType=DATE&searchValue=2026-02-12&details=media_2d25be4e-05cf-4657-ada3-4842183e5228|https://sop-qa.mlb.com/esni/media?searchType=DATE&searchValue=2026-02-12&details=media_2d25be4e-05cf-4657-ada3-4842183e5228]\n\n!xray-attachment://df65f1f1-22c1-4edd-9853-84d6479d9ed7|width=1149,height=212!",
+        "result": "*Then* a modal should appear displaying media metadata including:\n\n* Media ID\n* Feed Type\n* Media ID\n* Sub Type\n* Team (with logo)\n* Process Rules (with an information tooltip on it) \n\n*And* the modal should display a \"Viewing Policies\" section with:\n\n* Policy Name\n* Action\n* Action Label\n* Audience Href\n\n*And* each viewing policy row should have a delete button (ⓧ icon) on the left\n\n*And* a \"Search\" input field should be visible on the top-right of the Viewing Policies table\n\n*And* a \"View\"  button should be visible next to the search field\n\n*And* a button labeled \"Add Viewing Policy\" should be present above the Viewing Policies table"
+      },
+      {
+        "id": "c2d739bb-f284-4665-b2e9-4bd3a017e5fb",
+        "action": "*When* the user clicks the \"X\" button on the modal on the top corner",
+        "data": "",
+        "result": "*Then* the modal should close and return the user to the ESNI Management table view"
       }
     ]
   },
@@ -1008,32 +1178,6 @@
     ]
   },
   {
-    "id": "WQO-822",
-    "issueId": "1164548",
-    "key": "WQO-822",
-    "summary": "ESNI Management | Media ID | Media Details Modal Displays Metadata And Viewing Policies",
-    "description": "Verify Media Details modal displays metadata and viewing policies",
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user clicks the \"Media Details\" button (three-line icon) for any media row\nAnd For Example: https://sop-qa.mlb.com/esni/media?searchType=DATE&searchValue=2026-02-12&details=media_2d25be4e-05cf-4657-ada3-4842183e5228\n!xray-attachment://df65f1f1-22c1-4edd-9853-84d6479d9ed7|width=1149,height=212!\nThen a modal should appear displaying media metadata including:\n* Media ID\n* Feed Type\n* Media ID\n* Sub Type\n* Team (with logo)\n* Process Rules (with an information tooltip on it)\nAnd the modal should display a \"Viewing Policies\" section with:\n* Policy Name\n* Action\n* Action Label\n* Audience Href\nAnd each viewing policy row should have a delete button (ⓧ icon) on the left\nAnd a \"Search\" input field should be visible on the top-right of the Viewing Policies table\nAnd a \"View\"  button should be visible next to the search field\nAnd a button labeled \"Add Viewing Policy\" should be present above the Viewing Policies table\nWhen the user clicks the \"X\" button on the modal on the top corner\nThen the modal should close and return the user to the ESNI Management table view",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "5bd2dad9-3afb-4cf3-a97b-e24afb67b067",
-        "action": "*When* the user clicks the \"Media Details\" button (three-line icon) for any media row",
-        "data": "For Example: [https://sop-qa.mlb.com/esni/media?searchType=DATE&searchValue=2026-02-12&details=media_2d25be4e-05cf-4657-ada3-4842183e5228|https://sop-qa.mlb.com/esni/media?searchType=DATE&searchValue=2026-02-12&details=media_2d25be4e-05cf-4657-ada3-4842183e5228]\n\n!xray-attachment://df65f1f1-22c1-4edd-9853-84d6479d9ed7|width=1149,height=212!",
-        "result": "*Then* a modal should appear displaying media metadata including:\n\n* Media ID\n* Feed Type\n* Media ID\n* Sub Type\n* Team (with logo)\n* Process Rules (with an information tooltip on it) \n\n*And* the modal should display a \"Viewing Policies\" section with:\n\n* Policy Name\n* Action\n* Action Label\n* Audience Href\n\n*And* each viewing policy row should have a delete button (ⓧ icon) on the left\n\n*And* a \"Search\" input field should be visible on the top-right of the Viewing Policies table\n\n*And* a \"View\"  button should be visible next to the search field\n\n*And* a button labeled \"Add Viewing Policy\" should be present above the Viewing Policies table"
-      },
-      {
-        "id": "c2d739bb-f284-4665-b2e9-4bd3a017e5fb",
-        "action": "*When* the user clicks the \"X\" button on the modal on the top corner",
-        "data": "",
-        "result": "*Then* the modal should close and return the user to the ESNI Management table view"
-      }
-    ]
-  },
-  {
     "id": "WQO-825",
     "issueId": "1164553",
     "key": "WQO-825",
@@ -1050,6 +1194,66 @@
         "action": "*When* the user navigates to the \"User Lookup\" page using the Home screen or the left sidebar menu",
         "data": "",
         "result": "*Then* a \"Select Date Range\" field should be visible on the top-left\n\n*And* a text field labeled \"Okta ID / Email\" should be visible next to the date range field\n\n*And* a \"Search\" button should be visible to the right of the Okta ID / Email field\n\n*And* all input fields should be empty by default\n\n*And* the \"Search\" button should be disabled or do nothing unless valid input is provided"
+      }
+    ]
+  },
+  {
+    "id": "WQO-1091",
+    "issueId": "1268568",
+    "key": "WQO-1091",
+    "summary": "BTC Tools | Multicast Mapping | Search for Created Mapping",
+    "description": null,
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user clicks the \"Multicast Mapping\" option on the top nav\nAnd the user enters \"Test Call sign\" in the search field\nThen the user is navigated to the Multicast Mapping page\nAnd the search results are filtered\nAnd the Results include the multicast mapping with call sign \"Test Call sign\"",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "37c29867-1eab-4ae9-9fea-e35288e46dc5",
+        "action": "*When* the user clicks the \"Multicast Mapping\" option on the top nav\n\n*And* the user enters \"Test Call sign\" in the search field",
+        "data": "",
+        "result": "*Then* the user is navigated to the Multicast Mapping page\n\n*And* the search results are filtered\n\n*And* the Results include the multicast mapping with call sign \"Test Call sign\""
+      }
+    ]
+  },
+  {
+    "id": "WQO-923",
+    "issueId": "1192395",
+    "key": "WQO-923",
+    "summary": "Home | Validate Home Page After Login",
+    "description": null,
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user lands on the Home page after successful authentication\nThen the Page title \"Home\" is displayed in the header\nAnd \"Streaming Operator Platform\" is visible in the top left corner\nAnd Left sidebar shows all navigation items (Home highlighted)\nAnd Main content displays 11 tool tiles in grid layout:\n* BTC Tools\n* Overrides\n* Blackout Override\n* Logger\n* Media Validation\n* Milestones\n* Audit & Logging\n* Partner Delivery\n* ESNI Management\n* User Lookup and\n* QA Tools\nAnd Bottom sidebar shows: Submit Feedback, Settings, <User name>\nAnd All tool tiles are clickable and navigate to respective pages",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "2f61e4ae-bfd3-4cad-be3a-189049625556",
+        "action": "*When* the user lands on the Home page after successful authentication",
+        "data": "",
+        "result": "*Then* the Page title \"Home\" is displayed in the header\n\n*And* \"Streaming Operator Platform\" is visible in the top left corner\n\n*And* Left sidebar shows all navigation items (Home highlighted)\n\n*And* Main content displays 11 tool tiles in grid layout:\n\n* BTC Tools\n* Overrides\n* Blackout Override\n* Logger\n* Media Validation\n* Milestones\n* Audit & Logging\n* Partner Delivery\n* ESNI Management\n* User Lookup and\n* QA Tools\n\n*And* Bottom sidebar shows: Submit Feedback, Settings, <User name>\n\n*And* All tool tiles are clickable and navigate to respective pages"
+      }
+    ]
+  },
+  {
+    "id": "WQO-411",
+    "issueId": "1146092",
+    "key": "WQO-411",
+    "summary": "Partner Delivery | Mapping | Scroll Indicator in Targets and Channels View",
+    "description": null,
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user clicks on the \"Partner Stream Delivery\" tile on the dashboard\nAnd the user clicks and drags the scroll indicator\nThen the user should see the \"Mapping\" Tab\nAnd the user should see the scroll indicator in \"Channels\" and \"Targets\" view\nAnd the user should see the position in the scrollable list adjust to reflect the position of the scroll indicator",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "9fabb004-5214-456b-9c0e-675fe000fd19",
+        "action": "When the user clicks on the \"Partner Stream Delivery\" tile on the dashboard\nAnd the user clicks and drags the scroll indicator",
+        "data": "",
+        "result": "Then the user should see the \"Mapping\" Tab\nAnd the user should see the scroll indicator in \"Channels\" and \"Targets\" view\nAnd the user should see the position in the scrollable list adjust to reflect the position of the scroll indicator"
       }
     ]
   },
@@ -1098,138 +1302,6 @@
     ]
   },
   {
-    "id": "WQO-410",
-    "issueId": "1146091",
-    "key": "WQO-410",
-    "summary": "Partner Delivery | Mapping | Filter Search on Target and Channel List",
-    "description": null,
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user clicks on the \"Partner Stream Delivery\" tile on the dashboard\nThen the user should see the \"Mapping\" Tab\nAnd the user should see a \"Search\" bar display on the \"Channels\" and \"Targets\" section\nWhen the user inputs data in the \"Search\" bar\nThen the user should see \"Channels\" or \"Targets\" that fit the criteria is displayed\nAnd the \"Channels\" or \"Targets\" that is currently selected/ mapped should be displayed",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "8c0c584c-e272-48ac-a789-47ca04d2d77e",
-        "action": "*When* the user clicks on the \"Partner Stream Delivery\" tile on the dashboard",
-        "data": "",
-        "result": "*Then* the user should see the \"Mapping\" Tab\n\n*And* the user should see a \"Search\" bar display on the \"Channels\" and \"Targets\" section"
-      },
-      {
-        "id": "c700f6ee-41cf-4efc-b5f8-149b5180335b",
-        "action": "*When* the user inputs data in the \"Search\" bar",
-        "data": "",
-        "result": "*Then* the user should see \"Channels\" or \"Targets\" that fit the criteria is displayed\n\n*And* the \"Channels\" or \"Targets\" that is currently selected/ mapped should be displayed"
-      }
-    ]
-  },
-  {
-    "id": "WQO-831",
-    "issueId": "1164753",
-    "key": "WQO-831",
-    "summary": "Overrides | Playback | Validate Playback Overrides Table",
-    "description": null,
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user clicks on the \"Overrides\" tile\nThen the user should be navigated to the \"Overrides\" page\nAnd the \"Session\" tab should be selected by default\nWhen the user clicks on the \"Playback\" tab\nThen the user should see the \"Playback\" overrides table\nAnd the table should have the columns:\nID | Okta Id | Client Type | Experience | Features | Actions\nAnd the user should see the \"Create Override\" button\nAnd the user should see a search bar with a \"View\" button",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "51ed5254-315b-4da3-b651-0f63bfc9116d",
-        "action": "*When* the user clicks on the \"Overrides\" tile",
-        "data": "",
-        "result": "*Then* the user should be navigated to the \"Overrides\" page\n\n*And* the \"Session\" tab should be selected by default"
-      },
-      {
-        "id": "d77041df-81df-400c-a159-99b13cee8844",
-        "action": "*When* the user clicks on the \"Playback\" tab",
-        "data": "",
-        "result": "*Then* the user should see the \"Playback\" overrides table\n\nAnd the table should have the columns:\nID | Okta Id | Client Type | Experience | Features | Actions\n\n*And* the user should see the \"Create Override\" button\n\n*And* the user should see a search bar with a \"View\" button"
-      }
-    ]
-  },
-  {
-    "id": "WQO-399",
-    "issueId": "1146080",
-    "key": "WQO-399",
-    "summary": "Blackout Override | User Look up Page | Ul Validation - without User Info Lookup",
-    "description": null,
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user clicks on the \"Blackout Override\" tile on the dashboard\nAnd !xray-attachment://6142ebd0-ab28-4d2c-8cb5-5c8a5c3113c1|width=944,height=656!\nThen the user should land on the \"User Info Lookup\" page\nAnd the user should see the \"Blackout Override\" in the header of the page\nAnd the user should see the \"User Lookup\" and \"Overrides\" tabs at the top of the page\nAnd the user should see a search bar labeled \"Email\"\nAnd the instruction text should read:\n\"Search for a user by email to view their information, existing overrides and recent Conviva sessions\"",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "ab8911c2-d049-4b3f-8dd9-6163c2361bb9",
-        "action": "*When* the user clicks on the \"Blackout Override\" tile on the dashboard",
-        "data": "!xray-attachment://6142ebd0-ab28-4d2c-8cb5-5c8a5c3113c1|width=944,height=656!",
-        "result": "*Then* the user should land on the \"User Info Lookup\" page\n*And* the user should see the \"Blackout Override\" in the header of the page\n*And* the user should see the \"User Lookup\" and \"Overrides\" tabs at the top of the page\n*And* the user should see a search bar labeled \"Email\"\n*And* the instruction text should read:\n\"Search for a user by email to view their information, existing overrides and recent Conviva sessions\""
-      }
-    ]
-  },
-  {
-    "id": "WQO-938",
-    "issueId": "1213773",
-    "key": "WQO-938",
-    "summary": "BTC Tools | Broadcast Source Overrides | Verify UI",
-    "description": "Ticket [https://baseball.atlassian.net/browse/OPTOOLS-640|https://baseball.atlassian.net/browse/OPTOOLS-640|smart-link] \n\nSOP-QA: Click here to get to Broadcast Source Overrides[https://sop-qa.mlb.com/btc-tools/broadcast-source-overrides|https://sop-qa.mlb.com/btc-tools/broadcast-source-overrides|smart-link] ",
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user clicks on \"Broadcast Source Overrides\" from the navigation menu\nThen the user should see the Broadcast Source Overrides page loaded successfully\nAnd the page should display \"Broadcast Source Overrides\" in the navigation tab\nAnd a \"Create Override\" button should be prominently displayed at the top left\nAnd a \"Search\" field should be visible at the top right\nAnd a \"View\" button should be visible at the top right\nAnd a data table should be visible with column headers:\n* ID\n* Call Sign\n* Pre-Game Source\n* Game Source\n* Post-Game Source\nAnd each row should display the override data\nAnd each row should have an edit icon (pencil) on the right side\nAnd each row should have a delete icon (trash/bin) on the right side\nAnd pagination should show the correct count based on available overrides (e.g., \"1-2 of 2\" if 2 overrides exist)\nAnd \"Rows per page\" dropdown should be set to \"25\" by default",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "4229439b-a2b5-439b-a91f-dec1c641e98b",
-        "action": "*When* the user clicks on \"Broadcast Source Overrides\" from the navigation menu",
-        "data": "",
-        "result": "*Then* the user should see the Broadcast Source Overrides page loaded successfully\n*And* the page should display \"Broadcast Source Overrides\" in the navigation tab\n*And* a \"Create Override\" button should be prominently displayed at the top left\n*And* a \"Search\" field should be visible at the top right\n*And* a \"View\" button should be visible at the top right\n*And* a data table should be visible with column headers:\n\n* ID\n* Call Sign\n* Pre-Game Source\n* Game Source\n* Post-Game Source\n\n*And* each row should display the override data\n*And* each row should have an edit icon (pencil) on the right side\n*And* each row should have a delete icon (trash/bin) on the right side\n*And* pagination should show the correct count based on available overrides (e.g., \"1-2 of 2\" if 2 overrides exist)\n*And* \"Rows per page\" dropdown should be set to \"25\" by default"
-      }
-    ]
-  },
-  {
-    "id": "WQO-923",
-    "issueId": "1192395",
-    "key": "WQO-923",
-    "summary": "Home | Validate Home Page After Login",
-    "description": null,
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user lands on the Home page after successful authentication\nThen the Page title \"Home\" is displayed in the header\nAnd \"Streaming Operator Platform\" is visible in the top left corner\nAnd Left sidebar shows all navigation items (Home highlighted)\nAnd Main content displays 11 tool tiles in grid layout:\n* BTC Tools\n* Overrides\n* Blackout Override\n* Logger\n* Media Validation\n* Milestones\n* Audit & Logging\n* Partner Delivery\n* ESNI Management\n* User Lookup and\n* QA Tools\nAnd Bottom sidebar shows: Submit Feedback, Settings, <User name>\nAnd All tool tiles are clickable and navigate to respective pages",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "2f61e4ae-bfd3-4cad-be3a-189049625556",
-        "action": "*When* the user lands on the Home page after successful authentication",
-        "data": "",
-        "result": "*Then* the Page title \"Home\" is displayed in the header\n\n*And* \"Streaming Operator Platform\" is visible in the top left corner\n\n*And* Left sidebar shows all navigation items (Home highlighted)\n\n*And* Main content displays 11 tool tiles in grid layout:\n\n* BTC Tools\n* Overrides\n* Blackout Override\n* Logger\n* Media Validation\n* Milestones\n* Audit & Logging\n* Partner Delivery\n* ESNI Management\n* User Lookup and\n* QA Tools\n\n*And* Bottom sidebar shows: Submit Feedback, Settings, <User name>\n\n*And* All tool tiles are clickable and navigate to respective pages"
-      }
-    ]
-  },
-  {
-    "id": "WQO-411",
-    "issueId": "1146092",
-    "key": "WQO-411",
-    "summary": "Partner Delivery | Mapping | Scroll Indicator in Targets and Channels View",
-    "description": null,
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user clicks on the \"Partner Stream Delivery\" tile on the dashboard\nAnd the user clicks and drags the scroll indicator\nThen the user should see the \"Mapping\" Tab\nAnd the user should see the scroll indicator in \"Channels\" and \"Targets\" view\nAnd the user should see the position in the scrollable list adjust to reflect the position of the scroll indicator",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "9fabb004-5214-456b-9c0e-675fe000fd19",
-        "action": "When the user clicks on the \"Partner Stream Delivery\" tile on the dashboard\nAnd the user clicks and drags the scroll indicator",
-        "data": "",
-        "result": "Then the user should see the \"Mapping\" Tab\nAnd the user should see the scroll indicator in \"Channels\" and \"Targets\" view\nAnd the user should see the position in the scrollable list adjust to reflect the position of the scroll indicator"
-      }
-    ]
-  },
-  {
     "id": "WQO-413",
     "issueId": "1146094",
     "key": "WQO-413",
@@ -1250,22 +1322,42 @@
     ]
   },
   {
-    "id": "WQO-1091",
-    "issueId": "1268568",
-    "key": "WQO-1091",
-    "summary": "BTC Tools | Multicast Mapping | Search for Created Mapping",
+    "id": "WQO-808",
+    "issueId": "1163674",
+    "key": "WQO-808",
+    "summary": " Homepage Tiles Navigation",
     "description": null,
     "status": "Done",
     "testType": "Cucumber",
     "scenarioType": "scenario",
-    "gherkin": "When the user clicks the \"Multicast Mapping\" option on the top nav\nAnd the user enters \"Test Call sign\" in the search field\nThen the user is navigated to the Multicast Mapping page\nAnd the search results are filtered\nAnd the Results include the multicast mapping with call sign \"Test Call sign\"",
+    "gherkin": "When the user clicks on the \"<title>\" tile within the homepage\nThen the user should be taken to the \"<title>\" page\nAnd the browser url should contain \"<partial_url>\"Examples:\n|*title*|*partial_url*|\n|BTC Tools|/btc-tools|\n|Overrides|/overrides/session|\n|Blackout Override|/ip-override|\n|Logger|/logger|\n|Milestones|/milestones|\n|Audit & Logging|/audits|\n|Partner Delivery|/partner/mapping|\n|ESNI Management|/esni/media|\n|User Lookup|/user-lookup|",
     "unstructured": null,
     "steps": [
       {
-        "id": "37c29867-1eab-4ae9-9fea-e35288e46dc5",
-        "action": "*When* the user clicks the \"Multicast Mapping\" option on the top nav\n\n*And* the user enters \"Test Call sign\" in the search field",
+        "id": "c23ed71b-f4ec-4b91-b928-6441bf54618b",
+        "action": "*When* the user clicks on the \"<title>\" tile within the homepage",
         "data": "",
-        "result": "*Then* the user is navigated to the Multicast Mapping page\n\n*And* the search results are filtered\n\n*And* the Results include the multicast mapping with call sign \"Test Call sign\""
+        "result": "*Then* the user should be taken to the \"<title>\" page\n*And* the browser url should contain \"<partial_url>\"Examples:\n\n|*title*|*partial_url*|\n|BTC Tools|/btc-tools|\n|Overrides|/overrides/session|\n|Blackout Override|/ip-override|\n|Logger|/logger|\n|Milestones|/milestones|\n|Audit & Logging|/audits|\n|Partner Delivery|/partner/mapping|\n|ESNI Management|/esni/media|\n|User Lookup|/user-lookup|"
+      }
+    ]
+  },
+  {
+    "id": "WQO-428",
+    "issueId": "1146109",
+    "key": "WQO-428",
+    "summary": "Overrides | Playback | Delete Override",
+    "description": null,
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user click on the \"Overrides\" tile on the dashboard\nAnd the user click on the Playback tab right next to the Session tab\nAnd the user clicks on the delete icon on an Okta ID from the table\nAnd the user clicks on the red \"Delete\" button\nThen the user should land on the Session page by default\nAnd the user should be on the Playback page\nAnd the user should see a pop up which displays \"Cancel\" and \"Delete\" button\nAnd the user should see a success override deletion message \"Playback Override successfully deleted\"\n!xray-attachment://8adae929-3f5e-45f4-9179-e856f8476e83|width=291,height=51!",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "1e7d70ea-ff3b-42b9-aef6-3bee4129a558",
+        "action": "*When* the user click on the \"Overrides\" tile on the dashboard\n\n*And* the user click on the Playback tab right next to the Session tab\n\n*And* the user clicks on the delete icon on an Okta ID from the table \n\n*And* the user clicks on the red \"Delete\" button",
+        "data": "",
+        "result": "*Then* the user should land on the Session page by default\n\n*And* the user should be on the Playback page\n\n*And* the user should see a pop up which displays \"Cancel\" and \"Delete\" button\n\n*And* the user should see a success override deletion message \"Playback Override successfully deleted\"\n\n!xray-attachment://8adae929-3f5e-45f4-9179-e856f8476e83|width=291,height=51!"
       }
     ]
   },
@@ -1286,6 +1378,32 @@
         "action": "*When* the user clicks on the BTC Tools Game tile or the side nav bar",
         "data": "!xray-attachment://7ef7f047-b4e8-4c07-b7a4-64b306530202|width=905,height=97!",
         "result": "*Then* the user should land on the BTC Schedule page by default\n\n*And* the game card(s) are displayed, the user should see the following:\n\nTeam match up | Game PK | Venue | Game Date | Status"
+      }
+    ]
+  },
+  {
+    "id": "WQO-832",
+    "issueId": "1164762",
+    "key": "WQO-832",
+    "summary": "Blackout Overrides | Overrides | Page UI Validation",
+    "description": null,
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user clicks on the \"Blackout Override\" tile from the left menu or the Home Page\nThen the user should land on the *User Info Lookup* page\nAnd the *User Lookup* tab should be highlighted as the active tab\nWhen the user clicks on the Overrides tab\nThen the user should see a *Create Override* button\nAnd the user should see a search bar\nAnd the suer should see a *View* button\nAnd the user should see a table with the following columns:\nCountry Code | Okta Id | IP Address | Zip Code | Status | Expiration | Created At",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "1fd9b804-cc19-412a-b91d-985fe9d55ea7",
+        "action": "*When* the user clicks on the \"Blackout Override\" tile from the left menu or the Home Page",
+        "data": "",
+        "result": "*Then* the user should land on the *User Info Lookup* page\n\n*And* the *User Lookup* tab should be highlighted as the active tab"
+      },
+      {
+        "id": "c9e2fa56-cc73-4a70-a188-947558f936cb",
+        "action": "*When* the user clicks on the Overrides tab",
+        "data": "",
+        "result": "*Then* the user should see a *Create Override* button\n\n*And* the user should see a search bar\n\n*And* the suer should see a *View* button\n\n*And* the user should see a table with the following columns:\n\nCountry Code | Okta Id | IP Address | Zip Code | Status | Expiration | Created At"
       }
     ]
   },
@@ -1354,68 +1472,82 @@
     ]
   },
   {
-    "id": "WQO-832",
-    "issueId": "1164762",
-    "key": "WQO-832",
-    "summary": "Blackout Overrides | Overrides | Page UI Validation",
+    "id": "WQO-827",
+    "issueId": "1164576",
+    "key": "WQO-827",
+    "summary": "User Lookup | User Searches For a User by Okta ID",
     "description": null,
     "status": "Done",
     "testType": "Cucumber",
     "scenarioType": "scenario",
-    "gherkin": "When the user clicks on the \"Blackout Override\" tile from the left menu or the Home Page\nThen the user should land on the *User Info Lookup* page\nAnd the *User Lookup* tab should be highlighted as the active tab\nWhen the user clicks on the Overrides tab\nThen the user should see a *Create Override* button\nAnd the user should see a search bar\nAnd the suer should see a *View* button\nAnd the user should see a table with the following columns:\nCountry Code | Okta Id | IP Address | Zip Code | Status | Expiration | Created At",
+    "gherkin": "When the user is on the \"User Lookup\" page\nAnd the user enters a valid Okta ID like 00ufdpo4xfwameJgH0h8 into the \"Okta ID / Email\" field\nAnd click the \"Search\" button\nThen The user's account information should be displayed, including:\n* First Name: *<User First Name>*\n* Last Name: *<User Last Name>*\n* Okta ID: *<User Okta ID>*\n* Email: *<User Email>*\n* Do Not Sell: *Profile Value: null, Cached Value: null*\n* Favorite Team: *Profile Value: Orioles, Cached Value: null*\n* Entitlements: *Profile Value: null, Cached Value: null*\nAnd The user's most recent sessions should be displayed.",
     "unstructured": null,
     "steps": [
       {
-        "id": "1fd9b804-cc19-412a-b91d-985fe9d55ea7",
-        "action": "*When* the user clicks on the \"Blackout Override\" tile from the left menu or the Home Page",
+        "id": "7e45b2b5-af5f-4237-92b2-c9479e507a2e",
+        "action": "*When* the user is on the \"User Lookup\" page\n\n*And* the user enters a valid Okta ID like 00ufdpo4xfwameJgH0h8 into the \"Okta ID / Email\" field\n\n*And* click the \"Search\" button",
         "data": "",
-        "result": "*Then* the user should land on the *User Info Lookup* page\n\n*And* the *User Lookup* tab should be highlighted as the active tab"
-      },
-      {
-        "id": "c9e2fa56-cc73-4a70-a188-947558f936cb",
-        "action": "*When* the user clicks on the Overrides tab",
-        "data": "",
-        "result": "*Then* the user should see a *Create Override* button\n\n*And* the user should see a search bar\n\n*And* the suer should see a *View* button\n\n*And* the user should see a table with the following columns:\n\nCountry Code | Okta Id | IP Address | Zip Code | Status | Expiration | Created At"
+        "result": "*Then* The user's account information should be displayed, including:\n\n* First Name: *<User First Name>*\n* Last Name: *<User Last Name>*\n* Okta ID: *<User Okta ID>*\n* Email: *<User Email>*\n* Do Not Sell: *Profile Value: null, Cached Value: null*\n* Favorite Team: *Profile Value: Orioles, Cached Value: null*\n* Entitlements: *Profile Value: null, Cached Value: null*\n\n*And* The user's most recent sessions should be displayed."
       }
     ]
   },
   {
-    "id": "WQO-808",
-    "issueId": "1163674",
-    "key": "WQO-808",
-    "summary": " Homepage Tiles Navigation",
-    "description": null,
+    "id": "WQO-821",
+    "issueId": "1164547",
+    "key": "WQO-821",
+    "summary": "ESNI Management | Media ID | Screen Loads and Displays Data Correctly",
+    "description": "Verify ESNI Management screen loads and displays data correctly",
     "status": "Done",
     "testType": "Cucumber",
     "scenarioType": "scenario",
-    "gherkin": "When the user clicks on the \"<title>\" tile within the homepage\nThen the user should be taken to the \"<title>\" page\nAnd the browser url should contain \"<partial_url>\"Examples:\n|*title*|*partial_url*|\n|BTC Tools|/btc-tools|\n|Overrides|/overrides/session|\n|Blackout Override|/ip-override|\n|Logger|/logger|\n|Milestones|/milestones|\n|Audit & Logging|/audits|\n|Partner Delivery|/partner/mapping|\n|ESNI Management|/esni/media|\n|User Lookup|/user-lookup|",
+    "gherkin": "When the user navigates to the \"ESNI Management\" page using the Home screen or the left sidebar menu\nThen the \"Date\" filter should be visible at the top\nAnd the default date should be today's date or the most recent data\nAnd the \"Search\" input field should be visible on the top-right of the screen\nAnd the \"View\" button should be visible next to the \"Search\" input field, on the far right\nAnd the data table should be visible with columns:\n* Media ID\n* Game PK\n* Feed Type\n* Media Type\nAnd each row in the table should display valid values for all columns\nAnd each row should have a \"Media Details\" button (three-line icon) on the far right\nAnd pagination controls should be visible at the bottom of the table",
     "unstructured": null,
     "steps": [
       {
-        "id": "c23ed71b-f4ec-4b91-b928-6441bf54618b",
-        "action": "*When* the user clicks on the \"<title>\" tile within the homepage",
+        "id": "df642e71-9391-4120-94d5-4e76c468574a",
+        "action": "*When* the user navigates to the \"ESNI Management\" page using the Home screen or the left sidebar menu",
         "data": "",
-        "result": "*Then* the user should be taken to the \"<title>\" page\n*And* the browser url should contain \"<partial_url>\"Examples:\n\n|*title*|*partial_url*|\n|BTC Tools|/btc-tools|\n|Overrides|/overrides/session|\n|Blackout Override|/ip-override|\n|Logger|/logger|\n|Milestones|/milestones|\n|Audit & Logging|/audits|\n|Partner Delivery|/partner/mapping|\n|ESNI Management|/esni/media|\n|User Lookup|/user-lookup|"
+        "result": "*Then* the \"Date\" filter should be visible at the top\n\n*And* the default date should be today's date or the most recent data\n\n*And* the \"Search\" input field should be visible on the top-right of the screen\n\n*And* the \"View\" button should be visible next to the \"Search\" input field, on the far right\n\n*And* the data table should be visible with columns:\n\n* Media ID\n* Game PK\n* Feed Type\n* Media Type\n\n*And* each row in the table should display valid values for all columns\n\n*And* each row should have a \"Media Details\" button (three-line icon) on the far right\n\n*And* pagination controls should be visible at the bottom of the table"
       }
     ]
   },
   {
-    "id": "WQO-428",
-    "issueId": "1146109",
-    "key": "WQO-428",
-    "summary": "Overrides | Playback | Delete Override",
+    "id": "WQO-429",
+    "issueId": "1146110",
+    "key": "WQO-429",
+    "summary": "Media Validation | Litmus tool Search | Valid Input",
     "description": null,
     "status": "Done",
     "testType": "Cucumber",
     "scenarioType": "scenario",
-    "gherkin": "When the user click on the \"Overrides\" tile on the dashboard\nAnd the user click on the Playback tab right next to the Session tab\nAnd the user clicks on the delete icon on an Okta ID from the table\nAnd the user clicks on the red \"Delete\" button\nThen the user should land on the Session page by default\nAnd the user should be on the Playback page\nAnd the user should see a pop up which displays \"Cancel\" and \"Delete\" button\nAnd the user should see a success override deletion message \"Playback Override successfully deleted\"\n!xray-attachment://8adae929-3f5e-45f4-9179-e856f8476e83|width=291,height=51!",
+    "gherkin": "When the user click on the \"Media Validation\" tile on the dashboard\nAnd the user inputs a valid query into the \"Search for GamePK\" box. For example: 747090\nThen the user should land on the Media Validation Litmus (current date) page by default\nAnd the user should see the matching GamePK results for the games of that day\n!xray-attachment://341ebddb-3f68-4e47-adea-18df4d6fe523|width=780,height=762!",
     "unstructured": null,
     "steps": [
       {
-        "id": "1e7d70ea-ff3b-42b9-aef6-3bee4129a558",
-        "action": "*When* the user click on the \"Overrides\" tile on the dashboard\n\n*And* the user click on the Playback tab right next to the Session tab\n\n*And* the user clicks on the delete icon on an Okta ID from the table \n\n*And* the user clicks on the red \"Delete\" button",
+        "id": "702a1e28-03b9-4526-b4a7-b547bb22decb",
+        "action": "When the user click on the \"Media Validation\" tile on the dashboard\n\nAnd the user inputs a valid query into the \"Search for GamePK\" box. For example: 747090",
         "data": "",
-        "result": "*Then* the user should land on the Session page by default\n\n*And* the user should be on the Playback page\n\n*And* the user should see a pop up which displays \"Cancel\" and \"Delete\" button\n\n*And* the user should see a success override deletion message \"Playback Override successfully deleted\"\n\n!xray-attachment://8adae929-3f5e-45f4-9179-e856f8476e83|width=291,height=51!"
+        "result": "Then the user should land on the Media Validation Litmus (current date) page by default\n\nAnd the user should see the matching GamePK results for the games of that day\n\n!xray-attachment://341ebddb-3f68-4e47-adea-18df4d6fe523|width=780,height=762!"
+      }
+    ]
+  },
+  {
+    "id": "WQO-396",
+    "issueId": "1146077",
+    "key": "WQO-396",
+    "summary": "Home | Navigation | Verify All Tool Cards Are Rendered and Clickable on the Home Page",
+    "description": null,
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the Home page is displayed\nThen the user should see the following tiles on the home page:\n||[*BTC Tools*|https://baseball.atlassian.net/browse/WQO-398]||\n||[*Overrides*|https://baseball.atlassian.net/browse/WQO-398]||\n||[*Blackout Override*|https://baseball.atlassian.net/browse/WQO-399]||\n||[*Logger*|https://baseball.atlassian.net/browse/WQO-403]||\n||[*Media Validation*|https://baseball.atlassian.net/browse/WQO-404]||\n||[*Milestones*|https://baseball.atlassian.net/browse/WQO-405]||\n||[*Audit & Logging*|https://baseball.atlassian.net/browse/WQO-407]||\n||[*Partner Stream Delivery*|https://baseball.atlassian.net/browse/WQO-410]||\n||[*ESNI Management*|https://baseball.atlassian.net/browse/WQO-412]||\n||[*User Lookup*|https://baseball.atlassian.net/browse/WQO-1053]||\nAnd each card should display with the correct label\nAnd each card should be clickable and navigate to its respective tool's page",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "b34d48e4-fe65-44f8-8be6-1ec1670f56d3",
+        "action": "*When* the Home page is displayed",
+        "data": "",
+        "result": "Then the user should see the following tiles on the home page:\n\n||[*BTC Tools*|https://baseball.atlassian.net/browse/WQO-398]||\n||[*Overrides*|https://baseball.atlassian.net/browse/WQO-398]||\n||[*Blackout Override*|https://baseball.atlassian.net/browse/WQO-399]||\n||[*Logger*|https://baseball.atlassian.net/browse/WQO-403]||\n||[*Media Validation*|https://baseball.atlassian.net/browse/WQO-404]||\n||[*Milestones*|https://baseball.atlassian.net/browse/WQO-405]||\n||[*Audit & Logging*|https://baseball.atlassian.net/browse/WQO-407]||\n||[*Partner Stream Delivery*|https://baseball.atlassian.net/browse/WQO-410]||\n||[*ESNI Management*|https://baseball.atlassian.net/browse/WQO-412]||\n||[*User Lookup*|https://baseball.atlassian.net/browse/WQO-1053]||\n\n*And* each card should display with the correct label\n*And* each card should be clickable and navigate to its respective tool's page"
       }
     ]
   },
@@ -1452,106 +1584,6 @@
     ]
   },
   {
-    "id": "WQO-827",
-    "issueId": "1164576",
-    "key": "WQO-827",
-    "summary": "User Lookup | User Searches For a User by Okta ID",
-    "description": null,
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user is on the \"User Lookup\" page\nAnd the user enters a valid Okta ID like 00ufdpo4xfwameJgH0h8 into the \"Okta ID / Email\" field\nAnd click the \"Search\" button\nThen The user's account information should be displayed, including:\n* First Name: *<User First Name>*\n* Last Name: *<User Last Name>*\n* Okta ID: *<User Okta ID>*\n* Email: *<User Email>*\n* Do Not Sell: *Profile Value: null, Cached Value: null*\n* Favorite Team: *Profile Value: Orioles, Cached Value: null*\n* Entitlements: *Profile Value: null, Cached Value: null*\nAnd The user's most recent sessions should be displayed.",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "7e45b2b5-af5f-4237-92b2-c9479e507a2e",
-        "action": "*When* the user is on the \"User Lookup\" page\n\n*And* the user enters a valid Okta ID like 00ufdpo4xfwameJgH0h8 into the \"Okta ID / Email\" field\n\n*And* click the \"Search\" button",
-        "data": "",
-        "result": "*Then* The user's account information should be displayed, including:\n\n* First Name: *<User First Name>*\n* Last Name: *<User Last Name>*\n* Okta ID: *<User Okta ID>*\n* Email: *<User Email>*\n* Do Not Sell: *Profile Value: null, Cached Value: null*\n* Favorite Team: *Profile Value: Orioles, Cached Value: null*\n* Entitlements: *Profile Value: null, Cached Value: null*\n\n*And* The user's most recent sessions should be displayed."
-      }
-    ]
-  },
-  {
-    "id": "WQO-429",
-    "issueId": "1146110",
-    "key": "WQO-429",
-    "summary": "Media Validation | Litmus tool Search | Valid Input",
-    "description": null,
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user click on the \"Media Validation\" tile on the dashboard\nAnd the user inputs a valid query into the \"Search for GamePK\" box. For example: 747090\nThen the user should land on the Media Validation Litmus (current date) page by default\nAnd the user should see the matching GamePK results for the games of that day\n!xray-attachment://341ebddb-3f68-4e47-adea-18df4d6fe523|width=780,height=762!",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "702a1e28-03b9-4526-b4a7-b547bb22decb",
-        "action": "When the user click on the \"Media Validation\" tile on the dashboard\n\nAnd the user inputs a valid query into the \"Search for GamePK\" box. For example: 747090",
-        "data": "",
-        "result": "Then the user should land on the Media Validation Litmus (current date) page by default\n\nAnd the user should see the matching GamePK results for the games of that day\n\n!xray-attachment://341ebddb-3f68-4e47-adea-18df4d6fe523|width=780,height=762!"
-      }
-    ]
-  },
-  {
-    "id": "WQO-821",
-    "issueId": "1164547",
-    "key": "WQO-821",
-    "summary": "ESNI Management | Media ID | Screen Loads and Displays Data Correctly",
-    "description": "Verify ESNI Management screen loads and displays data correctly",
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user navigates to the \"ESNI Management\" page using the Home screen or the left sidebar menu\nThen the \"Date\" filter should be visible at the top\nAnd the default date should be today's date or the most recent data\nAnd the \"Search\" input field should be visible on the top-right of the screen\nAnd the \"View\" button should be visible next to the \"Search\" input field, on the far right\nAnd the data table should be visible with columns:\n* Media ID\n* Game PK\n* Feed Type\n* Media Type\nAnd each row in the table should display valid values for all columns\nAnd each row should have a \"Media Details\" button (three-line icon) on the far right\nAnd pagination controls should be visible at the bottom of the table",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "df642e71-9391-4120-94d5-4e76c468574a",
-        "action": "*When* the user navigates to the \"ESNI Management\" page using the Home screen or the left sidebar menu",
-        "data": "",
-        "result": "*Then* the \"Date\" filter should be visible at the top\n\n*And* the default date should be today's date or the most recent data\n\n*And* the \"Search\" input field should be visible on the top-right of the screen\n\n*And* the \"View\" button should be visible next to the \"Search\" input field, on the far right\n\n*And* the data table should be visible with columns:\n\n* Media ID\n* Game PK\n* Feed Type\n* Media Type\n\n*And* each row in the table should display valid values for all columns\n\n*And* each row should have a \"Media Details\" button (three-line icon) on the far right\n\n*And* pagination controls should be visible at the bottom of the table"
-      }
-    ]
-  },
-  {
-    "id": "WQO-396",
-    "issueId": "1146077",
-    "key": "WQO-396",
-    "summary": "Home | Navigation | Verify All Tool Cards Are Rendered and Clickable on the Home Page",
-    "description": null,
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the Home page is displayed\nThen the user should see the following tiles on the home page:\n||[*BTC Tools*|https://baseball.atlassian.net/browse/WQO-398]||\n||[*Overrides*|https://baseball.atlassian.net/browse/WQO-398]||\n||[*Blackout Override*|https://baseball.atlassian.net/browse/WQO-399]||\n||[*Logger*|https://baseball.atlassian.net/browse/WQO-403]||\n||[*Media Validation*|https://baseball.atlassian.net/browse/WQO-404]||\n||[*Milestones*|https://baseball.atlassian.net/browse/WQO-405]||\n||[*Audit & Logging*|https://baseball.atlassian.net/browse/WQO-407]||\n||[*Partner Stream Delivery*|https://baseball.atlassian.net/browse/WQO-410]||\n||[*ESNI Management*|https://baseball.atlassian.net/browse/WQO-412]||\n||[*User Lookup*|https://baseball.atlassian.net/browse/WQO-1053]||\nAnd each card should display with the correct label\nAnd each card should be clickable and navigate to its respective tool's page",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "b34d48e4-fe65-44f8-8be6-1ec1670f56d3",
-        "action": "*When* the Home page is displayed",
-        "data": "",
-        "result": "Then the user should see the following tiles on the home page:\n\n||[*BTC Tools*|https://baseball.atlassian.net/browse/WQO-398]||\n||[*Overrides*|https://baseball.atlassian.net/browse/WQO-398]||\n||[*Blackout Override*|https://baseball.atlassian.net/browse/WQO-399]||\n||[*Logger*|https://baseball.atlassian.net/browse/WQO-403]||\n||[*Media Validation*|https://baseball.atlassian.net/browse/WQO-404]||\n||[*Milestones*|https://baseball.atlassian.net/browse/WQO-405]||\n||[*Audit & Logging*|https://baseball.atlassian.net/browse/WQO-407]||\n||[*Partner Stream Delivery*|https://baseball.atlassian.net/browse/WQO-410]||\n||[*ESNI Management*|https://baseball.atlassian.net/browse/WQO-412]||\n||[*User Lookup*|https://baseball.atlassian.net/browse/WQO-1053]||\n\n*And* each card should display with the correct label\n*And* each card should be clickable and navigate to its respective tool's page"
-      }
-    ]
-  },
-  {
-    "id": "WQO-1053",
-    "issueId": "1253268",
-    "key": "WQO-1053",
-    "summary": "User Lookup | Initial view ",
-    "description": null,
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user navigates to the User Lookup page from the home page or the sidenav bar\nAnd !xray-attachment://f22429be-4a86-4755-8543-4c5953abd488|width=956,height=667!\nThen the user sees the page title \"User Lookup\"\nAnd the user sees a \"Date Range\" label\nAnd the user sees a date range control with placeholder \"Select a Date Range\"\nAnd the user sees an \"Okta ID / Email\" label\nAnd the user sees an input with placeholder \"Enter User ID or Email\"\nAnd the user sees a \"Search\" button",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "956f7a9a-e3fa-4428-8238-0e7290740dcc",
-        "action": "*When* the user navigates to the User Lookup page from the home page or the sidenav bar",
-        "data": "!xray-attachment://f22429be-4a86-4755-8543-4c5953abd488|width=956,height=667!",
-        "result": "*Then* the user sees the page title \"User Lookup\"\n\n*And* the user sees a \"Date Range\" label\n\n*And* the user sees a date range control with placeholder \"Select a Date Range\"\n\n*And* the user sees an \"Okta ID / Email\" label\n\n*And* the user sees an input with placeholder \"Enter User ID or Email\"\n\n*And* the user sees a \"Search\" button"
-      }
-    ]
-  },
-  {
     "id": "WQO-1090",
     "issueId": "1268567",
     "key": "WQO-1090",
@@ -1568,6 +1600,26 @@
         "action": "*When* the user clicks on the \"Add Multicast Mapping\" button\n\n*And* the user enters a Call Sign into the \"Call Sign\" input field (Example: \"ABC\", \"ARID\")\n\n*And* the user clicks on the \"Priority\" dropdown and selects an option (Example: \"PRIMARY\")\n*And* the user enters a Multicast Address in the input field, using the format udp://: (Example: \"rtp://239.130.25.1:8000\")\n\n*And* the user clicks on the \"Source Location\" dropdown and selects an option (Example: \"SCS1\")\n\n*And* the user clicks on the \"Submit\" button",
         "data": "",
         "result": "*Then* the user should see a new row in the Multicast Mapping table containing the entered values"
+      }
+    ]
+  },
+  {
+    "id": "WQO-408",
+    "issueId": "1146089",
+    "key": "WQO-408",
+    "summary": "Audit & Logging | Audits | Search by Media ID",
+    "description": null,
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user clicks on the \"Audit & Logging\" tile on the homepage or the side nav\nAnd the user clicks on the \"Resource Tag\" button\nAnd the user select and enters a valid Media ID in the Media ID input field\nFor example: f376e73a-bdf3-4d51-b48d-934450bf23d2\nAnd the user presses Enter or clicks on the magnifying glass\nAnd !xray-attachment://ed2e03b0-bd7d-42a7-a859-5c0f38096702|width=1950,height=710!\nThen the user should land on the \"Audits\" page\nAnd the user sees \"Game PK\" and \"Media ID\" buttons\nAnd the entered Media ID should appear in the input field\nAnd upon submission, a list of logs associated with that Media ID should appear\nAnd the logs should be shown in a table with the following column headers:\n-Source System\n-Operation\n-Instigator\n-Email\n-Created At\n-Trace ID\n-Event Data\n-Resource Tags",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "620ef208-dafb-434e-b80b-17e88b160102",
+        "action": "*When* the user clicks on the \"Audit & Logging\" tile on the homepage or the side nav\n*And* the user clicks on the \"Resource Tag\" button\n*And* the user select and enters a valid Media ID in the Media ID input field\nFor example: f376e73a-bdf3-4d51-b48d-934450bf23d2\n*And* the user presses Enter or clicks on the magnifying glass",
+        "data": "!xray-attachment://ed2e03b0-bd7d-42a7-a859-5c0f38096702|width=1950,height=710!",
+        "result": "*Then* the user should land on the \"Audits\" page\n\n*And* the user sees \"Game PK\" and \"Media ID\" buttons\n\n*And* the entered Media ID should appear in the input field\n\n*And* upon submission, a list of logs associated with that Media ID should appear\n\n*And* the logs should be shown in a table with the following column headers:\n-Source System\n-Operation\n-Instigator\n-Email\n-Created At\n-Trace ID\n-Event Data\n-Resource Tags"
       }
     ]
   },
@@ -1592,22 +1644,22 @@
     ]
   },
   {
-    "id": "WQO-408",
-    "issueId": "1146089",
-    "key": "WQO-408",
-    "summary": "Audit & Logging | Audits | Search by Media ID",
+    "id": "WQO-1053",
+    "issueId": "1253268",
+    "key": "WQO-1053",
+    "summary": "User Lookup | Initial view ",
     "description": null,
     "status": "Done",
     "testType": "Cucumber",
     "scenarioType": "scenario",
-    "gherkin": "When the user clicks on the \"Audit & Logging\" tile on the homepage or the side nav\nAnd the user clicks on the \"Resource Tag\" button\nAnd the user select and enters a valid Media ID in the Media ID input field\nFor example: f376e73a-bdf3-4d51-b48d-934450bf23d2\nAnd the user presses Enter or clicks on the magnifying glass\nAnd !xray-attachment://ed2e03b0-bd7d-42a7-a859-5c0f38096702|width=1950,height=710!\nThen the user should land on the \"Audits\" page\nAnd the user sees \"Game PK\" and \"Media ID\" buttons\nAnd the entered Media ID should appear in the input field\nAnd upon submission, a list of logs associated with that Media ID should appear\nAnd the logs should be shown in a table with the following column headers:\n-Source System\n-Operation\n-Instigator\n-Email\n-Created At\n-Trace ID\n-Event Data\n-Resource Tags",
+    "gherkin": "When the user navigates to the User Lookup page from the home page or the sidenav bar\nAnd !xray-attachment://f22429be-4a86-4755-8543-4c5953abd488|width=956,height=667!\nThen the user sees the page title \"User Lookup\"\nAnd the user sees a \"Date Range\" label\nAnd the user sees a date range control with placeholder \"Select a Date Range\"\nAnd the user sees an \"Okta ID / Email\" label\nAnd the user sees an input with placeholder \"Enter User ID or Email\"\nAnd the user sees a \"Search\" button",
     "unstructured": null,
     "steps": [
       {
-        "id": "620ef208-dafb-434e-b80b-17e88b160102",
-        "action": "*When* the user clicks on the \"Audit & Logging\" tile on the homepage or the side nav\n*And* the user clicks on the \"Resource Tag\" button\n*And* the user select and enters a valid Media ID in the Media ID input field\nFor example: f376e73a-bdf3-4d51-b48d-934450bf23d2\n*And* the user presses Enter or clicks on the magnifying glass",
-        "data": "!xray-attachment://ed2e03b0-bd7d-42a7-a859-5c0f38096702|width=1950,height=710!",
-        "result": "*Then* the user should land on the \"Audits\" page\n\n*And* the user sees \"Game PK\" and \"Media ID\" buttons\n\n*And* the entered Media ID should appear in the input field\n\n*And* upon submission, a list of logs associated with that Media ID should appear\n\n*And* the logs should be shown in a table with the following column headers:\n-Source System\n-Operation\n-Instigator\n-Email\n-Created At\n-Trace ID\n-Event Data\n-Resource Tags"
+        "id": "956f7a9a-e3fa-4428-8238-0e7290740dcc",
+        "action": "*When* the user navigates to the User Lookup page from the home page or the sidenav bar",
+        "data": "!xray-attachment://f22429be-4a86-4755-8543-4c5953abd488|width=956,height=667!",
+        "result": "*Then* the user sees the page title \"User Lookup\"\n\n*And* the user sees a \"Date Range\" label\n\n*And* the user sees a date range control with placeholder \"Select a Date Range\"\n\n*And* the user sees an \"Okta ID / Email\" label\n\n*And* the user sees an input with placeholder \"Enter User ID or Email\"\n\n*And* the user sees a \"Search\" button"
       }
     ]
   },
@@ -1684,98 +1736,6 @@
     ]
   },
   {
-    "id": "WQO-1094",
-    "issueId": "1277688",
-    "key": "WQO-1094",
-    "summary": "ESNI Management | Rules | Display All rules with correct columns",
-    "description": null,
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user navigate to \"ESNI Management\" page by clicking ESNI Management tab on the home page or from the side bar\nThen the user should land on the ESNI Management \"Media ID\" page by default\nWhen the user clicks on the \"Rules\" tab from the top header\nAnd https://sop-qa.mlb.com/esni/rules\n!xray-attachment://6bf3d6d1-5a19-4150-b759-7fddf9637fad|width=1483,height=1386!\nThen the user should see the Rules tab selected and the rules list displayed.\nAnd the user should see the rules table with the following columns:\n* Name\n* Status\n* Type\n* Priority\n* Actions\nAnd the rules list should be displayed for the current page (default rows per page).\nAnd pagination should be visible showing:\n* Total count of rules\n* Current range (e.g., {{1–25 of 50}})\n* Rows per page control and next/previous navigation",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "ab510260-52ad-44c4-aa6d-d56cf093709c",
-        "action": "*When* the user navigate to \"ESNI Management\" page by clicking ESNI Management tab on the home page or from the side bar",
-        "data": "",
-        "result": "*Then* the user should land on the ESNI Management \"Media ID\" page by default"
-      },
-      {
-        "id": "a36eb826-f6a5-47b3-aab3-01603c34cb7b",
-        "action": "*When* the user clicks on the \"Rules\" tab from the top header",
-        "data": "[https://sop-qa.mlb.com/esni/rules|https://sop-qa.mlb.com/esni/rules]\n\n!xray-attachment://6bf3d6d1-5a19-4150-b759-7fddf9637fad|width=1483,height=1386!",
-        "result": "*Then* the user should see the Rules tab selected and the rules list displayed.\n\n*And* the user should see the rules table with the following columns:\n\n* Name\n* Status\n* Type\n* Priority\n* Actions\n\nAnd the rules list should be displayed for the current page (default rows per page).\n\n And pagination should be visible showing:\n\n* Total count of rules\n* Current range (e.g., {{1–25 of 50}})\n* Rows per page control and next/previous navigation"
-      }
-    ]
-  },
-  {
-    "id": "WQO-820",
-    "issueId": "1164542",
-    "key": "WQO-820",
-    "summary": "Partner Delivery | Target | List Verification",
-    "description": "Verify target rows display correct data, statuses, and edit buttons",
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user is on the \"Partner Delivery\" Targets tab\nThen each row should display the following columns:\n* Target\n* Channel\n* Partner\n* Type\n* Status\nAnd the status column should show correct tags based on data:\n* Status Value: no_channel  - Blue tag labeled \"no_channel\"\n* Status Value: pending - Blue tag labeled \"pending\"\n* Status Value: bad - Red tag labeled \"bad\"\nAnd each row should have a clickable \"Edit\" button\nWhen the user clicks the \"Edit\" button for any row\nThen it should navigate to the Mapping page",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "29ee3ff3-7b97-4de8-99c3-ad9e28f2a1ee",
-        "action": "*When* the user is on the \"Partner Delivery\" Targets tab",
-        "data": "",
-        "result": "*Then* each row should display the following columns:\n\n* Target\n* Channel\n* Partner\n* Type\n* Status\n\n*And* the status column should show correct tags based on data:\n\n* Status Value: no_channel  - Blue tag labeled \"no_channel\" \n* Status Value: pending - Blue tag labeled \"pending\"\n* Status Value: bad - Red tag labeled \"bad\"\n\n*And* each row should have a clickable \"Edit\" button"
-      },
-      {
-        "id": "a58c8177-9423-478f-8f18-e060b23ca792",
-        "action": "*When* the user clicks the \"Edit\" button for any row",
-        "data": "",
-        "result": "*Then* it should navigate to the Mapping page"
-      }
-    ]
-  },
-  {
-    "id": "WQO-823",
-    "issueId": "1164549",
-    "key": "WQO-823",
-    "summary": "ESNI Management | Policies | Verify Tab  & Table Display",
-    "description": "Verify Policies screen loads and displays policy data correctly",
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user navigates to the \"Policies\" tab in the ESNI Management section\nThen a button labeled \"Add Viewing Policy\" should be visible at the top-left of the screen\nAnd a \"Search\" input field should be visible at the top-right of the screen\nAnd a \"View\"  button should be visible next to the search input\nAnd a data table should be displayed with the following columns:\n* Policy Name\n* Href\n* Action\nAnd each row should display a valid policy with:\n* A unique Policy Name\n* A corresponding Href value\n* An Action value such as ALLOW or REJECT or IGNORE\nAnd each row should have a \"View Details\" button (three-line icon) on the far right\nAnd pagination controls should be visible at the bottom of the screen\nAnd the default rows per page should be set to \"25\"",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "45d114a4-84e8-414d-97cc-c4f41d347eab",
-        "action": "*When* the user navigates to the \"Policies\" tab in the ESNI Management section",
-        "data": "",
-        "result": "*Then* a button labeled \"Add Viewing Policy\" should be visible at the top-left of the screen\n\n*And* a \"Search\" input field should be visible at the top-right of the screen\n\n*And* a \"View\"  button should be visible next to the search input\n\n*And* a data table should be displayed with the following columns:\n\n* Policy Name\n* Href\n* Action\n\n*And* each row should display a valid policy with:\n\n* A unique Policy Name\n* A corresponding Href value\n* An Action value such as ALLOW or REJECT or IGNORE\n\n*And* each row should have a \"View Details\" button (three-line icon) on the far right\n\n*And* pagination controls should be visible at the bottom of the screen\n\n*And* the default rows per page should be set to \"25\""
-      }
-    ]
-  },
-  {
-    "id": "WQO-826",
-    "issueId": "1164573",
-    "key": "WQO-826",
-    "summary": "User Lookup | User Searches For a User by Email",
-    "description": null,
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When I am on the \"User Lookup\" page of the Streaming Operator Platform\nAnd I enter a valid user email address for example *vikram.singhal@mlb.com* into the \"Okta ID / Email\" field\nAnd I click the \"Search\" button\nThen The user's account information should be displayed, including:\n* First Name: *Vikram*\n* Last Name: *Singhal*\n* Okta ID: *00ufdpo4xfwameJgH0h8*\n* Email: *vikram.singhal@mlb.com*\n* Do Not Sell: *Profile Value: null, Cached Value: null*\n* Favorite Team: *Profile Value: Orioles, Cached Value: null*\n* Entitlements: *Profile Value: null, Cached Value: null*\nAnd The user's most recent sessions should be displayed in a table below the user information.\nAnd A \"Conviva Sessions\" button should be visible.\nAnd The URL should update to include the user's information.",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "1114431c-c0db-4cf2-935b-42c3405f9b8a",
-        "action": "*When* I am on the \"User Lookup\" page of the Streaming Operator Platform\n\n*And* I enter a valid user email address for example [*vikram.singhal@mlb.com*|mailto:vikram.singhal@mlb.com] into the \"Okta ID / Email\" field\n\n*And* I click the \"Search\" button",
-        "data": "",
-        "result": "*Then* The user's account information should be displayed, including:\n\n* First Name: *Vikram*\n* Last Name: *Singhal*\n* Okta ID: *00ufdpo4xfwameJgH0h8*\n* Email: [*vikram.singhal@mlb.com*|mailto:vikram.singhal@mlb.com]\n* Do Not Sell: *Profile Value: null, Cached Value: null*\n* Favorite Team: *Profile Value: Orioles, Cached Value: null*\n* Entitlements: *Profile Value: null, Cached Value: null*\n\n*And* The user's most recent sessions should be displayed in a table below the user information.\n\n*And* A \"Conviva Sessions\" button should be visible.\n\nAnd The URL should update to include the user's information."
-      }
-    ]
-  },
-  {
     "id": "WQO-834",
     "issueId": "1164868",
     "key": "WQO-834",
@@ -1792,26 +1752,6 @@
         "action": "*When* I am on the Streaming Operator Platform (SOP)\n\n*And* I view the SOP side menu",
         "data": "",
         "result": "*Then* I should see a hyperlink at the bottom of the menu\n\n*And* the hyperlink should be labeled \"Submit Feedback\"\n\n*And* clicking the \"Submit Feedback\" hyperlink should direct me to the URL"
-      }
-    ]
-  },
-  {
-    "id": "WQO-445",
-    "issueId": "1146126",
-    "key": "WQO-445",
-    "summary": "Overrides | Session | Search Override",
-    "description": null,
-    "status": "Done",
-    "testType": "Cucumber",
-    "scenarioType": "scenario",
-    "gherkin": "When the user clicks on the \"Override\" tile on the dashboard\nAnd the user enters either of the following in the Search box, a valid:\n-id\n-Okta ID or\n-Client Type\nThen the user should land on the \"Session\" page by default\nAnd the user should the result should pop up in the table.",
-    "unstructured": null,
-    "steps": [
-      {
-        "id": "785a1850-b26a-491a-931e-afef31a9e9ab",
-        "action": "*When* the user clicks on the \"Override\" tile on the dashboard\n*And* the user enters either of the following in the Search box, a valid:\n\n-id\n-Okta ID or\n-Client Type",
-        "data": "",
-        "result": "*Then* the user should land on the \"Session\" page by default\n*And* the user should the result should pop up in the table."
       }
     ]
   },
@@ -1836,42 +1776,102 @@
     ]
   },
   {
-    "id": "WQO-818",
-    "issueId": "1164540",
-    "key": "WQO-818",
-    "summary": " Partner Delivery | Mapping | Verify Channel-to-Target Mapping",
-    "description": "Verify selecting a channel and target and confirming the mapping",
+    "id": "WQO-445",
+    "issueId": "1146126",
+    "key": "WQO-445",
+    "summary": "Overrides | Session | Search Override",
+    "description": null,
     "status": "Done",
     "testType": "Cucumber",
     "scenarioType": "scenario",
-    "gherkin": "When the user selects the Data Center \"MLBDEV\"\nAnd selects the channel  Eg: \"ATH-PD01-CH-MLBDEV-ONPREM-SCS\"\nAnd selects the Targets  Eg: \"abc-def-123-456-testing-123\"\nAnd clicks the \"Confirm\" button\nThen the user should see a Mapping popup on the screen\nAnd the user should see \"Confirm Mapping For: ARI-PD01-CH-MLBDEV-ONPREM-DNV\"\nAnd the user should see the popup disappear after clicking on the \"Confirm\" button on the Confirming Mapping popup.",
+    "gherkin": "When the user clicks on the \"Override\" tile on the dashboard\nAnd the user enters either of the following in the Search box, a valid:\n-id\n-Okta ID or\n-Client Type\nThen the user should land on the \"Session\" page by default\nAnd the user should the result should pop up in the table.",
     "unstructured": null,
     "steps": [
       {
-        "id": "21dc512d-c456-466c-b0a6-9736cb7e5323",
-        "action": "*When* the user selects the Data Center \"MLBDEV\"\n\n*And* selects the channel  Eg: \"ATH-PD01-CH-MLBDEV-ONPREM-SCS\"\n\n*And* selects the Targets  Eg: \"abc-def-123-456-testing-123\"\n\n*And* clicks the \"Confirm\" button",
+        "id": "785a1850-b26a-491a-931e-afef31a9e9ab",
+        "action": "*When* the user clicks on the \"Override\" tile on the dashboard\n*And* the user enters either of the following in the Search box, a valid:\n\n-id\n-Okta ID or\n-Client Type",
         "data": "",
-        "result": "*Then* the user should see a Mapping popup on the screen \n\n*And* the user should see \"Confirm Mapping For: ARI-PD01-CH-MLBDEV-ONPREM-DNV\"\n\n*And* the user should see the popup disappear after clicking on the \"Confirm\" button on the Confirming Mapping popup."
+        "result": "*Then* the user should land on the \"Session\" page by default\n*And* the user should the result should pop up in the table."
       }
     ]
   },
   {
-    "id": "WQO-815",
-    "issueId": "1164537",
-    "key": "WQO-815",
-    "summary": " Partner Delivery | Mapping | Verify Page Loads Successfully",
-    "description": " Partner Delivery Page should load with all sections visible and correctly positioned",
+    "id": "WQO-823",
+    "issueId": "1164549",
+    "key": "WQO-823",
+    "summary": "ESNI Management | Policies | Verify Tab  & Table Display",
+    "description": "Verify Policies screen loads and displays policy data correctly",
     "status": "Done",
     "testType": "Cucumber",
     "scenarioType": "scenario",
-    "gherkin": "When the user navigates to the \"Partner Delivery\" page using the Home screen or the left sidebar menu\nThen the \"Partner Delivery\" page should be displayed.\nAnd the user lands on the Mapping Page by default\nAnd the \"Data Centers\" panel should be visible on the top-left\nAnd the \"Channels\" panel should be visible to the right of the \"Data Centers\" panel\nAnd the \"Partners\" panel should be visible on the bottom-left\nAnd the \"Targets\" panel should be visible to the right of the \"Partners\" panel\nAnd search input fields should be present above both \"Channels\" and \"Targets\" sections\nAnd the \"Clear\" and \"Confirm\" buttons should be visible below the \"Targets\" panel",
+    "gherkin": "When the user navigates to the \"Policies\" tab in the ESNI Management section\nThen a button labeled \"Add Viewing Policy\" should be visible at the top-left of the screen\nAnd a \"Search\" input field should be visible at the top-right of the screen\nAnd a \"View\"  button should be visible next to the search input\nAnd a data table should be displayed with the following columns:\n* Policy Name\n* Href\n* Action\nAnd each row should display a valid policy with:\n* A unique Policy Name\n* A corresponding Href value\n* An Action value such as ALLOW or REJECT or IGNORE\nAnd each row should have a \"View Details\" button (three-line icon) on the far right\nAnd pagination controls should be visible at the bottom of the screen\nAnd the default rows per page should be set to \"25\"",
     "unstructured": null,
     "steps": [
       {
-        "id": "d883530f-d8d2-4117-8cae-4f05b9ffce66",
-        "action": "*When* the user navigates to the \"Partner Delivery\" page using the Home screen or the left sidebar menu",
+        "id": "45d114a4-84e8-414d-97cc-c4f41d347eab",
+        "action": "*When* the user navigates to the \"Policies\" tab in the ESNI Management section",
         "data": "",
-        "result": "*Then* the \"Partner Delivery\" page should be displayed.\n\n*And* the user lands on the Mapping Page by default\n\n*And* the \"Data Centers\" panel should be visible on the top-left\n\n*And* the \"Channels\" panel should be visible to the right of the \"Data Centers\" panel\n\n*And* the \"Partners\" panel should be visible on the bottom-left\n\n*And* the \"Targets\" panel should be visible to the right of the \"Partners\" panel\n\n*And* search input fields should be present above both \"Channels\" and \"Targets\" sections\n\n*And* the \"Clear\" and \"Confirm\" buttons should be visible below the \"Targets\" panel"
+        "result": "*Then* a button labeled \"Add Viewing Policy\" should be visible at the top-left of the screen\n\n*And* a \"Search\" input field should be visible at the top-right of the screen\n\n*And* a \"View\"  button should be visible next to the search input\n\n*And* a data table should be displayed with the following columns:\n\n* Policy Name\n* Href\n* Action\n\n*And* each row should display a valid policy with:\n\n* A unique Policy Name\n* A corresponding Href value\n* An Action value such as ALLOW or REJECT or IGNORE\n\n*And* each row should have a \"View Details\" button (three-line icon) on the far right\n\n*And* pagination controls should be visible at the bottom of the screen\n\n*And* the default rows per page should be set to \"25\""
+      }
+    ]
+  },
+  {
+    "id": "WQO-1115",
+    "issueId": "1283416",
+    "key": "WQO-1115",
+    "summary": "BTC Tools | Configs | Skyview | Navigation and UI Validation",
+    "description": null,
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user clicks on the BTC Tools Page\nAnd the user clicks on the Configs Dropdown\nAnd the user clicks on the Skyview\nAnd !xray-attachment://9fc42c68-aad8-46fc-90af-b5a93122bb93|width=1469,height=405!\nThen the user lands on the Schedule Page by default\nAnd the user should see: \"Pipeline\", \"Pipeline Input\", \"Skyview\", and \"Multicast\nMapping\"\nAnd the user lands on the Skyview Configs page\nAnd the user should see the \"Search teams\" search box\nAnd the user should see team cards (logo, name, abbreviation, ID) with Language and\nStatus columns\nAnd the user should see a toggle switch for Eng and a toggle switch for Spa on each\nteam card\nAnd the user should see the \"Enable All Configs\" and \"Disable All Configs\" buttons in\nthe top-right area",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "f0fce5a1-0473-4f79-9acf-bccc3514941d",
+        "action": "*When* the user clicks on the BTC Tools Page\n*And* the user clicks on the Configs Dropdown\n*And* the user clicks on the Skyview",
+        "data": "!xray-attachment://9fc42c68-aad8-46fc-90af-b5a93122bb93|width=1469,height=405!",
+        "result": "*Then* the user lands on the Schedule Page by default\n*And* the user should see: \"Pipeline\", \"Pipeline Input\", \"Skyview\", and \"Multicast\nMapping\"\n*And* the user lands on the Skyview Configs page\n*And* the user should see the \"Search teams\" search box\n*And* the user should see team cards (logo, name, abbreviation, ID) with Language and\nStatus columns\n*And* the user should see a toggle switch for Eng and a toggle switch for Spa on each\nteam card\n*And* the user should see the \"Enable All Configs\" and \"Disable All Configs\" buttons in\nthe top-right area"
+      }
+    ]
+  },
+  {
+    "id": "WQO-970",
+    "issueId": "1217142",
+    "key": "WQO-970",
+    "summary": "User Lookup | Single Date Selection Validation",
+    "description": null,
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When the user navigate to User Lookup page\nAnd the user click on \"Select A Date Range\" button\nAnd the user Select today's date in the calendar\nAnd the user Verify only one date is selected (not a range)\nAnd the user Enter \"dm5tv@gmail.com\" in the email field\nAnd the user Click on Search button\nAnd the user Verify search results are displayed\nThen the user Lookup page loads successfully\nAnd the Calendar dropdown appears\nAnd Today's date is selected and displayed\nAnd Single date is shown, no range indicators present\nAnd the Email address is entered successful\nAnd the Search executes successful\nAnd the user should see the User Information and User Sessions tables are shown",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "bc2da14e-422c-40a4-ac22-e7d4ba7f6c69",
+        "action": "*When* the user navigate to User Lookup page\n\n*And* the user click on \"Select A Date Range\" button\n\n*And* the user Select today's date in the calendar\n\n*And* the user Verify only one date is selected (not a range)\n\n*And* the user Enter \"[dm5tv@gmail.com|mailto:dm5tv@gmail.com]\" in the email field\n\n*And* the user Click on Search button\n\n*And* the user Verify search results are displayed",
+        "data": "",
+        "result": "*Then* the user Lookup page loads successfully\n\n*And* the Calendar dropdown appears\n\n*And* Today's date is selected and displayed\n\n*And* Single date is shown, no range indicators present\n\n*And* the Email address is entered successful\n\n*And* the Search executes successful\n\n*And* the user should see the User Information and User Sessions tables are shown"
+      }
+    ]
+  },
+  {
+    "id": "WQO-826",
+    "issueId": "1164573",
+    "key": "WQO-826",
+    "summary": "User Lookup | User Searches For a User by Email",
+    "description": null,
+    "status": "Done",
+    "testType": "Cucumber",
+    "scenarioType": "scenario",
+    "gherkin": "When I am on the \"User Lookup\" page of the Streaming Operator Platform\nAnd I enter a valid user email address for example *vikram.singhal@mlb.com* into the \"Okta ID / Email\" field\nAnd I click the \"Search\" button\nThen The user's account information should be displayed, including:\n* First Name: *Vikram*\n* Last Name: *Singhal*\n* Okta ID: *00ufdpo4xfwameJgH0h8*\n* Email: *vikram.singhal@mlb.com*\n* Do Not Sell: *Profile Value: null, Cached Value: null*\n* Favorite Team: *Profile Value: Orioles, Cached Value: null*\n* Entitlements: *Profile Value: null, Cached Value: null*\nAnd The user's most recent sessions should be displayed in a table below the user information.\nAnd A \"Conviva Sessions\" button should be visible.\nAnd The URL should update to include the user's information.",
+    "unstructured": null,
+    "steps": [
+      {
+        "id": "1114431c-c0db-4cf2-935b-42c3405f9b8a",
+        "action": "*When* I am on the \"User Lookup\" page of the Streaming Operator Platform\n\n*And* I enter a valid user email address for example [*vikram.singhal@mlb.com*|mailto:vikram.singhal@mlb.com] into the \"Okta ID / Email\" field\n\n*And* I click the \"Search\" button",
+        "data": "",
+        "result": "*Then* The user's account information should be displayed, including:\n\n* First Name: *Vikram*\n* Last Name: *Singhal*\n* Okta ID: *00ufdpo4xfwameJgH0h8*\n* Email: [*vikram.singhal@mlb.com*|mailto:vikram.singhal@mlb.com]\n* Do Not Sell: *Profile Value: null, Cached Value: null*\n* Favorite Team: *Profile Value: Orioles, Cached Value: null*\n* Entitlements: *Profile Value: null, Cached Value: null*\n\n*And* The user's most recent sessions should be displayed in a table below the user information.\n\n*And* A \"Conviva Sessions\" button should be visible.\n\nAnd The URL should update to include the user's information."
       }
     ]
   }

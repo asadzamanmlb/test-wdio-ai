@@ -1,0 +1,20 @@
+{
+  "id": "WQ-987",
+  "issueId": "1128316",
+  "key": "WQ-987",
+  "summary": "Today button navigates to today's date",
+  "description": "GIVEN a user is on the Games page\r\nAND the displayed date/day of games is not today",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "19bc8ab5-f650-457b-9a4a-d74b6733d34f",
+      "action": "WHEN a user selects the [Today] button",
+      "data": "",
+      "result": "THEN the [Today] button is dismissed\nAND the date in the upper left of the screen updates to \"Today, [todays date]\"\nAND the games for today's date are displayed"
+    }
+  ]
+}

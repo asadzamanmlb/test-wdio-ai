@@ -1,0 +1,20 @@
+{
+  "id": "WQ-145",
+  "issueId": "1127448",
+  "key": "WQ-145",
+  "summary": "ESPN MVPD Messaging - Unauthorized and Not Entitled",
+  "description": "GIVEN a Postseason game is on the schedule\r\nAND ESPN broadcasters are assigned\r\nAND the user doesn't have the following entitlements: MLBALL, MLBVIDEOADOBEPASS, MLBVIDEOAR\r\nAND the user is unauthorized for ESPN MVPD\r\nAND the game level entitledVideo = false\r\nAND the AWAY (National) feed level espnAuthRequired = true\r\n\r\nUser types: atBat/Audio, Free, Anonymous users",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4ae028c3-83a4-4157-86b7-d55d9d6e5b6f",
+      "action": "WHEN the user selects a game tile for an ESPN Postseason game tile",
+      "data": "",
+      "result": "THEN the Feed Select modal displays\r\nAND ESPN MVPD messaging displays in the Feed Select modal"
+    }
+  ]
+}

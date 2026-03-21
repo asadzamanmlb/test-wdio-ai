@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1774",
+  "issueId": "1129191",
+  "key": "WQ-1774",
+  "summary": "General Remote Control",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8feca285-9be0-488a-a53e-c85e90981eb0",
+      "action": "Execute app → Press general remote control (TR) key",
+      "data": "",
+      "result": "Check if it supports general remote control\r\n※ Check entire remote control Key >Check defined operation by Key\r\n※ Check if App goes back to the previous status after the operation of the Key."
+    }
+  ]
+}

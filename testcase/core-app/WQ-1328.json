@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1328",
+  "issueId": "1128665",
+  "key": "WQ-1328",
+  "summary": "Game Tile Pregame Not Entitled Hide Spoilers ON",
+  "description": "GIVEN TTS is turned ON\r\nAND a user is not logged in\r\nAND Hide Spoilers is turned ON\r\nAND the user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8c3c44f4-6732-4987-a8a5-3e2472d568c8",
+      "action": "WHEN the user assigns focus to a game tile that is not yet live",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Game <x> of <y>, <away_team> at <home_team>, <game_start_time> Game Start Time, Not Entitled, Press select to play game. Move <appropriate_directions> to hear more games. Move up to navigate to a new date.\""
+    }
+  ]
+}

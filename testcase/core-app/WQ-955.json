@@ -1,0 +1,20 @@
+{
+  "id": "WQ-955",
+  "issueId": "1128284",
+  "key": "WQ-955",
+  "summary": "Live Game - Unfocused Game Tile",
+  "description": "GIVEN a subscriber is logged in\r\nAND Hide Spoilers is off\r\nAND the selected date has in-progress/live games",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a355b6c7-e23e-4fea-be8a-6614bce4fa96",
+      "action": "WHEN a subscriber is on the Games page\r\nAND game tiles are displayed\r\nAND an in-progress/live game tile does not have focus",
+      "data": "",
+      "result": "THEN the away team primary color is displayed in the upper left of the game tile\r\nAND the away team logo is displayed\r\nAND the away team abbreviation is displayed below the team logo\r\nAND the home team primary color is displayed in the upper right of the game tile\r\nAND the home team logo is displayed\r\nAND the home team abbreviation is displayed below the team logo\r\nAND the current score displays between the away and home team logos\r\nAND a \"LIVE\" pill indicator is displayed left justified below the match up header\r\nAND the current inning status is displayed to the right of the Live pill indicator\r\nAND the current pitcher displays \"P <team_tri_code> <pitcher_name>\" left justified below the Live indicator\r\nAND the current batter displays \"AB <team_tri_code> <batter_name>\" left justified below the current pitcher\r\nAND the bases/outs indicator display right-center justified in the non-match up portion of the game tile\r\nAND the base indicators reflect the current base runners in the current inning\r\nAND the out indicators reflect the current outs of the inning\r\nAND any applicable pills display left justified at the bottom of the game tile"
+    }
+  ]
+}

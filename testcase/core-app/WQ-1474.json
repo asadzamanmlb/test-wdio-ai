@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1474",
+  "issueId": "1128811",
+  "key": "WQ-1474",
+  "summary": "Options Menu | Navigating to Broadcast Options tab",
+  "description": "GIVEN the user is in the Options Menu\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1b11e057-dd2b-47d3-bcbd-0277928efb88",
+      "action": "WHEN the user navigates to the \"Broadcast Options\" tab",
+      "data": "",
+      "result": "THEN the user will hear: “Broadcast Options, <x> of <y> Options, press down to navigate Broadcast Options, Press up for player controls, Press <appropriate_directions> for more options, Press back to dismiss controls.”"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-71",
+  "issueId": "1127083",
+  "key": "WQ-71",
+  "summary": "DAI API - Failed calls at stream start do not result in a video error - Live game",
+  "description": "GIVEN a LIVE game stream has adsEnabled equals true in the graphql Preview/Response (data->initPlaybackSession->adExperience->adsEnabled)\nAND an asset key is is returned in the same graphql Preview/Response (data->initPlaybackSession->adExperience->adEngineIdentifiers)\n\n*NOTE:*\nEnter graphql into the Network search of Dev Tools to find the initPlaybackSession",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5b4e7123-e4f8-44f8-bf3a-b226c16b0626",
+      "action": "WHEN network calls to \"[dai.google.com|http://dai.google.com]*\" are blocked\nOR network calls to \"[dai.google.com|http://dai.google.com]*\" are failing\nAND the user initiates playback of a Live game",
+      "data": "",
+      "result": "THEN the stream continues to playback with no video error modal popping up"
+    }
+  ]
+}

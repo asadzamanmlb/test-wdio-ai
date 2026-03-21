@@ -1,0 +1,20 @@
+{
+  "id": "WQ-684",
+  "issueId": "1128012",
+  "key": "WQ-684",
+  "summary": "Executive user live game - Game Tile",
+  "description": "GIVEN a user is an Executive user",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2d53b7d8-be90-4b06-88a1-12b2a3e1d308",
+      "action": "WHEN a user views/focuses any scheduled/in-progress game tile",
+      "data": "",
+      "result": "THEN a lock icon does not display in the upper right corner of the game tile\r\nAND there is no dark overlay over the team colors in the game tile header"
+    }
+  ]
+}

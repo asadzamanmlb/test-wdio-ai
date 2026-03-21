@@ -1,0 +1,20 @@
+{
+  "id": "WQ-572",
+  "issueId": "1127898",
+  "key": "WQ-572",
+  "summary": "FLIVE Rewind Cancel",
+  "description": "GIVEN a user (paid/free/anonymous) has launched the MLB app\r\nAND an FLIVE stream is in progress\r\nAND the user selects the FLIVE stream to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5810348b-f3c5-4809-b60d-fe99038376df",
+      "action": "WHEN the user initiates Rewind\r\nAND presses the \"O\" button on the controller after a few moments",
+      "data": "",
+      "result": "THEN Rewind stops\r\nAND playback resumes at the point where Rewind was initiated\r\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

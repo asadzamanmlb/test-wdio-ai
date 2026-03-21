@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1684",
+  "issueId": "1129101",
+  "key": "WQ-1684",
+  "summary": "Live Hero MLBALL User (Currently N/A)",
+  "description": "When MLBALL user favorite any team which is LIVE and select Watch LIVE or Watch Now from Hero, Feed Select modal should appear with Audio and Video feeds.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "25ae39bd-6d47-4b0e-927f-7e71430a6efa",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

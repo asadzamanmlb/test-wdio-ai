@@ -1,0 +1,20 @@
+{
+  "id": "WQ-316",
+  "issueId": "1127628",
+  "key": "WQ-316",
+  "summary": "Game States - Final - Postponed - Hide Spoilers OFF",
+  "description": null,
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6eff35a1-efe1-43d0-b312-d11612d35add",
+      "action": "WHEN a game is in a Final state\r\nAND the game is Postponed\r\nAND one of the following statusCode's are present in the MAST response: (DR,DS,DG,DV,DF,DC,DD,DB,DP,Dl,DE,DA,DO,DI)",
+      "data": "",
+      "result": "THEN a pill with the text \"FINAL\" is displayed above the team info in the Hero\r\nAND a pill with the text \"POSTPONED\" is displayed above the team info in the Hero, to the right of the \"FINAL\" pill"
+    }
+  ]
+}

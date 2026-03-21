@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1770",
+  "issueId": "1129187",
+  "key": "WQ-1770",
+  "summary": "Search",
+  "description": "Search function is supported",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "97aaed14-89f1-4219-b428-65bba8a3ea5d",
+      "action": "Execute app → Select search window → Enter search word\r\n\r\n[CASE1]\r\n1. Input unclear search word\r\n2. Input clear search word\r\n\r\n[CASE2 - Able to change keyboard language]\r\n1. Input search word in a language not supported in app\r\n\r\n[CASE3 - Includes autocomplete function]\r\n1. Input search word in a complete word/sentence form\r\n2. Input search word in a incomplete word/sentence form",
+      "data": "",
+      "result": "Search results appear properly on screen"
+    }
+  ]
+}

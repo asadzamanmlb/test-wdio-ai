@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1749",
+  "issueId": "1129166",
+  "key": "WQ-1749",
+  "summary": "App Launches",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c1bce859-d47a-47d5-93f7-76695baedd13",
+      "action": "Launch app → Execute app\r\n\r\n[CASE]\r\nApp launching screen → Execute app right away",
+      "data": "",
+      "result": "App is running properly"
+    }
+  ]
+}

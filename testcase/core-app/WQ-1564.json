@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1564",
+  "issueId": "1128966",
+  "key": "WQ-1564",
+  "summary": "Log Out",
+  "description": "GIVEN a user is already logged in\r\nAND a user is on the Settings page",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "caf94780-acbb-4694-ba33-35dd4fc652ca",
+      "action": "WHEN a user selects the \"Log Out\" button",
+      "data": "",
+      "result": "THEN the user is successfully logged out"
+    }
+  ]
+}

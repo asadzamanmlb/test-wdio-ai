@@ -1,0 +1,20 @@
+{
+  "id": "WQ-512",
+  "issueId": "1127838",
+  "key": "WQ-512",
+  "summary": "Device Home Screen Deep Linking - Free",
+  "description": "GIVEN an MLB.TV Free Game of the Day advertisement is displayed on the device home screen\r\nAND a free user is already logged into the app\r\nAND the user is on the device home screen\r\n\r\n**NOTE:** Work with a developer to get this set up",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "85e50305-6106-4556-b7c5-ed39b6c2a5cd",
+      "action": "WHEN the user selects the MLB.TV game advertisement on the device home screen",
+      "data": "",
+      "result": "THEN the MLB.TV app opens\r\nAND the video player is immediately launched \r\nAND the game referred to in the game advertisement begins playback"
+    }
+  ]
+}

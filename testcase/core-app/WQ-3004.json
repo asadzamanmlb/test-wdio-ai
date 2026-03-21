@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3004",
+  "issueId": "1158580",
+  "key": "WQ-3004",
+  "summary": "Media Gateway (MGW) Config - HDR",
+  "description": "GIVEN a tester has logged into the Core-App with a test user\n\nAND the device used has HDR capabilities",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "01391658-1d12-43c0-ae70-fe8e4b7da9e5",
+      "action": "WHEN the user selects a game for playback",
+      "data": "Live Game\n\nArchive Game",
+      "result": "THEN values in the graphQL Media Gateway (MGW)'s {{initPlaybackSession}} call may contain an optional array of {{playbackCapabilities}} that includes {{colorSpace}} with values of {{SDR}} or {{HDR}} after we {{getDevicePlaybackCapabilities}} for each platform in {{mlbtv-app-platform}} call to {{@mlbtv-clients/services}}"
+    }
+  ]
+}

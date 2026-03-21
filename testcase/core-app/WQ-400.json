@@ -1,0 +1,20 @@
+{
+  "id": "WQ-400",
+  "issueId": "1127712",
+  "key": "WQ-400",
+  "summary": "Fetch SNY data via contentCollections",
+  "description": "GIVEN a user has entitlements for SNY\r\nAND the user launches the MLB.TV app\r\nAND the user logs in\r\n\r\n**NOTE:** SNY entitlement = SNY_121",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5ffd669d-4186-4ef5-a14a-77f9361f7713",
+      "action": "WHEN the user successfully logs in",
+      "data": "",
+      "result": "THEN a \"contentCollections\" network call is made via \"graphql\"\r\nAND the data returned from \"contentCollections\" is stored in Redux under \"rsn\"\r\n\r\n**NOTE:** This needs to be tested with access to network calls, and Redux. Best way is via Chrome. Redux is a browser extension that may need to be downloaded and added to your browser."
+    }
+  ]
+}

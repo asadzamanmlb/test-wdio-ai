@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1125",
+  "issueId": "1128455",
+  "key": "WQ-1125",
+  "summary": "Following Teams - Onboarding Back",
+  "description": "GIVEN a user has selected the \"Getting Started\" button on the Startup Screen\r\nAND the user has selected a favorite team\r\nAND the user is on the Following Teams page\r\nAND the user has or has not selected a team tile",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "60f9494c-ab8d-4c50-b424-8ce21166ba01",
+      "action": "WHEN the user presses the BACK button on the controller",
+      "data": "",
+      "result": "THEN the user is taken back to the Favorite Team page\r\nAND focus is on the selected favorite team tile\r\nOR if no favorite team was not selected, focus is assigned to the top left most team tile (Arizona Diamondbacks)"
+    }
+  ]
+}

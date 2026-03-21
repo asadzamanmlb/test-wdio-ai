@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1390",
+  "issueId": "1128727",
+  "key": "WQ-1390",
+  "summary": "TTS | Navigation options middle left when a Team is selected",
+  "description": "GIVEN TTS is enabled\r\nAND the user has one of the following teams set as the Favorite Team: BAL, CWS, COL, KC, MIA, NYM, PIT, SF\r\nAND the user is logged in\r\nAND the user is on the Favorite Team page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9e67cf48-0c58-45f6-b089-243be77b0123",
+      "action": "WHEN the user scrolls to highlight the set favorite team",
+      "data": "",
+      "result": "THEN the app should say 'The {selected team} is highlighted. Press select to save this team as your favorite team. Move right, up, or down to hear additional teams to favorite. Move left to highlight the “Done” button.'"
+    }
+  ]
+}

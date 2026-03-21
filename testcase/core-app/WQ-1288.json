@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1288",
+  "issueId": "1128625",
+  "key": "WQ-1288",
+  "summary": "TTS | SNY Page load",
+  "description": "GIVEN a user has entitlements for SNY\r\nAND the user launches the MLB.TV app\r\nAND the user has TTS enabled\r\nAND the user logs in\r\n\r\n**NOTE:** SNY entitlement = SNY_121",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a79da4cd-4153-4f21-b038-0c748bc99024",
+      "action": "WHEN the user selects the SNY button in the header",
+      "data": "",
+      "result": "THEN the SNY page loads successfully\r\nAND the following TTS statement is spoken, \"On the <RSN> page. Watch Live, <name_of_feed>, <description> (if available), LIVE (if live content), Presented by (if available), <sponsorship_name>. Press select to play, press up for the main menu, press down to browse more content.\""
+    }
+  ]
+}

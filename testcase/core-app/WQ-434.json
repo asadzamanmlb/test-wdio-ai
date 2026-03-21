@@ -1,0 +1,20 @@
+{
+  "id": "WQ-434",
+  "issueId": "1127753",
+  "key": "WQ-434",
+  "summary": "Game Player Controls",
+  "description": "GIVEN a user has initiated playback for a live or archive game ",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f5955a18-7c5c-413a-98cb-00c1bcd7e3dc",
+      "action": "WHEN the user initiates pause, fast forward, rewind, or play using the remote/controller",
+      "data": "",
+      "result": "THEN the stream reacts appropriately to the actions initiated"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1675",
+  "issueId": "1129092",
+  "key": "WQ-1675",
+  "summary": "International Feed Blackout (Currently N/A, have not had DM5 International feeds)",
+  "description": "When a logged in user launches  the app and selects Live International Blackout Game, Feed select page appears with Blackout message.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f57d4011-c920-438a-9203-eec09a2364b6",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

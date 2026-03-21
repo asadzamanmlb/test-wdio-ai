@@ -1,0 +1,20 @@
+{
+  "id": "WQ-342",
+  "issueId": "1127654",
+  "key": "WQ-342",
+  "summary": "Play F-Live from Hero",
+  "description": "GIVEN a user is anonymous/free/paid\r\nAND FLIVE content is present in the Hero",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7c921143-5473-497a-9e3b-11e385a37672",
+      "action": "WHEN a user selects the \"Watch Now\" button",
+      "data": "",
+      "result": "THEN FLIVE playback is successful"
+    }
+  ]
+}

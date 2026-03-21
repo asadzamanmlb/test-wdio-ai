@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1500",
+  "issueId": "1128837",
+  "key": "WQ-1500",
+  "summary": "VOD/SVOD | Hearing Playback Time Announcement After Pressing Play Following Fast Forward",
+  "description": "GIVEN the user is watching VOD/SVOD content\r\nAND TTS is enabled\r\nAND the user has initiated Fast Forward",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f3d0b7e8-e39a-43c2-b4be-b8493e9c5cc7",
+      "action": "WHEN the user presses select during Fast Forward",
+      "data": "",
+      "result": "THEN the user will hear: “Play/pause, <current_time> of <total_time>, press select to play/pause”"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-66",
+  "issueId": "1127078",
+  "key": "WQ-66",
+  "summary": "IMA SDK is being used - Archive",
+  "description": "GIVEN an Archive game stream has adsEnabled equals true in the graphql Preview/Response (data->initPlaybackSession->adExperience->adsEnabled)\nAND a cmsId and a videoId is returned in the same graphql Preview/Response (data->initPlaybackSession->adExperience->adEngineIdentifiers)\n\n**NOTE:** \nIMA SDK supported platforms: PS5\nEnter graphql into the Network search of Dev Tools to find the initPlaybackSession",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "347e92cf-b45f-47a5-beea-f89cf8e882c4",
+      "action": "WHEN entering \"stream\" into the Network search of Dev Tools",
+      "data": "",
+      "result": "THEN the \"streams\" call has \"pubads.g.doubleclick.net*\" as the request URL"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1745",
+  "issueId": "1129162",
+  "key": "WQ-1745",
+  "summary": "FF doesn't initiate during Ad break at live point",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2c547b48-f820-4442-b7da-6f7d3b087cb7",
+      "action": "WHEN",
+      "data": "",
+      "result": "Verify if the user cannot FF the Ad during ad break on Game Live point"
+    }
+  ]
+}

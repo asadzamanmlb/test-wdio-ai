@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1769",
+  "issueId": "1129186",
+  "key": "WQ-1769",
+  "summary": "Sign Out",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "145ea228-f472-4b40-91a0-a274094e718f",
+      "action": "Execute app → Sign in → Sign Out",
+      "data": "",
+      "result": "Able to sign out properly"
+    }
+  ]
+}

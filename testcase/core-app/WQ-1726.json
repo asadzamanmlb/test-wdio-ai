@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1726",
+  "issueId": "1129143",
+  "key": "WQ-1726",
+  "summary": "Resume archive playback - Hide Spoilers ON",
+  "description": "GIVEN the user is entitled for archive game playback\nAND Hide Spoilers is turned ON\nAND team feeds are mediaState=MEDIA_ARCHIVE\nAND the feed contains a resume bookmark after the top of the 1st inning",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "befb9159-20cc-4a73-9a15-a40696aa5929",
+      "action": "WHEN the user selects a previously watched archive game\nAND the user selects a previously watched team feed\nAND the user selects the \"Resume\" button\nAND the user watches the game for at least a half inning",
+      "data": "",
+      "result": "THEN playback starts at the resume bookmark\nAND inning markers are displayed to the left of the playback head\nAND inning markers are not displayed to the right of the playback head\nAND inning markers will populate to the left of the playback head as the start of each half inning is crossed"
+    }
+  ]
+}

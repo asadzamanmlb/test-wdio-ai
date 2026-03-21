@@ -1,0 +1,20 @@
+{
+  "id": "WQ-703",
+  "issueId": "1128031",
+  "key": "WQ-703",
+  "summary": "Executive user ESPN/Sunday Night Baseball archive - Feed Select modal",
+  "description": "GIVEN a user has EXEC entitlement\r\nAND ESPN Sunday Night Baseball is archived",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3e98d6ab-42e3-4748-b76b-058b3d2a016f",
+      "action": "WHEN a user selects an archived ESPN Sunday Night Baseball game tile",
+      "data": "",
+      "result": "THEN a feed select modal displays\r\nAND buttons for Recap and Condensed Game display center justified, above the game feed\r\nAND the user will see an ESPN feed button for the home team\r\nAND the user achieves playback after selecting each button"
+    }
+  ]
+}

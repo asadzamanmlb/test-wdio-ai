@@ -1,0 +1,20 @@
+{
+  "id": "WQ-126",
+  "issueId": "1127429",
+  "key": "WQ-126",
+  "summary": "Resume International Feed Selection - Archive Game",
+  "description": "GIVEN a user navigates to a past day with games\r\nAND the game has an international feed\r\nAND videoFeeds for the game have a mediaState of MEDIA_ARCHIVE\r\nAND the user has the appropriate entitlements to watch archive games\r\nAND the user has previously played the feed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "84bf323a-ec44-4f64-b999-8ac07b8bb0e3",
+      "action": "WHEN a user selects a game tile for an archive game\r\nAND selects the international video feed button in the Feed Select Modal\r\nAND selects the [Resume] button in the Secondary Feed Select Modal",
+      "data": "",
+      "result": "THEN the feed select modal/games page is dismissed\r\nAND the video player maximizes to full screen\r\nAND the international video feed starts playing from the bookmarked/last watched point"
+    }
+  ]
+}

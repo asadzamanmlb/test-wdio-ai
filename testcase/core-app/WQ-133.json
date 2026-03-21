@@ -1,0 +1,20 @@
+{
+  "id": "WQ-133",
+  "issueId": "1127436",
+  "key": "WQ-133",
+  "summary": "Live/In-Progress Game Feed Select Modal UI Design - Home and Away feeds",
+  "description": "GIVEN a subscriber is logged in\r\nAND the subscriber is on the Games page\r\nAND games have videoFeeds with a mediaState of MEDIA_ON",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "445b138f-e8ce-4737-b70f-9940e7280041",
+      "action": "WHEN a user selects a game tile for a live/in-progress game",
+      "data": "",
+      "result": "THEN the Feed Select modal displays\r\nAND the Away team logo/colors should be visible top left\r\nAND the Home team logo/colors should be visible top right\r\nAND a video icon followed by the text \"Video\" is displayed centered above the away and home video feed buttons\r\nAND the away video feed button displays on the left side of the feed select modal\r\nAND the away video feed button contains the team abbreviation followed by the video feed call letters\r\nAND the away video feed button has focus\r\nAND the away video feed button decreases in size slightly when it loses focus\r\nAND the home video feed button displays on the right side of the feed select modal\r\nAND the home video feed button contains the team abbreviation followed by the video feed call letters\r\nAND the home video feed button does not have focus\r\nAND the home video feed button increases in size slightly when it has focus\r\nAND the user cannot navigate through elements behind the modal"
+    }
+  ]
+}

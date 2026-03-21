@@ -1,0 +1,20 @@
+{
+  "id": "WQ-645",
+  "issueId": "1127973",
+  "key": "WQ-645",
+  "summary": "Monthly/Yearly subscriber live FGotD out of market - Feed Select",
+  "description": "GIVEN a user is a Monthly/Yearly subscriber\r\nAND a FGotD is scheduled/in-progress\r\nAND the user is not in the viewing market of the FGotD\r\nAND the game level entitledVideo equals true in MAST EPGv3\r\nAND the game level blackedOutVideo equals false in MAST EPGv3",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "bb8e491b-2f0b-48ba-b2f3-be37b8be9e15",
+      "action": "WHEN a user selects a scheduled/in-progress game tile",
+      "data": "",
+      "result": "THEN the user will see feed buttons for both teams\r\nAND the user can playback feeds for both teams"
+    }
+  ]
+}

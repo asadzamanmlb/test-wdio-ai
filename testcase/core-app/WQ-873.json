@@ -1,0 +1,20 @@
+{
+  "id": "WQ-873",
+  "issueId": "1128201",
+  "key": "WQ-873",
+  "summary": "ESPN2 MVPD Required Pill - Unauthorized",
+  "description": "GIVEN a Postseason game is on the schedule\r\nAND ESPN2 broadcasters are assigned\r\nAND the user's location is in the USA\r\nAND a user is unauthorized for ESPN2 MVPD\r\nAND the game level entitledVideo = false\r\nAND the feed level espnAuthRequired = true",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c35b689a-7734-485e-b9cb-1c6797e0f4db",
+      "action": "WHEN the user views a ESPN2 Postseason game tile",
+      "data": "",
+      "result": "THEN the MVPD pill displays in the lower left corner of the game tile"
+    }
+  ]
+}

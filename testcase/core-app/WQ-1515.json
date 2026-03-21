@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1515",
+  "issueId": "1128852",
+  "key": "WQ-1515",
+  "summary": "Quick Actions Menu | Hearing Captions Option",
+  "description": "GIVEN the user is in the Quick Actions Menu\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6dffa749-077e-43ae-9ed1-12c7446f8a87",
+      "action": "WHEN the user navigates to the \"Caption\" option",
+      "data": "",
+      "result": "THEN the user will hear: “Closed Captions, On/Off, x out of y options. Press select to turn Off/On, Press <appropriate_directions> for more quick actions options, Press down for player controls, Press back to dismiss controls.”\r\n\r\nFor example:\r\n\"Closed Captions, On, Press select to turn off\"\r\n\"Closed Captions, Off, Press select to turn on\""
+    }
+  ]
+}

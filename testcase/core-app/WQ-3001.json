@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3001",
+  "issueId": "1158489",
+  "key": "WQ-3001",
+  "summary": "Resume Live Game playback in the Today's Lineup carousel",
+  "description": "GIVEN a user who is entitled for Live game playback is logged in\n\nAND the user is on the Games page\n\nAND the user selects a Live game for playback from the Games page\n\nAND the user exits Live game playback",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1e9a9e0c-f34d-487e-a517-e1272fa69d6d",
+      "action": "WHEN the user selects the same Live game from the Today’s Lineup carousel\n\nAND selects the same team feed for Resume playback",
+      "data": "",
+      "result": "THEN the Home page is dismissed\n\nAND the video player displays full screen\n\nAND playback starts successfully from the resumed point"
+    }
+  ]
+}

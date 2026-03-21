@@ -1,0 +1,20 @@
+{
+  "id": "WQ-788",
+  "issueId": "1128116",
+  "key": "WQ-788",
+  "summary": "Monthly/yearly subscriber AppleTV+ archive - Game Tile",
+  "description": "GIVEN a user is a Monthly/Yearly subscriber",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d50f559b-78f2-4ef0-a24f-c1f8ddb11cfb",
+      "action": "WHEN a user views/focuses an archive AppleTV+ game tile",
+      "data": "",
+      "result": "THEN a lock icon does not display in the upper right corner of the game tile\r\nAND there is no dark overlay over the team colors in the game tile header\r\nAND the AppleTV+ pill does not display in the game tile"
+    }
+  ]
+}

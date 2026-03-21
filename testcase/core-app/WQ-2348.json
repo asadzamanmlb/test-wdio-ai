@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2348",
+  "issueId": "1129798",
+  "key": "WQ-2348",
+  "summary": "R5030B - Essential items are displayed within the adjusted display area",
+  "description": "**Graphical User Interface**\r\n\r\n**R5030 Premise:** If the application disables the \"Scaling to the Display's Safe Area\"\r\n\r\n**R5030 Requirement:** Essential items are displayed using one of the following methods:\r\n- Design the screen so that essential items are included approximately in the center 90% of the vertical/horizontal measurements (90% x 90% of the area)\r\n- Essential items are included in the safe area that can be obtained with sceSystemServiceGetDisplaySafeAreaInfo().\r\n\r\n**Description**\r\nFor details on setting the \"Scaling to the Display's Safe Area\", refer to Param.json File Specification.\r\n\"Essential items\" are as follows:\r\n- Error messages and warning messages defined by the TRC\r\n- Legal texts such as the EULA and other copyright indications\r\n- Online IDs used as the identifiers of users\r\n\r\nIn order to display long strings of characters the application can implement a scrolling feature; it is also acceptable to include features such as \"See Details\" to have the strings displayed in a separate screen.\r\n\r\nIt is prohibited to provide a proprietary screen adjustment feature that overlaps with the \"Adjust Display Area\" feature in the application. Because features to adjust UI parts or HUD elements and a feature to change the aspect ratio of the screen do not overlap with the \"Adjust Display Area\" feature, a proprietary screen adjustment feature can be provided in the application.\r\n\r\n**QA NOTE:** Check in all languages supported by the application.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "77c93a3f-7895-425e-9e49-ae47dd4408ff",
+      "action": "1. Press the up button on the home screen\r\n2. Set \"Settings\" > \"Screen and Video\" > \"Screen\" > \"Adjust Display Area\" to an arbitrary value\r\n3. Go back to the home screen, then select the \"Application\"\r\n4. Proceed to where an essential item is displayed\r\n5. Close the \"Application\"\r\n6. Press the up button on the home screen\r\n7. Set \"Settings\" > \"Screen and Video\" > \"Screen\" > \"Adjust Display Area\" to a setting that differs from step (2)\r\n8. Go back to the home screen, then select the \"Application\"\r\n9. Proceed to where the essential item confirmed in step (4) is displayed\r\n\r\n**Notes:** Check with all resolutions in step (4).",
+      "data": "",
+      "result": "When displaying essential items according to the display area settings set in the system software\r\n- Essential items are displayed within the display area set by \"Adjust Display Area\".\r\n- The application does not provide its own screen adjustment feature to adjust the overall screen.\r\n- When displaying long character strings, the display is scrolled or a \"See details\" feature displays the content on a separate screen."
+    }
+  ]
+}

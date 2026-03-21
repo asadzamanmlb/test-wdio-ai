@@ -1,0 +1,20 @@
+{
+  "id": "WQ-398",
+  "issueId": "1127710",
+  "key": "WQ-398",
+  "summary": "SNY page loads",
+  "description": "GIVEN a user has entitlements for SNY\r\nAND the user launches the MLB.TV app\r\nAND the user logs in\r\n\r\n**NOTE:** SNY entitlement = SNY_121",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "da24cb03-1cb8-484a-9d79-69bf0fdd13de",
+      "action": "WHEN the user selects the [SNY] tab in the header",
+      "data": "",
+      "result": "THEN the SNY page loads successfully\nAND SNY content is present in the Hero\nAND a title is present in the Hero\nAND a description is present in the Hero\nAND a SNY related background image is present in the Featured Image space\nAND text \"PRESENTED BY\" is displayed below the Hero content description\nAND the presented by Logo is displayed below the \"PRESENTED BY\" text\nAND SNY related carousels are displayed\nAND VOD cards are displayed in the carousels for available VOD content\n\n**NOTE:** \"Presented By\" and logo are feature flagged and may not display based on the set value. This can be checked in one of the following (based on environment) \"base.json\", \"dev.json\", \"qa.json\", \"prod.json\". Path: rsn -> sny -> enabled"
+    }
+  ]
+}

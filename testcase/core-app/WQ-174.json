@@ -1,0 +1,20 @@
+{
+  "id": "WQ-174",
+  "issueId": "1127477",
+  "key": "WQ-174",
+  "summary": "TBS MVPD - International non-Canada",
+  "description": "GIVEN a subscriber is located international not in Canada\r\nAND a postseason game has TBS broadcasters assigned\r\nAND the away feed level tbsAuthRequired = true\r\nAND feed level mediaState = MEDIA_ON",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0b524dd9-2050-45a4-834e-ccbcf91eef52",
+      "action": "WHEN the subscriber selects the TBS postseason game tile",
+      "data": "",
+      "result": "THEN the feed select modal displays\r\nAND the TBS International (TBS-INT) feed button is the only button displayed in the modal\r\nAND the user is able to receive playback after selecting the feed button"
+    }
+  ]
+}

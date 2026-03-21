@@ -1,0 +1,20 @@
+{
+  "id": "WQ-524",
+  "issueId": "1127850",
+  "key": "WQ-524",
+  "summary": "End of archive game stream",
+  "description": "GIVEN an archive game is playing",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "94d861ff-d283-4671-9f7d-12bf400806c4",
+      "action": "WHEN the stream ends",
+      "data": "",
+      "result": "THEN the video player is dismissed\r\nAND the user is navigated back to the previous page"
+    }
+  ]
+}

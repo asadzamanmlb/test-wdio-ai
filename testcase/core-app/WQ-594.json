@@ -1,0 +1,20 @@
+{
+  "id": "WQ-594",
+  "issueId": "1127920",
+  "key": "WQ-594",
+  "summary": "SLIVE playback starts at live point",
+  "description": "GIVEN a user has SUBSCRIBERVOD entitlement\r\nAND an SLIVE stream is in progress",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "97cbcc75-a7a7-4a80-a6d9-52d4a3b1bfc8",
+      "action": "WHEN the user selects the SLIVE stream to watch",
+      "data": "",
+      "result": "THEN initPlaybackSession is called via a graphql network call\nAND the video player goes full screen\nAND playback starts at the live point\nAND the playhead displays far right on the scrubber bar\nAND the entire scrubber bar is blue\nAND a red live indicator is displayed\nAND the \"Jump to Live\" button does not display\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

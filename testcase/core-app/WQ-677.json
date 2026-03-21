@@ -1,0 +1,20 @@
+{
+  "id": "WQ-677",
+  "issueId": "1128005",
+  "key": "WQ-677",
+  "summary": "T-Mobile subscriber live game out of market - Feed Select",
+  "description": "GIVEN a user is a T-Mobile subscriber\r\nAND the user is not in the viewing market of the game\r\nAND the game level entitledVideo equals true in MAST EPGv3\r\nAND the game level blackedOutVideo equals false in MAST EPGv3",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "75af32a2-b6b9-430f-8db0-abccb7c2b194",
+      "action": "WHEN a user selects a scheduled/in-progress game tile",
+      "data": "",
+      "result": "THEN the user will see feed buttons for both teams\r\nAND the user can playback feeds for both teams"
+    }
+  ]
+}

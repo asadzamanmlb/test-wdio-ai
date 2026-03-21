@@ -1,0 +1,20 @@
+{
+  "id": "WQ-358",
+  "issueId": "1127670",
+  "key": "WQ-358",
+  "summary": "Dismiss Feed Picker",
+  "description": "GIVEN the subscriber is entitled for LIVE game playback\r\nAND the subscriber is logged in\r\nAND a game is live in the Games carousel on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "69fca9e7-3098-47d3-aaec-10e72783b1a9",
+      "action": "WHEN the user land on mlb.com",
+      "data": "",
+      "result": "THEN the feed picker should be dismissed\r\nAND focus should return to the previously selected game tile"
+    }
+  ]
+}

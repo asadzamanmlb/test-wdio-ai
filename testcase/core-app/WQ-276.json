@@ -1,0 +1,20 @@
+{
+  "id": "WQ-276",
+  "issueId": "1127588",
+  "key": "WQ-276",
+  "summary": "Non-Favorite team game is live - blacked out",
+  "description": "GIVEN a game that doesn't contain a user's favorite team is in progress\r\nAND all other games are in a preview/schedule or final state\r\nAND the user is blacked out of the in progress game (game level blackedOutVideo = true)\r\nAND the in progress game is in the Hero",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "fe936168-13a5-4345-b054-371e97086bea",
+      "action": "WHEN the user views the in progress game in the Hero",
+      "data": "",
+      "result": "THEN a background image related to the home team is displayed in the hero\r\nAND the blackout pill displays above the matchup, to the right of the live pill\r\nAND the away team logo and away team name are displayed in the Hero\r\nAND the home team logo and home team name are displayed in the Hero\r\nAND the \"Watch Now\" button does not display"
+    }
+  ]
+}

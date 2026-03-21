@@ -1,0 +1,20 @@
+{
+  "id": "WQ-402",
+  "issueId": "1127714",
+  "key": "WQ-402",
+  "summary": "SNY 24/7 feed playback",
+  "description": "GIVEN a user has entitlements for SNY\r\nAND the user launches the MLB.TV app\r\nAND the user logs in\r\n\r\n**NOTE:** SNY entitlement = SNY_121",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "834081e4-7832-46d2-bda4-90ee21ea472c",
+      "action": "WHEN the user selects the [SNY] button in the header\nAND selects the Featured Image in the Hero",
+      "data": "",
+      "result": "THEN initPlaybackSession is called via a graphql network call\nAND the SNY 24/7 linear feed plays back successfully\nAND the video title displays left justified above the scrubber bar"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1069",
+  "issueId": "1128399",
+  "key": "WQ-1069",
+  "summary": "Create Free MLB.TV account - Opt in/out emails",
+  "description": "GIVEN the user is not logged in\r\nAND the user selects the \"Get MLB.TV\" tab in the header\r\nAND the user selects the [Create Free Account] button on the Welcome page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ea932977-b46e-4c48-869f-c874c00cba8e",
+      "action": "WHEN the user toggles the email opt-in/out check box",
+      "data": "",
+      "result": "THEN the check box gains focus\r\nAND the check box background is translucent white\r\nAND the check box border is white\r\nAND a check mark appears/disappears in the check box"
+    }
+  ]
+}

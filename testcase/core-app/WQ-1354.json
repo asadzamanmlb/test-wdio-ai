@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1354",
+  "issueId": "1128691",
+  "key": "WQ-1354",
+  "summary": "Game Tile Final AppleTV+",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND the user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f26f7f0e-3718-4966-80c4-be3d6b4ae119",
+      "action": "WHEN focus is assigned to an archive AppleTV+ game tile",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Game <x> of <y>, <away_team>, <away_team>, <away_team_runs> Runs, <home_team>, <home_team_runs> Runs, <away_team>, <away_team_wins> Wins, <away_team_losses> Losses, <home_team>, <home_team_wins> Wins, <home_team_losses> Losses, FINAL, Winning Pitcher <pitcher>, <pitcher_innings_pitched> Innings Pitched, <pitcher_ERA> Earned Run Average, Losing Pitcher <pitcher>, <pitcher_innings_pitched> Innings Pitched, <pitcher_ERA> Earned Run Average. Press select to play game. Move <appropriate_directions> to hear more games. Move up to navigate to a new date.\""
+    }
+  ]
+}

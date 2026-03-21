@@ -1,0 +1,20 @@
+{
+  "id": "WQ-294",
+  "issueId": "1127606",
+  "key": "WQ-294",
+  "summary": "MLBN MVPD - Authorized",
+  "description": "GIVEN a Postseason game is on the schedule\r\nAND MLBN broadcasters are assigned\r\nAND the user's location is in the USA\r\nAND a user is authorized for MLBN MVPD\r\nAND the game level entitledVideo = true\r\nAND the feed level mlbnAuthRequired = true",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c565cff7-cf06-4ac0-8ee8-358ea4714e2a",
+      "action": "WHEN the Postseason game with MLBN broadcasters is present in the Hero",
+      "data": "",
+      "result": "THEN the MVPD pill does not display above the Hero title / game match up\r\nAND MVPD text does not display below the Hero title / game match up\r\nAND playback is achieved after selecting the \"Watch Live\" button"
+    }
+  ]
+}

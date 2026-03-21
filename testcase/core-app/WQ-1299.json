@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1299",
+  "issueId": "1128636",
+  "key": "WQ-1299",
+  "summary": "MVPD",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND an MVPD Required game is on the schedule",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "788bfce1-5d92-4d59-9336-894c56021c92",
+      "action": "WHEN the user selects a game tile with an MVPD Required pill",
+      "data": "",
+      "result": "THEN the Feed Modal displays\r\nAND the following statement is spoken, \"<away_team> @ <home_team>, <body_text>, Press back to dismiss.\""
+    }
+  ]
+}

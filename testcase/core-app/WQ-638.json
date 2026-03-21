@@ -1,0 +1,20 @@
+{
+  "id": "WQ-638",
+  "issueId": "1127965",
+  "key": "WQ-638",
+  "summary": "RW Pill - Live - Hide Spoilers ON",
+  "description": "GIVEN Hide Spoilers is ON\r\nAND a user is playing a live game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "dffb6388-3371-447e-a8cb-b239ab43e3fe",
+      "action": "WHEN the user engages rewind",
+      "data": "",
+      "result": "THEN the video is paused\r\nAND the scrubber displays\r\nAND a pill displays centered above the playhead\r\nAND the pill contains the away team logo on the left side of the pill\r\nAND the pill contains the home team logo on the right side of the pill\r\nAND the respective score is NOT displayed in the center of the pill\r\nAND above the pill the elapsed time at the playhead will display\r\nAND below the scrubber bar the RW multiplier is displayed with two arrows pointing the the left"
+    }
+  ]
+}

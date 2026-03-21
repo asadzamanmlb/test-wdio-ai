@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1268",
+  "issueId": "1128605",
+  "key": "WQ-1268",
+  "summary": "Game Tile Live Blacked Out Hide Spoilers ON",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND Hide Spoilers is turned ON\r\nAND a Blacked Out Live game is on the schedule\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "df6af8a9-6ff5-4e4c-b4e6-8f86dca9fed8",
+      "action": "WHEN focus is assigned to a Blacked Out Live game in the Hero",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Live, Blacked Out, <away_team> at <home_team>. Press select to play game. Move down to browse more content.\""
+    }
+  ]
+}

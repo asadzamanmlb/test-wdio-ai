@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1072",
+  "issueId": "1128402",
+  "key": "WQ-1072",
+  "summary": "Create Account Failure - Invalid Password - Bad Format",
+  "description": "GIVEN the user is not logged in\r\nAND the user selects the \"Get MLB.TV\" tab in the header\r\nAND the user selects the [Create Free Account] button on the Welcome page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ca074bb6-1da3-4386-bff1-f6459756f3be",
+      "action": "WHEN the user enters a valid format email address in the \"Email Address\" field\r\nAND the user enters a valid password length with only lower-case letters in the \"Password\" field\r\nOR the user enters a valid password length with only upper-case letters in the \"Password\" field\r\nOR the user enters a valid password length with only numbers in the \"Password\" field\r\nOR the user enters a valid password length with only lower-case letters and a number in the \"Password\" field\r\nOR the user enters a valid password length with only upper-case letters and a number in the \"Password\" field\r\nAND the user selects the [Create Account] button",
+      "data": "",
+      "result": "THEN \"Use 8-15 characters with one uppercase letter, one lowercase letter and one number.\" displays directly below the password field"
+    }
+  ]
+}

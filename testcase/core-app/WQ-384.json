@@ -1,0 +1,20 @@
+{
+  "id": "WQ-384",
+  "issueId": "1127696",
+  "key": "WQ-384",
+  "summary": "Assign Focus - Watch Now button to first carousel",
+  "description": "GIVEN a subscriber is entitled for video playback\r\nAND playable content is present in the hero\r\nAND focus is on the \"Watch Now\" button in the hero",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "afd1ed57-0f43-47dc-8dcc-5bfbbec5ed6d",
+      "action": "WHEN the user presses the down arrow on the controller",
+      "data": "",
+      "result": "THEN focus is indicated with a white border around the tile\r\nAND focus is assigned to the first carousel\r\nAND focus is assigned to the furthest left full tile in the carousel"
+    }
+  ]
+}

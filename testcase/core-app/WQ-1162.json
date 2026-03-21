@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1162",
+  "issueId": "1128497",
+  "key": "WQ-1162",
+  "summary": "Terms of Service and Privacy Policy",
+  "description": "GIVEN a user is on the Settings page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "20e1dc51-979f-42d2-b58f-afe175cfa4da",
+      "action": "WHEN \"Terms of Service and Privacy Policy\" has focus",
+      "data": "",
+      "result": "THEN the following text appears on the left side of the screen, \r\n\"MLB’s Terms of Service and policies, including Privacy Policy, apply. \r\n\r\nPlease visit mlb.com/tou for Terms of Service. \r\n\r\nPlease visit mlb.com/privacy for Privacy Policy.\r\n\r\nPlease visit mlb.com/do-not-sell-or-share-my-personal-data to opt out of targeted advertising and tracking.\""
+    }
+  ]
+}

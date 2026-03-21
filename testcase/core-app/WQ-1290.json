@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1290",
+  "issueId": "1128627",
+  "key": "WQ-1290",
+  "summary": "TTS | SNY VOD Tile",
+  "description": "GIVEN a user has entitlements for SNY\r\nAND the user launches the MLB.TV app\r\nAND the user has TTS enabled\r\nAND the user logs in\r\nAND the user is on the SNY page\r\n\r\n**NOTE:** SNY entitlement = SNY_121",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "795334b1-4040-4dc2-ae68-4a4558a1ba9e",
+      "action": "WHEN focus is assigned to a VOD tile in a carousel",
+      "data": "",
+      "result": "The following statement is spoken, \"In the <carousel_name> <content_title>, <content_description>, <content_length>, press select to play, X of Y items in the carousel, press <appropriate_directions> to view other videos in the carousel, press up or down to browse more content\"\r\n\r\n**NOTE:** If there is no content below, “press down for more content” should not be spoken"
+    }
+  ]
+}

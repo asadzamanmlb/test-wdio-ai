@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1155",
+  "issueId": "1128490",
+  "key": "WQ-1155",
+  "summary": "Following Teams - Navigation/Focus",
+  "description": "GIVEN the MLB app is launched",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e0dafc8d-d6a8-4eb9-b806-d4cd794700dd",
+      "action": "WHEN the user is on the Following Teams page\r\nAND the user presses the up/down/left/right directional buttons on the controller\r\nOR the users moves the left analog stick up/down/left/right",
+      "data": "",
+      "result": "THEN focus is indicated with a white border around the team tiles\r\nOR focus is indicated with a white background with black text for buttons\r\nAND focus is assigned to the top left most team tile (Arizona Diamondbacks), on page load\r\nAND focus moves in relation to the user's input on the controller\r\nAND focus does not leave the first row if the user attempts to navigate up, beyond the first row\r\nAND focus does not leave the right column if the user attempts to navigate right, beyond the right column\r\nAND focus does not leave the last row if the user attempts to navigate down, beyond the last row\r\nAND focus moves to the \"Done\"/\"Next\" button if the user navigates left from any tile in the left column\r\nAND focus moves to the previously focused tile if the user navigates right from the \"Done\"/\"Next\" button\r\nAND focus moves to the \"Cancel\"/\"Skip\" button if the user navigates left from the \"Done\"/\"Next\" button \r\nAND focus moves to the \"Done\"/\"Next\" button if the user navigates right from the \"Cancel\"/\"Skip\" button\r\nAND focus does not move from the \"Cancel\"/\"Skip\" button if the user attempts to navigate further to the right\r\nAND focus does not move from the \"Cancel\"/\"Skip\" button if the user attempts to navigate up or down\r\nAND focus does not move from the \"Done\"/\"Next\" button if the user attempts to navigate up or down\r\n\r\n**NOTE:** \r\n\"Cancel\" and \"Done\" will display in the buttons if the Following Teams page is loaded from the Settings page. \r\n\"Skip\" and \"Next\" will display in the buttons if the Following Teams page is loaded as part of the onboarding flow."
+    }
+  ]
+}

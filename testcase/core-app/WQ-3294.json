@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3294",
+  "issueId": "1226805",
+  "key": "WQ-3294",
+  "summary": "Live Game state \"PERFECT\"",
+  "description": "GIVEN a subscriber is on the Games or Home page\r\nAND Hide Spoilers is set to OFF",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "de4d224c-ff5f-485e-9a08-857f7d57c8f8",
+      "action": "WHEN a live game has a pitcher who has not allowed any opposing batter to reach base for any reason (hit/walk/error) and the game has reached the 6th inning",
+      "data": "!xray-attachment://2afa11aa-65be-467b-a939-f81776d5f0c8|width=414,height=1002!",
+      "result": "THEN a Blue ‘PERFECT GAME’ badge is displayed on the game badge (expanded & hero only) - not present in mini state"
+    }
+  ]
+}

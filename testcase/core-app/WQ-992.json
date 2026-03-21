@@ -1,0 +1,20 @@
+{
+  "id": "WQ-992",
+  "issueId": "1128321",
+  "key": "WQ-992",
+  "summary": "Unable to load Schedule data - Reset Failure",
+  "description": "GIVEN the MLB app is open\r\nAND the 'No Games' error screen is displayed\r\nAND the user has already selected the [Okay] button 3x\r\nAND the mastapi request is blocked",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e91effb8-6e2d-40f9-9145-af9876ced5a4",
+      "action": "WHEN a user selects the [Reset] button",
+      "data": "",
+      "result": "THEN the error screen is dismissed\r\nAND a black screen with a spinning baseball is displayed to indicate loading\r\nAND the 'No Games' error screen is displayed again"
+    }
+  ]
+}

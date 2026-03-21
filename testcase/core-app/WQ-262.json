@@ -1,0 +1,20 @@
+{
+  "id": "WQ-262",
+  "issueId": "1127574",
+  "key": "WQ-262",
+  "summary": "Favorite team game is pre-game - blacked out",
+  "description": "GIVEN a user is entitled for live game playback\r\nAND the user's favorite team game is displaying in the Hero\r\nAND the user's location is in the viewing market of the game\r\nAND the game is not a partner game (AppleTV+, Peacock, etc.)\r\nAND the game is pre-game/scheduled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b7e6936e-ffcd-4ca6-8aa9-cf68c266dcc9",
+      "action": "WHEN the user is on the Home page",
+      "data": "",
+      "result": "THEN a background image related to the home team is displayed in the hero \r\nAND the away team logo and away team name are displayed in the Hero\r\nAND the home team logo and home team name are displayed in the Hero\r\nAND a blue pill displays left justified above the away team logo\r\nAND the scheduled game time displays in the user's local timezone\r\nAND a \"BLACKOUT\" pill is displayed left justified above the away team\r\nAND the \"Watch Now\" button does not display if the user is blacked out"
+    }
+  ]
+}

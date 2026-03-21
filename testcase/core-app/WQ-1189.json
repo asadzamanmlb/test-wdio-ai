@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1189",
+  "issueId": "1128526",
+  "key": "WQ-1189",
+  "summary": "TTS | Focus on Cancel button",
+  "description": "GIVEN an unauthenticated user is on the Login Page\r\nAND the user has TTS Enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9ed3add2-bb9d-4a34-8c92-37dea76c11e6",
+      "action": "WHEN the user focuses on the Cancel button",
+      "data": "",
+      "result": "THEN the app reads \"Press select to cancel login and return to your previous screen. Press left to log in. Press up to update password.”"
+    }
+  ]
+}

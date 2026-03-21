@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1446",
+  "issueId": "1128783",
+  "key": "WQ-1446",
+  "summary": "Create Free Account button",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is not logged in\r\nAND the user is on the Welcome page\r\nAND focus is not on the \"Create Free Account\" button",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ccd03e9d-e47d-4294-802a-548da419c882",
+      "action": "WHEN the user assigns focus to the \"Create Free Account\" button",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Click to create a free account. Press or scroll down to hear the next option.\""
+    }
+  ]
+}

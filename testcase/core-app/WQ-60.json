@@ -1,0 +1,20 @@
+{
+  "id": "WQ-60",
+  "issueId": "1127072",
+  "key": "WQ-60",
+  "summary": "Mid-Roll Ads appear during Archive Game Feeds",
+  "description": "GIVEN a user is entitled to play an archive game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "06e702ce-51e5-4f83-8790-f186ceef49be",
+      "action": "WHEN a user plays an archive game",
+      "data": "",
+      "result": "THEN mid-roll ads are played during commercial breaks\r\nAND mid-roll ads do not play during the game outside the commercial breaks"
+    }
+  ]
+}

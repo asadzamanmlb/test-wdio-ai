@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1696",
+  "issueId": "1129113",
+  "key": "WQ-1696",
+  "summary": "No broadcast start milestone Resume bookmark Start from the beginning - Hide Spoilers OFF",
+  "description": "GIVEN a user is entitled for live game playback\nAND Hide Spoilers is set to OFF\nAND a stream is mediaState=MEDIA_ON before the start of the game broadcast\nAND a resume bookmark is saved before the game broadcast start",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4a71118f-e775-4783-b83e-2d5e8797eb93",
+      "action": "WHEN the user selects a team video feed/stream\nAND the user selects the \"Start From The Beginning\" button",
+      "data": "",
+      "result": "THEN Playback starts at the beginning of the stream\nAND the scrubber playhead is at the furthest left position on the scrubber bar\nAND the elapsed time in the scrubber starts at 00:00"
+    }
+  ]
+}

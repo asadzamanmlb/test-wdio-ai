@@ -1,0 +1,20 @@
+{
+  "id": "WQ-963",
+  "issueId": "1128292",
+  "key": "WQ-963",
+  "summary": "Warmup",
+  "description": "GIVEN a live game has a statusCode of \"PW\"",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0da9ac04-74a9-46ef-b1e8-eeccaccf7267",
+      "action": "WHEN a user views game tiles for a live game with a statusCode of \"PW\"",
+      "data": "",
+      "result": "THEN \"WARMUP\" is displayed in white text directly to the right of the red \"LIVE\" pill below the game tile header"
+    }
+  ]
+}

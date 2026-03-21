@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1102",
+  "issueId": "1128432",
+  "key": "WQ-1102",
+  "summary": "Yearly/Monthly Toggle",
+  "description": "GIVEN at least 1 yearly subscription package is set up in the Paywall Config tool\r\nAND at lease 1 monthly subscription package is set up in the Paywall Config tool\r\nAND the user is not logged in",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "534bd988-e470-4916-803a-b767c03f87cf",
+      "action": "WHEN the user navigates to the \"Welcome\" page by clicking \"Get MLB.TV\" in the header\r\nAND the user selects the \"Browse Subscriptions\" button",
+      "data": "",
+      "result": "THEN a Yearly/Monthly toggle is displayed left justified above the left most tile\r\nAND Yearly is displayed with a light gray button/pill background color\r\nAND Monthly is displayed with a dark gray button/pill background color\r\nAND focus is assigned to the left most tile\r\nAND only Yearly packages are displayed\r\nAND after toggling from Yearly to Monthly, only Monthly packages are displayed"
+    }
+  ]
+}

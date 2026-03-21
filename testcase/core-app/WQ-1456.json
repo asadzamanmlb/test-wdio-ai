@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1456",
+  "issueId": "1128793",
+  "key": "WQ-1456",
+  "summary": "Package tile",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is not logged in\r\nAND the user is on the Browse Subscriptions page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6f224d32-7020-43f8-a1cb-2146bb5069ee",
+      "action": "WHEN the user assigns focus to a package tile",
+      "data": "",
+      "result": "THEN the following statement should be spoken, \"The <package_name> has a <tag_name> badge. The <package_name> package costs <$> per <period>. The package description reads <package_description>. Click to purchase or scroll to the right to hear information about other available packages.\"\r\n\r\n**NOTE:** The \"The <package_name> has a <tag_name> badge.\" statement is conditional on if a badge is applied to the package tile or not."
+    }
+  ]
+}

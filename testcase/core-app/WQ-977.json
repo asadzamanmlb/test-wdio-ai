@@ -1,0 +1,20 @@
+{
+  "id": "WQ-977",
+  "issueId": "1128306",
+  "key": "WQ-977",
+  "summary": "Live Game Focused",
+  "description": "GIVEN a game is live/in-progress\r\nAND Hide Spoilers is set to OFF",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "59c435d7-aa9b-411b-919f-f41279c3962d",
+      "action": "WHEN a user views a game tile in a focused state",
+      "data": "",
+      "result": "THEN the tile background is white\nAND the text is black (player position and stats, and \"Broadcast Networks\" will be in gray text)\nAND a red \"LIVE\" badge is displayed in the upper left corner of the game tile\nAND the inning, base runners paw print, batter count, number of outs is displayed in the upper right corner of the game tile\nAND the away team logo with team name displays left justified below the \"LIVE\" badge\nAND the home team logo with team name displays left justified below the away team\nAND the team runs scored are displayed right justified in-line with the respective teams\nAND the current batter headshot with last name, position, and stats is displayed left justified below \"CURRENT AT BAT\"\nAND the current pitcher's headshot with last name, position, and stats is displayed to the right of the current batter\nAND the available \"Broadcast Networks\" displays below the batter/pitcher matchup"
+    }
+  ]
+}

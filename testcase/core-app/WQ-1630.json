@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1630",
+  "issueId": "1129047",
+  "key": "WQ-1630",
+  "summary": "Live playback from Gameday (currently N/A)",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "59150c5c-e1b9-4b2d-9e99-49a1c2509ba1",
+      "action": "WHEN",
+      "data": "",
+      "result": "Users can launch a live stream from Gameday"
+    }
+  ]
+}

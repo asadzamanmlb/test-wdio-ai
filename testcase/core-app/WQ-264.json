@@ -1,0 +1,20 @@
+{
+  "id": "WQ-264",
+  "issueId": "1127576",
+  "key": "WQ-264",
+  "summary": "Favorite team game is live - game not entitled free subscriber",
+  "description": "GIVEN a user is not entitled for live game playback (free subscriber)\r\nAND a game with the user's favorite team is present in the hero\r\nAND the game is in a preview/live state",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "dd2add6a-aec1-42fe-b7e2-fe22dd3fe6cd",
+      "action": "WHEN a user loads the Home page",
+      "data": "",
+      "result": "THEN a background image related to the home team is displayed in the hero\r\nAND a red pill with white \"LIVE\" text displays above the away team logo\r\nAND the away team logo displays and away team name are displayed\r\nAND the home team logo and home team name are displayed in the Hero\r\nAND the \"Watch Live\" button is white with black text\r\nAND the \"Watch Live\" button has focus when the Home page loads\r\nAND a lock icon displays in the \"Watch Live\" button \r\nAND the user lands on the paywall/subscriptions page after selecting the \"Watch Live\" button w/ a lock icon"
+    }
+  ]
+}

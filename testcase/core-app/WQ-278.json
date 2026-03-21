@@ -1,0 +1,20 @@
+{
+  "id": "WQ-278",
+  "issueId": "1127590",
+  "key": "WQ-278",
+  "summary": "AppleTV+",
+  "description": "GIVEN a user's favorite team is playing in an AppleTV+ game\r\nAND the user does not have the EXEC entitlement",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "22526973-4cf3-4816-a84e-741b0d5642c1",
+      "action": "WHEN an AppleTV+ game is present in the Hero",
+      "data": "",
+      "result": "THEN a white circle icon with the AppleTV+ logo displays to the right of the blue game time pill above the away team \r\nOR a white circle icon with the AppleTV+ logo displays to the right of the LIVE badge above the away team\r\nAND the text \"Watch on AppleTV+\" displays to the right of the AppleTV+ logo above the away team\r\nAND AppleTV+ messaging is displayed in the feed select modal after selecting the \"Watch Now\"/\"Watch Live\" button\r\nAND the user is unable to playback the video feed"
+    }
+  ]
+}

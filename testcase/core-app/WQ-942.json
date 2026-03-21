@@ -1,0 +1,20 @@
+{
+  "id": "WQ-942",
+  "issueId": "1128271",
+  "key": "WQ-942",
+  "summary": "Final Game state - Completed Early",
+  "description": "GIVEN a subscriber is on the Games page\r\nAND Hide Spoilers is set to OFF",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "56913475-f6b3-45ee-b3dc-bb36317b7a83",
+      "action": "WHEN a completed game has any of the following statusCode values: FR,FS,FG,FV,FF,FC,FD,FB,FP,FL,FE,FA,FO,FI,OM,OR,OS,OG,OV,OF,OC,OD,OB,OP,OL,OE,OA,OO,OI",
+      "data": "",
+      "result": "THEN 'FINAL/<inning #>' is displayed in white text left justified below the match-up header"
+    }
+  ]
+}

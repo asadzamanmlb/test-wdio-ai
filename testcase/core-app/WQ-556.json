@@ -1,0 +1,20 @@
+{
+  "id": "WQ-556",
+  "issueId": "1127882",
+  "key": "WQ-556",
+  "summary": "Toggle CC On",
+  "description": "GIVEN Closed Captions are turned \"Off\" on the Settings page\r\nAND the user is entitled to VOD/SVOD/Slive/Flive video playback",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "10fe2bad-770b-4227-b41c-b6f36eea9f6a",
+      "action": "WHEN the user selects the CC button in the scrubber",
+      "data": "",
+      "result": "THEN Closed Captioning displays during video playback\r\nAND the Closed Captioning value on the Settings page displays \"On\""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1392",
+  "issueId": "1128729",
+  "key": "WQ-1392",
+  "summary": "TTS | Navigation options bottom middle",
+  "description": "GIVEN TTS is enabled\r\nAND the user is on the Favorite Team page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "bcfbd7af-402d-48f9-b795-6079076dd2b2",
+      "action": "WHEN the user scrolls to highlight the Toronto Blue Jays",
+      "data": "",
+      "result": "THEN the app should say 'The {selected team} is highlighted. Press select to save this team as your favorite team. Move left, right, or up to hear additional teams to favorite.'"
+    }
+  ]
+}

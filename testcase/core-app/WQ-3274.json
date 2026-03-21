@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3274",
+  "issueId": "1224623",
+  "key": "WQ-3274",
+  "summary": "Today's Lineup Carousel Animation",
+  "description": "GIVEN a yearly subscriber is logged in\nAND there are games scheduled on today's date\nAND featured forge content is published\nAND the user is on the Home page\n\n*NOTE:* Figma designs for reference - [https://www.figma.com/design/rGAWoDJL0fx7RTxv0er9U5/MLB.TV-Connected-Device-Developer-Spec?node-id=241-103414&m=dev|https://www.figma.com/design/rGAWoDJL0fx7RTxv0er9U5/MLB.TV-Connected-Device-Developer-Spec?node-id=241-103414&m=dev|smart-link] ",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "fa005dfe-7d52-4a4e-b8f1-43e05e71bcca",
+      "action": "WHEN the user navigates to the \"Today’s Lineup\" carousel\nAND the user navigates away from the \"Today’s Lineup\" carousel",
+      "data": "",
+      "result": "THEN all the tiles in the carousel transition from mini tiles to expanded tiles once focus is assigned to the carousel\nAND the carousels below the Today’s Lineup carousel are moved down to make room for the expanded tiles in the Today’s Lineup\nAND all the tiles in the carousel transition from expanded tiles to mini tiles once focus moves away from the carousel\nAND the carousels below the Today’s Lineup carousel are moved back up once the Today’s Lineup tiles transition back to mini tiles"
+    }
+  ]
+}

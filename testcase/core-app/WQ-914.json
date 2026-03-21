@@ -1,0 +1,20 @@
+{
+  "id": "WQ-914",
+  "issueId": "1128243",
+  "key": "WQ-914",
+  "summary": "Anonymous user Free Game of the Day archive - Feed Select",
+  "description": "GIVEN a user is anonymous",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b1d7b2a0-2088-4f3b-9f42-733a880a60a5",
+      "action": "WHEN the user selects the game tile for an archived Free Game of the Day",
+      "data": "",
+      "result": "THEN the following title text is displayed, \"Free Game of the Day\" (subject to change via Content Restrictions)\nAND the following description text is displayed, \"Login or register with a free MLB account to watch the free game of the day.\" (subject to change via Content Restrictions)\nAND the following title text is displayed, \"Full Game Access\"\nAND a [Subscribe] button is displayed below \"Full Game Access\"\nAND the user is navigated to the Subscriptions/Paywall page if they select one of the feed buttons\nAND the user is navigated back to the previous page after pressing the \"back\" button on the controller"
+    }
+  ]
+}

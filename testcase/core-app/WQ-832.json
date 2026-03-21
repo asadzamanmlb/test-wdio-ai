@@ -1,0 +1,20 @@
+{
+  "id": "WQ-832",
+  "issueId": "1128160",
+  "key": "WQ-832",
+  "summary": "Anonymous user AppleTV+ scheduled/live - Game Tile",
+  "description": "GIVEN the user is anonymous\r\nAND there is a AppleTV+ Game scheduled/in-progress\r\nAND the game level blackedOutVideo equals true in MASTepg\r\nAND the game level entitledVideo equals false in MASTepg",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8ce422dc-ef24-48e1-89cc-baa55455bd2d",
+      "action": "WHEN the user views the AppleTV+ game tile focused or unfocused",
+      "data": "",
+      "result": "THEN the AppleTV+ pill is displayed left aligned at the bottom of the game tile\r\nAND a lock icon is displayed in the upper right corner of the game tile\r\nAND the team colors in the matchup header have a dark overlay"
+    }
+  ]
+}

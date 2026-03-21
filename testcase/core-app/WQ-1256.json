@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1256",
+  "issueId": "1128593",
+  "key": "WQ-1256",
+  "summary": "SVOD Tile Not Entitled",
+  "description": "GIVEN TTS is turned ON\r\nAND a free user is logged in\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3ad97c4b-646a-41c7-bf71-66dc35d193e4",
+      "action": "WHEN focus is assigned to an SVOD tile",
+      "data": "",
+      "result": "The following statement is spoken, \"<content_title>, <content_description>, <content_length>, Not Entitled, X of Y items in the carousel, press <appropriate_directions> to view other videos in the carousel, press up or down to browse more content\""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1491",
+  "issueId": "1128828",
+  "key": "WQ-1491",
+  "summary": "Live/Archive | Inning Announcement while Fast Forwarding",
+  "description": "GIVEN the user is watching a Live Game or Archive Game\r\nAND TTS is enabled \r\nAND the the user is Fast Forwarding",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9912dcf1-d904-48bc-bfc5-8c35ab7e4b66",
+      "action": "WHEN the user passes an inning marker while Fast Forwarding",
+      "data": "",
+      "result": "THEN the user will hear: “Bottom of second”, “Top of third” etc."
+    }
+  ]
+}

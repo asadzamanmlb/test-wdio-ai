@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1584",
+  "issueId": "1128990",
+  "key": "WQ-1584",
+  "summary": "Directional Buttons Press Test - PS5",
+  "description": "GIVEN I have paired the PS 5 Controller to the PS 5 Console\r\n\r\nRefer manual for more info- https://manuals.plus/playstation/ps5-dual-sense-wireless-controller-manual",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e43a5d35-70ee-4290-b8d8-bb3d4154c194",
+      "action": "WHEN I Press the Directional Button (A) Up\r\nAND I Press the Directional Button (A) Down\r\nAND I Press the Directional Button (A) Left\r\nAND I Press the Directional Button (A) Right",
+      "data": "",
+      "result": "THEN I should notice that the Directional Button (A) move Up\r\nTHEN I should notice that the Directional Button (A) move Down\r\nTHEN I should notice that the Directional Button (A) move Left\r\nTHEN I should notice that the Directional Button (A) move Right"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1250",
+  "issueId": "1128587",
+  "key": "WQ-1250",
+  "summary": "Live Featured Content Entitled",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND the user is on the Home page\r\nAND Live Featured content is in the Games carousel\r\nAND the user is Entitled to the Live Featured content\r\n\r\n*NOTE: Live Featured Content = SLive, FLive, MLBN*",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8dae7880-3bf6-416d-b8ba-3bf2d57ba222",
+      "action": "WHEN focus is assigned to Live Featured Content in the Games Carousel",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Live, <content_title>, <content_description>, Press select to play. Move <appropriate_directions> to navigate to a new item. Move up or down to browse new content.\""
+    }
+  ]
+}

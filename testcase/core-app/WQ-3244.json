@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3244",
+  "issueId": "1218573",
+  "key": "WQ-3244",
+  "summary": "Publica API - Failed calls during stream playback does not result in video error - Live game",
+  "description": "GIVEN an International user is logged in\nAND the user selects a Live in-progress game for playback",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a28a00de-127e-4f6c-8c38-90aae383881a",
+      "action": "WHEN the user has initiated playback of a Live game\nAND an ad break occurs\nAND network calls to \"[pbs.getpublicac.om|http://pbs.getpublicac.om]\" are blocked\nOR network calls to \"[pbs.getpublica.com|http://pbs.getpublica.com]\" are failing",
+      "data": "",
+      "result": "THEN the stream continues playback with no video error modal popping up\nAND ads playback during the ad break"
+    }
+  ]
+}

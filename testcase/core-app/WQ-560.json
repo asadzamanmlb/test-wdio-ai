@@ -1,0 +1,20 @@
+{
+  "id": "WQ-560",
+  "issueId": "1127886",
+  "key": "WQ-560",
+  "summary": "MLBN 24/7 Live Linear Jump to Live",
+  "description": "GIVEN a user is entitled for MLBN\nAND the user is logged in\nAND the user selects the MLBN 24/7 Live Linear stream to watch\nAND the playhead is behind the live point",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "dbb83604-9777-4476-a1f2-156019015b95",
+      "action": "WHEN the scrubber is displayed\r\nAND the user selects the \"Jump to Live\" button",
+      "data": "",
+      "result": "THEN playback moves to the live point\r\nAND the playhead is all the way to the right on the scrubber\r\nAND the entire scrubber bar is blue\r\nAND a red Live indicator is displayed\r\nAND the \"Jump to Live\" button does not display\r\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

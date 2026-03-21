@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1414",
+  "issueId": "1128751",
+  "key": "WQ-1414",
+  "summary": "TTS | Navigation options in the middle left when no follow team is set",
+  "description": "GIVEN TTS is enabled\r\nAND the user is on the Following Teams page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4c420413-230e-4dc7-bd9c-348c7db625a4",
+      "action": "WHEN the user navigates to one of the following: BAL, CWS, COL, KC, MIA, NYM, PIT, SF",
+      "data": "",
+      "result": "THEN the app should say 'The [focused_team] is highlighted. Press select to save this team as your follow team. Move right, up, or down to hear additional teams to follow. Move left to highlight the “Cancel” button.'"
+    }
+  ]
+}

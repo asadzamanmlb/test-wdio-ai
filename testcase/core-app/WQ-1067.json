@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1067",
+  "issueId": "1128397",
+  "key": "WQ-1067",
+  "summary": "Express Log In Code Update - App background",
+  "description": "GIVEN the user is not logged in\r\nAND the user is on the Log In page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "93158ef0-5b01-4c54-87f4-e51e01559315",
+      "action": "WHEN the user backgrounds the app over night\r\nAND re-opens the app the next day",
+      "data": "",
+      "result": "THEN the displayed activation code is updated"
+    }
+  ]
+}

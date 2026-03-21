@@ -1,0 +1,20 @@
+{
+  "id": "WQ-585",
+  "issueId": "1127911",
+  "key": "WQ-585",
+  "summary": "SVOD Pause",
+  "description": "GIVEN a user has SUBSCRIBERVOD entitlement\r\nAND the user selects an SVOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ec017312-2e7e-4232-9447-2fe526931bb6",
+      "action": "WHEN the user presses the \"X\" button on the controller\r\nAND the user presses the \"X\" button again after a few moments",
+      "data": "",
+      "result": "THEN video playback pauses after the first button press\r\nAND the scrubber displays for 10 seconds before auto-dismissing\r\nAND video playback resumes after the second button press\r\nAND the scrubber displays for 10 seconds before auto-dismissing\r\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

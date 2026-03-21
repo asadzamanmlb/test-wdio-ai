@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3321",
+  "issueId": "1231344",
+  "key": "WQ-3321",
+  "summary": "Display last game of the WS during the offseason",
+  "description": "GIVEN configs have been updated to load the date of the last World Series game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "dc443c83-71ae-4429-b148-ddb9f49ba0d2",
+      "action": "WHEN the user navigates to the Games page",
+      "data": "",
+      "result": "THEN the last World Series game is displayed\nAND the displayed date is that of the last World Series game"
+    }
+  ]
+}

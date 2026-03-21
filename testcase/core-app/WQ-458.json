@@ -1,0 +1,20 @@
+{
+  "id": "WQ-458",
+  "issueId": "1127784",
+  "key": "WQ-458",
+  "summary": "Cancel Fast Forward",
+  "description": "GIVEN a game feed is playing\nAND Fast Forward has been initiated",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "15361015-acd6-47ab-8880-3dd5a0546084",
+      "action": "WHEN a user presses the \"back\" button on the controller",
+      "data": "",
+      "result": "THEN Fast Forward is stopped\r\nAND the playback head moves back to the position before Fast Forward was initiated\r\nAND the video begins playback at the playback head position"
+    }
+  ]
+}

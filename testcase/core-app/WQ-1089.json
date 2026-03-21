@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1089",
+  "issueId": "1128419",
+  "key": "WQ-1089",
+  "summary": "Subscription Purchase Page - QR Code",
+  "description": "GIVEN the user is on the purchase page for a subscription package",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e049bbbb-03a5-4b8d-a9ed-7e719dfabc74",
+      "action": "WHEN the user scans the QR code on the screen with a mobile device",
+      "data": "",
+      "result": "THEN the user is navigated to the MLB Paywall on the mobile device\n\nAND the URL contains reference to the device the QR Code is displayed on"
+    }
+  ]
+}

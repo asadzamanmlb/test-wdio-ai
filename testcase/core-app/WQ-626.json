@@ -1,0 +1,20 @@
+{
+  "id": "WQ-626",
+  "issueId": "1127953",
+  "key": "WQ-626",
+  "summary": "Scrubber bar size based on focus",
+  "description": "GIVEN a user has initiated playback\r\n\r\n**NOTE:** check in games player and forge player",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ae9b0862-56a2-44dd-bd3b-cc191fe4753a",
+      "action": "WHEN the scrubber is displayed\r\nAND the user navigates up or down using the controller\r\n\r\n**NOTE:** Elements or features below the scrubber bar have not been implemented yet.",
+      "data": "",
+      "result": "THEN the scrubber bar decreases in width/thickness (up and down)\r\nAND the scrubber bar doesn't move its position up or down\r\nAND after focus is reassigned to the playback head, the scrubber bar increases in width/thickness (up and down)\r\nAND the scrubber bard doesn't move its position up or down\r\nAND the elements above the scrubber do not move/adjust up or down, regardless of scrubber focus state\r\nAND the elements below the scrubber do not move/adjust up or down, regardless of scrubber focus state"
+    }
+  ]
+}

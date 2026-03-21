@@ -1,0 +1,20 @@
+{
+  "id": "WQ-466",
+  "issueId": "1127792",
+  "key": "WQ-466",
+  "summary": "Stream Error - non-blackout error non-video error",
+  "description": "GIVEN a user is entitled to a video stream",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b422b9c3-ff8e-4036-9e90-1c3db5039198",
+      "action": "WHEN an error occurs at the start of, or during video playback\r\nAND the error is not a Blackout Error or a Video Error\r\n\r\n**NOTE:** Best way to trigger this type of error is to start playback of an archive game from the beginning. Initiate FF for a few seconds, initiate playback again, then immediately after initiating playback again, initiate FF again. A spinning baseball should appear and after ~30 seconds the video error modal should trigger.",
+      "data": "",
+      "result": "THEN the \"Video Error\" modal displays\r\nAND the text \"Please try again later.\" displays\r\nAND the user cannot dismiss the modal by pressing the [O]/CIRCLE button on the controller\r\nAND the user is navigated to the Games page after selecting the [Go Home] button\r\nAND focus is assigned to the previously selected game tile"
+    }
+  ]
+}

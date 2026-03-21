@@ -1,0 +1,20 @@
+{
+  "id": "WQ-935",
+  "issueId": "1128264",
+  "key": "WQ-935",
+  "summary": "Final Game state 'CANCELLED' Hide Spoilers ON",
+  "description": "GIVEN a subscriber is on the Games page\r\nAND Hide Spoilers is set to ON",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2108b0dc-3e1e-4064-9589-4b3fa715688a",
+      "action": "WHEN a completed game has any of the following statusCode values: CR,CS,CG,CV,CF,CC,CD,CB,CP,CL,CE,CA,CO,CI",
+      "data": "",
+      "result": "THEN 'CANCELLED' is not displayed in the game tile"
+    }
+  ]
+}

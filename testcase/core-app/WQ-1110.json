@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1110",
+  "issueId": "1128440",
+  "key": "WQ-1110",
+  "summary": "Home page to Get MLB.TV to Home page - Log In",
+  "description": "GIVEN an anonymous user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7faf4974-ad4c-461a-93b1-c40ba0957c6d",
+      "action": "WHEN the user selects the \"Get MLB.TV\" tab in the navigation header\r\nAND selects the \"Log In\" button/link on the Welcome page\r\nAND enters an email address and password for an existing subscriber\r\nAND selects the \"Log In\" button on the Log In page",
+      "data": "",
+      "result": "THEN the user is logged in successfully\r\nAND the user is navigated to the Home page\r\nAND focus is assigned to the \"Watch Now\" button in the Hero\r\n\r\n**NOTE:** If a \"Watch\" button is not present in the hero, focus will be assigned to the Home tab"
+    }
+  ]
+}

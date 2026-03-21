@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1086",
+  "issueId": "1128416",
+  "key": "WQ-1086",
+  "summary": "Paywall Subscription Package Carousel",
+  "description": "GIVEN a user is on the Paywall/Subscriptions page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "fc926e66-b1e4-49c3-ac74-a5c6641d064e",
+      "action": "WHEN the user navigates through the subscription package carousel",
+      "data": "",
+      "result": "THEN focus is indicated by a white border around the package tile\r\nAND if more than 3 subscription packages are returned from the service, the carousel scrolls to the left to focus on tiles 4 and above\r\nAND as the carousel scrolls, the package tiles peek from either side of the screen\r\nAND focus does not leave the carousel when the user attempts to navigate down"
+    }
+  ]
+}

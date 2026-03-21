@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1345",
+  "issueId": "1128682",
+  "key": "WQ-1345",
+  "summary": "Game Tile Live FGotD Hide Spoilers ON",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND Hide Spoilers is turned ON\r\nAND a Live FGotD game is on the schedule\r\nAND the user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "36914608-c55c-4679-86fb-ca658ee36379",
+      "action": "WHEN focus is assigned to a Live Free Game of the Day game tile",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Game <x> of <y>, <away_team> at <home_team>, Free Game of the Day. Press select to play game. Move <appropriate_directions> to hear more games. Move up to navigate to a new date.\""
+    }
+  ]
+}

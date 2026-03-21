@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1638",
+  "issueId": "1129055",
+  "key": "WQ-1638",
+  "summary": "Closed Captions",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "bfdca760-e704-4414-bb69-a970116f7a47",
+      "action": "WHEN",
+      "data": "",
+      "result": "Closed captions display properly when enabled in the video player for an extended amount of time"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3076",
+  "issueId": "1162018",
+  "key": "WQ-3076",
+  "summary": "MASN VOD RW Cancel",
+  "description": "GIVEN a logged in user is entitled for MASN RSN\nAND the user is on the MASN page\nAND the user selects a VOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ebd31680-19a0-4b85-8031-b0816f1a7bf8",
+      "action": "WHEN the user initiates Rewind\nAND presses the \"back\" button on the controller after a few moments",
+      "data": "",
+      "result": "THEN Rewind stops\nAND playback resumes at the point where Rewind was initiated\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

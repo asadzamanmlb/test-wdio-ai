@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1732",
+  "issueId": "1129149",
+  "key": "WQ-1732",
+  "summary": "Home video broadcast audio",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2a0cba44-f782-4b30-85fa-345c2393933c",
+      "action": "WHEN",
+      "data": "",
+      "result": "Home team's video player game stream is matched with home team's broadcast audio"
+    }
+  ]
+}

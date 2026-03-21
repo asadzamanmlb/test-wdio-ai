@@ -1,0 +1,20 @@
+{
+  "id": "WQ-675",
+  "issueId": "1128003",
+  "key": "WQ-675",
+  "summary": "Extra Innings subscriber FGotD archive - Feed Select",
+  "description": "Given the user is an Xtra Innings subscriber\r\nAND the FGotD is archived\r\nAND the FGotD is not in the subscribers viewing market",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9e8e5c88-ab0d-4d60-9027-8fd88cf59582",
+      "action": "WHEN a user selects the archived FGotD game tile",
+      "data": "",
+      "result": "THEN buttons for Recap and Condensed Game display center justified, above the team feeds\r\nAND the user will see feed buttons for both teams\r\nAND the user achieves playback after selecting each button"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "WQ-1171",
+  "issueId": "1128506",
+  "key": "WQ-1171",
+  "summary": "Environment switching",
+  "description": "GIVEN a user is on the Settings page\r\nAND the user has selected 'Dev Settings'",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "82d5ec41-7b83-4d5e-befa-14d3b6147bd7",
+      "action": "WHEN a user selects different Environment Settings",
+      "data": "",
+      "result": "THEN the app loads and functions as expected\nAND the appropriate environment data is displayed based upon config settings"
+    },
+    {
+      "id": "aa3949bc-4275-432c-8bf2-3920bc35b2e1",
+      "action": "WHEN a user selects dev",
+      "data": "",
+      "result": "THEN the app will reload and display the words *dev* in the {color:#bf2600}*RED*{color} Header, next to the left nav buttons in the header (Home, Games, MASN, SNLA, etc.)"
+    },
+    {
+      "id": "5c1c8ee1-1081-4599-b73c-61d9ab7a1333",
+      "action": "WHEN a user selects qa",
+      "data": "",
+      "result": "THEN the app will reload and display the words *qa* in the {color:#4c9aff}*Blue*{color} Header, next to the left nav buttons in the header (Home, Games, MASN, SNLA, etc.)"
+    },
+    {
+      "id": "4c5ab8ee-1592-453b-bc80-e684c62661fb",
+      "action": "WHEN a user selects stage",
+      "data": "",
+      "result": "THEN the app will reload and display the words *stage* in the {color:#ff5630}*ORANGE*{color} Header, next to the left nav buttons in the header (Home, Games, MASN, SNLA, etc.)"
+    },
+    {
+      "id": "ca564569-2ca0-4810-87e9-e9fb218803c5",
+      "action": "WHEN the user selects mock",
+      "data": "",
+      "result": "THEN the app will reload and display the words *mock* in the {color:#36b37e}*GREEN*{color} Header, next to the left nav buttons in the header (Home, Games, MASN, SNLA, etc.)"
+    },
+    {
+      "id": "a69e2cb8-e6e0-4fd4-96fa-9fd60beb3db8",
+      "action": "WHEN the user selects prod",
+      "data": "",
+      "result": "THEN the app will reload and the user will see our normal transparent *BLACK* Header. The words *prod will not be displayed* next to the left nav buttons in the header (Home, Games, MASN, SNLA, etc.)"
+    }
+  ]
+}

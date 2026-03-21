@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1768",
+  "issueId": "1129185",
+  "key": "WQ-1768",
+  "summary": "Sign In",
+  "description": "Sign-in function is supported",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "36a6c799-595b-41c0-a02e-a9a7305620d5",
+      "action": "Execute app → Sign-in\r\n\r\n[CASE1 - Does not include \"\"stay signed-in\"\" function]\r\n1. Check whether sign-in works properly\r\n2. When executing app, check whether app is signed-out\r\n3. Reboot TV and execute app, and check whether app is in signed-out status\r\n\r\n[CASE2 - Includes \"\"stay signed-in\"\" function]\r\n1. Sign-in after checking \"\"Stay signed-in\"\"\r\n1-1. Check whether sign-in works properly\r\n1-2. When re-executing app, check whether sign-in status is maintained \r\n1-3. Reboot TV and execute app, and check whether app is in signed-in status\r\n\r\n[CASE3 -  Do not check \"\"stay signed-in\"\" and try signing-in in app]\r\n2-1. Check whether sign-in works properly\r\n2-2. When re-executing app, check whether app is in signed-out status\r\n2-3. Reboot TV and execute app, and check whether app is in signed-out status",
+      "data": "",
+      "result": "Able to sign-in without error\r\n\r\n※ Use account provided by seller or create an account"
+    }
+  ]
+}

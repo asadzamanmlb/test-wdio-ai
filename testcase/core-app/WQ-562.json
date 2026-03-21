@@ -1,0 +1,20 @@
+{
+  "id": "WQ-562",
+  "issueId": "1127888",
+  "key": "WQ-562",
+  "summary": "MLBN 24/7 Live Linear Rewind Cancel",
+  "description": "GIVEN a user is entitled for MLBN\nAND the user is logged in\nAND the user selects the MLBN 24/7 Live Linear stream to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8d9abdef-4c2b-4b2c-93eb-9e2d97797798",
+      "action": "WHEN the user initiates Rewind\r\nAND presses the back button on the controller after a few moments",
+      "data": "",
+      "result": "THEN Rewind stops\r\nAND playback resumes at the point where Rewind was initiated\r\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

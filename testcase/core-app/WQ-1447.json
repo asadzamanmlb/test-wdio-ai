@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1447",
+  "issueId": "1128784",
+  "key": "WQ-1447",
+  "summary": "Browse Subscriptions button",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is not logged in\r\nAND the user is on the Welcome page\r\nAND focus is not on the \"Browse Subscriptions\" button",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "91bebba1-c61e-49bc-872e-f2c668afe359",
+      "action": "WHEN the user assigns focus to the \"Browse Subscriptions\" button",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Click to browse subscriptions. Press or scroll down to hear the next option or up to hear the previous one.\""
+    }
+  ]
+}

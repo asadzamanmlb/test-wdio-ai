@@ -1,0 +1,20 @@
+{
+  "id": "WQ-444",
+  "issueId": "1127764",
+  "key": "WQ-444",
+  "summary": "Entitlements - Free",
+  "description": "GIVEN the logged in user is a Free user with no entitlements",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "566c4502-948b-4a6f-aae1-97e394573256",
+      "action": "WHEN the user selects any VOD, FLIVE, or out-of-market Free Game of the Day\r\nOR the user selects any SVOD, SLIVE, or non-Free Game of the Day",
+      "data": "",
+      "result": "THEN the successfully receives playback for the VOD, FLIVE, or out-of-market Free Game of the Day\r\nOR the user cannot playback any SVOD, SLIVE, or non-Free Game of the Day"
+    }
+  ]
+}

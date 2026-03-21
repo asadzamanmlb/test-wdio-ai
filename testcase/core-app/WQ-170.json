@@ -1,0 +1,20 @@
+{
+  "id": "WQ-170",
+  "issueId": "1127473",
+  "key": "WQ-170",
+  "summary": "ESPN2 MVPD - International non-Canada",
+  "description": "GIVEN a subscriber is located international not in Canada\r\nAND a postseason game has ESPN2 broadcasters assigned\r\nAND the away feed level espn2AuthRequired = true\r\nAND feed level mediaState = MEDIA_ON",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f351a6d4-e8ad-4826-bb32-a25340ab1263",
+      "action": "WHEN the subscriber selects the ESPN2 postseason game tile",
+      "data": "",
+      "result": "THEN the feed select modal displays\r\nAND the ESPN2 International (ESPN2-INT) feed button is the only button displayed in the modal\r\nAND the user is able to receive playback after selecting the feed button"
+    }
+  ]
+}

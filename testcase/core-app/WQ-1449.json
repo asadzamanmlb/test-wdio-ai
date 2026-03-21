@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1449",
+  "issueId": "1128786",
+  "key": "WQ-1449",
+  "summary": "Log In button",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is not logged in\r\nAND the user is on the Welcome page\r\nAND focus is not on the \"Log In\" button",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "49e6d0d9-c765-4be7-b629-6dc72cf2f62b",
+      "action": "WHEN the user assigns focus to the \"Log In\" button",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Already have an account? Click to log in. There is no content below, please press or scroll up to hear other options.\""
+    }
+  ]
+}

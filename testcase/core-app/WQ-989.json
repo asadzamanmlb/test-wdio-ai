@@ -1,0 +1,20 @@
+{
+  "id": "WQ-989",
+  "issueId": "1128318",
+  "key": "WQ-989",
+  "summary": "Unable to load Schedule data - Retry Failure",
+  "description": "GIVEN the mastapi request is blocked\r\nAND the MLB app is open\r\nAND the 'unable to load games' error screen is displayed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f11c522b-e404-4692-bf5f-3d87dea2671c",
+      "action": "WHEN a user selects the [Okay] button 3x",
+      "data": "",
+      "result": "THEN an error screen displays\r\nAND the MLB logo and MLB text are displayed top center of the screen\r\nAND a message stating a critical error has occurred \r\nAND a [Reset] button is displayed with focus below the message"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-609",
+  "issueId": "1127936",
+  "key": "WQ-609",
+  "summary": "Closed Caption On",
+  "description": "GIVEN Closed Captions is \"On\" on the settings page\r\nAND a video is playing",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e51d250e-6f99-4587-bc62-c56a22be89fa",
+      "action": "WHEN the scrubber displays",
+      "data": "",
+      "result": "THEN the [CC] button displays far right above the scrubber bar\r\nAND the [CC] button will display \"CC\" when it doesn't have focus\r\nAND the [CC] button will display \"CC TURN OFF\" when it has focus"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1490",
+  "issueId": "1128827",
+  "key": "WQ-1490",
+  "summary": "Live/Archive | Play Announcement after Rewind",
+  "description": "GIVEN the user is watching a Live Game or Archive Game\r\nAND TTS is enabled\r\nAND the user had Fast Rewound",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ae4b3fc5-0bbb-42be-913b-4c147cdb46eb",
+      "action": "WHEN the user presses select to play after Rewind",
+      "data": "",
+      "result": "THEN the user will hear “<Which half of inning + Inning>, <Away Team + Away Team Score>, <Home Team + Home Team Score>, Press select to Pause”\r\nFor example: \"Bottom of the 3rd, Cubs 4, Cardinals 2, Press select to Pause\""
+    }
+  ]
+}

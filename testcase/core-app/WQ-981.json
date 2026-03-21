@@ -1,0 +1,20 @@
+{
+  "id": "WQ-981",
+  "issueId": "1128310",
+  "key": "WQ-981",
+  "summary": "Games page UI - Date is not today",
+  "description": "GIVEN a user is is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "21077c7c-8ffc-47ab-980f-caa79c2491d6",
+      "action": "WHEN a user selects a day with games other than today",
+      "data": "",
+      "result": "THEN the days games are displayed\r\nAND the selected date is appearing on the left side of the screen above the grid of game tiles in <DayOfWeek>, <Month> <Day> format\r\nAND the [Today] button displays directly to the left of the [<] button on the right side of the screen above the grid of game tiles \r\nAND arrow buttons [<][>] display directly to the right of the [Today] button\r\nAND a calendar button/icon displays directly to the right of the [>] button"
+    }
+  ]
+}

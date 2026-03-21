@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3387",
+  "issueId": "1248929",
+  "key": "WQ-3387",
+  "summary": "\"BACK\" button navigates user to the top of the RSN page",
+  "description": "Given user is navigating the MLB app \nAnd user is on a RSN page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7ac7fc10-156a-421a-8694-18b059af828b",
+      "action": "WHEN focus is not on the RSN featured image\nOR focus is on a RSN forge tile\nAND the user select the \"Back\" button on their remote control",
+      "data": "",
+      "result": "THEN the user is redirected to the top of the page - w/ focus on the RSN nav button\nAND all carousels will be reset to their original state."
+    }
+  ]
+}

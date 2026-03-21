@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1791",
+  "issueId": "1129208",
+  "key": "WQ-1791",
+  "summary": "Play Contents",
+  "description": "Playback content is included\r\n\r\n※ Access Iptime manager page → QoS → Set network speed (to maximum level)",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "590725df-64b5-46d0-8f0f-d04a99cfdc80",
+      "action": "Execute app → Access random video content → Play content\r\n\r\n[CASE1 - Resolution change depending on network status]\r\n1. Network speed 512Kbps → Check content playback \r\n2. Network speed 1Mbps → Check content playback\r\n3. Network speed 7Mbps → Check content playback\r\n4. Network speed 17.5Mbps → Check content playback\r\n※ Repeat no.1 to no.4 twice with same content \r\n\r\n[CASE2 - IPv6 Verification]\r\n※ Connect IPv6 and check content playback",
+      "data": "",
+      "result": "Content playback works properly\r\n\r\n※ Resolution should change depending on network speed, and buffering should not occur constantly"
+    }
+  ]
+}

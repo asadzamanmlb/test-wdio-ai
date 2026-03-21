@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1796",
+  "issueId": "1129213",
+  "key": "WQ-1796",
+  "summary": "Play Contents/Play Resume",
+  "description": "Play resume function is supported",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "fd15f4c1-4d4c-4f12-87cc-87bad7840d3e",
+      "action": "Execute app → Play random content that has playback history → Select \"Resume play\"",
+      "data": "",
+      "result": "Check \"Resume Play\" function by selecting content with playback history"
+    }
+  ]
+}

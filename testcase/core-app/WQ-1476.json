@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1476",
+  "issueId": "1128813",
+  "key": "WQ-1476",
+  "summary": "Options Menu | Navigating to Games tab",
+  "description": "GIVEN the user is in the Options Menu\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1dfdebe6-8280-412a-848b-0e9a245a8327",
+      "action": "WHEN the user navigates to the \"Games\" tab",
+      "data": "",
+      "result": "THEN the user will hear: “Games, <x> of <y> Options, press down to navigate games, Press up for player controls, Press <appropriate_directions> for more options, Press back to dismiss controls”"
+    }
+  ]
+}

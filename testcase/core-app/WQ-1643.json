@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1643",
+  "issueId": "1129060",
+  "key": "WQ-1643",
+  "summary": "Start from the beginning - Hide Spoilers ON",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b7640005-751a-4b2b-acdd-eb26b7446733",
+      "action": "WHEN",
+      "data": "",
+      "result": "HideSpoilers - ON, When Archived Home or Away Video feed is selected then Video should start from the beginning."
+    }
+  ]
+}

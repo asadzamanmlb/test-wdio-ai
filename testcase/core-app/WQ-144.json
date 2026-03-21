@@ -1,0 +1,20 @@
+{
+  "id": "WQ-144",
+  "issueId": "1127447",
+  "key": "WQ-144",
+  "summary": "Not Entitled No Feeds Available - Spring Training",
+  "description": "GIVEN a user is not entitled to a game\nAND the not entitled game has no feeds available\n\nAND the locked icon does not display (break glass mode)",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ee15fb33-be45-4b48-9602-2cd1b81fc487",
+      "action": "WHEN the user selects the game tile for a not entitled game that has no feeds available",
+      "data": "",
+      "result": "THEN the Feed Select modal displays\r\nAND the team logos and colors are displayed in the matchup header\r\nAND the video icon/title is displayed\r\nAND \"No Broadcast Available\" is displayed"
+    }
+  ]
+}

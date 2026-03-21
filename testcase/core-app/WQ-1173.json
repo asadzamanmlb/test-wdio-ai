@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1173",
+  "issueId": "1128508",
+  "key": "WQ-1173",
+  "summary": "Samsung Only - User Exits from any non-Home page",
+  "description": "GIVEN the user is on the mlb app on Samsung tv",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5c869b16-d169-4a97-a13e-17bae3e2389f",
+      "action": "WHEN the user triggers the exit key by pressing the exit button on the IR remote\r\nOR the user triggers the exit key by pressing and holding the Return button on the Bluetooth remote",
+      "data": "",
+      "result": "THEN the user should Exit the app from **ANY** non-home page"
+    }
+  ]
+}

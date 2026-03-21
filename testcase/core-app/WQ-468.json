@@ -1,0 +1,20 @@
+{
+  "id": "WQ-468",
+  "issueId": "1127794",
+  "key": "WQ-468",
+  "summary": "mediaInfo is not called when the scrubber is not displayed",
+  "description": "GIVEN the user is entitled to live game playback\r\nAND the user is in the MLB experience\r\n\r\n**NOTE:** should be tested on a browser. Search network calls for \"graphql\". \"mediaInfo\" is one of the graphql calls.\r\n\r\n",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "58e0a82c-5fa8-4924-9582-9030dacc264f",
+      "action": "WHEN playback of a live game is initiated\r\nAND live playback continues without the scrubber displaying",
+      "data": "",
+      "result": "THEN mediaInfo is called when the live game feed is launched\r\nAND mediaInfo is not called while the scrubber is not displaying"
+    }
+  ]
+}

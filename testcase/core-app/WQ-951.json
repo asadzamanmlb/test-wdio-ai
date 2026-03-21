@@ -1,0 +1,20 @@
+{
+  "id": "WQ-951",
+  "issueId": "1128280",
+  "key": "WQ-951",
+  "summary": "Scheduled Game - Unfocused Game Tile",
+  "description": "GIVEN a subscriber is logged in\r\nAND Hide Spoilers is off\r\nAND games are scheduled to happen today",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0376094a-577f-4731-bf21-41605486708b",
+      "action": "WHEN a subscriber is on the Games page\r\nAND game tiles are displayed\r\nAND a scheduled game tile does not have focus",
+      "data": "",
+      "result": "THEN the away team primary color is displayed in the upper left of the game tile\r\nAND the away team logo is displayed\r\nAND the away team abbreviation is displayed below the team logo\r\nAND the home team primary color is displayed in the upper right of the game tile\r\nAND the home team logo is displayed\r\nAND the home team abbreviation is displayed below the team logo\r\nAND the scheduled game time displays left-justified below the match-up header\r\nAND below the scheduled game time, the pitching match-up displays with the away pitcher above the home pitcher\r\nAND the away team tri-code displays to the left of the away pitcher's name\r\nAND the home team tri-code displays to the left of the home pitcher's name\r\nAND to the right of the pitcher match-up, gray base icons display above gray outs icons\r\n*************FEATURES BELOW ARE NOT IMPLEMENTED*************\r\nAND below the pitcher match-up, call letters for the available live feeds are displayed"
+    }
+  ]
+}

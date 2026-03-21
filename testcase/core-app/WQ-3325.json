@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3325",
+  "issueId": "1231385",
+  "key": "WQ-3325",
+  "summary": "Monthly/yearly subscriber live game overlap market - Game Tile",
+  "description": "GIVEN the user is a monthly/yearly subscriber\nAND there is a game scheduled/in-progress between teams in an overlapping viewing market \nAND the user is in the viewing market of the game\nAND the game level blackedOutVideo equals true in MASTepg\nAND the game level entitledVideo equals true in MASTepg",
+  "status": "To Do",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4f36f7fa-ed32-44e8-bc4d-da80e5c058f0",
+      "action": "WHEN the user views the game tile for overlapping viewing market teams",
+      "data": "",
+      "result": "THEN a blackout badge is displayed in the top left of the game tile\nAND \"Stream on: <away_broadcast_partner>, <home_broadcast_partner>\" is displayed above \"Broadcast Networks\""
+    }
+  ]
+}

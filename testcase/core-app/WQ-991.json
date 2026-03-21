@@ -1,0 +1,20 @@
+{
+  "id": "WQ-991",
+  "issueId": "1128320",
+  "key": "WQ-991",
+  "summary": "Unable to load Schedule data - Reset Success",
+  "description": "GIVEN the MLB app is open\r\nAND the 'No Games' error screen is displayed\r\nAND the user has selected the [Okay] button 3x\r\nAND the mastapi request is not blocked",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ab1ca5ab-f3c7-4137-81a4-26303ad850bd",
+      "action": "WHEN a user selects the [Reset] button",
+      "data": "",
+      "result": "THEN the error screen is dismissed\r\nAND a black screen with a spinning baseball is displayed\r\nAND the user is navigated to the Home page\r\nAND the games scheduled for today are displayed\r\nAND focus is assigned to the Watch button in the Hero\r\nOR focus is assigned to the Home tab if the Watch button is not in the Hero"
+    }
+  ]
+}

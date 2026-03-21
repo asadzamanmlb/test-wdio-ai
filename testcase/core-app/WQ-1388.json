@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1388",
+  "issueId": "1128725",
+  "key": "WQ-1388",
+  "summary": "TTS | Navigation options top left when a Team is selected",
+  "description": "GIVEN TTS is enabled\r\nAND the user has the Arizona Diamondbacks set as the Favorite Team\r\nAND the user is logged in\r\nAND the user is on the Favorite Team page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d18abfed-3516-469c-841f-2b77f46c7aba",
+      "action": "WHEN the user scrolls to highlight the Arizona Diamondbacks",
+      "data": "",
+      "result": "THEN the app should say 'The {selected team} is highlighted. Press select to save this team as your favorite team. Move right, or down to hear additional teams to favorite. Move left to highlight the “Done” button.'"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1053",
+  "issueId": "1128383",
+  "key": "WQ-1053",
+  "summary": "Log In from settings - Cancel button functionality",
+  "description": "GIVEN the user is not logged in\r\nAND the user navigates to the Settings page\r\nAND the user selects the Log In on the Settings page",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ae56b77f-6fc3-4771-abb4-cb32f94164dd",
+      "action": "WHEN a user selects the [Cancel] button",
+      "data": "",
+      "result": "THEN the user is navigated to the Settings page"
+    }
+  ]
+}

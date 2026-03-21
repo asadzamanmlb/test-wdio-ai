@@ -1,0 +1,20 @@
+{
+  "id": "WQ-533",
+  "issueId": "1127859",
+  "key": "WQ-533",
+  "summary": "Broadcast Options - Switch Alt Audio - FGoTD",
+  "description": "GIVEN the user is a free user\r\nAND the user has initiated playback of an archive Free Game of the Day",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "96452516-ccc8-4df1-a5aa-697dac142219",
+      "action": "WHEN the user opens the Broadcast Options\r\nAND the user selects a non-TV audio feed",
+      "data": "",
+      "result": "THEN the newly selected audio feed begins playback\r\nAND the audio feed is in-sync with the video feed\r\nAND the scrubber is dismissed"
+    }
+  ]
+}

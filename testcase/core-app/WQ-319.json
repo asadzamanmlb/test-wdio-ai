@@ -1,0 +1,20 @@
+{
+  "id": "WQ-319",
+  "issueId": "1127631",
+  "key": "WQ-319",
+  "summary": "Game Data - Pregame - Pitcher Unavailable - Hide Spoilers ON",
+  "description": "GIVEN Hide Spoilers is ON",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "40512de0-dd86-4eab-b78b-934982b73579",
+      "action": "WHEN a scheduled game is present in the Hero\r\nAND a Probable Pitcher has not been assigned to the game",
+      "data": "",
+      "result": "THEN nothing displays below the team name that has not assigned a probable pitcher"
+    }
+  ]
+}

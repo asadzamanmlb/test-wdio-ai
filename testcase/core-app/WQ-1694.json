@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1694",
+  "issueId": "1129111",
+  "key": "WQ-1694",
+  "summary": "No broadcast start milestone Start from the beginning - Hide Spoilers OFF",
+  "description": "GIVEN a user is entitled for live game playback\nAND Hide Spoilers is set to OFF\nAND a stream is mediaState=MEDIA_ON before the start of the game broadcast\nAND the user has not previously played the video feed/stream",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9f77d097-af15-4fd1-9279-33d6c6bb8bb6",
+      "action": "WHEN the user selects a team video feed/stream\nAND the user selects the \"Start From The Beginning\" button",
+      "data": "",
+      "result": "THEN Playback starts at the beginning of the stream\nAND the scrubber playhead is at the furthest left position on AND the scrubber bar\nAND the elapsed time in the scrubber starts at 00:00"
+    }
+  ]
+}

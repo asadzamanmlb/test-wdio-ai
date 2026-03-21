@@ -1,0 +1,20 @@
+{
+  "id": "WQ-912",
+  "issueId": "1128241",
+  "key": "WQ-912",
+  "summary": "Anonymous user Free Game of the Day - Game Tile",
+  "description": "GIVEN a user is anonymous",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0688ab21-374a-4a1c-8dea-4a3da572b364",
+      "action": "WHEN the user views/focuses a Free Game of the Day game tile",
+      "data": "",
+      "result": "THEN a lock icon displays in the upper right corner of the game tile\r\nAND the game tile header has a dark overlay over the team colors\r\nAND the Free Game of the Day pill displays left justified at the bottom of the game tile"
+    }
+  ]
+}

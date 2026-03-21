@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1764",
+  "issueId": "1129181",
+  "key": "WQ-1764",
+  "summary": "Keyboard.2",
+  "description": "Input function is included",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "73b4161c-70e5-4eee-b3f4-f9e2202bc484",
+      "action": "Execute app → Select input window",
+      "data": "",
+      "result": "Check if content in the inputted file is applied properly\r\n\r\nex) If '\\' is inputted when '＼' UI Button is clicked in the Virtual Keyboard, it is not operated properly."
+    }
+  ]
+}

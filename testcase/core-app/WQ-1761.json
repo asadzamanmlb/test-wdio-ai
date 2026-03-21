@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1761",
+  "issueId": "1129178",
+  "key": "WQ-1761",
+  "summary": "LockUp/LatchUp",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c1ad18bd-149d-451f-a987-59dcd4a3609b",
+      "action": "Execute app → App function movement",
+      "data": "",
+      "result": "When executing app, lockup or latch, device power turns off"
+    }
+  ]
+}

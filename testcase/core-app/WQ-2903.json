@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2903",
+  "issueId": "1131553",
+  "key": "WQ-2903",
+  "summary": "MASN+ 24/7 feed playback",
+  "description": "GIVEN a user has entitlements for MASN+\nAND the user launches the MLB.tv Core App\nAND the user logs in\n\n*NOTE:* \nMASN entitlement = MASN_110\n\nMASN Test users: [https://docs.google.com/spreadsheets/d/15fajYxYv0k04eO4aKGtXxWVPABEvgaK26Jt5OoQBC6Y/edit?usp=sharing|https://docs.google.com/spreadsheets/d/15fajYxYv0k04eO4aKGtXxWVPABEvgaK26Jt5OoQBC6Y/edit?usp=sharing|smart-link] ",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1fcc84d1-ad8d-457d-be5e-2abe5412a20d",
+      "action": "WHEN the user selects the [MASN] button in the header\nAND selects the Featured Image in the Hero",
+      "data": "",
+      "result": "THEN initPlaybackSession is called via a graphql network call\nAND the MASN+ 24/7 linear feed plays back successfully\nAND the video title displays left justified above the scrubber bar"
+    }
+  ]
+}

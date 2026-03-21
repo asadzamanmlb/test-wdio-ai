@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1579",
+  "issueId": "1128985",
+  "key": "WQ-1579",
+  "summary": "A, B, X, Y Button Press Test - XBOX",
+  "description": "GIVEN I am logged into the MLB.TV app",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3aa7b28d-5978-47d6-b820-d55251b7ad95",
+      "action": "WHEN I press the \"A\" button to Select to play a game\r\nWHEN I press the \"B\" button to Cancel playing the game\r\nWHEN I press the \"X\" button to interact with the MLB.TV app\r\nWHEN I press the \"Y\" button to interact with the MLB.TV app\r\n![](index.php?/attachments/get/14345379)",
+      "data": "",
+      "result": "THEN I should be able to SELECT a game successfully\r\nTHEN I should be able to CANCEL playing a game successfully\r\nTHEN I should be able to interact throughout the MLB.TV app\r\nTHEN I should be able to interact throughout the MLB.TV app"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1510",
+  "issueId": "1128847",
+  "key": "WQ-1510",
+  "summary": "Quick Actions Menu | Hearing Announcement When Entering the Menu",
+  "description": "GIVEN the user is playing back video content\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "260da274-93e8-4062-9293-3a125f90940e",
+      "action": "WHEN the user focuses on the Quick Actions Menu",
+      "data": "",
+      "result": "THEN the user will hear: “In the Quick Actions Menu, <Option Name>, x out of y options. Press select to <quick_actions>, Press <appropriate_directions> for more quick actions options, Press down for player controls, Press back to dismiss controls.”"
+    }
+  ]
+}

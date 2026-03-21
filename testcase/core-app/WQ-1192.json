@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1192",
+  "issueId": "1128529",
+  "key": "WQ-1192",
+  "summary": "TTS | Express Login is Present",
+  "description": "GIVEN the app includes Express login\r\nAND the user has TTS enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e53a6c67-1112-4aa9-874f-aa9bd829e606",
+      "action": "WHEN the user navigates to the right from the Unhide Password button",
+      "data": "",
+      "result": "THEN the app reader says \"There is no selectable content to the right of this button. However, using your phone you can use your camera to engage with a QR code that will allow you to login on your phone.”"
+    }
+  ]
+}

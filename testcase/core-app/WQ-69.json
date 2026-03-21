@@ -1,0 +1,20 @@
+{
+  "id": "WQ-69",
+  "issueId": "1127081",
+  "key": "WQ-69",
+  "summary": "IMA SDK - Failed calls do not result in a video error - Live",
+  "description": "GIVEN a LIVE game stream has adsEnabled equals true in the graphql Preview/Response (data->initPlaybackSession->adExperience->adsEnabled)\nAND an asset key is is returned in the same graphql Preview/Response (data->initPlaybackSession->adExperience->adEngineIdentifiers)\n\n**NOTE:** \nEnter graphql into the Network search of Dev Tools to find the initPlaybackSession",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "97e163f5-8c00-4b2e-bc3f-5525e0830ae5",
+      "action": "WHEN network calls to \"pubads.g.doubleclick.net*\" and \"dai.google.com\" are blocked\nOR network calls to \"pubads.g.doubleclick.net*\" and \"dai.google.com\" are failing",
+      "data": "",
+      "result": "THEN the stream continues to playback through ad breaks with no video error modal popping up"
+    }
+  ]
+}

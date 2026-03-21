@@ -1,0 +1,20 @@
+{
+  "id": "WQ-687",
+  "issueId": "1128015",
+  "key": "WQ-687",
+  "summary": "Executive user archive game - Feed Select",
+  "description": "GIVEN a user is an Executive user",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "522a5a74-47a4-44ce-9ea9-ef7ed4fecf8c",
+      "action": "WHEN the user selects any archive game tile",
+      "data": "",
+      "result": "THEN buttons for Recap and Condensed Game display center justified, above the team feeds\r\nAND the user will see feed buttons for both teams\r\nAND the user achieves playback after selecting each button"
+    }
+  ]
+}

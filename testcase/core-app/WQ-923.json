@@ -1,0 +1,20 @@
+{
+  "id": "WQ-923",
+  "issueId": "1128252",
+  "key": "WQ-923",
+  "summary": "Not Entitled error",
+  "description": "GIVEN a user is not entitled for game playback\r\nAND MAST v3 is in break glass mode\r\n\r\n**NOTE: If MAST v3 is not in break glass mode, test on a browser**\r\nLog in as an entitled user, initiate playback of a game, copy the playback url, log out the entitled user",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "641364ab-9703-4fa4-8d44-408a065b775a",
+      "action": "WHEN the user selects a game for playback\r\nAND DSS returns a not entitled error\r\n\r\n**NOTE: If MAST v3 is not in break glass mode, test on a browser**\r\nLog in with an un-entitled user, paste the playback URL in the browser",
+      "data": "",
+      "result": "THEN a full page modal displays letting the user know they are not entitled for content playback\r\nAND an \"Okay\" button is displayed with focus\r\nAND the user is navigated to the Home page after selecting the \"Okay\" button"
+    }
+  ]
+}

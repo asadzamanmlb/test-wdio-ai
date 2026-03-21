@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1588",
+  "issueId": "1128994",
+  "key": "WQ-1588",
+  "summary": "Button Menu Navigation - Samsung",
+  "description": "GIVEN I have paired the Remote Control to the Samsung TV",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a24ae936-5c68-405a-87e6-7aebc36f39a1",
+      "action": "WHEN I Press the Directional \"Up\" button\r\nAND I Press the Directional \"Down\" button\r\nAND I Press the Directional \"Left\" button\r\nAND I Press the Directional \"Right\" button",
+      "data": "",
+      "result": "THEN I should be able to navigate the menu that point in the Up direction\r\nTHEN I should be able to navigate the menu that point in the Down direction\r\nTHEN I should be able to navigate the menu that point in the Left direction\r\nTHEN I should be able to navigate the menu that point in the Right direction"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1107",
+  "issueId": "1128437",
+  "key": "WQ-1107",
+  "summary": "Explore Free Content flow",
+  "description": "GIVEN the user launches the app without saved data\r\nAND selects the [Get Started] button on the Startup screen\r\nAND selects a favorite team on the Favorite Team page\r\nAND selects the [Next] button on the Favorite Team page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "fd4109a4-1bda-4445-9873-5e877002db67",
+      "action": "WHEN the user selects the [Explore Free Content] button",
+      "data": "",
+      "result": "THEN the user lands on Home page\r\nAND the logo of the selected favorite team displays directly left of \"Settings\" in the upper right corner of the screen"
+    }
+  ]
+}

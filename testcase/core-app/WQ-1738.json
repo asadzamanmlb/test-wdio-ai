@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1738",
+  "issueId": "1129155",
+  "key": "WQ-1738",
+  "summary": "Live playback starts in middle of ad break",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ca0b3b5d-5f14-4e2c-bf80-387dc7dd0fcd",
+      "action": "WHEN",
+      "data": "",
+      "result": "Verifying ads playback when game playback starts in the middle of an ad break (live feed)"
+    }
+  ]
+}

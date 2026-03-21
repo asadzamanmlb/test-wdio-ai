@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1051",
+  "issueId": "1128381",
+  "key": "WQ-1051",
+  "summary": "Log In - Successful login free user",
+  "description": "GIVEN the user is on the Log In page",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "399f76a0-2ff4-4e4a-a8f6-2bbbadb9847a",
+      "action": "WHEN a user enters an existing free MLB account email address in the \"Email Address\" field\r\nAND a user enters a valid password in the \"Password\" field\r\nAND a user selects the [Log In] button",
+      "data": "",
+      "result": "THEN the user is logged in successfully\r\nAND a spinning baseball is displayed indicating the page is loading\r\nAND the user is navigated to the previous page"
+    }
+  ]
+}

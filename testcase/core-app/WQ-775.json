@@ -1,0 +1,20 @@
+{
+  "id": "WQ-775",
+  "issueId": "1128103",
+  "key": "WQ-775",
+  "summary": "Extra Innings subscriber ESPN/Sunday Night Baseball - Feed Select modal",
+  "description": "GIVEN a user has MLBVIDEOADOBEPASS entitlement\r\nAND ESPN Sunday Night Baseball is scheduled/in-progress",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "386276b8-f68b-40ff-b2b3-0d4c733d3d68",
+      "action": "WHEN the user selects the ESPN Sunday Night Baseball game tile with a Blackout pill",
+      "data": "",
+      "result": "THEN the feed select modal displays\r\nAND video feed buttons are not displayed\r\nAND a blackout messaging is displayed in the Feed Select modal"
+    }
+  ]
+}

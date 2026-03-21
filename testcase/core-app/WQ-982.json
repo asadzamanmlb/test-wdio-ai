@@ -1,0 +1,20 @@
+{
+  "id": "WQ-982",
+  "issueId": "1128311",
+  "key": "WQ-982",
+  "summary": "Games page UI - Date is today",
+  "description": "GIVEN the MLB app is launched",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "180a3bb5-ca24-49aa-ba49-f1a805a9b5d0",
+      "action": "WHEN a user navigates to the Games page",
+      "data": "",
+      "result": "THEN \"Today, [todays date]\" is displayed above and to the left of the game tiles\nAND a calendar button/icon is displayed in the upper right corner of the page\nAND arrow buttons [<][>] display directly to the left of the calendar button/icon\nAND the number of game tiles that are displaying is the same as total number of games for the day\n\nUpdate the startDate and endDate in below url to get total number of games for the date range\nhttps://qa-statsapi.mlb.com/api/v1/schedule?startDate=08/19/2022&endDate=08/19/2022&fields=dates,date,totalGames&sportId=1"
+    }
+  ]
+}

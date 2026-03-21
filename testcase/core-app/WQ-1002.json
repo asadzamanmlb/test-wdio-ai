@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1002",
+  "issueId": "1128331",
+  "key": "WQ-1002",
+  "summary": "Game tiles display on days with scheduled games",
+  "description": "GIVEN a user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "783df2fe-a8ca-456f-b929-9fc7643c85b2",
+      "action": "WHEN a user navigates to a date that has scheduled games",
+      "data": "",
+      "result": "THEN the total number of game tiles equals the number of games on the selected date from the calendar\r\nAND the total number of game tiles equals the total number of game from StatsAPI for the selected date\r\n\r\nhttps://qa-statsapi.mlb.com/api/v1/schedule?startDate=06/16/2022&endDate=06/16/2022&fields=dates,date,totalGames&sportId=1\r\n(update startDate and endDate)"
+    }
+  ]
+}

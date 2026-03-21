@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2904",
+  "issueId": "1131560",
+  "key": "WQ-2904",
+  "summary": "MASN and MASN2 contentCollections calls are made in 5 minute intervals",
+  "description": "GIVEN a user has entitlements for MASN\nAND the user launches the MLB.tv Core App\nAND the user logs in\n\n*NOTE:* \nMASN entitlement = MASN_110 and MASN_120\n\nMASN Test users:\n\n|Username|Password|\n|masn@gmail.com|Password4MASN|\n|masnims@gmail.com (In Market)|Password4MASN|\n|masnoom@gmail.com (Out of Market)|Password4MASN|\n|masnintl@gmail.com (International)|Password4MASN|",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ab297156-b9d7-41a2-ac55-cc6c2d223176",
+      "action": "WHEN the user sits stationary in the app",
+      "data": "",
+      "result": "THEN \"contentCollections\" calls are made via \"graphql\" every 5 minutes"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-490",
+  "issueId": "1127816",
+  "key": "WQ-490",
+  "summary": "Broadcast Options - Switch Video Feed - FGoTD",
+  "description": "GIVEN the user is a free user\r\nAND the user is not blacked out of a Free Game of the Day\r\nAND the user has initiated playback for a live Free Game of the Day",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b4d20845-7999-4bf6-84ba-7ea7587e7030",
+      "action": "WHEN the user displays the scrubber\r\nAND assigns focus to \"Broadcast Options\"\r\nAND navigates to the video feed button that is not blue\r\nAND presses the CROSS/X button",
+      "data": "",
+      "result": "THEN the newly selected video feed starts playing back\r\nAND audio playback is updated to the TV audio of the newly selected video feed\r\nAND the scrubber is dismissed after 10 seconds"
+    }
+  ]
+}

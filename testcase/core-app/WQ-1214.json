@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1214",
+  "issueId": "1128551",
+  "key": "WQ-1214",
+  "summary": "Game Tile Pregame Hide Spoilers ON",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND Hide Spoilers is turned ON\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7b7c73df-145c-45bf-bc20-2b6e76b9b199",
+      "action": "WHEN the user assigns focus to a game tile before the game is Live in the Games Carousel",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Game <x> of <y>, <away_team> at <home_team>, <game_start_time> Game Start Time, Press select to play game. Move <appropriate_directions> to navigate to a new item. Move up or down to browse new content.\""
+    }
+  ]
+}

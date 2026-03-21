@@ -1,0 +1,20 @@
+{
+  "id": "WQ-499",
+  "issueId": "1127825",
+  "key": "WQ-499",
+  "summary": "Game Details",
+  "description": "GIVEN the user is logged in\r\nAND the user is in the MLB experience\r\nAND the user is entitled to live game playback\r\nAND live game playback is initiated ",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d829dd13-953b-45cb-90d8-55aa57da88a2",
+      "action": "WHEN a user initiates the scrubber bar to display",
+      "data": "",
+      "result": "THEN \"Details\" is the furthest left position below the scrubber bar"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-401",
+  "issueId": "1127713",
+  "key": "WQ-401",
+  "summary": "Fetch SNLA+ data via contentCollections",
+  "description": "GIVEN a user has entitlements for SNLA+\r\nAND the user launches the MLB.TV app\r\nAND the user logs in\r\n\r\n**NOTE:** SNLA+ entitlement = SNLA_119",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "bb323c9a-8885-4455-9e93-7f7a4f92dd2e",
+      "action": "WHEN the user successfully logs in",
+      "data": "",
+      "result": "THEN a \"contentCollections\" network call is made via \"graphql\"\r\nAND the data returned from \"contentCollections\" is stored in Redux under \"rsn\"\r\n\r\n**NOTE:** This needs to be tested with access to network calls, and Redux. Best way is via Chrome. Redux is a browser extension that may need to be downloaded and added to your browser."
+    }
+  ]
+}

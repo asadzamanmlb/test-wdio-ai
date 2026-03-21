@@ -1,0 +1,20 @@
+{
+  "id": "WQ-683",
+  "issueId": "1128011",
+  "key": "WQ-683",
+  "summary": "T-Mobile subscriber FGotD archive - Feed Select",
+  "description": "GIVEN a user is a T-Mobile subscriber\r\nAND there is an archived FGotD\r\nAND the user is not in the viewing market of the game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "eaed4665-8178-48f4-836d-66ade0fa564b",
+      "action": "WHEN a user selects an archived FGotD game tile",
+      "data": "",
+      "result": "THEN buttons for Recap and Condensed Game display center justified, above the team feeds\r\nAND the user will see feed buttons for both teams\r\nAND the user achieves playback after selecting each button"
+    }
+  ]
+}

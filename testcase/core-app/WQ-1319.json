@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1319",
+  "issueId": "1128656",
+  "key": "WQ-1319",
+  "summary": "Game Tile Pregame Not Entitled",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is not logged in\r\nAND the user is on the games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "98627fbc-378d-48a8-8fc6-8aaec14a7381",
+      "action": "WHEN a game tile for a game that has not gone Live yet has focus\r\nAND the game tile has a lock icon in the upper right corner",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Game <x> of <y>, <away_team>, <away_team_wins> Wins, <away_team_losses> Losses at <home_team>, <home_team_wins> Wins, <home_team_losses> Losses, <game_start_time> Game Start Time, Not Entitled, Pitching for the <away_team> <away_starting_pitcher>, <away_pitcher_wins> Wins, <away_pitcher_losses> Losses, <away_pitcher_ERA> Earned Run Average, Pitching for the <home_team> <home_starting_pitcher>, <home_pitcher_wins> Wins, <home_pitcher_losses> Losses, <home_pitcher_ERA> Earned Run Average. Press select to play game. Move <appropriate_directions> to hear more games. Move up to navigate to a new date.\""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-339",
+  "issueId": "1127651",
+  "key": "WQ-339",
+  "summary": "FLIVE - Subscriber",
+  "description": "GIVEN a subscriber has SUBSCRIBERVOD entitlement\r\nAND FLIVE content is present in the Hero",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "58e559fa-57ef-45ce-bd6d-1dcaadbde763",
+      "action": "WHEN a subscriber loads the Home page",
+      "data": "",
+      "result": "THEN a related background image is displayed for the FLIVE content in the hero\r\nAND a red pill with \"LIVE\" text displays left justified above the FLIVE title\r\nAND the title for the FLIVE content in the hero is displayed\r\nAND the description for non-game content in the hero is displayed\r\nAND the \"Watch Now\" button is white with black text\r\nAND the \"Watch Now\" button has focus when the Home page loads\r\nAND the FLIVE content playback is successful after the user selects the \"Watch Now\" button"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1544",
+  "issueId": "1128881",
+  "key": "WQ-1544",
+  "summary": "Content Not Entitled",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "778ef862-a8cb-40ee-ae5a-d46c850793a8",
+      "action": "WHEN a user attempts to playback game content they don't know they are not entitled for\r\nAND the Content Not Entitled error modal displays",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Content Not Entitled. We have determined this content is not available at your current subscription. Please visit <platform_sub_link> to view subscription options as well as their respective content restrictions. Press select to go back.\""
+    }
+  ]
+}

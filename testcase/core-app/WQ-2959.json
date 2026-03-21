@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2959",
+  "issueId": "1147233",
+  "key": "WQ-2959",
+  "summary": "Limit Ad Tracking (is_lat) Parameter to DAI - Archive Game",
+  "description": "GIVEN a user is entitled for Archive game playback\nAND the user has opted into \"Limit Ad Tracking\"\nOR the user has opted out of \"Limit Ad Tracking\"\n\n*NOTE:*\nLaunch the app in the browser, open the Network tab in DevTools (filter 'streams'), start a video ",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4b6095e5-0a35-45bb-a262-b5486ad62bdd",
+      "action": "WHEN a user initiates playback of an archive game",
+      "data": "",
+      "result": "THEN parameter {{is_lat}} is passed for users based upon {{lmt}} API value from Comcast (true / false)"
+    }
+  ]
+}

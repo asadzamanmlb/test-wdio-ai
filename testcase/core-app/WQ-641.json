@@ -1,0 +1,20 @@
+{
+  "id": "WQ-641",
+  "issueId": "1127968",
+  "key": "WQ-641",
+  "summary": "Spinning Baseball on Playback Start",
+  "description": "GIVEN a user is logged in",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "348e898a-215f-4f00-94f2-1d8f87a7a68c",
+      "action": "WHEN a user initiates playback of content",
+      "data": "",
+      "result": "THEN the spinning baseball displays before the video starts\r\nAND the spinning baseball does not display as pixelated or grainy"
+    }
+  ]
+}

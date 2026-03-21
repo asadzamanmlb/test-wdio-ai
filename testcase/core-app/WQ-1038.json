@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1038",
+  "issueId": "1128368",
+  "key": "WQ-1038",
+  "summary": "Header navigation - Xtra Innings user",
+  "description": "GIVEN an Xtra Innings subscriber is logged in\r\nAND one of the tabs in the header has focus",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "98cb7465-aea4-409c-9378-075af8e5210f",
+      "action": "WHEN the user navigates left and right in the header",
+      "data": "",
+      "result": "THEN focus moves from \"Home\" to \"Games\" and vice versa\r\nAND focus moves from \"Games\" to \"Settings\" and vice versa\r\nAND focus moves from \"Settings\" to \"Games\" and vice versa"
+    }
+  ]
+}

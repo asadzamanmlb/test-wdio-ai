@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2351",
+  "issueId": "1129801",
+  "key": "WQ-2351",
+  "summary": "R5033J - The application does not freeze or become inoperable when a network error occurs",
+  "description": "**Network**\r\n\r\n**R5033 Premise:** If network features are used\r\n\r\n**R5033 Requirement:** The application does not freeze, user cancel operations are not blocked, and the application does not otherwise become inoperable from the effects of communication errors or another client's actions.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "137ec3ce-7011-460b-b290-fe5e799c977d",
+      "action": "1. Sign into PlayStation™Network\r\n2. Disconnect from the network to cause a network error\r\n3. Select the \"Application\" on the home screen\r\n4. Proceed to a point that uses the network features and attempt to start the network features\r\n\r\n**Notes:**\r\n- Check at all points where network features are used. This includes non-gameplay features such as leaderboards, SNS features, where information is displayed only when connected to a network (for example, news ticker, update information) etc.\r\n- For methods to disconnect from the network in step (2), refer to the following.\r\n---- When connected to a Wi-Fi network, turn off the power of the wireless router or unplug the WAN-side LAN cable from the wireless router.\r\n---- When using a wired LAN connection, remove the LAN cable connected to the PlayStation®5 console.\r\n---- Select \"Settings\" on the System View > \"Network\" > \"Settings\" and disable \"Connect to the Internet\".\r\n---- Select \"Settings\" on the System View > \"Users and Accounts\" > \"Other\" > \"Sign Out\".",
+      "data": "",
+      "result": "The application does not freeze or otherwise become inoperable when attempting to use network features in a state where there is a network error"
+    }
+  ]
+}

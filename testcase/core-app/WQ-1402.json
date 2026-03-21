@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1402",
+  "issueId": "1128739",
+  "key": "WQ-1402",
+  "summary": "TTS | Follow Team page load, multiple follow teams set",
+  "description": "GIVEN TTS is enabled\r\nAND the user has multiple following teams set\r\nAND the user is on the Settings page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e3ea06cf-61be-461f-b942-c6c8ff56ff42",
+      "action": "WHEN the user selects Following Teams",
+      "data": "",
+      "result": "THEN the app reader should say the following upon page load : '... You are following the {followingTeam1}, {followingTeam2}, etc...'"
+    }
+  ]
+}

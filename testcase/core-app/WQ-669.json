@@ -1,0 +1,20 @@
+{
+  "id": "WQ-669",
+  "issueId": "1127997",
+  "key": "WQ-669",
+  "summary": "Extra Innings subscriber live game out of market - Feed Select",
+  "description": "GIVEN a user is an Xtra Innings subscriber\r\nAND the user is not in the viewing market of the game\r\nAND the game level entitledVideo equals true in MAST EPGv3\r\nAND the game level blackedOutVideo equals false in MAST EPGv3",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "faa51baf-c37b-4778-994d-2ce43dce0462",
+      "action": "WHEN a user selects a scheduled/in-progress game tile",
+      "data": "",
+      "result": "THEN the user will see feed buttons for both teams\r\nAND the user can playback feeds for both teams"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-414",
+  "issueId": "1127726",
+  "key": "WQ-414",
+  "summary": "SNY VOD Playback",
+  "description": "GIVEN a user has entitlements for SNY\r\nAND the user launches the MLB.TV app\r\nAND the user logs in\r\nAND the user is on the SNY page\r\n\r\n**NOTE:** SNY entitlement = SNY_121",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1c40cd10-ab6b-4752-96a4-e224c37c30b4",
+      "action": "WHEN the user selects a VOD tile from a carousel",
+      "data": "",
+      "result": "THEN initPlaybackSession is called via a graphql network call\nAND the VOD plays back successfully\nAND the video title displays left justified above the scrubber bar"
+    }
+  ]
+}

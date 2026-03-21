@@ -1,0 +1,20 @@
+{
+  "id": "WQ-288",
+  "issueId": "1127600",
+  "key": "WQ-288",
+  "summary": "MLBN MVPD - Unauthorized",
+  "description": "GIVEN a Postseason game is on the schedule\r\nAND MLBN broadcasters are assigned\r\nAND the user's location is in the USA\r\nAND a user is unauthorized for MLBN MVPD\r\nAND the game level entitledVideo = false\r\nAND the feed level mlbnAuthRequired = true",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "46e186e8-ed5e-46ed-8515-b492a9a9e63f",
+      "action": "WHEN the Postseason game with MLBN broadcasters is present in the Hero",
+      "data": "",
+      "result": "THEN the MVPD pill displays above the Hero title / game match up\r\nAND MVPD messaging displays below the Hero title / game match up"
+    }
+  ]
+}

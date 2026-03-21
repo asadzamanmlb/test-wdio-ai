@@ -1,0 +1,20 @@
+{
+  "id": "WQ-861",
+  "issueId": "1128189",
+  "key": "WQ-861",
+  "summary": "Executive user Peacock scheduled/live - Feed Select modal",
+  "description": "GIVEN the user is an Executive user\r\nAND there is a Peacock Game scheduled/in-progress",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "fd2b23c3-713a-4fdc-9c07-9516a1e0ac34",
+      "action": "WHEN the user selects the Peacock game tile",
+      "data": "",
+      "result": "THEN the feed button displays\r\nAND the user is able to watch the feed\r\nAND a message does not display letting the user know where the game can be watched"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2354",
+  "issueId": "1129804",
+  "key": "WQ-2354",
+  "summary": "R5162A - Audio is played back for different Audio Output Format settings",
+  "description": "**Audio**\r\n\r\n**R5162 Requirement:** The application’s audio output works correctly even if the system software audio output format and/or audio output attributes are modified.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ecf9874f-6d24-4471-b1a9-1991440ee534",
+      "action": "1. To confirm \"Audio Output Format\", on the home screen, set \"★Debug Settings\" > \"Sound and Screen\" > \"Audio Output Format\" to \"LPCM 2ch\"\r\n2. Return to the home screen\r\n3. Select the \"Application\" and check that the application's audio is played\r\n4. Close the \"Application\"\r\n5. Repeat steps (1) to (4) for each of the following settings\r\n- \"LPCM 5.1ch\"\r\n- \"LPCM 7.1ch\"\r\n- \"LPCM 2ch (TV Virtual Surround)\"\r\n6. To confirm headphones, on the home screen, set \"★Debug Settings\" > \"Sound and Screen\" > \"Audio Output Format\" to \"Auto\"\r\n7. Connect headphones to the headphone jack of the wireless controller for PlayStation®5\r\n8. Return to the home screen, set \"Settings\" > \"Sound\" > \"Audio Output\" > \"Output to Headphones\" to \"All Audio\" and enable \"Enable 3D Audio for Headphones\"\r\n9. Return to the home screen\r\n10. Select the \"Application\" and check that the application's audio is played\r\n\r\n**Notes:**\r\nRegardless of application support/lack of support, confirm that audio is played in all audio output formats (2ch/5.1ch/7.1ch/2ch(TV Virtual Surround)) and when headphones are connected.",
+      "data": "",
+      "result": "Audio is played back regardless of the \"Audio Output Format\" setting\r\nAudio is played back even when headphones are connected"
+    }
+  ]
+}

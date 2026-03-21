@@ -1,0 +1,20 @@
+{
+  "id": "WQ-952",
+  "issueId": "1128281",
+  "key": "WQ-952",
+  "summary": "Scheduled Game - Unfocused Game Tile Hide Spoilers ON",
+  "description": "GIVEN a subscriber is logged in\r\nAND Hide Spoilers is set to ON\r\nAND games are scheduled to happen today",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "cd1c1a3d-5ad5-45e7-bf4f-9186af5046a7",
+      "action": "WHEN a subscriber is on the Games page\r\nAND game tiles are displayed\r\nAND a scheduled game tile does not have focus",
+      "data": "",
+      "result": "THEN the away team primary color is displayed in the upper left of the game tile\r\nAND the away team logo is displayed\r\nAND the away team abbreviation is displayed below the team logo\r\nAND the home team primary color is displayed in the upper right of the game tile\r\nAND the home team logo is displayed\r\nAND the home team abbreviation is displayed below the team logo\r\nAND the scheduled game time displays left-justified below the match-up header\r\nAND below the scheduled game time, the pitching match-up displays \"Probable Pitchers Hidded\" for both probable pitchers\r\n*************FEATURES BELOW ARE NOT IMPLEMENTED*************\r\nAND below the pitcher match-up, call letters for the available live feeds are displayed"
+    }
+  ]
+}

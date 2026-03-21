@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1731",
+  "issueId": "1129148",
+  "key": "WQ-1731",
+  "summary": "Skip through inning markers - Hide Spoilers ON",
+  "description": "GIVEN the user is entitle for archive game playback\r\nAND Hide Spoilers is ON",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "16fb40ca-d84e-42a0-8fac-264f184b9c30",
+      "action": "WHEN the user watches an archive game\r\nAND the user opens the scrubber/player controls",
+      "data": "",
+      "result": "THEN inning markers only display for innings the user has already watched\r\nAND the user is able to skip to innings displayed in the line score"
+    }
+  ]
+}

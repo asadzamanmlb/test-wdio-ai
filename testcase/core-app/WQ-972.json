@@ -1,0 +1,20 @@
+{
+  "id": "WQ-972",
+  "issueId": "1128301",
+  "key": "WQ-972",
+  "summary": "Completed Game Hide Spoilers ON",
+  "description": "GIVEN a game is in a final/completed state\nAND Hide Spoilers is set to ON\n\n*NOTE:* Game Tile designs for reference - [https://www.figma.com/design/rGAWoDJL0fx7RTxv0er9U5/MLB.TV-Connected-Device-Developer-Spec?node-id=179-99767&t=2GMcHnOGaIH6wtRZ-0|https://www.figma.com/design/rGAWoDJL0fx7RTxv0er9U5/MLB.TV-Connected-Device-Developer-Spec?node-id=179-99767&t=2GMcHnOGaIH6wtRZ-0|smart-link]",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "cb469876-d561-46dc-9e58-65442756695f",
+      "action": "WHEN a user views a game tile for a completed game",
+      "data": "",
+      "result": "THEN the teams are displayed away team above home team with team avitars\nAND Broadcast Networks are displayed\nAND player information is not displayed\nAND the final score is not displayed\nAND the team records are not displayed"
+    }
+  ]
+}

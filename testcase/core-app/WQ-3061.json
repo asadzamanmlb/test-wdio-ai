@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3061",
+  "issueId": "1161962",
+  "key": "WQ-3061",
+  "summary": "SNLA+ VOD RW Stop",
+  "description": "GIVEN a logged in user is entitled for SNLA+ RSN\nAND the user is on the SNLA+ page\nAND the user selects a VOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ce368c93-4c59-42d0-93cf-04ecdbc3b847",
+      "action": "WHEN the user initiates Rewind\nAND presses the \"select\" button on the controller after a few moments",
+      "data": "",
+      "result": "THEN Rewind stops\nAND playback resumes at the point where Rewind stopped\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

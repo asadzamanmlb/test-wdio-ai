@@ -1,0 +1,20 @@
+{
+  "id": "WQ-784",
+  "issueId": "1128112",
+  "key": "WQ-784",
+  "summary": "Monthly/yearly subscriber YouTube archive - Game Tile",
+  "description": "GIVEN a user is a Monthly/Yearly subscriber",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a5bfed14-380a-4947-be8c-e200441ce581",
+      "action": "WHEN a user views/focuses an archive YouTube game tile",
+      "data": "",
+      "result": "THEN a lock icon does not display in the upper right corner of the game tile\r\nAND there is no dark overlay over the team colors in the game tile header\r\nAND the YouTube pill does not display in the game tile"
+    }
+  ]
+}

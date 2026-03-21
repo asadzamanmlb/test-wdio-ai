@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1018",
+  "issueId": "1128347",
+  "key": "WQ-1018",
+  "summary": "Can access dates through past two seasons",
+  "description": "GIVEN a user is on the Games page\r\nAND the calendar is displayed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3287e306-4e95-4788-8b8b-3923d000c855",
+      "action": "WHEN a user selects any date in the previous two seasons",
+      "data": "",
+      "result": "THEN the games for the selected date display"
+    }
+  ]
+}

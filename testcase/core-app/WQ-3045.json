@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3045",
+  "issueId": "1161790",
+  "key": "WQ-3045",
+  "summary": "SNY 24/7 feed FF to Live Point",
+  "description": "GIVEN a logged in user is entitled for SNY RSN\nAND the user selects the SNY 24/7 stream to watch\nAND the playhead is behind the live point",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "075a9e76-430d-432d-9fb4-4dfaf1159647",
+      "action": "WHEN the user Fast Forwards the stream to the live point",
+      "data": "",
+      "result": "THEN Fast Forward stops when it reaches the live point\nAND playback resumes at the live point\nAND the Live indicator is red\nAND the \"Jump to Live\" button does not display\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "WQ-2905",
+  "issueId": "1131561",
+  "key": "WQ-2905",
+  "summary": "MASN and MASN2 24/7 feed - Mid-roll DAI Ads",
+  "description": "GIVEN a user has entitlements for MASN\nAND the user launches the MLB.tv Core App\nAND the user logs in\nAND the user has initiated playback of the 24/7 MASN feeds\nAND the 24/7 MASN streams have adsEnabled equals true in the graphql Preview/Response (data->initPlaybackSession->adExperience->adsEnabled)\nAND an asset key is is returned in the same graphql Preview/Response (data->initPlaybackSession->adExperience->adEngineIdentifiers)\n\n*NOTE:* \nMASN entitlement = MASN_110 and MASN_120\nNeeds to be tested in a browser\n\nMASN Test users:\n\n|Username|Password|\n|masn@gmail.com|Password4MASN|\n|masnims@gmail.com (In Market)|Password4MASN|\n|masnoom@gmail.com (Out of Market)|Password4MASN|\n|masnintl@gmail.com (International)|Password4MASN|",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c414431d-07a9-401b-9f2e-582e22d535a0",
+      "action": "WHEN an ad break is triggered for the MASN 24/7 feed",
+      "data": "",
+      "result": "THEN we should see ads playing back\nAND \"id3-events.json\" network calls are being made\nAND the \"id3-events.json\" network calls have a request URL starting with \"[https://dai.google.com/|https://dai.google.com/]\"\n\n**NOTE:** Entering \"stream\" into the Network search of Dev Tools should filter out the id3-events.json network calls"
+    },
+    {
+      "id": "a3e8b394-2627-4991-8338-96cd523de5ad",
+      "action": "WHEN an ad break is triggered for the MASN2 24/7 feed",
+      "data": "",
+      "result": "THEN we should see ads playing back\nAND \"id3-events.json\" network calls are being made\nAND the \"id3-events.json\" network calls have a request URL starting with \"[https://dai.google.com/|https://dai.google.com/]\"\n\n**NOTE:** Entering \"stream\" into the Network search of Dev Tools should filter out the id3-events.json network calls"
+    }
+  ]
+}

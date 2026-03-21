@@ -1,0 +1,20 @@
+{
+  "id": "WQ-290",
+  "issueId": "1127602",
+  "key": "WQ-290",
+  "summary": "ESPN MVPD - Authorized",
+  "description": "GIVEN a Postseason game is on the schedule\r\nAND ESPN broadcasters are assigned\r\nAND the user's location is in the USA\r\nAND a user is authorized for ESPN MVPD\r\nAND the game level entitledVideo = true\r\nAND the feed level espnAuthRequired = true",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "17f12dfe-b3ff-4d4c-909d-82bb53427c68",
+      "action": "WHEN the Postseason game with ESPN broadcasters is present in the Hero",
+      "data": "",
+      "result": "THEN the MVPD pill does not display above the Hero title / game match up\r\nAND MVPD text does not display below the Hero title / game match up"
+    }
+  ]
+}

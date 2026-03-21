@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1735",
+  "issueId": "1129152",
+  "key": "WQ-1735",
+  "summary": "Archive ad break start",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5232da72-c00a-4dfe-a38a-0ee6fd122cf1",
+      "action": "WHEN",
+      "data": "",
+      "result": "DAI ads playback for an archive game when an ad-break starts"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1442",
+  "issueId": "1128779",
+  "key": "WQ-1442",
+  "summary": "Create Account Error - duplicate email",
+  "description": "GIVEN the user is not logged in\r\nAND TTS is turned ON\r\nAND the user is on the Create Free Account page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e5746e7d-eb96-4f89-b24c-d76c1f61aff6",
+      "action": "WHEN the user enters a duplicate email into the \"Email Address\" field\r\nAND the user enters a valid password format into the \"Password\" field\r\nAND the user selects the \"Create Account\" button",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"We encountered an issue while trying to create your account. An error occurred, please try again. Duplicate email address.\""
+    }
+  ]
+}

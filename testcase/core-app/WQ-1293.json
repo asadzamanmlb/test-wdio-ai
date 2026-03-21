@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1293",
+  "issueId": "1128630",
+  "key": "WQ-1293",
+  "summary": "You're a bit Early",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND a game is on the schedule with broadcasters\r\nAND the `mediaState` for the feeds is set to `MEDIA_OFF`",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f54a84fe-b1d8-4a59-aa4d-4cba1e06c22d",
+      "action": "WHEN the user selects a game tile on tomorrows date",
+      "data": "",
+      "result": "THEN the Feed Modal displays\r\nAND the following statement is spoken, \"<away_team> @ <home_team>, You’re a bit early!, There are no feeds available yet. Please come back later. Press back to dismiss.\""
+    }
+  ]
+}

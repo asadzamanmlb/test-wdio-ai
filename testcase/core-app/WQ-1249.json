@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1249",
+  "issueId": "1128586",
+  "key": "WQ-1249",
+  "summary": "Game Tile Final Extra Innings Hide Spoilers ON",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND Hide Spoilers is turned ON\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "367ee2ba-8ef2-408e-b903-56637c6d56cd",
+      "action": "WHEN focus is assigned to an extra innings archive game tile in the Games Carousel",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Game <x> of <y>, <away_team>,<home_team>. Press select to play game. Move <appropriate_directions> to navigate to a new item. Move up or down to browse new content.\""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-688",
+  "issueId": "1128016",
+  "key": "WQ-688",
+  "summary": "Executive user FGotD - Game Tile",
+  "description": "GIVEN a user is an Executive user",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f6b734e7-b49b-40e2-b688-5dca7bf22d4a",
+      "action": "WHEN a user views/focuses any scheduled/in-progress FGotD game tile",
+      "data": "",
+      "result": "THEN a lock icon does not display in the upper right corner of the game tile\r\nAND there is no dark overlay over the team colors in the game tile header\r\nAND a Free Game of the Day pill displays left justified at the bottom of the game tile"
+    }
+  ]
+}

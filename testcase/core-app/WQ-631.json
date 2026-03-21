@@ -1,0 +1,20 @@
+{
+  "id": "WQ-631",
+  "issueId": "1127958",
+  "key": "WQ-631",
+  "summary": "Scrubber bar - Live game after broadcast start",
+  "description": "GIVEN a user is in the MLB experience\r\nAND a video feed for a game is MEDIA_ON\r\nAND a broadcast start milestone has been set",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7fe78588-39e1-4eff-a2c8-7f1d357fabba",
+      "action": "WHEN the user selects \"Start From The Beginning\" in the secondary feed select modal",
+      "data": "",
+      "result": "THEN playback starts at the broadcast start milestone\r\nAND the playback head is at the far left of the scrubber bar\r\nAND the time below the scrubber is 00:00:00\r\nAND the user cannot RW to the start of the feed"
+    }
+  ]
+}

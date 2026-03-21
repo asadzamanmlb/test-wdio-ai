@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1613",
+  "issueId": "1129030",
+  "key": "WQ-1613",
+  "summary": "Watch Live",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "cafa9d65-2fd6-420e-806b-9253930de545",
+      "action": "WHEN",
+      "data": "",
+      "result": "Watch live option in the options menu after selecting the away/home feed will always start video playback at the live point"
+    }
+  ]
+}

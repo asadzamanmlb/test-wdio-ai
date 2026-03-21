@@ -1,0 +1,20 @@
+{
+  "id": "WQ-979",
+  "issueId": "1128308",
+  "key": "WQ-979",
+  "summary": "Jump to navigation header on Games page",
+  "description": "GIVEN the user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5fa10ddf-ad65-461c-9141-a5b08f70422b",
+      "action": "WHEN the user navigates to the bottom of the Games page\r\nAND the user presses the [triangle] button on the controller",
+      "data": "",
+      "result": "THEN the [Games] button in the navigation header at the top of the screen gains focus\r\nAND the page scrolls to the top\r\nAND the user stays on the Games page"
+    }
+  ]
+}

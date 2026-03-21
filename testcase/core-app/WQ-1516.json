@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1516",
+  "issueId": "1128853",
+  "key": "WQ-1516",
+  "summary": "-Quick Actions Menu | Last Channel Option",
+  "description": "GIVEN the user is in the Quick Actions Menu\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4dc413a9-df75-425b-9ca2-7db2e5ab8dff",
+      "action": "WHEN the user navigates the \"Last Channel\" option",
+      "data": "",
+      "result": "THEN the user will hear: “Last Channel <insert game of Away team @Home Team>, x out of y options. Press Select to Navigate to this game, Press <appropriate_directions> for more quick actions options, Press down for player controls, Press back to dismiss controls.”"
+    }
+  ]
+}

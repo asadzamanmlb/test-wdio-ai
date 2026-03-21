@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2952",
+  "issueId": "1146513",
+  "key": "WQ-2952",
+  "summary": "Validate TTS output when user hovers over HDR toggle",
+  "description": "GIVEN a device is HDR capable\nAND TTS is enabled\nAND the user is on the settings page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "643188e8-9e35-4c01-8175-55788a81c6db",
+      "action": "WHEN the user hovers over the HDR toggle",
+      "data": "",
+      "result": "THEN the user should hear:\n\nHDR Toggle, Toggle is set to <On/Off>, Toggle on to receive the highest resolution streams, including HDR (where available), from Major League Baseball. If you experience buffering issues, try toggling to off. Press select to <Off/On>."
+    }
+  ]
+}

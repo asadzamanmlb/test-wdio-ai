@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1611",
+  "issueId": "1129028",
+  "key": "WQ-1611",
+  "summary": "Pre-broadcast slate",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4e4f9249-94c0-4f53-8652-41beacfd499a",
+      "action": "WHEN",
+      "data": "",
+      "result": "\"Event will begin shortly\" slate is displayed before broadcast if stream has yet to start"
+    }
+  ]
+}

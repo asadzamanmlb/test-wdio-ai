@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1149",
+  "issueId": "1128484",
+  "key": "WQ-1149",
+  "summary": "Favorite Team - Settings page Cancel",
+  "description": "GIVEN a logged in user is on the Settings page\r\nAND the user selects \"Favorite Team\" in the list of settings\r\nAND the user selects a favorite team",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a4b68c9d-e9b2-4516-9ec6-d0773448bba6",
+      "action": "WHEN the user selects the \"Cancel\" button",
+      "data": "",
+      "result": "THEN the user is navigated back to the Settings page\r\nAND focus is assigned to \"Log Out\" in the list of settings\r\n*** (NOT IMPLEMENTED) AND the user's previously selected favorite team displays in the header, to the left of \"Settings\" ***\r\nAND the user's previously selected favorite team displays in the first game tile of the top row on the Games page, on day's the favorite team is playing\r\nAND the user's previously selected favorite team displays in the first game tile of the Games carousel, or Hero/Featured spot, on the Home page, on days the favorite team is playing\r\nIF a favorite team was not previously selected, the Games page and Games carousel will display in the order of game start time\r\nOR if a favorite team was not previously selected, the Games page and Games carousel will first display any Following Teams the user may have selected"
+    }
+  ]
+}

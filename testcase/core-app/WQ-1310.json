@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1310",
+  "issueId": "1128647",
+  "key": "WQ-1310",
+  "summary": "Games Page load past date",
+  "description": "GIVEN TTS is turned ON",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2eb789d6-47c8-46f1-ae0c-88f92ebf62dd",
+      "action": "WHEN the user navigates to a previous date",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"On the Games page, <date>, <number_of_games>, Left Button, press select to navigate to the previous day. <x> of <y> buttons in the navigation, press up for the Main Menu, Press down for this day's games.\""
+    }
+  ]
+}

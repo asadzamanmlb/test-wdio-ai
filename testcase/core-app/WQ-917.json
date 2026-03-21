@@ -1,0 +1,20 @@
+{
+  "id": "WQ-917",
+  "issueId": "1128246",
+  "key": "WQ-917",
+  "summary": "AtBat subscriber ESPN/Sunday Night Baseball archive - Game Tile",
+  "description": "GIVEN a user has AtBat entitlements\r\nAND ESPN Sunday Night Baseball is archived\r\n\r\nAtBat entitlements = MLBAUDIO, IPHONEATBAT, ANDROIDATBAT, SUBSCRIBERVOD",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7764e3bd-1943-49ae-ba8b-a6b7a90a1c91",
+      "action": "WHEN the user views the game tile focused or unfocused",
+      "data": "",
+      "result": "THEN a lock icon displays in the upper right corner of the game tile\r\nAND there is a dark overlay of the team match up"
+    }
+  ]
+}

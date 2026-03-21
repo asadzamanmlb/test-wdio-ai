@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1572",
+  "issueId": "1128978",
+  "key": "WQ-1572",
+  "summary": "Menu Navigation Functionality - LG",
+  "description": "GIVEN I have logged into the MLB.TV app at the LG's TV menu options section",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2b23ebb2-4ea5-4ec5-a50e-f0cce4087c91",
+      "action": "WHEN I press the Up button in LG's TV menu options\r\nAND I press the Down button in LG's TV menu options\r\nAND I press the Left button in LG's TV menu options\r\nAND I press the Right button in LG's TV menu options\r\nAND I press the OK button in LG's TV menu options",
+      "data": "",
+      "result": "THEN I should notice the Up button navigates Up in LG's TV menu options\r\nTHEN I should notice the Down button navigates Downward in LG's TV menu options\r\nTHEN I should notice the Left button navigates to the left in LG's TV menu options\r\nTHEN I should notice the Right button navigates to the right in LG's TV menu options\r\nTHEN I should notice the OK button operates as a Select button in LG's TV menu options"
+    }
+  ]
+}

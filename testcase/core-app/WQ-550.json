@@ -1,0 +1,20 @@
+{
+  "id": "WQ-550",
+  "issueId": "1127876",
+  "key": "WQ-550",
+  "summary": "Slow down Fast Forward",
+  "description": "GIVEN a user is rewinding a video\r\nAND the fast forward speed is 4, 8, 16, 32, 64, 128, or 256",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "88e93b3c-d90e-46c3-87ab-de0a05eb1c94",
+      "action": "WHEN a user taps the left d-pad button, L2 button, or the left analog stick to the left",
+      "data": "",
+      "result": "THEN the fast forward speed decreases by one increment for every tap"
+    }
+  ]
+}

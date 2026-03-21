@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1298",
+  "issueId": "1128635",
+  "key": "WQ-1298",
+  "summary": "Blacked Out",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND a game is on the schedule that is blacked out in the user's viewing market",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "df5a1855-71ea-4e17-95b0-e80188335dfe",
+      "action": "WHEN the user selects a game tile with a Blackout pill",
+      "data": "",
+      "result": "THEN the Feed Modal displays\r\nAND the following statement is spoken, \"<away_team> @ <home_team>, <body_text>, Press back to dismiss.\""
+    }
+  ]
+}

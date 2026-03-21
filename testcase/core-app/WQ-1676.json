@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1676",
+  "issueId": "1129093",
+  "key": "WQ-1676",
+  "summary": "AppleTV+ messaging",
+  "description": "When a logged in user launches the app and selects Live Partner (Eg: Peacock, Apple TV, YouTube) Game, Feed select page appears with Blackout messaging on the game tiles that are in the \"blackout market\".\r\nAfter 90 mins of the partner game completion, ensure the game tile follows the normal rules (ie if a user requires additional subscription show lock icon)",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a2378f81-2413-4a1e-a301-e5e06049a337",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

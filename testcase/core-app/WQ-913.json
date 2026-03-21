@@ -1,0 +1,20 @@
+{
+  "id": "WQ-913",
+  "issueId": "1128242",
+  "key": "WQ-913",
+  "summary": "Anonymous user Free Game of the Day - Feed Select",
+  "description": "GIVEN a user is anonymous\r\nAND a Free Game of the Day is scheduled/in-progress out-of-market",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c92bc74a-2688-4e49-a552-964547e25da3",
+      "action": "WHEN the user selects the game tile for a Free Game of the Day",
+      "data": "",
+      "result": "THEN the following text displays at the top of the modal \"Free Game of the Day\", \"Login or register with a free MLB account to watch the free game of the day.\"\nAND text \"Full Game Access\" displays above a [Subscribe] button\nAND the user is navigated to the Subscriptions/Paywall page if they select the [Subscribe] button\nAND the user is navigated back to the Games page after pressing the \"BACK\" button on the controller"
+    }
+  ]
+}

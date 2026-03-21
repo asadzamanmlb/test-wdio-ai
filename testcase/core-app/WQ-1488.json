@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1488",
+  "issueId": "1128825",
+  "key": "WQ-1488",
+  "summary": "Rewind | Live/Archive Games",
+  "description": "GIVEN the user is watching a Live or Archive game\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9bca764c-aefd-4e2b-b26f-19b5828e0537",
+      "action": "WHEN the user holds down the left button to Rewind",
+      "data": "",
+      "result": "THEN the user will hear: “Rewind, <Speed>, Press select to Play”\r\nFor example: The user will hear the speed even if FF/RW in 1x"
+    }
+  ]
+}

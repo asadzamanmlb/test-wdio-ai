@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1733",
+  "issueId": "1129150",
+  "key": "WQ-1733",
+  "summary": "Away video broadcast audio",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b83e7eb0-bffd-43ff-887f-53bd6a82c6a6",
+      "action": "WHEN",
+      "data": "",
+      "result": "Away team's video player game stream is matched with away team's broadcast audio"
+    }
+  ]
+}

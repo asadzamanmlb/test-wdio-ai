@@ -1,0 +1,20 @@
+{
+  "id": "WQ-504",
+  "issueId": "1127830",
+  "key": "WQ-504",
+  "summary": "Game Details - Extra innings Hide Spoilers OFF",
+  "description": "GIVEN the user is logged in\r\nAND the user is in the MLB experience\r\nAND the user is entitled to live game playback\r\nAND Hide Spoilers is set to OFF\r\nAND playback is initiated at the live point of an extra inning game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "80bb5606-1cd9-46ab-a501-f89162b17a3e",
+      "action": "WHEN a user initiates the scrubber bar to display\r\nAND the user assigns focus to the Details tab below the scrubber bar",
+      "data": "",
+      "result": "THEN \"Details\" is the furthest left position below the scrubber bar\r\nAND the inning numbers are displayed above the game matchup\r\nAND after the inning numbers, to the right, \"R\" is displayed for runs, \"H\" is displayed for hits, \"E\" is displayed for errors\r\nAND the away team displays above the home team\r\nAND a \">\" displays after the extra inning, between the away and home teams\r\nAND below each inning number, the number of runs scored by each team in the associated inning are displayed\r\nAND each teams total runs is displayed below \"R\"\r\nAND each teams total hits is displayed below \"H\"\r\nAnd each teams total errors is displayed below \"E\"\r\nAND as the game progresses, Runs, Hits, and Errors are updated as they happen"
+    }
+  ]
+}

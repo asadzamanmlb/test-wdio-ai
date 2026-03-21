@@ -1,0 +1,20 @@
+{
+  "id": "WQ-167",
+  "issueId": "1127470",
+  "key": "WQ-167",
+  "summary": "MLBN MVPD - Canada",
+  "description": "GIVEN a subscriber is located in Canada\r\nAND a postseason/All-Star game has MLBN broadcasters assigned\r\nAND the away feed level mlbnAuthRequired = true\r\nAND feed level mediaState = MEDIA_ON",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "588de5f0-2dd1-4957-b4fb-213d48bfe933",
+      "action": "WHEN the subscriber selects the MLBN postseason game tile",
+      "data": "",
+      "result": "THEN a blackout message is displayed\r\nAND the user is unable to access feeds for the game\r\nAND the Feed Modal is dismissed after the user presses the CIRCLE button on the controller"
+    }
+  ]
+}

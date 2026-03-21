@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1369",
+  "issueId": "1128706",
+  "key": "WQ-1369",
+  "summary": "Bottom row Monday-Friday",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is on the Games page\r\nAND the user has selected the Calendar",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6a760eb9-50d0-44fd-8a62-1bc446e18c60",
+      "action": "WHEN focus is assigned to Mon, Tue, Wed, Thur, or Fri in the bottom row of the calendar",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"<day_of_the_week>, <month>, <day>, <year>, <number_of_games_on_this_day>. Press up, right, or left to navigate to more dates.\""
+    }
+  ]
+}

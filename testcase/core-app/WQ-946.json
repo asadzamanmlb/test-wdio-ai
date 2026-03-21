@@ -1,0 +1,20 @@
+{
+  "id": "WQ-946",
+  "issueId": "1128275",
+  "key": "WQ-946",
+  "summary": "Out Indicators Live Game Hide Spoilers OFF",
+  "description": "GIVEN a game is in-progress\r\nAND Hides Spoilers is set to OFF",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "017e75a5-810b-4f76-880f-01c6ad0edf2a",
+      "action": "WHEN an out is made in the inning",
+      "data": "",
+      "result": "THEN the corresponding out indicator is displayed in yellow\r\nAND out indicators are displayed in gray if the corresponding out has not been made\r\nAND the left out indicator corresponds to the first out\r\nAND the center out indicator corresponds to the second out\r\nAND the right out indicator corresponds to the third out\r\nAND the out indicators are center-right justified below the base indicators in the non-matchup portion of the game tile"
+    }
+  ]
+}

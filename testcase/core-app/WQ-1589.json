@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1589",
+  "issueId": "1128995",
+  "key": "WQ-1589",
+  "summary": "All Buttons - Samsung",
+  "description": "GIVEN I have paired the Samsung TV remote with the Samsung TV",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9b0fabf8-5cba-4bb4-99b4-95d30754f5f2",
+      "action": "WHEN I Press the SmartHub![](index.php?/attachments/get/14189420) button \r\n\r\nAND I Press the Return ![](index.php?/attachments/get/14189422) button\r\n\r\nAND I Press the Play/Pause ![](index.php?/attachments/get/14189423) button\r\n\r\nAND I Press the  +  button\r\n\r\nAND I Press the  -  button\r\n\r\nAND I Press the \"Select\" (2) ![](index.php?/attachments/get/14189426) button \r\n\r\nAND I Press the Up Arrow button\r\n\r\nAND I Press the Down Arrow button\r\n\r\nAND I Press the (1) button Inside the Circle ![](index.php?/attachments/get/14189426)\r\n\r\nAND I Press and Hold the Volume button\r\n\r\nAND I Press the (Color - Number (123)) ![](index.php?/attachments/get/14189424) button\r\n\r\nAND I Press the Mic ![](index.php?/attachments/get/14189425)button\r\n\r\nAND I Press the \"Accessibility Shortcuts\" ![](index.php?/attachments/get/14189427) button",
+      "data": "",
+      "result": "THEN I should be returned to the Home screen\r\nTHEN I should return to the Previous screen or menu\r\nTHEN I should notice that the Play/Pause button plays or pauses the video that's playing\r\nTHEN I should notice the Volume increasing\r\nTHEN I should notice the Volume decreasing\r\nTHEN I should notice the Channel moves Up by one\r\nTHEN I should notice the Channel moves Down by one\r\nTHEN I should notice the button Inside the Circle acts as the Select button\r\nTHEN I should notice that the \"Accessibility Shortcuts\" menu is displayed\r\nTHEN I should buttons window and Virtual Numeric keypad are displayed alternatively\r\nTHEN I should notice the Mic button activates the Voice Assistant\r\nTHEN I should notice the Accessibility Shortcuts menu is displayed"
+    }
+  ]
+}

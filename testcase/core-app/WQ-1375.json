@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1375",
+  "issueId": "1128712",
+  "key": "WQ-1375",
+  "summary": "TTS | Favorite Team page load, favorite team not already set",
+  "description": "GIVEN TTS is enabled\r\nAND the user doesn't already have a Favorite Team set\r\nAND the user is logged in\r\nAND the user is on the Settings page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7271a3d2-1608-4533-9282-4beb82421d74",
+      "action": "WHEN the user selects Favorite Team",
+      "data": "",
+      "result": "THEN the app reader should say the following upon page load : 'The title reads, select your favorite team here. Help personalize your experience by selecting the team you go to bat for. Teams are organized in alphabetical order from left to right, and top to bottom. Press select to select a team to favorite. Once selected, your selection will be saved and you will automatically be navigated to the “Done” button. You can only favorite one team. The {selected team} is highlighted. Press select to save this team as your favorite team. Move right, or down to hear additional teams to favorite. Move left to highlight the “Cancel” button.'"
+    }
+  ]
+}

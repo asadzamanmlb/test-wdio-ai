@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3308",
+  "issueId": "1229518",
+  "key": "WQ-3308",
+  "summary": "Game Tile - Badges - Split Squad Logic",
+  "description": "GIVEN a user can see game tiles on the Home or Games page\n\n\n\nLogic: If both teams have splitSquad: true in the EPG response, show{color:#ff5630} {color}{{SPLIT SQUAD GAME}}. If only one does, show {{<TEAM_NAME> SPLIT SQUAD}}\n\n!image-20251201-175853.png|width=817,height=960,alt=\"image-20251201-175853.png\"!",
+  "status": "To Do",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "cc215ce6-be67-49dc-97a8-c5ce53eab54d",
+      "action": "WHEN user navigates to a date with teams who are splitting their squad to play more than one game (eg Spring Training: Monday, March 2, 2026)",
+      "data": "splitSquad: true in the EPG response",
+      "result": "THEN the game tile will display a white badge, showing {{<TEAM_NAME> SPLIT SQUAD}} if only one team is splitting their squad that day or {{SPLIT SQUAD GAME}} if both teams are spitting their teams that day."
+    }
+  ]
+}

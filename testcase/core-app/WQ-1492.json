@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1492",
+  "issueId": "1128829",
+  "key": "WQ-1492",
+  "summary": "Live/Archive | Inning Announcement while Rewinding",
+  "description": "GIVEN the user is watching a Live Game or Archive Game\r\nAND TTS is enabled\r\nAND the the user is Fast Rewinding",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "744991bb-933b-4c5b-8655-5f85e7a39d77",
+      "action": "WHEN the user passes an inning marker while Rewinding",
+      "data": "",
+      "result": "THEN the user will hear: “Bottom of second”, “Top of third” etc."
+    }
+  ]
+}

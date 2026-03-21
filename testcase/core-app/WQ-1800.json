@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1800",
+  "issueId": "1129217",
+  "key": "WQ-1800",
+  "summary": "Factory Reset",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "640adf2e-02e2-4ce8-a29a-439ffa72aa8d",
+      "action": "Reset device to factory settings → Execute app → Playback contents",
+      "data": "",
+      "result": "able to access and execute app properly"
+    }
+  ]
+}

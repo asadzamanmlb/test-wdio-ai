@@ -1,0 +1,20 @@
+{
+  "id": "WQ-544",
+  "issueId": "1127870",
+  "key": "WQ-544",
+  "summary": "Game Details - Resume Hide Spoilers OFF",
+  "description": "GIVEN the user is logged in\r\nAND the user is in the MLB experience\r\nAND the user is entitled to archive game playback\r\nAND Hide Spoilers is set to OFF\r\nAND the user backs out of playback\r\nAND waits 10 minutes to resume",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "58de3afe-f3e2-4961-a02b-ce361858fb92",
+      "action": "WHEN the user Resumes playback of the archive game\r\nAND the user focuses on Game Details below the scrubber bar",
+      "data": "",
+      "result": "THEN the pitcher/batter info matches the resumed playback position\r\nAND the complete game Linescore displays"
+    }
+  ]
+}

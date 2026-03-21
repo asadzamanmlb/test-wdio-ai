@@ -1,0 +1,20 @@
+{
+  "id": "WQ-482",
+  "issueId": "1127808",
+  "key": "WQ-482",
+  "summary": "Fast forward to live stream live point",
+  "description": "GIVEN a user is playing a live game\r\nAND the playhead is not at the live point",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ff335a48-4bed-417c-ad9a-ebb71eb9fb20",
+      "action": "WHEN a user initiates Fast forward\r\nAND the user does not stop fast forward",
+      "data": "",
+      "result": "THEN the playhead fast forwards to the live point\r\nAND fast forward stops automatically at the live point\r\nAND the stream starts playing from the live point\r\nAND the Live indicator is red\r\nAND the Jump to Live button is not displayed\r\nAND the scrubber bar is auto dismissed after 10 seconds"
+    }
+  ]
+}

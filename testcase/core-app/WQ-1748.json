@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1748",
+  "issueId": "1129165",
+  "key": "WQ-1748",
+  "summary": "DAI calls stop/fail when network connection is lost",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e0d31c23-91b8-40db-95a0-cd8ebb98dacb",
+      "action": "WHEN",
+      "data": "",
+      "result": "Verify DAI calls stop/fail when network connection is lost during an ad Break, and DAI calls can be made after network connection is resumed"
+    }
+  ]
+}

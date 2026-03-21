@@ -1,0 +1,20 @@
+{
+  "id": "WQ-566",
+  "issueId": "1127892",
+  "key": "WQ-566",
+  "summary": "MLBN 24/7 Live Linear Fast Forward to Live Point",
+  "description": "GIVEN a user is entitled for MLBN\nAND the user is logged in\nAND the user selects the MLBN 24/7 Live Linear stream to watch\nAND the playhead is behind the live point",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8224df02-e8d4-4de8-b14d-c427bba09763",
+      "action": "WHEN the user Fast Forwards the stream to the live point",
+      "data": "",
+      "result": "THEN Fast Forward stops when it reaches the live point\r\nAND playback resumes at the live point\r\nAND the Live indicator is red\r\nAND the \"Jump to Live\" button does not display\r\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

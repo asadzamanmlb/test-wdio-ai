@@ -1,0 +1,20 @@
+{
+  "id": "WQ-476",
+  "issueId": "1127802",
+  "key": "WQ-476",
+  "summary": "Resume live game inning markers - Hide Spoilers ON",
+  "description": "GIVEN a user has Hide Spoilers ON\r\nAND a user has exited an in-progress live game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2f029fd8-2bf0-4766-b822-377f26a17e2c",
+      "action": "WHEN a user resumes an in-progress live game",
+      "data": "",
+      "result": "THEN the video starts playing from the bookmarked point\r\nAND inning markers display in the scrubber, to the left of the playback head, for the portion of the game the user has already watched\r\nAND as the half innings begin, inning markers are populated in the scrubber bar\r\nAND inning markers are not populated between the users watch point and the live point, to the right of the playback head"
+    }
+  ]
+}

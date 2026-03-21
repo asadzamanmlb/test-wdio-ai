@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1469",
+  "issueId": "1128806",
+  "key": "WQ-1469",
+  "summary": "Focusing on Scrubber | SLIVE",
+  "description": "GIVEN the user is watching SLIVE content\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6efa8879-c9d9-4d8e-adb7-47d4c5d3e923",
+      "action": "WHEN the user navigates down and the scrubber comes into focus",
+      "data": "",
+      "result": "THEN the user will hear: “<name_of_video>, Press select to Pause, Press Up for Quick Actions, Press back to dismiss controls.”"
+    }
+  ]
+}

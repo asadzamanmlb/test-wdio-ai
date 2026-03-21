@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1275",
+  "issueId": "1128612",
+  "key": "WQ-1275",
+  "summary": "Game Tile Final Extra Innings",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is logged in\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "27298f4a-59d9-471e-ae1c-0b47a9f3128a",
+      "action": "WHEN focus is assigned to an extra innings archive game in the Hero",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"<away_team>, <away_team_score>, <home_team>, <home_team_score>, Final, press select to play, press up for the Main Menu, press down to browse more content.\""
+    }
+  ]
+}

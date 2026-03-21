@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1017",
+  "issueId": "1128346",
+  "key": "WQ-1017",
+  "summary": "Calendar displays month of selected date",
+  "description": "GIVEN the user is on the Games page\r\nAND the displayed date is not in the current month",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b8a65705-68bb-41da-bd0e-8209644084e3",
+      "action": "WHEN a user selects the calendar button",
+      "data": "",
+      "result": "THEN the calendar for the selected date's month is displayed\r\nAND the selected/displayed date from the Games page has focus"
+    }
+  ]
+}

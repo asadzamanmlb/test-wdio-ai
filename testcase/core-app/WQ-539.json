@@ -1,0 +1,20 @@
+{
+  "id": "WQ-539",
+  "issueId": "1127865",
+  "key": "WQ-539",
+  "summary": "Game Details - Extra innings Hide Spoilers OFF",
+  "description": "GIVEN the user is logged in\r\nAND the user is in the MLB experience\r\nAND the user is entitled to archive game playback\r\nAND Hide Spoilers is set to OFF\r\nAND Start from the Beginning is selected for archive game playback of an extra inning game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "110cc55b-df47-4650-abf0-aba6c12a86f2",
+      "action": "WHEN a user initiates the scrubber bar to display\r\nAND the user assigns focus to the Details tab below the scrubber bar",
+      "data": "",
+      "result": "THEN \"Details\" is the furthest left position below the scrubber bar\r\nAND the inning numbers are displayed above the game matchup\r\nAND after the inning numbers, to the right, \"R\" is displayed for runs, \"H\" is displayed for hits, \"E\" is displayed for errors\r\nAND the away team displays above the home team\r\nAND a \">\" displays after the 9th inning, between the away and home teams\r\nAND below each inning number the number of runs scored by each team in the associated inning are displayed\r\nAND each teams total runs is displayed below \"R\"\r\nAND each teams total hits is displayed below \"H\"\r\nAND each teams total errors is displayed below \"E\"\r\nAND the current Batter with stats is displayed to the right of the linescore\r\nAND the current Pitcher with stats is displayed to the right of the current batter"
+    }
+  ]
+}

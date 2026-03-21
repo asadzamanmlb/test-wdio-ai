@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2365",
+  "issueId": "1129815",
+  "key": "WQ-2365",
+  "summary": "PS5 Media Remote Control",
+  "description": "GIVEN a user is using a PS5 media remote instead of a game controller",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7ba7b9c0-100b-41b2-9879-34f32a522b58",
+      "action": "WHEN the user uses the remote to interact with the app",
+      "data": "",
+      "result": "THEN the Play/Pause button pauses video playback\r\nAND the Play/Pause button resumes video playback\r\nAND the FF button initiates FF\r\nAND the RW button initiates RW\r\nAND the Return button functions as \"Go Back\"\r\nAND the top navigation button navigates the user up\r\nAND the bottom navigation button navigates the user down\r\nAND the left navigation button navigates the user to the left\r\nAND the right navigation button navigates the user to the right\r\nAND the center navigation button functions as select\r\nAND the center navigation button functions as play/pause during video playback"
+    }
+  ]
+}

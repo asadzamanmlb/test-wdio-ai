@@ -1,0 +1,20 @@
+{
+  "id": "WQ-764",
+  "issueId": "1128092",
+  "key": "WQ-764",
+  "summary": "US Single Team subscriber plain ESPN - Game Tile",
+  "description": null,
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5d4314a4-e968-40c9-a3ea-6010f30c482f",
+      "action": "WHEN",
+      "data": "",
+      "result": "THEN a blackout pill displays in the game tile"
+    }
+  ]
+}

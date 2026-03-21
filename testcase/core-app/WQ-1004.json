@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1004",
+  "issueId": "1128333",
+  "key": "WQ-1004",
+  "summary": "Game Data Updating",
+  "description": "GIVEN a user is on the Games page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "83fdaba8-9a02-4a29-8a1e-7d4972929e2f",
+      "action": "WHEN a live game is in-progress\r\nAND the user stays on the Games page",
+      "data": "",
+      "result": "THEN the game data in the game tile updates as the game progresses"
+    }
+  ]
+}

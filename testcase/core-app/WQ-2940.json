@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2940",
+  "issueId": "1143706",
+  "key": "WQ-2940",
+  "summary": "Game Tile and Games page data updates overnight",
+  "description": "GIVEN a user is logged in \nAND the user is on the Games page\nAND live games are in progress",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ebf96f5b-536a-4d3a-9e0e-ea4608035370",
+      "action": "WHEN the user stays on the Games page overnight",
+      "data": "",
+      "result": "THEN all the Game Tiles have been updated with accurate data"
+    }
+  ]
+}

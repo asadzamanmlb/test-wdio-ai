@@ -1,0 +1,20 @@
+{
+  "id": "WQ-345",
+  "issueId": "1127657",
+  "key": "WQ-345",
+  "summary": "Play SVOD from Hero",
+  "description": "GIVEN a user has SUBSCRIBERVOD entitlement\r\nAND SVOD content is present in the Hero",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a70025ea-1f98-4903-b87e-c7a7d2900e56",
+      "action": "WHEN a user selects the \"Watch Now\" button",
+      "data": "",
+      "result": "THEN SVOD playback is successful"
+    }
+  ]
+}

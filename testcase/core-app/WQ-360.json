@@ -1,0 +1,20 @@
+{
+  "id": "WQ-360",
+  "issueId": "1127672",
+  "key": "WQ-360",
+  "summary": "Home and Away Feeds",
+  "description": "GIVEN the subscriber is logged into mlb.com\r\nAND the subscriber is entitled for archive game playback\r\nAND the subscriber has initiated archive game playback from the Games carousel",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "28397c6d-bcc4-4714-8df3-9c8f09c719cf",
+      "action": "WHEN the user clicks \"MLB.TV\" \r\nAND the user lands on the “MLB.TV Welcome Center | Major League Baseball” page",
+      "data": "",
+      "result": "THEN the video player should be dismissed\r\nAND the user should be returned back to the Home page\r\nAND focus should be assigned to the \"Watch Now\" button in the Hero"
+    }
+  ]
+}

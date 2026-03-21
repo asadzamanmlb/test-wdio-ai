@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3423",
+  "issueId": "1253755",
+  "key": "WQ-3423",
+  "summary": "No Broadcast Available",
+  "description": "GIVEN an entitled user is logged in\nAND a Spring Training game with no broadcasters assigned is present in the Hero/Featured spot on the Home page\n\n_NOTE:_ Easiest way to set this up is to login with a TMobile or Extra Innings user, and set the user’s favorite team to a team in a game with no broadcasters. Forge content may need to be adjusted. ",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0592d6f9-7ecf-44e8-8318-668be761d9c0",
+      "action": "WHEN a user selects the featured image for a game with no broadcasts assigned",
+      "data": "",
+      "result": "THEN a modal is displayed with text \"No Broadcast Available\""
+    }
+  ]
+}

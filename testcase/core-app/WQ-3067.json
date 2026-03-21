@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3067",
+  "issueId": "1161969",
+  "key": "WQ-3067",
+  "summary": "SNLA+ VOD Pause/Play",
+  "description": "GIVEN a logged in user is entitled for SNLA+ RSN\nAND the user is on the SNLA+ page\nAND the user selects a VOD to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "85ab4f3b-74ba-4b3f-a183-d5d6a1426f97",
+      "action": "WHEN the user presses the \"select\" button on the controller\nAND the user presses the \"select\" button again after a few moments",
+      "data": "",
+      "result": "THEN video playback pauses after the first button press\nAND a pause flash icon is displayed for one second before it disappears\nAND video playback resumes after the second button press\nAND a play flash icon is displayed for one second before it disappears\nAND the elapsed time in the scrubber reflects the playhead position"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1068",
+  "issueId": "1128398",
+  "key": "WQ-1068",
+  "summary": "User stays logged in",
+  "description": "GIVEN a user is logged into the app",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5cd742be-e4e9-4c28-bb60-462893a33e2a",
+      "action": "WHEN a user closes the app\r\nOR the user puts the app to sleep\r\nAND the user relaunches the app",
+      "data": "",
+      "result": "THEN the user should still be logged in"
+    }
+  ]
+}

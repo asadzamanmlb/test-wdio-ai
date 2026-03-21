@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1159",
+  "issueId": "1128494",
+  "key": "WQ-1159",
+  "summary": "Following Teams - Settings page Back",
+  "description": "GIVEN a logged in user is on the Settings page\r\nAND the user selects \"Following Teams\" in the list of settings\r\nAND the user selects a following team\r\nOR the user does not selecta a following team",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "258aaac9-3940-4268-a845-f0fdb8b9f631",
+      "action": "WHEN the user presses the CIRCLE/O button on the controller",
+      "data": "",
+      "result": "THEN the user is navigated back to the Settings page\r\nAND focus is assigned to \"Log Out\" in the list of settings\r\nAND no updates were saved to the user's following teams"
+    }
+  ]
+}

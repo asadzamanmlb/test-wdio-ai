@@ -1,0 +1,20 @@
+{
+  "id": "WQ-518",
+  "issueId": "1127844",
+  "key": "WQ-518",
+  "summary": "Archive game inning markers - Hide Spoilers ON",
+  "description": "GIVEN a user has Hide Spoilers ON",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "43330c3d-627c-4154-b45c-54ce34545451",
+      "action": "WHEN a user watches the archive game from the beginning",
+      "data": "",
+      "result": "THEN inning markers are not displayed in the scrubber\r\nAND as the half innings begin, inning markers are populated in the scrubber bar to the left of the playhead\r\nAND the inning number indicates the beginning of the top of the inning\r\nAND a down arrow indicates the beginning of the bottom of the inning"
+    }
+  ]
+}

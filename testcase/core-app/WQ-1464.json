@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1464",
+  "issueId": "1128801",
+  "key": "WQ-1464",
+  "summary": "TTS | Quick Action Menu | Last Channel Option",
+  "description": "GIVEN TTS is enabled\r\nAND the user is in the video player",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "879afb6c-1d5f-46ff-b8a7-02b07943f051",
+      "action": "WHEN the user focuses on the “Last Channel” option button",
+      "data": "",
+      "result": "THEN the user should hear \"Last Channel <Away Team> @<Home Team>, Press Select to Navigate to this game\""
+    }
+  ]
+}

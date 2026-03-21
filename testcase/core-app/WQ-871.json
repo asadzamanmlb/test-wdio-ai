@@ -1,0 +1,20 @@
+{
+  "id": "WQ-871",
+  "issueId": "1128199",
+  "key": "WQ-871",
+  "summary": "Executive user Postseason",
+  "description": "GIVEN a Postseason game has a mediaState of MEDIA_ON\r\nAND the user has EXEC entitlement\r\nAND the user does not have any MVPD entitlements",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "378853b0-cd24-4b83-a86d-1a71a6245d80",
+      "action": "WHEN the user views the Postseason game tile",
+      "data": "",
+      "result": "THEN the MVPD pill does not display in the lower left corner of the game tile"
+    }
+  ]
+}

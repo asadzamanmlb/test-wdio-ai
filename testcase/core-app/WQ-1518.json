@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1518",
+  "issueId": "1128855",
+  "key": "WQ-1518",
+  "summary": "-Quick Actions Menu | Entering From Player Controls",
+  "description": "GIVEN the user is in player controls\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3b3d940d-9927-4929-9b1f-1fb63f39abeb",
+      "action": "WHEN the user navigates down once to the scrubber bar\r\nAND the user navigates up once to enter the Quick Actions Menu",
+      "data": "",
+      "result": "THEN the user will be navigated to the rightmost option automatically\r\nAND the user will hear: \"Quick Actions Menu\" on initial focus only\r\nAND if the menu times out and closes, when reopened, it will read on initial focus again"
+    }
+  ]
+}

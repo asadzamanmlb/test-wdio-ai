@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1014",
+  "issueId": "1128343",
+  "key": "WQ-1014",
+  "summary": "Navigate back to today's games",
+  "description": "GIVEN a user has launched the app\r\nAND the date on the Games page is not today\r\nAND the calendar is displaying",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b5f1ac9f-890a-42fd-9587-eebdd75e953e",
+      "action": "WHEN the user selects the [Today] button",
+      "data": "",
+      "result": "THEN a loading screen with a spinning baseball image displays\nAND the user is navigated back to the Games page\nAND the displayed date on the Games page is \"Today, [todays date]\"\nAND the games for today's date are displayed"
+    }
+  ]
+}

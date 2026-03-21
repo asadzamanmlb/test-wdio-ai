@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1312",
+  "issueId": "1128649",
+  "key": "WQ-1312",
+  "summary": "Games Page load today's date",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is on the Games page\r\nAND the Games page date is not today",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1a6ef365-720d-43a6-baf0-e9c6f6933460",
+      "action": "WHEN the user selects the \"Today\" button",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"Today's Games, <today's_date>, <today's_number_of_games>\""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-324",
+  "issueId": "1127636",
+  "key": "WQ-324",
+  "summary": "Game States - Final - Hide Spoilers ON",
+  "description": null,
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "65313e1c-7eb9-482c-bdd8-ee1758a4b199",
+      "action": "WHEN a game is in a Final state\r\nAND is present in the Hero",
+      "data": "",
+      "result": "THEN a black pill with white text \"FINAL\" is displayed above the team info in the Hero\r\nAND the final score does not display in the Hero"
+    }
+  ]
+}

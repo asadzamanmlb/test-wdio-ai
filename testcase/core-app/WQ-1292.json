@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1292",
+  "issueId": "1128629",
+  "key": "WQ-1292",
+  "summary": "No Broadcast Available",
+  "description": "GIVEN TTS is turned ON\nAND the user is logged in\nAND a live game is on the schedule without tv broadcasters (spring training)",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "98b7814c-2e8f-4162-a2d1-9acb33d9bf70",
+      "action": "WHEN the user selects a live game tile for a game without broadcasters",
+      "data": "",
+      "result": "THEN the Feed Modal displays\r\nAND the following statement is spoken, \"<away_team> @ <home_team>, No Broadcast Available. Press back to dismiss.\""
+    }
+  ]
+}

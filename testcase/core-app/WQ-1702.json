@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1702",
+  "issueId": "1129119",
+  "key": "WQ-1702",
+  "summary": "Broadcast start milestone Resume bookmark Start from the beginning - Hide Spoilers ON",
+  "description": "GIVEN a user is entitled for live game playback\nAND Hide Spoilers is set to ON\nAND a game is live after the start of the game broadcast\nAND the user has previously played the video feed/stream",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "835d5c9a-4d4e-4b9e-ae65-fbce4d3f91c1",
+      "action": "WHEN the user selects a team video feed/stream\nAND the user selects the \"Start From The Beginning\" button",
+      "data": "",
+      "result": "THEN playback starts at the beginning of the game broadcast\nAND the scrubber playhead is in the middle of the scrubber bar\nAND the scrubber bar is blue to the left of the playhead\nAND the scrubber bar is gray to the right of the playhead\nAND the elapsed time in the scrubber is not 00:00\nAND no inning markers are displaying in the scrubber bar"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-941",
+  "issueId": "1128270",
+  "key": "WQ-941",
+  "summary": "Final Game state - Extra Innings Hide Spoilers ON",
+  "description": "GIVEN a subscriber is on the Games page\r\nAND Hide Spoilers is set to ON",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "5034643e-2507-4463-83d5-7a0a0de9eb80",
+      "action": "WHEN a game has completed\r\nAND more than 9 innings were played\r\n\r\n**NOTES:**\r\nepgv3 key values\r\n\"abstractGameState\": \"Final\",\r\n\"codedGameState\": \"F\",\r\n\"detailedState\": \"Final\",\r\n\"statusCode\": \"F\",\r\n\"startTimeTBD\": false,\r\n\"abstractGameCode\": \"F\",\r\n\"currentInning\": 11,",
+      "data": "",
+      "result": "THEN 'FINAL' is displayed in white text left justified below the match-up header"
+    }
+  ]
+}

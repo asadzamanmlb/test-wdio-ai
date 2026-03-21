@@ -1,0 +1,20 @@
+{
+  "id": "WQ-706",
+  "issueId": "1128034",
+  "key": "WQ-706",
+  "summary": "International user plain ESPN archive - Game Tile",
+  "description": "GIVEN a subscriber is located outside the United States\r\nAND the subscriber is entitled for archive game playback\r\nAND a regular season game is archived with ESPN broadcaster\r\nAND the game is not ESPN Sunday Night Baseball",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3472d514-6b25-427d-a39e-9d849e203b16",
+      "action": "WHEN a user views/focuses an archived ESPN game tile",
+      "data": "",
+      "result": "THEN a lock icon does not display in the upper right corner of the game tile\r\nAND there is no dark overlay over the team colors in the game tile header"
+    }
+  ]
+}

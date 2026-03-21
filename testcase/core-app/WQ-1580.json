@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1580",
+  "issueId": "1128986",
+  "key": "WQ-1580",
+  "summary": "Analog Stick Test - XBOX",
+  "description": "GIVEN I have connected the analog stick to the console",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ab7cd044-8806-4a5c-88fd-9abf7ef161a9",
+      "action": "WHEN I Press the Left Thumbstick (1) button\r\nAND I Press the Right Thumbstick (11) button\r\n\r\n![](index.php?/attachments/get/14344232)\r\n![](index.php?/attachments/get/14344233)",
+      "data": "",
+      "result": "THEN I should notice that the Left Thumbstick (1) moves directionally and function as a clickable button\r\n\r\nTHEN I should notice that the Left Thumbstick (1) interacts with the MLB.TV app and Xbox console\r\n\r\nTHEN I should notice that the Right Thumbstick (11) moves directionally to the right and functions as a clickable button\r\n\r\nTHEN I should notice that the Right Thumbstick (11) interacts with the MLB.TV app and Xbox console"
+    }
+  ]
+}

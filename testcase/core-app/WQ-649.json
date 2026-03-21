@@ -1,0 +1,20 @@
+{
+  "id": "WQ-649",
+  "issueId": "1127977",
+  "key": "WQ-649",
+  "summary": "Monthly/yearly subscriber FGotD archive - Feed Select",
+  "description": "GIVEN a user is a Monthly/Yearly subscriber",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "dc1174ed-5187-4591-986d-f55c7fd04668",
+      "action": "WHEN a user selects an archive FGotD game tile",
+      "data": "",
+      "result": "THEN buttons for Recap and Condensed Game display center justified, above the team feeds\r\nAND the user will see feed buttons for both teams\r\nAND the user achieves playback after selecting each button"
+    }
+  ]
+}

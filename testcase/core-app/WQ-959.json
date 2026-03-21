@@ -1,0 +1,20 @@
+{
+  "id": "WQ-959",
+  "issueId": "1128288",
+  "key": "WQ-959",
+  "summary": "Final/Completed Game - Unfocused Game Tile",
+  "description": "GIVEN a subscriber is logged in\r\nAND Hide Spoilers is off\r\nAND the selected date has completed games",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1f6a13b9-39f8-4836-b0d6-defd74572816",
+      "action": "WHEN a subscriber is on the Games page\r\nAND game tiles are displayed\r\nAND a completed game tile does not have focus",
+      "data": "",
+      "result": "THEN the away team primary color is displayed in the upper left of the game tile\r\nAND the away team logo is displayed\r\nAND the away team abbreviation is displayed below the team logo\r\nAND the home team primary color is displayed in the upper right of the game tile\r\nAND the home team logo is displayed\r\nAND the home team abbreviation is displayed below the team logo\r\nAND the final score displays between the away and home team logos\r\nAND \"FINAL\" is displayed in white text left justified below the match up header\r\nAND W <team_tricode> <winning_pitcher_name> displays left justified below the displayed \"FINAL\" game state\r\nAND L <team_tricode> <losing_pitcher_name> displays left justified below the winning pitcher\r\nAND (if a game has a saving pitcher) S <team_tricode> <saving_pitcher_name> displays left justified below the losing pitcher\r\nAND the bases/outs indicator is displayed right-center justified in the non-match up portion of the game tile\r\nAND the base/out indicators are gray in color\r\nAND any applicable pills are displayed left justified at the bottom of the game tile"
+    }
+  ]
+}

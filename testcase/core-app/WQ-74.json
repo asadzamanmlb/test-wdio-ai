@@ -1,0 +1,20 @@
+{
+  "id": "WQ-74",
+  "issueId": "1127086",
+  "key": "WQ-74",
+  "summary": "DSS - Ads for local in-market streaming - In-Market",
+  "description": "GIVEN the user is a subscriber with in-market streaming entitlement\r\nAND the user is in the viewing market of the team they are entitled for in-market streaming\r\n\r\n**NOTE:**  This needs to be tested on a browser, with the Network tab of the developer tools open",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "42ba3d6e-a618-4c9e-a6cd-82d99789902d",
+      "action": "WHEN the user initiates playback for an in-market game feed",
+      "data": "",
+      "result": "THEN \"inMarket: true\" is present in the MAST EPG v3 response within the videoFeeds node for the in-market team\r\nAND \"market%3Din-market\" is present in the DAI request URL"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1416",
+  "issueId": "1128753",
+  "key": "WQ-1416",
+  "summary": "TTS | Navigation options in the bottom middle",
+  "description": "GIVEN TTS is enabled\r\nAND the user is on the Following Teams page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7142af3c-491f-4e36-91d2-60ce39790b55",
+      "action": "WHEN the user navigates to the Toronto Blue Jays",
+      "data": "",
+      "result": "THEN the app should say “The [focused_team] is highlighted. Press select to save this team as your follow team. Move left, right, or up to hear additional teams to follow.\""
+    }
+  ]
+}

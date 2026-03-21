@@ -1,0 +1,20 @@
+{
+  "id": "WQ-778",
+  "issueId": "1128106",
+  "key": "WQ-778",
+  "summary": "International user ESPN Sunday Night Baseball - Game Tile",
+  "description": "GIVEN a subscriber is located outside the United States\r\nAND the subscriber is entitled for live game playback\r\nAND an ESPN Sunday Night Baseball game is on the schedule",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9285d8ea-f0e8-41a1-ad9a-aa12968c8dd6",
+      "action": "WHEN a user views/focuses any scheduled/in-progress ESPN Sunday Night Baseball game tile",
+      "data": "",
+      "result": "THEN a lock icon displays in the upper right corner of the game tile\r\nAND there is a dark overlay over the team colors in the game tile header\r\nAND a Blackout pill displays in the lower left corner of the game tile"
+    }
+  ]
+}

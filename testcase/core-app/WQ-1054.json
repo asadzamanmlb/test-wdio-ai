@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1054",
+  "issueId": "1128384",
+  "key": "WQ-1054",
+  "summary": "Log In from settings - back button on controller",
+  "description": "GIVEN the user is not logged in\r\nAND the user navigates to the Settings page\r\nAND the user selects the Log In on the Settings page",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "92dcac62-aa41-491a-a9a0-8fdf25d2995b",
+      "action": "WHEN a user selects the [O] button on the controller",
+      "data": "",
+      "result": "THEN the user is navigated to the Settings page"
+    }
+  ]
+}

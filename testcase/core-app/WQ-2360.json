@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2360",
+  "issueId": "1129810",
+  "key": "WQ-2360",
+  "summary": "R5083A - Verify SDK version",
+  "description": "**Security**\r\n\r\n**R5083 Requirement:** Runtime libraries used by the application are included in the SDK available for submission to GFQA.\r\n\r\nAcceptable Versions for Submission - https://p.siedev.net/docs/master_submission/",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f08feb3c-923f-478a-abc3-08ab29b7072e",
+      "action": "1. Place the cursor on the \"Application\" on the home screen, press the options button, and then select \"★Check\"\r\n2. Check the value of \"param.json: SDK Version=\"\r\n3. Confirm the SDK versions listed on the Acceptable Versions for Submission page.",
+      "data": "",
+      "result": "The application's SDK version matches the SDK version indicated by SIE."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1046",
+  "issueId": "1128376",
+  "key": "WQ-1046",
+  "summary": "Log In - unsuccessful no account",
+  "description": "GIVEN a user is on the Log In page",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "63e9398f-31aa-4268-b3b3-57493c6b7f33",
+      "action": "WHEN a user has entered a  non-MLB account email address\r\nAND a user enters a valid format password\r\nAND a user selects the [Log In] button",
+      "data": "",
+      "result": "THEN the user is not logged in\r\nAND the following text displays in red below the password field, \"The email address or password was incorrect. Please verify your login credentials and try again.\"\r\nAND the email field has a red border\r\nAND the password field has a red border"
+    }
+  ]
+}

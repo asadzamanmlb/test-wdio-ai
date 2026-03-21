@@ -1,0 +1,13 @@
+{
+  "id": "WQ-1427",
+  "issueId": "1128764",
+  "key": "WQ-1427",
+  "summary": "Welcome page Log In button",
+  "description": null,
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": []
+}

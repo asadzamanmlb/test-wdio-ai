@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1006",
+  "issueId": "1128335",
+  "key": "WQ-1006",
+  "summary": "Hide Spoilers OFF",
+  "description": "GIVEN a user is logged in\r\nAND Hide Spoilers is set to OFF",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3f94ee87-b4ac-452d-ad15-1b4d24e6e74a",
+      "action": "WHEN a user is on the games page\r\nAND navigates to yesterday\r\nAND navigates to tomorrow\r\nAND navigates to today",
+      "data": "",
+      "result": "THEN the score for yesterdays games are displayed\r\nAND the Win, Loss, Save pitchers are displayed\r\nAND \"FINAL\" or \"FINAL/#\" is displayed below the away team\r\nAND the team win-loss records are displayed when a game tile gains focus\r\nAND pitcher headshots, win-loss record, and ERA are displayed when a game tile gains focus\r\nAND pitching match-ups for tomorrows games are displayed\r\nAND the team win-loss records are displayed when a game tile gains focus\r\nAND pitcher headshots, win-loss record, and ERA are displayed when a game tile gains focus\r\nAND pitching match-ups for todays games that are not in-progress are displayed\r\nAND pitcher batter match-ups for in-progress games are displayed\r\nAND bases info for in-progress games are displayed\r\nAND outs info for in-progress games are displayed\r\nAND the team win-loss records are displayed when a game tile gains focus"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-357",
+  "issueId": "1127669",
+  "key": "WQ-357",
+  "summary": "Single/National Feed",
+  "description": "GIVEN the subscriber is entitled for LIVE game playback\r\nAND the subscriber is logged into mlb.com\r\nAND a game is live with a single/national video feed\r\nAND the game is not blacked out",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c544958f-7fda-4516-bab3-99b554eadc9e",
+      "action": "WHEN the user lands on mlb.com League",
+      "data": "",
+      "result": "THEN the user should see the feed picker open for the selected game\r\n\r\nAND focus should be assigned to the only video feed option\r\n\r\nAND the user should receive playback after selecting the video feed button"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-996",
+  "issueId": "1128325",
+  "key": "WQ-996",
+  "summary": "Today's Games Scheduled Start Times - User's Time Zone",
+  "description": "GIVEN games are scheduled for today\r\nAND the PlayStation time zone is set to the users current location",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "706b7927-7a48-42b4-ba05-15caa3e691a9",
+      "action": "WHEN the user is on the Games page for today",
+      "data": "",
+      "result": "THEN the game tiles show the scheduled start times in the device time zone (format: hh:mm [AM|PM])"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3127",
+  "issueId": "1163711",
+  "key": "WQ-3127",
+  "summary": "RSN VOD Playback",
+  "description": "GIVEN a logged in user is entitled for RSN VOD content",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b1d000a0-9cb3-4f29-b309-33b6a49e6be2",
+      "action": "WHEN the user selects RSN VOD content for playback from an RSN page",
+      "data": "",
+      "result": "THEN the RSN VOD content plays back from the beginning of the video"
+    }
+  ]
+}

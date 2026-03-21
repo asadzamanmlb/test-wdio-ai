@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3242",
+  "issueId": "1218558",
+  "key": "WQ-3242",
+  "summary": "IMA SDK is using Publica Service - Live",
+  "description": "GIVEN a Live game stream is playing\nAND an International user is logged in",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ba29becf-4672-4601-b129-caca314b7962",
+      "action": "WHEN the user selects a Live in-progress game for playback\nAND entering \"stream\" into the Network search of Dev Tools\nAND entering \"publica\" into the Network search of Dev Tools",
+      "data": "",
+      "result": "THEN the \"streams\" call has {{pubads.g.doubleclick.net*}} as the request URL\nAND the \"publica\" call has {{pbs.getpublica.com*}} as the request URL\nAND {{PUBLICA}} is listed under {{adCapabilities}} in the {{graphql}} call for {{initPlaybackSession}}"
+    }
+  ]
+}

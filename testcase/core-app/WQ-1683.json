@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1683",
+  "issueId": "1129100",
+  "key": "WQ-1683",
+  "summary": "Live Hero Free User (Currently N/A)",
+  "description": "When Free user favorite any team which is LIVE and select Watch LIVE or Watch Now from Hero, Feed Select modal should appear with Audio and Video feeds with a lock symbol for any feed the user doesn't have access to",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "01e7e5da-0f79-414e-b41a-daaac028fdae",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

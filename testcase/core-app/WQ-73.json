@@ -1,0 +1,20 @@
+{
+  "id": "WQ-73",
+  "issueId": "1127085",
+  "key": "WQ-73",
+  "summary": "Failed calls to google (streams) does not result in a video error - SLIVE dai enabled true",
+  "description": "GIVEN SLIVE request URL https://dai.svod-fst.mlb.com/api/v2/playback-info/events/* returns in the response dai: enabled: true\nOR for MiLB games, request URL https://dai.tv.milb.com/api/v2/playback-info* returns in the response dai: enabled: true",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "03562a74-f0b6-41fb-8587-194ced096e06",
+      "action": "WHEN playback of the SLIVE/MiLB game is launched\r\nAND network calls to the domain \"pubads.g.doubleclick.net\" are blocked",
+      "data": "",
+      "result": "THEN the stream continues to playback with no video error modal popping up\r\nAND ads playback during ad breaks"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1136",
+  "issueId": "1128466",
+  "key": "WQ-1136",
+  "summary": "App launch to Home page",
+  "description": "GIVEN the app is in a closed state",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e6518432-013a-45c1-aaf8-b406869ae633",
+      "action": "WHEN the user launches the app",
+      "data": "",
+      "result": "THEN the Home page loads cleanly\r\nAND fonts don't shift between different font styles"
+    }
+  ]
+}

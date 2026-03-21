@@ -1,0 +1,20 @@
+{
+  "id": "WQ-769",
+  "issueId": "1128097",
+  "key": "WQ-769",
+  "summary": "US AtBat subscriber plain ESPN - Feed Select modal",
+  "description": null,
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "c04cd72f-cb07-47e8-92f6-352a25769e8c",
+      "action": "WHEN",
+      "data": "",
+      "result": "THEN a blackout message displays in the feed picker"
+    }
+  ]
+}

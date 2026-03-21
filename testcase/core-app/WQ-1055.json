@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1055",
+  "issueId": "1128385",
+  "key": "WQ-1055",
+  "summary": "Log In - view password",
+  "description": "GIVEN the user is on the Log In page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "82800648-4bb4-4296-a65d-1751742da842",
+      "action": "WHEN the user selects the eye button\r\nAND enters characters into the Password field",
+      "data": "",
+      "result": "THEN a user is able to see the characters entered in the Password field\r\nAND the eye button displays a slash through the eye"
+    }
+  ]
+}

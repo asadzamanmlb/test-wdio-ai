@@ -1,0 +1,20 @@
+{
+  "id": "WQ-966",
+  "issueId": "1128295",
+  "key": "WQ-966",
+  "summary": "Pregame show",
+  "description": "GIVEN a game is streaming a Pregame Show",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b2642b0f-08b5-4c7c-813a-12c8220bd514",
+      "action": "WHEN a user views game tiles for a game in a pregame/scheduled state",
+      "data": "",
+      "result": "THEN \"PREGAME SHOWS\" is displayed directly to the right of the game time badge"
+    }
+  ]
+}

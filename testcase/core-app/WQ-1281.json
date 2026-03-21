@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1281",
+  "issueId": "1128618",
+  "key": "WQ-1281",
+  "summary": "Game Tile Final Not Entitled Hide Spoilers ON",
+  "description": "GIVEN TTS is turned ON\r\nAND the user is not logged in\r\nAND Hide Spoilers is turned ON\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "dce041ff-02e6-410a-87e9-c865b72ec2cd",
+      "action": "WHEN focus is assigned to an archive game in the Hero",
+      "data": "",
+      "result": "THEN the following statement is spoken, \"<away_team>, <home_team>, Final, Not Entitled, press select to play, press up for the Main Menu, press down to browse more content.\""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-943",
+  "issueId": "1128272",
+  "key": "WQ-943",
+  "summary": "Final Game state - Completed Early Hide Spoilers ON",
+  "description": "GIVEN a subscriber is on the Games page\r\nAND Hide Spoilers is set to ON",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3b19941f-1d7a-4f48-869b-86431b0839da",
+      "action": "WHEN a completed game has any of the following statusCode values: FR,FS,FG,FV,FF,FC,FD,FB,FP,FL,FE,FA,FO,FI,OM,OR,OS,OG,OV,OF,OC,OD,OB,OP,OL,OE,OA,OO,OI",
+      "data": "",
+      "result": "THEN 'FINAL' is displayed in white text left justified below the match-up header"
+    }
+  ]
+}

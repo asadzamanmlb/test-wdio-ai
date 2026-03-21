@@ -1,0 +1,20 @@
+{
+  "id": "WQ-947",
+  "issueId": "1128276",
+  "key": "WQ-947",
+  "summary": "Bases/Outs Indicators Completed Game Hide Spoilers OFF",
+  "description": "GIVEN a game is in a final/completed state\r\nAND Hide Spoilers is set to OFF",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "206fb7f8-d207-4298-9eb2-f9ff71539207",
+      "action": "WHEN a user assigns focus to a game tile\r\nOR does not assign focus to a game tile",
+      "data": "",
+      "result": "THEN gray square 1st, 2nd, and 3rd base indicators are displayed in a paw print orientation\r\nAND three gray circle out indicators are displayed below the base indicators\r\nAND the base/out indicators are center-right justified in the non-matchup portion of the game tile"
+    }
+  ]
+}

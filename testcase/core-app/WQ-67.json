@@ -1,0 +1,20 @@
+{
+  "id": "WQ-67",
+  "issueId": "1127079",
+  "key": "WQ-67",
+  "summary": "DAI API is being used - Live",
+  "description": "GIVEN a LIVE game stream has adsEnabled equals true in the graphql Preview/Response (data->initPlaybackSession->adExperience->adsEnabled)\nAND an asset key is is returned in the same graphql Preview/Response (data->initPlaybackSession->adExperience->adEngineIdentifiers)\n\n**NOTE:** \nDAI API supported platforms: LG\nEnter graphql into the Network search of Dev Tools to find the initPlaybackSession",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "beb3366e-a1ab-4006-a29f-70249f47600f",
+      "action": "WHEN entering \"stream\" into the Network search of Dev Tools",
+      "data": "",
+      "result": "THEN the \"stream\" call has \"[https://dai.google.com/linear/v1/hls/event/#######/stream|https://dai.google.com/linear/v1/hls/event/Res3YUxbQ56Fe-vWFpWngA/stream]\" as the request URL\n\nParams can be found in Payload now - after COW-1187 & COW-1164"
+    }
+  ]
+}

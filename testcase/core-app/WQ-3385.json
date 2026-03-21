@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3385",
+  "issueId": "1248926",
+  "key": "WQ-3385",
+  "summary": "Bookmarked carousel position navigating away from RSN page",
+  "description": "GIVEN a user is on a RSN page\nAND focus is present in a carousel\nAND focus is not assigned to the first item in a carousel",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f34ea158-8ea3-4a29-9af8-0c33425ea01a",
+      "action": "WHEN the user navigates away from the RSN page\nAND the user navigates back to the same RSN page",
+      "data": "",
+      "result": "THEN the previously focused carousel has been reset to its original order"
+    }
+  ]
+}

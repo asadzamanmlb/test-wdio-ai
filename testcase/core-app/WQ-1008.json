@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1008",
+  "issueId": "1128337",
+  "key": "WQ-1008",
+  "summary": "Select date in the past",
+  "description": "GIVEN a user has launched the app\r\nAND the user is on the Games page",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "43ad1579-419c-4ea5-9b66-135c3b9f11e8",
+      "action": "WHEN the user select the [calendar] button\r\nAND the user navigates to the previous month with games\r\nAND the user selects a date with games",
+      "data": "",
+      "result": "THEN the calendar is dismissed\r\nAND the user is navigated back to the Games page\r\nAND a spinning baseball displays while the page loads\r\nAND games for the selected date are displayed\r\nAND the selected date is displayed in the upper left corner of the screen below the navigation header"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2342",
+  "issueId": "1129792",
+  "key": "WQ-2342",
+  "summary": "R5019A - Suspended unresponsive screen states do not last longer than 30 seconds",
+  "description": "**Graphical User Interface**\r\n\r\n**R5019 Requirement:**  Confirm that suspended unresponsive screen states do not last longer than 30 seconds.\r\n\r\n\"Suspended unresponsive screen states\" are states where both of the following conditions are met.\r\n- The screen display does not change\r\n- There are no responses to user operations\r\n\r\nOn the other hand, the following are not included in \"suspended unresponsive screen states\".\r\n- When the screen does not change but the user is prompted to perform an operation to transition to another screen, such as in scenes where a \"Press a button\" text message is displayed or an audio instruction is given\r\n- When user operations are not accepted while the screen continually changes, such as scene transitions which are defined in R5018, scenes where a movie clip is being played back in the middle of game progress as part of the game presentation, or character dialogue scenes\r\n\r\n**Description**\r\nThis rule is set so that users will not mistake a suspended unresponsive screen that lasts for a long time as a freeze. It is recommended to use animation in accordance with R5018 even if a suspended screen lasts less than 30 seconds. It is possible to use animation in accordance with R5018 or accept some user operations in order to prevent suspended unresponsive screen states.\r\n\r\nAlso refer to Description for R5033 when implementing processing that waits for a response from a server for score ranking, matching, etc.\r\n\r\n**QA NOTE**\r\n- For this test case, please set \"★Debug Settings\" >\"Game\" > \"Slow SSD Mode\" to \"Off\".\r\n- Check all locations in the application where a \"suspended and unresponsive screen\" continues, including online areas.\r\n- Please perform this test case after the application starts up and processing on the application-side is started. Application startup can be confirmed with the following system message.\r\n[T-004][Info]\r\nSystemSoftware:\r\nApplication Started.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ebf35b69-8aa6-46e3-a67c-ea3607b53183",
+      "action": "1. Select the \"Application\" on the home screen\r\n2. Proceed to where an \"suspended and unresponsive screen\" continues",
+      "data": "",
+      "result": "The application does not display \"suspended and unresponsive screens\" for longer than 30 seconds."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1123",
+  "issueId": "1128453",
+  "key": "WQ-1123",
+  "summary": "Following Teams - Onboarding Next",
+  "description": "GIVEN a user has selected the \"Getting Started\" button on the Startup Screen\r\nAND the user has selected a favorite team\r\nAND the user is on the Following Teams page\r\nAND the user has selected at least one team tile",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6e19a76b-ac80-4e48-a1e8-70a82827322f",
+      "action": "WHEN the user selects the \"Next\" button",
+      "data": "",
+      "result": "THEN the user is taken to the Welcome page"
+    }
+  ]
+}

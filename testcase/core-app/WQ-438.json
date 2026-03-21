@@ -1,0 +1,20 @@
+{
+  "id": "WQ-438",
+  "issueId": "1127757",
+  "key": "WQ-438",
+  "summary": "Playback from Games carousel",
+  "description": "GIVEN a game is live\r\nAND a user is logged in\r\nAND entitled for game playback\r\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "eb1408ab-19cc-4c17-8362-a7149ececc67",
+      "action": "WHEN the user selects a live game for playback from the Games carousel\r\n\r\n**NOTE:** The \"Games\" Carousel can also be called \"Today's Lineup\"",
+      "data": "",
+      "result": "THEN the game plays back successfully"
+    }
+  ]
+}

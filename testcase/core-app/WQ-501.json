@@ -1,0 +1,20 @@
+{
+  "id": "WQ-501",
+  "issueId": "1127827",
+  "key": "WQ-501",
+  "summary": "Game Details - Watch Live Hide Spoilers ON",
+  "description": "GIVEN the user is logged in\r\nAND the user is in the MLB experience\r\nAND the user is entitled to live game playback\r\nAND Hide Spoilers is set to ON\r\nAND playback is initiated at the Live Point",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "18e1cae8-fb44-455a-bacc-0491cfc04096",
+      "action": "WHEN a user initiates the scrubber bar to display\r\nAND the user assigns focus to the Details tab below the scrubber bar",
+      "data": "",
+      "result": "THEN \"Details\" is the furthest left position below the scrubber bar\r\nAND the inning numbers are displayed above the game matchup\r\nAND after the inning numbers, to the right, \"R\" is displayed for runs, \"H\" is displayed for hits, \"E\" is displayed for errors\r\nAND the away team displays above the home team\r\nAND below each inning number behind the live point, the number of runs scored by each team in the associated inning are displayed\r\nAND each teams total runs are displayed below \"R\"\r\nAND each teams total hits are displayed below \"H\"\r\nAND each teams total errors are displayed below \"E\"\r\nAND as the game progresses, Runs, Hits, and Errors are updated as they happen"
+    }
+  ]
+}

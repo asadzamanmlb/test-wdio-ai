@@ -1,0 +1,20 @@
+{
+  "id": "WQ-870",
+  "issueId": "1128198",
+  "key": "WQ-870",
+  "summary": "Executive user All-Star Game",
+  "description": "GIVEN the All-Star Game has a mediaState of MEDIA_ON\r\nAND the user has EXEC entitlement\r\nAND the user does not have any MVPD entitlements",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e21fcd1c-b92d-4261-9f71-cc08a7be0ab0",
+      "action": "WHEN the user views the ASG game tile",
+      "data": "",
+      "result": "THEN the MVPD pill does not display in the lower left corner of the game tile"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1663",
+  "issueId": "1129080",
+  "key": "WQ-1663",
+  "summary": "Archive FGotD Anonymous",
+  "description": "When an anonymous user launches the app and selects an archive FGOD Game,Feed Select page should appear that allows the user to choose to Create free account or Login.\r\n\r\n**NOTE:** Have not specifically implemented this, but feed buttons with lock icons are displayed, and the user is taken to the subscriptions page after selecting a feed button.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "bf5c0ebe-ef07-4581-ae0e-a37a50ac49a2",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

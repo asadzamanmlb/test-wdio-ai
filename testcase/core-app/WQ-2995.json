@@ -1,0 +1,20 @@
+{
+  "id": "WQ-2995",
+  "issueId": "1158439",
+  "key": "WQ-2995",
+  "summary": "Live game playback from the Today's Lineup carousel",
+  "description": "GIVEN a user who is entitled for Live game playback is logged in\n\nAND the user is on the Home page\n\nAND a Live game is present in the Today’s Lineup carousel",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "96e02227-1cbe-499a-bca8-43749f85616b",
+      "action": "WHEN the user selects a live game from the Today’s Lineup carousel\n\nAND selects a team feed for playback\n\nAND selects Watch Live, Start From the Beginning, or Resume (if the live game has already been playing)",
+      "data": "",
+      "result": "THEN the Home page is dismissed\n\nAND the video player displays full screen\n\nAND playback starts successfully"
+    }
+  ]
+}

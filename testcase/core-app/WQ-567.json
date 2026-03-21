@@ -1,0 +1,20 @@
+{
+  "id": "WQ-567",
+  "issueId": "1127893",
+  "key": "WQ-567",
+  "summary": "MLBN 24/7 Live Linear Pause/Play",
+  "description": "GIVEN a user is entitled for MLBN\nAND the user is logged in\nWHEN the user selects the MLBN 24/7 Live Linear stream to watch",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8f22397c-aa9c-48d1-bd73-bf9951af6de9",
+      "action": "WHEN the user presses the select button on the controller\r\nAND the user presses the select button again after a a minute",
+      "data": "",
+      "result": "THEN video playback pauses after the first button press\r\nAND video playback resumes after the second button press\r\nAND the elapsed time in the scrubber reflects the playhead position\r\nAND the live indicator is grey, indicating not at the live point\r\nAND the \"Jump to Live\" button displays right justified above the scrubber bar"
+    }
+  ]
+}

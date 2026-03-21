@@ -1,0 +1,20 @@
+{
+  "id": "WQ-297",
+  "issueId": "1127609",
+  "key": "WQ-297",
+  "summary": "ESPN2 MVPD - Canada",
+  "description": "GIVEN a Postseason game is on the schedule\r\nAND ESPN2 broadcasters are assigned\r\nAND the user's location is in Canada\r\nAND the game level entitledVideo = true\r\nAND the game level blackedOutVideo = true\r\nAND the AWAY (National) feed level espn2AuthRequired = true\r\nAND the HOME (International) feed level espn2AuthRequired = false",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "6edef445-0ef3-4f69-98f3-e97414a5656b",
+      "action": "WHEN the Postseason game with ESPN2 broadcasters is present in the Hero",
+      "data": "",
+      "result": "THEN the MVPD pill does not display above the Hero title / game match up\r\nAND MVPD text does not display below the Hero title / game match up\r\nAND the Blackout pill displays above the Hero title / game match up"
+    }
+  ]
+}

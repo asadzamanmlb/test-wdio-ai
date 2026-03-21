@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1029",
+  "issueId": "1128359",
+  "key": "WQ-1029",
+  "summary": "Have an MLB account Log In page UI",
+  "description": "GIVEN the user launches the app without saved data",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e53da254-9d3b-4c9c-93a8-3ec4fe6e597c",
+      "action": "WHEN the user selects the [Have an MLB account?] button on the Startup screen",
+      "data": "",
+      "result": "THEN the user lands on the Login page\r\nAND the background image is related to the selected favorite team\r\nAND all logos, text, text fields, and buttons are center justified\r\nAND the MLB logo is displayed at the top of the screen\r\nAND \"MLB\" text is displayed directly to the right of the MLB logo\r\nAND below that, in bold text, \"Log In to MLB\" is displayed\r\nAND below that, in regular text, \"MLB.TV subscribers log in to access your subscription. Registered MLB users login to access the MLB.TV Free Game of the Day.\"\r\nAND below that, the \"Email Address\" field displays with focus\r\nAND the \"Email Address\" field background color is translucent white\r\nAND the \"Email Address\" field contains light grey ghost text \"Email Address\"\r\nAND below that, the \"Password\" field is displayed with light grey ghost text \"Password\"\r\nAND to the right of the \"Password\" field, a button with an eye that has a diagonal line through it is displayed\r\nAND below the \"Password\" field and eye button, a disabled [Log In] button is displayed to the left of an enabled [Cancel] button\r\nAND below the [Log In] and [Cancel] buttons, the following text is displayed at the bottom of the screen, \"Forgot your password? Please visit www.mlb.com/password\"\r\nAND below that text, the following text is displayed at the bottom of the screen, \"Please visit mlb.com/tou for full Terms of Service\""
+    }
+  ]
+}

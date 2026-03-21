@@ -1,0 +1,20 @@
+{
+  "id": "WQ-315",
+  "issueId": "1127627",
+  "key": "WQ-315",
+  "summary": "Game States - Final - Cancelled - Hide Spoilers OFF",
+  "description": null,
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "7ead1860-3105-4541-8cf2-b8d3f2bf4b23",
+      "action": "WHEN a game is in a Final state\r\nAND the game is Cancelled\r\nAND one of the following statusCode's are present in the MAST response: (CR,CS,CG,CV,CF,CC,CD,CB,CP,CL,CE,CA,CO,CI)",
+      "data": "",
+      "result": "THEN a pill with the text \"FINAL\" is displayed above the team info in the Hero\r\nAND a pill with the text \"CANCELLED\" is displayed above the team info in the Hero, to the right of the \"FINAL\" pill"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1679",
+  "issueId": "1129096",
+  "key": "WQ-1679",
+  "summary": "Postgame - Game Tile",
+  "description": "When a logged in launches the app and selects Live game, user should see the \"Postgame\" text on the game tile for both or any one team until the text changes to Final.",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e6de578a-9acc-41c8-b101-a738278c765c",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

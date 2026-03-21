@@ -1,0 +1,20 @@
+{
+  "id": "WQ-403",
+  "issueId": "1127715",
+  "key": "WQ-403",
+  "summary": "SNLA+ 24/7 feed playback",
+  "description": "GIVEN a user has entitlements for SNLA+\r\nAND the user launches the MLB.TV app\r\nAND the user logs in\r\n\r\n**NOTE:** SNLA+ entitlement = SNLA_119",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "04c40d85-4d01-4f45-acb2-f5190f12d483",
+      "action": "WHEN the user selects the [SNLA+] button in the header\nAND selects the Featured Image in the Hero",
+      "data": "",
+      "result": "THEN initPlaybackSession is called via a graphql network call\nAND the SNLA+ 24/7 linear feed plays back successfully\nAND the video title displays left justified above the scrubber bar"
+    }
+  ]
+}

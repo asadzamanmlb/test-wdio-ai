@@ -1,0 +1,20 @@
+{
+  "id": "WQ-425",
+  "issueId": "1127744",
+  "key": "WQ-425",
+  "summary": "Live Game Playback - Start from the Beginning",
+  "description": "GIVEN a user that is entitled for Live game playback is logged in",
+  "status": "Done",
+  "testType": "Smoke",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "acff638e-328b-40f2-9ab8-4c90439415ca",
+      "action": "WHEN the user selects a Live game for playback\r\nAND the user selects a feed button\r\nAND the user selects the \"Start from the Beginning\" button in the secondary Feed Select modal",
+      "data": "",
+      "result": "THEN the user sees the Live game playing back from the beginning\r\n\r\n**NOTE:** If the game is already in progress, the beginning will be right before the 1st inning. If the game is not in progress, the beginning will be at the beginning of the stream"
+    }
+  ]
+}

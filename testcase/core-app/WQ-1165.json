@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1165",
+  "issueId": "1128500",
+  "key": "WQ-1165",
+  "summary": "Log Out - Header",
+  "description": "GIVEN a user is logged in",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2897ade3-f052-4c27-8031-51dddc6afce2",
+      "action": "WHEN a user logs out of the application",
+      "data": "",
+      "result": "THEN the user is successfully logged out\r\nAND the header contains the MLB logo and text left justified\r\nAND \"HOME\", \"Games\" displays to the right of the MLB logo and text\r\nAND \"Log In\", \"Get MLB.tv\", \"Settings\" is displayed right justified"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1622",
+  "issueId": "1129039",
+  "key": "WQ-1622",
+  "summary": "Blackout",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0120605e-2f14-4279-86a5-6de8c6e62fd3",
+      "action": "WHEN",
+      "data": "",
+      "result": "Users receive blackout messaging attempting to launch a game if in a territory blacked out from in-market regional games"
+    }
+  ]
+}

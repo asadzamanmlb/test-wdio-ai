@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3250",
+  "issueId": "1220361",
+  "key": "WQ-3250",
+  "summary": "Navigation between Home button and Featured Image",
+  "description": "GIVEN a user has launched the MLB.tv app\n\nAND the user is on the Home page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b999c7ed-74e1-4244-987f-cf5091f55b38",
+      "action": "WHEN the user navigates down from the Home button\n\nAND the user navigates up from the Featured Image",
+      "data": "",
+      "result": "THEN focus moves between the Home button and the Featured Image"
+    }
+  ]
+}

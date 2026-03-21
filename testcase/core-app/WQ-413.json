@@ -1,0 +1,20 @@
+{
+  "id": "WQ-413",
+  "issueId": "1127725",
+  "key": "WQ-413",
+  "summary": "SNLA+ 24/7 feed - DAI Ads failover at stream start",
+  "description": "GIVEN a user has entitlements for SNLA+\r\nAND the user launches the MLB.TV app\r\nAND the user logs in\r\nAND network calls to \"pubads.g.doubleclick.net\" are blocked\r\nOR network calls to \"pubads.g.doubleclick.net\" are failing\r\n\r\n**NOTE:** SNLA+ entitlement = SNLA_119\r\nTHIS NEEDS TO BE TESTED IN A BROWSER",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0eb97312-7125-4564-9355-32f9e9b27644",
+      "action": "WHEN the user initiates playback of the 24/7 SNLA+ feed",
+      "data": "",
+      "result": "THEN playback is initiated with no video error modal popping up\r\nAND a gsId is not displayed in the lower right corner of the screen"
+    }
+  ]
+}

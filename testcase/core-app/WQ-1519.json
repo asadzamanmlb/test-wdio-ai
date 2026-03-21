@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1519",
+  "issueId": "1128856",
+  "key": "WQ-1519",
+  "summary": "-Quick Actions Menu | Handling a Single Option in the Menu",
+  "description": "GIVEN the user is in the Quick Actions Menu\r\nAND there is only one option available\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "1d5b946e-3e91-40f5-a887-9cbe975003a7",
+      "action": "WHEN the user focuses on the single option in the Quick Actions Menu",
+      "data": "",
+      "result": "**THEN** the user will hear:“In the Quick Actions Menu, <option name>, 1 of 1 options”\r\n**For example**: Depending on which button is on in the quick actions, they will hear:\r\n\"If user is on the left most button, they will hear “press right for more quick actions options”\r\n\"If user is on the right most button, they will hear “press left for more quick actions options”\r\n\"If user is in the middle buttons, they will hear “press left or right for more quick actions options”"
+    }
+  ]
+}

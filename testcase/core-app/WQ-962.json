@@ -1,0 +1,20 @@
+{
+  "id": "WQ-962",
+  "issueId": "1128291",
+  "key": "WQ-962",
+  "summary": "Preview - Time",
+  "description": "GIVEN a scheduled game has a start time",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "8c0b1376-0dac-4e9b-9f31-3b1ce4fb4be5",
+      "action": "WHEN a user views game tiles for a scheduled game with a start time",
+      "data": "",
+      "result": "THEN the game start time is displayed in white text left justified below the game tile header\r\nAND the time displays in the users time zone"
+    }
+  ]
+}

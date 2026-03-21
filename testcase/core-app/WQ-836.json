@@ -1,0 +1,20 @@
+{
+  "id": "WQ-836",
+  "issueId": "1128164",
+  "key": "WQ-836",
+  "summary": "Anonymous user Peacock archive - Game Tile",
+  "description": "GIVEN a user is anonymous",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "50032a49-c57c-4023-8e74-6c54264d8f51",
+      "action": "WHEN a user views/focuses an archive Peacock game tile",
+      "data": "",
+      "result": "THEN a lock icon displays in the upper right corner of the game tile\r\nAND there is a dark overlay over the team colors in the game tile header\r\nAND the Peacock pill does not display in the game tile"
+    }
+  ]
+}

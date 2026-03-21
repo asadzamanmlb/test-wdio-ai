@@ -1,0 +1,20 @@
+{
+  "id": "WQ-815",
+  "issueId": "1128143",
+  "key": "WQ-815",
+  "summary": "AtBat subscriber YouTube archive - Feed Select modal",
+  "description": "GIVEN a user is an Audio Only subscriber",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "01126be8-b713-4984-94db-598e6d0c3573",
+      "action": "WHEN a user selects an archive YouTube game tile",
+      "data": "",
+      "result": "THEN the user will see the YouTube feed button with a lock icon\r\nAND a message does not display letting the user know where the game can be watched\r\nAND the user cannot playback the YouTube feed\r\nAND the user is taken to the Subscriptions page after selecting the feed button"
+    }
+  ]
+}

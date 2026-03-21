@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1514",
+  "issueId": "1128851",
+  "key": "WQ-1514",
+  "summary": "Quick Actions Menu | Hearing Prompt for Jump to Live",
+  "description": "GIVEN the user is playing back Live content behind the live point\r\nAND the user is in the Quick Actions Menu\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ca678880-086b-4616-b4d7-6efde546a3e0",
+      "action": "WHEN the user navigates to the \"Jump to Live\" option",
+      "data": "",
+      "result": "THEN the user will hear:  “Jump to Live, x out of y options. Press Select to jump to live in this game, Press <appropriate_directions> for more quick actions options, Press down for player controls, Press back to dismiss controls.”"
+    }
+  ]
+}

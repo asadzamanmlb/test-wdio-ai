@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1677",
+  "issueId": "1129094",
+  "key": "WQ-1677",
+  "summary": "Peacock messaging (Currently N/A, have not had DM5 Partner feeds)",
+  "description": "When a logged in user launches the app and selects Live Partner (Eg: Peacock, Apple TV, YouTube) Game, Feed select page appears with Blackout messaging on the game tiles that are in the \"blackout market\".\r\nAfter 90 mins of the partner game completion, ensure the game tile follows the normal rules (ie if a user requires additional subscription show lock icon)",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "ad6ec359-ab9e-4aef-bee6-0830acdbaa62",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

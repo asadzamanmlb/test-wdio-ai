@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1509",
+  "issueId": "1128846",
+  "key": "WQ-1509",
+  "summary": "SLIVE | Rewind to Start of Video",
+  "description": "GIVEN the user is watching SLIVE content\r\nAND TTS is enabled",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d5e0c3ec-8a48-4562-8124-48b17e15e82d",
+      "action": "WHEN the user rewinds to the start of the video",
+      "data": "",
+      "result": "THEN the user will hear: “Rewind, Start of Video, press select to play”"
+    }
+  ]
+}

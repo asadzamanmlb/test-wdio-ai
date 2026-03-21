@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3388",
+  "issueId": "1248931",
+  "key": "WQ-3388",
+  "summary": "Basic RSN Forge tiles - unfocused",
+  "description": "GIVEN the user has RSN entitlements\nAND the user is logged in\n\n*NOTE:* RSN user examples: MASN/MASN2, SNLA+, SNY",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0ea3e6b9-c5e5-4c9f-afe0-85601eb68d8b",
+      "action": "WHEN a RSN user views an unfocused VOD basic tile on an RSN page",
+      "data": "",
+      "result": "THEN the associated thumbnail displays\nAND the duration of the VOD content is displayed in the lower right corner of the thumbnail\nAND the title is displayed left justified below the associated thumbnail\nAND the video published date is displayed left justified below the title\nAND the user does not see a lock icon in the upper right corner of the tile"
+    }
+  ]
+}

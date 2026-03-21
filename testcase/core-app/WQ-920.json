@@ -1,0 +1,20 @@
+{
+  "id": "WQ-920",
+  "issueId": "1128249",
+  "key": "WQ-920",
+  "summary": "Free subscriber ESPN/Sunday Night Baseball archive - Feed Select modal",
+  "description": "GIVEN a user is a free subscriber\r\nAND ESPN Sunday Night Baseball is archived",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4735e14b-8620-4f87-9b75-750c3ff39981",
+      "action": "WHEN the user selects the ESPN Sunday Night Baseball game tile",
+      "data": "",
+      "result": "THEN the feed select modal displays\nAND the following title text is displayed \"Subscription Required\"\nAND the following description text is displayed \"A subscription is needed to watch this game.\"\nAND the following title text is displayed \"Full Game Access\"\nAND an [Upgrade Plan] button is displayed below \"Full Game Access\"\nAND the user cannot playback the feed\nAND the user is taken to the paywall/subscriptions page after selecting the [Upgrade Plan] button"
+    }
+  ]
+}

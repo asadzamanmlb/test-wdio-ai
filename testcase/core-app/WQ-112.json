@@ -1,0 +1,20 @@
+{
+  "id": "WQ-112",
+  "issueId": "1127415",
+  "key": "WQ-112",
+  "summary": "Watch From Beginning International Feed Selection - Live Game",
+  "description": "GIVEN a live game is in-progress\r\nAND the game has an international feed\r\nAND videoFeeds for the game have a mediaState of MEDIA_ON\r\nAND the user has the appropriate entitlements to watch the international feed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3f9b9de1-d86e-43e3-a194-b79fa8b57f68",
+      "action": "WHEN a user selects a game tile for a live in-progress game\r\nAND selects the international video feed button in the Feed Select Modal\r\nAND selects the [Start From The Beginning] button in the Secondary Feed Select Modal",
+      "data": "",
+      "result": "THEN the feed select modal/games page is dismissed\r\nAND the video player maximizes to full screen\r\nAND the international video feed starts playing from the beginning of the feed"
+    }
+  ]
+}

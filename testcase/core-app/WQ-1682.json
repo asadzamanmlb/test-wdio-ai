@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1682",
+  "issueId": "1129099",
+  "key": "WQ-1682",
+  "summary": "Live AtBat User",
+  "description": "When an Audio user select LIVE game, Feed Select modal appears with Audio and Video feeds with a lock symbol for any feed the user doesn't have access to. ",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "2d701dc6-fb3a-47f9-b707-fa8d0bcafbd5",
+      "action": "WHEN",
+      "data": "",
+      "result": ""
+    }
+  ]
+}

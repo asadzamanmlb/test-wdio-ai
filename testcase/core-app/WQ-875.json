@@ -1,0 +1,20 @@
+{
+  "id": "WQ-875",
+  "issueId": "1128203",
+  "key": "WQ-875",
+  "summary": "FS1 MVPD Required Pill - Unauthorized",
+  "description": "GIVEN a Postseason game is on the schedule\r\nAND FS1 broadcasters are assigned\r\nAND the user's location is in the USA\r\nAND a user is unauthorized for FS1 MVPD\r\nAND the game level entitledVideo = false\r\nAND the feed level fs1AuthRequired = true",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "9c5bf2ed-178d-4e99-a17e-b31c78b6d7e3",
+      "action": "WHEN the user views a FS1 Postseason game tile",
+      "data": "",
+      "result": "THEN the MVPD pill displays in the lower left corner of the game tile"
+    }
+  ]
+}

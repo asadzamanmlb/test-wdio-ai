@@ -1,0 +1,20 @@
+{
+  "id": "WQ-130",
+  "issueId": "1127433",
+  "key": "WQ-130",
+  "summary": "Game Recap - Playback dismiss",
+  "description": "GIVEN a user has selected a game tile for an archive game\r\nAND the user has initiated playback of a Game Recap from the Feed Select modal\r\nAND the scrubber bar is not displaying in the video player",
+  "status": "Done",
+  "testType": "Automated",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "58b61f44-a82c-47ae-a050-62d1e3efc3b9",
+      "action": "WHEN the user presses the CIRCLE button on the controller",
+      "data": "",
+      "result": "THEN the video player is dismissed\r\nAND focus is assigned to the previously selected game tile"
+    }
+  ]
+}

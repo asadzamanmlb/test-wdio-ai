@@ -1,0 +1,20 @@
+{
+  "id": "WQ-122",
+  "issueId": "1127425",
+  "key": "WQ-122",
+  "summary": "Watch From Beginning National Feed Selection - Archive Game",
+  "description": "GIVEN a user navigates to a past day with games\r\nAND the game has a national feed\r\nAND videoFeeds for the game have a mediaState of MEDIA_ARCHIVE\r\nAND the user has the appropriate entitlements to watch archive games\r\nAND the user has previously played the archive feed",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f6589b2d-a798-408c-95f8-f1ee953e0051",
+      "action": "WHEN a user selects a game tile for an archive game\r\nAND selects the national video feed button in the Feed Select Modal\r\nAND selects the [Start From The Beginning] button in the Secondary Feed Select Modal",
+      "data": "",
+      "result": "THEN the feed select modal/games page is dismissed\r\nAND the video player maximizes to full screen\r\nAND the national video feed starts playing from the beginning of the feed"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1026",
+  "issueId": "1128356",
+  "key": "WQ-1026",
+  "summary": "Welcome Page UI - Log In",
+  "description": "GIVEN the user is an Anonymous (a user that is not logged in)",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3bd6762d-1220-4aaa-8d8e-cdf92b585add",
+      "action": "WHEN the user selects \"Get MLB.TV\" in the header\r\nAND the Welcome screen is displayed\r\nAND the [Log In] button has focus",
+      "data": "",
+      "result": "THEN the background is a baseball/MLB related image\r\nAND near the upper left corner of the screen the MLB logo and \"MLB\" are displayed\r\nAND below the MLB logo, left justified, a title displays \"Let's Play Ball\" (config driven)\r\nAND below the title, left justified, a description displays \"Choose how you'd like to explore MLB.TV today\" (config driven)\r\nAND below that, the [Create Free Account] button, [Browse Subscriptions] button, [Explore Free Content] button are displayed vertically aligned and left justified\r\nAND below the buttons, \"Already have an account?\" is displayed\r\nAND below that, a \"Log In\" button is displayed\r\nAND at the bottom left of the screen, \"Blackout and other restrictions apply. Visit mlb.com/ps5 to learn more.\" is displayed (config driven)"
+    }
+  ]
+}

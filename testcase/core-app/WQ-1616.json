@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1616",
+  "issueId": "1129033",
+  "key": "WQ-1616",
+  "summary": "Dismiss video player",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "a62c5100-c0ec-4758-b7ab-101be6925eda",
+      "action": "WHEN",
+      "data": "",
+      "result": "Selecting O button on the video player or Pressing device's back button (Remote as well) will dismiss the live video player"
+    }
+  ]
+}

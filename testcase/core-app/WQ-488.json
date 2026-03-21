@@ -1,0 +1,20 @@
+{
+  "id": "WQ-488",
+  "issueId": "1127814",
+  "key": "WQ-488",
+  "summary": "Hero - Live game playback - Hide Spoilers ON",
+  "description": "GIVEN a user is entitled for live game playback\r\nAND a live game is present in the Hero\r\nAND Hide Spoilers is set to ON\r\n\r\nWhen a user has Hide Spoilers ON and clicks Watch Now from the featured content space, playback should launch at the beginning of the stream",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "e648e0f6-a8e9-4e69-b31c-0d7387fb2476",
+      "action": "WHEN a user selects the featured image from the Hero/featured content space",
+      "data": "",
+      "result": "THEN playback should launch at the beginning of the stream\r\n\r\n**NOTE:** if the game is in progress and the live point is after the first pitch, the beginning of the stream will be the broadcast start point before the first pitch. Timecode will not be 00:00. If live point it before the first pitch, the beginning of the stream will be the beginning of the stream. Timecode will be 00:00."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1591",
+  "issueId": "1128997",
+  "key": "WQ-1591",
+  "summary": "Sync Remote to TV - Samsung",
+  "description": "GIVEN I have the Samsung TV turned ON",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d9f2da94-675f-4877-91e9-2b2f93a227ef",
+      "action": "WHEN I Point the Smart Remote at the Remote Control Sensor on the Samsung TV (located on the lower right-hand side of the TV)\r\n\r\nAND I Press and Hold the \"Return\" and \"Play/Pause\" buttons simultaneously for 3 seconds",
+      "data": "",
+      "result": "THEN I should be able to sync the Samsung TV with the Smart Remote successfully"
+    }
+  ]
+}

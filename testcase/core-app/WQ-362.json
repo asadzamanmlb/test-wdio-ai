@@ -1,0 +1,20 @@
+{
+  "id": "WQ-362",
+  "issueId": "1127674",
+  "key": "WQ-362",
+  "summary": "Dismiss Feed Picker",
+  "description": "GIVEN the subscriber is logged into mlb.com\r\nAND the subscriber is entitled for archive game playback\r\nAND the subscriber has initiated archive game playback from the Games carousel",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "b488e999-6071-4a18-b1f3-48bc96d38326",
+      "action": "WHEN the user lands on mlb.com",
+      "data": "",
+      "result": "THEN the video player should be dismissed\r\nAND the user should be returned back to the Home page\r\nAND focus should be assigned to the \"Watch Now\" button in the Hero"
+    }
+  ]
+}

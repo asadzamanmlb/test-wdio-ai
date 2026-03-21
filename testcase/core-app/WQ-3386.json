@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3386",
+  "issueId": "1248927",
+  "key": "WQ-3386",
+  "summary": "Smooth scrolling during navigation - RSN",
+  "description": "GIVEN user is on a RSN page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "67876f9d-3f2e-4ed8-9eb3-6655900feec6",
+      "action": "WHEN the user presses the [UP] or [DOWN] buttons on the controller\r\nAND the user presses the [LEFT] or [RIGHT] buttons on the controller",
+      "data": "",
+      "result": "THEN the screen smoothly scrolls vertical as the user navigates up and down the page\r\nAND the carousels smoothly scroll horizontal as the user navigates left and right through the carousels"
+    }
+  ]
+}

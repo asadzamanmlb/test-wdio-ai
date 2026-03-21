@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1403",
+  "issueId": "1128740",
+  "key": "WQ-1403",
+  "summary": "TTS | Follow Team page load, top left team set",
+  "description": "GIVEN TTS is enabled\r\nAND the user has the Arizona Diamondbacks set as the Following Team\r\nAND the user is on the Settings page",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "bc34035f-6c91-4864-8de5-2b7fa9595289",
+      "action": "WHEN the user selects Following Teams",
+      "data": "",
+      "result": "THEN the app reader should say the following upon page load : 'The title reads: Add more teams to your clubhouse and help build your home screen on MLB.TV. You are following Arizona Diamondbacks. Teams are organized in alphabetical order from left to right, and top to bottom. Press select to select a team to follow. You can follow more than one team. Once done, your selections will be saved and you can press or scroll left to navigate to the “Done” button. You can follow multiple teams. The {highlighted team} is highlighted. Press select to save this team as your Follow team. Move right, or down to hear additional teams to follow. Move left to highlight the \"Done\" button.'"
+    }
+  ]
+}

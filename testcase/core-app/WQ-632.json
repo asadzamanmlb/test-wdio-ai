@@ -1,0 +1,20 @@
+{
+  "id": "WQ-632",
+  "issueId": "1127959",
+  "key": "WQ-632",
+  "summary": "RW Pill - Archive - Hide Spoilers OFF",
+  "description": "GIVEN Hide Spoilers is OFF\r\nAND a user is playing an archive game",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "427e6313-f525-4cc8-97e8-36789279b7a7",
+      "action": "WHEN the user engages rewind",
+      "data": "",
+      "result": "THEN the video is paused\r\nAND the scrubber displays\r\nAND a pill displays centered above the playhead\r\nAND the pill contains the away team logo on the left side of the pill\r\nAND the pill contains the home team logo on the right side of the pill\r\nAND the respective score is displayed in the center of the pill\r\nAND above the pill the elapsed time at the playhead will display\r\nAND below the scrubber bar the RW multiplier is displayed with two arrows pointing the the left\r\nAND the inning at the playhead is displayed to the right of RW arrows\r\nAND the number of outs at the playhead is displayed to the right of the inning"
+    }
+  ]
+}

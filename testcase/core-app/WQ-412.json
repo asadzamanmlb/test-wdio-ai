@@ -1,0 +1,20 @@
+{
+  "id": "WQ-412",
+  "issueId": "1127724",
+  "key": "WQ-412",
+  "summary": "SNY 24/7 feed - DAI Ads failover at stream start",
+  "description": "GIVEN a user has entitlements for SNY\r\nAND the user launches the MLB.TV app\r\nAND the user logs in\r\nAND network calls to \"pubads.g.doubleclick.net\" are blocked\r\nOR network calls to \"pubads.g.doubleclick.net\" are failing\r\n\r\n**NOTE:** SNY entitlement = SNY_121\r\nTHIS NEEDS TO BE TESTED IN A BROWSER",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d32f0981-2761-4cad-88c5-8449f5234acf",
+      "action": "WHEN the user initiates playback of the 24/7 SNY feed",
+      "data": "",
+      "result": "THEN playback is initiated with no video error modal popping up\r\nAND a gsId is not displayed in the lower right corner of the screen"
+    }
+  ]
+}

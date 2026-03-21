@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1693",
+  "issueId": "1129110",
+  "key": "WQ-1693",
+  "summary": "6 devices do trip concurrency",
+  "description": "Given a user has signed into 6 different devices and is actively streaming a game on all 5 devices.\n\nThis should include Live Games, Archived Games, VOD, SVOD, now RSN [https://baseball.atlassian.net/browse/COW-777|https://baseball.atlassian.net/browse/COW-777|smart-link] - and MLBN?? \n\nThe messaging they should receive was updated here [https://baseball.atlassian.net/browse/COW-1216|https://baseball.atlassian.net/browse/COW-1216|smart-link]  ",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "89538a07-ed2e-4890-a5f7-0bc41482564c",
+      "action": "WHEN this user attempts to play a game on the 6th device",
+      "data": "",
+      "result": "Then the user is presented with an error message stating the following: \n\n*Streaming Limit Reached*\nThere are too many devices using your [MLB.TV|http://MLB.TV] account right now. To log out all devices currently on your account, please go to [+MLB.com+|http://mlb.com/] and change your password.\n\nAnd they are unable to stream a game on that 6th device until they stop streaming on one of the other devices."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-461",
+  "issueId": "1127787",
+  "key": "WQ-461",
+  "summary": "Toggle CC Off",
+  "description": "GIVEN Closed Captions are turned \"On\" on the Settings page\r\nAND the user is entitled to live/archive game video playback",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "d90276a0-cff8-4798-897b-a4c18e3adb25",
+      "action": "WHEN the user selects the CC button in the scrubber",
+      "data": "",
+      "result": "THEN Closed Captioning does not display during video playback\r\nAND the Closed Captioning value on the Settings page displays \"Off\""
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "WQ-1743",
+  "issueId": "1129160",
+  "key": "WQ-1743",
+  "summary": "Ad playback resumed after unpaused (live)",
+  "description": "GIVEN",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "0578e4e9-6cd9-4076-92b3-7673bf4cebd7",
+      "action": "WHEN",
+      "data": "",
+      "result": "DAI ads playback is resumed for a live game when playback is unpaused during an ad break"
+    }
+  ]
+}

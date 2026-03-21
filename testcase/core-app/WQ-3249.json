@@ -1,0 +1,20 @@
+{
+  "id": "WQ-3249",
+  "issueId": "1220346",
+  "key": "WQ-3249",
+  "summary": "Hero/Featured Space UI - Game (Pre-Game Hide Spoilers OFF)",
+  "description": "GIVE a user has launched the MLB.tv app\n\nAND Hide Spoilers is set to OFF\n\nAND a game in a Pre-Game state is present in the Hero/Featured Space\n\n\n\nNOTE: Figma designs for Card States: [https://www.figma.com/design/rGAWoDJL0fx7RTxv0er9U5/MLB.TV-Connected-Device-Developer-Spec?node-id=179-99561&t=2GMcHnOGaIH6wtRZ-0|https://www.figma.com/design/rGAWoDJL0fx7RTxv0er9U5/MLB.TV-Connected-Device-Developer-Spec?node-id=179-99561&t=2GMcHnOGaIH6wtRZ-0|smart-link] ",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "785f98f0-1acf-407b-93c8-981704e7906a",
+      "action": "WHEN a user is on the Home page\n\nAND Game content is displayed in the Hero/Featured space",
+      "data": "",
+      "result": "THEN the featured game image is displayed on the right 2/3 of the screen\n\nAND the featured game image has a white border around the image indicating focus\n\nAND the featured game image does not have a gradient applied\n\nAND the featured game details are displayed to the left of the featured image, below the navigation header buttons (See attached screenshots and Figma designs for reference)"
+    }
+  ]
+}

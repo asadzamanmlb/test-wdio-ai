@@ -1,0 +1,20 @@
+{
+  "id": "WQ-343",
+  "issueId": "1127655",
+  "key": "WQ-343",
+  "summary": "Play S-Live from Hero",
+  "description": "GIVEN a user has SUBSCRIBERVOD entitlement\r\nAND SLIVE content is present in the Hero",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "3292edaf-1e4b-459b-ba14-761927b60abc",
+      "action": "WHEN a user selects the \"Watch Now\" button",
+      "data": "",
+      "result": "THEN SLIVE playback is successful"
+    }
+  ]
+}

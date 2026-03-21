@@ -1,0 +1,20 @@
+{
+  "id": "WQ-292",
+  "issueId": "1127604",
+  "key": "WQ-292",
+  "summary": "FOX MVPD - Authorized",
+  "description": "GIVEN a Postseason game is on the schedule\r\nOR the All-Star Game is on the schedule\r\nAND FOX broadcasters are assigned\r\nAND the user's location is in the USA\r\nAND a user is authorized for FOX MVPD\r\nAND the game level entitledVideo = true\r\nAND the feed level foxAuthRequired = true",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "109521b1-8c73-41db-a7b7-0f29f893912c",
+      "action": "WHEN the Postseason game with FOX broadcasters is present in the Hero",
+      "data": "",
+      "result": "THEN the MVPD pill does not display above the Hero title / game match up\r\nAND MVPD text does not display below the Hero title / game match up\r\nAND the user is able to achieve playback after selecting the \"Watch\" button"
+    }
+  ]
+}

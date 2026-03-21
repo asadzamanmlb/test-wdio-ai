@@ -1,0 +1,20 @@
+{
+  "id": "WQ-293",
+  "issueId": "1127605",
+  "key": "WQ-293",
+  "summary": "FS1 MVPD - Authorized",
+  "description": "GIVEN a Postseason game is on the schedule\r\nAND FS1 broadcasters are assigned\r\nAND the user's location is in the USA\r\nAND a user is authorized for FS1 MVPD\r\nAND the game level entitledVideo = true\r\nAND the feed level fs1AuthRequired = true",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "f3882af4-fd4d-4449-8d7e-7f3fe3fe04b4",
+      "action": "WHEN the Postseason game with FS1 broadcasters is present in the Hero",
+      "data": "",
+      "result": "THEN the MVPD pill does not display above the Hero title / game match up\r\nAND MVPD text does not display below the Hero title / game match up\r\nAND playback is initiated after selecting the \"Watch Live\" button"
+    }
+  ]
+}

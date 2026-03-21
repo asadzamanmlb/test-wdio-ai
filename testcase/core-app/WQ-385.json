@@ -1,0 +1,20 @@
+{
+  "id": "WQ-385",
+  "issueId": "1127697",
+  "key": "WQ-385",
+  "summary": "Assign Focus - Home tab to first carousel",
+  "description": "GIVEN a subscriber is entitled for video playback\r\nAND non-playable content (scheduled game) is present in the hero\r\nAND focus is assigned to the Home tab in the navigation header",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "4bc48fe8-042f-4525-955c-56b5846dbf3d",
+      "action": "WHEN the user presses the down arrow on the controller",
+      "data": "",
+      "result": "THEN focus is indicated with a white border around the tile\r\nAND focus is assigned to the first carousel\r\nAND focus is assigned to the furthest left full tile in the carousel"
+    }
+  ]
+}

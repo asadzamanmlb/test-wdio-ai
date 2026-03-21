@@ -1,0 +1,20 @@
+{
+  "id": "WQ-506",
+  "issueId": "1127832",
+  "key": "WQ-506",
+  "summary": "Game Details Navigation - 9 innings",
+  "description": "GIVEN the user is logged in\r\nAND the user is in the MLB experience\r\nAND the user is entitled to live game playback\r\nAND playback of a 9 inning game is initiated",
+  "status": "Done",
+  "testType": "Manual",
+  "scenarioType": null,
+  "gherkin": null,
+  "unstructured": null,
+  "steps": [
+    {
+      "id": "340e5779-e5f5-4e1c-b635-1d918f8a73e5",
+      "action": "WHEN the user navigates to \"Details\" in the scrubber\r\nAND the user presses down from the submenu\r\nAND the user navigates left, right, up, and down within the line score\r\nAND selects a focused half inning",
+      "data": "",
+      "result": "THEN focus gets assigned to the to the current half inning based on the point of playback\r\nAND the user is able to navigate to each half inning\r\nAND playback is moved to the beginning of the selected half inning"
+    }
+  ]
+}
