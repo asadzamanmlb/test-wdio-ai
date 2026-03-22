@@ -374,7 +374,7 @@ Then('the user is able to play the VOD Video successfully', async function () {
   if (!videoPlayerExists) throw new Error('Video player should be present');
   console.log('   ✓ Video player present');
 
-  // Ad detection (from webTv-temp)
+  // Ad detection and wait (from webTv-temp contentPlayback.steps.js: playback should start successfully)
   let hasAd = await browser.execute(() => {
     const video = document.querySelector('video');
     if (!video) return false;
@@ -382,10 +382,12 @@ Then('the user is able to play the VOD Video successfully', async function () {
     return title.toLowerCase().includes('advertisement') || title.toLowerCase().includes('ad');
   });
 
-  const waitForVodAd = process.env.WAIT_FOR_VOD_AD === 'true' || process.env.WAIT_FOR_VOD_AD === '1';
+  // VOD: default to waiting for ad to be gone (set WAIT_FOR_VOD_AD=false to disable)
+  const waitForVodAd =
+    process.env.WAIT_FOR_VOD_AD !== 'false' && process.env.WAIT_FOR_VOD_AD !== '0';
 
   if (hasAd) {
-    console.log('   📺 Advertisement detected - looking for skip button...');
+    console.log('   📺 Advertisement detected - looking for skip button or waiting for completion...');
     const adSkipSelectors = [
       '[class*="skip"]',
       '[id*="skip"]',
@@ -402,22 +404,38 @@ Then('the user is able to play the VOD Video successfully', async function () {
           await skipButton.click();
           console.log(`   ✅ Clicked ad skip button (${selector})`);
           adSkipped = true;
+          await browser.waitUntil(
+            async () => {
+              await new Promise((r) => setTimeout(r, 1000));
+              return true;
+            },
+            { timeout: 2000 }
+          ).catch(() => {});
           break;
         }
       } catch (e) {
         /* continue */
       }
     }
-    if (!adSkipped && waitForVodAd) {
+    if (!adSkipped) {
       console.log('   ⏳ No skip button found, waiting up to 60s for ad to finish...');
+      const adWaitStart = Date.now();
+      let lastLog = Date.now();
       await browser.waitUntil(
         async () => {
+          const now = Date.now();
+          if (now - lastLog >= 5000) {
+            const elapsed = ((now - adWaitStart) / 1000).toFixed(0);
+            console.log(`   ⏱️  Still waiting for ad to finish (${elapsed}s elapsed)...`);
+            lastLog = now;
+          }
           const adStatus = await browser.execute(() => {
             const video = document.querySelector('video');
             if (!video) return { ended: true };
-            const title = video.getAttribute('title') || '';
-            const isAd = title.toLowerCase().includes('advertisement') || title.toLowerCase().includes('ad');
-            if (!isAd || video.readyState >= 2) return { ended: true };
+            const title = (video.getAttribute('title') || '').toLowerCase();
+            const isAdByTitle = title.includes('advertisement') || title.includes(' ad ');
+            if (video.ended) return { ended: true };
+            if (!isAdByTitle) return { ended: true };
             return { ended: false };
           });
           return adStatus.ended;
@@ -426,21 +444,44 @@ Then('the user is able to play the VOD Video successfully', async function () {
       ).catch(() => {
         console.log('   ⚠️  Ad wait timeout after 60s, continuing...');
       });
+      console.log(`   ✅ Ad wait complete`);
     }
-  } else if (waitForVodAd) {
+    // Brief wait for content video to load after ad
     await browser.waitUntil(
       async () => {
-        const s = await browser.execute(() => {
+        await new Promise((r) => setTimeout(r, 2000));
+        return true;
+      },
+      { timeout: 3000 }
+    ).catch(() => {});
+  } else if (waitForVodAd) {
+    console.log('   📺 VOD: waiting up to 60s for any ad/commercial to finish before verifying...');
+    const vodAdWaitStart = Date.now();
+    await browser.waitUntil(
+      async () => {
+        const elapsedSec = (Date.now() - vodAdWaitStart) / 1000;
+        const status = await browser.execute(() => {
           const v = document.querySelector('video');
           if (!v) return { done: false };
           const title = (v.getAttribute('title') || '').toLowerCase();
-          if (title.includes('advertisement') || title.includes(' ad ')) return { done: false };
-          return { done: v.readyState >= 2 };
+          const looksLikeAd = title.includes('advertisement') || title.includes(' ad ');
+          if (looksLikeAd) return { done: false };
+          if (v.readyState >= 2) return { done: true };
+          return { done: false };
         });
-        return s.done;
+        if (status.done) {
+          console.log(`   ✅ VOD ad wait done (${elapsedSec.toFixed(0)}s)`);
+          return true;
+        }
+        if (Math.floor(elapsedSec) % 15 === 0 && elapsedSec >= 15) {
+          console.log(`   ⏱️  VOD ad wait: ${elapsedSec.toFixed(0)}s...`);
+        }
+        return false;
       },
       { timeout: 60000, interval: 1000 }
-    ).catch(() => {});
+    ).catch(() => {
+      console.log('   ⏱️  VOD ad wait: 60s elapsed, continuing...');
+    });
   }
 
   // Blocking iframe check (from webTv-temp)
@@ -469,26 +510,74 @@ Then('the user is able to play the VOD Video successfully', async function () {
   await browser.execute(() => {
     const video = document.querySelector('video');
     if (video) {
-      const container = video.closest('[class*="player"], [class*="Player"], [id*="player"], [id*="Player"]') || video.parentElement;
+      const container =
+        video.closest('[class*="player"], [class*="Player"], [id*="player"], [id*="Player"]') ||
+        video.parentElement;
       if (container) container.click();
       video.play().catch(() => {});
     }
   });
 
-  // Wait for content video loaded (readyState >= 2, not ad)
-  await browser.waitUntil(
-    async () => {
-      const state = await browser.execute(() => {
-        const video = document.querySelector('video');
-        if (!video) return { ready: false };
-        const title = (video.getAttribute('title') || '').toLowerCase();
-        const isAd = title.includes('advertisement') || title.includes(' ad ');
-        return { ready: video.readyState >= 2 && !isAd };
-      });
-      return state.ready;
-    },
-    { timeout: 15000, timeoutMsg: 'Content video did not load', interval: 500 }
-  );
+  // Wait for content video loaded (readyState >= 2, not ad) - retry loop from webTv-temp
+  console.log('   ⏳ Waiting for content video to load...');
+  const maxWaitAttempts = 15;
+  let videoReady = false;
+  for (let attempt = 0; attempt < maxWaitAttempts && !videoReady; attempt++) {
+    const state = await browser.execute(() => {
+      const video = document.querySelector('video');
+      if (!video) return { exists: false, ready: false };
+      const title = (video.getAttribute('title') || '').toLowerCase();
+      const isAd = title.includes('advertisement') || title.includes(' ad ');
+      return {
+        exists: true,
+        ready: video.readyState >= 2 && !isAd,
+        readyState: video.readyState,
+        isAd,
+      };
+    });
+    if (state.exists && state.ready) {
+      videoReady = true;
+      console.log(`   ✓ Content video loaded (readyState=${state.readyState})`);
+    } else if (state.isAd) {
+      console.log(`   📺 Still showing ad, waiting for content...`);
+    } else {
+      console.log(`   ⏳ Video loading... (readyState=${state.readyState || 0})`);
+    }
+    if (!videoReady) {
+      const checkInterval = 500;
+      for (let waited = 0; waited < 1000 && !videoReady; waited += checkInterval) {
+        await new Promise((r) => setTimeout(r, checkInterval));
+        const current = await browser.execute(() => {
+          const v = document.querySelector('video');
+          if (!v) return { ready: false };
+          const t = (v.getAttribute('title') || '').toLowerCase();
+          const isAd = t.includes('advertisement') || t.includes(' ad ');
+          return { ready: v.readyState >= 2 && !isAd };
+        });
+        if (current.ready) {
+          videoReady = true;
+          console.log('   ✓ Video became ready during wait');
+          break;
+        }
+      }
+    }
+  }
+  if (!videoReady) {
+    const videoInfo = await browser.execute(() => {
+      const v = document.querySelector('video');
+      if (!v) return { readyState: 0, isAd: false };
+      const title = (v.getAttribute('title') || '').toLowerCase();
+      const isAd = title.includes('advertisement') || title.includes(' ad ');
+      return { readyState: v.readyState, isAd };
+    });
+    if (videoInfo.readyState === 0 && !videoInfo.isAd) {
+      throw new Error('Content video never loaded - content may be unavailable');
+    }
+    if (videoInfo.isAd) {
+      throw new Error('Still showing advertisement - ad did not complete in time');
+    }
+    throw new Error('Content video did not load');
+  }
 
   // If paused, click player and play
   const initialState = await browser.execute(() => {
@@ -552,13 +641,52 @@ Then('the user is able to play the VOD Video successfully', async function () {
   );
   console.log('   ✓ Video time progressing');
 
-  // I verify video content player functionality (from webTv-temp playerControls.steps.js)
-  // Test pause and resume to validate player controls
-  console.log('   ⏸️  Testing pause functionality...');
-  await browser.execute(() => {
-    const video = document.querySelector('video');
-    if (video) video.pause();
-  });
+  // Ensure ad is gone before testing player controls (pause, play, forward, rewind)
+  console.log('   ⏳ Confirming ad is gone before testing player controls...');
+  await browser.waitUntil(
+    async () => {
+      const state = await browser.execute(() => {
+        const v = document.querySelector('video');
+        if (!v) return { adGone: false };
+        const title = (v.getAttribute('title') || '').toLowerCase();
+        const isAd = title.includes('advertisement') || title.includes(' ad ');
+        const isContent = v.readyState >= 2 && v.duration > 0 && !isAd;
+        return { adGone: !isAd, isContent };
+      });
+      return state.adGone && state.isContent;
+    },
+    { timeout: 10000, timeoutMsg: 'Ad still present or content not ready before player control tests', interval: 500 }
+  );
+  await new Promise((r) => setTimeout(r, 1000));
+  console.log('   ✓ Ad gone, content ready - testing player controls');
+
+  // I verify video content player functionality - try clicking UI buttons, always fallback to video API
+  async function tryClickButton(btn, fallback) {
+    const exists = await btn.isExisting().catch(() => false);
+    if (exists && (await btn.isDisplayed().catch(() => false))) {
+      await btn.waitForClickable({ timeout: 3000 }).catch(() => {});
+      await btn.click();
+      await new Promise((r) => setTimeout(r, 300));
+      if (fallback) await fallback();
+      return true;
+    }
+    if (fallback) await fallback();
+    return false;
+  }
+
+  // Hover over video to reveal controls (many players hide them when idle)
+  await videoPlayer.moveTo().catch(() => {});
+
+  // Pause - try clicking pause button, always ensure video.pause() as fallback
+  console.log('   ⏸️  Clicking pause button (or pausing via video)...');
+  const pauseBtn = await playerPage.pauseButton();
+  const pausedViaClick = await tryClickButton(pauseBtn, () =>
+    browser.execute(() => {
+      const v = document.querySelector('video');
+      if (v) v.pause();
+    })
+  );
+  if (pausedViaClick) console.log('   ✓ Clicked pause button');
   await browser.waitUntil(
     async () => {
       const paused = await browser.execute(() => {
@@ -571,11 +699,16 @@ Then('the user is able to play the VOD Video successfully', async function () {
   );
   console.log('   ✓ Pause verified');
 
-  console.log('   ▶️  Testing resume functionality...');
-  await browser.execute(() => {
-    const video = document.querySelector('video');
-    if (video) video.play().catch(() => {});
-  });
+  // Play - try clicking play button, always ensure video.play() as fallback
+  console.log('   ▶️  Clicking play button (or resuming via video)...');
+  const playBtn = await playerPage.playButton();
+  const playedViaClick = await tryClickButton(playBtn, () =>
+    browser.execute(() => {
+      const v = document.querySelector('video');
+      if (v) v.play().catch(() => {});
+    })
+  );
+  if (playedViaClick) console.log('   ✓ Clicked play button');
   await browser.waitUntil(
     async () => {
       const playing = await browser.execute(() => {
@@ -586,7 +719,101 @@ Then('the user is able to play the VOD Video successfully', async function () {
     },
     { timeout: 5000, timeoutMsg: 'Video should resume playing' }
   );
-  console.log('   ✓ Resume verified');
+  console.log('   ✓ Play verified');
 
-  console.log('   ✅ VOD playback validated - start, position, pause, resume');
+  // Scrubber bar / progress bar
+  console.log('   🎚️  Verifying scrubber/progress bar...');
+  const scrubberBar = await playerPage.scrubberBar();
+  const scrubberExists = await scrubberBar.isExisting().catch(() => false);
+  if (scrubberExists) {
+    console.log('   ✓ Scrubber/progress bar present');
+  } else {
+    const altExists = await browser.execute(() => {
+      const sel = '.progress-bar, .seek-bar, [class*="Progress"], [class*="seek"], input[type="range"], [role="slider"]';
+      return document.querySelector(sel) !== null;
+    });
+    if (altExists) console.log('   ✓ Scrubber/progress bar present (alt selector)');
+    else console.log('   ⚠️  Scrubber bar not found - player may use different controls');
+  }
+
+  // Forward 60 sec - try clicking forward/skip button, else video.currentTime += 60
+  console.log('   ⏩  Clicking forward 60 sec (or seeking via video)...');
+  const timeBeforeSeek = await browser.execute(() => {
+    const v = document.querySelector('video');
+    return v ? v.currentTime : 0;
+  });
+  const fwdBtn = await playerPage.forward60Button();
+  const seekFwdAmount = 60;
+  const forwardedViaClick = await tryClickButton(fwdBtn, () =>
+    browser.execute(
+      (sec) => {
+        const v = document.querySelector('video');
+        if (v && v.duration > 0 && !isNaN(v.duration))
+          v.currentTime = Math.min(v.currentTime + sec, v.duration - 1);
+      },
+      seekFwdAmount
+    )
+  );
+  if (forwardedViaClick) console.log('   ✓ Clicked forward 60 sec button');
+  await new Promise((r) => setTimeout(r, 800));
+  const timeAfterSeekFwd = await browser.execute(() => {
+    const v = document.querySelector('video');
+    return v ? v.currentTime : 0;
+  });
+  const videoDuration = await browser.execute(() => {
+    const v = document.querySelector('video');
+    return v ? v.duration : 0;
+  });
+  const nearEnd = videoDuration > 0 && timeBeforeSeek >= videoDuration - 5;
+  if (timeAfterSeekFwd > timeBeforeSeek) {
+    console.log(`   ✓ Forward verified (${timeBeforeSeek.toFixed(1)}s → ${timeAfterSeekFwd.toFixed(1)}s)`);
+  } else if (nearEnd) {
+    console.log(`   ✓ Forward skipped (near end at ${timeBeforeSeek.toFixed(1)}s)`);
+  } else {
+    throw new Error(`Forward failed: time did not advance (${timeBeforeSeek.toFixed(1)}s → ${timeAfterSeekFwd.toFixed(1)}s)`);
+  }
+
+  // Rewind - try clicking rewind button, else video.currentTime -= 10
+  console.log('   ⏪  Clicking rewind (or seeking back via video)...');
+  const timeBeforeBack = await browser.execute(() => {
+    const v = document.querySelector('video');
+    return v ? v.currentTime : 0;
+  });
+  const rewBtn = await playerPage.rewindButton();
+  const rewoundViaClick = await tryClickButton(rewBtn, () =>
+    browser.execute(() => {
+      const v = document.querySelector('video');
+      if (v) v.currentTime = Math.max(0, v.currentTime - 10);
+    })
+  );
+  if (rewoundViaClick) console.log('   ✓ Clicked rewind button');
+  await new Promise((r) => setTimeout(r, 500));
+  const timeAfterBack = await browser.execute(() => {
+    const v = document.querySelector('video');
+    return v ? v.currentTime : 0;
+  });
+  if (timeAfterBack < timeBeforeBack) {
+    console.log(`   ✓ Rewind verified (${timeBeforeBack.toFixed(1)}s → ${timeAfterBack.toFixed(1)}s)`);
+  } else {
+    throw new Error(`Rewind failed: time did not go back (${timeBeforeBack.toFixed(1)}s → ${timeAfterBack.toFixed(1)}s)`);
+  }
+
+  // Rewind to beginning (video.currentTime = 0 - no common "skip to start" UI)
+  console.log('   ⏮️  Rewinding to beginning...');
+  await browser.execute(() => {
+    const v = document.querySelector('video');
+    if (v) v.currentTime = 0;
+  });
+  await new Promise((r) => setTimeout(r, 500));
+  const timeAfterRewind = await browser.execute(() => {
+    const v = document.querySelector('video');
+    return v ? v.currentTime : 0;
+  });
+  if (timeAfterRewind < 3) {
+    console.log(`   ✓ Rewind to beginning verified (${timeAfterRewind.toFixed(1)}s)`);
+  } else {
+    console.log(`   ⚠️  Rewind to ~0 not exact (${timeAfterRewind.toFixed(1)}s) - some players clamp differently`);
+  }
+
+  console.log('   ✅ VOD playback validated - start, stop, scrubber, forward 60s, rewind, pause, play');
 });

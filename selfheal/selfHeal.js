@@ -68,19 +68,31 @@ function analyzeDom(html, oldSelector, text) {
 
     const selectorsToTry = [];
     const seen = new Set();
+    const terms = searchTerms.join(' ').toLowerCase();
+    const isLookingForInput = /email|username|identifier|password|passcode/.test(terms);
 
-    $('button, a, input[type="submit"], [role="button"], [data-testid], [aria-label]').each((_, el) => {
+    const inputSelector = isLookingForInput
+      ? 'button, a, input, [role="button"], [role="textbox"], [data-testid], [aria-label]'
+      : 'button, a, input[type="submit"], [role="button"], [data-testid], [aria-label]';
+
+    $(inputSelector).each((_, el) => {
       const $el = $(el);
       const tagName = (el.tagName || '').toLowerCase();
       const elText = $el.text().trim();
       const ariaLabel = $el.attr('aria-label') || '';
       const testId = $el.attr('data-testid') || '';
 
+      const placeholder = $el.attr('placeholder') || '';
+      const name = $el.attr('name') || '';
+      const type = ($el.attr('type') || '').toLowerCase();
       const textMatch = searchTerms.length > 0 && searchTerms.some(
         (term) =>
           elText.toLowerCase().includes(term) ||
           ariaLabel.toLowerCase().includes(term) ||
-          testId.toLowerCase().includes(term)
+          testId.toLowerCase().includes(term) ||
+          placeholder.toLowerCase().includes(term) ||
+          name.toLowerCase().includes(term) ||
+          (tagName === 'input' && (type === 'email' || type === 'text') && term.toLowerCase().includes('email'))
       );
     const textToUse = searchTerms[0] || elText.slice(0, 50) || ariaLabel;
       if (textMatch) {

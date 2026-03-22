@@ -324,4 +324,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { exportTests, exportSingleTest, exportTestsFromProjectOrFolder };
+module.exports = { authenticate, exportTests, exportSingleTest, exportTestsFromProjectOrFolder };

@@ -254,6 +254,7 @@ async function ensureLoggedIntoMlbTv() {
 
 Given(/^the user is already logged into mlb\.com\/tv$/, ensureLoggedIntoMlbTv);
 Given(/^an entitled user is logged into mlb\.com\/tv$/, ensureLoggedIntoMlbTv);
+Given('an entitled user is logged in', ensureLoggedIntoMlbTv);
 
 When('the user hovers over the {string} button from the top nav', async function (buttonLabel) {
   await handleCookieConsentIfPresent();

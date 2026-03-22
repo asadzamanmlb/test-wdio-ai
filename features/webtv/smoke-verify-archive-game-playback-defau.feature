@@ -7,8 +7,9 @@ Feature: Smoke
 
   @WSTE-39
   Scenario: Smoke | Verify Archive Game Playback - Default
-    Given an entitled user is logged into mlb.com/tv
+    Given an entitled user is logged in 
     When a user selects an archived game for playback
     Then playback starts at the beginning of the stream
     And the duration of the game display right side of the scrubber bar
+    And the video plays without buffering
     And all available data is visible to the user (this includes innings and final scores)

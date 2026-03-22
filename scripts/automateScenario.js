@@ -296,13 +296,50 @@ function appendScenarioToFeature(featurePath, key, summary, gherkin) {
   return content.trimEnd() + '\n' + scenarioBlock + '\n';
 }
 
-function appendStepsToFile(stepDefPath, gherkin, key) {
+function appendStepsToFile(stepDefPath, gherkin, key, options = {}) {
+  const stepDefsDir = options.stepDefsDir || path.dirname(stepDefPath);
   let content = fs.readFileSync(stepDefPath, 'utf8');
-  const newStubs = generateStepDefStubs(gherkin, key, null, null);
-  const newSteps = newStubs.split('\n').filter((l) => l.includes('Given(') || l.includes('When(') || l.includes('Then('));
-  for (const step of newSteps) {
-    if (!content.includes(step.slice(0, 50))) {
-      content = content.trimEnd() + '\n\n' + step + '\n';
+  let allStepDefContent = content;
+  if (fs.existsSync(stepDefsDir)) {
+    for (const f of fs.readdirSync(stepDefsDir)) {
+      if (f.endsWith('.js') && path.join(stepDefsDir, f) !== path.resolve(stepDefPath)) {
+        try {
+          allStepDefContent += '\n' + fs.readFileSync(path.join(stepDefsDir, f), 'utf8');
+        } catch (_) {}
+      }
+    }
+  }
+  const lines = (gherkin || '').split('\n').filter(Boolean);
+  const stepTexts = [];
+  for (const line of lines) {
+    const m = line.trim().match(/^(Given|When|Then|And|Or)\s+(.+)$/i);
+    if (m) stepTexts.push(m[2].trim());
+  }
+  const fullStubs = generateStepDefStubs(gherkin, key, null, null);
+  const stubs = [];
+  const re = /\n\s*(Given|When|Then)\([^)]+\)[^{]*\{[\s\S]*?\}\);/g;
+  let m;
+  while ((m = re.exec(fullStubs))) stubs.push(m[0].trim());
+  if (!stubs.length) {
+    const parts = fullStubs.split(/\n\n+/);
+    for (const p of parts) {
+      if (/^\s*(Given|When|Then)\(/.test(p)) stubs.push(p.trim());
+    }
+  }
+  const contentNoComments = content.replace(/\/\/[^\n]*/g, '');
+  const allNoComments = allStepDefContent.replace(/\/\/[^\n]*/g, '');
+  for (let j = 0; j < stubs.length; j++) {
+    const stub = stubs[j];
+    const stepText = stepTexts[j];
+    const alreadyDefined =
+      content.includes(stub.slice(0, 50)) ||
+      (stepText &&
+        (contentNoComments.includes(`"${stepText}"`) ||
+          contentNoComments.includes(`'${stepText}'`) ||
+          allNoComments.includes(`"${stepText}"`) ||
+          allNoComments.includes(`'${stepText}'`)));
+    if (!alreadyDefined) {
+      content = content.trimEnd() + '\n\n' + stub + '\n';
     }
   }
   fs.writeFileSync(stepDefPath, content);
@@ -316,4 +353,10 @@ if (require.main === module) {
   process.exit(result.success ? 0 : 1);
 }
 
-module.exports = { automate, getProjectFromKey };
+module.exports = {
+  automate,
+  getProjectFromKey,
+  generateStepDefStubs,
+  appendStepsToFile,
+  extractGherkinLines,
+};

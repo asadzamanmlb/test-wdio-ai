@@ -54,7 +54,8 @@ async function importFeature(featurePath) {
   formData.append('projectKey', projectKey);
   formData.append('source', suite);
 
-  const res = await fetch('https://xray.cloud.getxray.app/api/v2/import/feature', {
+  const url = `https://xray.cloud.getxray.app/api/v2/import/feature?projectKey=${encodeURIComponent(projectKey)}`;
+  const res = await fetch(url, {
     method: 'POST',
     headers: { Authorization: `Bearer ${token}` },
     body: formData,

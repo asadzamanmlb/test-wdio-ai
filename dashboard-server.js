@@ -15,7 +15,13 @@ const EXECUTE_RESULTS_FILE = path.join(__dirname, 'dashboard', 'data', 'execute-
 const SCREENSHOTS_DIR = path.join(__dirname, 'reports', 'screenshots');
 const DIST_DIR = path.join(__dirname, 'dashboard', 'dist');
 const TESTCASE_DIR = path.join(__dirname, 'testcase');
-const FEATURES_DIR = path.join(__dirname, 'features');
+const FEATURES_DIR = (() => {
+  const fromScript = path.resolve(__dirname, 'features');
+  const fromCwd = path.resolve(process.cwd(), 'features');
+  if (fs.existsSync(fromScript)) return fromScript;
+  if (fs.existsSync(fromCwd)) return fromCwd;
+  return fromScript;
+})();
 const SYNC_CONFIG = path.join(TESTCASE_DIR, 'sync-config.json');
 
 let pendingSyncData = {};
@@ -623,17 +629,27 @@ app.get('/api/sync/:suite/status', async (req, res) => {
     for (const nt of newTests) {
       const key = nt.key || nt.issueId;
       const oldPath = path.join(dir, `${key}.json`);
+      let jsonDiffers = false;
+      let featureDiffers = false;
       if (!fs.existsSync(oldPath)) {
         newKeys.push({ key, summary: nt.summary || key });
       } else {
         try {
           const oldData = JSON.parse(fs.readFileSync(oldPath, 'utf8'));
-          const oldGherkin = oldData.gherkin || '';
-          const newGherkin = nt.gherkin || '';
-          if (gherkinHasMeaningfulChange(oldGherkin, newGherkin)) {
-            updatedKeys.push({ key, summary: nt.summary || key });
-          }
+          const jsonGherkin = oldData.gherkin || '';
+          const xrayGherkin = nt.gherkin || '';
+          jsonDiffers = gherkinHasMeaningfulChange(jsonGherkin, xrayGherkin);
         } catch (_) {
+          jsonDiffers = true;
+        }
+        const featureRelPath = getFeaturePathForKey(suite, key);
+        if (featureRelPath) {
+          const featureGherkin = extractGherkinFromFeatureForKey(path.join(__dirname, featureRelPath), key);
+          if (featureGherkin != null) {
+            featureDiffers = gherkinHasMeaningfulChange(featureGherkin, nt.gherkin || '');
+          }
+        }
+        if (jsonDiffers || featureDiffers) {
           updatedKeys.push({ key, summary: nt.summary || key });
         }
       }
@@ -659,22 +675,30 @@ app.post('/api/sync/:suite/preview', async (req, res) => {
     const changes = [];
     for (const nt of newTests) {
       const key = nt.key || nt.issueId;
-      let oldGherkin = '';
+      let jsonGherkin = '';
       const oldPath = path.join(dir, `${key}.json`);
       if (fs.existsSync(oldPath)) {
         try {
           const oldData = JSON.parse(fs.readFileSync(oldPath, 'utf8'));
-          oldGherkin = oldData.gherkin || '';
+          jsonGherkin = oldData.gherkin || '';
         } catch (_) {}
       }
-      const newGherkin = nt.gherkin || '';
-      const diff = wordDiff(oldGherkin, newGherkin);
-      const hasChanges = gherkinHasMeaningfulChange(oldGherkin, newGherkin);
+      const xrayGherkin = nt.gherkin || '';
+      const featureRelPath = getFeaturePathForKey(suite, key);
+      let featureGherkin = null;
+      if (featureRelPath) {
+        featureGherkin = extractGherkinFromFeatureForKey(path.join(__dirname, featureRelPath), key);
+      }
+      const oldGherkin = featureGherkin ?? jsonGherkin;
+      const diff = wordDiff(oldGherkin, xrayGherkin);
+      const jsonDiffers = gherkinHasMeaningfulChange(jsonGherkin, xrayGherkin);
+      const featureDiffers = featureGherkin != null && gherkinHasMeaningfulChange(featureGherkin, xrayGherkin);
+      const hasChanges = jsonDiffers || featureDiffers;
       changes.push({
         key,
         summary: nt.summary,
         oldGherkin,
-        newGherkin,
+        newGherkin: xrayGherkin,
         diff,
         hasChanges,
       });
@@ -686,24 +710,41 @@ app.post('/api/sync/:suite/preview', async (req, res) => {
   }
 });
 
-app.post('/api/sync/:suite/apply', (req, res) => {
+app.post('/api/sync/:suite/apply', async (req, res) => {
   const suite = req.params.suite;
-  const pending = pendingSyncData[suite];
-  if (!pending) return res.status(400).json({ error: 'No pending sync for this suite. Click Sync first.' });
+  let pending = pendingSyncData[suite];
+  if (!pending) {
+    try {
+      if (!fs.existsSync(SYNC_CONFIG)) return res.status(400).json({ error: 'sync-config.json not found' });
+      const config = JSON.parse(fs.readFileSync(SYNC_CONFIG, 'utf8'));
+      const issueKey = config[suite];
+      if (!issueKey) return res.status(400).json({ error: `No issue key for suite "${suite}" in sync-config` });
+      const { exportTests } = require('./xray/exportTestsToJson');
+      pending = await exportTests(issueKey, suite, { silent: true, write: false });
+    } catch (e) {
+      return res.status(400).json({ error: 'No pending sync. Click Sync first, or re-fetch failed: ' + e.message });
+    }
+  }
 
   try {
     const dir = path.join(TESTCASE_DIR, suite);
     fs.mkdirSync(dir, { recursive: true });
     for (const tc of pending) {
-      const filename = `${tc.key || tc.issueId}.json`;
+      const key = tc.key || tc.issueId;
+      const filename = `${key}.json`;
       fs.writeFileSync(path.join(dir, filename), JSON.stringify(tc, null, 2));
+      const featureRelPath = getFeaturePathForKey(suite, key);
+      if (featureRelPath && tc.gherkin) {
+        const featureFullPath = path.join(__dirname, featureRelPath);
+        updateScenarioStepsInFeature(featureFullPath, key, tc.gherkin);
+      }
     }
     fs.writeFileSync(
       path.join(dir, 'testcases.json'),
       JSON.stringify(pending, null, 2)
     );
     delete pendingSyncData[suite];
-    res.json({ success: true, message: 'Updated successfully' });
+    res.json({ success: true, message: 'Updated testcase JSON and feature files from Xray.' });
   } catch (e) {
     res.status(500).json({ success: false, error: e.message });
   }
@@ -722,27 +763,85 @@ app.post('/api/sync/:suite/:key/preview', async (req, res) => {
     const { exportSingleTest } = require('./xray/exportTestsToJson');
     const newTest = await exportSingleTest(issueKey, suite, key, { silent: true, write: false });
     const dir = path.join(TESTCASE_DIR, suite);
-    let oldGherkin = '';
+    let jsonGherkin = '';
     const oldPath = path.join(dir, `${key}.json`);
     if (fs.existsSync(oldPath)) {
       try {
         const oldData = JSON.parse(fs.readFileSync(oldPath, 'utf8'));
-        oldGherkin = oldData.gherkin || '';
+        jsonGherkin = oldData.gherkin || '';
       } catch (_) {}
     }
-    const newGherkin = newTest.gherkin || '';
-    const diff = wordDiff(oldGherkin, newGherkin);
-    const hasChanges = gherkinHasMeaningfulChange(oldGherkin, newGherkin);
+    const xrayGherkin = newTest.gherkin || '';
+    const featureRelPath = getFeaturePathForKey(suite, key);
+    let featureGherkin = null;
+    if (featureRelPath) {
+      featureGherkin = extractGherkinFromFeatureForKey(path.join(__dirname, featureRelPath), key);
+    }
+    const oldGherkin = featureGherkin ?? jsonGherkin;
+    const diff = wordDiff(oldGherkin, xrayGherkin);
+    const jsonDiffers = gherkinHasMeaningfulChange(jsonGherkin, xrayGherkin);
+    const featureDiffers = featureGherkin != null && gherkinHasMeaningfulChange(featureGherkin, xrayGherkin);
+    const hasChanges = jsonDiffers || featureDiffers;
     const pendingKey = `${suite}:${key}`;
     pendingSyncData[pendingKey] = [newTest];
     res.json({
       success: true,
-      changes: [{ key, summary: newTest.summary, oldGherkin, newGherkin, diff, hasChanges }],
+      changes: [{ key, summary: newTest.summary, oldGherkin, newGherkin: xrayGherkin, diff, hasChanges }],
     });
   } catch (e) {
     res.status(500).json({ success: false, error: e.message });
   }
 });
+
+/** Update scenario steps in feature file with new gherkin from Xray. */
+function updateScenarioStepsInFeature(featureFullPath, key, newGherkin) {
+  if (!fs.existsSync(featureFullPath) || !newGherkin) return false;
+  const content = fs.readFileSync(featureFullPath, 'utf8');
+  const lines = content.split('\n');
+  const keyUpper = (key || '').toUpperCase();
+  const KEY_TAG_RE = /@(WSTE-\d+|WQO-\d+|WQ-\d+)/gi;
+  const STEP_RE = /^\s*(Given|When|Then|And|But)\s+(.+)$/i;
+  const SCENARIO_RE = /^\s*Scenario(?:\s+Outline)?\s*:?\s*(.*)$/i;
+
+  let i = 0;
+  while (i < lines.length) {
+    const line = lines[i];
+    const scenarioMatch = line.match(SCENARIO_RE);
+    if (scenarioMatch) {
+      const tagLines = [line];
+      let j = i - 1;
+      while (j >= 0 && /^\s*@[\w-]+/.test(lines[j])) {
+        tagLines.unshift(lines[j]);
+        j--;
+      }
+      const allTagText = tagLines.join(' ');
+      const keys = [...new Set([...allTagText.matchAll(KEY_TAG_RE)].map((m) => m[1].toUpperCase()))];
+      if (!keys.includes(keyUpper)) {
+        i++;
+        continue;
+      }
+      const scenarioStart = i + 1;
+      let stepEnd = i + 1;
+      while (stepEnd < lines.length) {
+        const stepLine = lines[stepEnd];
+        if (!stepLine.trim()) { stepEnd++; continue; }
+        if (/^\s*(Scenario|Feature|Background|Examples|#)/i.test(stepLine)) break;
+        const stepMatch = stepLine.match(STEP_RE);
+        if (stepMatch || (stepLine.trim().startsWith('|') && stepLine.trim().endsWith('|'))) {
+          stepEnd++;
+        } else break;
+      }
+      const newSteps = newGherkin.trim().split('\n').map((l) => '    ' + l.trim());
+      const before = lines.slice(0, scenarioStart).join('\n');
+      const afterLines = lines.slice(stepEnd);
+      const after = afterLines.length ? '\n' + afterLines.join('\n') : '';
+      fs.writeFileSync(featureFullPath, before + '\n' + newSteps.join('\n') + after);
+      return true;
+    }
+    i++;
+  }
+  return false;
+}
 
 /** Extract gherkin for a scenario from feature file (for Update Xray preview). */
 function extractGherkinFromFeatureForKey(featureFullPath, key) {
@@ -795,16 +894,40 @@ function extractGherkinFromFeatureForKey(featureFullPath, key) {
   return null;
 }
 
-/** Update Xray preview: compare feature file gherkin vs testcase JSON. Shows what the feature file has that differs. */
-app.post('/api/update-xray-preview/:suite/:key', (req, res) => {
+/** Debug: returns paths used for feature lookup (for troubleshooting "No feature file found"). */
+app.get('/api/debug/feature-paths/:suite/:key', (req, res) => {
   const { suite, key } = req.params;
+  const featureRelPath = getFeaturePathForKey(suite, key);
+  const featureFullPath = featureRelPath ? path.resolve(__dirname, featureRelPath) : null;
+  res.json({
+    suite,
+    key,
+    __dirname,
+    processCwd: process.cwd(),
+    FEATURES_DIR,
+    featureRelPath,
+    featureFullPath,
+    exists: featureFullPath ? fs.existsSync(featureFullPath) : false,
+  });
+});
+
+/** Update Xray preview: compare feature file vs JSON vs Xray. Shows 3-way state for decision. */
+app.post('/api/update-xray-preview/:suite/:key', async (req, res) => {
+  const { suite, key } = req.params;
+  console.log('[Update Xray] PREVIEW req.params:', { suite, key, suiteType: typeof suite, keyType: typeof key });
   if (!suite || !key) return res.status(400).json({ error: 'suite and key required' });
 
   const featureRelPath = getFeaturePathForKey(suite, key);
   if (!featureRelPath) {
-    return res.json({ success: false, error: `No feature file found for ${key} in ${suite}` });
+    const debug = { __dirname, cwd: process.cwd(), FEATURES_DIR, featuresExists: fs.existsSync(FEATURES_DIR) };
+    console.warn(`[Update Xray] No feature file for ${key} in ${suite}`, debug);
+    return res.json({
+      success: false,
+      error: `No feature file found for ${key} in ${suite}. Check features/webtv/, features/optools/, or features/core-app/ for a .feature file containing @${key}`,
+      debug,
+    });
   }
-  const featureFullPath = path.join(__dirname, featureRelPath);
+  const featureFullPath = path.resolve(__dirname, featureRelPath);
   const featureGherkin = extractGherkinFromFeatureForKey(featureFullPath, key);
   if (featureGherkin == null) {
     return res.json({ success: false, error: `Scenario @${key} not found or has no steps in feature file` });
@@ -819,8 +942,23 @@ app.post('/api/update-xray-preview/:suite/:key', (req, res) => {
     } catch (_) {}
   }
 
+  let xrayGherkin = '';
+  try {
+    if (fs.existsSync(SYNC_CONFIG)) {
+      const config = JSON.parse(fs.readFileSync(SYNC_CONFIG, 'utf8'));
+      const issueKey = config[suite] || config[suite?.toLowerCase()];
+      if (issueKey && !issueKey.startsWith('http')) {
+        const { exportSingleTest } = require('./xray/exportTestsToJson');
+        const xrayTest = await exportSingleTest(issueKey, suite, key, { silent: true, write: false });
+        xrayGherkin = xrayTest.gherkin || '';
+      }
+    }
+  } catch (_) {}
+
+  const featureVsTc = gherkinHasMeaningfulChange(featureGherkin, tcGherkin);
+  const featureVsXray = xrayGherkin && gherkinHasMeaningfulChange(featureGherkin, xrayGherkin);
+  const hasChanges = featureVsTc || featureVsXray;
   const diff = wordDiff(tcGherkin, featureGherkin);
-  const hasChanges = gherkinHasMeaningfulChange(tcGherkin, featureGherkin);
 
   res.json({
     success: true,
@@ -835,6 +973,7 @@ app.post('/api/update-xray-preview/:suite/:key', (req, res) => {
     })(),
     oldGherkin: tcGherkin,
     newGherkin: featureGherkin,
+    xrayGherkin: xrayGherkin || undefined,
     diff,
     hasChanges,
     featurePath: featureRelPath,
@@ -844,13 +983,15 @@ app.post('/api/update-xray-preview/:suite/:key', (req, res) => {
 /** Update Xray: sync feature → testcase JSON, then import to Xray. */
 app.post('/api/update-xray/:suite/:key', async (req, res) => {
   const { suite, key } = req.params;
+  console.log('[Update Xray] UPDATE req.params:', { suite, key, suiteType: typeof suite, keyType: typeof key });
   if (!suite || !key) return res.status(400).json({ error: 'suite and key required' });
 
   const featureRelPath = getFeaturePathForKey(suite, key);
+  if (!featureRelPath) console.log('[Update Xray] getFeaturePathForKey returned null for', { suite, key });
   if (!featureRelPath) {
-    return res.status(404).json({ success: false, error: `No feature file found for ${key} in ${suite}` });
+    return res.status(404).json({ success: false, error: `No feature file found for ${key} in ${suite}. Check features/webtv/, features/optools/, or features/core-app/` });
   }
-  const featureFullPath = path.join(__dirname, featureRelPath);
+  const featureFullPath = path.resolve(__dirname, featureRelPath);
 
   try {
     const child = spawn('node', [path.join(__dirname, 'scripts', 'syncFeatureToTestcase.js'), featureRelPath], {
@@ -863,6 +1004,15 @@ app.post('/api/update-xray/:suite/:key', async (req, res) => {
     });
   } catch (e) {
     return res.status(500).json({ success: false, error: `Sync failed: ${e.message}` });
+  }
+
+  let stepDefUpdated = false;
+  try {
+    const { syncFeatureToStepDefinitions } = require('./scripts/syncFeatureToStepDefinitions');
+    const sdResult = syncFeatureToStepDefinitions(featureRelPath, { log: () => {} });
+    stepDefUpdated = sdResult.updated;
+  } catch (e) {
+    console.warn('[Update Xray] Step def sync skipped:', e.message);
   }
 
   let xrayUpdated = false;
@@ -886,23 +1036,38 @@ app.post('/api/update-xray/:suite/:key', async (req, res) => {
     xrayError = e.message;
   }
 
-  const message = xrayUpdated
-    ? 'Updated testcase JSON and Xray.'
-    : 'Testcase JSON updated. Xray import failed — ensure XRAY_CLIENT_ID and XRAY_CLIENT_SECRET are set in .env';
+  const parts = ['Updated testcase JSON'];
+  if (stepDefUpdated) parts.push('step definitions');
+  if (xrayUpdated) parts.push('and Xray');
+  else parts.push('— Xray import failed (ensure XRAY_CLIENT_ID and XRAY_CLIENT_SECRET in .env)');
+  const message = parts.join(' ');
   res.json({
     success: true,
     message,
     xrayUpdated,
+    stepDefUpdated,
     xrayError: xrayError || undefined,
   });
 });
 
 /** Sync single scenario: apply */
-app.post('/api/sync/:suite/:key/apply', (req, res) => {
+app.post('/api/sync/:suite/:key/apply', async (req, res) => {
   const { suite, key } = req.params;
   const pendingKey = `${suite}:${key}`;
-  const pending = pendingSyncData[pendingKey];
-  if (!pending) return res.status(400).json({ error: `No pending sync for ${key}. Click Sync first.` });
+  let pending = pendingSyncData[pendingKey];
+  if (!pending) {
+    try {
+      if (!fs.existsSync(SYNC_CONFIG)) return res.status(400).json({ error: 'sync-config.json not found' });
+      const config = JSON.parse(fs.readFileSync(SYNC_CONFIG, 'utf8'));
+      const issueKey = config[suite];
+      if (!issueKey) return res.status(400).json({ error: `No issue key for suite "${suite}" in sync-config` });
+      const { exportSingleTest } = require('./xray/exportTestsToJson');
+      const newTest = await exportSingleTest(issueKey, suite, key, { silent: true, write: false });
+      pending = [newTest];
+    } catch (e) {
+      return res.status(400).json({ error: `No pending sync for ${key}. Click Sync first, or re-fetch failed: ${e.message}` });
+    }
+  }
 
   try {
     const dir = path.join(TESTCASE_DIR, suite);
@@ -910,6 +1075,11 @@ app.post('/api/sync/:suite/:key/apply', (req, res) => {
     const tc = pending[0];
     const filename = `${tc.key || tc.issueId}.json`;
     fs.writeFileSync(path.join(dir, filename), JSON.stringify(tc, null, 2));
+    const featureRelPath = getFeaturePathForKey(suite, key);
+    if (featureRelPath && tc.gherkin) {
+      const featureFullPath = path.join(__dirname, featureRelPath);
+      updateScenarioStepsInFeature(featureFullPath, key, tc.gherkin);
+    }
     const testcasesPath = path.join(dir, 'testcases.json');
     let allCases = [];
     if (fs.existsSync(testcasesPath)) {
@@ -1011,15 +1181,30 @@ app.get('/api/automate/status', (req, res) => {
 
 /** Find feature file path containing @key tag. suite maps to features subdir (webTv->webtv, optools->optools). */
 function getFeaturePathForKey(suite, key) {
-  const suiteToDir = { webTv: 'webtv', optools: 'optools', coreApp: 'core-app', 'core-app': 'core-app' };
-  const subdir = suiteToDir[suite] || suite.toLowerCase();
-  const dir = path.join(FEATURES_DIR, subdir);
-  if (!fs.existsSync(dir)) return null;
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.feature'));
-  const tag = `@${key}`;
-  for (const file of files) {
-    const content = fs.readFileSync(path.join(dir, file), 'utf8');
-    if (content.includes(tag)) return path.join('features', subdir, file);
+  if (!key || key === 'undefined') return null;
+  const suiteToDir = { webTv: 'webtv', webtv: 'webtv', optools: 'optools', coreApp: 'core-app', 'core-app': 'core-app' };
+  // Infer suite from key when missing (WSTE->webtv, WQO->optools, WQ->core-app)
+  const inferredSub = /^WSTE-/i.test(key) ? 'webtv' : /^WQO-/i.test(key) ? 'optools' : /^WQ-/i.test(key) ? 'core-app' : null;
+  const subs = suite ? [suiteToDir[suite] || suite.toLowerCase(), suite] : [];
+  const subList = [...new Set([...subs, inferredSub, 'webtv', 'optools', 'core-app'])].filter(Boolean);
+  const featuresDirs = [FEATURES_DIR, path.resolve(process.cwd(), 'features')].filter((d) => fs.existsSync(d));
+  for (const featuresDir of featuresDirs) {
+    for (const sub of subList) {
+      const dir = path.join(featuresDir, sub);
+      if (!fs.existsSync(dir)) continue;
+      const files = fs.readdirSync(dir).filter((f) => f.endsWith('.feature'));
+      const tag = `@${key}`;
+      const tagUpper = tag.toUpperCase();
+      for (const file of files) {
+        const fullPath = path.join(dir, file);
+        try {
+          const content = fs.readFileSync(fullPath, 'utf8');
+          if (content.includes(tag) || content.toUpperCase().includes(tagUpper)) {
+            return path.join('features', sub, file);
+          }
+        } catch (_) {}
+      }
+    }
   }
   return null;
 }
@@ -1188,14 +1373,31 @@ async function runFixLoop(suite, key, envVal) {
       return;
     }
     if (fixState.stopped) break;
+    const failReason = fixState.lastResult.failReason || '';
+    const failStep = fixState.lastResult.failStep || '';
+
+    const { isNotImplementedError, tryFixNotImplementedError } = require('./ai/webtvQaEngineer');
+    if (isNotImplementedError(failReason)) {
+      try {
+        const fixResult = tryFixNotImplementedError(failStep);
+        if (fixResult.applied) {
+          console.log(`[Fix] Not implemented → removed stub (${fixResult.source}): ${path.basename(fixResult.file)}`);
+          await new Promise((r) => setTimeout(r, 3000));
+          continue;
+        }
+      } catch (e) {
+        console.warn('[Fix] Not-implemented fix error:', e.message);
+      }
+    }
+
     const { plan, generate, isElementError } = require('./ai/agents');
-    const isElErr = isElementError && isElementError(fixState.lastResult.failReason);
+    const isElErr = isElementError && isElementError(failReason);
     if (isElErr) {
       try {
         const fixPlan = await plan({
-          failReason: fixState.lastResult.failReason,
-          failStep: fixState.lastResult.failStep,
-          stepText: fixState.lastResult.failStep,
+          failReason,
+          failStep,
+          stepText: failStep,
           scenario: key,
         });
         const genResult = generate(fixPlan);

@@ -46,3 +46,25 @@ Then(/^all available data is visible to the user \(this includes innings and fin
     throw new Error('Could not find innings, score, or video data');
   }
 });
+
+Then("the video plays without buffering", async function () {
+  const video = await playerPage.videoPlayer();
+  await video.waitForExist({ timeout: 15000 });
+  const t0 = await browser.execute(() => {
+    const v = document.querySelector('video');
+    return v ? v.currentTime : -1;
+  });
+  await new Promise((r) => setTimeout(r, 3000));
+  const t1 = await browser.execute(() => {
+    const v = document.querySelector('video');
+    return v ? { currentTime: v.currentTime, readyState: v.readyState } : null;
+  });
+  if (!t1 || t1.readyState < 2) {
+    throw new Error('Video not playing (readyState < 2)');
+  }
+  if (Math.abs(t1.currentTime - t0) < 0.5) {
+    throw new Error('Video appears stuck (currentTime did not advance in 3s)');
+  }
+});
+
+// "an entitled user is logged in" defined in login.steps.js

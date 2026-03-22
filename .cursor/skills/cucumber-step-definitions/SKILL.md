@@ -65,3 +65,13 @@ When('the user hovers over the {string} button from the top nav', async function
   // buttonLabel = "ACCOUNT"
 });
 ```
+
+## Reusing steps (platform-first)
+
+When a step throws "Not implemented" but a **semantic equivalent** exists elsewhere (e.g. "an entitled user is logged in" vs "an entitled user is logged into mlb.com/tv"):
+
+1. Add an alias in the platform file pointing to the same handler: `Given('an entitled user is logged in', ensureLoggedIntoMlbTv)`
+2. Remove the stub from the scenario's step def file
+3. Add a comment: `// "an entitled user is logged in" defined in login.steps.js`
+
+Do NOT implement the same logic twice. Prefer aliases over duplicate implementations.

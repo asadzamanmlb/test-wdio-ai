@@ -37,6 +37,12 @@ await browser.waitUntil(
 
 Handle "Verify with Password" in the Continue step or immediately before password.
 
+## MLB QA login (qa-gcp.mlb.com/login)
+
+- Page may redirect from /tv to /login; wait for URL or email input (15–20s).
+- If email input not found, check for Okta iframe: `iframe[src*="okta"]`, switch with `browser.switchFrame(frame)`.
+- Use fallback selectors: `identifier`, `username`, `#username`, `type="email"`, `autocomplete="username"`.
+
 ## Cookie consent
 
 Try multiple selectors; fail gracefully if none found:

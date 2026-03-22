@@ -379,7 +379,7 @@ function DiffView({ diff }) {
   );
 }
 
-function UpdateXrayDiffModal({ suite, key: scenarioKey, change, onClose, onUpdate, onRefresh }) {
+function UpdateXrayDiffModal({ suite, scenarioKey, change, onClose, onUpdate, onRefresh }) {
   const [updating, setUpdating] = useState(false);
   const [toast, setToast] = useState(null);
   const [toastVariant, setToastVariant] = useState('success'); // 'success' | 'warning' | 'error'
@@ -431,15 +431,35 @@ function UpdateXrayDiffModal({ suite, key: scenarioKey, change, onClose, onUpdat
         </div>
         <div className="max-h-[60vh] overflow-y-auto p-4 space-y-4">
           {change?.error ? (
-            <p className="text-sm text-[var(--danger)]">{change.error}</p>
+            <div className="space-y-2">
+              <p className="text-sm text-[var(--danger)]">{change.error}</p>
+              {change.debug && (
+                <pre className="text-xs text-[var(--muted)] bg-black/30 rounded p-2 overflow-auto max-h-32">
+                  {JSON.stringify(change.debug, null, 2)}
+                </pre>
+              )}
+            </div>
           ) : !hasChanges ? (
-            <p className="text-sm text-[var(--success)]">No changes. Feature file matches testcase/Xray.</p>
+            <p className="text-sm text-[var(--success)]">No changes. Feature file matches testcase JSON and Xray.</p>
           ) : (
-            <div className="rounded border border-[var(--border)] p-3">
-              <div className="text-xs text-[var(--muted)] mb-2">
-                Feature file has these changes vs testcase/Xray:
+            <div className="space-y-3">
+              <p className="text-xs text-[var(--muted)]">
+                <strong>Update Xray</strong> = push Feature file → testcase JSON → Xray. Use <strong>Sync</strong> if Xray has the correct version.
+              </p>
+              <div className="rounded border border-[var(--border)] p-3">
+                <div className="text-xs text-[var(--muted)] mb-2">
+                  Feature file (will push) vs testcase JSON:
+                </div>
+                <DiffView diff={change.diff} />
               </div>
-              <DiffView diff={change.diff} />
+              {change.xrayGherkin && (
+                <div className="rounded border border-[var(--warning)]/30 p-3">
+                  <div className="text-xs text-[var(--warning)] mb-2">
+                    Xray has different content — use Sync to pull from Xray, or Update to push feature.
+                  </div>
+                  <pre className="text-xs text-[var(--muted)] whitespace-pre-wrap max-h-32 overflow-y-auto">{change.xrayGherkin}</pre>
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -539,12 +559,17 @@ function SyncDiffModal({ suite, key: scenarioKey, changes, onClose, onApply, onR
           ) : withChanges.length === 0 ? (
             <p className="text-sm text-[var(--success)]">No changes detected. All scenarios are up to date.</p>
           ) : (
-            withChanges.map((c) => (
-              <div key={c.key} className="rounded border border-[var(--border)] p-3">
-                <div className="font-mono text-xs text-[var(--muted)] mb-2">{c.key} — {c.summary}</div>
-                <DiffView diff={c.diff} />
-              </div>
-            ))
+            <>
+              <p className="text-xs text-[var(--muted)] mb-2">
+                Xray differs from local (JSON + feature file). Click Update to pull from Xray → update testcase JSON and feature files.
+              </p>
+              {withChanges.map((c) => (
+                <div key={c.key} className="rounded border border-[var(--border)] p-3">
+                  <div className="font-mono text-xs text-[var(--muted)] mb-2">{c.key} — {c.summary}</div>
+                  <DiffView diff={c.diff} />
+                </div>
+              ))}
+            </>
           )}
         </div>
         <div className="border-t border-[var(--border)] px-4 py-3 flex justify-end gap-2">
@@ -845,12 +870,12 @@ function ScenarioList({ scenarios, title, suiteName, suiteId, jiraBaseUrl, onRef
       const res = await fetch(`${API}/update-xray-preview/${suiteName}/${key}`, { method: 'POST' });
       const data = await res.json();
       if (res.ok && data.success !== false) {
-        setUpdateXrayPreview(data);
+        setUpdateXrayPreview({ ...data, key: data.key ?? key });
       } else {
-        setUpdateXrayPreview({ error: data.error || 'Failed to get preview' });
+        setUpdateXrayPreview({ key, error: data.error || 'Failed to get preview' });
       }
     } catch (e) {
-      setUpdateXrayPreview({ error: e.message || 'Failed to get preview' });
+      setUpdateXrayPreview({ key, error: e.message || 'Failed to get preview' });
     } finally {
       setUpdateXrayLoadingKey(null);
     }
@@ -1017,8 +1042,9 @@ function ScenarioList({ scenarios, title, suiteName, suiteId, jiraBaseUrl, onRef
       )}
       {updateXrayPreview && (
         <UpdateXrayDiffModal
-          suite={suiteName}
-          key={updateXrayPreview.key}
+          key={`${suiteId || suiteName}-${updateXrayPreview.key}`}
+          suite={suiteId || suiteName}
+          scenarioKey={updateXrayPreview.key}
           change={updateXrayPreview}
           onClose={() => setUpdateXrayPreview(null)}
           onUpdate={() => {}}

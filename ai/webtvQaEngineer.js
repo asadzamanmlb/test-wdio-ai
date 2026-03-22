@@ -401,10 +401,26 @@ if (require.main === module) {
     });
 }
 
+/** Try to fix "Not implemented" by removing stub (platform) or filling from webTv-temp. Returns { applied, file?, source? }. */
+function tryFixNotImplementedError(stepText) {
+  const stepDefsDir = path.join(ROOT, 'features', 'step-definitions');
+  if (!fs.existsSync(stepDefsDir)) return { applied: false };
+  const files = fs.readdirSync(stepDefsDir).filter((f) => f.endsWith('.js'));
+  for (const f of files) {
+    const stepDefPath = path.join(stepDefsDir, f);
+    const result = tryFillFromWebTvTemp(stepDefPath, stepText || '');
+    if (result.applied) return { applied: true, file: stepDefPath, source: result.source || 'webTv-temp' };
+  }
+  return { applied: false };
+}
+
 module.exports = {
   runWebTvQaEngineer,
   findSimilarStepInWebTvTemp,
   tryFillFromWebTvTemp,
+  tryRemoveStubForPlatformStep,
+  tryFixNotImplementedError,
+  isNotImplementedError,
   isCucumberExpressionError,
   tryFixCucumberExpressionErrors,
 };

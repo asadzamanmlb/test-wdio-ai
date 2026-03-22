@@ -48,6 +48,9 @@ const ELEMENT_OR_ERROR_PATTERNS = [
   /element.*not in the document/i,
   /Unable to find element/i,
   /element not found/i,
+  // Custom timeout messages (e.g. waitUntil timeoutMsg)
+  /did not appear/i,
+  /never (appeared|found|loaded)/i,
 ];
 
 function isElementOrSelectableError(msg) {
@@ -66,6 +69,14 @@ function extractSelectorFromError(errorMsg) {
     errorMsg.match(/locator\s*["']([^"']+)["']/i) ||
     errorMsg.match(/["']([^"']+\.(?:css|xpath))["']/i);
   return m ? m[1] : null;
+}
+
+/** Extract contextual element hint from timeout/custom messages (e.g. "email input did not appear" → "email input") */
+function extractElementHintFromError(errorMsg) {
+  if (!errorMsg || typeof errorMsg !== 'string') return null;
+  const m = errorMsg.match(/(?:input|element|button|link)\s+([^\.\s]+)\s+(?:did not appear|never appeared|not found)/i) ||
+    errorMsg.match(/([a-z]+\s+input|[a-z]+\s+button)\s+did not appear/i);
+  return m ? m[1].trim() : null;
 }
 
 function extractTextFromStep(stepText) {
@@ -180,7 +191,7 @@ module.exports = {
 
     if (isElementOrSelectableError(msg)) {
       const oldSelector = extractSelectorFromError(msg);
-      const text = extractTextFromStep(step.text);
+      const text = extractTextFromStep(step.text) || extractElementHintFromError(msg);
       let domHtml = null;
       try {
         if (typeof browser !== 'undefined' && browser.getPageSource) {

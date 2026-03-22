@@ -7,7 +7,44 @@
   "status": "Done",
   "testType": "Cucumber",
   "scenarioType": "scenario",
-  "gherkin": "Given the user is already logged into mlb.com/tv\nWhen the user hovers over the \"ACCOUNT\" button from the top nav\nAnd the user clicks the \"Log Out\" option\nThen the logout screen should display \nAnd the following message should appear \"You have been logged out of MLB.com.You will be automatically redirected in 5 seconds\"\nAnd the user should be redirected to the \"MLB.com | The Official Site of Major League Baseball\" page",
+  "gherkin": "Given the user is already logged into mlb.com/tv\nWhen the user hovers over the \"ACCOUNT\" button from the top nav\nAnd the user clicks the \"Log Out\" option\nThen the logout screen should display\nAnd the following message should appear \"You have been logged out of MLB.com.You will be automatically redirected in 5 seconds\"\nAnd the user should be redirected to the \"MLB.com | The Official Site of Major League Baseball\" page",
   "unstructured": null,
-  "steps": []
+  "steps": [
+    {
+      "id": "step-0",
+      "action": "Given the user is already logged into mlb.com/tv",
+      "data": "",
+      "result": ""
+    },
+    {
+      "id": "step-1",
+      "action": "When the user hovers over the \"ACCOUNT\" button from the top nav",
+      "data": "",
+      "result": ""
+    },
+    {
+      "id": "step-2",
+      "action": "And the user clicks the \"Log Out\" option",
+      "data": "",
+      "result": ""
+    },
+    {
+      "id": "step-3",
+      "action": "Then the logout screen should display",
+      "data": "",
+      "result": ""
+    },
+    {
+      "id": "step-4",
+      "action": "And the following message should appear \"You have been logged out of MLB.com.You will be automatically redirected in 5 seconds\"",
+      "data": "",
+      "result": ""
+    },
+    {
+      "id": "step-5",
+      "action": "And the user should be redirected to the \"MLB.com | The Official Site of Major League Baseball\" page",
+      "data": "",
+      "result": ""
+    }
+  ]
 }

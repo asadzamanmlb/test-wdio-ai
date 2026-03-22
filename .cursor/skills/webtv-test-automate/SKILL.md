@@ -14,9 +14,11 @@ Automate manual WebTV test scenarios by creating feature files, step definitions
 **1. Platform step-definitions** — Check FIRST for existing implementations:
 - `features/step-definitions/login.steps.js` — login, logout, mlb.com/tv navigation
   - `an entitled user is logged into mlb.com/tv` — same as `the user is already logged into mlb.com/tv`
+  - `an entitled user is logged in` — alias for above (add in login.steps.js if feature uses this phrasing)
   - `they attempt to go to mlb.com/tv`, `the user is successfully logged in`, etc.
 - `features/step-definitions/*.steps.js` — other shared steps
 - **Rule:** Do NOT create stubs for steps that already exist in login.steps.js or other platform files. Remove stub and let the shared step handle it.
+- **Semantic aliases:** If feature step text is a semantic equivalent (e.g. "logged in" vs "logged into mlb.com/tv"), add an alias in the platform file pointing to the same handler. Remove any stub from the scenario's step def file.
 
 **2. webTv-temp** — when platform has no match:
 - `webTv-temp/features/web/smoke/*.feature` — feature structure, scenarios
@@ -30,6 +32,13 @@ Automate manual WebTV test scenarios by creating feature files, step definitions
 3. **On failure** — Use self-heal (RAG + DOM), webTv-temp examples, fix selectors/step defs
 4. **Retry** — Loop until pass or max attempts (~10)
 5. **Real-time capture** — Hooks persist DOM on failure for agent analysis
+
+## Related Skills
+
+- **self-healing-selectors** — Real-time DOM capture, analyzeDom, RAG, auto-update selectors on element failures.
+- **mlb-login-selectors** — When WSTE-35 login fails on email input: fallbacks, Okta iframe, MLB QA flow.
+- **page-object-patterns** — Okta iframe, fallback selectors.
+- **wdio-waits-and-flows** — MLB QA login waits, iframe handling.
 
 ## Key Paths
 
@@ -55,13 +64,14 @@ npm run webtv:automate -- WSTE-44
 ## When Implementing Steps
 
 1. **Check platform first:** Search `features/step-definitions/login.steps.js` and other `*.steps.js` for matching step text (e.g. "logged into mlb.com/tv", "user is logged in")
-2. **If found:** Remove the stub from the scenario's step def file; the shared step will match
-3. **If not found:** Search webTv-temp for similar step text (e.g. "navigate to Media Center", "select date", "VOD playback")
-4. Copy/adjust selectors from webTv-temp page objects
-5. Use CommonJS (`require`), not ES modules
-6. Follow `config/env.js` for baseUrl; use `qaTestUsers` from `testUsers.js` for login
-7. No `browser.pause()` — use explicit waits (`waitUntil`, `waitForDisplayed`, etc.)
-8. **Element highlighting** — ON by default. Every `click()`, `setValue()`, `addValue()`, `clearValue()` highlights the element (4px red outline, box-shadow) before interaction. Disable with `HIGHLIGHT_ELEMENTS=0`. Optional: `HIGHLIGHT_DURATION_MS=2000` for longer visibility (default 1000ms).
+2. **If exact match found:** Remove the stub from the scenario's step def file; the shared step will match
+3. **If semantic equivalent found:** Add an alias in the platform file (e.g. `Given('an entitled user is logged in', ensureLoggedIntoMlbTv)` in login.steps.js). Remove the stub from the scenario's step def file.
+4. **If not found:** Search webTv-temp for similar step text (e.g. "navigate to Media Center", "select date", "VOD playback")
+5. Copy/adjust selectors from webTv-temp page objects
+6. Use CommonJS (`require`), not ES modules
+7. Follow `config/env.js` for baseUrl; use `qaTestUsers` from `testUsers.js` for login
+8. No `browser.pause()` — use explicit waits (`waitUntil`, `waitForDisplayed`, etc.)
+9. **Element highlighting** — ON by default. Every `click()`, `setValue()`, `addValue()`, `clearValue()` highlights the element (4px red outline, box-shadow) before interaction. Disable with `HIGHLIGHT_ELEMENTS=0`. Optional: `HIGHLIGHT_DURATION_MS=2000` for longer visibility (default 1000ms).
 
 ## Self-Heal Integration
 
@@ -74,7 +84,7 @@ On selector/element failures, hooks capture DOM and call `heal()`. RAG stores fi
 | **SyntaxError: Unexpected end of input** | Remove incomplete/duplicate step blocks; truncate at last `});` |
 | **Invalid regular expression flags** (e.g. `\\/` over-escaped) | Fix `\\\\/` → `\/` in step defs |
 | **Cucumber Expression** (parentheses, slashes) | Convert string pattern to regex with escaped chars |
-| **Not implemented** | 1) Check `login.steps.js` etc. for existing step; 2) Copy similar step from webTv-temp |
+| **Not implemented** | 1) Check `login.steps.js` etc. for exact or semantic match; 2) If semantic equivalent exists (e.g. "logged in" vs "logged into mlb.com/tv"), add alias in platform file and remove stub; 3) If no match, copy similar step from webTv-temp |
 | **Element/selector not found** | Planner + Generator (RAG + DOM) |
 | **And/Or not defined** | Use `const And = Then;` in step defs |
 
@@ -90,9 +100,10 @@ The agent and `automateScenario` auto-detect and use regex for steps with `()`, 
 
 ## WebTV QA Engineer — Implemented & Future
 
-**Implemented in `ai/webtvQaEngineer.js`:**
+**Implemented in `ai/webtvQaEngineer.js` and dashboard Fix:**
 - **Platform-first for "Not implemented":** When "Not implemented" occurs, `tryFillFromWebTvTemp` first calls `tryRemoveStubForPlatformStep` — searches `features/step-definitions/*.js` for matching step; if found, removes the stub so the shared step (e.g. from login.steps.js) handles it.
-- **Known shared steps** (in login.steps.js): `an entitled user is logged into mlb.com/tv`, `the user is already logged into mlb.com/tv`, `they attempt to go to mlb.com/tv`, `the user is successfully logged in`
+- **Dashboard Fix button** (`dashboard-server.js` runFixLoop): Now calls `tryFixNotImplementedError` when failReason is "Not implemented" — removes duplicate stubs or fills from webTv-temp, then retries. Same logic as webtvQaEngineer.
+- **Known shared steps** (in login.steps.js): `an entitled user is logged into mlb.com/tv`, `an entitled user is logged in` (alias), `the user is already logged into mlb.com/tv`, `they attempt to go to mlb.com/tv`, `the user is successfully logged in`
 
 **Future: automateScenario** — When generating stubs, skip steps that already exist in login.steps.js (e.g. grep for the step pattern before creating a stub).
 
@@ -105,7 +116,9 @@ When the same step text is defined in multiple step-definition files, Cucumber u
 - Add a comment: `// "step text" defined in other-file.steps.js`
 - Both scenarios will use the single definition
 
-**Example:** `smoke-archive-game-playback-hide-spoiler.steps.js` and `smoke-verify-archive-game-playback-defau.steps.js` both had `Then("playback starts at the beginning of the stream")`. The stub in smoke-archive was overriding the implementation in smoke-verify. Removing the duplicate fixed the failing test.
+**Examples:**
+- `smoke-archive-game-playback-hide-spoiler.steps.js` and `smoke-verify-archive-game-playback-defau.steps.js` both had `Then("playback starts at the beginning of the stream")` — stub overrode implementation. Remove stub → fix.
+- `smoke-log-in.steps.js` and `login.steps.js` both had WSTE-35 steps (`the user is NOT logged in`, `they attempt to go to mlb.com/tv`, etc.) — stubs in smoke-log-in overrode login.steps.js, causing "8 skipped". Replace smoke-log-in stubs with comments → fix.
 
 ## Media Center / Archive Playback
 
