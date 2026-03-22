@@ -43,11 +43,18 @@ const password = process.env.TEST_PASSWORD || qaTestUsers.Password;
 
 ## Regex for special characters
 
-If Gherkin contains dots or slashes (e.g. `mlb.com/tv`), use regex to avoid Cucumber parsing:
+Cucumber string expressions treat these as special: `( ) { } [ ] / .`
+Use regex instead of string when step text contains them:
 
 ```javascript
+// Parentheses (e.g. "EX:2026/11/02") — string fails
+Then(/^the user can view up to end of the current season \(EX:2026\/11\/02\)$/, async function () { ... });
+
+// Dots, slashes (e.g. mlb.com/tv)
 Given(/^they attempt to go to mlb\.com\/tv$/, async function () { ... });
 ```
+
+The WebTV automate flow and agent auto-convert such steps to regex.
 
 ## Step handler signatures
 

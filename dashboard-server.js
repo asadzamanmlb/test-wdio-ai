@@ -2,6 +2,7 @@
  * QA Dashboard server - charts, trends, flaky detection
  * Run: node dashboard-server.js  (or npm run dashboard)
  */
+require('dotenv').config({ path: require('path').join(__dirname, '.env') });
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
@@ -28,6 +29,17 @@ let fixState = {
   lastResult: null,
   env: 'qa',
   activeChild: null,
+};
+
+let automateRunState = {
+  running: false,
+  stopped: false,
+  suite: null,
+  key: null,
+  attempt: 0,
+  lastResult: null,
+  created: null,
+  error: null,
 };
 
 app.use(express.json());
@@ -304,10 +316,10 @@ function findScreenshotByScenarioName(manifest, scenarioName) {
   return null;
 }
 
-/** Fallback: scan screenshots dir for file matching scenario name */
+/** Fallback: scan screenshots dir for file matching scenario name; if multiple and no match, use newest */
 function findScreenshotInDir(scenarioName) {
   if (!fs.existsSync(SCREENSHOTS_DIR)) return null;
-  const files = fs.readdirSync(SCREENSHOTS_DIR).filter((f) => f.endsWith('.png'));
+  let files = fs.readdirSync(SCREENSHOTS_DIR).filter((f) => f.endsWith('.png'));
   if (files.length === 0) return null;
   const baseName = (scenarioName || '').replace(/\s*\([^)]*\)\s*$/, '').trim();
   const slug = baseName.replace(/[^a-zA-Z0-9-]/g, '-').replace(/-+/g, '-').slice(0, 50).toLowerCase();
@@ -317,7 +329,11 @@ function findScreenshotInDir(scenarioName) {
       slug.includes(f.replace(/-\d+\.png$/i, '').toLowerCase().replace(/-+/g, '-'))
   );
   if (match) return match;
-  return files.length === 1 ? files[0] : null;
+  if (files.length === 1) return files[0];
+  files = files
+    .map((f) => ({ name: f, mtime: fs.statSync(path.join(SCREENSHOTS_DIR, f)).mtimeMs }))
+    .sort((a, b) => b.mtime - a.mtime);
+  return files[0]?.name || null;
 }
 
 /** Resolve screenshot filename - use file if it exists, else try to find a matching one in dir */
@@ -525,12 +541,14 @@ app.get('/api/scenarios/:suite', (req, res) => {
 });
 
 app.get('/api/sync-config', (req, res) => {
-  if (!fs.existsSync(SYNC_CONFIG)) return res.json({ suites: [] });
+  if (!fs.existsSync(SYNC_CONFIG)) return res.json({ suites: [], jiraBaseUrl: 'https://baseball.atlassian.net' });
   try {
     const config = JSON.parse(fs.readFileSync(SYNC_CONFIG, 'utf8'));
-    res.json({ suites: Object.keys(config) });
+    const jiraBaseUrl = config.jiraBaseUrl || 'https://baseball.atlassian.net';
+    const suites = Object.keys(config).filter((k) => k !== 'jiraBaseUrl');
+    res.json({ suites, jiraBaseUrl });
   } catch {
-    res.json({ suites: [] });
+    res.json({ suites: [], jiraBaseUrl: 'https://baseball.atlassian.net' });
   }
 });
 
@@ -726,6 +744,159 @@ app.post('/api/sync/:suite/:key/preview', async (req, res) => {
   }
 });
 
+/** Extract gherkin for a scenario from feature file (for Update Xray preview). */
+function extractGherkinFromFeatureForKey(featureFullPath, key) {
+  if (!fs.existsSync(featureFullPath)) return null;
+  const content = fs.readFileSync(featureFullPath, 'utf8');
+  const lines = content.split(/\n/);
+  const keyUpper = (key || '').toUpperCase();
+  const KEY_TAG_RE = /@(WSTE-\d+|WQO-\d+|WQ-\d+)/gi;
+  const STEP_RE = /^\s*(Given|When|Then|And|But)\s+(.+)$/i;
+  const SCENARIO_RE = /^\s*Scenario(?:\s+Outline)?\s*:?\s*(.*)$/i;
+
+  let i = 0;
+  while (i < lines.length) {
+    const line = lines[i];
+    const scenarioMatch = line.match(SCENARIO_RE);
+    if (scenarioMatch) {
+      const tagLines = [line];
+      let j = i - 1;
+      while (j >= 0 && /^\s*@[\w-]+/.test(lines[j])) {
+        tagLines.unshift(lines[j]);
+        j--;
+      }
+      const allTagText = tagLines.join(' ');
+      const keys = [...new Set([...allTagText.matchAll(KEY_TAG_RE)].map((m) => m[1].toUpperCase()))];
+      if (!keys.includes(keyUpper)) {
+        i++;
+        continue;
+      }
+      const steps = [];
+      i++;
+      while (i < lines.length) {
+        const stepLine = lines[i];
+        if (!stepLine.trim()) {
+          i++;
+          continue;
+        }
+        if (/^\s*(Scenario|Feature|Background|Examples|#)/i.test(stepLine)) break;
+        const stepMatch = stepLine.match(STEP_RE);
+        if (stepMatch) {
+          steps.push(`${stepMatch[1]} ${stepMatch[2].trim()}`);
+        } else if (stepLine.trim().startsWith('|') && stepLine.trim().endsWith('|')) {
+          steps.push(stepLine.trim());
+        }
+        i++;
+      }
+      return steps.length ? steps.join('\n') : null;
+    }
+    i++;
+  }
+  return null;
+}
+
+/** Update Xray preview: compare feature file gherkin vs testcase JSON. Shows what the feature file has that differs. */
+app.post('/api/update-xray-preview/:suite/:key', (req, res) => {
+  const { suite, key } = req.params;
+  if (!suite || !key) return res.status(400).json({ error: 'suite and key required' });
+
+  const featureRelPath = getFeaturePathForKey(suite, key);
+  if (!featureRelPath) {
+    return res.json({ success: false, error: `No feature file found for ${key} in ${suite}` });
+  }
+  const featureFullPath = path.join(__dirname, featureRelPath);
+  const featureGherkin = extractGherkinFromFeatureForKey(featureFullPath, key);
+  if (featureGherkin == null) {
+    return res.json({ success: false, error: `Scenario @${key} not found or has no steps in feature file` });
+  }
+
+  const tcPath = path.join(TESTCASE_DIR, suite, `${key}.json`);
+  let tcGherkin = '';
+  if (fs.existsSync(tcPath)) {
+    try {
+      const tc = JSON.parse(fs.readFileSync(tcPath, 'utf8'));
+      tcGherkin = tc.gherkin || '';
+    } catch (_) {}
+  }
+
+  const diff = wordDiff(tcGherkin, featureGherkin);
+  const hasChanges = gherkinHasMeaningfulChange(tcGherkin, featureGherkin);
+
+  res.json({
+    success: true,
+    key,
+    summary: (() => {
+      try {
+        const tc = JSON.parse(fs.readFileSync(tcPath, 'utf8'));
+        return tc.summary;
+      } catch (_) {
+        return key;
+      }
+    })(),
+    oldGherkin: tcGherkin,
+    newGherkin: featureGherkin,
+    diff,
+    hasChanges,
+    featurePath: featureRelPath,
+  });
+});
+
+/** Update Xray: sync feature → testcase JSON, then import to Xray. */
+app.post('/api/update-xray/:suite/:key', async (req, res) => {
+  const { suite, key } = req.params;
+  if (!suite || !key) return res.status(400).json({ error: 'suite and key required' });
+
+  const featureRelPath = getFeaturePathForKey(suite, key);
+  if (!featureRelPath) {
+    return res.status(404).json({ success: false, error: `No feature file found for ${key} in ${suite}` });
+  }
+  const featureFullPath = path.join(__dirname, featureRelPath);
+
+  try {
+    const child = spawn('node', [path.join(__dirname, 'scripts', 'syncFeatureToTestcase.js'), featureRelPath], {
+      cwd: __dirname,
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+    await new Promise((resolve, reject) => {
+      child.on('close', (code) => (code === 0 ? resolve() : reject(new Error(`Sync exited ${code}`))));
+      child.on('error', reject);
+    });
+  } catch (e) {
+    return res.status(500).json({ success: false, error: `Sync failed: ${e.message}` });
+  }
+
+  let xrayUpdated = false;
+  let xrayError = null;
+  try {
+    const child = spawn('node', [path.join(__dirname, 'xray', 'importFeatureToXray.js'), featureRelPath], {
+      cwd: __dirname,
+      env: { ...process.env },
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+    let stderr = '';
+    let stdout = '';
+    child.stderr?.on('data', (d) => { stderr += d.toString(); });
+    child.stdout?.on('data', (d) => { stdout += d.toString(); });
+    await new Promise((resolve, reject) => {
+      child.on('close', (code) => (code === 0 ? resolve() : reject(new Error(stderr || stdout || `Import exited ${code}`))));
+      child.on('error', reject);
+    });
+    xrayUpdated = true;
+  } catch (e) {
+    xrayError = e.message;
+  }
+
+  const message = xrayUpdated
+    ? 'Updated testcase JSON and Xray.'
+    : 'Testcase JSON updated. Xray import failed — ensure XRAY_CLIENT_ID and XRAY_CLIENT_SECRET are set in .env';
+  res.json({
+    success: true,
+    message,
+    xrayUpdated,
+    xrayError: xrayError || undefined,
+  });
+});
+
 /** Sync single scenario: apply */
 app.post('/api/sync/:suite/:key/apply', (req, res) => {
   const { suite, key } = req.params;
@@ -761,9 +932,86 @@ app.post('/api/sync/:suite/:key/apply', (req, res) => {
   }
 });
 
+/** Automate a manual test: create feature file + step definitions from testcase JSON. Uses webTv-temp, operator-tool-temp, or core-app-temp for reference. ?run=1 also starts the WebTV QA Engineer agent (run until pass or max attempts). */
+app.post('/api/automate/:suite/:key', (req, res) => {
+  const { suite, key } = req.params;
+  const runAgent = req.query.run === '1' || req.query.run === 'true';
+  if (!suite || !key) return res.status(400).json({ error: 'suite and key required' });
+  if (runAgent && (fixState.running || automateRunState.running)) {
+    return res.status(429).json({ error: 'Another test or automate run is already in progress' });
+  }
+  try {
+    const { automate } = require('./scripts/automateScenario');
+    const result = automate(suite, key);
+    if (!result.success) {
+      return res.status(400).json({ success: false, error: result.error });
+    }
+    if (runAgent) {
+      automateRunState.running = true;
+      automateRunState.stopped = false;
+      automateRunState.suite = suite;
+      automateRunState.key = key;
+      automateRunState.attempt = 0;
+      automateRunState.lastResult = null;
+      automateRunState.created = result.created;
+      automateRunState.error = null;
+      runAutomateAndRunLoop(suite, key, process.env.ENV || 'qa').catch((e) => {
+        automateRunState.error = e.message;
+        automateRunState.running = false;
+      });
+      res.json({ success: true, ...result, agentStarted: true, message: 'Files created. WebTV QA Engineer running - check status via /api/automate/status' });
+    } else {
+      res.json({ success: true, ...result });
+    }
+  } catch (e) {
+    res.status(500).json({ success: false, error: e.message });
+  }
+});
+
+async function runAutomateAndRunLoop(suite, key, envVal) {
+  const { runWebTvQaEngineer } = require('./ai/webtvQaEngineer');
+  let attempt = 0;
+  const runFn = async (s, k, env) => {
+    attempt++;
+    automateRunState.attempt = attempt;
+    return runSingleTest(s, k, env);
+  };
+  const result = await runWebTvQaEngineer(key, {
+    suite,
+    maxAttempts: 10,
+    env: envVal,
+    runSingleTest: runFn,
+  });
+  automateRunState.running = false;
+  automateRunState.lastResult = result;
+  automateRunState.attempt = result.attempts?.length || 0;
+  if (result.result) {
+    saveExecuteResult(suite, key, {
+      success: result.result.status === 'passed',
+      status: result.result.status,
+      failStep: result.result.failStep,
+      failReason: result.result.failReason,
+      screenshot: result.result.screenshot,
+    });
+  }
+}
+
+app.get('/api/automate/status', (req, res) => {
+  res.json({
+    running: automateRunState.running,
+    stopped: automateRunState.stopped,
+    suite: automateRunState.suite,
+    key: automateRunState.key,
+    attempt: automateRunState.attempt,
+    lastResult: automateRunState.lastResult,
+    created: automateRunState.created,
+    error: automateRunState.error,
+  });
+});
+
 /** Find feature file path containing @key tag. suite maps to features subdir (webTv->webtv, optools->optools). */
 function getFeaturePathForKey(suite, key) {
-  const suiteToDir = { webTv: 'webtv', optools: 'optools' };
+  const suiteToDir = { webTv: 'webtv', optools: 'optools', coreApp: 'core-app', 'core-app': 'core-app' };
   const subdir = suiteToDir[suite] || suite.toLowerCase();
   const dir = path.join(FEATURES_DIR, subdir);
   if (!fs.existsSync(dir)) return null;
@@ -841,6 +1089,8 @@ function runSingleTest(suite, key, envVal) {
       let failReason = null;
       let failStep = null;
       let screenshot = null;
+      let featureName = null;
+      let scenarioName = null;
       try {
         const reportsDir = path.join(__dirname, 'reports', 'json');
         const manifestPath = path.join(__dirname, 'reports', 'failure-screenshots.json');
@@ -861,18 +1111,35 @@ function runSingleTest(suite, key, envVal) {
                     failed = true;
                     failReason = step.result.error_message || step.result.message || 'Unknown error';
                     failStep = [step.keyword, step.name].filter(Boolean).join(' ').trim() || null;
+                    featureName = lastFeat.name || null;
+                    scenarioName = el.name || null;
                     break;
                   }
                 }
               }
           status = failed ? 'failed' : 'passed';
-          if (failed && fs.existsSync(manifestPath)) {
-            const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
-            const scenarioName = el.name || '';
-            screenshot =
-              manifest[scenarioId] ||
-              findScreenshotByScenarioName(manifest, scenarioName) ||
-              findScreenshotInDir(scenarioName);
+          if (failed) {
+            const sn = el.name || '';
+            if (fs.existsSync(manifestPath)) {
+              try {
+                const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+                screenshot =
+                  manifest[scenarioId] ||
+                  findScreenshotByScenarioName(manifest, sn) ||
+                  findScreenshotInDir(sn);
+              } catch (_) {}
+            }
+            if (!screenshot) screenshot = findScreenshotInDir(sn);
+            if (!screenshot && fs.existsSync(SCREENSHOTS_DIR)) {
+              const files = fs.readdirSync(SCREENSHOTS_DIR).filter((f) => f.endsWith('.png'));
+              if (files.length === 1) screenshot = files[0];
+              else if (files.length > 1) {
+                const sorted = files
+                  .map((f) => ({ name: f, mtime: fs.statSync(path.join(SCREENSHOTS_DIR, f)).mtimeMs }))
+                  .sort((a, b) => b.mtime - a.mtime);
+                screenshot = sorted[0]?.name;
+              }
+            }
           }
           break;
             }
@@ -885,7 +1152,7 @@ function runSingleTest(suite, key, envVal) {
         failReason = e.message;
       }
       const screenshotUrl = screenshot ? `/api/screenshots/${screenshot}` : null;
-      resolve({ status, failReason, failStep, screenshot: screenshotUrl });
+      resolve({ status, failReason, failStep, screenshot: screenshotUrl, featureName, scenarioName });
     });
 
     child.on('error', (err) => {
@@ -921,6 +1188,24 @@ async function runFixLoop(suite, key, envVal) {
       return;
     }
     if (fixState.stopped) break;
+    const { plan, generate, isElementError } = require('./ai/agents');
+    const isElErr = isElementError && isElementError(fixState.lastResult.failReason);
+    if (isElErr) {
+      try {
+        const fixPlan = await plan({
+          failReason: fixState.lastResult.failReason,
+          failStep: fixState.lastResult.failStep,
+          stepText: fixState.lastResult.failStep,
+          scenario: key,
+        });
+        const genResult = generate(fixPlan);
+        if (genResult.applied) {
+          console.log(`[Fix] Agents applied: ${genResult.oldSelector} → ${genResult.newSelector} in ${genResult.file}`);
+        }
+      } catch (e) {
+        console.warn('[Fix] Agents error:', e.message);
+      }
+    }
     await new Promise((r) => setTimeout(r, 3000));
   }
   fixState.running = false;
@@ -994,8 +1279,12 @@ app.post('/api/execute', (req, res) => {
           if (lastFeat?.elements) {
             for (const el of lastFeat.elements) {
               if (el.keyword?.toLowerCase().includes('background')) continue;
-              lastScenario = { feat: lastFeat, el };
-              break;
+              const failed = el.steps?.some((s) => s.result?.status === 'failed');
+              if (failed) {
+                lastScenario = { feat: lastFeat, el };
+                break;
+              }
+              if (!lastScenario) lastScenario = { feat: lastFeat, el };
             }
           }
         if (lastScenario) {

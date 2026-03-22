@@ -200,7 +200,7 @@ Then('the user is redirected back to the Welcome Center', async function () {
 
 // --- WSTE-36 steps ---
 
-Given(/^the user is already logged into mlb\.com\/tv$/, async function () {
+async function ensureLoggedIntoMlbTv() {
   await browser.url(baseUrl);
   await browser.waitUntil(
     async () => (await browser.getUrl()).includes('mlb.com') || (await browser.getUrl()).includes('okta'),
@@ -250,7 +250,10 @@ Given(/^the user is already logged into mlb\.com\/tv$/, async function () {
     },
     { timeout: 30000, timeoutMsg: 'Login did not succeed' }
   );
-});
+}
+
+Given(/^the user is already logged into mlb\.com\/tv$/, ensureLoggedIntoMlbTv);
+Given(/^an entitled user is logged into mlb\.com\/tv$/, ensureLoggedIntoMlbTv);
 
 When('the user hovers over the {string} button from the top nav', async function (buttonLabel) {
   await handleCookieConsentIfPresent();

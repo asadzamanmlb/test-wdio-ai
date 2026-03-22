@@ -22,7 +22,7 @@ async function main() {
   }
 
   const config = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8'));
-  const entries = Object.entries(config);
+  const entries = Object.entries(config).filter(([k]) => k !== 'jiraBaseUrl');
 
   console.log('🔄 Syncing test cases from Xray...\n');
 

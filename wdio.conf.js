@@ -1,6 +1,13 @@
 const { baseUrl } = require('./config/env');
-const { afterStep } = require('./features/support/hooks');
+const { afterStep, afterScenario } = require('./features/support/hooks');
 const { persistRun } = require('./scripts/persistRunResults');
+const { registerHighlightOverwrites } = require('./features/support/highlight-commands');
+const { HIGHLIGHT_ENABLED } = require('./features/support/highlight');
+
+const chromeArgs = ['--no-sandbox', '--disable-dev-shm-usage'];
+if (HIGHLIGHT_ENABLED) {
+  chromeArgs.push('--window-size=1920,1080');
+}
 
 exports.config = {
   runner: 'local',
@@ -10,8 +17,9 @@ exports.config = {
   capabilities: [{
     maxInstances: 1,
     browserName: 'chrome',
+    'wdio:enforceWebDriverClassic': true, // Avoid Bidi "Cannot find context" / scrollIntoView errors that block screenshots
     'goog:chromeOptions': {
-      args: ['--no-sandbox', '--disable-dev-shm-usage'],
+      args: chromeArgs,
     },
   }],
   logLevel: 'info',
@@ -33,11 +41,22 @@ exports.config = {
     const fs = require('fs');
     const path = require('path');
     const manifest = path.join(process.cwd(), 'reports', 'failure-screenshots.json');
+    const domManifest = path.join(process.cwd(), 'reports', 'failure-dom.json');
+    const screenshotsDir = path.join(process.cwd(), 'reports', 'screenshots');
     try {
       if (fs.existsSync(manifest)) fs.unlinkSync(manifest);
+      if (fs.existsSync(domManifest)) fs.unlinkSync(domManifest);
+      if (fs.existsSync(screenshotsDir)) {
+        const files = fs.readdirSync(screenshotsDir).filter((f) => f.endsWith('.png'));
+        for (const f of files) fs.unlinkSync(path.join(screenshotsDir, f));
+      }
     } catch (_) {}
   },
+  before: function () {
+    registerHighlightOverwrites(browser);
+  },
   afterStep,
+  afterScenario,
   onComplete: function () {
     try {
       persistRun();

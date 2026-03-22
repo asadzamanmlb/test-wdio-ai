@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   LineChart,
   Line,
@@ -370,7 +370,7 @@ function DiffView({ diff }) {
       {diff.map((seg, i) => (
         <span
           key={i}
-          className={seg.status === 'same' ? 'text-[var(--success)]' : 'text-[var(--danger)]'}
+          className={seg.status === 'same' ? 'text-[var(--success)]' : 'text-[var(--accent)]'}
         >
           {seg.text}
         </span>
@@ -379,29 +379,136 @@ function DiffView({ diff }) {
   );
 }
 
+function UpdateXrayDiffModal({ suite, key: scenarioKey, change, onClose, onUpdate, onRefresh }) {
+  const [updating, setUpdating] = useState(false);
+  const [toast, setToast] = useState(null);
+  const [toastVariant, setToastVariant] = useState('success'); // 'success' | 'warning' | 'error'
+
+  async function handleUpdate() {
+    setUpdating(true);
+    setToast(null);
+    try {
+      const res = await fetch(`${API}/update-xray/${suite}/${scenarioKey}`, { method: 'POST' });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        const msg = !data.xrayUpdated && data.xrayError
+          ? `${data.message} — ${data.xrayError}`
+          : (data.message || 'Updated successfully');
+        setToast(msg);
+        setToastVariant(data.xrayUpdated ? 'success' : 'warning');
+        setTimeout(() => {
+          setToast(null);
+          onUpdate?.();
+          onRefresh?.();
+          onClose?.();
+        }, data.xrayUpdated ? 1500 : 5000);
+      } else {
+        setToast(data.error || 'Update failed');
+        setToastVariant('error');
+      }
+    } catch (e) {
+      setToast(e.message || 'Update failed');
+      setToastVariant('error');
+    } finally {
+      setUpdating(false);
+    }
+  }
+
+  const hasChanges = change?.hasChanges ?? false;
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60" onClick={onClose}>
+      <div
+        className="relative max-h-[90vh] w-full max-w-2xl overflow-hidden rounded-lg bg-[var(--surface)] shadow-xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="border-b border-[var(--border)] px-4 py-3 flex items-center justify-between">
+          <h3 className="text-sm font-medium uppercase tracking-wider text-[var(--muted)]">
+            Update Xray — {suite} / {scenarioKey}
+          </h3>
+          <button onClick={onClose} className="text-[var(--muted)] hover:text-[var(--text)]">
+            ✕
+          </button>
+        </div>
+        <div className="max-h-[60vh] overflow-y-auto p-4 space-y-4">
+          {change?.error ? (
+            <p className="text-sm text-[var(--danger)]">{change.error}</p>
+          ) : !hasChanges ? (
+            <p className="text-sm text-[var(--success)]">No changes. Feature file matches testcase/Xray.</p>
+          ) : (
+            <div className="rounded border border-[var(--border)] p-3">
+              <div className="text-xs text-[var(--muted)] mb-2">
+                Feature file has these changes vs testcase/Xray:
+              </div>
+              <DiffView diff={change.diff} />
+            </div>
+          )}
+        </div>
+        <div className="border-t border-[var(--border)] px-4 py-3 flex justify-end gap-2">
+          <button
+            onClick={onClose}
+            className="rounded px-3 py-1.5 text-sm border border-[var(--border)] hover:bg-black/20"
+          >
+            {hasChanges ? 'Close' : 'Close'}
+          </button>
+          {hasChanges && !change?.error && (
+            <button
+              onClick={handleUpdate}
+              disabled={updating}
+              className="rounded px-3 py-1.5 text-sm bg-[var(--accent)] text-white hover:opacity-90 disabled:opacity-50"
+            >
+              {updating ? 'Updating...' : 'Update'}
+            </button>
+          )}
+        </div>
+        {toast && (
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className={`fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg px-6 py-3 font-medium shadow-lg toast-pop max-w-[90%] max-h-[60vh] overflow-y-auto ${
+              toastVariant === 'success' ? 'bg-[var(--success)] text-white' :
+              toastVariant === 'warning' ? 'bg-[var(--warning)] text-black' :
+              'bg-[var(--danger)] text-white'
+            }`}>
+              {toast}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function SyncDiffModal({ suite, key: scenarioKey, changes, onClose, onApply, onRefresh }) {
   const [applying, setApplying] = useState(false);
   const [toast, setToast] = useState(null);
 
+  const [toastVariant, setToastVariant] = useState('success');
+
   async function handleApply() {
+    if (!suite) return;
     setApplying(true);
+    setToast(null);
     try {
       const url = scenarioKey
         ? `${API}/sync/${suite}/${scenarioKey}/apply`
         : `${API}/sync/${suite}/apply`;
       const res = await fetch(url, { method: 'POST' });
-      const data = await res.json();
+      const data = await res.json().catch(() => ({}));
       if (res.ok && data.success) {
         setToast('Updated successfully');
+        setToastVariant('success');
         setTimeout(() => {
           setToast(null);
           onApply?.();
           onRefresh?.();
           onClose?.();
         }, 1500);
+      } else {
+        const errMsg = data.error || (res.status ? `Request failed (${res.status})` : 'Update failed');
+        setToast(errMsg);
+        setToastVariant('error');
       }
     } catch (e) {
       setToast(e.message || 'Update failed');
+      setToastVariant('error');
     } finally {
       setApplying(false);
     }
@@ -459,7 +566,9 @@ function SyncDiffModal({ suite, key: scenarioKey, changes, onClose, onApply, onR
         </div>
         {toast && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-[var(--success)] px-6 py-3 text-white font-medium shadow-lg toast-pop">
+            <div className={`fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg px-6 py-3 font-medium shadow-lg toast-pop max-w-[90%] max-h-[40vh] overflow-y-auto ${
+              toastVariant === 'success' ? 'bg-[var(--success)] text-white' : 'bg-[var(--danger)] text-white'
+            }`}>
               {toast}
             </div>
           </div>
@@ -469,7 +578,7 @@ function SyncDiffModal({ suite, key: scenarioKey, changes, onClose, onApply, onR
   );
 }
 
-function ScenarioRow({ scenario, suiteName, env, persistedResult, onSync, syncLoading, fixStatus, onFixStart, onFixStop, syncStatus }) {
+function ScenarioRow({ scenario, suiteName, jiraBaseUrl, env, persistedResult, onSync, syncLoading, fixStatus, onFixStart, onFixStop, syncStatus, onAutomate, automateLoading, automateStatus, onUpdateXray, updateXrayLoading }) {
   const [runState, setRunState] = useState(null); // { status, failReason?, screenshot? } | null - from current session
   const [running, setRunning] = useState(false);
   const [showFailDetails, setShowFailDetails] = useState(false);
@@ -510,7 +619,21 @@ function ScenarioRow({ scenario, suiteName, env, persistedResult, onSync, syncLo
   return (
     <>
       <tr className="border-b border-[var(--border)]/50 hover:bg-black/20">
-        <td className="px-4 py-2 font-mono text-xs">{scenario.key}</td>
+        <td className="px-4 py-2 font-mono text-xs">
+          {scenario.key && /^(WSTE|WQO|WQ)-\d+$/i.test(scenario.key) && jiraBaseUrl ? (
+            <a
+              href={`${jiraBaseUrl.replace(/\/$/, '')}/browse/${scenario.key}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--accent)] hover:underline"
+              title={`Open ${scenario.key} in Jira`}
+            >
+              {scenario.key}
+            </a>
+          ) : (
+            scenario.key
+          )}
+        </td>
         <td className="px-4 py-2 max-w-[400px]" title={scenario.summary}>
           <span className="block truncate">{scenario.summary}</span>
           {syncStatus && (
@@ -533,13 +656,13 @@ function ScenarioRow({ scenario, suiteName, env, persistedResult, onSync, syncLo
             {scenario.automated ? 'Automated' : 'Manual'}
           </span>
         </td>
-        <td className="px-4 py-2 whitespace-nowrap">
-          <div className="flex items-center gap-2">
+        <td className="px-4 py-2 min-w-[280px]">
+          <div className="flex flex-wrap items-center gap-2">
             {scenario.automated && (
               <button
                 onClick={handleExecute}
                 disabled={running}
-                className="rounded border border-[var(--border)] px-2 py-1 text-xs hover:bg-black/20 disabled:opacity-50"
+                className="rounded border border-[var(--border)] px-2 py-1 text-xs hover:bg-black/20 disabled:opacity-50 shrink-0"
               >
                 {running ? 'Running…' : 'Execute'}
               </button>
@@ -548,10 +671,34 @@ function ScenarioRow({ scenario, suiteName, env, persistedResult, onSync, syncLo
               <button
                 onClick={() => onSync?.(scenario.key)}
                 disabled={syncLoading}
-                className="rounded border border-[var(--border)] px-2 py-1 text-xs hover:bg-black/20 disabled:opacity-50"
+                className="rounded border border-[var(--border)] px-2 py-1 text-xs hover:bg-black/20 disabled:opacity-50 shrink-0"
                 title="Sync from Xray"
               >
                 {syncLoading ? '…' : 'Sync'}
+              </button>
+            )}
+            {suiteName && scenario.key && (
+              <button
+                onClick={() => onUpdateXray?.(scenario.key)}
+                disabled={updateXrayLoading}
+                className="rounded border border-[var(--warning)]/50 px-2 py-1 text-xs font-medium text-[var(--warning)] hover:bg-[var(--warning)]/10 disabled:opacity-50 shrink-0"
+                title="Push feature file changes to testcase + Xray"
+              >
+                {updateXrayLoading ? '…' : 'Update Xray'}
+              </button>
+            )}
+            {suiteName && (
+              <button
+                onClick={() => onAutomate?.(scenario.key)}
+                disabled={automateLoading}
+                className="rounded border border-[var(--success)]/50 px-2 py-1 text-xs text-[var(--success)] hover:bg-[var(--success)]/10 disabled:opacity-50"
+                title="Create feature + step defs, then run WebTV QA Engineer (create → run → fix loop)"
+              >
+                {automateLoading
+                  ? (automateStatus?.running && automateStatus?.key === scenario.key
+                    ? `Automating (${automateStatus?.attempt || 0})…`
+                    : '…')
+                  : 'Automate'}
               </button>
             )}
             {suiteName && scenario.automated && (effectiveState?.status === 'failed' || (fixStatus?.running && fixStatus?.key === scenario.key)) && (() => {
@@ -615,12 +762,15 @@ function ScenarioRow({ scenario, suiteName, env, persistedResult, onSync, syncLo
   );
 }
 
-function ScenarioList({ scenarios, title, suiteName, suiteId, onRefresh, env, executeResults, fixStatus, onFixStart, onFixStop, searchQuery }) {
+function ScenarioList({ scenarios, title, suiteName, suiteId, jiraBaseUrl, onRefresh, env, executeResults, fixStatus, onFixStart, onFixStop, automateStatus, searchQuery }) {
   const [syncLoading, setSyncLoading] = useState(false);
   const [syncLoadingKey, setSyncLoadingKey] = useState(null);
   const [syncPreview, setSyncPreview] = useState(null);
   const [syncPreviewKey, setSyncPreviewKey] = useState(null);
   const [syncStatus, setSyncStatus] = useState(null);
+  const [automateLoadingKey, setAutomateLoadingKey] = useState(null);
+  const [updateXrayLoadingKey, setUpdateXrayLoadingKey] = useState(null);
+  const [updateXrayPreview, setUpdateXrayPreview] = useState(null);
 
   async function fetchSyncStatus() {
     if (!suiteName) return;
@@ -647,11 +797,31 @@ function ScenarioList({ scenarios, title, suiteName, suiteId, onRefresh, env, ex
     if (suiteName) fetchSyncStatus();
   }, [suiteName]);
 
+  const prevAutomateRunning = useRef(false);
+  useEffect(() => {
+    const wasRunning = prevAutomateRunning.current;
+    const nowRunning = automateStatus?.running ?? false;
+    prevAutomateRunning.current = nowRunning;
+
+    if (automateStatus && automateStatus.key && automateStatus.suite === (suiteId || suiteName)) {
+      if (wasRunning && !nowRunning) {
+        setAutomateLoadingKey(null);
+        onRefresh?.();
+        const r = automateStatus.lastResult;
+        if (r?.success) {
+          alert(`Automate complete – test passed after ${r.attempts?.length || 0} attempt(s).`);
+        } else if (r?.attempts?.length) {
+          alert(`Automate finished – test failed after ${r.attempts.length} attempt(s). ${r.reason || ''}`);
+        }
+      }
+    }
+  }, [automateStatus?.running, automateStatus?.key, automateStatus?.suite, automateStatus?.lastResult, suiteId, suiteName, onRefresh]);
+
   async function handleSync() {
     if (!suiteName) return;
     setSyncLoading(true);
     setSyncPreview(null);
-    setSyncPreviewKey(null);
+    setSyncPreviewKey(null); // full-suite sync: apply uses /sync/:suite/apply
     try {
       const res = await fetch(`${API}/sync/${suiteName}/preview`, { method: 'POST' });
       const data = await res.json();
@@ -664,6 +834,25 @@ function ScenarioList({ scenarios, title, suiteName, suiteId, onRefresh, env, ex
       setSyncPreview([{ error: e.message }]);
     } finally {
       setSyncLoading(false);
+    }
+  }
+
+  async function handleUpdateXray(key) {
+    if (!suiteName || !key) return;
+    setUpdateXrayPreview(null);
+    setUpdateXrayLoadingKey(key);
+    try {
+      const res = await fetch(`${API}/update-xray-preview/${suiteName}/${key}`, { method: 'POST' });
+      const data = await res.json();
+      if (res.ok && data.success !== false) {
+        setUpdateXrayPreview(data);
+      } else {
+        setUpdateXrayPreview({ error: data.error || 'Failed to get preview' });
+      }
+    } catch (e) {
+      setUpdateXrayPreview({ error: e.message || 'Failed to get preview' });
+    } finally {
+      setUpdateXrayLoadingKey(null);
     }
   }
 
@@ -684,6 +873,32 @@ function ScenarioList({ scenarios, title, suiteName, suiteId, onRefresh, env, ex
       setSyncPreview([{ error: e.message }]);
     } finally {
       setSyncLoadingKey(null);
+    }
+  }
+
+  async function handleAutomate(key) {
+    if (!suiteName || !key) return;
+    setAutomateLoadingKey(key);
+    let agentStarted = false;
+    try {
+      const suiteIdForApi = suiteId || suiteName;
+      const res = await fetch(`${API}/automate/${suiteIdForApi}/${key}?run=1`, { method: 'POST' });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        if (data.agentStarted) {
+          agentStarted = true;
+          return;
+        }
+        const msg = data.created?.length ? `Created: ${data.created.join(', ')}` : 'Automate complete';
+        alert(msg);
+        onRefresh?.();
+      } else {
+        alert(data.error || 'Automate failed');
+      }
+    } catch (e) {
+      alert(e.message || 'Automate failed');
+    } finally {
+      if (!agentStarted) setAutomateLoadingKey(null);
     }
   }
 
@@ -750,7 +965,7 @@ function ScenarioList({ scenarios, title, suiteName, suiteId, onRefresh, env, ex
               <th className="px-4 py-2">Key</th>
               <th className="px-4 py-2">Summary</th>
               <th className="px-4 py-2 w-24">Type</th>
-              <th className="px-4 py-2 w-24"></th>
+              <th className="px-4 py-2 min-w-[300px]">Actions</th>
               <th className="px-4 py-2 w-20">Result</th>
             </tr>
           </thead>
@@ -767,6 +982,7 @@ function ScenarioList({ scenarios, title, suiteName, suiteId, onRefresh, env, ex
                 key={s.key}
                 scenario={s}
                 suiteName={suiteId || suiteName}
+                jiraBaseUrl={jiraBaseUrl}
                 env={env}
                 persistedResult={executeResults?.[`${suiteId || suiteName}:${s.key}`]}
                 onSync={handleSyncScenario}
@@ -775,6 +991,11 @@ function ScenarioList({ scenarios, title, suiteName, suiteId, onRefresh, env, ex
                 onFixStart={onFixStart}
                 onFixStop={onFixStop}
                 syncStatus={syncStatus}
+                onAutomate={handleAutomate}
+                automateLoading={automateLoadingKey === s.key || (automateStatus?.running && automateStatus?.key === s.key)}
+                automateStatus={automateStatus}
+                onUpdateXray={handleUpdateXray}
+                updateXrayLoading={updateXrayLoadingKey === s.key}
               />
             ))
             )}
@@ -792,6 +1013,16 @@ function ScenarioList({ scenarios, title, suiteName, suiteId, onRefresh, env, ex
           onClose={() => { setSyncPreview(null); setSyncPreviewKey(null); }}
           onApply={() => { onRefresh?.(); setTimeout(fetchSyncStatus, 600); }}
           onRefresh={() => { onRefresh?.(); setTimeout(fetchSyncStatus, 600); }}
+        />
+      )}
+      {updateXrayPreview && (
+        <UpdateXrayDiffModal
+          suite={suiteName}
+          key={updateXrayPreview.key}
+          change={updateXrayPreview}
+          onClose={() => setUpdateXrayPreview(null)}
+          onUpdate={() => {}}
+          onRefresh={onRefresh}
         />
       )}
     </div>
@@ -855,6 +1086,7 @@ function App() {
   const [automation, setAutomation] = useState(null);
   const [suites, setSuites] = useState([]);
   const [syncConfigSuites, setSyncConfigSuites] = useState([]);
+  const [jiraBaseUrl, setJiraBaseUrl] = useState('https://baseball.atlassian.net');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [syncing, setSyncing] = useState(false);
@@ -864,6 +1096,7 @@ function App() {
   const [failedScenariosRunId, setFailedScenariosRunId] = useState(null);
   const [executeResults, setExecuteResults] = useState({});
   const [fixStatus, setFixStatus] = useState(null);
+  const [automateStatus, setAutomateStatus] = useState(null);
   const [restartStatus, setRestartStatus] = useState(null);
   const [scenarioSearch, setScenarioSearch] = useState('');
 
@@ -909,6 +1142,7 @@ function App() {
         setAutomation(a || {});
         setSuites((s && s.suites) || []);
         setSyncConfigSuites((c && c.suites) || []);
+        setJiraBaseUrl((c && c.jiraBaseUrl) || 'https://baseball.atlassian.net');
         setRuns((runsData && runsData.runs) || []);
         setExecuteResults(execData || {});
     } catch (e) {
@@ -933,6 +1167,18 @@ function App() {
     };
     pollFix();
     const id = setInterval(pollFix, 2000);
+    return () => clearInterval(id);
+  }, []);
+
+  useEffect(() => {
+    const pollAutomate = async () => {
+      try {
+        const data = await fetchJson(`${API}/automate/status`);
+        setAutomateStatus(data);
+      } catch (_) {}
+    };
+    pollAutomate();
+    const id = setInterval(pollAutomate, 2000);
     return () => clearInterval(id);
   }, []);
 
@@ -1120,12 +1366,14 @@ function App() {
               title={suite.displayName || suite.name}
               suiteName={syncConfigSuites.includes(suite.name) ? suite.name : null}
               suiteId={suite.name}
+              jiraBaseUrl={jiraBaseUrl}
               onRefresh={fetchAll}
               env={executeEnv}
               executeResults={executeResults}
               fixStatus={fixStatus}
               onFixStart={handleFixStart}
               onFixStop={handleFixStop}
+              automateStatus={automateStatus}
               searchQuery={scenarioSearch}
             />
           ))}
