@@ -1423,6 +1423,8 @@ function App() {
   const [scenarioSearch, setScenarioSearch] = useState('');
   const [reportExists, setReportExists] = useState(false);
   const [reportPdfExists, setReportPdfExists] = useState(false);
+  const [executeRunning, setExecuteRunning] = useState(false);
+  const [stopTestLoading, setStopTestLoading] = useState(false);
 
   async function handleSync() {
     setSyncing(true);
@@ -1524,6 +1526,39 @@ function App() {
     const id = setInterval(pollAutomate, 2000);
     return () => clearInterval(id);
   }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    const poll = async () => {
+      try {
+        const data = await fetchJson(`${API}/execute/status`);
+        if (!cancelled) setExecuteRunning(!!data?.running);
+      } catch (_) {
+        if (!cancelled) setExecuteRunning(false);
+      }
+    };
+    poll();
+    const id = setInterval(poll, 1200);
+    return () => {
+      cancelled = true;
+      clearInterval(id);
+    };
+  }, []);
+
+  async function handleStopExecute() {
+    setStopTestLoading(true);
+    try {
+      const res = await fetch(`${API}/execute/stop`, { method: 'POST', headers: { 'Content-Type': 'application/json' } });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        alert(data.error || `Stop failed (${res.status})`);
+      }
+    } catch (e) {
+      alert(e.message || 'Stop failed');
+    } finally {
+      setStopTestLoading(false);
+    }
+  }
 
   async function handleFixStart(suite, key) {
     try {
@@ -1755,6 +1790,15 @@ function App() {
               </select>
             </label>
           </div>
+          <button
+            type="button"
+            onClick={handleStopExecute}
+            disabled={!executeRunning || stopTestLoading}
+            className="rounded-lg border border-red-500/60 bg-red-950/50 px-4 py-2 text-sm font-medium text-red-100 hover:bg-red-900/60 disabled:cursor-not-allowed disabled:opacity-40"
+            title="Kill the current Execute / Run selected / Run all WDIO process (closes local browser; ends Sauce session when WDIO stops)"
+          >
+            {stopTestLoading ? 'Stopping…' : 'Stop test'}
+          </button>
           <button
             onClick={handleSync}
             disabled={syncing}

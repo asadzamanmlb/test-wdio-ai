@@ -4,7 +4,7 @@ Includes:
 - Xray → WDIO generator
 - Self-healing: on element-not-found during WebTV tests, captures real-time DOM, parses with Cheerio, and suggests alternative selectors (id, data-testid, aria-label, text locators) in `.selfheal-report.json`
 - Multi-agent system
-- **Dashboard (React + API)**: Charts, trends, flaky detection. Run `npm run dashboard` then open http://localhost:4000
+- **Dashboard (React + API)**: Charts, trends, flaky detection. Run `npm run dashboard` then open http://localhost:4000. Use **Stop test** in the header to kill the current WDIO run (local browser / Sauce session ends when the runner stops).
 - RAG memory: TF-IDF search (built-in) + optional OpenAI embeddings for similar-fix retrieval. **Domain/product context** is seeded from `rag/domain-knowledge.json` (merged into search; **not** removed by dashboard **RAG refresh**, which only clears `.rag-memory.json`). Human-readable notes: `docs/webtv-domain-context.md`.
 
 ## Run

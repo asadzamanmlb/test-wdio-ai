@@ -649,6 +649,7 @@ app.post('/api/execute-suite', async (req, res) => {
     parallelWorkers,
     highlightElements: highlightElements === true,
     useSauce: sauceOn,
+    trackForExecuteStop: true,
   };
   let results = [];
   let passed = 0;
@@ -1496,6 +1497,7 @@ function runMultipleTests(suite, keys, envVal, options = {}) {
       parallelWorkers = 1,
       highlightElements = false,
       useSauce = false,
+      trackForExecuteStop = false,
     } = options;
     if (useSauce) clearSauceScenarioUrlsFile();
     const recordActive = useSauce ? false : recordVideo;
@@ -1552,12 +1554,30 @@ function runMultipleTests(suite, keys, envVal, options = {}) {
       stdio: ['ignore', 'pipe', 'pipe'],
     });
     fixState.activeChild = child;
+    if (trackForExecuteStop) executeWdioChild = child;
     let stdout = '';
     let stderr = '';
     child.stdout?.on('data', (d) => { stdout += d.toString(); pipeToConsole('', d.toString()); });
     child.stderr?.on('data', (d) => { stderr += d.toString(); pipeToConsole('stderr', d.toString()); });
     child.on('close', (code, signal) => {
       fixState.activeChild = null;
+      if (executeWdioChild === child) executeWdioChild = null;
+      if (signal === 'SIGTERM' || signal === 'SIGKILL') {
+        const sauceMapStop = useSauce ? loadSauceScenarioUrlMap() : null;
+        return resolve({
+          passed: 0,
+          failed: keys.length,
+          results: keys.map((k) => ({
+            key: k,
+            status: 'failed',
+            failStep: null,
+            failReason: 'Stopped by user',
+            screenshot: null,
+            video: null,
+            sauceUrl: useSauce && sauceMapStop ? resolveSauceScenarioUrl(sauceMapStop, suite, k) : null,
+          })),
+        });
+      }
       if (instances > 1) {
         console.log(`[wdio] parallel workers used: ${instances} (WDIO_MAX_INSTANCES)`);
       }
@@ -1664,6 +1684,8 @@ function runMultipleTests(suite, keys, envVal, options = {}) {
       resolve({ passed, failed, results });
     });
     child.on('error', (err) => {
+      fixState.activeChild = null;
+      if (executeWdioChild === child) executeWdioChild = null;
       resolve({
         passed: 0,
         failed: keys.length,
@@ -1710,6 +1732,7 @@ function runSingleTest(suite, key, envVal, options = {}) {
       recordVideo = false,
       highlightElements = false,
       useSauce = false,
+      trackForExecuteStop = false,
     } = options;
     const featurePath = getFeaturePathForKey(suite, key);
     if (!featurePath) {
@@ -1750,6 +1773,7 @@ function runSingleTest(suite, key, envVal, options = {}) {
       stdio: ['ignore', 'pipe', 'pipe'],
     });
     fixState.activeChild = child;
+    if (trackForExecuteStop) executeWdioChild = child;
     let stdout = '';
     let stderr = '';
     child.stdout?.on('data', (d) => {
@@ -1765,6 +1789,7 @@ function runSingleTest(suite, key, envVal, options = {}) {
 
     child.on('close', (code, signal) => {
       fixState.activeChild = null;
+      if (executeWdioChild === child) executeWdioChild = null;
       if (signal === 'SIGTERM' || signal === 'SIGKILL') {
         return resolve({
           status: 'failed',
@@ -1881,6 +1906,8 @@ function runSingleTest(suite, key, envVal, options = {}) {
     });
 
     child.on('error', (err) => {
+      fixState.activeChild = null;
+      if (executeWdioChild === child) executeWdioChild = null;
       resolve({
         status: 'failed',
         failReason: err.message,
@@ -1985,6 +2012,42 @@ async function runFixLoop(suite, key, envVal) {
 }
 
 let executeInProgress = false;
+/** Set when /api/execute or /api/execute-suite spawns WDIO (not Fix/Automate). Used to tree-kill browser. */
+let executeWdioChild = null;
+
+app.get('/api/execute/status', (req, res) => {
+  res.json({ running: executeInProgress });
+});
+
+app.post('/api/execute/stop', (req, res) => {
+  if (!executeInProgress) {
+    return res.status(400).json({ success: false, error: 'No dashboard test run in progress' });
+  }
+  if (!executeWdioChild || !executeWdioChild.pid) {
+    return res.status(503).json({
+      success: false,
+      error: 'WDIO process not tracked (run may have just finished)',
+    });
+  }
+  const pid = executeWdioChild.pid;
+  try {
+    kill(pid, 'SIGTERM');
+    setTimeout(() => {
+      try {
+        if (executeWdioChild && executeWdioChild.pid === pid) {
+          kill(pid, 'SIGKILL');
+        }
+      } catch (_) {}
+    }, 8000);
+  } catch (e) {
+    return res.status(500).json({ success: false, error: e.message });
+  }
+  res.json({
+    success: true,
+    message: 'Stop signal sent to WDIO (local browser closed via process tree; Sauce session ends when WDIO stops)',
+  });
+});
+
 app.post('/api/execute', async (req, res) => {
   if (executeInProgress || fixState.running) {
     return res.status(429).json({ error: 'Another test is already running' });
@@ -2019,6 +2082,7 @@ app.post('/api/execute', async (req, res) => {
       recordVideo: sauceOn ? false : !!recordVideo,
       highlightElements: highlightElements === true,
       useSauce: sauceOn,
+      trackForExecuteStop: true,
     });
     const out = {
       success: result.status === 'passed',
