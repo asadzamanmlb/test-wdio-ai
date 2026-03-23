@@ -77,6 +77,40 @@ npm run grid:run
 
 Grid UI: http://localhost:4444
 
+## Sauce Labs (cloud browsers)
+
+Runs the same Cucumber features on Sauce Labs VMs (no local Chrome). Set credentials either in `.env` **or** export them in your shell profile (`~/.zshrc` / `~/.bash_profile`):
+
+```bash
+export SAUCE_USERNAME=your_username
+export SAUCE_ACCESS_KEY=your_access_key
+```
+
+If both are set, **environment variables take precedence** over `.env` (dotenv does not override them).
+
+**Check credentials (no tests run):**
+
+```bash
+npm run sauce:auth
+```
+
+```bash
+npm run test:sauce:qa      # ENV=qa
+npm run test:sauce:beta    # ENV=beta
+npm run test:sauce         # uses ENV from .env / default
+
+# One feature only
+npx wdio run wdio.sauce.conf.js --spec features/webtv/media-center.feature
+
+# Login scenarios only (WSTE-35 / WSTE-36)
+npm run test:sauce:login        # QA
+npm run test:sauce:login:beta   # Beta
+```
+
+Optional: `SAUCE_WDIO_REGION` (`us` | `eu`; legacy `SAUCE_REGION=eu-central-1` maps to `eu`), `SAUCE_PLATFORM`, `SAUCE_BROWSER`, `DEVICE` / `SAUCE_DEVICE_LABEL` (job name prefix), `SAUCE_CAPTURE_PERFORMANCE=1`, `SAUCE_CONNECT=1` (Sauce Connect tunnel — default off for public QA URLs). See `wdio.sauce.conf.js` header.
+
+After a Sauce run finishes, the job URL is printed in the terminal (and listed again at the very end). URLs are also saved under `reports/sauce-jobs.txt` (gitignored with `reports/`).
+
 **Run tests in Docker** (tests run in a container, grid on host):
 
 ```bash

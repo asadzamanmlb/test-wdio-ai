@@ -14,7 +14,58 @@ const RUNS_FILE = path.join(__dirname, 'dashboard', 'data', 'runs.json');
 const EXECUTE_RESULTS_FILE = path.join(__dirname, 'dashboard', 'data', 'execute-results.json');
 const SCREENSHOTS_DIR = path.join(__dirname, 'reports', 'screenshots');
 const VIDEOS_DIR = path.join(__dirname, 'reports', 'videos');
+const SAUCE_SCENARIO_URLS_FILE = path.join(__dirname, 'reports', 'sauce-scenario-urls.jsonl');
 const { findVideoForScenarioName } = require('./scripts/testRunVideo');
+
+function clearSauceScenarioUrlsFile() {
+  try {
+    if (fs.existsSync(SAUCE_SCENARIO_URLS_FILE)) fs.unlinkSync(SAUCE_SCENARIO_URLS_FILE);
+  } catch (_) {}
+}
+
+/** @returns {Map<string, string>} key: `${suite}:${KEY}` → job URL (suite lowercased for lookup) */
+function loadSauceScenarioUrlMap() {
+  const map = new Map();
+  if (!fs.existsSync(SAUCE_SCENARIO_URLS_FILE)) return map;
+  try {
+    for (const line of fs.readFileSync(SAUCE_SCENARIO_URLS_FILE, 'utf8').split('\n')) {
+      const t = line.trim();
+      if (!t) continue;
+      try {
+        const o = JSON.parse(t);
+        if (o.key && o.url) {
+          const keyU = String(o.key).toUpperCase();
+          const suiteL = String(o.suite || '').toLowerCase();
+          map.set(`${suiteL}:${keyU}`, o.url);
+          map.set(`:${keyU}`, o.url);
+        }
+      } catch (_) {}
+    }
+  } catch (_) {}
+  return map;
+}
+
+/** Resolve Sauce job URL for a testcase key; works if jsonl omitted suite or casing differs. */
+function resolveSauceScenarioUrl(sauceMap, suite, key) {
+  if (!sauceMap || !key) return null;
+  const ku = String(key).toUpperCase();
+  const sl = String(suite || '').toLowerCase();
+  return (
+    sauceMap.get(`${sl}:${ku}`) ||
+    sauceMap.get(`:${ku}`) ||
+    null
+  );
+}
+
+function isSauceConfigured() {
+  const u = process.env.SAUCE_USERNAME || process.env.SAUCE_USER;
+  const k = process.env.SAUCE_ACCESS_KEY || process.env.SAUCE_KEY;
+  return !!(u && k);
+}
+
+function resolveWdioConfig(useSauce) {
+  return path.join(__dirname, useSauce ? 'wdio.sauce.conf.js' : 'wdio.conf.js');
+}
 const DIST_DIR = path.join(__dirname, 'dashboard', 'dist');
 const TESTCASE_DIR = path.join(__dirname, 'testcase');
 const FEATURES_DIR = (() => {
@@ -37,6 +88,7 @@ let fixState = {
   lastResult: null,
   env: 'beta',
   activeChild: null,
+  useSauce: false,
 };
 
 let automateRunState = {
@@ -401,6 +453,13 @@ function applyRecordVideoEnv(spawnEnv, recordVideo) {
   };
 }
 
+/** Element outline before clicks/typing (features/support/highlight.js). Only explicit true enables. */
+function applyHighlightEnv(spawnEnv, highlightElements) {
+  const next = { ...spawnEnv };
+  next.HIGHLIGHT_ELEMENTS = highlightElements === true ? '1' : '0';
+  return next;
+}
+
 app.get('/api/screenshots/:filename', (req, res) => {
   const filename = req.params.filename.replace(/[^a-zA-Z0-9_.-]/g, '');
   if (!filename) return res.status(400).send('Invalid filename');
@@ -531,13 +590,28 @@ app.get('/api/execute-results', (req, res) => {
   res.json(loadExecuteResults());
 });
 
+app.get('/api/sauce/status', (req, res) => {
+  res.json({ configured: isSauceConfigured() });
+});
+
 /** Run automated tests in a suite. If keys[] provided, run only those; otherwise run all automated.
  * Multiple scenarios run in one WDIO invocation so HTML report includes all results. */
 app.post('/api/execute-suite', async (req, res) => {
   if (executeInProgress || fixState.running) {
     return res.status(429).json({ error: 'Another test is already running' });
   }
-  const { suite, env, headless, browser, keys, recordVideo, parallel, parallelWorkers: parallelWorkersRaw } = req.body || {};
+  const {
+    suite,
+    env,
+    headless,
+    browser,
+    keys,
+    recordVideo,
+    parallel,
+    parallelWorkers: parallelWorkersRaw,
+    highlightElements,
+    useSauce,
+  } = req.body || {};
   if (!suite) {
     return res.status(400).json({ error: 'suite required' });
   }
@@ -549,6 +623,13 @@ app.post('/api/execute-suite', async (req, res) => {
   scenarios = scenarios.filter((s) => getFeaturePathForKey(suite, s.key));
   if (scenarios.length === 0) {
     return res.json({ success: true, passed: 0, failed: 0, total: 0, results: [], message: keys?.length ? 'No matching automated scenarios for selected keys' : 'No automated scenarios in suite' });
+  }
+  const sauceOn = !!useSauce;
+  if (sauceOn && !isSauceConfigured()) {
+    return res.status(400).json({
+      success: false,
+      error: 'Sauce Labs: set SAUCE_USERNAME and SAUCE_ACCESS_KEY in .env (see README).',
+    });
   }
   executeInProgress = true;
   const envVal = env || 'beta';
@@ -564,8 +645,10 @@ app.post('/api/execute-suite', async (req, res) => {
   const opts = {
     headless: !!headless,
     browser: browser || 'chrome',
-    recordVideo: !!recordVideo,
+    recordVideo: sauceOn ? false : !!recordVideo,
     parallelWorkers,
+    highlightElements: highlightElements === true,
+    useSauce: sauceOn,
   };
   let results = [];
   let passed = 0;
@@ -584,8 +667,18 @@ app.post('/api/execute-suite', async (req, res) => {
         failReason: result.failReason,
         screenshot: result.screenshot,
         video: result.video || null,
+        sauceUrl: result.sauceUrl || null,
       });
-      results = [{ key: s.key, status: result.status, failStep: result.failStep, failReason: result.failReason, video: result.video || null }];
+      results = [
+        {
+          key: s.key,
+          status: result.status,
+          failStep: result.failStep,
+          failReason: result.failReason,
+          video: result.video || null,
+          sauceUrl: result.sauceUrl || null,
+        },
+      ];
     } else {
       const batchResult = await runMultipleTests(suite, scenarios.map((s) => s.key), envVal, opts);
       results = batchResult.results || [];
@@ -599,6 +692,7 @@ app.post('/api/execute-suite', async (req, res) => {
           failReason: r.failReason,
           screenshot: r.screenshot || null,
           video: r.video || null,
+          sauceUrl: r.sauceUrl || null,
         });
       }
     }
@@ -1395,7 +1489,16 @@ function pipeToConsole(prefix, data) {
 /** Run multiple tests in one WDIO invocation. Produces combined HTML report. Returns { passed, failed, results }. */
 function runMultipleTests(suite, keys, envVal, options = {}) {
   return new Promise((resolve) => {
-    const { headless = false, browser = 'chrome', recordVideo = false, parallelWorkers = 1 } = options;
+    const {
+      headless = false,
+      browser = 'chrome',
+      recordVideo = false,
+      parallelWorkers = 1,
+      highlightElements = false,
+      useSauce = false,
+    } = options;
+    if (useSauce) clearSauceScenarioUrlsFile();
+    const recordActive = useSauce ? false : recordVideo;
     const projectRoot = path.resolve(__dirname);
     const specPaths = [];
     const seen = new Set();
@@ -1420,17 +1523,23 @@ function runMultipleTests(suite, keys, envVal, options = {}) {
           failReason: 'No feature file',
           screenshot: null,
           video: null,
+          sauceUrl: null,
         })),
       });
     }
     const tagExpr = getTagExpressionForKeys(keys);
-    const args = ['run', path.join(projectRoot, 'wdio.conf.js')];
+    const args = ['run', resolveWdioConfig(useSauce)];
     for (const sp of specPaths) args.push('--spec', sp);
     args.push(`--cucumberOpts.tags=${tagExpr}`);
     let spawnEnv = { ...process.env, ENV: envVal || 'beta' };
     if (headless) spawnEnv.HEADLESS = '1';
     if (browser) spawnEnv.BROWSER = String(browser).toLowerCase();
-    spawnEnv = applyRecordVideoEnv(spawnEnv, recordVideo);
+    if (useSauce) {
+      spawnEnv.DASHBOARD_SUITE = String(suite);
+      spawnEnv.SAUCE_BROWSER = String(browser || 'chrome').toLowerCase();
+    }
+    spawnEnv = applyRecordVideoEnv(spawnEnv, recordActive);
+    spawnEnv = applyHighlightEnv(spawnEnv, highlightElements);
     const browserLc = String(browser || 'chrome').toLowerCase();
     const instances =
       browserLc === 'safari' || keys.length <= 1
@@ -1456,6 +1565,7 @@ function runMultipleTests(suite, keys, envVal, options = {}) {
       const results = [];
       let passed = 0;
       let failed = 0;
+      const sauceMap = useSauce ? loadSauceScenarioUrlMap() : null;
       try {
         const reportsDir = path.join(__dirname, 'reports', 'json');
         const manifestPath = path.join(__dirname, 'reports', 'failure-screenshots.json');
@@ -1500,9 +1610,19 @@ function runMultipleTests(suite, keys, envVal, options = {}) {
                   const screenshotUrl = screenshot ? `/api/screenshots/${path.basename(screenshot)}` : null;
                   const scenarioTitle = el.name || '';
                   const vfile =
-                    recordVideo && scenarioTitle ? findVideoForScenarioName(scenarioTitle, VIDEOS_DIR) : null;
+                    recordActive && scenarioTitle ? findVideoForScenarioName(scenarioTitle, VIDEOS_DIR) : null;
                   const videoUrl = vfile ? `/api/videos/${vfile}` : null;
-                  results.push({ key, status, failStep, failReason, screenshot: screenshotUrl, video: videoUrl });
+                  const sauceUrl =
+                    useSauce && sauceMap ? resolveSauceScenarioUrl(sauceMap, suite, key) : null;
+                  results.push({
+                    key,
+                    status,
+                    failStep,
+                    failReason,
+                    screenshot: screenshotUrl,
+                    video: videoUrl,
+                    sauceUrl,
+                  });
                 }
               }
             } catch (_) {}
@@ -1510,6 +1630,8 @@ function runMultipleTests(suite, keys, envVal, options = {}) {
         }
         for (const k of keys) {
           if (!results.some((r) => r.key === k)) {
+            const su =
+              useSauce && sauceMap ? resolveSauceScenarioUrl(sauceMap, suite, k) : null;
             results.push({
               key: k,
               status: 'failed',
@@ -1517,12 +1639,15 @@ function runMultipleTests(suite, keys, envVal, options = {}) {
               failReason: 'No result in report',
               screenshot: null,
               video: null,
+              sauceUrl: su,
             });
             failed++;
           }
         }
       } catch (e) {
-        for (const k of keys)
+        for (const k of keys) {
+          const su =
+            useSauce && sauceMap ? resolveSauceScenarioUrl(sauceMap, suite, k) : null;
           results.push({
             key: k,
             status: 'failed',
@@ -1530,7 +1655,9 @@ function runMultipleTests(suite, keys, envVal, options = {}) {
             failReason: e.message,
             screenshot: null,
             video: null,
+            sauceUrl: su,
           });
+        }
         failed = keys.length;
         passed = 0;
       }
@@ -1547,6 +1674,7 @@ function runMultipleTests(suite, keys, envVal, options = {}) {
           failReason: err.message,
           screenshot: null,
           video: null,
+          sauceUrl: null,
         })),
       });
     });
@@ -1576,7 +1704,13 @@ function extractFailReasonFromOutput(stdout, stderr) {
 /** Run a single test and return result (for Fix loop). Does not block executeInProgress. */
 function runSingleTest(suite, key, envVal, options = {}) {
   return new Promise((resolve) => {
-    const { headless = false, browser = 'chrome', recordVideo = false } = options;
+    const {
+      headless = false,
+      browser = 'chrome',
+      recordVideo = false,
+      highlightElements = false,
+      useSauce = false,
+    } = options;
     const featurePath = getFeaturePathForKey(suite, key);
     if (!featurePath) {
       return resolve({
@@ -1585,14 +1719,17 @@ function runSingleTest(suite, key, envVal, options = {}) {
         failStep: null,
         screenshot: null,
         video: null,
+        sauceUrl: null,
       });
     }
+    if (useSauce) clearSauceScenarioUrlsFile();
+    const recordActive = useSauce ? false : recordVideo;
     const tagExpr = getTagExpressionForKey(suite, key);
     const projectRoot = path.resolve(__dirname);
     const specPath = path.join(projectRoot, featurePath);
     const args = [
       'run',
-      path.join(projectRoot, 'wdio.conf.js'),
+      resolveWdioConfig(useSauce),
       '--spec',
       specPath,
       `--cucumberOpts.tags=${tagExpr}`,
@@ -1600,7 +1737,12 @@ function runSingleTest(suite, key, envVal, options = {}) {
     let spawnEnv = { ...process.env, ENV: envVal || 'beta' };
     if (headless) spawnEnv.HEADLESS = '1';
     if (browser) spawnEnv.BROWSER = String(browser).toLowerCase();
-    spawnEnv = applyRecordVideoEnv(spawnEnv, recordVideo);
+    if (useSauce) {
+      spawnEnv.DASHBOARD_SUITE = String(suite);
+      spawnEnv.SAUCE_BROWSER = String(browser || 'chrome').toLowerCase();
+    }
+    spawnEnv = applyRecordVideoEnv(spawnEnv, recordActive);
+    spawnEnv = applyHighlightEnv(spawnEnv, highlightElements);
     spawnEnv.WDIO_MAX_INSTANCES = '1';
     const child = spawn('npx', ['wdio', ...args], {
       cwd: projectRoot,
@@ -1630,8 +1772,10 @@ function runSingleTest(suite, key, envVal, options = {}) {
           failStep: null,
           screenshot: null,
           video: null,
+          sauceUrl: null,
         });
       }
+      const sauceMap = useSauce ? loadSauceScenarioUrlMap() : null;
       let status = 'passed';
       let failReason = null;
       let failStep = null;
@@ -1715,13 +1859,15 @@ function runSingleTest(suite, key, envVal, options = {}) {
       }
       const screenshotUrl = screenshot ? `/api/screenshots/${screenshot}` : null;
       let videoUrl = null;
-      if (recordVideo) {
+      if (recordActive) {
         const sn = scenarioName || findScenarioNameForKey(suite, key);
         if (sn) {
           const v = findVideoForScenarioName(sn, VIDEOS_DIR);
           if (v) videoUrl = `/api/videos/${v}`;
         }
       }
+      const sauceUrl =
+        useSauce && sauceMap ? resolveSauceScenarioUrl(sauceMap, suite, key) : null;
       resolve({
         status,
         failReason,
@@ -1730,11 +1876,19 @@ function runSingleTest(suite, key, envVal, options = {}) {
         featureName,
         scenarioName,
         video: videoUrl,
+        sauceUrl,
       });
     });
 
     child.on('error', (err) => {
-      resolve({ status: 'failed', failReason: err.message, failStep: null, screenshot: null, video: null });
+      resolve({
+        status: 'failed',
+        failReason: err.message,
+        failStep: null,
+        screenshot: null,
+        video: null,
+        sauceUrl: null,
+      });
     });
   });
 }
@@ -1751,8 +1905,13 @@ async function runFixLoop(suite, key, envVal) {
 
   while (!fixState.stopped) {
     fixState.attempt++;
-    fixState.lastResult = await runSingleTest(suite, key, fixState.env, { headless: !!fixState.headless, browser: fixState.browser || 'chrome' });
-    const id = `${suite}:${key}`;
+    const sauceFix = !!fixState.useSauce;
+    fixState.lastResult = await runSingleTest(suite, key, fixState.env, {
+      headless: !!fixState.headless,
+      browser: fixState.browser || 'chrome',
+      highlightElements: fixState.highlightElements === true,
+      useSauce: sauceFix,
+    });
     saveExecuteResult(suite, key, {
       success: fixState.lastResult.status === 'passed',
       status: fixState.lastResult.status,
@@ -1760,6 +1919,7 @@ async function runFixLoop(suite, key, envVal) {
       failReason: fixState.lastResult.failReason,
       screenshot: fixState.lastResult.screenshot,
       video: fixState.lastResult.video || null,
+      sauceUrl: fixState.lastResult.sauceUrl || null,
     });
     if (fixState.lastResult.status === 'passed') {
       fixState.running = false;
@@ -1825,11 +1985,11 @@ async function runFixLoop(suite, key, envVal) {
 }
 
 let executeInProgress = false;
-app.post('/api/execute', (req, res) => {
+app.post('/api/execute', async (req, res) => {
   if (executeInProgress || fixState.running) {
     return res.status(429).json({ error: 'Another test is already running' });
   }
-  const { suite, key, headless, browser, recordVideo } = req.body || {};
+  const { suite, key, headless, browser, recordVideo, highlightElements, useSauce } = req.body || {};
   if (!suite || !key) {
     return res.status(400).json({ error: 'suite and key required', success: false });
   }
@@ -1842,139 +2002,47 @@ app.post('/api/execute', (req, res) => {
     });
   }
 
+  const sauceOn = !!useSauce;
+  if (sauceOn && !isSauceConfigured()) {
+    return res.status(400).json({
+      success: false,
+      error: 'Sauce Labs: set SAUCE_USERNAME and SAUCE_ACCESS_KEY in .env (see README).',
+    });
+  }
+
   executeInProgress = true;
   const envVal = req.body.env || 'beta';
-  let spawnEnv = { ...process.env, ENV: envVal };
-  if (headless) spawnEnv.HEADLESS = '1';
-  if (browser) spawnEnv.BROWSER = String(browser).toLowerCase();
-  spawnEnv = applyRecordVideoEnv(spawnEnv, !!recordVideo);
-  spawnEnv.WDIO_MAX_INSTANCES = '1';
-  const tagExpr = getTagExpressionForKey(suite, key);
-  const projectRoot = path.resolve(__dirname);
-  const specPath = path.join(projectRoot, featurePath);
-  const args = [
-    'run',
-    path.join(projectRoot, 'wdio.conf.js'),
-    '--spec',
-    specPath,
-    `--cucumberOpts.tags=${tagExpr}`,
-  ];
-  const child = spawn('npx', ['wdio', ...args], {
-    cwd: projectRoot,
-    env: spawnEnv,
-    stdio: ['ignore', 'pipe', 'pipe'],
-  });
-
-  let stdout = '';
-  let stderr = '';
-  child.stdout?.on('data', (d) => {
-    const s = d.toString();
-    stdout += s;
-    pipeToConsole('', s);
-  });
-  child.stderr?.on('data', (d) => {
-    const s = d.toString();
-    stderr += s;
-    pipeToConsole('stderr', s);
-  });
-
-  child.on('close', (code) => {
-    executeInProgress = false;
-    let status = 'passed';
-    let failReason = null;
-    let failStep = null;
-    let screenshot = null;
-    let videoScenarioTitle = null;
-
-    try {
-      const reportsDir = path.join(__dirname, 'reports', 'json');
-      const manifestPath = path.join(__dirname, 'reports', 'failure-screenshots.json');
-      if (fs.existsSync(reportsDir)) {
-        const baseName = path.basename(featurePath, '.feature');
-        const reportFile = path.join(reportsDir, `${baseName}.json`);
-        if (fs.existsSync(reportFile)) {
-          const data = JSON.parse(fs.readFileSync(reportFile, 'utf8'));
-          const features = Array.isArray(data) ? data : [data];
-          const lastFeat = features[features.length - 1];
-          let lastScenario = null;
-          if (lastFeat?.elements) {
-            for (const el of lastFeat.elements) {
-              if (el.keyword?.toLowerCase().includes('background')) continue;
-              const failed = el.steps?.some((s) => s.result?.status === 'failed');
-              if (failed) {
-                lastScenario = { feat: lastFeat, el };
-                break;
-              }
-              if (!lastScenario) lastScenario = { feat: lastFeat, el };
-            }
-          }
-        if (lastScenario) {
-          const { feat, el } = lastScenario;
-          videoScenarioTitle = el.name || null;
-          const scenarioId = `${feat.name || ''}::${el.name || ''}`;
-          let failed = false;
-          if (el.steps) {
-            for (const step of el.steps) {
-              if (step.result?.status === 'failed') {
-                failed = true;
-                failReason = step.result.error_message || step.result.message || 'Unknown error';
-                failStep = [step.keyword, step.name].filter(Boolean).join(' ').trim() || null;
-                break;
-              }
-            }
-          }
-          status = failed ? 'failed' : 'passed';
-          if (failed && fs.existsSync(manifestPath)) {
-            const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
-            const scenarioName = el.name || '';
-            screenshot =
-              manifest[scenarioId] ||
-              findScreenshotByScenarioName(manifest, scenarioName) ||
-              findScreenshotInDir(scenarioName);
-          }
-        }
-        }
-      }
-    if (code !== 0 && status === 'passed') status = 'failed';
-    if (status === 'failed' && !failReason) {
-      failReason = extractFailReasonFromOutput(stdout, stderr) || stderr || stdout?.slice(-500) || 'Test failed';
-    }
-    } catch (e) {
-      status = 'failed';
-      failReason = e.message;
-    }
-
-    let video = null;
-    if (recordVideo) {
-      const sn = videoScenarioTitle || findScenarioNameForKey(suite, key);
-      if (sn) {
-        const v = findVideoForScenarioName(sn, VIDEOS_DIR);
-        if (v) video = `/api/videos/${v}`;
-      }
-    }
-
-    const result = {
-      success: status === 'passed',
-      status,
-      failStep: status === 'failed' ? failStep : null,
-      failReason: status === 'failed' ? failReason : null,
-      screenshot: status === 'failed' && screenshot ? `/api/screenshots/${screenshot}` : null,
-      video,
+  try {
+    const result = await runSingleTest(suite, key, envVal, {
+      headless: !!headless,
+      browser: browser || 'chrome',
+      recordVideo: sauceOn ? false : !!recordVideo,
+      highlightElements: highlightElements === true,
+      useSauce: sauceOn,
+    });
+    const out = {
+      success: result.status === 'passed',
+      status: result.status,
+      failStep: result.failStep,
+      failReason: result.failReason,
+      screenshot: result.screenshot,
+      video: result.video || null,
+      sauceUrl: result.sauceUrl || null,
     };
-    saveExecuteResult(suite, key, result);
-    res.json(result);
-  });
-
-  child.on('error', (err) => {
-    executeInProgress = false;
+    saveExecuteResult(suite, key, out);
+    res.json(out);
+  } catch (e) {
     res.status(500).json({
       success: false,
       status: 'failed',
-      failReason: err.message,
+      failReason: e.message,
       screenshot: null,
       video: null,
+      sauceUrl: null,
     });
-  });
+  } finally {
+    executeInProgress = false;
+  }
 });
 
 app.get('/api/fix/status', (req, res) => {
@@ -1986,6 +2054,7 @@ app.get('/api/fix/status', (req, res) => {
     attempt: fixState.attempt,
     lastResult: fixState.lastResult,
     env: fixState.env,
+    useSauce: !!fixState.useSauce,
   });
 });
 
@@ -1996,7 +2065,7 @@ app.post('/api/fix/start', (req, res) => {
   if (executeInProgress) {
     return res.status(429).json({ error: 'Execute in progress' });
   }
-  const { suite, key, env, headless, browser } = req.body || {};
+  const { suite, key, env, headless, browser, useSauce } = req.body || {};
   if (!suite || !key) {
     return res.status(400).json({ error: 'suite and key required' });
   }
@@ -2004,9 +2073,17 @@ app.post('/api/fix/start', (req, res) => {
   if (!featurePath) {
     return res.status(404).json({ error: `No feature file for ${key} in ${suite}` });
   }
+  const sauceOn = !!useSauce;
+  if (sauceOn && !isSauceConfigured()) {
+    return res.status(400).json({
+      error: 'Sauce Labs: set SAUCE_USERNAME and SAUCE_ACCESS_KEY in .env (see README).',
+    });
+  }
   fixState.stopped = false;
   fixState.headless = !!headless;
   fixState.browser = browser || 'chrome';
+  fixState.highlightElements = req.body?.highlightElements === true;
+  fixState.useSauce = sauceOn;
   runFixLoop(suite, key, env || 'beta').catch(() => {});
   res.json({ success: true, message: 'Fix loop started' });
 });

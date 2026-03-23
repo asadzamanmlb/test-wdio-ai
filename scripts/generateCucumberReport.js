@@ -6,6 +6,8 @@
  */
 const path = require('path');
 const fs = require('fs');
+const { getCjsonMetadata, getHostPlatformLabel, getHostOsVersion } = require('../config/cjsonRunMetadata');
+const { pageTitle: cucumberReportPageTitle, reportName: cucumberReportName } = require('../config/cucumberHtmlReportBranding');
 
 const jsonDir = path.join(process.cwd(), 'reports', 'json');
 const reportPath = path.join(process.cwd(), 'reports', 'cucumber-html');
@@ -18,10 +20,14 @@ if (!fs.existsSync(jsonDir) || !fs.readdirSync(jsonDir).some((f) => f.endsWith('
 
 (async () => {
   try {
+    const { patchCucumberJsonHostMetadata } = require('./patchCucumberJsonHostMetadata');
+    patchCucumberJsonHostMetadata(jsonDir);
     const report = require('multiple-cucumber-html-reporter');
     report.generate({
       jsonDir,
       reportPath,
+      pageTitle: cucumberReportPageTitle,
+      reportName: cucumberReportName,
       openReportInBrowser: openInBrowser,
       displayDuration: true,
       durationInMS: false,
@@ -31,7 +37,11 @@ if (!fs.existsSync(jsonDir) || !fs.readdirSync(jsonDir).some((f) => f.endsWith('
       customStyle: path.join(__dirname, '..', 'config', 'cucumber-report-hide-device.css'),
       metadata: {
         browser: { name: process.env.BROWSER || 'chrome', version: 'latest' },
-        platform: { name: process.platform, version: process.version },
+        platform: {
+          name: getHostPlatformLabel(),
+          version: getHostOsVersion(),
+        },
+        device: getCjsonMetadata().device,
       },
       customData: {
         title: 'Run Info',

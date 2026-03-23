@@ -83,7 +83,7 @@ npm run webtv:automate -- WSTE-44
 6. Use CommonJS (`require`), not ES modules
 7. Follow `config/env.js` for baseUrl; use `qaTestUsers` from `testUsers.js` for login
 8. No `browser.pause()` — use explicit waits (`waitUntil`, `waitForDisplayed`, etc.)
-9. **Element highlighting** — ON by default. Every `click()`, `setValue()`, `addValue()`, `clearValue()` highlights the element (4px red outline, box-shadow) before interaction. Disable with `HIGHLIGHT_ELEMENTS=0`. Optional: `HIGHLIGHT_DURATION_MS=2000` for longer visibility (default 1000ms).
+9. **Element highlighting** — OFF by default. Enable with `HIGHLIGHT_ELEMENTS=1`. Every `click()`, `setValue()`, `addValue()`, `clearValue()` highlights the element (4px red outline, box-shadow) before interaction when enabled. Optional: `HIGHLIGHT_DURATION_MS=2000` for longer visibility (default 1000ms).
 
 ## Self-Heal Integration
 

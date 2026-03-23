@@ -622,7 +622,31 @@ function SyncDiffModal({ suite, key: scenarioKey, changes, onClose, onApply, onR
   );
 }
 
-function ScenarioRow({ scenario, suiteName, jiraBaseUrl, env, headless, browser, recordVideo, persistedResult, onSync, syncLoading, fixStatus, onFixStart, onFixStop, syncStatus, onAutomate, automateLoading, automateStatus, onUpdateXray, updateXrayLoading, selected, onSelectChange }) {
+function ScenarioRow({
+  scenario,
+  suiteName,
+  jiraBaseUrl,
+  env,
+  headless,
+  browser,
+  recordVideo,
+  useSauce,
+  highlightElements,
+  persistedResult,
+  onSync,
+  syncLoading,
+  fixStatus,
+  onFixStart,
+  onFixStop,
+  syncStatus,
+  onAutomate,
+  automateLoading,
+  automateStatus,
+  onUpdateXray,
+  updateXrayLoading,
+  selected,
+  onSelectChange,
+}) {
   const [runState, setRunState] = useState(null); // { status, failReason?, screenshot?, video? } | null - from current session
   const [running, setRunning] = useState(false);
   const [showFailDetails, setShowFailDetails] = useState(false);
@@ -643,22 +667,37 @@ function ScenarioRow({ scenario, suiteName, jiraBaseUrl, env, headless, browser,
           env: env || 'beta',
           headless: !!headless,
           browser: browser || 'chrome',
-          recordVideo: !!recordVideo,
+          recordVideo: useSauce ? false : !!recordVideo,
+          useSauce: !!useSauce,
+          highlightElements: highlightElements === true,
         }),
       });
       const data = await res.json();
+      if (!res.ok) {
+        setRunState({
+          status: 'failed',
+          failStep: null,
+          failReason: data.error || data.failReason || `Request failed (${res.status})`,
+          screenshot: null,
+          video: null,
+          sauceUrl: null,
+        });
+        setShowFailDetails(true);
+        return;
+      }
       const newState = {
         status: data.status || (data.success ? 'passed' : 'failed'),
         failStep: data.failStep || null,
         failReason: data.failReason || null,
         screenshot: data.screenshot || null,
         video: data.video || null,
+        sauceUrl: data.sauceUrl || null,
       };
       setRunState(newState);
       if (data.status === 'failed') setShowFailDetails(true);
       if (data.video) setShowRecording(true);
     } catch (e) {
-      setRunState({ status: 'failed', failStep: null, failReason: e.message, screenshot: null, video: null });
+      setRunState({ status: 'failed', failStep: null, failReason: e.message, screenshot: null, video: null, sauceUrl: null });
     } finally {
       setRunning(false);
     }
@@ -782,7 +821,20 @@ function ScenarioRow({ scenario, suiteName, jiraBaseUrl, env, headless, browser,
           </div>
         </td>
         <td className="px-4 py-2">
-          {statusEl}
+          <div className="flex flex-col gap-1">
+            {statusEl}
+            {effectiveState?.sauceUrl && (
+              <a
+                href={effectiveState.sauceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-[var(--accent)] hover:underline font-medium"
+                title="Open this scenario’s Sauce Labs session in a new tab"
+              >
+                Sauce job ↗
+              </a>
+            )}
+          </div>
         </td>
       </tr>
       {effectiveState?.status === 'failed' && (effectiveState.failStep || effectiveState.failReason || effectiveState.screenshot) && (
@@ -868,6 +920,8 @@ function ScenarioList({
   headless,
   browser,
   recordVideo,
+  useSauce,
+  highlightElements,
   parallel,
   parallelWorkers,
   executeResults,
@@ -1022,7 +1076,9 @@ function ScenarioList({
           headless: !!headless,
           browser: browser || 'chrome',
           keys: Array.from(selectedKeys),
-          recordVideo: !!recordVideo,
+          recordVideo: useSauce ? false : !!recordVideo,
+          useSauce: !!useSauce,
+          highlightElements: highlightElements === true,
           parallel: parallelOk && selectedCount > 1,
           parallelWorkers: parallelWorkers || 4,
         }),
@@ -1056,7 +1112,9 @@ function ScenarioList({
           env: env || 'beta',
           headless: !!headless,
           browser: browser || 'chrome',
-          recordVideo: !!recordVideo,
+          recordVideo: useSauce ? false : !!recordVideo,
+          useSauce: !!useSauce,
+          highlightElements: highlightElements === true,
           parallel: parallelOk && automatedCount > 1,
           parallelWorkers: parallelWorkers || 4,
         }),
@@ -1233,6 +1291,8 @@ function ScenarioList({
                 headless={headless}
                 browser={browser}
                 recordVideo={recordVideo}
+                useSauce={useSauce}
+                highlightElements={highlightElements}
                 persistedResult={executeResults?.[`${suiteId || suiteName}:${s.key}`]}
                 selected={selectedKeys.has(s.key)}
                 onSelectChange={handleSelectChange}
@@ -1347,6 +1407,9 @@ function App() {
   // Match config/env.js + local `npm run test:webtv`: headed by default (headless often breaks WebTV/video).
   const [executeHeadless, setExecuteHeadless] = useState(false);
   const [executeRecordVideo, setExecuteRecordVideo] = useState(false); // wdio-video-reporter (default off)
+  const [executeUseSauce, setExecuteUseSauce] = useState(false); // Sauce Labs remote run (no local video)
+  const [sauceConfigured, setSauceConfigured] = useState(false);
+  const [executeHighlight, setExecuteHighlight] = useState(false); // HIGHLIGHT_ELEMENTS=1 when On (default off = faster)
   const [executeParallel, setExecuteParallel] = useState(false); // multi-scenario suite runs only (WDIO_MAX_INSTANCES)
   const [executeParallelWorkers, setExecuteParallelWorkers] = useState(4);
   const [executeBrowser, setExecuteBrowser] = useState('chrome'); // chrome | firefox | safari
@@ -1385,7 +1448,7 @@ function App() {
     setError(null);
     const projectParam = `&project=${encodeURIComponent(selectedProject || 'all')}`;
     try {
-        const [projData, m, t, f, a, s, c, runsData, execData, reportStatus] = await Promise.all([
+        const [projData, m, t, f, a, s, c, runsData, execData, reportStatus, sauceStatus] = await Promise.all([
           fetchJson(`${API}/projects`),
           fetchJson(`${API}/metrics?project=${selectedProject || 'all'}`),
           fetchJson(`${API}/trends?limit=30${projectParam}`),
@@ -1396,6 +1459,9 @@ function App() {
           fetchJson(`${API}/runs?limit=30${projectParam}`),
           fetchJson(`${API}/execute-results`),
           fetch(`${API}/report/status`).then((r) => r.json()).catch(() => ({ exists: false })),
+          fetch(`${API}/sauce/status`)
+            .then((r) => (r.ok ? r.json() : { configured: false }))
+            .catch(() => ({ configured: false })),
         ]);
         setProjects((projData && projData.projects) || []);
         setMetrics(m);
@@ -1409,6 +1475,7 @@ function App() {
         setExecuteResults(execData || {});
         setReportExists(reportStatus?.exists ?? false);
         setReportPdfExists(reportStatus?.pdfExists ?? false);
+        setSauceConfigured(!!sauceStatus?.configured);
     } catch (e) {
       setError(e.message);
     } finally {
@@ -1421,6 +1488,10 @@ function App() {
     const id = setInterval(fetchAll, 5000); // Poll every 5s to pick up new runs after test completion
     return () => clearInterval(id);
   }, [selectedProject]);
+
+  useEffect(() => {
+    if (!sauceConfigured && executeUseSauce) setExecuteUseSauce(false);
+  }, [sauceConfigured, executeUseSauce]);
 
   // Clear run selection when selected run is no longer in the list (e.g. after Refresh vector DB)
   useEffect(() => {
@@ -1459,7 +1530,15 @@ function App() {
       await fetch(`${API}/fix/start`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ suite, key, env: executeEnv, headless: executeHeadless, browser: executeBrowser }),
+        body: JSON.stringify({
+          suite,
+          key,
+          env: executeEnv,
+          headless: executeHeadless,
+          browser: executeBrowser,
+          highlightElements: executeHighlight,
+          useSauce: executeUseSauce,
+        }),
       });
     } catch (e) {
       console.error(e);
@@ -1557,20 +1636,81 @@ function App() {
             </button>
           </div>
           <div className="flex items-center gap-1 rounded-lg border border-[var(--border)] bg-[var(--surface)] p-0.5">
+            <span className="px-2 py-1 text-xs text-[var(--muted)]">Sauce</span>
+            <button
+              type="button"
+              onClick={() => setExecuteUseSauce(false)}
+              disabled={!sauceConfigured}
+              className={`rounded px-3 py-1.5 text-sm font-medium transition-colors ${!executeUseSauce ? 'bg-[var(--accent)] text-white' : 'text-[var(--muted)] hover:bg-black/20'} disabled:opacity-40 disabled:cursor-not-allowed`}
+              title={
+                sauceConfigured
+                  ? 'Run on local machine or CI browser (default)'
+                  : 'Set SAUCE_USERNAME and SAUCE_ACCESS_KEY in .env and restart dashboard'
+              }
+            >
+              Off
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setExecuteUseSauce(true);
+                setExecuteRecordVideo(false);
+              }}
+              disabled={!sauceConfigured}
+              className={`rounded px-3 py-1.5 text-sm font-medium transition-colors ${executeUseSauce ? 'bg-[var(--accent)] text-white' : 'text-[var(--muted)] hover:bg-black/20'} disabled:opacity-40 disabled:cursor-not-allowed`}
+              title={
+                sauceConfigured
+                  ? 'Run on Sauce Labs; link to job appears per scenario (no local MP4)'
+                  : 'Set SAUCE_USERNAME and SAUCE_ACCESS_KEY in .env and restart dashboard'
+              }
+            >
+              On
+            </button>
+          </div>
+          <div className="flex items-center gap-1 rounded-lg border border-[var(--border)] bg-[var(--surface)] p-0.5">
             <span className="px-2 py-1 text-xs text-[var(--muted)]">Record</span>
             <button
               type="button"
               onClick={() => setExecuteRecordVideo(false)}
-              className={`rounded px-3 py-1.5 text-sm font-medium transition-colors ${!executeRecordVideo ? 'bg-[var(--accent)] text-white' : 'text-[var(--muted)] hover:bg-black/20'}`}
-              title="Do not capture screen recordings (default, faster)"
+              disabled={executeUseSauce}
+              className={`rounded px-3 py-1.5 text-sm font-medium transition-colors ${!executeRecordVideo ? 'bg-[var(--accent)] text-white' : 'text-[var(--muted)] hover:bg-black/20'} disabled:opacity-40 disabled:cursor-not-allowed`}
+              title={
+                executeUseSauce
+                  ? 'Local video is not used when running on Sauce (use Sauce job link per scenario)'
+                  : 'Do not capture screen recordings (default, faster)'
+              }
             >
               Off
             </button>
             <button
               type="button"
               onClick={() => setExecuteRecordVideo(true)}
-              className={`rounded px-3 py-1.5 text-sm font-medium transition-colors ${executeRecordVideo ? 'bg-[var(--accent)] text-white' : 'text-[var(--muted)] hover:bg-black/20'}`}
-              title="Save MP4 per scenario (wdio-video-reporter); shown under each scenario when done"
+              disabled={executeUseSauce}
+              className={`rounded px-3 py-1.5 text-sm font-medium transition-colors ${executeRecordVideo ? 'bg-[var(--accent)] text-white' : 'text-[var(--muted)] hover:bg-black/20'} disabled:opacity-40 disabled:cursor-not-allowed`}
+              title={
+                executeUseSauce
+                  ? 'Local video is not used when running on Sauce (use Sauce job link per scenario)'
+                  : 'Save MP4 per scenario (wdio-video-reporter); shown under each scenario when done'
+              }
+            >
+              On
+            </button>
+          </div>
+          <div className="flex items-center gap-1 rounded-lg border border-[var(--border)] bg-[var(--surface)] p-0.5">
+            <span className="px-2 py-1 text-xs text-[var(--muted)]">Highlight</span>
+            <button
+              type="button"
+              onClick={() => setExecuteHighlight(false)}
+              className={`rounded px-3 py-1.5 text-sm font-medium transition-colors ${!executeHighlight ? 'bg-[var(--accent)] text-white' : 'text-[var(--muted)] hover:bg-black/20'}`}
+              title="Default: no element outline or extra delay (faster)"
+            >
+              Off
+            </button>
+            <button
+              type="button"
+              onClick={() => setExecuteHighlight(true)}
+              className={`rounded px-3 py-1.5 text-sm font-medium transition-colors ${executeHighlight ? 'bg-[var(--accent)] text-white' : 'text-[var(--muted)] hover:bg-black/20'}`}
+              title="Red outline + delay before clicks/typing (HIGHLIGHT_ELEMENTS=1)"
             >
               On
             </button>
@@ -1626,9 +1766,9 @@ function App() {
             onClick={() => window.open((API || '').replace(/\/api\/?$/, '') + '/report', '_blank')}
             disabled={!reportExists}
             className="rounded-lg border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-medium hover:bg-black/30 disabled:opacity-50 disabled:cursor-not-allowed"
-            title={reportExists ? 'Open Cucumber HTML report' : 'Run tests first to generate report'}
+            title={reportExists ? 'Open WebTv Test Report' : 'Run tests first to generate report'}
           >
-            Open Report
+            WebTv Report
           </button>
           <button
             onClick={() => window.open((API || '').replace(/\/api\/?$/, '') + '/report/cucumber-report.pdf', '_blank')}
@@ -1794,6 +1934,8 @@ function App() {
               headless={executeHeadless}
               browser={executeBrowser}
               recordVideo={executeRecordVideo}
+              useSauce={executeUseSauce}
+              highlightElements={executeHighlight}
               parallel={executeParallel}
               parallelWorkers={executeParallelWorkers}
               executeResults={executeResults}

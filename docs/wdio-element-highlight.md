@@ -4,7 +4,8 @@
 
 Before **click**, **doubleClick**, **setValue**, **addValue**, **clearValue**, the matching element gets a **red** outline briefly, then the command runs.
 
-- **On by default.** Disable: `HIGHLIGHT_ELEMENTS=0`
+- **Off by default** (faster). Enable: `HIGHLIGHT_ELEMENTS=1` (or `true` / `yes`)
+- **QA Dashboard:** header **Highlight → Off** sets that for Execute / Run selected / Run all / Fix loop (faster runs). **On** restores default behavior.
 - **Duration:** `HIGHLIGHT_DURATION_MS` (default `1000`)
 
 ## Assertion / verify (blue)
@@ -33,4 +34,4 @@ await flashAssertionHighlight(await $('.panel'), { durationMs: 1500, scroll: tru
 | `HIGHLIGHT_ASSERTION_MS` | How long the blue outline stays (default: same as `HIGHLIGHT_DURATION_MS`) |
 | `HIGHLIGHT_ASSERTION_COLOR` | Outline color, default `#0066ff` |
 
-**Note:** Extra flashes add a short delay (intentional, for visibility). Disable in CI with `HIGHLIGHT_ELEMENTS=0` or `HIGHLIGHT_ASSERTIONS=0` if you need maximum speed.
+**Note:** Extra flashes add a short delay (intentional, for visibility). Leave highlight off in CI (default), or set `HIGHLIGHT_ASSERTIONS=0` when highlights are enabled if you want interaction outline without blue assertion flashes.

@@ -4,6 +4,8 @@
  * Run tests:  npm run test:grid
  */
 const path = require('path');
+const { getCjsonMetadata } = require('./config/cjsonRunMetadata');
+const { pageTitle: cucumberReportPageTitle, reportName: cucumberReportName } = require('./config/cucumberHtmlReportBranding');
 const { baseUrl } = require('./config/env');
 const { afterStep } = require('./features/support/hooks');
 const { persistRun } = require('./scripts/persistRunResults');
@@ -15,6 +17,7 @@ const {
 
 const GRID_HOST = process.env.SELENIUM_HOST || 'localhost';
 const GRID_PORT = process.env.SELENIUM_PORT || 4444;
+const gridCjsonMeta = getCjsonMetadata({ deviceHint: `Selenium Grid @ ${GRID_HOST}:${GRID_PORT}` });
 
 exports.config = {
   runner: 'local',
@@ -22,10 +25,26 @@ exports.config = {
   exclude: [],
   maxInstances: 4,
   capabilities: [
-    { browserName: 'chrome', 'goog:chromeOptions': { args: ['--no-sandbox', '--disable-dev-shm-usage'] } },
-    { browserName: 'chrome', 'goog:chromeOptions': { args: ['--no-sandbox', '--disable-dev-shm-usage'] } },
-    { browserName: 'chrome', 'goog:chromeOptions': { args: ['--no-sandbox', '--disable-dev-shm-usage'] } },
-    { browserName: 'chrome', 'goog:chromeOptions': { args: ['--no-sandbox', '--disable-dev-shm-usage'] } },
+    {
+      browserName: 'chrome',
+      'goog:chromeOptions': { args: ['--no-sandbox', '--disable-dev-shm-usage'] },
+      'cjson:metadata': gridCjsonMeta,
+    },
+    {
+      browserName: 'chrome',
+      'goog:chromeOptions': { args: ['--no-sandbox', '--disable-dev-shm-usage'] },
+      'cjson:metadata': gridCjsonMeta,
+    },
+    {
+      browserName: 'chrome',
+      'goog:chromeOptions': { args: ['--no-sandbox', '--disable-dev-shm-usage'] },
+      'cjson:metadata': gridCjsonMeta,
+    },
+    {
+      browserName: 'chrome',
+      'goog:chromeOptions': { args: ['--no-sandbox', '--disable-dev-shm-usage'] },
+      'cjson:metadata': gridCjsonMeta,
+    },
   ],
   hostname: GRID_HOST,
   port: parseInt(GRID_PORT, 10),
@@ -64,9 +83,13 @@ exports.config = {
       const jsonDir = path.join(process.cwd(), 'reports', 'json');
       const reportPath = path.join(process.cwd(), 'reports', 'cucumber-html');
       if (fs.existsSync(jsonDir) && fs.readdirSync(jsonDir).some((f) => f.endsWith('.json'))) {
+        const { patchCucumberJsonHostMetadata } = require('./scripts/patchCucumberJsonHostMetadata');
+        patchCucumberJsonHostMetadata(jsonDir);
         report.generate({
           jsonDir,
           reportPath,
+          pageTitle: cucumberReportPageTitle,
+          reportName: cucumberReportName,
           openReportInBrowser: false,
           displayDuration: true,
           durationInMS: false,

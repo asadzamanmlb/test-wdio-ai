@@ -24,6 +24,19 @@ In the dashboard header, **Record → On** applies to **Execute**, **Run selecte
 | `RECORD_TEST_VIDEO=1` | Alias for `WDIO_RECORD_VIDEO` (optional) |
 | `WDIO_VIDEO_SLOWDOWN=1`–`100` | Slows/spreads frames in the output video (default `3`) |
 | `WDIO_VIDEO_RENDER_TIMEOUT_MS` | Max time for FFmpeg to render one video (default `120000`) |
+| `WDIO_VIDEO_ATTACH_DELAY_MS` | Initial pause before polling for the MP4 (default **1500** ms, max 15000). |
+| `WDIO_VIDEO_ATTACH_MAX_WAIT_MS` | Max time to poll for a finished MP4 (default **90000** ms, max 180000). The video reporter often finishes encoding **after** the last step; a short wait only caused **missing embeddings**. |
+
+## Cucumber HTML report (`reports/cucumber-html/`)
+
+When **`wdio-cucumberjs-json-reporter`** is enabled (see **`wdio.conf.js`**), **`features/support/hooks.js`** adds **embeddings** consumed by **`multiple-cucumber-html-reporter`**:
+
+- **Failure:** `text/plain` (step + message + stack) and **`image/png`** (same failure screenshot as under `reports/screenshots/`).
+- **Video (when `WDIO_RECORD_VIDEO=1`):** `text/plain` notes plus **`text/html`** with `<video>` (**relative** `../../videos/...` and **`file://`** sources for local viewing).
+
+### Where to click in the report
+
+The reporter **hides** rich content by default: expand the **scenario row**, go to the **last step** (often the final `Then`), and click **`+ Show Info`** — that opens the **text** and **HTML** blocks (screenshot / failure text / video player). There is no top-level “video” column.
 
 ## npm scripts
 

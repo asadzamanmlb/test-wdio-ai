@@ -5,36 +5,19 @@
 const { Given, When, Then } = require('@wdio/cucumber-framework');
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '..', '..', '.env') });
-const { baseUrl } = require('../../config/env');
+const { baseUrl, isBetaWebTvTarget, shouldAttemptBetaInfrastructureLogin } = require('../../config/env');
 const loginPage = require('../pageobjects/loginPage.object');
 const commonPage = require('../pageobjects/commonPage.object');
 const playerPage = require('../pageobjects/player.object');
 const contentPageObject = require('../pageobjects/content.object');
 const { qaTestUsers } = require('../../testUsers');
+const { handleBetaPreAuthIfPresent } = require('../support/betaPreAuth');
 
 const PLAYLIST_API_QA = 'https://mastapi.mobileqa.mlbinfra.com/api/video/v1/playlist';
 const PLAYLIST_API_BETA = 'https://mastapi.mobilebeta.mlbinfra.com/api/video/v1/playlist';
 
 const email = process.env.TEST_EMAIL || qaTestUsers['Yearly User'];
 const password = process.env.TEST_PASSWORD || qaTestUsers.Password;
-
-async function handleBetaPreAuthIfPresent() {
-  const usernameEl = await loginPage.betaUsername();
-  const exists = await usernameEl.isExisting().catch(() => false);
-  if (!exists || !(await usernameEl.isDisplayed().catch(() => false))) return;
-
-  const betaUser = process.env.BETA_USERNAME || qaTestUsers['Yearly User'];
-  const betaPass = process.env.BETA_PASSWORD || qaTestUsers.Password;
-
-  await usernameEl.waitForDisplayed({ timeout: 5000 }).catch(() => {});
-  await usernameEl.setValue(betaUser);
-  await (await loginPage.betaPassword()).setValue(betaPass);
-  await (await loginPage.betaLoginButton()).click();
-  await browser.waitUntil(
-    async () => !(await loginPage.betaUsername().isDisplayed().catch(() => false)),
-    { timeout: 5000 }
-  );
-}
 
 async function handleCookieConsentIfPresent() {
   const acceptSelectors = [
@@ -85,7 +68,7 @@ Given(/^a user is logged into mlb\.com\/tv \(any user\)$/, async function () {
     async () => (await browser.getUrl()).includes('mlb.com') || (await browser.getUrl()).includes('okta'),
     { timeout: 10000 }
   );
-  if (baseUrl.includes('beta-gcp')) await handleBetaPreAuthIfPresent();
+  if (shouldAttemptBetaInfrastructureLogin()) await handleBetaPreAuthIfPresent();
   await handleCookieConsentIfPresent();
 
   const accountDropdown = await commonPage.accountDropdown();
@@ -151,7 +134,7 @@ When('the user navigates down to select a VOD video', async function () {
     { timeout: 15000, timeoutMsg: 'Page did not load' }
   );
 
-  const apiUrl = baseUrl.includes('beta-gcp') ? PLAYLIST_API_BETA : PLAYLIST_API_QA;
+  const apiUrl = isBetaWebTvTarget() ? PLAYLIST_API_BETA : PLAYLIST_API_QA;
 
   let playlistData = null;
   try {

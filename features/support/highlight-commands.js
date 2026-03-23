@@ -1,6 +1,6 @@
 /**
  * Overwrites element commands to highlight before every interaction.
- * Loaded via wdio before() hook. Works with HIGHLIGHT_ELEMENTS (default: on).
+ * Loaded via wdio before() hook. Works with HIGHLIGHT_ELEMENTS (default: off; set to 1 to enable).
  */
 const {
   highlightBeforeInteract,

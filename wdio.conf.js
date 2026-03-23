@@ -1,4 +1,6 @@
 const path = require('path');
+const { getCjsonMetadata, getHostPlatformLabel, getHostOsVersion } = require('./config/cjsonRunMetadata');
+const { pageTitle: cucumberReportPageTitle, reportName: cucumberReportName } = require('./config/cucumberHtmlReportBranding');
 const { baseUrl } = require('./config/env');
 const { afterStep, afterScenario } = require('./features/support/hooks');
 const { persistRun } = require('./scripts/persistRunResults');
@@ -9,6 +11,7 @@ const {
   clearVideosDir,
   videoReporterEnabled,
 } = require('./config/wdio.video.reporter');
+const { getChromeAutomationOptions } = require('./config/chromeAutomationOptions');
 
 const browserName = (process.env.BROWSER || 'chrome').toLowerCase();
 const isHeadless = /^1|true|yes$/i.test(process.env.HEADLESS || '');
@@ -26,7 +29,12 @@ function getWdioMaxInstances() {
 const wdioMaxInstances = getWdioMaxInstances();
 
 function getCapabilities() {
-  const base = { maxInstances: wdioMaxInstances, 'wdio:enforceWebDriverClassic': true };
+  const base = {
+    maxInstances: wdioMaxInstances,
+    'wdio:enforceWebDriverClassic': true,
+    /** Fills Cucumber JSON metadata (otherwise local Chrome → "Version not known" for OS). */
+    'cjson:metadata': getCjsonMetadata(),
+  };
   if (browserName === 'firefox') {
     const firefoxArgs = ['--no-remote'];
     if (isHeadless) firefoxArgs.push('-headless');
@@ -46,14 +54,21 @@ function getCapabilities() {
     }
     return [{ ...base, browserName: 'MicrosoftEdge', 'ms:edgeOptions': { args: edgeArgs } }];
   }
-  const chromeArgs = ['--no-sandbox', '--disable-dev-shm-usage'];
+  const extra = [];
   if (isHeadless) {
-    chromeArgs.push('--headless=new', '--window-size=1920,1080', '--disable-gpu');
+    extra.push('--headless=new', '--window-size=1920,1080', '--disable-gpu');
   }
   if (HIGHLIGHT_ENABLED && !isHeadless) {
-    chromeArgs.push('--window-size=1920,1080');
+    extra.push('--window-size=1920,1080');
   }
-  return [{ ...base, browserName: 'chrome', 'goog:chromeOptions': { args: chromeArgs } }];
+  const chromeAuto = getChromeAutomationOptions(extra);
+  return [
+    {
+      ...base,
+      browserName: 'chrome',
+      'goog:chromeOptions': { args: chromeAuto.args, prefs: chromeAuto.prefs },
+    },
+  ];
 }
 
 exports.config = {
@@ -76,7 +91,10 @@ exports.config = {
   ],
   cucumberOpts: {
     timeout: 60000,
-    /** On any step failure, the whole scenario runs again from `Given` (looks like duplicate login / open game / settings). */
+    /**
+     * On step failure only: re-run the whole scenario from `Given` (second attempt looks like duplicate login, etc.).
+     * If the scenario passes on the first try, there is no second run — duration in the report is a single pass.
+     */
     retry: 1,
     require: [path.join(__dirname, 'features', 'step-definitions', '*.js')],
   },
@@ -101,6 +119,8 @@ exports.config = {
         const jsonFiles = fs.readdirSync(reportsJsonDir).filter((f) => f.endsWith('.json'));
         for (const f of jsonFiles) fs.unlinkSync(path.join(reportsJsonDir, f));
       }
+      const sauceUrls = path.join(process.cwd(), 'reports', 'sauce-scenario-urls.jsonl');
+      if (fs.existsSync(sauceUrls)) fs.unlinkSync(sauceUrls);
       // Safari: kill stale safaridriver from previous runs to avoid "already paired" / "no such window"
       if ((process.env.BROWSER || '').toLowerCase() === 'safari') {
         try {
@@ -139,9 +159,13 @@ exports.config = {
       const jsonDir = path.join(process.cwd(), 'reports', 'json');
       const reportPath = path.join(process.cwd(), 'reports', 'cucumber-html');
       if (fs.existsSync(jsonDir) && fs.readdirSync(jsonDir).some((f) => f.endsWith('.json'))) {
+        const { patchCucumberJsonHostMetadata } = require('./scripts/patchCucumberJsonHostMetadata');
+        patchCucumberJsonHostMetadata(jsonDir);
         report.generate({
           jsonDir,
           reportPath,
+          pageTitle: cucumberReportPageTitle,
+          reportName: cucumberReportName,
           openReportInBrowser: false,
           displayDuration: true,
           // Cucumber JSON uses nanoseconds; reporter divides by 1e6 when this is false.
@@ -153,7 +177,11 @@ exports.config = {
           customStyle: path.join(__dirname, 'config', 'cucumber-report-hide-device.css'),
           metadata: {
             browser: { name: process.env.BROWSER || 'chrome', version: 'latest' },
-            platform: { name: process.platform, version: process.version },
+            platform: {
+              name: getHostPlatformLabel(),
+              version: getHostOsVersion(),
+            },
+            device: getCjsonMetadata().device,
           },
           customData: {
             title: 'Run Info',
@@ -161,6 +189,10 @@ exports.config = {
               { label: 'Environment', value: process.env.ENV || 'beta' },
               { label: 'Headless', value: process.env.HEADLESS === '1' ? 'Yes' : 'No' },
               { label: 'Max parallel workers', value: String(wdioMaxInstances) },
+              {
+                label: 'Scenario duration',
+                value: 'Sum of WDIO step/hook times in JSON (retry only on failure — see docs/cucumber-report-durations.md)',
+              },
             ],
           },
         });

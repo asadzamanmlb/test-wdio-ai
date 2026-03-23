@@ -1,11 +1,11 @@
 /**
  * Highlight elements before interaction so users can verify the correct element is found.
- * ON by default. Disable with: HIGHLIGHT_ELEMENTS=0
+ * OFF by default (faster runs). Enable with: HIGHLIGHT_ELEMENTS=1 (or true / yes)
  *
  * Assertion / verify flashes (blue outline): enabled when interaction highlights are on,
  * unless HIGHLIGHT_ASSERTIONS=0. Override color: HIGHLIGHT_ASSERTION_COLOR=#0066ff
  */
-const HIGHLIGHT_ENABLED = process.env.HIGHLIGHT_ELEMENTS !== '0' && process.env.HIGHLIGHT_ELEMENTS !== 'false';
+const HIGHLIGHT_ENABLED = /^1|true|yes$/i.test(String(process.env.HIGHLIGHT_ELEMENTS || '').trim());
 const HIGHLIGHT_DURATION_MS = parseInt(process.env.HIGHLIGHT_DURATION_MS || '1000', 10);
 const HIGHLIGHT_ASSERTION_MS = parseInt(process.env.HIGHLIGHT_ASSERTION_MS || String(HIGHLIGHT_DURATION_MS), 10);
 const ASSERTION_OUTLINE_COLOR = process.env.HIGHLIGHT_ASSERTION_COLOR || '#0066ff';

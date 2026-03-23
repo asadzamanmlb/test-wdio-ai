@@ -4,31 +4,14 @@
 const { Given, When, Then } = require('@wdio/cucumber-framework');
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '..', '..', '.env') });
-const { baseUrl } = require('../../config/env');
+const { baseUrl, shouldAttemptBetaInfrastructureLogin } = require('../../config/env');
 const loginPage = require('../pageobjects/loginPage.object');
 const commonPage = require('../pageobjects/commonPage.object');
 const { qaTestUsers } = require('../../testUsers');
+const { handleBetaPreAuthIfPresent } = require('../support/betaPreAuth');
 
 const email = process.env.TEST_EMAIL || qaTestUsers['Yearly User'];
 const password = process.env.TEST_PASSWORD || qaTestUsers.Password;
-
-async function handleBetaPreAuthIfPresent() {
-  const usernameEl = await loginPage.betaUsername();
-  const exists = await usernameEl.isExisting().catch(() => false);
-  if (!exists || !(await usernameEl.isDisplayed().catch(() => false))) return;
-
-  const betaUser = process.env.BETA_USERNAME || qaTestUsers['Yearly User'];
-  const betaPass = process.env.BETA_PASSWORD || qaTestUsers.Password;
-
-  await usernameEl.waitForDisplayed({ timeout: 5000 }).catch(() => {});
-  await usernameEl.setValue(betaUser);
-  await (await loginPage.betaPassword()).setValue(betaPass);
-  await (await loginPage.betaLoginButton()).click();
-  await browser.waitUntil(
-    async () => !(await loginPage.betaUsername().isDisplayed().catch(() => false)),
-    { timeout: 5000 }
-  );
-}
 
 async function handleCookieConsentIfPresent() {
   const acceptSelectors = [
@@ -69,7 +52,7 @@ Given(/^they attempt to go to mlb\.com\/tv$/, async function () {
     async () => (await browser.getUrl()).includes('mlb.com') || (await browser.getUrl()).includes('okta'),
     { timeout: 10000 }
   );
-  if (baseUrl.includes('beta-gcp')) await handleBetaPreAuthIfPresent();
+  if (shouldAttemptBetaInfrastructureLogin()) await handleBetaPreAuthIfPresent();
   await handleCookieConsentIfPresent();
   await browser.waitUntil(
     async () => (await browser.getUrl()).length > 10,
@@ -206,7 +189,7 @@ async function ensureLoggedIntoMlbTv() {
     async () => (await browser.getUrl()).includes('mlb.com') || (await browser.getUrl()).includes('okta'),
     { timeout: 10000 }
   );
-  if (baseUrl.includes('beta-gcp')) await handleBetaPreAuthIfPresent();
+  if (shouldAttemptBetaInfrastructureLogin()) await handleBetaPreAuthIfPresent();
   await handleCookieConsentIfPresent();
 
   const accountDropdown = await commonPage.accountDropdown();
