@@ -13,3 +13,5 @@ my-changes-backup.patch
 dist/
 /dashboard/dist/
 /dashboard/data/screenshots
+/dashboard/data/auth-users.json
+/dashboard/data/.jwt-secret

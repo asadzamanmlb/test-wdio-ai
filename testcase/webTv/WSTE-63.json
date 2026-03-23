@@ -7,7 +7,7 @@
   "status": "Done",
   "testType": "Cucumber",
   "scenarioType": "scenario",
-  "gherkin": "Given the user is logged into mlb.com/tv\nAnd the user is entitled to multiple game \nAnd the user has selected a game \nWhen the user selects a different game that they are entitled to from the gameday scoreboard in the player\nThen the newly selected video feed starts playing back",
+  "gherkin": "Given the user is logged into mlb.com/tv\nAnd the user is entitled to multiple game\nAnd the user has selected a game\nWhen the user selects a different game that they are entitled to from the gameday scoreboard in the player\nThen the newly selected video feed starts playing back",
   "unstructured": null,
   "steps": []
 }

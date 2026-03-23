@@ -298,3 +298,48 @@ Then('the user should be redirected to the {string} page', async function (expec
     throw new Error(`Expected redirect to "${expectedTitle}". Got: ${title} | ${url}`);
   }
 });
+
+Then(/^they attempt to go to mlb\.com\/tv$/, async function () {
+    // TODO: implement - see temp folder for reference
+    throw new Error('Not implemented');
+  });
+
+When("the user enters a valid \"Email\"", async function () {
+    // TODO: implement - see temp folder for reference
+    throw new Error('Not implemented');
+  });
+
+Then("the user clicks \"Continue\"", async function () {
+    // TODO: implement - see temp folder for reference
+    throw new Error('Not implemented');
+  });
+
+Then("the user enters a valid \"Password\"", async function () {
+    // TODO: implement - see temp folder for reference
+    throw new Error('Not implemented');
+  });
+
+Then("the user clicks the \"Log In\" button", async function () {
+    // TODO: implement - see temp folder for reference
+    throw new Error('Not implemented');
+  });
+
+When("the user hovers over the \"ACCOUNT\" button from the top nav", async function () {
+    // TODO: implement - see temp folder for reference
+    throw new Error('Not implemented');
+  });
+
+Then("the user clicks the \"Log Out\" option", async function () {
+    // TODO: implement - see temp folder for reference
+    throw new Error('Not implemented');
+  });
+
+Then("the following message should appear \"You have been logged out of MLB.com.You will be automatically redirected in 5 seconds\"", async function () {
+    // TODO: implement - see temp folder for reference
+    throw new Error('Not implemented');
+  });
+
+Then("the user should be redirected to the \"MLB.com | The Official Site of Major League Baseball\" page", async function () {
+    // TODO: implement - see temp folder for reference
+    throw new Error('Not implemented');
+  });

@@ -7,7 +7,7 @@
   "status": "Done",
   "testType": "Cucumber",
   "scenarioType": "scenario",
-  "gherkin": "Given the user is logged into mlb.com/tv\nAnd has the MLBN entitlement\nWhen the user selects a MLBN content for playback from the Homepage \nThen the MLBN content plays back successfully\nAnd the playback should start from the LIVE point",
+  "gherkin": "Given the user is logged into mlb.com/tv\nAnd has the MLBN entitlement\nWhen the user selects a MLBN content for playback from the Homepage\nThen the MLBN content plays back successfully\nAnd the playback should start from the LIVE point",
   "unstructured": null,
   "steps": []
 }

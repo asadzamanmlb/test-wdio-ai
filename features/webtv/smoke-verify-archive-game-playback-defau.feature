@@ -7,7 +7,7 @@ Feature: Verify Archive Game Playback - Default
 
   @WSTE-39
   Scenario: Smoke | Verify Archive Game Playback - Default
-    Given an entitled user is logged in 
+    Given an entitled user is logged in
     When a user selects an archived game for playback
     Then playback starts at the beginning of the stream
     And the duration of the game display right side of the scrubber bar

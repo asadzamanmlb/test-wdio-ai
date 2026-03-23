@@ -9,5 +9,54 @@
   "scenarioType": "scenario",
   "gherkin": "Given the user is NOT logged in\nAnd they attempt to go to mlb.com/tv\nWhen the user enters a valid \"Email\"\nAnd the user clicks \"Continue\"\nAnd the user enters a valid \"Password\"\nAnd the user clicks the \"Log In\" button\nThen the user is successfully logged in\nAnd the user is redirected back to the Welcome Center",
   "unstructured": null,
-  "steps": []
+  "steps": [
+    {
+      "id": "step-0",
+      "action": "Given the user is NOT logged in",
+      "data": "",
+      "result": ""
+    },
+    {
+      "id": "step-1",
+      "action": "And they attempt to go to mlb.com/tv",
+      "data": "",
+      "result": ""
+    },
+    {
+      "id": "step-2",
+      "action": "When the user enters a valid \"Email\"",
+      "data": "",
+      "result": ""
+    },
+    {
+      "id": "step-3",
+      "action": "And the user clicks \"Continue\"",
+      "data": "",
+      "result": ""
+    },
+    {
+      "id": "step-4",
+      "action": "And the user enters a valid \"Password\"",
+      "data": "",
+      "result": ""
+    },
+    {
+      "id": "step-5",
+      "action": "And the user clicks the \"Log In\" button",
+      "data": "",
+      "result": ""
+    },
+    {
+      "id": "step-6",
+      "action": "Then the user is successfully logged in",
+      "data": "",
+      "result": ""
+    },
+    {
+      "id": "step-7",
+      "action": "And the user is redirected back to the Welcome Center",
+      "data": "",
+      "result": ""
+    }
+  ]
 }

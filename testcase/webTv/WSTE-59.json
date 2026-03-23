@@ -7,7 +7,7 @@
   "status": "Done",
   "testType": "Cucumber",
   "scenarioType": "scenario",
-  "gherkin": "Given an entitled use is logged into mlb.com/tv\nAnd closed captions are disabled in the Settings\nWhen the user plays a game they are entitled to\nThen the user gets successful playback \nAnd the closed captions do not display during video playback",
+  "gherkin": "Given an entitled use is logged into mlb.com/tv\nAnd closed captions are disabled in the Settings\nWhen the user plays a game they are entitled to\nThen the user gets successful playback\nAnd the closed captions do not display during video playback",
   "unstructured": null,
   "steps": []
 }

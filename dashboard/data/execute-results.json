@@ -9,14 +9,14 @@
     "timestamp": "2026-03-23T04:37:19.000Z"
   },
   "webTv:WSTE-35": {
-    "success": false,
-    "status": "failed",
+    "success": true,
+    "status": "passed",
     "failStep": null,
-    "failReason": "no such element',",
+    "failReason": null,
     "screenshot": null,
-    "video": null,
+    "video": "/api/videos/Smoke--Log-In-0-0--CHROME--03-23-2026--12-27-35-392.mp4",
     "sauceUrl": null,
-    "timestamp": "2026-03-23T14:58:59.691Z"
+    "timestamp": "2026-03-23T16:29:23.042Z"
   },
   "webTv:WSTE-39": {
     "success": true,
@@ -29,13 +29,14 @@
     "timestamp": "2026-03-23T06:49:28.890Z"
   },
   "webTv:WSTE-36": {
-    "success": true,
-    "status": "passed",
-    "failStep": null,
-    "failReason": null,
-    "screenshot": null,
-    "video": "/api/videos/Smoke--Log-In-0-0--CHROME--03-23-2026--01-33-18-243.mp4",
-    "timestamp": "2026-03-23T07:03:55.386Z"
+    "success": false,
+    "status": "failed",
+    "failStep": "And the user clicks the \"Log Out\" option",
+    "failReason": "Error: element (\"//a[contains(text(),\"Log out\") or contains(text(),\"Log Out\")]\") still not displayed after 5000ms\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async Element.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/support/highlight-commands.js:38:9)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/login.steps.js:254:3)",
+    "screenshot": "/api/screenshots/Smoke---Verify-Log-Out-behavior-1774284238519.png",
+    "video": "/api/videos/Smoke--Verify-Log-Out-behavior-0-0--CHROME--03-23-2026--12-42-41-838.mp4",
+    "sauceUrl": null,
+    "timestamp": "2026-03-23T16:45:12.698Z"
   },
   "webTv:WSTE-40": {
     "success": false,

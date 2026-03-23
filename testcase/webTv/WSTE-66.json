@@ -7,7 +7,7 @@
   "status": "Done",
   "testType": "Cucumber",
   "scenarioType": "scenario",
-  "gherkin": "Given  a user is on the mlb.com/live-stream-games (Media Center)\nAnd the calendar from the Games page is displayed\nWhen the user selects the \"\"<\"\" or \"\">\"\" buttons in the calendar \nAnd selects a day in the month that has games\nOr the user opens the calendar picker and selects the “Today” button\nThen the appropriate month and year is displayed as the user presses the \"\"<\"\" or \"\">\"\" buttons\nAnd the appropriate day with the appropriate games are displayed on the games page after the user selects a day",
+  "gherkin": "Given  a user is on the mlb.com/live-stream-games (Media Center)\nAnd the calendar from the Games page is displayed\nWhen the user selects the \"\"<\"\" or \"\">\"\" buttons in the calendar\nAnd selects a day in the month that has games\nOr the user opens the calendar picker and selects the “Today” button\nThen the appropriate month and year is displayed as the user presses the \"\"<\"\" or \"\">\"\" buttons\nAnd the appropriate day with the appropriate games are displayed on the games page after the user selects a day",
   "unstructured": null,
   "steps": []
 }

@@ -7,7 +7,7 @@
   "status": "Done",
   "testType": "Cucumber",
   "scenarioType": "scenario",
-  "gherkin": "Given the user is logged into mlb.com/tv with valid credentials\nAnd the user is entitled to multiple video feeds\nAnd the user has selected a game with multiple video feeds (ex: Home and Away Video feeds)\nWhen the user selects the \"Broadcast Options\" button in the player\nAnd the user clicks on the other available video feed \nThen the newly selected video feed starts playing back\nAnd audio playback is updated to the TV audio of the newly selected video feed\nAnd the scrubber is dismissed after 5 seconds",
+  "gherkin": "Given the user is logged into mlb.com/tv with valid credentials\nAnd the user is entitled to multiple video feeds\nAnd the user has selected a game with multiple video feeds (ex: Home and Away Video feeds)\nWhen the user selects the \"Broadcast Options\" button in the player\nAnd the user clicks on the other available video feed\nThen the newly selected video feed starts playing back\nAnd audio playback is updated to the TV audio of the newly selected video feed\nAnd the scrubber is dismissed after 5 seconds",
   "unstructured": null,
   "steps": []
 }

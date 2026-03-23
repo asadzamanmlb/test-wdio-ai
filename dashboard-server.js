@@ -4,6 +4,7 @@
  */
 require('dotenv').config({ path: require('path').join(__dirname, '.env') });
 const express = require('express');
+const dashboardAuth = require('./lib/dashboardAuth');
 const path = require('path');
 const fs = require('fs');
 const { spawn, spawnSync } = require('child_process');
@@ -102,13 +103,42 @@ let automateRunState = {
   error: null,
 };
 
-app.use(express.json());
-
+app.use(dashboardAuth.cookieParserMiddleware);
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  const origin = req.headers.origin;
+  if (origin) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+  } else {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+  }
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (req.method === 'OPTIONS') return res.sendStatus(204);
   next();
 });
+
+app.use(express.json());
+dashboardAuth.registerPublicAuthRoutes(app);
+app.use(dashboardAuth.authGate);
+dashboardAuth.registerAdminRoutes(app);
+
+app.param('suite', (req, res, next, suite) => {
+  if (dashboardAuth.isAuthDisabled()) return next();
+  if (!req.dashboardUser) return res.status(401).json({ error: 'Unauthorized' });
+  if (!dashboardAuth.userHasSuiteAccess(req.dashboardUser, suite)) {
+    return res.status(403).json({ error: 'No access to this suite' });
+  }
+  next();
+});
+
+function requireAdminRole(req, res, next) {
+  if (dashboardAuth.isAuthDisabled()) return next();
+  if (!req.dashboardUser || req.dashboardUser.role !== 'admin') {
+    return res.status(403).json({ error: 'Admin only' });
+  }
+  next();
+}
 
 function loadExecuteResults() {
   if (!fs.existsSync(EXECUTE_RESULTS_FILE)) return {};
@@ -167,13 +197,25 @@ function filterScenariosByProject(scenarios, project) {
   return (scenarios || []).filter((s) => scenarioBelongsToProject(s, project));
 }
 
-function getFlakyScenarios(runs, lastN = 20, project = null) {
+/** Metrics / runs / trends / flaky: apply ?project= plus suite RBAC (testcase folder ids: webTv, optools, coreApp). */
+function scopedRunScenarios(runScenarios, project, user) {
+  const p = project || 'all';
+  if (!dashboardAuth.isAuthDisabled() && user && user.role !== 'admin') {
+    if (!user.suites?.length) return [];
+    if (p === 'all') return dashboardAuth.filterScenariosForUser(runScenarios, user);
+    if (!dashboardAuth.userHasSuiteAccess(user, p)) return [];
+    return filterScenariosByProject(runScenarios || [], p);
+  }
+  return filterScenariosByProject(runScenarios || [], p);
+}
+
+function getFlakyScenarios(runs, lastN = 20, project = null, user = null) {
   const recent = runs.slice(-lastN);
   const byScenario = {};
 
   for (const run of recent) {
     if (!run.scenarios) continue;
-    const scenarios = filterScenariosByProject(run.scenarios, project);
+    const scenarios = scopedRunScenarios(run.scenarios, project, user);
     for (const s of scenarios) {
       const id = s.id;
       if (!byScenario[id]) byScenario[id] = { id, feature: s.feature, name: s.name, outcomes: [] };
@@ -270,11 +312,11 @@ function getAutomationCoverage() {
   };
 }
 
-function getTrends(runs, limit = 30, project = null) {
+function getTrends(runs, limit = 30, project = null, user = null) {
   return runs
     .slice(-limit)
     .map((r) => {
-      const scenarios = filterScenariosByProject(r.scenarios || [], project);
+      const scenarios = scopedRunScenarios(r.scenarios || [], project, user);
       const metrics = computeMetricsFromScenarios(scenarios);
       return {
         date: r.timestamp,
@@ -354,7 +396,7 @@ app.get('/api/metrics', (req, res) => {
       failedScenarios: [],
     });
   }
-  const scenarios = filterScenariosByProject(latest.scenarios || [], project);
+  const scenarios = scopedRunScenarios(latest.scenarios || [], project, req.dashboardUser);
   const metrics = computeMetricsFromScenarios(scenarios);
   res.json({
     hasData: metrics.total > 0,
@@ -483,7 +525,7 @@ app.get('/api/runs', (req, res) => {
     .slice(-limit)
     .reverse()
     .map((r) => {
-      const scenarios = filterScenariosByProject(r.scenarios || [], project);
+      const scenarios = scopedRunScenarios(r.scenarios || [], project, req.dashboardUser);
       const metrics = computeMetricsFromScenarios(scenarios);
       return {
         id: r.id,
@@ -505,27 +547,52 @@ app.get('/api/runs/:id', (req, res) => {
   const runs = loadRuns();
   const run = runs.find((r) => r.id === req.params.id);
   if (!run) return res.status(404).json({ error: 'Run not found' });
-  res.json(run);
+  const user = req.dashboardUser;
+  const scenarios = scopedRunScenarios(run.scenarios || [], 'all', user);
+  const metrics = computeMetricsFromScenarios(scenarios);
+  res.json({
+    ...run,
+    scenarios,
+    passed: metrics.passed,
+    failed: metrics.failed,
+    skipped: metrics.skipped,
+    total: metrics.total,
+    passRate: metrics.passRate,
+    byFeature: metrics.byFeature,
+    failedScenarios: metrics.failedScenarios,
+  });
 });
 
 app.get('/api/trends', (req, res) => {
   const limit = parseInt(req.query.limit, 10) || 30;
   const project = req.query.project || 'all';
   const runs = loadRuns();
-  res.json({ trends: getTrends(runs, limit, project) });
+  res.json({ trends: getTrends(runs, limit, project, req.dashboardUser) });
 });
 
 app.get('/api/automation', (req, res) => {
   const project = req.query.project || 'all';
   const data = getAutomationCoverage();
+  let suites = data.suites;
+  const user = req.dashboardUser;
+  if (!dashboardAuth.isAuthDisabled() && user && user.role !== 'admin') {
+    if (!user.suites?.length) {
+      return res.json({ suites: [], totalAutomated: 0, totalManual: 0, total: 0 });
+    }
+    const allowed = new Set(user.suites.map((s) => dashboardAuth.normalizeSuiteId(s).toLowerCase()));
+    suites = suites.filter((s) => allowed.has(dashboardAuth.normalizeSuiteId(s.name).toLowerCase()));
+  }
   if (project && project !== 'all') {
-    const filtered = data.suites.filter((s) => s.name === project);
+    const filtered = suites.filter((s) => s.name === project);
     const total = filtered.reduce((sum, s) => sum + s.total, 0);
     const totalAutomated = filtered.reduce((sum, s) => sum + s.automated, 0);
     const totalManual = filtered.reduce((sum, s) => sum + s.manual, 0);
     return res.json({ suites: filtered, totalAutomated, totalManual, total });
   }
-  res.json(data);
+  const total = suites.reduce((sum, s) => sum + s.total, 0);
+  const totalAutomated = suites.reduce((sum, s) => sum + s.automated, 0);
+  const totalManual = suites.reduce((sum, s) => sum + s.manual, 0);
+  res.json({ suites, totalAutomated, totalManual, total });
 });
 
 function getScenariosForSuite(suiteName) {
@@ -553,13 +620,14 @@ function getScenariosForSuite(suiteName) {
 app.get('/api/projects', (req, res) => {
   if (!fs.existsSync(TESTCASE_DIR)) return res.json({ projects: [] });
   const entries = fs.readdirSync(TESTCASE_DIR, { withFileTypes: true });
-  const projects = entries
+  let projects = entries
     .filter((e) => e.isDirectory() && !e.name.startsWith('.'))
     .map((e) => ({
       id: e.name,
       name: e.name.replace(/([A-Z])/g, ' $1').replace(/^./, (c) => c.toUpperCase()).trim(),
     }))
     .sort((a, b) => a.id.localeCompare(b.id));
+  projects = dashboardAuth.filterProjectsList(projects, req.dashboardUser);
   res.json({ projects });
 });
 
@@ -583,11 +651,19 @@ app.get('/api/suites', (req, res) => {
   if (project && project !== 'all') {
     suites = suites.filter((s) => s.name === project);
   }
+  const user = req.dashboardUser;
+  if (!dashboardAuth.isAuthDisabled() && user && user.role !== 'admin') {
+    if (!user.suites?.length) suites = [];
+    else {
+      const allowed = new Set(user.suites.map((s) => dashboardAuth.normalizeSuiteId(s).toLowerCase()));
+      suites = suites.filter((s) => allowed.has(dashboardAuth.normalizeSuiteId(s.name).toLowerCase()));
+    }
+  }
   res.json({ suites });
 });
 
 app.get('/api/execute-results', (req, res) => {
-  res.json(loadExecuteResults());
+  res.json(dashboardAuth.filterExecuteResultsForUser(loadExecuteResults(), req.dashboardUser));
 });
 
 app.get('/api/sauce/status', (req, res) => {
@@ -615,6 +691,7 @@ app.post('/api/execute-suite', async (req, res) => {
   if (!suite) {
     return res.status(400).json({ error: 'suite required' });
   }
+  if (!dashboardAuth.assertSuiteBody(req, res, suite)) return;
   let scenarios = getScenariosForSuite(suite).filter((s) => s.automated);
   if (keys && Array.isArray(keys) && keys.length > 0) {
     const keySet = new Set(keys.map((k) => String(k).trim()).filter(Boolean));
@@ -759,7 +836,15 @@ app.get('/api/sync-config', (req, res) => {
   try {
     const config = JSON.parse(fs.readFileSync(SYNC_CONFIG, 'utf8'));
     const jiraBaseUrl = config.jiraBaseUrl || 'https://baseball.atlassian.net';
-    const suites = Object.keys(config).filter((k) => k !== 'jiraBaseUrl');
+    let suites = Object.keys(config).filter((k) => k !== 'jiraBaseUrl');
+    const user = req.dashboardUser;
+    if (!dashboardAuth.isAuthDisabled() && user && user.role !== 'admin') {
+      if (!user.suites?.length) suites = [];
+      else {
+        const allowed = new Set(user.suites.map((s) => dashboardAuth.normalizeSuiteId(s).toLowerCase()));
+        suites = suites.filter((s) => allowed.has(dashboardAuth.normalizeSuiteId(s).toLowerCase()));
+      }
+    }
     res.json({ suites, jiraBaseUrl });
   } catch {
     res.json({ suites: [], jiraBaseUrl: 'https://baseball.atlassian.net' });
@@ -770,7 +855,7 @@ app.get('/api/flaky', (req, res) => {
   const lastN = parseInt(req.query.lastN, 10) || 20;
   const project = req.query.project || 'all';
   const runs = loadRuns();
-  res.json({ flaky: getFlakyScenarios(runs, lastN, project) });
+  res.json({ flaky: getFlakyScenarios(runs, lastN, project, req.dashboardUser) });
 });
 
 /** Normalize gherkin for comparison: ignore whitespace/line-ending differences */
@@ -2064,6 +2149,7 @@ app.post('/api/execute', async (req, res) => {
       success: false,
     });
   }
+  if (!dashboardAuth.assertSuiteBody(req, res, suite)) return;
 
   const sauceOn = !!useSauce;
   if (sauceOn && !isSauceConfigured()) {
@@ -2133,6 +2219,7 @@ app.post('/api/fix/start', (req, res) => {
   if (!suite || !key) {
     return res.status(400).json({ error: 'suite and key required' });
   }
+  if (!dashboardAuth.assertSuiteBody(req, res, suite)) return;
   const featurePath = getFeaturePathForKey(suite, key);
   if (!featurePath) {
     return res.status(404).json({ error: `No feature file for ${key} in ${suite}` });
@@ -2165,7 +2252,7 @@ app.post('/api/fix/stop', (req, res) => {
 });
 
 let syncInProgress = false;
-app.post('/api/sync', (req, res) => {
+app.post('/api/sync', requireAdminRole, (req, res) => {
   if (syncInProgress) {
     return res.status(429).json({ error: 'Sync already in progress' });
   }
@@ -2194,7 +2281,7 @@ app.post('/api/sync', (req, res) => {
 });
 
 /** Wipe RAG vector DB (.rag-memory.json only), failure manifests/screenshots, and failed scenarios from run history. Domain seed `rag/domain-knowledge.json` is not deleted. */
-app.post('/api/rag/refresh', (req, res) => {
+app.post('/api/rag/refresh', requireAdminRole, (req, res) => {
   try {
     const { clearDb } = require('./rag/vectorDB');
     const result = clearDb({ failureManifests: true });
@@ -2234,7 +2321,7 @@ app.post('/api/rag/refresh', (req, res) => {
   }
 });
 
-app.post('/api/restart', (req, res) => {
+app.post('/api/restart', requireAdminRole, (req, res) => {
   res.json({ success: true, message: 'Building dashboard, then restarting server...' });
   const projectRoot = path.resolve(__dirname);
   const build = spawnSync('npm', ['run', 'dashboard:build'], {

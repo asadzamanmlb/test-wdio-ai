@@ -7,7 +7,7 @@
   "status": "Done",
   "testType": "Cucumber",
   "scenarioType": "scenario",
-  "gherkin": "Given an entitled user logged into mlb.com/tv\nAnd the user has initiated playback for a live or archive game \nWhen the user initiates any of the following actions:\n|Pause \n|Play\n|Rewind\n|Fast Forward\n|Volume Control\n|Playback Quality\n|Broadcast Options\n|Full Screen\nThen the player should respond appropriately to each action",
+  "gherkin": "Given an entitled user logged into mlb.com/tv\nAnd the user has initiated playback for a live or archive game\nWhen the user initiates any of the following actions:\n|Pause\n|Play\n|Rewind\n|Fast Forward\n|Volume Control\n|Playback Quality\n|Broadcast Options\n|Full Screen\nThen the player should respond appropriately to each action",
   "unstructured": null,
   "steps": []
 }

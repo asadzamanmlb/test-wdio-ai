@@ -12,25 +12,8 @@ import {
   Cell,
   Legend,
 } from 'recharts';
-
-// Use same origin; fallback to :4000 when opened as file:// (e.g. from editor preview)
-const API =
-  typeof window !== 'undefined' && window.location?.origin && !window.location.origin.startsWith('file')
-    ? `${window.location.origin}/api`
-    : 'http://localhost:4000/api';
-
-async function fetchJson(url) {
-  const res = await fetch(url);
-  const ct = res.headers.get('content-type') || '';
-  if (!ct.includes('application/json')) {
-    throw new Error(
-      'Dashboard API returned HTML instead of JSON. Run `npm run dashboard` to start the API server on port 4000.'
-    );
-  }
-  const data = await res.json();
-  if (!res.ok) throw new Error(data?.error || `Request failed (${res.status})`);
-  return data;
-}
+import { API, fetchJson, apiFetch } from './apiConfig';
+import { useDashboardAuth, AdminPortal } from './AuthGate';
 
 function Card({ title, value, sub, variant = 'default' }) {
   const colors = {
@@ -78,7 +61,7 @@ function FailedScenarios({ items, runs, selectedRunId, onRunSelect, currentRunId
           {displayItems?.length > 0 && runId && (
             <button
               onClick={async () => {
-                await fetch(`${API}/runs/${runId}/delete-scenarios`, {
+                await apiFetch(`${API}/runs/${runId}/delete-scenarios`, {
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json' },
                   body: JSON.stringify({ scenarioIds: displayItems.map((s) => s.id) }),
@@ -128,7 +111,7 @@ function FailedScenarios({ items, runs, selectedRunId, onRunSelect, currentRunId
               {runId && (
                 <button
                   onClick={async () => {
-                    await fetch(`${API}/runs/${runId}/delete-scenarios`, {
+                    await apiFetch(`${API}/runs/${runId}/delete-scenarios`, {
                       method: 'POST',
                       headers: { 'Content-Type': 'application/json' },
                       body: JSON.stringify({ scenarioIds: [s.id] }),
@@ -407,7 +390,7 @@ function UpdateXrayDiffModal({ suite, scenarioKey, change, onClose, onUpdate, on
     setUpdating(true);
     setToast(null);
     try {
-      const res = await fetch(`${API}/update-xray/${suite}/${scenarioKey}`, { method: 'POST' });
+      const res = await apiFetch(`${API}/update-xray/${suite}/${scenarioKey}`, { method: 'POST' });
       const data = await res.json();
       if (res.ok && data.success) {
         const msg = !data.xrayUpdated && data.xrayError
@@ -529,7 +512,7 @@ function SyncDiffModal({ suite, key: scenarioKey, changes, onClose, onApply, onR
       const url = scenarioKey
         ? `${API}/sync/${suite}/${scenarioKey}/apply`
         : `${API}/sync/${suite}/apply`;
-      const res = await fetch(url, { method: 'POST' });
+      const res = await apiFetch(url, { method: 'POST' });
       const data = await res.json().catch(() => ({}));
       if (res.ok && data.success) {
         setToast('Updated successfully');
@@ -658,7 +641,7 @@ function ScenarioRow({
     setRunning(true);
     setRunState(null);
     try {
-      const res = await fetch(`${API}/execute`, {
+      const res = await apiFetch(`${API}/execute`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -945,7 +928,7 @@ function ScenarioList({
   async function fetchSyncStatus() {
     if (!suiteName) return;
     try {
-      const res = await fetch(`${API}/sync/${suiteName}/status`);
+      const res = await apiFetch(`${API}/sync/${suiteName}/status`);
       const data = await res.json();
       if (res.ok && data) {
         const newList = data.new || [];
@@ -994,7 +977,7 @@ function ScenarioList({
     setSyncPreview(null);
     setSyncPreviewKey(null); // full-suite sync: apply uses /sync/:suite/apply
     try {
-      const res = await fetch(`${API}/sync/${suiteName}/preview`, { method: 'POST' });
+      const res = await apiFetch(`${API}/sync/${suiteName}/preview`, { method: 'POST' });
       const data = await res.json();
       if (res.ok && data.success) {
         setSyncPreview(data.changes);
@@ -1013,7 +996,7 @@ function ScenarioList({
     setUpdateXrayPreview(null);
     setUpdateXrayLoadingKey(key);
     try {
-      const res = await fetch(`${API}/update-xray-preview/${suiteName}/${key}`, { method: 'POST' });
+      const res = await apiFetch(`${API}/update-xray-preview/${suiteName}/${key}`, { method: 'POST' });
       const data = await res.json();
       if (res.ok && data.success !== false) {
         setUpdateXrayPreview({ ...data, key: data.key ?? key });
@@ -1033,7 +1016,7 @@ function ScenarioList({
     setSyncPreviewKey(key);
     setSyncLoadingKey(key);
     try {
-      const res = await fetch(`${API}/sync/${suiteName}/${key}/preview`, { method: 'POST' });
+      const res = await apiFetch(`${API}/sync/${suiteName}/${key}/preview`, { method: 'POST' });
       const data = await res.json();
       if (res.ok && data.success) {
         setSyncPreview(data.changes);
@@ -1067,7 +1050,7 @@ function ScenarioList({
     if (!suite || selectedCount === 0 || runAllLoading) return;
     setRunAllLoading(true);
     try {
-      const res = await fetch(`${API}/execute-suite`, {
+      const res = await apiFetch(`${API}/execute-suite`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -1104,7 +1087,7 @@ function ScenarioList({
     if (!suite || automatedCount === 0 || runAllLoading) return;
     setRunAllLoading(true);
     try {
-      const res = await fetch(`${API}/execute-suite`, {
+      const res = await apiFetch(`${API}/execute-suite`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -1142,7 +1125,7 @@ function ScenarioList({
     try {
       const suiteIdForApi = suiteId || suiteName;
       const params = new URLSearchParams({ run: '1', headless: headless ? '1' : '0', browser: browser || 'chrome' });
-      const res = await fetch(`${API}/automate/${suiteIdForApi}/${key}?${params}`, { method: 'POST' });
+      const res = await apiFetch(`${API}/automate/${suiteIdForApi}/${key}?${params}`, { method: 'POST' });
       const data = await res.json();
       if (res.ok && data.success) {
         if (data.agentStarted) {
@@ -1425,12 +1408,17 @@ function App() {
   const [reportPdfExists, setReportPdfExists] = useState(false);
   const [executeRunning, setExecuteRunning] = useState(false);
   const [stopTestLoading, setStopTestLoading] = useState(false);
+  const [showAdmin, setShowAdmin] = useState(false);
+
+  const { user, authDisabled, logout } = useDashboardAuth();
+  const isAdmin = authDisabled || user?.role === 'admin';
+  const showAllProjectsTab = isAdmin || (user?.suites && user.suites.length > 1);
 
   async function handleSync() {
     setSyncing(true);
     setSyncMessage(null);
     try {
-      const res = await fetch(`${API}/sync`, { method: 'POST' });
+      const res = await apiFetch(`${API}/sync`, { method: 'POST' });
       const data = await res.json();
       if (res.ok && data.success) {
         setSyncMessage('Sync complete. Refreshing...');
@@ -1460,8 +1448,8 @@ function App() {
           fetchJson(`${API}/sync-config`),
           fetchJson(`${API}/runs?limit=30${projectParam}`),
           fetchJson(`${API}/execute-results`),
-          fetch(`${API}/report/status`).then((r) => r.json()).catch(() => ({ exists: false })),
-          fetch(`${API}/sauce/status`)
+          apiFetch(`${API}/report/status`).then((r) => r.json()).catch(() => ({ exists: false })),
+          apiFetch(`${API}/sauce/status`)
             .then((r) => (r.ok ? r.json() : { configured: false }))
             .catch(() => ({ configured: false })),
         ]);
@@ -1490,6 +1478,14 @@ function App() {
     const id = setInterval(fetchAll, 5000); // Poll every 5s to pick up new runs after test completion
     return () => clearInterval(id);
   }, [selectedProject]);
+
+  useEffect(() => {
+    if (authDisabled || !user || user.role === 'admin') return;
+    const allowed = user.suites || [];
+    if (allowed.length === 1 && selectedProject === 'all') {
+      setSelectedProject(allowed[0]);
+    }
+  }, [user, authDisabled, selectedProject]);
 
   useEffect(() => {
     if (!sauceConfigured && executeUseSauce) setExecuteUseSauce(false);
@@ -1548,7 +1544,7 @@ function App() {
   async function handleStopExecute() {
     setStopTestLoading(true);
     try {
-      const res = await fetch(`${API}/execute/stop`, { method: 'POST', headers: { 'Content-Type': 'application/json' } });
+      const res = await apiFetch(`${API}/execute/stop`, { method: 'POST', headers: { 'Content-Type': 'application/json' } });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
         alert(data.error || `Stop failed (${res.status})`);
@@ -1562,7 +1558,7 @@ function App() {
 
   async function handleFixStart(suite, key) {
     try {
-      await fetch(`${API}/fix/start`, {
+      await apiFetch(`${API}/fix/start`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -1582,7 +1578,7 @@ function App() {
 
   async function handleFixStop() {
     try {
-      await fetch(`${API}/fix/stop`, { method: 'POST' });
+      await apiFetch(`${API}/fix/stop`, { method: 'POST' });
     } catch (e) {
       console.error(e);
     }
@@ -1598,6 +1594,7 @@ function App() {
 
   return (
     <div className="min-h-screen p-4 md:p-6 lg:p-8">
+      {showAdmin && <AdminPortal onClose={() => setShowAdmin(false)} />}
       <header className="mb-8 flex flex-col gap-4">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
@@ -1605,8 +1602,37 @@ function App() {
             <p className="mt-1 text-sm text-[var(--muted)]">
               Charts, trends, and flaky detection for unified QA platform
             </p>
+            {user && !authDisabled && (
+              <p className="mt-1 text-xs text-[var(--muted)]">
+                Signed in as <span className="text-[var(--text)]">{user.email}</span>
+                {user.role === 'user' && user.suites?.length
+                  ? ` · Access: ${user.suites.join(', ')}`
+                  : null}
+              </p>
+            )}
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2">
+            {!authDisabled && user?.role === 'admin' && (
+              <button
+                type="button"
+                onClick={() => setShowAdmin(true)}
+                className="rounded-lg border border-[var(--accent)]/50 bg-[var(--accent)]/10 px-3 py-2 text-sm font-medium text-[var(--accent)] hover:bg-[var(--accent)]/20"
+              >
+                Admin
+              </button>
+            )}
+            {!authDisabled && (
+              <button
+                type="button"
+                onClick={() => logout()}
+                className="rounded-lg border border-[var(--border)] px-3 py-2 text-sm text-[var(--muted)] hover:bg-black/20 hover:text-[var(--text)]"
+              >
+                Sign out
+              </button>
+            )}
+          </div>
+        </div>
+        <div className="flex flex-wrap items-center gap-3">
           <div className="flex items-center gap-1 rounded-lg border border-[var(--border)] bg-[var(--surface)] p-0.5">
             <span className="px-2 py-1 text-xs text-[var(--muted)]">Execute on</span>
             <button
@@ -1799,13 +1825,15 @@ function App() {
           >
             {stopTestLoading ? 'Stopping…' : 'Stop test'}
           </button>
-          <button
-            onClick={handleSync}
-            disabled={syncing}
-            className="rounded-lg border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-medium hover:bg-black/30 disabled:opacity-50"
-          >
-            {syncing ? 'Syncing...' : 'Sync from Xray'}
-          </button>
+          {isAdmin && (
+            <button
+              onClick={handleSync}
+              disabled={syncing}
+              className="rounded-lg border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-medium hover:bg-black/30 disabled:opacity-50"
+            >
+              {syncing ? 'Syncing...' : 'Sync from Xray'}
+            </button>
+          )}
           <button
             onClick={() => window.open((API || '').replace(/\/api\/?$/, '') + '/report', '_blank')}
             disabled={!reportExists}
@@ -1822,11 +1850,12 @@ function App() {
           >
             Open PDF
           </button>
+          {isAdmin && (
           <button
             onClick={async () => {
               setRagRefreshLoading(true);
               try {
-                const res = await fetch(`${API}/rag/refresh`, { method: 'POST' });
+                const res = await apiFetch(`${API}/rag/refresh`, { method: 'POST' });
                 const data = await res.json();
                 if (res.ok && data.success) {
                   await fetchAll();
@@ -1849,18 +1878,20 @@ function App() {
           >
             {ragRefreshLoading ? 'Wiping…' : 'Refresh vector DB'}
           </button>
+          )}
+          {isAdmin && (
           <button
             onClick={async () => {
               setRestartStatus('restarting');
               try {
-                await fetch(`${API}/restart`, { method: 'POST' });
+                await apiFetch(`${API}/restart`, { method: 'POST' });
               } catch (_) {}
               const pollUntilBack = async () => {
                 // Phase 1: wait for server to go down (fetch fails)
                 for (let i = 0; i < 15; i++) {
                   await new Promise((r) => setTimeout(r, 500));
                   try {
-                    await fetch(`${API}/metrics`);
+                    await apiFetch(`${API}/metrics`);
                   } catch (_) {
                     break; // server is down, proceed to phase 2
                   }
@@ -1869,7 +1900,7 @@ function App() {
                 for (let i = 0; i < 40; i++) {
                   await new Promise((r) => setTimeout(r, 500));
                   try {
-                    const res = await fetch(`${API}/metrics`);
+                    const res = await apiFetch(`${API}/metrics`);
                     if (res.ok) {
                       setRestartStatus('back');
                       fetchAll();
@@ -1891,15 +1922,17 @@ function App() {
           >
             {restartStatus === 'restarting' ? 'Rebuilding & restarting…' : restartStatus === 'back' ? '✓ Back online' : 'Rebuild & restart'}
           </button>
-        </div>
+          )}
         </div>
         <div className="flex flex-wrap items-center gap-1 rounded-lg border border-[var(--border)] bg-[var(--surface)] p-0.5">
-          <button
-            onClick={() => setSelectedProject('all')}
-            className={`rounded px-3 py-2 text-sm font-medium transition-colors ${selectedProject === 'all' ? 'bg-[var(--accent)] text-white' : 'text-[var(--muted)] hover:bg-black/20 hover:text-[var(--text)]'}`}
-          >
-            All
-          </button>
+          {showAllProjectsTab && (
+            <button
+              onClick={() => setSelectedProject('all')}
+              className={`rounded px-3 py-2 text-sm font-medium transition-colors ${selectedProject === 'all' ? 'bg-[var(--accent)] text-white' : 'text-[var(--muted)] hover:bg-black/20 hover:text-[var(--text)]'}`}
+            >
+              All
+            </button>
+          )}
           {projects.map((p) => (
             <button
               key={p.id}

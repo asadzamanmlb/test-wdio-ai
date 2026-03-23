@@ -7,7 +7,7 @@
   "status": "Done",
   "testType": "Cucumber",
   "scenarioType": "scenario",
-  "gherkin": "Given the user is logged into mlb.com/tv\nAnd has the SUBSCRIBER VOD entitlement \nWhen the user navigates to select any SVOD Video from the Homepage \nThen the user should be able to play SVOD Video successfully",
+  "gherkin": "Given the user is logged into mlb.com/tv\nAnd has the SUBSCRIBER VOD entitlement\nWhen the user navigates to select any SVOD Video from the Homepage\nThen the user should be able to play SVOD Video successfully",
   "unstructured": null,
   "steps": []
 }

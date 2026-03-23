@@ -7,7 +7,7 @@
   "status": "Done",
   "testType": "Cucumber",
   "scenarioType": "scenario",
-  "gherkin": "Given the user navigates to the Media Center\nAnd its off season\nWhen the user looks at the date container \nThen the user should see the default date displayed in the date container (February 20,2026)",
+  "gherkin": "Given the user navigates to the Media Center\nAnd its off season\nWhen the user looks at the date container\nThen the user should see the default date displayed in the date container (February 20,2026)",
   "unstructured": null,
   "steps": []
 }
