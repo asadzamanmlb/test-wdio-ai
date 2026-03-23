@@ -2,7 +2,12 @@
  * Overwrites element commands to highlight before every interaction.
  * Loaded via wdio before() hook. Works with HIGHLIGHT_ELEMENTS (default: on).
  */
-const { highlightBeforeInteract, HIGHLIGHT_ENABLED } = require('./highlight');
+const {
+  highlightBeforeInteract,
+  HIGHLIGHT_ENABLED,
+  flashAssertionHighlight,
+  HIGHLIGHT_ASSERTIONS_ENABLED,
+} = require('./highlight');
 
 function registerHighlightOverwrites(browser) {
   if (!HIGHLIGHT_ENABLED) return;
@@ -24,6 +29,26 @@ function registerHighlightOverwrites(browser) {
       true
     );
   });
+
+  /** After a successful wait, flash **blue** outline on that element (vs red before click/type). */
+  if (HIGHLIGHT_ASSERTIONS_ENABLED) {
+    browser.overwriteCommand(
+      'waitForDisplayed',
+      async function (origWaitForDisplayed, options) {
+        await origWaitForDisplayed.call(this, options);
+        await flashAssertionHighlight(this, { scroll: true }).catch(() => {});
+      },
+      true
+    );
+    browser.overwriteCommand(
+      'waitForClickable',
+      async function (origWaitForClickable, options) {
+        await origWaitForClickable.call(this, options);
+        await flashAssertionHighlight(this, { scroll: true }).catch(() => {});
+      },
+      true
+    );
+  }
 }
 
 module.exports = { registerHighlightOverwrites };

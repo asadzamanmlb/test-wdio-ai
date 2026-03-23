@@ -2,10 +2,11 @@
   "webTv:WSTE-44": {
     "success": false,
     "status": "failed",
-    "failStep": "When the user navigates down to select a VOD video",
-    "failReason": "Error: Did not navigate to video page after clicking VOD tile\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Browser.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/smoke.steps.js:163:3)",
-    "screenshot": null,
-    "timestamp": "2026-03-22T03:50:29.727Z"
+    "failStep": "Given a user is logged into mlb.com/tv (any user)",
+    "failReason": "Error: element (\"//input[@name=\"identifier\"]\") still not displayed after 15000ms\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async Element.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/support/highlight-commands.js:38:9)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)",
+    "screenshot": "/api/screenshots/Smoke---Homepage---Verify-VOD-Playback-1774240525548.png",
+    "video": "/api/videos/Smoke--Homepage-Verify-VOD-Playback-0-3--CHROME--03-23-2026--24-34-49-470.mp4",
+    "timestamp": "2026-03-23T04:37:19.000Z"
   },
   "webTv:WSTE-35": {
     "success": true,
@@ -13,7 +14,8 @@
     "failStep": null,
     "failReason": null,
     "screenshot": null,
-    "timestamp": "2026-03-22T03:39:57.266Z"
+    "video": "/api/videos/Smoke--Log-In-0-0--CHROME--03-23-2026--24-51-24-836.mp4",
+    "timestamp": "2026-03-23T04:53:03.762Z"
   },
   "webTv:WSTE-39": {
     "success": true,
@@ -21,6 +23,33 @@
     "failStep": null,
     "failReason": null,
     "screenshot": null,
-    "timestamp": "2026-03-22T03:12:40.044Z"
+    "video": "/api/videos/Smoke--Verify-Archive-Game-Playback-Default-0-1--CHROME--03-23-2026--24-40-29-726.mp4",
+    "timestamp": "2026-03-23T04:42:08.333Z"
+  },
+  "webTv:WSTE-36": {
+    "success": true,
+    "status": "passed",
+    "failStep": null,
+    "failReason": null,
+    "screenshot": null,
+    "timestamp": "2026-03-22T23:33:57.340Z"
+  },
+  "webTv:WSTE-40": {
+    "success": false,
+    "status": "failed",
+    "failStep": "Given an entitled user is logged in",
+    "failReason": "Error: element (\"//input[@name=\"identifier\"]\") still not displayed after 15000ms\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async Element.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/support/highlight-commands.js:38:9)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.ensureLoggedIntoMlbTv (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/login.steps.js:219:3)",
+    "screenshot": "/api/screenshots/Smoke---Archive-Game-Playback---Hide-Spoilers-ON-1774240523072.png",
+    "video": "/api/videos/Smoke--Archive-Game-Playback-Hide-Spoilers-ON-0-2--CHROME--03-23-2026--24-34-49-689.mp4",
+    "timestamp": "2026-03-23T04:37:19.000Z"
+  },
+  "webTv:WSTE-718": {
+    "success": false,
+    "status": "failed",
+    "failStep": "Given the user is logged in and on mlb.com/live-stream-games",
+    "failReason": "Error: element (\"//input[@name=\"identifier\"]\") still not displayed after 15000ms\n    at <anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:5959:15)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at Element.elementErrorHandlerCallbackFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/webdriverio/build/node.js:9488:24)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async Element.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/support/highlight-commands.js:38:9)\n    at Element.wrapCommandFn (/Users/asad.zaman/Downloads/unified_qa_platform/node_modules/@wdio/utils/build/index.js:982:23)\n    at async World.<anonymous> (/Users/asad.zaman/Downloads/unified_qa_platform/features/step-definitions/media-center.steps.js:107:3)",
+    "screenshot": "/api/screenshots/Media-Center---Verify-calendar-date-range-1774240524187.png",
+    "video": "/api/videos/Media-Center--Verify-calendar-date-range-0-4--CHROME--03-23-2026--24-34-49-671.mp4",
+    "timestamp": "2026-03-23T04:37:19.002Z"
   }
 }

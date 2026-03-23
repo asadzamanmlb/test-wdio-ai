@@ -1,0 +1,16 @@
+---
+description: WebTV product domain terms (Hide Spoilers, settings) when editing features or steps
+globs: features/webtv/**/*.feature,features/step-definitions/**/*.steps.js,features/pageobjects/**/*.js
+alwaysApply: false
+---
+
+# WebTV domain context
+
+When steps mention **Hide Spoilers**, **HideSpoilers**, archive spoiler behavior, or similar:
+
+1. Read **`docs/webtv-domain-context.md`** — canonical flow: **login → pick game from live stream → start playback → player Settings → Hide spoilers toggle ON/OFF**.
+2. **`rag/domain-knowledge.json`** mirrors this for **project RAG** (self-heal / agents); not cleared by dashboard RAG refresh.
+
+**Implement from real DOM:** capture `data-testid` / `aria-label` / stable selectors into **`features/pageobjects/*.object.js`** (live tile, start game, player settings, toggle). Use `ensureHideSpoilersOn()` / `ensureHideSpoilersOff()` and explicit waits — never guess selectors without walking the flow on QA/BETA or using `reports/failure-dom.json`.
+
+**Line score hidden (Hide Spoilers ON):** horizontal **game cards** must not show **inning + number** (`Top 1`, `Bot 5`) or **numeric scores** (`0-1`) — see **`docs/webtv-domain-context.md`** § Line score. Advance playback, then assert via **`hideSpoilersLineScoreAssertions.js`** / **`lineScoreStrip`** in **`player.object.js`**.

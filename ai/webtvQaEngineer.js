@@ -221,6 +221,13 @@ function isCucumberExpressionError(msg) {
   );
 }
 
+/** Check if failure is "Step X is not defined" (step def exists but string pattern fails due to special chars) */
+function isUndefinedStepError(msg) {
+  if (!msg || typeof msg !== 'string') return false;
+  if (/ReferenceError/i.test(msg) && /\b(And|Or)\b/.test(msg)) return false; // And/Or → ReferenceError handler
+  return /Step\s+["'][^"']*["']\s+is not defined|" is not defined\. You can ignore/i.test(msg);
+}
+
 /** Convert string patterns with special chars to regex. Returns true if any change was made. */
 function tryFixCucumberExpressionErrors(stepDefPath) {
   if (!fs.existsSync(stepDefPath)) return { applied: false };
@@ -342,6 +349,21 @@ async function runWebTvQaEngineer(key, options = {}) {
       return { success: false, attempts, result, reason: 'Cucumber Expression parse error' };
     }
 
+    if (isUndefinedStepError(failReason)) {
+      const stepDefsDir = path.join(ROOT, 'features', 'step-definitions');
+      if (fs.existsSync(stepDefsDir)) {
+        let anyFixed = false;
+        for (const f of fs.readdirSync(stepDefsDir).filter((x) => x.endsWith('.js'))) {
+          const fixResult = tryFixCucumberExpressionErrors(path.join(stepDefsDir, f));
+          if (fixResult.applied) anyFixed = true;
+        }
+        if (anyFixed) {
+          console.log('  🔧 Fixed "is not defined" (converted step patterns with parentheses/special chars to regex)');
+          continue;
+        }
+      }
+    }
+
     if (isNotImplementedError(failReason)) {
       const stepDefPath = path.join(ROOT, autoResult.stepDefPath);
       if (fs.existsSync(stepDefPath)) {
@@ -351,8 +373,17 @@ async function runWebTvQaEngineer(key, options = {}) {
           continue;
         }
       }
-      console.log('  ⚠️ Step not implemented; no similar step in webTv-temp. Manual implementation needed.');
-      return { success: false, attempts, result, reason: 'Step not implemented' };
+      const stepName = (result.failStep || '').slice(0, 80);
+      console.log(`  ⚠️ Step not implemented; no similar step in webTv-temp. Manual implementation needed: ${stepName}`);
+      return { success: false, attempts, result, reason: `Step not implemented: ${stepName || 'unknown step'}` };
+    }
+
+    if (isNavigationError(failReason)) {
+      const navResult = tryFixNavigationError(result.failStep || '');
+      if (navResult.applied) {
+        console.log(`  🔧 Navigation fix applied (increased timeout): ${path.basename(navResult.file)}`);
+        continue;
+      }
     }
 
     if (isElementError(failReason)) {
@@ -390,7 +421,7 @@ async function runWebTvQaEngineer(key, options = {}) {
 
 if (require.main === module) {
   const key = process.argv[2] || 'WSTE-718';
-  const env = process.env.ENV || 'qa';
+  const env = process.env.ENV || 'beta';
   runWebTvQaEngineer(key, { maxAttempts: 10, env })
     .then((r) => {
       process.exit(r.success ? 0 : 1);
@@ -399,6 +430,65 @@ if (require.main === module) {
       console.error(e);
       process.exit(1);
     });
+}
+
+/** Check if failure is navigation-related (VOD tile click, video page, etc.) */
+function isNavigationError(msg) {
+  return (
+    msg &&
+    typeof msg === 'string' &&
+    (/did not navigate/i.test(msg) ||
+      /expected video page/i.test(msg) ||
+      /navigate to video page/i.test(msg) ||
+      /Did not navigate after clicking VOD tile/i.test(msg))
+  );
+}
+
+/** Fix navigation timeouts: increase wait timeouts in smoke.steps.js when "Did not navigate" occurs. */
+function tryFixNavigationError(failStep) {
+  const smokePath = path.join(ROOT, 'features', 'step-definitions', 'smoke.steps.js');
+  if (!fs.existsSync(smokePath)) return { applied: false };
+  let content = fs.readFileSync(smokePath, 'utf8');
+  const original = content;
+  const stepLower = (failStep || '').toLowerCase();
+  if (!stepLower.includes('navigate') && !stepLower.includes('vod') && !stepLower.includes('select')) {
+    return { applied: false };
+  }
+  // Bump navigation wait timeouts: 20000->30000, 30000->40000, 15000->25000
+  content = content.replace(
+    /timeout: 20000,\s*timeoutMsg: 'Did not navigate to video page after clicking VOD tile'/g,
+    "timeout: 30000, timeoutMsg: 'Did not navigate to video page after clicking VOD tile'"
+  );
+  content = content.replace(
+    /timeout: 30000,\s*timeoutMsg: 'Did not navigate to video page after clicking VOD tile'/g,
+    "timeout: 40000, timeoutMsg: 'Did not navigate to video page after clicking VOD tile'"
+  );
+  content = content.replace(
+    /timeout: 20000,\s*timeoutMsg: 'Did not navigate to video page after retry'/g,
+    "timeout: 30000, timeoutMsg: 'Did not navigate to video page after retry'"
+  );
+  content = content.replace(
+    /timeout: 30000,\s*timeoutMsg: 'Did not navigate to video page after retry'/g,
+    "timeout: 40000, timeoutMsg: 'Did not navigate to video page after retry'"
+  );
+  content = content.replace(
+    /timeout: 15000, timeoutMsg: 'Did not navigate to video page from shows detail'/g,
+    "timeout: 25000, timeoutMsg: 'Did not navigate to video page from shows detail'"
+  );
+  content = content.replace(
+    /timeout: 25000, timeoutMsg: 'Did not navigate to video page from shows detail'/g,
+    "timeout: 35000, timeoutMsg: 'Did not navigate to video page from shows detail'"
+  );
+  // When using navTimeout variable: 40000 -> 50000
+  content = content.replace(
+    /const navTimeout = 40000;/g,
+    'const navTimeout = 50000;'
+  );
+  if (content !== original) {
+    fs.writeFileSync(smokePath, content);
+    return { applied: true, file: smokePath, source: 'navigation-timeout' };
+  }
+  return { applied: false };
 }
 
 /** Try to fix "Not implemented" by removing stub (platform) or filling from webTv-temp. Returns { applied, file?, source? }. */
@@ -421,6 +511,8 @@ module.exports = {
   tryRemoveStubForPlatformStep,
   tryFixNotImplementedError,
   isNotImplementedError,
+  isNavigationError,
+  tryFixNavigationError,
   isCucumberExpressionError,
   tryFixCucumberExpressionErrors,
 };

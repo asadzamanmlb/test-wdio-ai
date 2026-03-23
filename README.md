@@ -5,7 +5,7 @@ Includes:
 - Self-healing: on element-not-found during WebTV tests, captures real-time DOM, parses with Cheerio, and suggests alternative selectors (id, data-testid, aria-label, text locators) in `.selfheal-report.json`
 - Multi-agent system
 - **Dashboard (React + API)**: Charts, trends, flaky detection. Run `npm run dashboard` then open http://localhost:4000
-- RAG memory: TF-IDF search (built-in) + optional OpenAI embeddings for similar-fix retrieval
+- RAG memory: TF-IDF search (built-in) + optional OpenAI embeddings for similar-fix retrieval. **Domain/product context** is seeded from `rag/domain-knowledge.json` (merged into search; **not** removed by dashboard **RAG refresh**, which only clears `.rag-memory.json`). Human-readable notes: `docs/webtv-domain-context.md`.
 
 ## Run
 
@@ -24,12 +24,24 @@ Steps adapted from webTv-temp: Okta selectors, BETA pre-auth, cookie consent, lo
 # TEST_PASSWORD=your_password
 # BETA_USERNAME, BETA_PASSWORD (optional, for BETA pre-auth form)
 
-# Run against QA (default)
+# Default: BETA, headed (no HEADLESS)
+npm run test:webtv
+
+# QA when needed
 npm run test:webtv:qa
 
-# Run against BETA
+# Explicit beta / headless
 npm run test:webtv:beta
+npm run test:webtv:headless
+
+# Local parallel workers (multiple .feature files can run at once; default is 1)
+# Safari always uses 1 worker. Cap: 16.
+WDIO_MAX_INSTANCES=4 npm run test:webtv
+# or
+npm run test:webtv:parallel
 ```
+
+**QA Dashboard:** use header **Parallel → On** and **Workers** (2–8) for **Run selected** / **Run all** — the API sets `WDIO_MAX_INSTANCES` for that run. Single-scenario **Execute** always uses 1 worker.
 
 ## Dockerized test grid (parallel runs)
 

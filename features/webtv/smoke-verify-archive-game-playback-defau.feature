@@ -3,7 +3,7 @@
 
 @webtv
 
-Feature: Smoke
+Feature: Verify Archive Game Playback - Default
 
   @WSTE-39
   Scenario: Smoke | Verify Archive Game Playback - Default

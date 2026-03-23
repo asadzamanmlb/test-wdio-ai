@@ -1,0 +1,13 @@
+/**
+ * multiple-cucumber-html-reporter: remove Device column / row only.
+ * Template refs: components/features-overview.tmpl (5th col when metadata on),
+ * feature-metadata-overview.tmpl (2nd <li> is device name).
+ */
+#features-table thead tr th:nth-child(5),
+#features-table tbody tr td:nth-child(5) {
+  display: none !important;
+}
+
+.dashboard-widget-content .quick-list > li:nth-child(2) {
+  display: none !important;
+}

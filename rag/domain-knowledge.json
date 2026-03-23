@@ -1,0 +1,26 @@
+[
+  {
+    "id": "webtv-hide-spoilers",
+    "text": "MLB.TV Web mlb.com tv Hide Spoilers HideSpoilers ON OFF automation flow. Login entitled user. Select game from live stream living livestream games list hero tiles. Start game begin playback video player. Open in-player settings gear menu playback settings overlay. Turn on off Hide spoilers toggle switch. Step: the users HideSpoilers setting are set to ON or OFF. Player settings not only global account settings. Capture page object selectors data-testid aria-label from real DOM WDIO failure-dom.json DevTools.",
+    "step": "the users \"HideSpoilers\" setting are set to ON OFF",
+    "scenario": "WebTV domain — WSTE-40 archive playback hide spoilers",
+    "fix": {
+      "kind": "domain",
+      "guidance": "**Product:** Hide Spoilers hides scores, inning, count, and related spoiler UI when **ON**; **OFF** shows them. **Canonical WebTV UI path to change the flag (capture real selectors from this flow):** 1) **Log in** as an entitled user. 2) From the **live games / live stream** area (Hero, games row, or wherever live games are listed), **select a game** and **start playback** so the **video player** is active. 3) In the **player**, open **Settings** (gear / settings control in the player chrome or overflow menu — label varies by build). 4) Find the **Hide spoilers** (or equivalent) **toggle** and set it **ON** or **OFF** to match the Gherkin step. **Do not guess selectors:** walk this path on QA/BETA, inspect the DOM (DevTools), or use a failing run’s `reports/failure-dom.json` / screenshots, then add locators to a **page object** (`features/pageobjects/*.object.js`) — e.g. live game tile, watch/start control, player settings button, hide-spoilers switch. Use **explicit waits** (`waitForDisplayed`, `waitForClickable`) on each hop. **Idempotent helpers:** `ensureHideSpoilersOn()` / `ensureHideSpoilersOff()` read toggle `aria-checked` or UI state before clicking. If a global account Settings path also exists, prefer this **in-player** path when it matches how testers set the flag for live/archive scenarios. Full notes: `docs/webtv-domain-context.md`.",
+      "selector": "",
+      "suggestedSelectors": []
+    }
+  },
+  {
+    "id": "webtv-hide-spoilers-line-score-hidden",
+    "text": "Hide Spoilers ON archive playback line score game cards horizontal strip. All available data hidden innings final score. Bot 5 Top 1 inning number scores 0-1 0-0 numeric. Viewing label instead of scores. Step: all available data is hidden from the user includes innings and final score. Keep playing seek video assert no spoiler numerics line score region. hideSpoilersLineScoreAssertions assertSpoilerLineScoreDataHidden player lineScoreStrip.",
+    "step": "all available data is hidden from the user (this includes innings and final score)",
+    "scenario": "WebTV WSTE-40 hide spoilers line score verification",
+    "fix": {
+      "kind": "domain",
+      "guidance": "**When Hide Spoilers is ON during archive playback**, the **horizontal line score / game status cards** (see product screenshots: cards showing **Bot 5**, **Top 1**, team rows with **0-1**, **0-0**, bases/outs dots) must **not expose spoiler numerics**: no **inning position + inning number** (e.g. \"Top 1\", \"Bot 5\") and no **visible run scores** like **0-0** / **0-1** on those cards. Partial UI may show **\"Viewing\"** or blanks instead of scores; team abbreviations may still show. **Automation:** 1) Preconditions: user already on archive watch page with Hide Spoilers **ON**. 2) **Advance playback** (play + seek forward ~30–90s) so the line score strip can update — spoiler state must hold while the game progresses. 3) **Scope assertions** to line-score-like DOM (`LineScore`, `line-score`, `scoreboard`, `game-card`, etc.) — exclude scrubber/timecode. 4) Implementation: `features/helpers/hideSpoilersLineScoreAssertions.js` (`assertSpoilerLineScoreDataHidden`), locators in `player.object.js` (`lineScoreStrip`). 5) If the build hides data differently, adjust regexes/selectors using `reports/failure-dom.json`. **Related step:** *the data is revealed inning by inning* expects progressive disclosure as playback crosses innings — separate check. Doc: `docs/webtv-domain-context.md` § Line score.",
+      "selector": "",
+      "suggestedSelectors": []
+    }
+  }
+]

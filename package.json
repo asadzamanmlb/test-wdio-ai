@@ -14,8 +14,18 @@
     "sync:xray": "node scripts/syncXrayTests.js",
     "sync:feature": "node scripts/syncFeatureToTestcase.js",
     "test:webtv": "wdio run wdio.conf.js",
+    "test:webtv:parallel": "WDIO_MAX_INSTANCES=4 wdio run wdio.conf.js",
+    "test:webtv:video": "WDIO_RECORD_VIDEO=1 WDIO_SAVE_ALL_VIDEOS=1 wdio run wdio.conf.js",
     "test:webtv:qa": "ENV=qa wdio run wdio.conf.js",
     "test:webtv:beta": "ENV=beta wdio run wdio.conf.js",
+    "test:webtv:headless": "HEADLESS=1 wdio run wdio.conf.js",
+    "test:webtv:qa:headless": "ENV=qa HEADLESS=1 wdio run wdio.conf.js",
+    "test:webtv:beta:headless": "ENV=beta HEADLESS=1 wdio run wdio.conf.js",
+    "test:webtv:firefox": "BROWSER=firefox wdio run wdio.conf.js",
+    "test:webtv:firefox:headless": "BROWSER=firefox HEADLESS=1 wdio run wdio.conf.js",
+    "test:webtv:safari": "BROWSER=safari wdio run wdio.conf.js",
+    "test:webtv:edge": "BROWSER=edge wdio run wdio.conf.js",
+    "test:webtv:edge:headless": "BROWSER=edge HEADLESS=1 wdio run wdio.conf.js",
     "docker:start": "colima start",
     "docker:start:desktop": "open -a Docker",
     "grid:up": "docker-compose -f docker/grid/docker-compose.yml up -d --scale chrome=4",
@@ -23,20 +33,23 @@
     "grid:logs": "docker-compose -f docker/grid/docker-compose.yml logs -f",
     "grid:up-and-test": "npm run grid:up && npm run test:grid",
     "grid:run": "npm run grid:up-and-test && npm run grid:down",
-    "test:grid": "ENV=qa wdio run wdio.grid.conf.js",
+    "test:grid": "ENV=beta wdio run wdio.grid.conf.js",
     "test:grid:qa": "ENV=qa wdio run wdio.grid.conf.js",
     "test:grid:beta": "ENV=beta wdio run wdio.grid.conf.js",
     "dashboard": "node scripts/dashboardWithRestart.js",
     "dashboard:build": "cd dashboard && npm run build",
     "dashboard:dev": "concurrently \"node scripts/dashboardWithRestart.js\" \"wait-on -d 100 -t 30000 http://localhost:4000/api/metrics && cd dashboard && npm run dev\" --names \"api,dev\" --prefix-colors \"blue,green\"",
-    "dashboard:dev:only": "cd dashboard && npm run dev"
+    "dashboard:dev:only": "cd dashboard && npm run dev",
+    "report:cucumber": "node scripts/generateCucumberReport.js",
+    "report:cucumber:open": "node scripts/generateCucumberReport.js --open",
+    "report:cucumber:durations": "node scripts/prettifyCucumberReportDurations.js"
   },
   "dependencies": {
     "cheerio": "^1.2.0",
-    "tree-kill": "^1.2.2",
     "dotenv": "^17.3.1",
     "express": "^4",
-    "openai": "^6.32.0"
+    "openai": "^6.32.0",
+    "tree-kill": "^1.2.2"
   },
   "devDependencies": {
     "@wdio/cli": "^9.26.1",
@@ -46,8 +59,11 @@
     "chromedriver": "^146.0.5",
     "concurrently": "^9.2.1",
     "eslint": "^10.1.0",
+    "multiple-cucumber-html-reporter": "^3.10.0",
+    "puppeteer": "^24.40.0",
     "wait-on": "^8.0.5",
     "wdio-cucumberjs-json-reporter": "^6.0.1",
+    "wdio-video-reporter": "^6.2.0",
     "webdriverio": "^9.26.1"
   }
 }

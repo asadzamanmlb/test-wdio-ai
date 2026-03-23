@@ -8,9 +8,8 @@ const { baseUrl } = require('../../config/env');
 const loginPage = require('../pageobjects/loginPage.object');
 const commonPage = require('../pageobjects/commonPage.object');
 const mediaCenterPageObject = require('../pageobjects/mediaCenter.object');
-const playerPage = require('../pageobjects/player.object');
 const { qaTestUsers } = require('../../testUsers');
-const { getRandomDateFromAprilToSeptemberLast2Years } = require('../../commonFunctions/randomDateSelect');
+const { openGamePlaybackFromMediaCenter, getMediaCenterUrl } = require('../helpers/mediaCenterOpenGame');
 
 const email = process.env.TEST_EMAIL || qaTestUsers['Yearly User'];
 const password = process.env.TEST_PASSWORD || qaTestUsers.Password;
@@ -60,32 +59,6 @@ async function handleCookieConsentIfPresent() {
   }
 }
 
-function getMediaCenterUrl(dateStr = null) {
-  const base = baseUrl.replace(/\/$/, '');
-  const pathSeg = '/live-stream-games';
-  return dateStr ? `${base}${pathSeg}/${dateStr.replace(/-/g, '/')}` : `${base}${pathSeg}`;
-}
-
-/** Pick a random date April–September in the last 2 years (shared with calendar/live-stream). */
-function getArchiveGameDate() {
-  const d = getRandomDateFromAprilToSeptemberLast2Years();
-  const year = d.getFullYear();
-  const mm = String(d.getMonth() + 1).padStart(2, '0');
-  const dd = String(d.getDate()).padStart(2, '0');
-  return `${year}/${mm}/${dd}`;
-}
-
-function isNoGamesError(msg) {
-  if (!msg || typeof msg !== 'string') return false;
-  const s = msg.toLowerCase();
-  return (
-    /data is undefined/i.test(msg) ||
-    /\["schedule"/i.test(msg) ||
-    /no games? found/i.test(s) ||
-    /no game tiles found/i.test(s)
-  );
-}
-
 When(/^the user selects the video callsign for (?:the )?(?:game )?"([^"]+)" \(from MLB\.TV column, not MLB Audio\)$/, async function (gameMatch) {
   await handleCookieConsentIfPresent();
   const el = await mediaCenterPageObject['Video Callsign in Row'](gameMatch);
@@ -97,133 +70,17 @@ When(/^the user selects the video callsign for (?:the )?(?:game )?"([^"]+)" \(fr
   await el.click();
 });
 
+/** Shared logic: select an archived game for playback (Media Center path). Used by WSTE-39 and WSTE-40. */
+async function selectArchivedGameForPlayback() {
+  await openGamePlaybackFromMediaCenter({ preferTodayLiveFirst: false });
+}
+
 When('a user selects an archived game for playback', async function () {
-  await handleCookieConsentIfPresent();
-  const maxAttempts = 10;
-  const pageLoadTimeoutMs = 30000;
-  let lastError = null;
-  let tiles = [];
-  let gameTiles = [];
-  let pickFrom = [];
+  await selectArchivedGameForPlayback();
+});
 
-  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
-    try {
-      const dateStr = getArchiveGameDate();
-      const url = getMediaCenterUrl(dateStr);
-      const loadStart = Date.now();
-      let tilesFound = false;
-
-      while (Date.now() - loadStart < pageLoadTimeoutMs) {
-        await browser.url(url);
-        await browser.waitUntil(
-          async () => (await browser.execute(() => document.readyState)) === 'complete',
-          { timeout: 15000, timeoutMsg: 'Media Center page did not load' }
-        );
-        await browser.waitUntil(
-          async () => (await browser.getUrl()).includes('live-stream-games'),
-          { timeout: 10000 }
-        );
-        await new Promise((r) => setTimeout(r, 5000)); // Allow schedule/games to render
-
-        const t = await mediaCenterPageObject['Game Tiles']();
-        const hasTiles = t && t.length > 0;
-        if (hasTiles) {
-          tilesFound = true;
-          tiles = t;
-          break;
-        }
-        if (Date.now() - loadStart >= pageLoadTimeoutMs - 5000) break;
-        await browser.refresh();
-        await new Promise((r) => setTimeout(r, 3000));
-      }
-
-      if (!tilesFound) {
-        lastError = new Error(`No game tiles after 30s wait/refresh (attempt ${attempt}/${maxAttempts})`);
-        if (attempt < maxAttempts) continue;
-      }
-
-      const bodyText = await browser.$('body').getText().catch(() => '');
-      if (isNoGamesError(bodyText)) {
-        lastError = new Error(`Page shows no games: ${bodyText.slice(0, 80)}...`);
-        if (attempt < maxAttempts) continue;
-      }
-      const noGamesEl = await mediaCenterPageObject['No Games Message']();
-      if (await noGamesEl.isDisplayed().catch(() => false)) {
-        lastError = new Error('Page shows empty state (no games)');
-        if (attempt < maxAttempts) continue;
-      }
-
-      if (!tiles || tiles.length === 0) {
-        tiles = await mediaCenterPageObject['Game Tiles']();
-      }
-
-      gameTiles = [];
-      for (const t of tiles || []) {
-        const href = await t.getAttribute('href').catch(() => '');
-        if (href && (href.includes('/tv/g/') || (href.includes('/g') && /\d{4}/.test(href))) && !href.includes('mlbn')) {
-          gameTiles.push(t);
-        }
-      }
-      pickFrom = gameTiles.length > 0 ? gameTiles : tiles;
-      if (gameTiles.length > 0) break;
-    } catch (e) {
-      lastError = e;
-      if (isNoGamesError(e?.message || String(e)) && attempt < maxAttempts) continue;
-      throw e;
-    }
-  }
-
-  if (gameTiles.length === 0) {
-    throw lastError || new Error('No game tiles found on Media Center after 10 date attempts');
-  }
-
-  const count = pickFrom.length;
-  const idx = Math.floor(Math.random() * count);
-  const tile = pickFrom[idx];
-  await tile.scrollIntoView().catch(() => {});
-  await tile.waitForClickable({ timeout: 10000 }).catch(() => {});
-  await tile.click();
-
-  await new Promise((r) => setTimeout(r, 1500));
-  const feedModal = await mediaCenterPageObject['Feed Select Modal']();
-  if (await feedModal.isExisting().catch(() => false) && (await feedModal.isDisplayed().catch(() => false))) {
-    const fullGame = await mediaCenterPageObject['Full Game Feed Button']();
-    const condensed = await mediaCenterPageObject['Condensed Feed Button']();
-    const watchBtn = await mediaCenterPageObject['Watch Button']();
-    if (await fullGame.isExisting().catch(() => false) && await fullGame.isDisplayed().catch(() => false)) {
-      await fullGame.waitForClickable({ timeout: 5000 }).catch(() => {});
-      await fullGame.click();
-    } else if (await condensed.isExisting().catch(() => false) && await condensed.isDisplayed().catch(() => false)) {
-      await condensed.waitForClickable({ timeout: 5000 }).catch(() => {});
-      await condensed.click();
-    }
-    if (await watchBtn.isExisting().catch(() => false) && await watchBtn.isDisplayed().catch(() => false)) {
-      await watchBtn.waitForClickable({ timeout: 5000 }).catch(() => {});
-      await watchBtn.click();
-    }
-  }
-
-  const videoPlayer = await playerPage.videoPlayer();
-  await videoPlayer.waitForExist({ timeout: 15000 }).catch(() => {});
-  await videoPlayer.waitForDisplayed({ timeout: 10000 }).catch(() => {});
-
-  await browser.waitUntil(
-    async () => {
-      const scrubber = await playerPage.scrubberBar();
-      const scrubberOk = await scrubber.isExisting().catch(() => false);
-      if (scrubberOk) return true;
-      const hasDuration = await browser.execute(() => {
-        const v = document.querySelector('video') || document.querySelector('iframe')?.contentDocument?.querySelector('video');
-        return v && (v.duration > 0 || (!isNaN(v.duration) && v.duration >= 0) || v.readyState >= 2);
-      }).catch(() => false);
-      if (hasDuration) return true;
-      const videoReady = await videoPlayer.isDisplayed().catch(() => false);
-      return videoReady;
-    },
-    { timeout: 60000, interval: 2000, timeoutMsg: 'Player page did not load within 60s' }
-  ).catch(() => {
-    // Proceed anyway after 60s if video is displayed - player may use different DOM
-  });
+When('the user selects an archived game for playback from Hero, games tile or Media Center', async function () {
+  await selectArchivedGameForPlayback();
 });
 
 Given(/^the user is logged in and on mlb\.com\/live-stream-games$/, async function () {

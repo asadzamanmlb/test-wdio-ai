@@ -7,7 +7,44 @@
   "status": "Done",
   "testType": "Cucumber",
   "scenarioType": "scenario",
-  "gherkin": "Given an entitled user is logged into mlb.com/tv\nAnd the users \"HideSpoilers\" setting are set to ON\nWhen the user selects an archived game for playback from Hero, games tile or Media Center \nThen playback starts at the beginning of the stream\nAnd all available data is hidden from the user (this includes innings and final score)\nAnd the data is revealed inning by inning as playback progresses",
+  "gherkin": "Given an entitled user is logged in\nWhen the user opens a playable game from the live stream schedule using today, random in-season dates, and last year April 15 as fallback\nAnd the users \"HideSpoilers\" setting are set to ON\nThen playback starts at the beginning of the stream\nAnd all available data is hidden from the user (this includes innings and final score)\nAnd the data is revealed inning by inning as playback progresses",
   "unstructured": null,
-  "steps": []
+  "steps": [
+    {
+      "id": "step-0",
+      "action": "Given an entitled user is logged in",
+      "data": "",
+      "result": ""
+    },
+    {
+      "id": "step-1",
+      "action": "When the user opens a playable game from the live stream schedule using today, random in-season dates, and last year April 15 as fallback",
+      "data": "",
+      "result": ""
+    },
+    {
+      "id": "step-2",
+      "action": "And the users \"HideSpoilers\" setting are set to ON",
+      "data": "",
+      "result": ""
+    },
+    {
+      "id": "step-3",
+      "action": "Then playback starts at the beginning of the stream",
+      "data": "",
+      "result": ""
+    },
+    {
+      "id": "step-4",
+      "action": "And all available data is hidden from the user (this includes innings and final score)",
+      "data": "",
+      "result": ""
+    },
+    {
+      "id": "step-5",
+      "action": "And the data is revealed inning by inning as playback progresses",
+      "data": "",
+      "result": ""
+    }
+  ]
 }

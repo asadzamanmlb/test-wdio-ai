@@ -1,0 +1,71 @@
+# WebTV QA Engineer Agent
+
+When automating WebTV tests (WSTE-*), clicking **Automate** for a manual scenario, or working in `features/webtv/`, `features/step-definitions/`, `features/pageobjects/`, `scripts/automateScenario.js`, or `ai/webtvQaEngineer.js` — follow this **6-step workflow**. This is the canonical process for the webtvQaEngineer agent.
+
+## The 6-Step Workflow (Single Automate Click)
+
+### 1. Feature file first
+- **Create** feature file from `testcase/webTv/{key}.json` gherkin if not present
+- **If exists:** Check if scenario with `@{key}` is present; update gherkin if testcase changed, otherwise ignore
+- Path: `features/webtv/*.feature`
+- Use `@webtv` and `@{key}` tags (e.g. `@WSTE-40`)
+
+### 2. Step definitions
+- **Write** step definitions if not present; **reuse existing steps** from platform first
+- **Check first:** `features/step-definitions/login.steps.js`, `*.steps.js` — do NOT duplicate. Use aliases for semantic equivalents.
+- **If not found:** Copy similar step from `webTv-temp/features/step-definitions/` and adapt to CommonJS
+- Add `const And = Then; const Or = Then;` for And/Or steps
+- Use regex for steps with `()`, `{}`, `/` in text
+
+### 3. Page objects
+- **Add** page objects for new selectors; **reuse existing** from `features/pageobjects/*.object.js`
+- No inline selectors in step defs — all locators in page objects
+- Use `module.exports = { elementName: () => $('selector') }` pattern
+- Prefer `data-testid`, `aria-label` over class names
+
+### 4. Reusable functions, clean steps
+- **Write reusable functions** in separate modules or at top of step file
+- **Steps call functions** — no inline page object logic in step bodies
+- Example: `await ensureHideSpoilersOn();` instead of 10 lines of DOM interaction inline
+- Extract common flows (login, navigate, select date) into shared functions
+
+### 5. Run and fix one step at a time
+- Run test via **`npm run test:webtv -- --spec ./features/webtv/{file}.feature`** (default **beta**, **headed**). Use `ENV=qa` or `npm run test:webtv:qa` only when QA is requested; use `npm run test:webtv:headless` for headless
+- On failure: **fix exactly the failing step** — do not change unrelated code
+- **Real-time DOM capture:** Hooks persist DOM to `reports/failure-dom.json` on failure — use for selector analysis
+- Use RAG + self-heal for element/selector failures
+- Use explicit waits (`waitUntil`, `waitForDisplayed`) — never `browser.pause()`
+
+### 6. Loop until pass
+- Retry after each fix (max ~10 attempts)
+- Continue until test passes or fully implemented
+
+## Skills to Apply (in order)
+
+1. **cucumber-step-definitions** — Step structure, regex for special chars, platform-first reuse
+2. **page-object-patterns** — MLB/Okta selectors, no inline locators
+3. **no-browser-pause-wdio** — Explicit waits only
+4. **wdio-waits-and-flows** — MLB QA login, Okta iframe, cookie consent
+5. **self-healing-selectors** — DOM capture, RAG, selector fixes
+6. **webtv-test-automate** — webTv-temp reference, error handlers
+7. **fix-tests-add-skills** — After fixing a test, add or update skills so the fix can be reused
+
+## Key Paths
+
+| Item | Path |
+|------|------|
+| Features | `features/webtv/*.feature` |
+| Step defs | `features/step-definitions/*.steps.js` |
+| Page objects | `features/pageobjects/*.object.js` |
+| Test cases | `testcase/webTv/*.json` |
+| Reference | `webTv-temp/` |
+| Domain glossary (Hide Spoilers, etc.) | `docs/webtv-domain-context.md` + `rag/domain-knowledge.json` |
+| Automate script | `scripts/automateScenario.js` |
+| Agent loop | `ai/webtvQaEngineer.js` |
+
+## Trigger
+
+This rule applies when:
+- User clicks **Automate** for a WebTV scenario in the dashboard
+- User asks to automate WSTE-* tests
+- Working in features/webtv, step-definitions, or pageobjects for WebTV

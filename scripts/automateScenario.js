@@ -48,6 +48,20 @@ function toRegexEscaped(text) {
 const WIKI_LINK_RE = /\[([^|\[\]]+)\|[^\]]+\]/g;
 const CONFLUENCE_TABLE_RE = /\|\|\[([^|\]]+)\|[^\]]+\]\|\|/g;
 
+/** Polish gherkin from Xray/JSON for Cucumber compatibility. */
+function polishGherkin(gherkin) {
+  if (!gherkin || typeof gherkin !== 'string') return '';
+  return gherkin
+    .replace(/\r\n/g, '\n')
+    .replace(/\r/g, '\n')
+    .split('\n')
+    .map((l) => l.trim())
+    .filter(Boolean)
+    .join('\n')
+    .replace(/\n{2,}/g, '\n')
+    .trim();
+}
+
 function cleanText(text) {
   if (!text || typeof text !== 'string') return '';
   return text
@@ -217,6 +231,7 @@ function automate(suite, key, options = {}) {
   if (!gherkin) {
     return { success: false, error: 'No gherkin or steps to convert' };
   }
+  gherkin = polishGherkin(gherkin);
 
   const gherkinLines = gherkin.split('\n').filter(Boolean);
   const referencePath = findSimilarInTemp(project, gherkinLines);
@@ -331,13 +346,17 @@ function appendStepsToFile(stepDefPath, gherkin, key, options = {}) {
   for (let j = 0; j < stubs.length; j++) {
     const stub = stubs[j];
     const stepText = stepTexts[j];
+    const stepForMatch = (stepText || '').replace(/[(){}\[\]\/\\]/g, ' ').replace(/\s+/g, ' ').trim();
+    const distinctivePhrase = stepText && stepText.length > 25 ? stepText.slice(-35) : stepText;
     const alreadyDefined =
       content.includes(stub.slice(0, 50)) ||
       (stepText &&
         (contentNoComments.includes(`"${stepText}"`) ||
           contentNoComments.includes(`'${stepText}'`) ||
           allNoComments.includes(`"${stepText}"`) ||
-          allNoComments.includes(`'${stepText}'`)));
+          allNoComments.includes(`'${stepText}'`) ||
+          (distinctivePhrase && allNoComments.includes(distinctivePhrase)) ||
+          (stepForMatch && stepForMatch.length > 15 && allNoComments.includes(stepForMatch))));
     if (!alreadyDefined) {
       content = content.trimEnd() + '\n\n' + stub + '\n';
     }
@@ -359,4 +378,5 @@ module.exports = {
   generateStepDefStubs,
   appendStepsToFile,
   extractGherkinLines,
+  polishGherkin,
 };

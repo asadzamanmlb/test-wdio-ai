@@ -70,11 +70,15 @@ async function plan(ctx) {
 
   const query = [oldSelector, text, stepText].filter(Boolean).join(' ');
   let ragSelectors = [];
+  const ragDomainHints = [];
   try {
-    const ragResults = await searchWithEmbeddings(query, 3);
+    const ragResults = await searchWithEmbeddings(query, 5);
     ragResults.forEach((r) => {
       const sel = r.fix?.suggestedSelectors?.[0] || r.fix?.selector;
       if (sel) ragSelectors.push(sel);
+      if (r.fix?.kind === 'domain' && r.fix?.guidance) {
+        ragDomainHints.push(String(r.fix.guidance).slice(0, 500));
+      }
     });
   } catch (_) {}
 
@@ -83,13 +87,17 @@ async function plan(ctx) {
 
   const affectedFiles = await findFilesContainingSelector(oldSelector);
 
+  const baseReason = suggestedSelectors.length
+    ? `RAG: ${ragSelectors.length} prior fix(es) | DOM: ${domSelectors.length} suggestion(s)`
+    : 'No prior fixes found; DOM suggested fallbacks';
+  const domainReason =
+    ragDomainHints.length > 0 ? ` | Domain context: ${ragDomainHints.join(' ')}` : '';
+
   return {
     oldSelector,
     suggestedSelectors,
     affectedFiles,
-    reasoning: suggestedSelectors.length
-      ? `RAG: ${ragSelectors.length} prior fix(es) | DOM: ${domSelectors.length} suggestion(s)`
-      : 'No prior fixes found; DOM suggested fallbacks',
+    reasoning: baseReason + domainReason,
   };
 }
 
@@ -289,7 +297,12 @@ async function runTestDirect(suite, key, env = 'qa') {
           }
         } catch (_) {}
       }
-      if (code !== 0 && status === 'passed') { status = 'failed'; failReason = stderr || stdout?.slice(-300); }
+      if (code !== 0 && status === 'passed') status = 'failed';
+      if (status === 'failed' && !failReason) {
+        const out = [stderr, stdout].filter(Boolean).join('\n');
+        const errMatch = out.match(/Error:\s*([^\n]+)/) || out.match(/Not implemented[^\n]*/i) || out.match(/element[^\n]*(?:not found|not displayed)[^\n]*/i);
+        failReason = errMatch ? (errMatch[1] || errMatch[0]).trim().slice(0, 500) : (stderr || stdout?.slice(-300));
+      }
       resolve({ status, failReason, failStep, screenshot: null, featureName, scenarioName });
     });
   });
@@ -322,7 +335,7 @@ async function runAgents(options = {}) {
   if (mode === 'fix') {
     const fixResult = await fix(suite, key, {
       maxAttempts: 3,
-      env: process.env.ENV || 'qa',
+      env: process.env.ENV || 'beta',
       runSingleTest: runTestDirect,
     });
     console.log(fixResult.success ? '\n✅ Fix succeeded' : '\n❌ Fix did not succeed');

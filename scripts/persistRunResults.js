@@ -6,12 +6,24 @@
 
 const fs = require('fs');
 const path = require('path');
+const { findVideoForScenarioName } = require('./testRunVideo');
 
 const REPORTS_JSON_DIR = path.join(process.cwd(), 'reports', 'json');
 const SCREENSHOTS_DIR = path.join(process.cwd(), 'reports', 'screenshots');
+const VIDEOS_DIR = path.join(process.cwd(), 'reports', 'videos');
 const FAILURE_MANIFEST = path.join(process.cwd(), 'reports', 'failure-screenshots.json');
 const DATA_DIR = path.join(process.cwd(), 'dashboard', 'data');
 const RUNS_FILE = path.join(DATA_DIR, 'runs.json');
+const EXECUTE_RESULTS_FILE = path.join(DATA_DIR, 'execute-results.json');
+
+function keyToSuite(key) {
+  if (!key || typeof key !== 'string') return null;
+  const k = key.toUpperCase();
+  if (k.startsWith('WSTE')) return 'webTv';
+  if (k.startsWith('WQO')) return 'optools';
+  if (k.startsWith('WQ-')) return 'core-app';
+  return null;
+}
 
 function ensureDir(dir) {
   if (!fs.existsSync(dir)) {
@@ -125,6 +137,19 @@ function parseCucumberJson(features) {
           findScreenshotInDir(scenarioName);
       }
 
+      // Extract test key from tags (@WSTE-44, @WQO-123, @WQ-456) for execute-results sync
+      let key = null;
+      if (el.tags && Array.isArray(el.tags)) {
+        const tag = el.tags.find((t) => /^@(WSTE-\d+|WQO-\d+|WQ-\d+)$/i.test((t.name || '').trim()));
+        if (tag) key = (tag.name || '').trim().replace(/^@/i, '');
+      }
+      if (!key) {
+        const m = scenarioName.match(/\((WSTE-\d+|WQO-\d+|WQ-\d+)\)/i);
+        if (m) key = m[1];
+      }
+
+      const videoBasename = findVideoForScenarioName(scenarioName, VIDEOS_DIR);
+
       scenarios.push({
         id: scenarioId,
         feature: featureName,
@@ -133,6 +158,8 @@ function parseCucumberJson(features) {
         failReason: status === 'failed' ? failReason : null,
         failStep: status === 'failed' ? failStep : null,
         screenshot: status === 'failed' ? screenshotPath : null,
+        video: videoBasename || undefined,
+        key: key || undefined,
       });
       byFeature[featureName].scenarios.push({ name: scenarioName, status });
     }
@@ -187,7 +214,7 @@ function persistRun() {
     id: `run-${Date.now()}`,
     timestamp: new Date().toISOString(),
     date: new Date().toISOString().slice(0, 10),
-    env: process.env.ENV || 'qa',
+    env: process.env.ENV || 'beta',
     ...summary,
   };
 
@@ -205,7 +232,44 @@ function persistRun() {
   }
   fs.writeFileSync(RUNS_FILE, JSON.stringify(runs, null, 2));
   console.log(`✅ Persisted run: ${run.passed} passed, ${run.failed} failed (${run.total} total)`);
+
+  // Sync execute-results so dashboard scenario list reflects latest run
+  syncExecuteResults(run);
   return run;
+}
+
+/** Update execute-results.json for scenarios in this run so dashboard shows correct pass/fail */
+function syncExecuteResults(run) {
+  if (!run?.scenarios?.length) return;
+  let data = {};
+  if (fs.existsSync(EXECUTE_RESULTS_FILE)) {
+    try {
+      data = JSON.parse(fs.readFileSync(EXECUTE_RESULTS_FILE, 'utf8'));
+    } catch (_) {}
+  }
+  let updated = 0;
+  for (const s of run.scenarios) {
+    const key = s.key;
+    if (!key) continue;
+    const suite = keyToSuite(key);
+    if (!suite) continue;
+    const id = `${suite}:${key}`;
+    data[id] = {
+      success: s.status === 'passed',
+      status: s.status,
+      failStep: s.failStep || null,
+      failReason: s.failReason || null,
+      screenshot: s.screenshot || null,
+      video: s.video ? `/api/videos/${path.basename(String(s.video))}` : null,
+      timestamp: run.timestamp || new Date().toISOString(),
+    };
+    updated++;
+  }
+  if (updated > 0) {
+    fs.mkdirSync(path.dirname(EXECUTE_RESULTS_FILE), { recursive: true });
+    fs.writeFileSync(EXECUTE_RESULTS_FILE, JSON.stringify(data, null, 2));
+    console.log(`   Updated execute-results for ${updated} scenario(s)`);
+  }
 }
 
 if (require.main === module) {

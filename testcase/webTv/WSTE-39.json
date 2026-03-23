@@ -9,42 +9,5 @@
   "scenarioType": "scenario",
   "gherkin": "Given an entitled user is logged in\nWhen a user selects an archived game for playback\nThen playback starts at the beginning of the stream\nAnd the duration of the game display right side of the scrubber bar\nAnd the video plays without buffering\nAnd all available data is visible to the user (this includes innings and final scores)",
   "unstructured": null,
-  "steps": [
-    {
-      "id": "step-0",
-      "action": "Given an entitled user is logged in",
-      "data": "",
-      "result": ""
-    },
-    {
-      "id": "step-1",
-      "action": "When a user selects an archived game for playback",
-      "data": "",
-      "result": ""
-    },
-    {
-      "id": "step-2",
-      "action": "Then playback starts at the beginning of the stream",
-      "data": "",
-      "result": ""
-    },
-    {
-      "id": "step-3",
-      "action": "And the duration of the game display right side of the scrubber bar",
-      "data": "",
-      "result": ""
-    },
-    {
-      "id": "step-4",
-      "action": "And the video plays without buffering",
-      "data": "",
-      "result": ""
-    },
-    {
-      "id": "step-5",
-      "action": "And all available data is visible to the user (this includes innings and final scores)",
-      "data": "",
-      "result": ""
-    }
-  ]
+  "steps": []
 }

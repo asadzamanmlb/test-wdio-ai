@@ -6,13 +6,15 @@ require('dotenv').config({ path: require('path').join(__dirname, '.env') });
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-const { spawn } = require('child_process');
+const { spawn, spawnSync } = require('child_process');
 const kill = require('tree-kill');
 
 const app = express();
 const RUNS_FILE = path.join(__dirname, 'dashboard', 'data', 'runs.json');
 const EXECUTE_RESULTS_FILE = path.join(__dirname, 'dashboard', 'data', 'execute-results.json');
 const SCREENSHOTS_DIR = path.join(__dirname, 'reports', 'screenshots');
+const VIDEOS_DIR = path.join(__dirname, 'reports', 'videos');
+const { findVideoForScenarioName } = require('./scripts/testRunVideo');
 const DIST_DIR = path.join(__dirname, 'dashboard', 'dist');
 const TESTCASE_DIR = path.join(__dirname, 'testcase');
 const FEATURES_DIR = (() => {
@@ -33,7 +35,7 @@ let fixState = {
   key: null,
   attempt: 0,
   lastResult: null,
-  env: 'qa',
+  env: 'beta',
   activeChild: null,
 };
 
@@ -278,6 +280,7 @@ function computeMetricsFromScenarios(scenarios) {
           failStep: s.failStep || null,
           failReason: s.failReason || null,
           screenshot: getScreenshotUrl(s),
+          video: getVideoUrl(s),
         };
       }),
   };
@@ -375,12 +378,43 @@ function getScreenshotUrl(s, baseUrl = '/api/screenshots/') {
   return resolved ? `${baseUrl}${resolved}` : null;
 }
 
+/** Resolve wdio-video-reporter MP4 URL for a scenario (runs.json or metrics). */
+function getVideoUrl(s, baseUrl = '/api/videos/') {
+  if (!s) return null;
+  const raw = s.video;
+  if (raw && String(raw).startsWith('/api/videos/')) return String(raw);
+  let basename = raw ? path.basename(String(raw)).replace(/[^a-zA-Z0-9_.-]/g, '') : '';
+  if (basename) {
+    const fp = path.join(VIDEOS_DIR, basename);
+    if (fs.existsSync(fp)) return `${baseUrl}${basename}`;
+  }
+  const found = s.name && findVideoForScenarioName(s.name, VIDEOS_DIR);
+  return found ? `${baseUrl}${found}` : null;
+}
+
+function applyRecordVideoEnv(spawnEnv, recordVideo) {
+  if (!recordVideo) return spawnEnv;
+  return {
+    ...spawnEnv,
+    WDIO_RECORD_VIDEO: '1',
+    WDIO_SAVE_ALL_VIDEOS: '1',
+  };
+}
+
 app.get('/api/screenshots/:filename', (req, res) => {
   const filename = req.params.filename.replace(/[^a-zA-Z0-9_.-]/g, '');
   if (!filename) return res.status(400).send('Invalid filename');
   const filepath = path.join(SCREENSHOTS_DIR, filename);
   if (!fs.existsSync(filepath)) return res.status(404).send('Screenshot not found');
   res.sendFile(filepath, { headers: { 'Content-Type': 'image/png' } });
+});
+
+app.get('/api/videos/:filename', (req, res) => {
+  const filename = path.basename(req.params.filename || '').replace(/[^a-zA-Z0-9_.-]/g, '');
+  if (!filename || !filename.endsWith('.mp4')) return res.status(400).send('Invalid filename');
+  const filepath = path.join(VIDEOS_DIR, filename);
+  if (!fs.existsSync(filepath)) return res.status(404).send('Video not found');
+  res.sendFile(filepath, { headers: { 'Content-Type': 'video/mp4' } });
 });
 
 app.get('/api/runs', (req, res) => {
@@ -495,6 +529,85 @@ app.get('/api/suites', (req, res) => {
 
 app.get('/api/execute-results', (req, res) => {
   res.json(loadExecuteResults());
+});
+
+/** Run automated tests in a suite. If keys[] provided, run only those; otherwise run all automated.
+ * Multiple scenarios run in one WDIO invocation so HTML report includes all results. */
+app.post('/api/execute-suite', async (req, res) => {
+  if (executeInProgress || fixState.running) {
+    return res.status(429).json({ error: 'Another test is already running' });
+  }
+  const { suite, env, headless, browser, keys, recordVideo, parallel, parallelWorkers: parallelWorkersRaw } = req.body || {};
+  if (!suite) {
+    return res.status(400).json({ error: 'suite required' });
+  }
+  let scenarios = getScenariosForSuite(suite).filter((s) => s.automated);
+  if (keys && Array.isArray(keys) && keys.length > 0) {
+    const keySet = new Set(keys.map((k) => String(k).trim()).filter(Boolean));
+    scenarios = scenarios.filter((s) => s.key && keySet.has(s.key));
+  }
+  scenarios = scenarios.filter((s) => getFeaturePathForKey(suite, s.key));
+  if (scenarios.length === 0) {
+    return res.json({ success: true, passed: 0, failed: 0, total: 0, results: [], message: keys?.length ? 'No matching automated scenarios for selected keys' : 'No automated scenarios in suite' });
+  }
+  executeInProgress = true;
+  const envVal = env || 'beta';
+  const pwParsed = parseInt(parallelWorkersRaw, 10);
+  let parallelWorkers = 1;
+  if (scenarios.length > 1 && parallel) {
+    if (!Number.isNaN(pwParsed) && pwParsed >= 2) {
+      parallelWorkers = Math.min(16, pwParsed);
+    } else {
+      parallelWorkers = 4;
+    }
+  }
+  const opts = {
+    headless: !!headless,
+    browser: browser || 'chrome',
+    recordVideo: !!recordVideo,
+    parallelWorkers,
+  };
+  let results = [];
+  let passed = 0;
+  let failed = 0;
+  try {
+    if (scenarios.length === 1) {
+      const s = scenarios[0];
+      const result = await runSingleTest(suite, s.key, envVal, opts);
+      const success = result.status === 'passed';
+      passed = success ? 1 : 0;
+      failed = success ? 0 : 1;
+      saveExecuteResult(suite, s.key, {
+        success,
+        status: result.status,
+        failStep: result.failStep,
+        failReason: result.failReason,
+        screenshot: result.screenshot,
+        video: result.video || null,
+      });
+      results = [{ key: s.key, status: result.status, failStep: result.failStep, failReason: result.failReason, video: result.video || null }];
+    } else {
+      const batchResult = await runMultipleTests(suite, scenarios.map((s) => s.key), envVal, opts);
+      results = batchResult.results || [];
+      passed = (batchResult.passed || 0);
+      failed = (batchResult.failed || 0);
+      for (const r of results) {
+        saveExecuteResult(suite, r.key, {
+          success: r.status === 'passed',
+          status: r.status,
+          failStep: r.failStep,
+          failReason: r.failReason,
+          screenshot: r.screenshot || null,
+          video: r.video || null,
+        });
+      }
+    }
+    res.json({ success: failed === 0, passed, failed, total: results.length, results });
+  } catch (e) {
+    res.status(500).json({ success: false, passed, failed, total: results.length, results, error: e.message });
+  } finally {
+    executeInProgress = false;
+  }
 });
 
 /** Permanently delete failed scenarios from a run */
@@ -1106,6 +1219,8 @@ app.post('/api/sync/:suite/:key/apply', async (req, res) => {
 app.post('/api/automate/:suite/:key', (req, res) => {
   const { suite, key } = req.params;
   const runAgent = req.query.run === '1' || req.query.run === 'true';
+  const headless = req.query.headless !== '0'; // default true for automate
+  const browser = req.query.browser || 'chrome';
   if (!suite || !key) return res.status(400).json({ error: 'suite and key required' });
   if (runAgent && (fixState.running || automateRunState.running)) {
     return res.status(429).json({ error: 'Another test or automate run is already in progress' });
@@ -1125,7 +1240,7 @@ app.post('/api/automate/:suite/:key', (req, res) => {
       automateRunState.lastResult = null;
       automateRunState.created = result.created;
       automateRunState.error = null;
-      runAutomateAndRunLoop(suite, key, process.env.ENV || 'qa').catch((e) => {
+      runAutomateAndRunLoop(suite, key, process.env.ENV || 'beta', { headless, browser }).catch((e) => {
         automateRunState.error = e.message;
         automateRunState.running = false;
       });
@@ -1138,13 +1253,14 @@ app.post('/api/automate/:suite/:key', (req, res) => {
   }
 });
 
-async function runAutomateAndRunLoop(suite, key, envVal) {
+async function runAutomateAndRunLoop(suite, key, envVal, options = {}) {
+  const { headless: autoHeadless = true, browser: autoBrowser = 'chrome' } = options;
   const { runWebTvQaEngineer } = require('./ai/webtvQaEngineer');
   let attempt = 0;
   const runFn = async (s, k, env) => {
     attempt++;
     automateRunState.attempt = attempt;
-    return runSingleTest(s, k, env);
+    return runSingleTest(s, k, env, { headless: autoHeadless, browser: autoBrowser });
   };
   const result = await runWebTvQaEngineer(key, {
     suite,
@@ -1162,6 +1278,7 @@ async function runAutomateAndRunLoop(suite, key, envVal) {
       failStep: result.result.failStep,
       failReason: result.result.failReason,
       screenshot: result.result.screenshot,
+      video: result.result.video || null,
     });
   }
 }
@@ -1209,6 +1326,50 @@ function getFeaturePathForKey(suite, key) {
   return null;
 }
 
+/** Cucumber scenario title for a test key (from latest JSON report for that feature). */
+function findScenarioNameForKey(suite, key) {
+  if (!suite || !key) return null;
+  const featurePath = getFeaturePathForKey(suite, key);
+  if (!featurePath) return null;
+  const projectRoot = path.resolve(__dirname);
+  const reportsDir = path.join(projectRoot, 'reports', 'json');
+  const baseName = path.basename(featurePath, '.feature');
+  let reportFile = path.join(reportsDir, `${baseName}.json`);
+  if (!fs.existsSync(reportFile) && fs.existsSync(reportsDir)) {
+    const jsonFiles = fs.readdirSync(reportsDir).filter((f) => f.endsWith('.json'));
+    const tag = `@${key}`;
+    for (const f of jsonFiles) {
+      try {
+        const content = fs.readFileSync(path.join(reportsDir, f), 'utf8');
+        if (content.includes(tag) || content.toUpperCase().includes(tag.toUpperCase())) {
+          reportFile = path.join(reportsDir, f);
+          break;
+        }
+      } catch (_) {}
+    }
+  }
+  if (!fs.existsSync(reportFile)) return null;
+  try {
+    const data = JSON.parse(fs.readFileSync(reportFile, 'utf8'));
+    const features = Array.isArray(data) ? data : [data];
+    const tagU = `@${String(key).trim()}`.toUpperCase();
+    for (const feat of features) {
+      for (const el of feat.elements || []) {
+        if (el.keyword?.toLowerCase().includes('background')) continue;
+        const tags = (el.tags || []).map((t) => (t.name || '').trim().toUpperCase());
+        if (tags.includes(tagU)) return el.name || null;
+      }
+    }
+  } catch (_) {}
+  return null;
+}
+
+/** Build tag expression for multiple keys: (@key1 or @key2 or ...). */
+function getTagExpressionForKeys(keys) {
+  if (!keys || keys.length === 0) return '';
+  return keys.map((k) => `@${k}`).join(' or ');
+}
+
 /** Build tag expression to run only the requested key, excluding other keys in same file. */
 function getTagExpressionForKey(suite, key) {
   const relPath = getFeaturePathForKey(suite, key);
@@ -1231,24 +1392,219 @@ function pipeToConsole(prefix, data) {
   });
 }
 
-/** Run a single test and return result (for Fix loop). Does not block executeInProgress. */
-function runSingleTest(suite, key, envVal) {
+/** Run multiple tests in one WDIO invocation. Produces combined HTML report. Returns { passed, failed, results }. */
+function runMultipleTests(suite, keys, envVal, options = {}) {
   return new Promise((resolve) => {
+    const { headless = false, browser = 'chrome', recordVideo = false, parallelWorkers = 1 } = options;
+    const projectRoot = path.resolve(__dirname);
+    const specPaths = [];
+    const seen = new Set();
+    for (const key of keys) {
+      const fp = getFeaturePathForKey(suite, key);
+      if (fp) {
+        const full = path.join(projectRoot, fp);
+        if (!seen.has(full)) {
+          seen.add(full);
+          specPaths.push(full);
+        }
+      }
+    }
+    if (specPaths.length === 0) {
+      return resolve({
+        passed: 0,
+        failed: keys.length,
+        results: keys.map((k) => ({
+          key: k,
+          status: 'failed',
+          failStep: null,
+          failReason: 'No feature file',
+          screenshot: null,
+          video: null,
+        })),
+      });
+    }
+    const tagExpr = getTagExpressionForKeys(keys);
+    const args = ['run', path.join(projectRoot, 'wdio.conf.js')];
+    for (const sp of specPaths) args.push('--spec', sp);
+    args.push(`--cucumberOpts.tags=${tagExpr}`);
+    let spawnEnv = { ...process.env, ENV: envVal || 'beta' };
+    if (headless) spawnEnv.HEADLESS = '1';
+    if (browser) spawnEnv.BROWSER = String(browser).toLowerCase();
+    spawnEnv = applyRecordVideoEnv(spawnEnv, recordVideo);
+    const browserLc = String(browser || 'chrome').toLowerCase();
+    const instances =
+      browserLc === 'safari' || keys.length <= 1
+        ? 1
+        : Math.min(16, Math.max(1, parseInt(String(parallelWorkers), 10) || 1));
+    spawnEnv.WDIO_MAX_INSTANCES = String(instances);
+    const child = spawn('npx', ['wdio', ...args], {
+      cwd: projectRoot,
+      env: spawnEnv,
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+    fixState.activeChild = child;
+    let stdout = '';
+    let stderr = '';
+    child.stdout?.on('data', (d) => { stdout += d.toString(); pipeToConsole('', d.toString()); });
+    child.stderr?.on('data', (d) => { stderr += d.toString(); pipeToConsole('stderr', d.toString()); });
+    child.on('close', (code, signal) => {
+      fixState.activeChild = null;
+      if (instances > 1) {
+        console.log(`[wdio] parallel workers used: ${instances} (WDIO_MAX_INSTANCES)`);
+      }
+      const keySet = new Set(keys.map((k) => String(k).toUpperCase()));
+      const results = [];
+      let passed = 0;
+      let failed = 0;
+      try {
+        const reportsDir = path.join(__dirname, 'reports', 'json');
+        const manifestPath = path.join(__dirname, 'reports', 'failure-screenshots.json');
+        if (fs.existsSync(reportsDir)) {
+          const jsonFiles = fs.readdirSync(reportsDir).filter((f) => f.endsWith('.json'));
+          for (const f of jsonFiles) {
+            try {
+              const data = JSON.parse(fs.readFileSync(path.join(reportsDir, f), 'utf8'));
+              const features = Array.isArray(data) ? data : [data];
+              for (const feat of features) {
+                if (!feat?.elements) continue;
+                for (const el of feat.elements) {
+                  if (el.keyword?.toLowerCase().includes('background')) continue;
+                  const tags = (el.tags || []).map((t) => (t.name || '').replace(/^@/, '').trim().toUpperCase()).filter(Boolean);
+                  const matchedTag = tags.find((t) => keySet.has(t));
+                  const key = matchedTag ? keys.find((k) => String(k).toUpperCase() === matchedTag) : null;
+                  if (!key) continue;
+                  let status = 'passed';
+                  let failReason = null;
+                  let failStep = null;
+                  let screenshot = null;
+                  const scenarioId = `${feat.name || ''}::${el.name || ''}`;
+                  if (el.steps) {
+                    for (const step of el.steps) {
+                      if (step.result?.status === 'failed') {
+                        status = 'failed';
+                        failReason = step.result.error_message || step.result.message || 'Unknown error';
+                        failStep = [step.keyword, step.name].filter(Boolean).join(' ').trim() || null;
+                        if (fs.existsSync(manifestPath)) {
+                          try {
+                            const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+                            screenshot = manifest[scenarioId] || findScreenshotByScenarioName(manifest, el.name || '') || findScreenshotInDir(el.name || '');
+                          } catch (_) {}
+                        }
+                        if (!screenshot) screenshot = findScreenshotInDir(el.name || '');
+                        break;
+                      }
+                    }
+                  }
+                  if (status === 'passed') passed++;
+                  else failed++;
+                  const screenshotUrl = screenshot ? `/api/screenshots/${path.basename(screenshot)}` : null;
+                  const scenarioTitle = el.name || '';
+                  const vfile =
+                    recordVideo && scenarioTitle ? findVideoForScenarioName(scenarioTitle, VIDEOS_DIR) : null;
+                  const videoUrl = vfile ? `/api/videos/${vfile}` : null;
+                  results.push({ key, status, failStep, failReason, screenshot: screenshotUrl, video: videoUrl });
+                }
+              }
+            } catch (_) {}
+          }
+        }
+        for (const k of keys) {
+          if (!results.some((r) => r.key === k)) {
+            results.push({
+              key: k,
+              status: 'failed',
+              failStep: null,
+              failReason: 'No result in report',
+              screenshot: null,
+              video: null,
+            });
+            failed++;
+          }
+        }
+      } catch (e) {
+        for (const k of keys)
+          results.push({
+            key: k,
+            status: 'failed',
+            failStep: null,
+            failReason: e.message,
+            screenshot: null,
+            video: null,
+          });
+        failed = keys.length;
+        passed = 0;
+      }
+      resolve({ passed, failed, results });
+    });
+    child.on('error', (err) => {
+      resolve({
+        passed: 0,
+        failed: keys.length,
+        results: keys.map((k) => ({
+          key: k,
+          status: 'failed',
+          failStep: null,
+          failReason: err.message,
+          screenshot: null,
+          video: null,
+        })),
+      });
+    });
+  });
+}
+
+/** Extract actual error from wdio/cucumber output when Cucumber JSON report is missing. */
+function extractFailReasonFromOutput(stdout, stderr) {
+  const out = [stderr, stdout].filter(Boolean).join('\n');
+  if (!out) return null;
+  // Prefer the real step error over the wdio summary. Search for common patterns.
+  const patterns = [
+    /Error:\s*([^\n]+)/,
+    /(Not implemented[^\n]*)/i,
+    /(AssertionError[^\n]*)/i,
+    /(element[^\n]*(?:not found|not displayed|not exist)[^\n]*)/i,
+    /(no such element[^\n]*)/i,
+    /(timeout[^\n]*(?:wait|exceeded)[^\n]*)/i,
+  ];
+  for (const re of patterns) {
+    const m = out.match(re);
+    if (m && m[1]) return (m[1] || m[0]).trim().slice(0, 500);
+  }
+  return out.slice(-600).trim() || null;
+}
+
+/** Run a single test and return result (for Fix loop). Does not block executeInProgress. */
+function runSingleTest(suite, key, envVal, options = {}) {
+  return new Promise((resolve) => {
+    const { headless = false, browser = 'chrome', recordVideo = false } = options;
     const featurePath = getFeaturePathForKey(suite, key);
     if (!featurePath) {
-      return resolve({ status: 'failed', failReason: `No feature file for ${key}`, failStep: null, screenshot: null });
+      return resolve({
+        status: 'failed',
+        failReason: `No feature file for ${key}`,
+        failStep: null,
+        screenshot: null,
+        video: null,
+      });
     }
     const tagExpr = getTagExpressionForKey(suite, key);
+    const projectRoot = path.resolve(__dirname);
+    const specPath = path.join(projectRoot, featurePath);
     const args = [
       'run',
-      path.join(__dirname, 'wdio.conf.js'),
+      path.join(projectRoot, 'wdio.conf.js'),
       '--spec',
-      featurePath,
+      specPath,
       `--cucumberOpts.tags=${tagExpr}`,
     ];
+    let spawnEnv = { ...process.env, ENV: envVal || 'beta' };
+    if (headless) spawnEnv.HEADLESS = '1';
+    if (browser) spawnEnv.BROWSER = String(browser).toLowerCase();
+    spawnEnv = applyRecordVideoEnv(spawnEnv, recordVideo);
+    spawnEnv.WDIO_MAX_INSTANCES = '1';
     const child = spawn('npx', ['wdio', ...args], {
-      cwd: __dirname,
-      env: { ...process.env, ENV: envVal || 'qa' },
+      cwd: projectRoot,
+      env: spawnEnv,
       stdio: ['ignore', 'pipe', 'pipe'],
     });
     fixState.activeChild = child;
@@ -1268,7 +1624,13 @@ function runSingleTest(suite, key, envVal) {
     child.on('close', (code, signal) => {
       fixState.activeChild = null;
       if (signal === 'SIGTERM' || signal === 'SIGKILL') {
-        return resolve({ status: 'failed', failReason: 'Stopped by user', failStep: null, screenshot: null });
+        return resolve({
+          status: 'failed',
+          failReason: 'Stopped by user',
+          failStep: null,
+          screenshot: null,
+          video: null,
+        });
       }
       let status = 'passed';
       let failReason = null;
@@ -1280,7 +1642,20 @@ function runSingleTest(suite, key, envVal) {
         const reportsDir = path.join(__dirname, 'reports', 'json');
         const manifestPath = path.join(__dirname, 'reports', 'failure-screenshots.json');
         const baseName = path.basename(featurePath, '.feature');
-        const reportFile = path.join(reportsDir, `${baseName}.json`);
+        let reportFile = path.join(reportsDir, `${baseName}.json`);
+        if (!fs.existsSync(reportFile) && fs.existsSync(reportsDir)) {
+          const jsonFiles = fs.readdirSync(reportsDir).filter((f) => f.endsWith('.json'));
+          const tag = `@${key}`;
+          for (const f of jsonFiles) {
+            try {
+              const content = fs.readFileSync(path.join(reportsDir, f), 'utf8');
+              if (content.includes(tag) || content.toUpperCase().includes(tag.toUpperCase())) {
+                reportFile = path.join(reportsDir, f);
+                break;
+              }
+            } catch (_) {}
+          }
+        }
         if (fs.existsSync(reportFile)) {
           const data = JSON.parse(fs.readFileSync(reportFile, 'utf8'));
           const features = Array.isArray(data) ? data : [data];
@@ -1331,17 +1706,35 @@ function runSingleTest(suite, key, envVal) {
           }
         }
         if (code !== 0 && status === 'passed') status = 'failed';
-        if (status === 'failed' && !failReason) failReason = stderr || stdout?.slice(-500) || 'Test failed';
+        if (status === 'failed' && !failReason) {
+          failReason = extractFailReasonFromOutput(stdout, stderr) || stderr || stdout?.slice(-500) || 'Test failed';
+        }
       } catch (e) {
         status = 'failed';
         failReason = e.message;
       }
       const screenshotUrl = screenshot ? `/api/screenshots/${screenshot}` : null;
-      resolve({ status, failReason, failStep, screenshot: screenshotUrl, featureName, scenarioName });
+      let videoUrl = null;
+      if (recordVideo) {
+        const sn = scenarioName || findScenarioNameForKey(suite, key);
+        if (sn) {
+          const v = findVideoForScenarioName(sn, VIDEOS_DIR);
+          if (v) videoUrl = `/api/videos/${v}`;
+        }
+      }
+      resolve({
+        status,
+        failReason,
+        failStep,
+        screenshot: screenshotUrl,
+        featureName,
+        scenarioName,
+        video: videoUrl,
+      });
     });
 
     child.on('error', (err) => {
-      resolve({ status: 'failed', failReason: err.message, failStep: null, screenshot: null });
+      resolve({ status: 'failed', failReason: err.message, failStep: null, screenshot: null, video: null });
     });
   });
 }
@@ -1352,13 +1745,13 @@ async function runFixLoop(suite, key, envVal) {
   fixState.stopped = false;
   fixState.suite = suite;
   fixState.key = key;
-  fixState.env = envVal || 'qa';
+  fixState.env = envVal || 'beta';
   fixState.attempt = 0;
   fixState.lastResult = null;
 
   while (!fixState.stopped) {
     fixState.attempt++;
-    fixState.lastResult = await runSingleTest(suite, key, fixState.env);
+    fixState.lastResult = await runSingleTest(suite, key, fixState.env, { headless: !!fixState.headless, browser: fixState.browser || 'chrome' });
     const id = `${suite}:${key}`;
     saveExecuteResult(suite, key, {
       success: fixState.lastResult.status === 'passed',
@@ -1366,6 +1759,7 @@ async function runFixLoop(suite, key, envVal) {
       failStep: fixState.lastResult.failStep,
       failReason: fixState.lastResult.failReason,
       screenshot: fixState.lastResult.screenshot,
+      video: fixState.lastResult.video || null,
     });
     if (fixState.lastResult.status === 'passed') {
       fixState.running = false;
@@ -1376,7 +1770,12 @@ async function runFixLoop(suite, key, envVal) {
     const failReason = fixState.lastResult.failReason || '';
     const failStep = fixState.lastResult.failStep || '';
 
-    const { isNotImplementedError, tryFixNotImplementedError } = require('./ai/webtvQaEngineer');
+    const {
+      isNotImplementedError,
+      tryFixNotImplementedError,
+      isNavigationError,
+      tryFixNavigationError,
+    } = require('./ai/webtvQaEngineer');
     if (isNotImplementedError(failReason)) {
       try {
         const fixResult = tryFixNotImplementedError(failStep);
@@ -1387,6 +1786,18 @@ async function runFixLoop(suite, key, envVal) {
         }
       } catch (e) {
         console.warn('[Fix] Not-implemented fix error:', e.message);
+      }
+    }
+    if (isNavigationError(failReason)) {
+      try {
+        const fixResult = tryFixNavigationError(failStep);
+        if (fixResult.applied) {
+          console.log(`[Fix] Navigation → increased timeout (${fixResult.source}): ${path.basename(fixResult.file)}`);
+          await new Promise((r) => setTimeout(r, 3000));
+          continue;
+        }
+      } catch (e) {
+        console.warn('[Fix] Navigation fix error:', e.message);
       }
     }
 
@@ -1418,7 +1829,7 @@ app.post('/api/execute', (req, res) => {
   if (executeInProgress || fixState.running) {
     return res.status(429).json({ error: 'Another test is already running' });
   }
-  const { suite, key } = req.body || {};
+  const { suite, key, headless, browser, recordVideo } = req.body || {};
   if (!suite || !key) {
     return res.status(400).json({ error: 'suite and key required', success: false });
   }
@@ -1432,18 +1843,25 @@ app.post('/api/execute', (req, res) => {
   }
 
   executeInProgress = true;
-  const envVal = req.body.env || 'qa';
+  const envVal = req.body.env || 'beta';
+  let spawnEnv = { ...process.env, ENV: envVal };
+  if (headless) spawnEnv.HEADLESS = '1';
+  if (browser) spawnEnv.BROWSER = String(browser).toLowerCase();
+  spawnEnv = applyRecordVideoEnv(spawnEnv, !!recordVideo);
+  spawnEnv.WDIO_MAX_INSTANCES = '1';
   const tagExpr = getTagExpressionForKey(suite, key);
+  const projectRoot = path.resolve(__dirname);
+  const specPath = path.join(projectRoot, featurePath);
   const args = [
     'run',
-    path.join(__dirname, 'wdio.conf.js'),
+    path.join(projectRoot, 'wdio.conf.js'),
     '--spec',
-    featurePath,
+    specPath,
     `--cucumberOpts.tags=${tagExpr}`,
   ];
   const child = spawn('npx', ['wdio', ...args], {
-    cwd: __dirname,
-    env: { ...process.env, ENV: envVal },
+    cwd: projectRoot,
+    env: spawnEnv,
     stdio: ['ignore', 'pipe', 'pipe'],
   });
 
@@ -1466,6 +1884,7 @@ app.post('/api/execute', (req, res) => {
     let failReason = null;
     let failStep = null;
     let screenshot = null;
+    let videoScenarioTitle = null;
 
     try {
       const reportsDir = path.join(__dirname, 'reports', 'json');
@@ -1491,6 +1910,7 @@ app.post('/api/execute', (req, res) => {
           }
         if (lastScenario) {
           const { feat, el } = lastScenario;
+          videoScenarioTitle = el.name || null;
           const scenarioId = `${feat.name || ''}::${el.name || ''}`;
           let failed = false;
           if (el.steps) {
@@ -1516,10 +1936,21 @@ app.post('/api/execute', (req, res) => {
         }
       }
     if (code !== 0 && status === 'passed') status = 'failed';
-    if (status === 'failed' && !failReason) failReason = stderr || stdout?.slice(-500) || 'Test failed';
+    if (status === 'failed' && !failReason) {
+      failReason = extractFailReasonFromOutput(stdout, stderr) || stderr || stdout?.slice(-500) || 'Test failed';
+    }
     } catch (e) {
       status = 'failed';
       failReason = e.message;
+    }
+
+    let video = null;
+    if (recordVideo) {
+      const sn = videoScenarioTitle || findScenarioNameForKey(suite, key);
+      if (sn) {
+        const v = findVideoForScenarioName(sn, VIDEOS_DIR);
+        if (v) video = `/api/videos/${v}`;
+      }
     }
 
     const result = {
@@ -1528,6 +1959,7 @@ app.post('/api/execute', (req, res) => {
       failStep: status === 'failed' ? failStep : null,
       failReason: status === 'failed' ? failReason : null,
       screenshot: status === 'failed' && screenshot ? `/api/screenshots/${screenshot}` : null,
+      video,
     };
     saveExecuteResult(suite, key, result);
     res.json(result);
@@ -1540,6 +1972,7 @@ app.post('/api/execute', (req, res) => {
       status: 'failed',
       failReason: err.message,
       screenshot: null,
+      video: null,
     });
   });
 });
@@ -1563,7 +1996,7 @@ app.post('/api/fix/start', (req, res) => {
   if (executeInProgress) {
     return res.status(429).json({ error: 'Execute in progress' });
   }
-  const { suite, key, env } = req.body || {};
+  const { suite, key, env, headless, browser } = req.body || {};
   if (!suite || !key) {
     return res.status(400).json({ error: 'suite and key required' });
   }
@@ -1572,7 +2005,9 @@ app.post('/api/fix/start', (req, res) => {
     return res.status(404).json({ error: `No feature file for ${key} in ${suite}` });
   }
   fixState.stopped = false;
-  runFixLoop(suite, key, env || 'qa').catch(() => {});
+  fixState.headless = !!headless;
+  fixState.browser = browser || 'chrome';
+  runFixLoop(suite, key, env || 'beta').catch(() => {});
   res.json({ success: true, message: 'Fix loop started' });
 });
 
@@ -1617,9 +2052,59 @@ app.post('/api/sync', (req, res) => {
   });
 });
 
+/** Wipe RAG vector DB (.rag-memory.json only), failure manifests/screenshots, and failed scenarios from run history. Domain seed `rag/domain-knowledge.json` is not deleted. */
+app.post('/api/rag/refresh', (req, res) => {
+  try {
+    const { clearDb } = require('./rag/vectorDB');
+    const result = clearDb({ failureManifests: true });
+    const runs = loadRuns();
+    let removedFromRuns = 0;
+    let modified = false;
+    for (const run of runs) {
+      if (!run.scenarios) continue;
+      const before = run.scenarios.length;
+      run.scenarios = run.scenarios.filter((s) => s.status !== 'failed');
+      const after = run.scenarios.length;
+      removedFromRuns += before - after;
+      if (before !== after) {
+        modified = true;
+        const metrics = computeMetricsFromScenarios(run.scenarios);
+        run.passed = metrics.passed;
+        run.failed = metrics.failed;
+        run.skipped = metrics.skipped;
+        run.total = metrics.total;
+        run.passRate = metrics.passRate;
+        run.byFeature = metrics.byFeature;
+        run.failedScenarios = metrics.failedScenarios;
+      }
+    }
+    if (modified) {
+      saveRuns(runs);
+      console.log('[RAG Refresh] Removed', removedFromRuns, 'failed scenarios from runs');
+    }
+    res.json({
+      success: true,
+      message: 'RAG memory, failure data, and failed scenarios from runs wiped',
+      ...result,
+      removedFromRuns,
+    });
+  } catch (e) {
+    res.status(500).json({ success: false, error: e.message });
+  }
+});
+
 app.post('/api/restart', (req, res) => {
-  res.json({ success: true, message: 'Restarting server...' });
-  setTimeout(() => process.exit(0), 1500);
+  res.json({ success: true, message: 'Building dashboard, then restarting server...' });
+  const projectRoot = path.resolve(__dirname);
+  const build = spawnSync('npm', ['run', 'dashboard:build'], {
+    cwd: projectRoot,
+    stdio: 'inherit',
+    shell: true,
+  });
+  if (build.status !== 0) {
+    console.warn('[Restart] Dashboard build failed, restarting anyway.');
+  }
+  setTimeout(() => process.exit(0), 500);
 });
 
 app.get('/metrics', (req, res) => {
@@ -1634,6 +2119,15 @@ app.get('/metrics', (req, res) => {
   }));
   res.json(byFeature.length ? byFeature : [{ test: 'Latest run', confidence: latest.total > 0 ? Math.round((latest.passed / latest.total) * 100) : 0 }]);
 });
+
+// Cucumber HTML report (reports/cucumber-html/index.html)
+const CUCUMBER_REPORT_DIR = path.join(__dirname, 'reports', 'cucumber-html');
+app.get('/api/report/status', (req, res) => {
+  const indexPath = path.join(CUCUMBER_REPORT_DIR, 'index.html');
+  const pdfPath = path.join(CUCUMBER_REPORT_DIR, 'cucumber-report.pdf');
+  res.json({ exists: fs.existsSync(indexPath), pdfExists: fs.existsSync(pdfPath) });
+});
+app.use('/report', express.static(CUCUMBER_REPORT_DIR, { index: 'index.html' }));
 
 // Serve static assets (must be after API routes)
 app.use(express.static(DIST_DIR));

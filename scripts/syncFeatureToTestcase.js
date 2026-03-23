@@ -116,8 +116,9 @@ function syncFeatureFile(featurePath, options = {}) {
       continue;
     }
 
-    const oldGherkin = (tc.gherkin || '').trim();
-    const newGherkin = gherkin.trim();
+    const { polishGherkin } = require('./automateScenario');
+    const oldGherkin = polishGherkin(tc.gherkin || '');
+    const newGherkin = polishGherkin(gherkin);
     if (oldGherkin === newGherkin) {
       log(`  - ${key} (unchanged)`);
       continue;

@@ -6,6 +6,8 @@ const fs = require('fs');
 const path = require('path');
 
 const MEMORY_PATH = path.join(process.cwd(), '.rag-memory.json');
+/** Static product/domain entries merged into search (not cleared by RAG refresh). */
+const DOMAIN_KNOWLEDGE_PATH = path.join(__dirname, 'domain-knowledge.json');
 
 let db = [];
 let docTfs = [];
@@ -35,22 +37,52 @@ function tokenize(text) {
     .filter((w) => w.length > 1);
 }
 
-function buildTfIdf() {
-  docTfs = [];
-  docTokens = [];
+function loadDomainKnowledge() {
+  try {
+    if (!fs.existsSync(DOMAIN_KNOWLEDGE_PATH)) return [];
+    const raw = JSON.parse(fs.readFileSync(DOMAIN_KNOWLEDGE_PATH, 'utf8'));
+    return Array.isArray(raw) ? raw : [];
+  } catch (_) {
+    return [];
+  }
+}
+
+/** TF-IDF matrices for an arbitrary doc list (memory + domain seed). */
+function buildTfIdfFor(docs) {
+  const localDocTfs = [];
+  const localDocTokens = [];
   const df = {};
-  db.forEach((doc) => {
-    const combined = [doc.text, doc.fix?.selector || '', doc.step || '', doc.scenario || ''].join(' ');
+  docs.forEach((doc) => {
+    const combined = [
+      doc.text,
+      doc.fix?.selector || '',
+      doc.fix?.guidance || '',
+      doc.step || '',
+      doc.scenario || '',
+    ]
+      .join(' ');
     const tokens = tokenize(combined);
-    docTokens.push(tokens);
+    localDocTokens.push(tokens);
     const tf = {};
     tokens.forEach((t) => {
       tf[t] = (tf[t] || 0) + 1;
       df[t] = (df[t] || 0) + 1;
     });
-    docTfs.push(tf);
+    localDocTfs.push(tf);
   });
-  return { docTfs, docTokens, df, n: db.length };
+  return { docTfs: localDocTfs, docTokens: localDocTokens, df, n: docs.length };
+}
+
+function buildTfIdf() {
+  const r = buildTfIdfFor(db);
+  docTfs = r.docTfs;
+  docTokens = r.docTokens;
+  return r;
+}
+
+function getSearchCorpus() {
+  loadDb();
+  return [...loadDomainKnowledge(), ...db];
 }
 
 /**
@@ -80,10 +112,10 @@ function save(text, fix) {
  * @returns {Array} Sorted by relevance: [{ text, fix, score }, ...]
  */
 function search(query, topK = 5) {
-  loadDb();
-  if (db.length === 0) return [];
+  const corpus = getSearchCorpus();
+  if (corpus.length === 0) return [];
 
-  const { docTfs, df, n } = buildTfIdf();
+  const { docTfs, df, n } = buildTfIdfFor(corpus);
   const qTokens = tokenize(String(query || ''));
   const qTf = {};
   qTokens.forEach((t) => { qTf[t] = (qTf[t] || 0) + 1; });
@@ -102,10 +134,10 @@ function search(query, topK = 5) {
     .slice(0, topK)
     .filter((s) => s.score > 0)
     .map((s) => ({
-      text: db[s.i].text,
-      fix: db[s.i].fix,
-      step: db[s.i].step,
-      scenario: db[s.i].scenario,
+      text: corpus[s.i].text,
+      fix: corpus[s.i].fix,
+      step: corpus[s.i].step,
+      scenario: corpus[s.i].scenario,
       score: Math.round(s.score * 100) / 100,
     }));
 }
@@ -122,10 +154,12 @@ async function searchWithEmbeddings(query, topK = 5) {
     const OpenAI = (await import('openai')).default;
     const openai = new OpenAI({ apiKey });
 
-    const docs = loadDb();
-    if (docs.length === 0) return [];
+    const corpus = getSearchCorpus();
+    if (corpus.length === 0) return [];
 
-    const texts = docs.map((d) => [d.text, d.fix?.selector, d.step].filter(Boolean).join(' '));
+    const texts = corpus.map((d) =>
+      [d.text, d.fix?.selector, d.fix?.guidance, d.step, d.scenario].filter(Boolean).join(' ')
+    );
     const [queryEmb, ...docEmbs] = await Promise.all([
       openai.embeddings.create({ model: 'text-embedding-3-small', input: query }),
       ...texts.map((t) =>
@@ -143,10 +177,10 @@ async function searchWithEmbeddings(query, topK = 5) {
       .slice(0, topK)
       .filter((s) => s.score > 0.3)
       .map((s) => ({
-        text: db[s.i].text,
-        fix: db[s.i].fix,
-        step: db[s.i].step,
-        scenario: db[s.i].scenario,
+        text: corpus[s.i].text,
+        fix: corpus[s.i].fix,
+        step: corpus[s.i].step,
+        scenario: corpus[s.i].scenario,
         score: Math.round(s.score * 100) / 100,
       }));
 
@@ -168,4 +202,34 @@ function cosineSimilarity(a, b) {
   return norm === 0 ? 0 : dot / norm;
 }
 
-module.exports = { save, search, searchWithEmbeddings, loadDb };
+/**
+ * Clear RAG memory and optionally failure manifests/screenshots.
+ * @param {object} opts - { failureManifests?: boolean } - if true, also wipes failure-screenshots.json, failure-dom.json, screenshots
+ */
+function clearDb(opts = {}) {
+  db = [];
+  docTfs = [];
+  docTokens = [];
+  if (fs.existsSync(MEMORY_PATH)) {
+    fs.unlinkSync(MEMORY_PATH);
+  }
+  if (opts.failureManifests) {
+    const reportsDir = path.join(process.cwd(), 'reports');
+    const manifestPath = path.join(reportsDir, 'failure-screenshots.json');
+    const domPath = path.join(reportsDir, 'failure-dom.json');
+    const screenshotsDir = path.join(reportsDir, 'screenshots');
+    try {
+      if (fs.existsSync(manifestPath)) fs.unlinkSync(manifestPath);
+      if (fs.existsSync(domPath)) fs.unlinkSync(domPath);
+      if (fs.existsSync(screenshotsDir)) {
+        const files = fs.readdirSync(screenshotsDir).filter((f) => f.endsWith('.png'));
+        for (const f of files) fs.unlinkSync(path.join(screenshotsDir, f));
+      }
+    } catch (e) {
+      /* ignore */
+    }
+  }
+  return { cleared: true };
+}
+
+module.exports = { save, search, searchWithEmbeddings, loadDb, clearDb, loadDomainKnowledge };

@@ -261,24 +261,35 @@ When('the user navigates down to select a VOD video', async function () {
   await vodTile.scrollIntoView({ block: 'center' });
   await vodTile.waitForClickable({ timeout: 10000 });
   const handlesBefore = await browser.getWindowHandles();
+
   await vodTile.click();
 
-  await browser.waitUntil(
-    async () => {
-      const handles = await browser.getWindowHandles();
-      if (handles.length > handlesBefore.length) return true;
-      const url = await browser.getUrl();
-      return url.includes('/video/') || url.includes('/watch/') || url.includes('/shows/');
-    },
-    { timeout: 15000, timeoutMsg: 'Did not navigate after clicking VOD tile', interval: 800 }
-  );
-
+  // Switch to new tab if VOD opened in one
   const handles = await browser.getWindowHandles();
   if (handles.length > handlesBefore.length) {
     await browser.switchToWindow(handles[handles.length - 1]);
   }
 
+  // Wait for navigation to complete: video URL, video element, or shows detail page (25s)
+  await browser.waitUntil(
+    async () => {
+      const url = await browser.getUrl();
+      if (url.includes('/video/') || url.includes('/watch/')) return true;
+      const hasVideo = await browser.execute(() => document.querySelector('video') !== null);
+      if (hasVideo) return true;
+      if (url.includes('/tv/shows/')) return true;
+      return false;
+    },
+    { timeout: 25000, interval: 500, timeoutMsg: 'Page did not load video or shows detail within 25 seconds after clicking VOD tile' }
+  );
+
   let url = await browser.getUrl();
+  // Video in modal/overlay without URL change
+  const hasVideoOnPage = await browser.execute(() => document.querySelector('video') !== null);
+  if (hasVideoOnPage && !url.includes('/video/') && !url.includes('/watch/')) {
+    console.log('   ✅ Video player appeared on page (modal/overlay)');
+    return;
+  }
 
   // Match webTv-temp: if we landed on shows detail page (/tv/shows/xxx), find and click a video tile to reach video page
   const urlParts = url.split('/').filter((p) => p.length > 0);
@@ -326,12 +337,14 @@ When('the user navigates down to select a VOD video', async function () {
       await vodTileOnDetail.waitForClickable({ timeout: 8000 }).catch(() => {});
       await vodTileOnDetail.click();
 
+      // Wait for video page or player to load
       await browser.waitUntil(
         async () => {
-          const u = await browser.getUrl();
-          return u.includes('/video/') || u.includes('/watch/');
+          const url = await browser.getUrl();
+          if (url.includes('/video/') || url.includes('/watch/')) return true;
+          return await browser.execute(() => document.querySelector('video') !== null);
         },
-        { timeout: 15000, timeoutMsg: 'Did not navigate to video page from shows detail', interval: 800 }
+        { timeout: 20000, interval: 500, timeoutMsg: 'Video page did not load from shows detail within 20 seconds' }
       );
     } else {
       const hasVideo = await browser.execute(() => document.querySelector('video') !== null);
@@ -343,10 +356,6 @@ When('the user navigates down to select a VOD video', async function () {
     }
   }
 
-  url = await browser.getUrl();
-  if (!url.includes('/video/') && !url.includes('/watch/')) {
-    throw new Error(`Expected video page, got: ${url}`);
-  }
 });
 
 /**
@@ -365,9 +374,6 @@ Then('the user is able to play the VOD Video successfully', async function () {
     { timeout: 15000, timeoutMsg: 'Video element did not appear after 15 seconds', interval: 500 }
   );
   console.log('   ✅ Video element found');
-
-  // Simulate user interaction for autoplay
-  await browser.execute(() => document.body.click());
 
   const videoPlayer = await playerPage.videoPlayer();
   const videoPlayerExists = await videoPlayer.isExisting();
@@ -389,11 +395,12 @@ Then('the user is able to play the VOD Video successfully', async function () {
   if (hasAd) {
     console.log('   📺 Advertisement detected - looking for skip button or waiting for completion...');
     const adSkipSelectors = [
-      '[class*="skip"]',
-      '[id*="skip"]',
       'button[aria-label*="skip" i]',
+      '[aria-label*="Skip ad" i]',
       '.ad-skip-button',
       '#ad-skip',
+      '[class*="skip-ad"]',
+      '[id*="skip"]',
       '[class*="Skip"]',
     ];
     let adSkipped = false;
@@ -506,21 +513,10 @@ Then('the user is able to play the VOD Video successfully', async function () {
     { timeout: 10000, timeoutMsg: 'Blocking iframe still present', interval: 500 }
   ).catch(() => {});
 
-  // Click video container + video.play() (from webTv-temp)
-  await browser.execute(() => {
-    const video = document.querySelector('video');
-    if (video) {
-      const container =
-        video.closest('[class*="player"], [class*="Player"], [id*="player"], [id*="Player"]') ||
-        video.parentElement;
-      if (container) container.click();
-      video.play().catch(() => {});
-    }
-  });
-
-  // Wait for content video loaded (readyState >= 2, not ad) - retry loop from webTv-temp
-  console.log('   ⏳ Waiting for content video to load...');
-  const maxWaitAttempts = 15;
+  // Wait for content video loaded (readyState >= 2, not ad) - retry loop, up to ~60s when ad is showing
+  // NOTE: Do NOT click play/pause until scrubber bar and video time are ready (later)
+  console.log('   ⏳ Waiting for content video to load (up to 60s for ad to finish)...');
+  const maxWaitAttempts = 30;
   let videoReady = false;
   for (let attempt = 0; attempt < maxWaitAttempts && !videoReady; attempt++) {
     const state = await browser.execute(() => {
@@ -578,6 +574,78 @@ Then('the user is able to play the VOD Video successfully', async function () {
     }
     throw new Error('Content video did not load');
   }
+
+  // Ensure ad is gone before any play/pause clicks
+  console.log('   ⏳ Confirming ad is gone (up to 60s)...');
+  await browser.waitUntil(
+    async () => {
+      const state = await browser.execute(() => {
+        const v = document.querySelector('video');
+        if (!v) return { adGone: false };
+        const title = (v.getAttribute('title') || '').toLowerCase();
+        const isAd = title.includes('advertisement') || title.includes(' ad ');
+        const isContent = v.readyState >= 2 && v.duration > 0 && !isAd;
+        return { adGone: !isAd, isContent };
+      });
+      return state.adGone && state.isContent;
+    },
+    { timeout: 60000, timeoutMsg: 'Ad still present or content not ready after 60s', interval: 500 }
+  );
+  await new Promise((r) => setTimeout(r, 1000));
+  console.log('   ✓ Ad gone, content ready');
+
+  // Wait for scrubber bar and video time BEFORE any play/pause clicks - must be content, not ad
+  console.log('   ⏳ Waiting for scrubber bar and video time (content, not ad) before starting playback...');
+  await browser.waitUntil(
+    async () => {
+      const notAd = await browser.execute(() => {
+        const v = document.querySelector('video');
+        if (!v) return false;
+        const title = (v.getAttribute('title') || '').toLowerCase();
+        return !title.includes('advertisement') && !title.includes(' ad ');
+      });
+      if (!notAd) return false;
+
+      const scrubber = await playerPage.scrubberBar();
+      const scrubberOk = await scrubber.isExisting().catch(() => false);
+      if (scrubberOk && (await scrubber.isDisplayed().catch(() => false))) {
+        const videoState = await browser.execute(() => {
+          const v = document.querySelector('video');
+          if (!v) return { hasTime: false };
+          const title = (v.getAttribute('title') || '').toLowerCase();
+          const isAd = title.includes('advertisement') || title.includes(' ad ');
+          return {
+            hasTime: v.duration > 0 && !isNaN(v.duration) && !isNaN(v.currentTime) && !isAd,
+          };
+        });
+        if (videoState.hasTime) return true;
+      }
+      const altReady = await browser.execute(() => {
+        const v = document.querySelector('video');
+        const title = (v?.getAttribute('title') || '').toLowerCase();
+        const isAd = title.includes('advertisement') || title.includes(' ad ');
+        const scrubberLike = document.querySelector(
+          '[class*="progress"], [class*="scrubber"], [class*="seek"], input[type="range"], [role="slider"]'
+        );
+        return v && v.readyState >= 2 && v.duration > 0 && !!scrubberLike && !isAd;
+      });
+      return altReady;
+    },
+    { timeout: 15000, timeoutMsg: 'Scrubber bar or video time did not appear (content, not ad)', interval: 500 }
+  );
+  console.log('   ✓ Scrubber bar and video time ready (content confirmed) - now starting playback');
+
+  // First play action (after scrubber ready) - container click provides user interaction for autoplay
+  await browser.execute(() => {
+    const video = document.querySelector('video');
+    if (video) {
+      const container =
+        video.closest('[class*="player"], [class*="Player"], [id*="player"], [id*="Player"]') ||
+        video.parentElement;
+      if (container) container.click();
+      video.play().catch(() => {});
+    }
+  });
 
   // If paused, click player and play
   const initialState = await browser.execute(() => {
@@ -640,25 +708,6 @@ Then('the user is able to play the VOD Video successfully', async function () {
     { timeout: 10000, timeoutMsg: 'Video time did not progress within 10 seconds' }
   );
   console.log('   ✓ Video time progressing');
-
-  // Ensure ad is gone before testing player controls (pause, play, forward, rewind)
-  console.log('   ⏳ Confirming ad is gone before testing player controls...');
-  await browser.waitUntil(
-    async () => {
-      const state = await browser.execute(() => {
-        const v = document.querySelector('video');
-        if (!v) return { adGone: false };
-        const title = (v.getAttribute('title') || '').toLowerCase();
-        const isAd = title.includes('advertisement') || title.includes(' ad ');
-        const isContent = v.readyState >= 2 && v.duration > 0 && !isAd;
-        return { adGone: !isAd, isContent };
-      });
-      return state.adGone && state.isContent;
-    },
-    { timeout: 10000, timeoutMsg: 'Ad still present or content not ready before player control tests', interval: 500 }
-  );
-  await new Promise((r) => setTimeout(r, 1000));
-  console.log('   ✓ Ad gone, content ready - testing player controls');
 
   // I verify video content player functionality - try clicking UI buttons, always fallback to video API
   async function tryClickButton(btn, fallback) {

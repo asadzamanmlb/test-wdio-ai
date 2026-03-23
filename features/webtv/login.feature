@@ -3,7 +3,7 @@
 
 @webtv @login
 
-Feature: Smoke | Log In
+Feature: Log In and Log Out
 
   @WSTE-35
   Scenario: Smoke | Log In

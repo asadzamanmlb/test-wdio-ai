@@ -164,6 +164,8 @@ async function getExpandedTestsByFolder(token, projectId, folderPath, options = 
 }
 
 function toTestCaseJson(test) {
+  const { polishGherkin } = require('../scripts/automateScenario');
+  const rawGherkin = test.gherkin || null;
   return {
     id: test.jira?.key || test.issueId,
     issueId: test.issueId,
@@ -173,7 +175,7 @@ function toTestCaseJson(test) {
     status: test.jira?.status?.name || null,
     testType: test.testType?.name || null,
     scenarioType: test.scenarioType || null,
-    gherkin: test.gherkin || null,
+    gherkin: rawGherkin ? polishGherkin(rawGherkin) : null,
     unstructured: test.unstructured || null,
     steps: (test.steps || []).map(s => ({
       id: s.id,

@@ -170,6 +170,25 @@ function FailedScenarios({ items, runs, selectedRunId, onRunSelect, currentRunId
                   />
                 </a>
               )}
+              {s.video && (
+                <div className="flex flex-col gap-1 max-w-[280px]">
+                  <span className="text-[10px] uppercase text-[var(--muted)]">Recording</span>
+                  <video
+                    controls
+                    className="max-h-32 rounded border border-[var(--border)] bg-black"
+                    src={s.video}
+                    preload="metadata"
+                  />
+                  <a
+                    href={s.video}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-[var(--accent)] hover:underline"
+                  >
+                    Open video
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         ))}
@@ -603,10 +622,11 @@ function SyncDiffModal({ suite, key: scenarioKey, changes, onClose, onApply, onR
   );
 }
 
-function ScenarioRow({ scenario, suiteName, jiraBaseUrl, env, persistedResult, onSync, syncLoading, fixStatus, onFixStart, onFixStop, syncStatus, onAutomate, automateLoading, automateStatus, onUpdateXray, updateXrayLoading }) {
-  const [runState, setRunState] = useState(null); // { status, failReason?, screenshot? } | null - from current session
+function ScenarioRow({ scenario, suiteName, jiraBaseUrl, env, headless, browser, recordVideo, persistedResult, onSync, syncLoading, fixStatus, onFixStart, onFixStop, syncStatus, onAutomate, automateLoading, automateStatus, onUpdateXray, updateXrayLoading, selected, onSelectChange }) {
+  const [runState, setRunState] = useState(null); // { status, failReason?, screenshot?, video? } | null - from current session
   const [running, setRunning] = useState(false);
   const [showFailDetails, setShowFailDetails] = useState(false);
+  const [showRecording, setShowRecording] = useState(false);
   const effectiveState = runState ?? persistedResult; // persisted survives refresh
 
   async function handleExecute() {
@@ -617,7 +637,14 @@ function ScenarioRow({ scenario, suiteName, jiraBaseUrl, env, persistedResult, o
       const res = await fetch(`${API}/execute`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ suite: suiteName, key: scenario.key, env: env || 'qa' }),
+        body: JSON.stringify({
+          suite: suiteName,
+          key: scenario.key,
+          env: env || 'beta',
+          headless: !!headless,
+          browser: browser || 'chrome',
+          recordVideo: !!recordVideo,
+        }),
       });
       const data = await res.json();
       const newState = {
@@ -625,11 +652,13 @@ function ScenarioRow({ scenario, suiteName, jiraBaseUrl, env, persistedResult, o
         failStep: data.failStep || null,
         failReason: data.failReason || null,
         screenshot: data.screenshot || null,
+        video: data.video || null,
       };
       setRunState(newState);
       if (data.status === 'failed') setShowFailDetails(true);
+      if (data.video) setShowRecording(true);
     } catch (e) {
-      setRunState({ status: 'failed', failStep: null, failReason: e.message, screenshot: null });
+      setRunState({ status: 'failed', failStep: null, failReason: e.message, screenshot: null, video: null });
     } finally {
       setRunning(false);
     }
@@ -644,6 +673,17 @@ function ScenarioRow({ scenario, suiteName, jiraBaseUrl, env, persistedResult, o
   return (
     <>
       <tr className="border-b border-[var(--border)]/50 hover:bg-black/20">
+        <td className="px-2 py-2 w-10">
+          {scenario.automated && onSelectChange && (
+            <input
+              type="checkbox"
+              checked={!!selected}
+              onChange={(e) => onSelectChange(scenario.key, e.target.checked)}
+              className="rounded"
+              title="Select to run with Run Selected"
+            />
+          )}
+        </td>
         <td className="px-4 py-2 font-mono text-xs">
           {scenario.key && /^(WSTE|WQO|WQ)-\d+$/i.test(scenario.key) && jiraBaseUrl ? (
             <a
@@ -702,7 +742,7 @@ function ScenarioRow({ scenario, suiteName, jiraBaseUrl, env, persistedResult, o
                 {syncLoading ? '…' : 'Sync'}
               </button>
             )}
-            {suiteName && scenario.key && (
+            {suiteName && scenario.key && scenario.automated && (
               <button
                 onClick={() => onUpdateXray?.(scenario.key)}
                 disabled={updateXrayLoading}
@@ -747,7 +787,7 @@ function ScenarioRow({ scenario, suiteName, jiraBaseUrl, env, persistedResult, o
       </tr>
       {effectiveState?.status === 'failed' && (effectiveState.failStep || effectiveState.failReason || effectiveState.screenshot) && (
         <tr>
-          <td colSpan={5} className="px-4 py-0">
+          <td colSpan={6} className="px-4 py-0">
             <div
               className="cursor-pointer border-t border-[var(--border)]/50 bg-[var(--danger)]/5 px-4 py-2 text-xs text-[var(--muted)] hover:bg-[var(--danger)]/10"
               onClick={() => setShowFailDetails((v) => !v)}
@@ -783,19 +823,70 @@ function ScenarioRow({ scenario, suiteName, jiraBaseUrl, env, persistedResult, o
           </td>
         </tr>
       )}
+      {effectiveState?.video && (
+        <tr>
+          <td colSpan={6} className="px-4 py-0">
+            <div
+              className="cursor-pointer border-t border-[var(--border)]/50 bg-[var(--accent)]/5 px-4 py-2 text-xs text-[var(--muted)] hover:bg-[var(--accent)]/10"
+              onClick={() => setShowRecording((v) => !v)}
+            >
+              {showRecording ? '▼' : '▶'} Screen recording
+            </div>
+            {showRecording && (
+              <div className="border-t border-[var(--border)]/50 bg-black/20 px-4 py-3 space-y-2">
+                <video
+                  controls
+                  className="max-h-56 w-full max-w-2xl rounded border border-[var(--border)] bg-black"
+                  src={effectiveState.video}
+                  preload="metadata"
+                />
+                <a
+                  href={effectiveState.video}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block text-xs text-[var(--accent)] hover:underline"
+                >
+                  Open recording in new tab
+                </a>
+              </div>
+            )}
+          </td>
+        </tr>
+      )}
     </>
   );
 }
 
-function ScenarioList({ scenarios, title, suiteName, suiteId, jiraBaseUrl, onRefresh, env, executeResults, fixStatus, onFixStart, onFixStop, automateStatus, searchQuery }) {
+function ScenarioList({
+  scenarios,
+  title,
+  suiteName,
+  suiteId,
+  jiraBaseUrl,
+  onRefresh,
+  env,
+  headless,
+  browser,
+  recordVideo,
+  parallel,
+  parallelWorkers,
+  executeResults,
+  fixStatus,
+  onFixStart,
+  onFixStop,
+  automateStatus,
+  searchQuery,
+}) {
   const [syncLoading, setSyncLoading] = useState(false);
   const [syncLoadingKey, setSyncLoadingKey] = useState(null);
+  const [runAllLoading, setRunAllLoading] = useState(false);
   const [syncPreview, setSyncPreview] = useState(null);
   const [syncPreviewKey, setSyncPreviewKey] = useState(null);
   const [syncStatus, setSyncStatus] = useState(null);
   const [automateLoadingKey, setAutomateLoadingKey] = useState(null);
   const [updateXrayLoadingKey, setUpdateXrayLoadingKey] = useState(null);
   const [updateXrayPreview, setUpdateXrayPreview] = useState(null);
+  const [selectedKeys, setSelectedKeys] = useState(() => new Set());
 
   async function fetchSyncStatus() {
     if (!suiteName) return;
@@ -836,7 +927,8 @@ function ScenarioList({ scenarios, title, suiteName, suiteId, jiraBaseUrl, onRef
         if (r?.success) {
           alert(`Automate complete – test passed after ${r.attempts?.length || 0} attempt(s).`);
         } else if (r?.attempts?.length) {
-          alert(`Automate finished – test failed after ${r.attempts.length} attempt(s). ${r.reason || ''}`);
+          const step = r.result?.failStep || r?.failStep;
+          alert(`Automate finished – test failed after ${r.attempts.length} attempt(s).\n\n${r.reason || 'Unable to auto-fix.'}${step ? `\n\nFailing step: ${step}` : ''}`);
         }
       }
     }
@@ -901,13 +993,98 @@ function ScenarioList({ scenarios, title, suiteName, suiteId, jiraBaseUrl, onRef
     }
   }
 
+  const automatedScenarios = scenarios?.filter((s) => s.automated) || [];
+  const automatedCount = automatedScenarios.length;
+  const selectedCount = selectedKeys.size;
+  const safariBrowser = (browser || 'chrome').toLowerCase() === 'safari';
+  const parallelOk = !!parallel && !safariBrowser;
+
+  function handleSelectChange(key, checked) {
+    setSelectedKeys((prev) => {
+      const next = new Set(prev);
+      if (checked) next.add(key);
+      else next.delete(key);
+      return next;
+    });
+  }
+
+  async function handleRunSelected() {
+    const suite = suiteId || suiteName;
+    if (!suite || selectedCount === 0 || runAllLoading) return;
+    setRunAllLoading(true);
+    try {
+      const res = await fetch(`${API}/execute-suite`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          suite,
+          env: env || 'beta',
+          headless: !!headless,
+          browser: browser || 'chrome',
+          keys: Array.from(selectedKeys),
+          recordVideo: !!recordVideo,
+          parallel: parallelOk && selectedCount > 1,
+          parallelWorkers: parallelWorkers || 4,
+        }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        onRefresh?.();
+        const parHint =
+          parallelOk && selectedCount > 1 ? ` (parallel: ${Math.min(16, Math.max(2, Number(parallelWorkers) || 4))} workers)` : '';
+        alert(`Run complete: ${data.passed} passed, ${data.failed} failed (of ${data.total} selected)${parHint}`);
+      } else {
+        alert(data.error || 'Run failed');
+      }
+    } catch (e) {
+      alert(e.message || 'Run failed');
+    } finally {
+      setRunAllLoading(false);
+    }
+  }
+
+  async function handleRunAllAutomated() {
+    const suite = suiteId || suiteName;
+    if (!suite || automatedCount === 0 || runAllLoading) return;
+    setRunAllLoading(true);
+    try {
+      const res = await fetch(`${API}/execute-suite`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          suite,
+          env: env || 'beta',
+          headless: !!headless,
+          browser: browser || 'chrome',
+          recordVideo: !!recordVideo,
+          parallel: parallelOk && automatedCount > 1,
+          parallelWorkers: parallelWorkers || 4,
+        }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        onRefresh?.();
+        const parHint =
+          parallelOk && automatedCount > 1 ? ` (parallel: ${Math.min(16, Math.max(2, Number(parallelWorkers) || 4))} workers)` : '';
+        alert(`Run complete: ${data.passed} passed, ${data.failed} failed (of ${data.total} automated)${parHint}`);
+      } else {
+        alert(data.error || 'Run failed');
+      }
+    } catch (e) {
+      alert(e.message || 'Run failed');
+    } finally {
+      setRunAllLoading(false);
+    }
+  }
+
   async function handleAutomate(key) {
     if (!suiteName || !key) return;
     setAutomateLoadingKey(key);
     let agentStarted = false;
     try {
       const suiteIdForApi = suiteId || suiteName;
-      const res = await fetch(`${API}/automate/${suiteIdForApi}/${key}?run=1`, { method: 'POST' });
+      const params = new URLSearchParams({ run: '1', headless: headless ? '1' : '0', browser: browser || 'chrome' });
+      const res = await fetch(`${API}/automate/${suiteIdForApi}/${key}?${params}`, { method: 'POST' });
       const data = await res.json();
       if (res.ok && data.success) {
         if (data.agentStarted) {
@@ -969,24 +1146,68 @@ function ScenarioList({ scenarios, title, suiteName, suiteId, jiraBaseUrl, onRef
           </button>
         </div>
       )}
-      <div className="border-b border-[var(--border)] px-4 py-3 flex items-center justify-between">
+      <div className="border-b border-[var(--border)] px-4 py-3 flex items-center justify-between gap-2 flex-wrap">
         <h3 className="text-sm font-medium uppercase tracking-wider text-[var(--muted)]">
           {title} ({filtered.length}{q ? ` of ${scenarios.length}` : ''})
         </h3>
-        {suiteName && (
-          <button
-            onClick={handleSync}
-            disabled={syncLoading}
-            className="rounded border border-[var(--border)] px-3 py-1.5 text-xs font-medium hover:bg-black/20 disabled:opacity-50"
-          >
-            {syncLoading ? 'Syncing...' : 'Sync'}
-          </button>
-        )}
+        <div className="flex items-center gap-2">
+          {selectedCount > 0 && (suiteId || suiteName) && (
+            <button
+              onClick={handleRunSelected}
+              disabled={runAllLoading || fixStatus?.running}
+              className="rounded border border-[var(--accent)]/50 px-3 py-1.5 text-xs font-medium text-[var(--accent)] hover:bg-[var(--accent)]/10 disabled:opacity-50 disabled:cursor-not-allowed"
+              title={`Run ${selectedCount} selected test(s)`}
+            >
+              {runAllLoading ? `Running… (${selectedCount})` : `Run selected (${selectedCount})`}
+            </button>
+          )}
+          {automatedCount > 0 && (suiteId || suiteName) && (
+            <button
+              onClick={handleRunAllAutomated}
+              disabled={runAllLoading || fixStatus?.running}
+              className="rounded border border-[var(--success)]/50 px-3 py-1.5 text-xs font-medium text-[var(--success)] hover:bg-[var(--success)]/10 disabled:opacity-50 disabled:cursor-not-allowed"
+              title={`Run all ${automatedCount} automated test(s) in this suite`}
+            >
+              {runAllLoading ? `Running… (${automatedCount})` : `Run all (${automatedCount})`}
+            </button>
+          )}
+          {suiteName && (
+            <button
+              onClick={handleSync}
+              disabled={syncLoading}
+              className="rounded border border-[var(--border)] px-3 py-1.5 text-xs font-medium hover:bg-black/20 disabled:opacity-50"
+            >
+              {syncLoading ? 'Syncing...' : 'Sync'}
+            </button>
+          )}
+        </div>
       </div>
       <div className="max-h-64 overflow-y-auto">
         <table className="w-full text-sm">
           <thead className="sticky top-0 bg-[var(--surface)]">
             <tr className="border-b border-[var(--border)] text-left text-[var(--muted)]">
+              <th className="px-2 py-2 w-10">
+                {automatedCount > 0 && (
+                  <div className="flex gap-1">
+                    <button
+                      type="button"
+                      onClick={() => setSelectedKeys(new Set(automatedScenarios.map((s) => s.key)))}
+                      className="rounded px-1.5 py-0.5 text-[10px] hover:bg-black/20"
+                      title="Select all"
+                    >
+                      All
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setSelectedKeys(new Set())}
+                      className="rounded px-1.5 py-0.5 text-[10px] hover:bg-black/20"
+                      title="Unselect all"
+                    >
+                      None
+                    </button>
+                  </div>
+                )}
+              </th>
               <th className="px-4 py-2">Key</th>
               <th className="px-4 py-2">Summary</th>
               <th className="px-4 py-2 w-24">Type</th>
@@ -997,7 +1218,7 @@ function ScenarioList({ scenarios, title, suiteName, suiteId, jiraBaseUrl, onRef
           <tbody>
             {filtered.length === 0 ? (
               <tr>
-                <td colSpan={5} className="px-4 py-4 text-center text-[var(--muted)] text-sm">
+                <td colSpan={6} className="px-4 py-4 text-center text-[var(--muted)] text-sm">
                   {q ? `No scenarios match "${searchQuery.trim()}"` : 'No scenarios'}
                 </td>
               </tr>
@@ -1009,7 +1230,12 @@ function ScenarioList({ scenarios, title, suiteName, suiteId, jiraBaseUrl, onRef
                 suiteName={suiteId || suiteName}
                 jiraBaseUrl={jiraBaseUrl}
                 env={env}
+                headless={headless}
+                browser={browser}
+                recordVideo={recordVideo}
                 persistedResult={executeResults?.[`${suiteId || suiteName}:${s.key}`]}
+                selected={selectedKeys.has(s.key)}
+                onSelectChange={handleSelectChange}
                 onSync={handleSyncScenario}
                 syncLoading={syncLoadingKey === s.key}
                 fixStatus={fixStatus}
@@ -1117,14 +1343,23 @@ function App() {
   const [error, setError] = useState(null);
   const [syncing, setSyncing] = useState(false);
   const [syncMessage, setSyncMessage] = useState(null);
-  const [executeEnv, setExecuteEnv] = useState('qa'); // qa | beta - used when clicking Execute
+  const [executeEnv, setExecuteEnv] = useState('beta'); // qa | beta - used when clicking Execute
+  // Match config/env.js + local `npm run test:webtv`: headed by default (headless often breaks WebTV/video).
+  const [executeHeadless, setExecuteHeadless] = useState(false);
+  const [executeRecordVideo, setExecuteRecordVideo] = useState(false); // wdio-video-reporter (default off)
+  const [executeParallel, setExecuteParallel] = useState(false); // multi-scenario suite runs only (WDIO_MAX_INSTANCES)
+  const [executeParallelWorkers, setExecuteParallelWorkers] = useState(4);
+  const [executeBrowser, setExecuteBrowser] = useState('chrome'); // chrome | firefox | safari
   const [runs, setRuns] = useState([]);
   const [failedScenariosRunId, setFailedScenariosRunId] = useState(null);
   const [executeResults, setExecuteResults] = useState({});
   const [fixStatus, setFixStatus] = useState(null);
   const [automateStatus, setAutomateStatus] = useState(null);
   const [restartStatus, setRestartStatus] = useState(null);
+  const [ragRefreshLoading, setRagRefreshLoading] = useState(false);
   const [scenarioSearch, setScenarioSearch] = useState('');
+  const [reportExists, setReportExists] = useState(false);
+  const [reportPdfExists, setReportPdfExists] = useState(false);
 
   async function handleSync() {
     setSyncing(true);
@@ -1150,7 +1385,7 @@ function App() {
     setError(null);
     const projectParam = `&project=${encodeURIComponent(selectedProject || 'all')}`;
     try {
-        const [projData, m, t, f, a, s, c, runsData, execData] = await Promise.all([
+        const [projData, m, t, f, a, s, c, runsData, execData, reportStatus] = await Promise.all([
           fetchJson(`${API}/projects`),
           fetchJson(`${API}/metrics?project=${selectedProject || 'all'}`),
           fetchJson(`${API}/trends?limit=30${projectParam}`),
@@ -1160,6 +1395,7 @@ function App() {
           fetchJson(`${API}/sync-config`),
           fetchJson(`${API}/runs?limit=30${projectParam}`),
           fetchJson(`${API}/execute-results`),
+          fetch(`${API}/report/status`).then((r) => r.json()).catch(() => ({ exists: false })),
         ]);
         setProjects((projData && projData.projects) || []);
         setMetrics(m);
@@ -1171,6 +1407,8 @@ function App() {
         setJiraBaseUrl((c && c.jiraBaseUrl) || 'https://baseball.atlassian.net');
         setRuns((runsData && runsData.runs) || []);
         setExecuteResults(execData || {});
+        setReportExists(reportStatus?.exists ?? false);
+        setReportPdfExists(reportStatus?.pdfExists ?? false);
     } catch (e) {
       setError(e.message);
     } finally {
@@ -1180,9 +1418,17 @@ function App() {
 
   useEffect(() => {
     fetchAll();
-    const id = setInterval(fetchAll, 15000);
+    const id = setInterval(fetchAll, 5000); // Poll every 5s to pick up new runs after test completion
     return () => clearInterval(id);
   }, [selectedProject]);
+
+  // Clear run selection when selected run is no longer in the list (e.g. after Refresh vector DB)
+  useEffect(() => {
+    if (!failedScenariosRunId) return;
+    const runsWithFailures = (runs || []).filter((r) => (r.failedScenarios?.length || 0) > 0);
+    const found = runsWithFailures.some((r) => r.id === failedScenariosRunId);
+    if (!found) setFailedScenariosRunId(null);
+  }, [runs, failedScenariosRunId]);
 
   useEffect(() => {
     const pollFix = async () => {
@@ -1213,7 +1459,7 @@ function App() {
       await fetch(`${API}/fix/start`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ suite, key, env: executeEnv }),
+        body: JSON.stringify({ suite, key, env: executeEnv, headless: executeHeadless, browser: executeBrowser }),
       });
     } catch (e) {
       console.error(e);
@@ -1262,12 +1508,162 @@ function App() {
               Beta
             </button>
           </div>
+          <div className="flex items-center gap-1 rounded-lg border border-[var(--border)] bg-[var(--surface)] p-0.5">
+            <span className="px-2 py-1 text-xs text-[var(--muted)]">Browser</span>
+            <button
+              onClick={() => setExecuteBrowser('chrome')}
+              className={`rounded px-3 py-1.5 text-sm font-medium transition-colors ${executeBrowser === 'chrome' ? 'bg-[var(--accent)] text-white' : 'text-[var(--muted)] hover:bg-black/20'}`}
+              title="Run tests in Chrome"
+            >
+              Chrome
+            </button>
+            <button
+              onClick={() => setExecuteBrowser('firefox')}
+              className={`rounded px-3 py-1.5 text-sm font-medium transition-colors ${executeBrowser === 'firefox' ? 'bg-[var(--accent)] text-white' : 'text-[var(--muted)] hover:bg-black/20'}`}
+              title="Run tests in Firefox"
+            >
+              Firefox
+            </button>
+            <button
+              onClick={() => setExecuteBrowser('safari')}
+              className={`rounded px-3 py-1.5 text-sm font-medium transition-colors ${executeBrowser === 'safari' ? 'bg-[var(--accent)] text-white' : 'text-[var(--muted)] hover:bg-black/20'}`}
+              title="Run tests in Safari (macOS only, no headless)"
+            >
+              Safari
+            </button>
+            <button
+              onClick={() => setExecuteBrowser('edge')}
+              className={`rounded px-3 py-1.5 text-sm font-medium transition-colors ${executeBrowser === 'edge' ? 'bg-[var(--accent)] text-white' : 'text-[var(--muted)] hover:bg-black/20'}`}
+              title="Run tests in Microsoft Edge"
+            >
+              Edge
+            </button>
+          </div>
+          <div className="flex items-center gap-1 rounded-lg border border-[var(--border)] bg-[var(--surface)] p-0.5">
+            <span className="px-2 py-1 text-xs text-[var(--muted)]">Display</span>
+            <button
+              onClick={() => setExecuteHeadless(true)}
+              className={`rounded px-3 py-1.5 text-sm font-medium transition-colors ${executeHeadless ? 'bg-[var(--accent)] text-white' : 'text-[var(--muted)] hover:bg-black/20'}`}
+              title="Run tests without opening a visible browser window (default)"
+            >
+              Headless
+            </button>
+            <button
+              onClick={() => setExecuteHeadless(false)}
+              className={`rounded px-3 py-1.5 text-sm font-medium transition-colors ${!executeHeadless ? 'bg-[var(--accent)] text-white' : 'text-[var(--muted)] hover:bg-black/20'}`}
+              title="Run tests with a visible browser window"
+            >
+              Headed
+            </button>
+          </div>
+          <div className="flex items-center gap-1 rounded-lg border border-[var(--border)] bg-[var(--surface)] p-0.5">
+            <span className="px-2 py-1 text-xs text-[var(--muted)]">Record</span>
+            <button
+              type="button"
+              onClick={() => setExecuteRecordVideo(false)}
+              className={`rounded px-3 py-1.5 text-sm font-medium transition-colors ${!executeRecordVideo ? 'bg-[var(--accent)] text-white' : 'text-[var(--muted)] hover:bg-black/20'}`}
+              title="Do not capture screen recordings (default, faster)"
+            >
+              Off
+            </button>
+            <button
+              type="button"
+              onClick={() => setExecuteRecordVideo(true)}
+              className={`rounded px-3 py-1.5 text-sm font-medium transition-colors ${executeRecordVideo ? 'bg-[var(--accent)] text-white' : 'text-[var(--muted)] hover:bg-black/20'}`}
+              title="Save MP4 per scenario (wdio-video-reporter); shown under each scenario when done"
+            >
+              On
+            </button>
+          </div>
+          <div className="flex flex-wrap items-center gap-1 rounded-lg border border-[var(--border)] bg-[var(--surface)] p-0.5">
+            <span className="px-2 py-1 text-xs text-[var(--muted)]">Parallel</span>
+            <button
+              type="button"
+              onClick={() => setExecuteParallel(false)}
+              disabled={executeBrowser === 'safari'}
+              className={`rounded px-3 py-1.5 text-sm font-medium transition-colors ${!executeParallel ? 'bg-[var(--accent)] text-white' : 'text-[var(--muted)] hover:bg-black/20'} disabled:opacity-40 disabled:cursor-not-allowed`}
+              title="Run suite tests one WDIO worker at a time (default)"
+            >
+              Off
+            </button>
+            <button
+              type="button"
+              onClick={() => setExecuteParallel(true)}
+              disabled={executeBrowser === 'safari'}
+              className={`rounded px-3 py-1.5 text-sm font-medium transition-colors ${executeParallel ? 'bg-[var(--accent)] text-white' : 'text-[var(--muted)] hover:bg-black/20'} disabled:opacity-40 disabled:cursor-not-allowed`}
+              title={
+                executeBrowser === 'safari'
+                  ? 'Safari is limited to 1 worker'
+                  : 'Run selected / all automated with multiple browsers (WDIO_MAX_INSTANCES). Best when scenarios live in different .feature files.'
+              }
+            >
+              On
+            </button>
+            <label className="flex items-center gap-1 px-1 text-xs text-[var(--muted)]">
+              <span>Workers</span>
+              <select
+                value={executeParallelWorkers}
+                onChange={(e) => setExecuteParallelWorkers(Number(e.target.value))}
+                disabled={!executeParallel || executeBrowser === 'safari'}
+                className="rounded border border-[var(--border)] bg-[var(--surface)] px-1.5 py-1 text-xs text-[var(--text)] disabled:opacity-40"
+                title="Max parallel WebdriverIO workers (capped at 16)"
+              >
+                <option value={2}>2</option>
+                <option value={4}>4</option>
+                <option value={6}>6</option>
+                <option value={8}>8</option>
+              </select>
+            </label>
+          </div>
           <button
             onClick={handleSync}
             disabled={syncing}
             className="rounded-lg border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-medium hover:bg-black/30 disabled:opacity-50"
           >
             {syncing ? 'Syncing...' : 'Sync from Xray'}
+          </button>
+          <button
+            onClick={() => window.open((API || '').replace(/\/api\/?$/, '') + '/report', '_blank')}
+            disabled={!reportExists}
+            className="rounded-lg border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-medium hover:bg-black/30 disabled:opacity-50 disabled:cursor-not-allowed"
+            title={reportExists ? 'Open Cucumber HTML report' : 'Run tests first to generate report'}
+          >
+            Open Report
+          </button>
+          <button
+            onClick={() => window.open((API || '').replace(/\/api\/?$/, '') + '/report/cucumber-report.pdf', '_blank')}
+            disabled={!reportPdfExists}
+            className="rounded-lg border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-medium hover:bg-black/30 disabled:opacity-50 disabled:cursor-not-allowed"
+            title={reportPdfExists ? 'Open Cucumber PDF report' : 'PDF is created after tests if Puppeteer is installed'}
+          >
+            Open PDF
+          </button>
+          <button
+            onClick={async () => {
+              setRagRefreshLoading(true);
+              try {
+                const res = await fetch(`${API}/rag/refresh`, { method: 'POST' });
+                const data = await res.json();
+                if (res.ok && data.success) {
+                  await fetchAll();
+                  const msg = data.removedFromRuns > 0
+                    ? `RAG, failure data, and ${data.removedFromRuns} failed scenario(s) from runs wiped.`
+                    : 'RAG vector DB and failure data wiped.';
+                  alert(msg);
+                } else {
+                  alert(data.error || 'Refresh failed');
+                }
+              } catch (e) {
+                alert(e.message || 'Refresh failed');
+              } finally {
+                setRagRefreshLoading(false);
+              }
+            }}
+            disabled={ragRefreshLoading}
+            className="rounded-lg border border-[var(--warning)]/50 bg-[var(--surface)] px-4 py-2 text-sm font-medium text-[var(--warning)] hover:bg-[var(--warning)]/10 disabled:opacity-50"
+            title="Wipe RAG memory (.rag-memory.json), failure-screenshots.json, failure-dom.json, and screenshot files. Use when delete only clears UI."
+          >
+            {ragRefreshLoading ? 'Wiping…' : 'Refresh vector DB'}
           </button>
           <button
             onClick={async () => {
@@ -1307,9 +1703,9 @@ function App() {
             }}
             disabled={restartStatus === 'restarting'}
             className="rounded-lg border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-sm font-medium text-[var(--muted)] hover:bg-black/30 hover:text-[var(--text)] disabled:opacity-50 disabled:cursor-not-allowed"
-            title="Restart dashboard server"
+            title="Rebuild dashboard frontend, then restart server"
           >
-            {restartStatus === 'restarting' ? 'Restarting…' : restartStatus === 'back' ? '✓ Back online' : 'Restart server'}
+            {restartStatus === 'restarting' ? 'Rebuilding & restarting…' : restartStatus === 'back' ? '✓ Back online' : 'Rebuild & restart'}
           </button>
         </div>
         </div>
@@ -1340,7 +1736,7 @@ function App() {
 
       {restartStatus === 'restarting' && (
         <div className="mb-6 rounded-lg border border-[var(--accent)]/50 bg-[var(--accent)]/10 px-4 py-3 text-sm text-[var(--accent)]">
-          Restarting server… waiting for it to go down, then come back online. Page will refresh when ready.
+          Rebuilding dashboard, then restarting server… Page will refresh when ready.
         </div>
       )}
       {restartStatus === 'back' && (
@@ -1395,6 +1791,11 @@ function App() {
               jiraBaseUrl={jiraBaseUrl}
               onRefresh={fetchAll}
               env={executeEnv}
+              headless={executeHeadless}
+              browser={executeBrowser}
+              recordVideo={executeRecordVideo}
+              parallel={executeParallel}
+              parallelWorkers={executeParallelWorkers}
               executeResults={executeResults}
               fixStatus={fixStatus}
               onFixStart={handleFixStart}

@@ -51,6 +51,10 @@ const ELEMENT_OR_ERROR_PATTERNS = [
   // Custom timeout messages (e.g. waitUntil timeoutMsg)
   /did not appear/i,
   /never (appeared|found|loaded)/i,
+  // Navigation / flow timeouts (triggers heal + Fix path)
+  /did not navigate/i,
+  /expected video page/i,
+  /navigate to video page/i,
 ];
 
 function isElementOrSelectableError(msg) {

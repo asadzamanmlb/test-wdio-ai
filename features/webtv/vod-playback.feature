@@ -3,7 +3,7 @@
 
 @webtv
 
-Feature: Smoke
+Feature: Homepage - Verify VOD Playback
 
   @WSTE-44
   Scenario: Smoke | Homepage - Verify VOD Playback
